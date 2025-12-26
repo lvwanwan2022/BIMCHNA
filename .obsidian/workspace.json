@@ -1,0 +1,217 @@
+{
+  "main": {
+    "id": "7d86c9a868e437d1",
+    "type": "split",
+    "children": [
+      {
+        "id": "cf35ab610b73357f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "54b145791e8c663a",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "总框架.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "总框架"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "037013558eeae3f1",
+    "type": "split",
+    "children": [
+      {
+        "id": "ab03db7c5a174b5a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "e93c2e44db251a3c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "c6fe6ad21789b59f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "430c48bb18b82a27",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "250e9932b986d0bb",
+    "type": "split",
+    "children": [
+      {
+        "id": "fda385014af5737f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f534ddc9cca1c2e5",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "反向链接"
+            }
+          },
+          {
+            "id": "06f4721892b0d88a",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "出链"
+            }
+          },
+          {
+            "id": "056cf1671a5534b9",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "da0bf4e2c5416335",
+            "type": "leaf",
+            "state": {
+              "type": "all-properties",
+              "state": {
+                "sortOrder": "frequency",
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-archive",
+              "title": "添加笔记属性"
+            }
+          },
+          {
+            "id": "be64abb662b88e0f",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "总框架.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "总框架 的大纲"
+            }
+          }
+        ],
+        "currentTab": 4
+      }
+    ],
+    "direction": "horizontal",
+    "width": 529.5
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:创建新数据库": false
+    }
+  },
+  "active": "54b145791e8c663a",
+  "lastOpenFiles": [
+    "crates/app/src/webui/双模架构.md",
+    "crates/app/双模架构.md",
+    "tools/move_dualmode.py",
+    "总框架.md",
+    "architecture_overview.svg",
+    "data_flow_pipeline.svg",
+    "Untitled Diagram.svg",
+    "未命名.base",
+    "crates/geometry/brep/边界表示实体.md",
+    "crates/geometry/basic_geometry/基础几何.md",
+    "crates/geometry/algorithms/核心算法.md",
+    "crates/geometry/几何内核.md",
+    "crates/display/渲染管线.md",
+    "crates/display/显示引擎.md",
+    "crates/bridge/互操作协议.md",
+    "crates/ai/AI系统.md",
+    "tools/rename_docs.py",
+    "总框架_id_00000000_level_0_parentId_null_time_20251218_Creator_lvwan01.md",
+    "tools/debug_relations.py",
+    "tools/update_relations.py",
+    "swhi-bim-geometry_lv-master/SwhiGeometry/WpfTest/bin/Debug/net8.0-windows/WpfTest.pdb",
+    "swhi-bim-geometry_lv-master/SwhiGeometry/WpfTest/obj/Debug/net8.0-windows/ref/WpfTest.dll",
+    "swhi-bim-geometry_lv-master/SwhiGeometry/WpfTest/bin/Debug/net8.0-windows/WpfTest.dll",
+    "swhi-bim-geometry_lv-master/SwhiGeometry/WpfTest/bin/Debug/net8.0-windows/WpfTest.runtimeconfig.json",
+    "swhi-bim-geometry_lv-master/SwhiGeometry/WpfTest/obj/Debug/net8.0-windows/WpfTest.genruntimeconfig.cache",
+    "crates/interaction/交互系统_id_13000000_level_1_parentId_00000000_time_20251218_Creator_lvwan01.md",
+    "crates/interaction/交互实现机制_id_13200000_level_2_parentId_13000000_time_20251226_Creator_lvwan01.md",
+    "crates/display/渲染管线_id_12100000_level_2_parentId_12000000_time_20251226_Creator_lvwan01.md",
+    "crates/display/显示引擎_id_12000000_level_1_parentId_00000000_time_20251218_Creator_lvwan01.md",
+    "crates/bridge/互操作协议_id_17000000_level_1_parentId_00000000_time_20251226_Creator_lvwan01.md"
+  ]
+}

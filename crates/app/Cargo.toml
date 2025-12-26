@@ -9,6 +9,7 @@ geometry = { path = "../geometry" }
 display = { path = "../display" }
 interaction = { path = "../interaction" }
 storage = { path = "../storage" }
+kernel = { path = "../kernel" }
 
 eframe = { version = "0.29", features = ["wgpu"] }
 egui = "0.29"
