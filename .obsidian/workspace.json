@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "总框架.md",
+                "file": "crates/geometry/几何内核.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "总框架"
+              "title": "几何内核"
             }
           }
         ]
@@ -154,13 +154,13 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "总框架.md",
+                "file": "crates/geometry/几何内核.md",
                 "followCursor": false,
                 "showSearch": false,
                 "searchQuery": ""
               },
               "icon": "lucide-list",
-              "title": "总框架 的大纲"
+              "title": "几何内核 的大纲"
             }
           }
         ],
@@ -183,10 +183,12 @@
   },
   "active": "54b145791e8c663a",
   "lastOpenFiles": [
+    "crates/geometry/几何内核.md",
+    "总框架.md",
+    "tools/update_framework_links.py",
     "crates/app/src/webui/双模架构.md",
     "crates/app/双模架构.md",
     "tools/move_dualmode.py",
-    "总框架.md",
     "architecture_overview.svg",
     "data_flow_pipeline.svg",
     "Untitled Diagram.svg",
@@ -194,7 +196,6 @@
     "crates/geometry/brep/边界表示实体.md",
     "crates/geometry/basic_geometry/基础几何.md",
     "crates/geometry/algorithms/核心算法.md",
-    "crates/geometry/几何内核.md",
     "crates/display/渲染管线.md",
     "crates/display/显示引擎.md",
     "crates/bridge/互操作协议.md",
@@ -207,7 +208,6 @@
     "swhi-bim-geometry_lv-master/SwhiGeometry/WpfTest/obj/Debug/net8.0-windows/ref/WpfTest.dll",
     "swhi-bim-geometry_lv-master/SwhiGeometry/WpfTest/bin/Debug/net8.0-windows/WpfTest.dll",
     "swhi-bim-geometry_lv-master/SwhiGeometry/WpfTest/bin/Debug/net8.0-windows/WpfTest.runtimeconfig.json",
-    "swhi-bim-geometry_lv-master/SwhiGeometry/WpfTest/obj/Debug/net8.0-windows/WpfTest.genruntimeconfig.cache",
     "crates/interaction/交互系统_id_13000000_level_1_parentId_00000000_time_20251218_Creator_lvwan01.md",
     "crates/interaction/交互实现机制_id_13200000_level_2_parentId_13000000_time_20251226_Creator_lvwan01.md",
     "crates/display/渲染管线_id_12100000_level_2_parentId_12000000_time_20251226_Creator_lvwan01.md",
