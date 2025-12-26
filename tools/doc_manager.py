@@ -4,13 +4,6 @@ import datetime
 import argparse
 import sys
 
-# Set utf-8 output for windows console
-if sys.platform == 'win32':
-    try:
-        sys.stdout.reconfigure(encoding='utf-8')
-    except AttributeError:
-        pass # Python < 3.7 or other env
-
 # Determine the directory where this script is located
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_NAME = os.path.join(BASE_DIR, 'doc_system.db')

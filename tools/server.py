@@ -7,6 +7,7 @@ import json
 from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
+app.config['JSON_AS_ASCII'] = False
 # Database is in the project root, one level up from this script
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DB_NAME = os.path.join(PROJECT_ROOT, 'doc_system.db')
@@ -120,6 +121,22 @@ def get_doc_content(doc_id):
         return jsonify({'content': content, 'full_path': full_path})
     except Exception as e:
         return jsonify({'error': f"File read error: {str(e)}", 'path': full_path}), 404
+
+@app.route('/api/files/serve', methods=['GET'])
+def serve_static_file():
+    path_str = request.args.get('path')
+    if not path_str:
+        return jsonify({'error': 'Path is required'}), 400
+        
+    full_path, error = validate_path_in_project(path_str, is_directory=False, allow_create=False)
+    
+    if error:
+        return jsonify({'error': error}), 403
+        
+    if not os.path.exists(full_path):
+        return jsonify({'error': 'File not found'}), 404
+        
+    return send_file(full_path)
 
 # --- Tasks API ---
 @app.route('/api/tasks', methods=['GET'])

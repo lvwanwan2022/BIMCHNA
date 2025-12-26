@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BIMCHNA 项目管理</title>
+    <!-- 引入 Marked.js (Load before Monaco to avoid AMD issues) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- 引入 Monaco Editor Loader -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs/loader.min.js"></script>
     <style>
@@ -25,7 +27,12 @@
         
         /* Editor */
         #editor-container { flex: 1; border: 1px solid #ddd; margin-bottom: 10px; }
+        #preview-container { flex: 1; border: 1px solid #ddd; margin-bottom: 10px; padding: 20px; overflow-y: auto; background: white; display: none; }
+        #preview-container img { max-width: 100%; }
         .editor-toolbar { margin-bottom: 10px; display: flex; gap: 10px; align-items: center; }
+        .mode-switch { display: flex; background: #ddd; border-radius: 4px; overflow: hidden; }
+        .mode-btn { padding: 8px 16px; border: none; background: transparent; cursor: pointer; }
+        .mode-btn.active { background: #3498db; color: white; }
         .btn { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; color: white; }
         .btn-primary { background: #3498db; }
         .btn-success { background: #2ecc71; }
@@ -111,11 +118,22 @@
             <div style="flex:1; display:flex; flex-direction:column; overflow:hidden;">
                 <div class="editor-toolbar">
                     <h2 id="current-doc-title" style="border:none; margin:0; flex:1">请选择文档</h2>
+                    
+                    <div class="mode-switch">
+                        <button class="mode-btn active" id="btn-mode-edit" onclick="switchEditorMode('edit')">编辑</button>
+                        <button class="mode-btn" id="btn-mode-preview" onclick="switchEditorMode('preview')">预览</button>
+                    </div>
+
                     <span id="save-status" style="color: #888; font-size: 12px; margin-right: 10px;"></span>
                     <button class="btn btn-warning" onclick="toggleAIChat('editor')">🤖 AI 助手</button>
                     <button class="btn btn-primary" onclick="saveCurrentDoc()">💾 保存 (Ctrl+S)</button>
                 </div>
                 <div id="editor-container"></div>
+                <div id="preview-container"></div>
+                <div id="image-gallery-container" style="display:none; border-top: 1px solid #ddd; padding: 10px; height: 200px; overflow-y: auto; background: #fafafa;">
+                    <h4 style="margin-top:0; margin-bottom:10px; color:#555;">📸 图片预览 (Images)</h4>
+                    <div id="image-gallery-content" style="display:flex; flex-wrap:wrap; gap:10px;"></div>
+                </div>
                 
                 <!-- AI Overlay for Editor -->
                 <div id="ai-editor-overlay" class="ai-overlay hidden">
@@ -508,9 +526,11 @@
     let allUsers = [];
     let currentOrgId = null;
     let collapsedTasks = {};
+    let collapsedDocs = {};
     let aiHistory = { editor: [], tasks: [] };
     let currentUser = null;
     let isRegisterMode = false;
+    let currentEditorMode = 'edit';
 
     // --- Auth ---
     function checkLogin() {
@@ -619,6 +639,14 @@
     }
 
     // --- Init ---
+    // Ensure marked is available globally if loaded via AMD
+    if (typeof marked === 'undefined' && typeof require !== 'undefined') {
+        // Just in case marked tries to register itself with AMD and doesn't pollute global scope
+        // We will try to rely on the global script tag loading first.
+        // If script tag loading failed or AMD hijacked it, we might need to require it.
+        // But for simplicity with monaco loader, we often just want global marked.
+    }
+
     require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs' }});
     require(['vs/editor/editor.main'], function() {
         editor = monaco.editor.create(document.getElementById('editor-container'), {
@@ -632,7 +660,184 @@
         editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, function() {
             saveCurrentDoc();
         });
+
+        // Initialize Marked Renderer - REMOVED (Moved to lazy init)
     });
+
+    function switchEditorMode(mode) {
+        currentEditorMode = mode;
+        const editBtn = document.getElementById('btn-mode-edit');
+        const prevBtn = document.getElementById('btn-mode-preview');
+        const editorContainer = document.getElementById('editor-container');
+        const previewContainer = document.getElementById('preview-container');
+        const galleryContainer = document.getElementById('image-gallery-container');
+
+        if (mode === 'edit') {
+            editBtn.classList.add('active');
+            prevBtn.classList.remove('active');
+            editorContainer.style.display = 'block';
+            previewContainer.style.display = 'none';
+            galleryContainer.style.display = 'none';
+        } else {
+            editBtn.classList.remove('active');
+            prevBtn.classList.add('active');
+            editorContainer.style.display = 'none';
+            previewContainer.style.display = 'block';
+            updatePreview();
+        }
+    }
+
+    let markedInitialized = false;
+    let previewImages = [];
+
+    function renderImageGallery() {
+        const container = document.getElementById('image-gallery-container');
+        const content = document.getElementById('image-gallery-content');
+        
+        if (previewImages.length === 0) {
+            container.style.display = 'none';
+            return;
+        }
+        
+        if (currentEditorMode === 'preview') {
+            container.style.display = 'block';
+        }
+        
+        content.innerHTML = previewImages.map((img, idx) => `
+            <div style="border:1px solid #ddd; padding:5px; background:white; border-radius:4px; width:280px; box-shadow:0 1px 3px rgba(0,0,0,0.1);">
+                <div style="height:180px; display:flex; align-items:center; justify-content:center; background:#f0f0f0; margin-bottom:5px; overflow:hidden;">
+                    <img src="${img.src}" alt="${img.text}" title="${img.title || ''}" style="max-width:100%; max-height:100%; object-fit:contain;" />
+                </div>
+                <div style="font-size:12px; color:#333; text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-weight:bold;">${img.text || img.title || '图片 ' + (idx+1)}</div>
+                <div style="font-size:10px; color:#999; text-align:center; word-break:break-all; max-height:30px; overflow:hidden;">
+                    <a href="${img.src}" target="_blank" style="color:#999; text-decoration:none; cursor:pointer;" title="在新窗口打开">${img.src}</a>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function initMarked() {
+        if (markedInitialized || typeof marked === 'undefined') return;
+        
+        const renderer = {
+            image(href, title, text) {
+                let src = href;
+                // Default handling for http/data
+                if (!href || typeof href !== 'string') return '';
+                
+                if (!(href.startsWith('http://') || href.startsWith('https://') || href.startsWith('data:'))) {
+                     // Local file handling
+                    let cleanPath = href;
+                    try { cleanPath = decodeURIComponent(href); } catch(e){}
+                    
+                    // Handle Relative Paths
+                    // If path starts with ./ or ../ or no slash at all, we need to resolve it relative to current doc
+                    if (!cleanPath.startsWith('/') && !cleanPath.match(/^[a-zA-Z]:/) && !cleanPath.startsWith('file://')) {
+                         // We need the current document's directory
+                         // We can find it from the doc tree or we might have it in 'documents' global
+                         const currentDoc = documents.find(d => d.id == currentDocId);
+                         if (currentDoc) {
+                             // cleanPath is like "./image.svg" or "image.svg" or "../img/x.png"
+                             // currentDoc.path is relative to project root, e.g. "docs/guide"
+                             // We want to construct full path: project_root + doc_dir + relative_path
+                             
+                             // Server's /api/files/serve expects path relative to project root or absolute
+                             // Let's construct a path relative to project root
+                             
+                             // 1. Get doc directory relative to project root
+                             let docDir = currentDoc.path; // e.g. "docs" or "" or "crates/app"
+                             
+                             // 2. Join docDir and cleanPath
+                             // Simple join handling
+                             if (docDir) {
+                                 // Add trailing slash to docDir if not present and not empty
+                                 if (!docDir.endsWith('/')) docDir += '/';
+                                 
+                                 // Normalize ./ and ../ (Simple logical resolution)
+                                 // Ideally we let the server handle this or use a proper path library, 
+                                 // but here we just prepend the directory.
+                                 // The server side `os.path.normpath` will handle the ../ resolution usually
+                                 // as long as we pass valid path string.
+                                 cleanPath = docDir + cleanPath;
+                             }
+                         }
+                    }
+
+                    // Strip file:// prefix
+                    if (cleanPath.startsWith('file:///')) {
+                        cleanPath = cleanPath.substring(8);
+                } else if (cleanPath.startsWith('file://')) {
+                        cleanPath = cleanPath.substring(7);
+                }
+                
+                // Fix Windows drive letter path if it starts with / like /F:/code...
+                // Browsers/Marked sometimes adds leading slash to absolute paths
+                if (cleanPath.match(/^\/[a-zA-Z]:/)) {
+                    cleanPath = cleanPath.substring(1);
+                }
+
+                src = `/api/files/serve?path=${encodeURIComponent(cleanPath)}`;
+                }
+                
+                // Collect image for gallery
+                previewImages.push({ src, title, text });
+
+                // Return placeholder
+                return `<div class="image-placeholder" style="color: #666; font-size: 12px; padding: 8px; border: 1px dashed #ccc; margin: 5px 0; background:#f9f9f9; border-radius:4px;">🖼️ [图片已移至下方预览区] ${text || title || ''}</div>`;
+            }
+        };
+
+        // Use new marked.use() API if available, otherwise setOptions
+        if (typeof marked.use === 'function') {
+            marked.use({ renderer });
+        } else {
+            marked.setOptions({ renderer });
+        }
+        
+        markedInitialized = true;
+    }
+
+    function updatePreview() {
+        if (!editor) return;
+        let markdown = editor.getValue();
+        
+        // Pre-process Windows paths in links/images to use forward slashes to avoid Markdown escape issues
+        // Example: ](C:\path\to\file) -> ](C:/path/to/file)
+        try {
+            // Regex to match Markdown image syntax ![alt](path) where path contains backslashes
+            // It captures the alt text group 1, and the path group 2
+            markdown = markdown.replace(/!\[(.*?)\]\((.*?)\)/g, (match, alt, path) => {
+                // If path has backslashes, replace them
+                if (path.includes('\\')) {
+                    const newPath = path.replace(/\\/g, '/');
+                    return `![${alt}](${newPath})`;
+                }
+                return match;
+            });
+        } catch(e) { console.error("Path replacement error", e); }
+        
+        // Reset images
+        previewImages = [];
+
+        // Check if marked is available
+        if (typeof marked === 'undefined') {
+            document.getElementById('preview-container').innerHTML = '<p style="color:red">Error: Marked.js library not loaded. Please refresh or check network.</p>';
+            return;
+        }
+
+        // Initialize custom renderer if needed
+        if (!markedInitialized) {
+            initMarked();
+        }
+
+        try {
+            const html = marked.parse(markdown);
+            document.getElementById('preview-container').innerHTML = html;
+            renderImageGallery();
+        } catch (e) {
+            document.getElementById('preview-container').innerHTML = `<p style="color:red">Error rendering markdown: ${e}</p>`;
+        }
+    }
 
     // --- Navigation ---
     function switchView(viewName) {
@@ -792,14 +997,38 @@
         tree.innerHTML = buildDocTreeHtml(roots);
     }
 
+    function toggleDocCollapse(id) {
+        if (collapsedDocs[id]) {
+            delete collapsedDocs[id];
+        } else {
+            collapsedDocs[id] = true;
+        }
+        renderDocTree();
+    }
+
     function buildDocTreeHtml(nodes) {
         if (!nodes.length) return '';
-        return nodes.map(node => `
+        return nodes.map(node => {
+            const hasChildren = node.children && node.children.length > 0;
+            const isCollapsed = collapsedDocs[node.id];
+            
+            const icon = hasChildren ? (isCollapsed ? '▶' : '▼') : '•';
+            const cursorStyle = hasChildren ? 'cursor:pointer' : 'opacity:0.3';
+            // Stop propagation to prevent opening doc when clicking toggle
+            const iconClick = hasChildren ? `onclick="event.stopPropagation(); toggleDocCollapse('${node.id}')"` : '';
+            
+            const childrenHtml = (!isCollapsed && hasChildren) ? buildDocTreeHtml(node.children) : '';
+
+            return `
             <div style="margin-left: 10px">
-                <div class="tree-node" onclick="openDoc('${node.id}', '${node.title}')">📄 ${node.title}</div>
-                ${buildDocTreeHtml(node.children)}
+                <div style="display:flex; align-items:center">
+                    <span style="display:inline-block; width:20px; text-align:center; margin-right:5px; user-select:none; ${cursorStyle}" ${iconClick}>${icon}</span>
+                    <div class="tree-node" style="flex:1" onclick="openDoc('${node.id}', '${node.title}')">📄 ${node.title}</div>
+                </div>
+                ${childrenHtml}
             </div>
-        `).join('');
+            `;
+        }).join('');
     }
 
     async function openDoc(id, title) {
@@ -819,6 +1048,11 @@
             const ext = data.full_path ? data.full_path.split('.').pop() : 'md';
             const langMap = {'js':'javascript', 'py':'python', 'html':'html', 'md':'markdown', 'rs':'rust'};
             monaco.editor.setModelLanguage(editor.getModel(), langMap[ext] || 'markdown');
+            
+            // If in preview mode, update preview immediately
+            if (currentEditorMode === 'preview') {
+                updatePreview();
+            }
         }
     }
 

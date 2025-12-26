@@ -4,12 +4,22 @@ import sys
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import doc_manager
 
+def safe_print(text):
+    try:
+        print(text)
+    except UnicodeEncodeError:
+        # Fallback for windows consoles that can't handle some chars
+        try:
+            print(text.encode(sys.stdout.encoding, errors='replace').decode(sys.stdout.encoding))
+        except:
+            print(text.encode('utf-8', errors='replace'))
+
 def rebuild():
-    print("正在初始化数据库...")
+    safe_print("正在初始化数据库...")
     doc_manager.init_db()
     
     project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-    print(f"扫描项目根目录: {project_root}")
+    safe_print(f"扫描项目根目录: {project_root}")
     
     count = 0
     for root, dirs, files in os.walk(project_root):
@@ -41,13 +51,13 @@ def rebuild():
                 # 将路径中的反斜杠转换为正斜杠，保证跨平台兼容性
                 info['path'] = info['path'].replace('\\', '/')
                 
-                print(f"注册文档: {info['title']} ({file}) -> {info['path']}")
+                safe_print(f"注册文档: {info['title']} ({file}) -> {info['path']}")
                 doc_manager.register_document(**info)
                 count += 1
             else:
-                print(f"跳过无法解析的文件: {file}")
+                safe_print(f"跳过无法解析的文件: {file}")
 
-    print(f"重构完成，共录入 {count} 个文档。")
+    safe_print(f"重构完成，共录入 {count} 个文档。")
 
 if __name__ == '__main__':
     rebuild()
