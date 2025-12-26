@@ -1,0 +1,35 @@
+# Rust
+target/
+**/*.rs.bk
+
+# C#
+bin/
+obj/
+.vs/
+*.user
+*.suo
+packages/
+*.pdb
+*.cache
+*.editorconfig
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+venv/
+.venv/
+.env
+env/
+dist/
+build/
+*.egg-info/
+
+# General
+.DS_Store
+.idea/
+.vscode/
+*.log
+*.tmp
+doc_system.db
+
