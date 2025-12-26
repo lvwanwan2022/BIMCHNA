@@ -1,0 +1,140 @@
+<svg width="900" height="700" xmlns="http://www.w3.org/2000/svg">
+  <!-- Definitions for markers (arrowheads) -->
+  <defs>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#3b82f6" />
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#10b981" />
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#f97316" />
+    </marker>
+    <marker id="arrow-gray" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L0,6 L9,3 z" fill="#6b7280" />
+    </marker>
+    <!-- Drop shadow filter -->
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+      <feOffset dx="2" dy="2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.3"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="700" fill="#f8fafc" />
+
+  <!-- Regions -->
+  <!-- UI Layer Region -->
+  <rect x="50" y="50" width="800" height="120" rx="10" fill="#e0f2fe" stroke="#3b82f6" stroke-width="1" stroke-dasharray="5,5"/>
+  <text x="70" y="80" font-family="Arial" font-weight="bold" fill="#3b82f6" font-size="14">Presentation Layer (User Interface)</text>
+
+  <!-- Bridge Region -->
+  <rect x="50" y="190" width="800" height="80" rx="10" fill="#f3f4f6" stroke="#9ca3af" stroke-width="1" stroke-dasharray="5,5"/>
+  <text x="70" y="215" font-family="Arial" font-weight="bold" fill="#6b7280" font-size="14">Communication / Bridge Layer</text>
+
+  <!-- Core Layer Region -->
+  <rect x="50" y="290" width="800" height="360" rx="10" fill="#ecfdf5" stroke="#10b981" stroke-width="1" stroke-dasharray="5,5"/>
+  <text x="70" y="320" font-family="Arial" font-weight="bold" fill="#10b981" font-size="14">Application Core (Rust)</text>
+
+  <!-- Module Boxes -->
+
+  <!-- Web Client -->
+  <g transform="translate(480, 80)">
+    <rect width="200" height="60" rx="5" fill="#ffffff" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="100" y="35" text-anchor="middle" font-family="Arial" font-weight="bold" fill="#1e3a8a">crates/web-client</text>
+    <text x="100" y="50" text-anchor="middle" font-family="Arial" font-size="10" fill="#64748b">Vue / React (Overlay)</text>
+  </g>
+
+  <!-- App / Host -->
+  <g transform="translate(180, 80)">
+    <rect width="200" height="60" rx="5" fill="#ffffff" stroke="#3b82f6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="100" y="35" text-anchor="middle" font-family="Arial" font-weight="bold" fill="#1e3a8a">crates/app</text>
+    <text x="100" y="50" text-anchor="middle" font-family="Arial" font-size="10" fill="#64748b">Tauri Host / Winit</text>
+  </g>
+
+  <!-- Bridge -->
+  <g transform="translate(330, 200)">
+    <rect width="200" height="60" rx="5" fill="#ffffff" stroke="#6b7280" stroke-width="2" filter="url(#shadow)"/>
+    <text x="100" y="35" text-anchor="middle" font-family="Arial" font-weight="bold" fill="#374151">crates/bridge</text>
+    <text x="100" y="50" text-anchor="middle" font-family="Arial" font-size="10" fill="#6b7280">Protocol / Serde / IPC</text>
+  </g>
+
+  <!-- Interaction -->
+  <g transform="translate(100, 350)">
+    <rect width="180" height="80" rx="5" fill="#ffffff" stroke="#d97706" stroke-width="2" filter="url(#shadow)"/>
+    <text x="90" y="35" text-anchor="middle" font-family="Arial" font-weight="bold" fill="#92400e">crates/interaction</text>
+    <text x="90" y="55" text-anchor="middle" font-family="Arial" font-size="10" fill="#d97706">Input Mapping / FSM</text>
+    <text x="90" y="68" text-anchor="middle" font-family="Arial" font-size="10" fill="#d97706">Event Bus</text>
+  </g>
+
+  <!-- Kernel -->
+  <g transform="translate(330, 350)">
+    <rect width="200" height="150" rx="5" fill="#ffffff" stroke="#10b981" stroke-width="3" filter="url(#shadow)"/>
+    <text x="100" y="35" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="16" fill="#065f46">crates/kernel</text>
+    <text x="100" y="60" text-anchor="middle" font-family="Arial" font-size="12" fill="#047857">ECS / Scene Graph</text>
+    <text x="100" y="100" text-anchor="middle" font-family="Arial" font-size="12" font-style="italic" fill="#6b7280">"The Truth"</text>
+    <line x1="20" y1="120" x2="180" y2="120" stroke="#e5e7eb" stroke-width="1"/>
+    <text x="100" y="135" text-anchor="middle" font-family="Arial" font-size="10" fill="#059669">System Loop</text>
+  </g>
+
+  <!-- Geometry -->
+  <g transform="translate(100, 530)">
+    <rect width="180" height="80" rx="5" fill="#ffffff" stroke="#8b5cf6" stroke-width="2" filter="url(#shadow)"/>
+    <text x="90" y="35" text-anchor="middle" font-family="Arial" font-weight="bold" fill="#5b21b6">crates/geometry</text>
+    <text x="90" y="55" text-anchor="middle" font-family="Arial" font-size="10" fill="#7c3aed">B-Rep / Mesh / Math</text>
+    <text x="90" y="68" text-anchor="middle" font-family="Arial" font-size="10" fill="#7c3aed">Algorithms</text>
+  </g>
+
+  <!-- Display -->
+  <g transform="translate(580, 530)">
+    <rect width="180" height="80" rx="5" fill="#ffffff" stroke="#f97316" stroke-width="2" filter="url(#shadow)"/>
+    <text x="90" y="35" text-anchor="middle" font-family="Arial" font-weight="bold" fill="#9a3412">crates/display</text>
+    <text x="90" y="55" text-anchor="middle" font-family="Arial" font-size="10" fill="#ea580c">WGPU / Vulkan / WebGL</text>
+    <text x="90" y="68" text-anchor="middle" font-family="Arial" font-size="10" fill="#ea580c">Render Pipeline</text>
+  </g>
+
+  <!-- Connections -->
+
+  <!-- App -> Interaction (Native Events) -->
+  <path d="M 230 140 L 230 245 L 200 350" fill="none" stroke="#d97706" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <text x="235" y="270" font-family="Arial" font-size="10" fill="#d97706">Window Events</text>
+
+  <!-- WebClient -> Bridge (Commands) -->
+  <path d="M 580 140 L 500 200" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+  <text x="550" y="170" font-family="Arial" font-size="10" fill="#3b82f6">JSON Commands</text>
+
+  <!-- Bridge -> Interaction (Mapped Inputs) -->
+  <path d="M 380 260 L 250 350" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- Bridge -> Kernel (Direct Cmds) -->
+  <path d="M 430 260 L 430 350" fill="none" stroke="#3b82f6" stroke-width="2" marker-end="url(#arrow-blue)"/>
+
+  <!-- Interaction -> Kernel (Actions) -->
+  <path d="M 280 390 L 330 390" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="285" y="380" font-family="Arial" font-size="10" fill="#10b981">Actions</text>
+
+  <!-- Interaction -> Geometry (Raycast) -->
+  <path d="M 190 430 L 190 530" fill="none" stroke="#8b5cf6" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-gray)"/>
+  <text x="120" y="480" font-family="Arial" font-size="10" fill="#8b5cf6">Raycast Query</text>
+
+  <!-- Kernel -> Geometry (Data) -->
+  <path d="M 330 450 L 250 530" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow-green)"/>
+  <text x="260" y="500" font-family="Arial" font-size="10" fill="#10b981">Modify Model</text>
+
+  <!-- Kernel -> Display (Render) -->
+  <path d="M 530 450 L 620 530" fill="none" stroke="#f97316" stroke-width="2" marker-end="url(#arrow-orange)"/>
+  <text x="580" y="480" font-family="Arial" font-size="10" fill="#f97316">Render Packet</text>
+
+  <!-- Kernel -> Bridge (Events) -->
+  <path d="M 450 350 L 450 260" fill="none" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-gray)"/>
+  <text x="455" y="300" font-family="Arial" font-size="10" fill="#6b7280">Events Update</text>
+
+</svg>
+
