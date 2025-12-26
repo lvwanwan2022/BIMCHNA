@@ -1,0 +1,225 @@
+\doxysection{LNLib\+::Knot\+Vector\+Utils类 参考}
+\hypertarget{classLNLib_1_1KnotVectorUtils}{}\label{classLNLib_1_1KnotVectorUtils}\index{LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}}
+
+
+{\ttfamily \#include $<$Knot\+Vector\+Utils.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static int \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a4bc4a08963c254fec381e3c7b98c1d57}{Get\+Continuity}} (int degree, const std\+::vector$<$ double $>$ \&knot\+Vector, double knot)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page88 Compute the continuity. \end{DoxyCompactList}\item 
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_ad4ee7bb45b62cdc2ef951c859c9515a4}{Rescale}} (const std\+::vector$<$ double $>$ \&knot\+Vector, double min, double max)
+\item 
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_ad5256aa577db6a37841e89d9652fc595}{Get\+Inserted\+Knot\+Element}} (int degree, const std\+::vector$<$ double $>$ \&knot\+Vector, double start\+Param, double end\+Param)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page533 Get insert elements from \mbox{[}Us, Ue\mbox{]} for refine knot vector. \end{DoxyCompactList}\item 
+static std\+::map$<$ double, int $>$ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_af3402b00885fa3d255aac142f3af81cb}{Get\+Knot\+Multiplicity\+Map}} (const std\+::vector$<$ double $>$ \&knot\+Vector)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page338 Get knot multiplcity map. \end{DoxyCompactList}\item 
+static std\+::map$<$ double, int $>$ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_ae7a3df848dfe04042aa2c89b590db02b}{Get\+Internal\+Knot\+Multiplicity\+Map}} (const std\+::vector$<$ double $>$ \&knot\+Vector)
+\begin{DoxyCompactList}\small\item\em Get internal knot multiplcity map. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a888a16fb5b51befa4da85a6082d69987}{Get\+Inserted\+Knot\+Element}} (const std\+::vector$<$ double $>$ \&knot\+Vector0, const std\+::vector$<$ double $>$ \&knot\+Vector1, std\+::vector$<$ double $>$ \&insert\+Elements0, std\+::vector$<$ double $>$ \&insert\+Elements1)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page338 Get insert elements between two knot vector for create ruled surface. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a5333d5a832510acfa719d048a6662e5b}{Get\+Inserted\+Knot\+Elements}} (const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&knot\+Vectors)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page472 Get insert elements between knot vectors for create sweep surface. \end{DoxyCompactList}\item 
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a94175b66a36f58a46e42308222b40885}{Get\+Inserted\+Knot\+Elements}} (int insert\+Knots\+Number, const std\+::vector$<$ double $>$ \&knot\+Vector)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page476 Insert \mbox{[}insert\+Knots\+Number\mbox{]} knots into \mbox{[}knot\+Vector\mbox{]} by insert at the midpoint of the longest span will do. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a46b835bef6db6b656d5a332e357a07a0}{Is\+Uniform}} (const std\+::vector$<$ double $>$ \&knot\+Vector)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page572 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{KnotVectorUtils_8h_source}{Knot\+Vector\+Utils.\+h}} 第 \mbox{\hyperlink{KnotVectorUtils_8h_source_l00022}{22}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1KnotVectorUtils_a4bc4a08963c254fec381e3c7b98c1d57}\index{LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}!GetContinuity@{GetContinuity}}
+\index{GetContinuity@{GetContinuity}!LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}}
+\doxysubsubsection{\texorpdfstring{GetContinuity()}{GetContinuity()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1KnotVectorUtils_a4bc4a08963c254fec381e3c7b98c1d57} 
+int LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Continuity (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{, }\item[{double}]{knot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page88 Compute the continuity. 
+
+
+
+在文件 \mbox{\hyperlink{KnotVectorUtils_8cpp_source}{Knot\+Vector\+Utils.\+cpp}} 第 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00050}{50}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03523}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Periodic()}}.
+
+\Hypertarget{classLNLib_1_1KnotVectorUtils_a888a16fb5b51befa4da85a6082d69987}\index{LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}!GetInsertedKnotElement@{GetInsertedKnotElement}}
+\index{GetInsertedKnotElement@{GetInsertedKnotElement}!LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}}
+\doxysubsubsection{\texorpdfstring{GetInsertedKnotElement()}{GetInsertedKnotElement()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1KnotVectorUtils_a888a16fb5b51befa4da85a6082d69987} 
+void LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Inserted\+Knot\+Element (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector0}{, }\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector1}{, }\item[{std\+::vector$<$ double $>$ \&}]{insert\+Elements0}{, }\item[{std\+::vector$<$ double $>$ \&}]{insert\+Elements1}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page338 Get insert elements between two knot vector for create ruled surface. 
+
+
+
+在文件 \mbox{\hyperlink{KnotVectorUtils_8cpp_source}{Knot\+Vector\+Utils.\+cpp}} 第 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00129}{129}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00100}{Get\+Knot\+Multiplicity\+Map()}}.
+
+\Hypertarget{classLNLib_1_1KnotVectorUtils_ad5256aa577db6a37841e89d9652fc595}\index{LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}!GetInsertedKnotElement@{GetInsertedKnotElement}}
+\index{GetInsertedKnotElement@{GetInsertedKnotElement}!LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}}
+\doxysubsubsection{\texorpdfstring{GetInsertedKnotElement()}{GetInsertedKnotElement()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1KnotVectorUtils_ad5256aa577db6a37841e89d9652fc595} 
+std\+::vector$<$ double $>$ LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Inserted\+Knot\+Element (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{, }\item[{double}]{start\+Param}{, }\item[{double}]{end\+Param}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page533 Get insert elements from \mbox{[}Us, Ue\mbox{]} for refine knot vector. 
+
+
+
+在文件 \mbox{\hyperlink{KnotVectorUtils_8cpp_source}{Knot\+Vector\+Utils.\+cpp}} 第 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00072}{72}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Coons\+Surface()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01396}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Ruled\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1KnotVectorUtils_a5333d5a832510acfa719d048a6662e5b}\index{LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}!GetInsertedKnotElements@{GetInsertedKnotElements}}
+\index{GetInsertedKnotElements@{GetInsertedKnotElements}!LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}}
+\doxysubsubsection{\texorpdfstring{GetInsertedKnotElements()}{GetInsertedKnotElements()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1KnotVectorUtils_a5333d5a832510acfa719d048a6662e5b} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Inserted\+Knot\+Elements (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{knot\+Vectors}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page472 Get insert elements between knot vectors for create sweep surface. 
+
+
+
+在文件 \mbox{\hyperlink{KnotVectorUtils_8cpp_source}{Knot\+Vector\+Utils.\+cpp}} 第 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00188}{188}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00100}{Get\+Knot\+Multiplicity\+Map()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Coons\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02459}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Gordon\+Surface()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02325}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1KnotVectorUtils_a94175b66a36f58a46e42308222b40885}\index{LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}!GetInsertedKnotElements@{GetInsertedKnotElements}}
+\index{GetInsertedKnotElements@{GetInsertedKnotElements}!LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}}
+\doxysubsubsection{\texorpdfstring{GetInsertedKnotElements()}{GetInsertedKnotElements()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1KnotVectorUtils_a94175b66a36f58a46e42308222b40885} 
+std\+::vector$<$ double $>$ LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Inserted\+Knot\+Elements (\begin{DoxyParamCaption}\item[{int}]{insert\+Knots\+Number}{, }\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page476 Insert \mbox{[}insert\+Knots\+Number\mbox{]} knots into \mbox{[}knot\+Vector\mbox{]} by insert at the midpoint of the longest span will do. 
+
+
+
+在文件 \mbox{\hyperlink{KnotVectorUtils_8cpp_source}{Knot\+Vector\+Utils.\+cpp}} 第 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00250}{250}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00021}{LNLib\+::\+Insert\+Mid\+Knot\+Core()}}.
+
+\Hypertarget{classLNLib_1_1KnotVectorUtils_ae7a3df848dfe04042aa2c89b590db02b}\index{LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}!GetInternalKnotMultiplicityMap@{GetInternalKnotMultiplicityMap}}
+\index{GetInternalKnotMultiplicityMap@{GetInternalKnotMultiplicityMap}!LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}}
+\doxysubsubsection{\texorpdfstring{GetInternalKnotMultiplicityMap()}{GetInternalKnotMultiplicityMap()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1KnotVectorUtils_ae7a3df848dfe04042aa2c89b590db02b} 
+std\+::map$<$ double, int $>$ LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Internal\+Knot\+Multiplicity\+Map (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Get internal knot multiplcity map. 
+
+
+
+在文件 \mbox{\hyperlink{KnotVectorUtils_8cpp_source}{Knot\+Vector\+Utils.\+cpp}} 第 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00117}{117}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00100}{Get\+Knot\+Multiplicity\+Map()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03643}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Linear()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01563}{LNLib\+::\+Nurbs\+Curve\+::\+Merge()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00880}{LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Excessive\+Knots()}}.
+
+\Hypertarget{classLNLib_1_1KnotVectorUtils_af3402b00885fa3d255aac142f3af81cb}\index{LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}!GetKnotMultiplicityMap@{GetKnotMultiplicityMap}}
+\index{GetKnotMultiplicityMap@{GetKnotMultiplicityMap}!LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}}
+\doxysubsubsection{\texorpdfstring{GetKnotMultiplicityMap()}{GetKnotMultiplicityMap()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1KnotVectorUtils_af3402b00885fa3d255aac142f3af81cb} 
+std\+::map$<$ double, int $>$ LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Knot\+Multiplicity\+Map (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page338 Get knot multiplcity map. 
+
+
+
+在文件 \mbox{\hyperlink{KnotVectorUtils_8cpp_source}{Knot\+Vector\+Utils.\+cpp}} 第 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00100}{100}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00129}{Get\+Inserted\+Knot\+Element()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00188}{Get\+Inserted\+Knot\+Elements()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00117}{Get\+Internal\+Knot\+Multiplicity\+Map()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00261}{Is\+Uniform()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01119}{LNLib\+::\+Nurbs\+Curve\+::\+Reduce\+Degree()}}.
+
+\Hypertarget{classLNLib_1_1KnotVectorUtils_a46b835bef6db6b656d5a332e357a07a0}\index{LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}!IsUniform@{IsUniform}}
+\index{IsUniform@{IsUniform}!LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}}
+\doxysubsubsection{\texorpdfstring{IsUniform()}{IsUniform()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1KnotVectorUtils_a46b835bef6db6b656d5a332e357a07a0} 
+bool LNLib\+::\+Knot\+Vector\+Utils\+::\+Is\+Uniform (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page572 
+
+
+
+在文件 \mbox{\hyperlink{KnotVectorUtils_8cpp_source}{Knot\+Vector\+Utils.\+cpp}} 第 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00261}{261}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00100}{Get\+Knot\+Multiplicity\+Map()}} , 以及 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03523}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Periodic()}}.
+
+\Hypertarget{classLNLib_1_1KnotVectorUtils_ad4ee7bb45b62cdc2ef951c859c9515a4}\index{LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}!Rescale@{Rescale}}
+\index{Rescale@{Rescale}!LNLib::KnotVectorUtils@{LNLib::KnotVectorUtils}}
+\doxysubsubsection{\texorpdfstring{Rescale()}{Rescale()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1KnotVectorUtils_ad4ee7bb45b62cdc2ef951c859c9515a4} 
+std\+::vector$<$ double $>$ LNLib\+::\+Knot\+Vector\+Utils\+::\+Rescale (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{, }\item[{double}]{min}{, }\item[{double}]{max}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{KnotVectorUtils_8cpp_source}{Knot\+Vector\+Utils.\+cpp}} 第 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00057}{57}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01425}{LNLib\+::\+Nurbs\+Curve\+::\+Reparametrize()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01270}{LNLib\+::\+Nurbs\+Surface\+::\+Reparametrize()}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{KnotVectorUtils_8h}{Knot\+Vector\+Utils.\+h}}\item 
+src/\+LNLib/\+Algorithm/\mbox{\hyperlink{KnotVectorUtils_8cpp}{Knot\+Vector\+Utils.\+cpp}}\end{DoxyCompactItemize}

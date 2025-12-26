@@ -1,0 +1,1869 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: LNLib::NurbsSurface类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classLNLib_1_1NurbsSurface.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classLNLib_1_1NurbsSurface-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">LNLib::NurbsSurface类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="NurbsSurface_8h_source.html">NurbsSurface.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:ad81e6c99fb7bc4b53a4160405ad281ec" id="r_ad81e6c99fb7bc4b53a4160405ad281ec"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad81e6c99fb7bc4b53a4160405ad281ec">Check</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="separator:ad81e6c99fb7bc4b53a4160405ad281ec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab192b8d5e2fb7aa7d7419496d3318d6e" id="r_ab192b8d5e2fb7aa7d7419496d3318d6e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab192b8d5e2fb7aa7d7419496d3318d6e">GetPointOnSurface</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, <a class="el" href="classLNLib_1_1UV.html">UV</a> uv)</td></tr>
+<tr class="memdesc:ab192b8d5e2fb7aa7d7419496d3318d6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page134 Algorithm A4.3 Compute point on rational B-spline surface.  <br /></td></tr>
+<tr class="separator:ab192b8d5e2fb7aa7d7419496d3318d6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa37adfdff9e3b2a123771110891524e2" id="r_aa37adfdff9e3b2a123771110891524e2"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa37adfdff9e3b2a123771110891524e2">ComputeRationalSurfaceDerivatives</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, int derivative, <a class="el" href="classLNLib_1_1UV.html">UV</a> uv)</td></tr>
+<tr class="memdesc:aa37adfdff9e3b2a123771110891524e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page137 Algorithm A4.4 Compute S(paramU,paramV) derivatives.  <br /></td></tr>
+<tr class="separator:aa37adfdff9e3b2a123771110891524e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8c05aaf72af51f5b0438a7daa4499ba" id="r_af8c05aaf72af51f5b0438a7daa4499ba"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8c05aaf72af51f5b0438a7daa4499ba">ComputeRationalSurfaceFirstOrderDerivative</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, <a class="el" href="classLNLib_1_1UV.html">UV</a> uv, <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;S, <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;Su, <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;Sv)</td></tr>
+<tr class="memdesc:af8c05aaf72af51f5b0438a7daa4499ba"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is an optimized function of ComputeRationalSurfaceDerivatives, for order 1 case.  <br /></td></tr>
+<tr class="separator:af8c05aaf72af51f5b0438a7daa4499ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60b134f31fa91410c1e0facb9c82940e" id="r_a60b134f31fa91410c1e0facb9c82940e"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a60b134f31fa91410c1e0facb9c82940e">Curvature</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, <a class="el" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34">SurfaceCurvature</a> curvature, <a class="el" href="classLNLib_1_1UV.html">UV</a> uv)</td></tr>
+<tr class="separator:a60b134f31fa91410c1e0facb9c82940e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fd2b94f65d58371b66c889d78da169e" id="r_a0fd2b94f65d58371b66c889d78da169e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0fd2b94f65d58371b66c889d78da169e">Normal</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, <a class="el" href="classLNLib_1_1UV.html">UV</a> uv)</td></tr>
+<tr class="separator:a0fd2b94f65d58371b66c889d78da169e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5749714f0c77809be3fff7ab3e267fc" id="r_ad5749714f0c77809be3fff7ab3e267fc"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5749714f0c77809be3fff7ab3e267fc">Swap</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;result)</td></tr>
+<tr class="memdesc:ad5749714f0c77809be3fff7ab3e267fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Swap surface <a class="el" href="classLNLib_1_1UV.html" title="Represents two-dimension location/vector/offset">UV</a>.  <br /></td></tr>
+<tr class="separator:ad5749714f0c77809be3fff7ab3e267fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a047b59e319853e8eed24612816276cb4" id="r_a047b59e319853e8eed24612816276cb4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a047b59e319853e8eed24612816276cb4">Reverse</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, <a class="el" href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8">SurfaceDirection</a> direction, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;result)</td></tr>
+<tr class="memdesc:a047b59e319853e8eed24612816276cb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reverse surface U or V direction.  <br /></td></tr>
+<tr class="separator:a047b59e319853e8eed24612816276cb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae4c0cc4c62f62d0d36d8dcb2589a7ebe" id="r_ae4c0cc4c62f62d0d36d8dcb2589a7ebe"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae4c0cc4c62f62d0d36d8dcb2589a7ebe">InsertKnot</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, double insertKnot, int times, bool isUDirection, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;result)</td></tr>
+<tr class="memdesc:ae4c0cc4c62f62d0d36d8dcb2589a7ebe"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page137 Algorithm A5.3 Surface knot insertion along U or V direction.  <br /></td></tr>
+<tr class="separator:ae4c0cc4c62f62d0d36d8dcb2589a7ebe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c4ffae2f300a6bbe80b1476f888d1a1" id="r_a5c4ffae2f300a6bbe80b1476f888d1a1"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c4ffae2f300a6bbe80b1476f888d1a1">RefineKnotVector</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, const std::vector&lt; double &gt; &amp;insertKnotElements, bool isUDirection, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;result)</td></tr>
+<tr class="memdesc:a5c4ffae2f300a6bbe80b1476f888d1a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page167 Algorithm A5.5 Refine surface knot vector.  <br /></td></tr>
+<tr class="separator:a5c4ffae2f300a6bbe80b1476f888d1a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9538e6d1f4259be6726c4c7eeaf51abf" id="r_a9538e6d1f4259be6726c4c7eeaf51abf"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9538e6d1f4259be6726c4c7eeaf51abf">DecomposeToBeziers</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a9538e6d1f4259be6726c4c7eeaf51abf"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page177 Algorithm A5.7 Decompose surface into Bezier patches.  <br /></td></tr>
+<tr class="separator:a9538e6d1f4259be6726c4c7eeaf51abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aea92ce33c35e7dfe55aff7983779eb7b" id="r_aea92ce33c35e7dfe55aff7983779eb7b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aea92ce33c35e7dfe55aff7983779eb7b">RemoveKnot</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, double removeKnot, int times, bool isUDirection, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;result)</td></tr>
+<tr class="memdesc:aea92ce33c35e7dfe55aff7983779eb7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page186 Surface knot removal.  <br /></td></tr>
+<tr class="separator:aea92ce33c35e7dfe55aff7983779eb7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ec502e7eaff5b249db591604d5118d0" id="r_a2ec502e7eaff5b249db591604d5118d0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ec502e7eaff5b249db591604d5118d0">ElevateDegree</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, int times, bool isUDirection, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;result)</td></tr>
+<tr class="memdesc:a2ec502e7eaff5b249db591604d5118d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page209 Algorithm A5.10 Degree elevate a surface t times.  <br /></td></tr>
+<tr class="separator:a2ec502e7eaff5b249db591604d5118d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7a9e7a726f52d682af231145e2d8ab0d" id="r_a7a9e7a726f52d682af231145e2d8ab0d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7a9e7a726f52d682af231145e2d8ab0d">ReduceDegree</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, bool isUDirection, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;result)</td></tr>
+<tr class="memdesc:a7a9e7a726f52d682af231145e2d8ab0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page227 Degree reduce U or V Direction Bezier-shape nurbs curve from degree to degree - 1.  <br /></td></tr>
+<tr class="separator:a7a9e7a726f52d682af231145e2d8ab0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51bbcea2054a45b98c8dfe7215ac96ee" id="r_a51bbcea2054a45b98c8dfe7215ac96ee"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a51bbcea2054a45b98c8dfe7215ac96ee">EquallyTessellate</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &amp;tessellatedPoints, std::vector&lt; <a class="el" href="classLNLib_1_1UV.html">UV</a> &gt; &amp;correspondingKnots)</td></tr>
+<tr class="memdesc:a51bbcea2054a45b98c8dfe7215ac96ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page232 Equally spaced parameter values on each candidate span.  <br /></td></tr>
+<tr class="separator:a51bbcea2054a45b98c8dfe7215ac96ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7d02f0bb46ff33f81934990f3058c61" id="r_ae7d02f0bb46ff33f81934990f3058c61"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7d02f0bb46ff33f81934990f3058c61">IsClosed</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, bool isUDirection)</td></tr>
+<tr class="separator:ae7d02f0bb46ff33f81934990f3058c61"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc683835adbabab7318ef892bf8f7b81" id="r_abc683835adbabab7318ef892bf8f7b81"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLNLib_1_1UV.html">UV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abc683835adbabab7318ef892bf8f7b81">GetParamOnSurface</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;givenPoint)</td></tr>
+<tr class="memdesc:abc683835adbabab7318ef892bf8f7b81"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page232 Point inversion:finding the corresponding parameter make S(u,v) = P.  <br /></td></tr>
+<tr class="separator:abc683835adbabab7318ef892bf8f7b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e4433db0a80d09ac79cb07cc20e1be6" id="r_a3e4433db0a80d09ac79cb07cc20e1be6"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e4433db0a80d09ac79cb07cc20e1be6">Reparametrize</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, double minU, double maxU, double minV, double maxV, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;result)</td></tr>
+<tr class="separator:a3e4433db0a80d09ac79cb07cc20e1be6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae95bdd5823234071f597231831532066" id="r_ae95bdd5823234071f597231831532066"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae95bdd5823234071f597231831532066">GetUVTangent</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, const <a class="el" href="classLNLib_1_1UV.html">UV</a> param, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;tangent, <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;uvTangent)</td></tr>
+<tr class="memdesc:ae95bdd5823234071f597231831532066"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page235 Surface Tangent Vector Inversion: finding the corresponding <a class="el" href="classLNLib_1_1UV.html" title="Represents two-dimension location/vector/offset">UV</a> tangent [du dv] make T = Su*du+Sv*dv.  <br /></td></tr>
+<tr class="separator:ae95bdd5823234071f597231831532066"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a65d535002dd793273e450928bb94ce00" id="r_a65d535002dd793273e450928bb94ce00"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a65d535002dd793273e450928bb94ce00">CreateBilinearSurface</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;topLeftPoint, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;topRightPoint, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;bottomLeftPoint, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;bottomRightPoint, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a65d535002dd793273e450928bb94ce00"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page334 Create a bilinear surface.  <br /></td></tr>
+<tr class="separator:a65d535002dd793273e450928bb94ce00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01bbe0bfb3594278f891d6d621b11ede" id="r_a01bbe0bfb3594278f891d6d621b11ede"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01bbe0bfb3594278f891d6d621b11ede">CreateCylindricalSurface</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;origin, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;xAxis, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;yAxis, double startRad, double endRad, double radius, double height, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a01bbe0bfb3594278f891d6d621b11ede"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page336 Create a right cirular cylinder.  <br /></td></tr>
+<tr class="separator:a01bbe0bfb3594278f891d6d621b11ede"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87c586fefc6c753b147208266a1564b3" id="r_a87c586fefc6c753b147208266a1564b3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a87c586fefc6c753b147208266a1564b3">CreateRuledSurface</a> (const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;curve0, const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;curve1, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a87c586fefc6c753b147208266a1564b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page337 Create a ruled surface.  <br /></td></tr>
+<tr class="separator:a87c586fefc6c753b147208266a1564b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbf498aa29b2dcd184125494cf2e043f" id="r_abbf498aa29b2dcd184125494cf2e043f"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbf498aa29b2dcd184125494cf2e043f">CreateRevolvedSurface</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;origin, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;axis, double rad, const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;profile, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:abbf498aa29b2dcd184125494cf2e043f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page346 Algorithm A8.1 Create a revolved surface.  <br /></td></tr>
+<tr class="separator:abbf498aa29b2dcd184125494cf2e043f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a072d0d647cb3a269d028a3e1854f86e0" id="r_a072d0d647cb3a269d028a3e1854f86e0"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a072d0d647cb3a269d028a3e1854f86e0">NonUniformScaling</a> (const std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &gt; &gt; &amp;controlPoints, double xFactor, double yFactor, double zFactor, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;referencePoint)</td></tr>
+<tr class="memdesc:a072d0d647cb3a269d028a3e1854f86e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page348 Nonuniform scaling of surface.  <br /></td></tr>
+<tr class="separator:a072d0d647cb3a269d028a3e1854f86e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ced86f8e12a782303ac840d7845ff68" id="r_a4ced86f8e12a782303ac840d7845ff68"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4ced86f8e12a782303ac840d7845ff68">MakeCornerFilletSurface</a> (const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;arc, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a4ced86f8e12a782303ac840d7845ff68"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page359 Algorithm A8.2 Create NURBS corner fillet surface.  <br /></td></tr>
+<tr class="separator:a4ced86f8e12a782303ac840d7845ff68"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ac0276375f7207c5ac2468f98a47d42" id="r_a8ac0276375f7207c5ac2468f98a47d42"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ac0276375f7207c5ac2468f98a47d42">GlobalInterpolation</a> (const std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &gt; &amp;throughPoints, int degreeU, int degreeV, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a8ac0276375f7207c5ac2468f98a47d42"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page380 Algorithm A9.4 Global surface interpolation.  <br /></td></tr>
+<tr class="separator:a8ac0276375f7207c5ac2468f98a47d42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61e57fffc394f2507cd9a2324bce1137" id="r_a61e57fffc394f2507cd9a2324bce1137"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a61e57fffc394f2507cd9a2324bce1137">BicubicLocalInterpolation</a> (const std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &gt; &amp;throughPoints, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a61e57fffc394f2507cd9a2324bce1137"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page404 Algorithm A9.5 Local surface interpolation through (n+1)*(m+1) points.  <br /></td></tr>
+<tr class="separator:a61e57fffc394f2507cd9a2324bce1137"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c11cb23e377b932073ce8b6c16cea5e" id="r_a5c11cb23e377b932073ce8b6c16cea5e"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c11cb23e377b932073ce8b6c16cea5e">GlobalApproximation</a> (const std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &gt; &amp;throughPoints, int degreeU, int degreeV, int controlPointsRows, int controlPointsColumns, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a5c11cb23e377b932073ce8b6c16cea5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page422 Algorithm A9.7 Global surface approximation with fixed number of control points.  <br /></td></tr>
+<tr class="separator:a5c11cb23e377b932073ce8b6c16cea5e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7984000a154886e953d6505c05325e72" id="r_a7984000a154886e953d6505c05325e72"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7984000a154886e953d6505c05325e72">CreateSwungSurface</a> (const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;profile, const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;trajectory, double scale, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a7984000a154886e953d6505c05325e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page456 Create swung surface. The profile curve lie on the xz-plane and trajectory curve along its y-axis.  <br /></td></tr>
+<tr class="separator:a7984000a154886e953d6505c05325e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3996cad85d912303f34eb47b54bacc62" id="r_a3996cad85d912303f34eb47b54bacc62"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3996cad85d912303f34eb47b54bacc62">CreateLoftSurface</a> (const std::vector&lt; <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &gt; &amp;sections, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, int customTrajectoryDegree=0, const std::vector&lt; double &gt; &amp;customTrajectoryKnotVector={})</td></tr>
+<tr class="memdesc:a3996cad85d912303f34eb47b54bacc62"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page457 Create loft surface (called Skinned Surface in The NURBS Book).  <br /></td></tr>
+<tr class="separator:a3996cad85d912303f34eb47b54bacc62"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f234c2b23b9765cee3781be4abf6a59" id="r_a1f234c2b23b9765cee3781be4abf6a59"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f234c2b23b9765cee3781be4abf6a59">CreateGeneralizedTranslationalSweepSurface</a> (const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;profile, const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;trajectory, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a1f234c2b23b9765cee3781be4abf6a59"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page472 Create generalized translational sweep surface.  <br /></td></tr>
+<tr class="separator:a1f234c2b23b9765cee3781be4abf6a59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc43cbf4ffc4dff33abf030563781261" id="r_adc43cbf4ffc4dff33abf030563781261"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc43cbf4ffc4dff33abf030563781261">CreateSweepSurface</a> (const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;profile, const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;trajectory, int minimumProfiles, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:adc43cbf4ffc4dff33abf030563781261"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page475 Algorithm A10.1 Create sweep surface by trajectory interpolated. Profile must lie on XOY plane.  <br /></td></tr>
+<tr class="separator:adc43cbf4ffc4dff33abf030563781261"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49035b1fc4a687c17ea9f52cc8a21cdd" id="r_a49035b1fc4a687c17ea9f52cc8a21cdd"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49035b1fc4a687c17ea9f52cc8a21cdd">CreateSweepSurface</a> (const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;profile, const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;trajectory, int minimumProfiles, int customTrajectoryDegree, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a49035b1fc4a687c17ea9f52cc8a21cdd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page477 Algorithm A10.2 Create sweep surface by trajectory not interpolated. Profile must lie on XOY plane.  <br /></td></tr>
+<tr class="separator:a49035b1fc4a687c17ea9f52cc8a21cdd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a256c92dc134f7bee6351598e8206cbb3" id="r_a256c92dc134f7bee6351598e8206cbb3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a256c92dc134f7bee6351598e8206cbb3">CreateGordonSurface</a> (const std::vector&lt; <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &gt; &amp;uCurves, const std::vector&lt; <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &gt; &amp;vCurves, const std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &gt; &amp;intersectionPoints, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a256c92dc134f7bee6351598e8206cbb3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page494 Algorithm A10.3 Create Gordon surface. Gordon surface has a number of restrictions:  <br /></td></tr>
+<tr class="separator:a256c92dc134f7bee6351598e8206cbb3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1f0a256530442e4e181203c2e7dbff7" id="r_ae1f0a256530442e4e181203c2e7dbff7"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1f0a256530442e4e181203c2e7dbff7">CreateCoonsSurface</a> (const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;leftCurve, const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;bottomCurve, const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;rightCurve, const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;topCurve, <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:ae1f0a256530442e4e181203c2e7dbff7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page502 Algorithm A10.4 Create Coons surface. The difference between Coons and Gordon is that Coons surface is created by 4 anti-clock curves. The Coons surface is the special case of Gordon Surface.  <br /></td></tr>
+<tr class="separator:ae1f0a256530442e4e181203c2e7dbff7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1a73c5d67a96c2012063438bd7eb2eb" id="r_ad1a73c5d67a96c2012063438bd7eb2eb"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad1a73c5d67a96c2012063438bd7eb2eb">ApproximateArea</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, <a class="el" href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40">IntegratorType</a> type=<a class="el" href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0">IntegratorType::GaussLegendre</a>)</td></tr>
+<tr class="memdesc:ad1a73c5d67a96c2012063438bd7eb2eb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate surface area.  <br /></td></tr>
+<tr class="separator:ad1a73c5d67a96c2012063438bd7eb2eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67b959e219cb28d3fe619ae1bd912245" id="r_a67b959e219cb28d3fe619ae1bd912245"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="structLNLib_1_1LN__Mesh.html">LN_Mesh</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a67b959e219cb28d3fe619ae1bd912245">Triangulate</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface)</td></tr>
+<tr class="memdesc:a67b959e219cb28d3fe619ae1bd912245"><td class="mdescLeft">&#160;</td><td class="mdescRight">Triangulate nurbs surface. According to <a href="https://github.com/nortikin/sverchok/blob/master/utils/adaptive_surface.py">https://github.com/nortikin/sverchok/blob/master/utils/adaptive_surface.py</a>  <br /></td></tr>
+<tr class="separator:a67b959e219cb28d3fe619ae1bd912245"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8h_source.html">NurbsSurface.h</a> 第 <a class="el" href="NurbsSurface_8h_source.html#l00022">22</a> 行定义.</p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="ad1a73c5d67a96c2012063438bd7eb2eb" name="ad1a73c5d67a96c2012063438bd7eb2eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1a73c5d67a96c2012063438bd7eb2eb">&#9670;&#160;</a></span>ApproximateArea()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::NurbsSurface::ApproximateArea </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40">IntegratorType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0">IntegratorType::GaussLegendre</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Calculate surface area. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">2979</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNEnums_8h_source.html#l00057">LNLib::Chebyshev</a>, <a class="el" href="Integrator_8cpp_source.html#l00121">LNLib::Integrator::ChebyshevSeries()</a>, <a class="el" href="Integrator_8cpp_source.html#l00223">LNLib::Integrator::ClenshawCurtisQuadrature2()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00167">ComputeRationalSurfaceFirstOrderDerivative()</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00041">LNLib::AreaData::CurrentKnotU</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00043">LNLib::AreaData::CurrentKnotV</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00580">DecomposeToBeziers()</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="Constants_8h_source.html#l00024">LNLib::Constants::DistanceEpsilon</a>, <a class="el" href="XYZ_8cpp_source.html#l00156">LNLib::XYZ::DotProduct()</a>, <a class="el" href="LNEnums_8h_source.html#l00056">LNLib::GaussLegendre</a>, <a class="el" href="Integrator_8h_source.html#l00041">LNLib::Integrator::GaussLegendreAbscissae</a>, <a class="el" href="Integrator_8h_source.html#l00042">LNLib::Integrator::GaussLegendreWeights</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00042">LNLib::AreaData::NextKnotU</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00044">LNLib::AreaData::NextKnotV</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01270">Reparametrize()</a>, <a class="el" href="Integrator_8cpp_source.html#l00019">LNLib::Integrator::Simpson()</a> , 以及 <a class="el" href="LNEnums_8h_source.html#l00055">LNLib::Simpson</a>.</p>
+
+</div>
+</div>
+<a id="a61e57fffc394f2507cd9a2324bce1137" name="a61e57fffc394f2507cd9a2324bce1137"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61e57fffc394f2507cd9a2324bce1137">&#9670;&#160;</a></span>BicubicLocalInterpolation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::NurbsSurface::BicubicLocalInterpolation </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>throughPoints</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page404 Algorithm A9.5 Local surface interpolation through (n+1)*(m+1) points. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l01833">1833</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Interpolation_8cpp_source.html#l00316">LNLib::Interpolation::ComputeTangent()</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="MathUtils_8h_source.html#l00076">LNLib::MathUtils::GetColumn()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00077">LNLib::GetIndex()</a>, <a class="el" href="Interpolation_8cpp_source.html#l00039">LNLib::Interpolation::GetTotalChordLength()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="ControlPointsUtils_8cpp_source.html#l00045">LNLib::ControlPointsUtils::ToXYZW()</a>, <a class="el" href="MathUtils_8h_source.html#l00060">LNLib::MathUtils::Transpose()</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+</div>
+</div>
+<a id="ad81e6c99fb7bc4b53a4160405ad281ec" name="ad81e6c99fb7bc4b53a4160405ad281ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad81e6c99fb7bc4b53a4160405ad281ec">&#9670;&#160;</a></span>Check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::Check </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00095">95</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="ValidationUtils_8cpp_source.html#l00023">LNLib::ValidationUtils::IsValidKnotVector()</a>, <a class="el" href="ValidationUtils_8cpp_source.html#l00033">LNLib::ValidationUtils::IsValidNurbs()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+</div>
+</div>
+<a id="aa37adfdff9e3b2a123771110891524e2" name="aa37adfdff9e3b2a123771110891524e2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa37adfdff9e3b2a123771110891524e2">&#9670;&#160;</a></span>ComputeRationalSurfaceDerivatives()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">LNLib::XYZ</a> &gt; &gt; LNLib::NurbsSurface::ComputeRationalSurfaceDerivatives </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>derivative</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1UV.html">UV</a></td>          <td class="paramname"><span class="paramname"><em>uv</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page137 Algorithm A4.4 Compute S(paramU,paramV) derivatives. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00120">120</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00093">LNLib::MathUtils::Binomial()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00094">LNLib::BsplineSurface::ComputeDerivatives()</a>, <a class="el" href="UV_8cpp_source.html#l00037">LNLib::UV::GetU()</a>, <a class="el" href="UV_8cpp_source.html#l00045">LNLib::UV::GetV()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l00199">Curvature()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01078">GetParamOnSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01290">GetUVTangent()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l00265">Normal()</a>.</p>
+
+</div>
+</div>
+<a id="af8c05aaf72af51f5b0438a7daa4499ba" name="af8c05aaf72af51f5b0438a7daa4499ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8c05aaf72af51f5b0438a7daa4499ba">&#9670;&#160;</a></span>ComputeRationalSurfaceFirstOrderDerivative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::ComputeRationalSurfaceFirstOrderDerivative </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1UV.html">UV</a></td>          <td class="paramname"><span class="paramname"><em>uv</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>S</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Su</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>Sv</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is an optimized function of ComputeRationalSurfaceDerivatives, for order 1 case. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00167">167</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="BsplineSurface_8h_source.html#l00145">LNLib::BsplineSurface::ComputeFirstOrderDerivative()</a>, <a class="el" href="UV_8cpp_source.html#l00037">LNLib::UV::GetU()</a>, <a class="el" href="UV_8cpp_source.html#l00045">LNLib::UV::GetV()</a>, <a class="el" href="XYZW_8cpp_source.html#l00055">LNLib::XYZW::GetW()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="XYZW_8cpp_source.html#l00097">LNLib::XYZW::ToXYZ()</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">ApproximateArea()</a>.</p>
+
+</div>
+</div>
+<a id="a65d535002dd793273e450928bb94ce00" name="a65d535002dd793273e450928bb94ce00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a65d535002dd793273e450928bb94ce00">&#9670;&#160;</a></span>CreateBilinearSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::CreateBilinearSurface </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>topLeftPoint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>topRightPoint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bottomLeftPoint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bottomRightPoint</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page334 Create a bilinear surface. </p>
+<p>----&mdash; v direction | | u direction </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l01323">1323</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a> , 以及 <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02708">CreateCoonsSurface()</a>.</p>
+
+</div>
+</div>
+<a id="ae1f0a256530442e4e181203c2e7dbff7" name="ae1f0a256530442e4e181203c2e7dbff7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1f0a256530442e4e181203c2e7dbff7">&#9670;&#160;</a></span>CreateCoonsSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::CreateCoonsSurface </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>leftCurve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>bottomCurve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>rightCurve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>topCurve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page502 Algorithm A10.4 Create Coons surface. The difference between Coons and Gordon is that Coons surface is created by 4 anti-clock curves. The Coons surface is the special case of Gordon Surface. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l02708">2708</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01323">CreateBilinearSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01396">CreateRuledSurface()</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00902">LNLib::NurbsCurve::ElevateDegree()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00847">ElevateDegree()</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00072">LNLib::KnotVectorUtils::GetInsertedKnotElement()</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00188">LNLib::KnotVectorUtils::GetInsertedKnotElements()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00281">LNLib::NurbsCurve::GetPointOnCurve()</a>, <a class="el" href="XYZ_8cpp_source.html#l00095">LNLib::XYZ::IsAlmostEqualTo()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00592">LNLib::NurbsCurve::RefineKnotVector()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00522">RefineKnotVector()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01425">LNLib::NurbsCurve::Reparametrize()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01440">LNLib::NurbsCurve::Reverse()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00280">Swap()</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+</div>
+</div>
+<a id="a01bbe0bfb3594278f891d6d621b11ede" name="a01bbe0bfb3594278f891d6d621b11ede"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01bbe0bfb3594278f891d6d621b11ede">&#9670;&#160;</a></span>CreateCylindricalSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::NurbsSurface::CreateCylindricalSurface </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>origin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>xAxis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>yAxis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>startRad</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>endRad</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>radius</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>height</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page336 Create a right cirular cylinder. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l01357">1357</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01737">LNLib::NurbsCurve::CreateArc()</a>, <a class="el" href="XYZ_8cpp_source.html#l00161">LNLib::XYZ::CrossProduct()</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="MathUtils_8cpp_source.html#l00035">LNLib::MathUtils::IsGreaterThan()</a>, <a class="el" href="XYZ_8cpp_source.html#l00085">LNLib::XYZ::IsZero()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+</div>
+</div>
+<a id="a1f234c2b23b9765cee3781be4abf6a59" name="a1f234c2b23b9765cee3781be4abf6a59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f234c2b23b9765cee3781be4abf6a59">&#9670;&#160;</a></span>CreateGeneralizedTranslationalSweepSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::CreateGeneralizedTranslationalSweepSurface </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>profile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>trajectory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page472 Create generalized translational sweep surface. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l02295">2295</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a> , 以及 <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>.</p>
+
+</div>
+</div>
+<a id="a256c92dc134f7bee6351598e8206cbb3" name="a256c92dc134f7bee6351598e8206cbb3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a256c92dc134f7bee6351598e8206cbb3">&#9670;&#160;</a></span>CreateGordonSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::CreateGordonSurface </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>uCurves</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>vCurves</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>intersectionPoints</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page494 Algorithm A10.3 Create Gordon surface. Gordon surface has a number of restrictions: </p>
+<ol type="1">
+<li>All input curves must be NURBS or NURBS-like. Only non-rational curves are supported - i.e., without weights (or all weights equal).</li>
+<li>All U-curves must be have “the same” direction; all V-curves must be also have “the same” direction.</li>
+<li>There must be N curves along one direction, and M curves along another direction, which must be exactly intersect at N x M points.</li>
+<li><a class="el" href="classLNLib_1_1Intersection.html">Intersection</a> points must be located evenly in parameter spaces of curves.</li>
+<li>U-curves must be ordered along direction of V-curves, and vice versa. </li>
+</ol>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l02459">2459</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02194">CreateLoftSurface()</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00902">LNLib::NurbsCurve::ElevateDegree()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00847">ElevateDegree()</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00188">LNLib::KnotVectorUtils::GetInsertedKnotElements()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01778">GlobalInterpolation()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00592">LNLib::NurbsCurve::RefineKnotVector()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00522">RefineKnotVector()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01425">LNLib::NurbsCurve::Reparametrize()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00280">Swap()</a> , 以及 <a class="el" href="MathUtils_8h_source.html#l00060">LNLib::MathUtils::Transpose()</a>.</p>
+
+</div>
+</div>
+<a id="a3996cad85d912303f34eb47b54bacc62" name="a3996cad85d912303f34eb47b54bacc62"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3996cad85d912303f34eb47b54bacc62">&#9670;&#160;</a></span>CreateLoftSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::CreateLoftSurface </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>sections</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>customTrajectoryDegree</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>customTrajectoryKnotVector</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{}</span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page457 Create loft surface (called Skinned Surface in The NURBS Book). </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l02194">2194</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Interpolation_8cpp_source.html#l00095">LNLib::Interpolation::AverageKnotVector()</a>, <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00902">LNLib::NurbsCurve::ElevateDegree()</a>, <a class="el" href="Interpolation_8cpp_source.html#l00039">LNLib::Interpolation::GetTotalChordLength()</a>, <a class="el" href="XYZW_8cpp_source.html#l00055">LNLib::XYZW::GetW()</a>, <a class="el" href="XYZW_8cpp_source.html#l00043">LNLib::XYZW::GetWX()</a>, <a class="el" href="XYZW_8cpp_source.html#l00045">LNLib::XYZW::GetWY()</a>, <a class="el" href="XYZW_8cpp_source.html#l00047">LNLib::XYZW::GetWZ()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01996">LNLib::NurbsCurve::GlobalInterpolation()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a> , 以及 <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02459">CreateGordonSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02409">CreateSweepSurface()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l02325">CreateSweepSurface()</a>.</p>
+
+</div>
+</div>
+<a id="abbf498aa29b2dcd184125494cf2e043f" name="abbf498aa29b2dcd184125494cf2e043f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbf498aa29b2dcd184125494cf2e043f">&#9670;&#160;</a></span>CreateRevolvedSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::NurbsSurface::CreateRevolvedSurface </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>origin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>rad</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>profile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page346 Algorithm A8.1 Create a revolved surface. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l01479">1479</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Intersection_8cpp_source.html#l00018">LNLib::Intersection::ComputeRays()</a>, <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="XYZ_8cpp_source.html#l00161">LNLib::XYZ::CrossProduct()</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="LNEnums_8h_source.html#l00017">LNLib::Intersecting</a>, <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00035">LNLib::MathUtils::IsGreaterThan()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00056">LNLib::MathUtils::IsLessThanOrEqual()</a>, <a class="el" href="XYZ_8cpp_source.html#l00085">LNLib::XYZ::IsZero()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="XYZ_8cpp_source.html#l00102">LNLib::XYZ::Length()</a>, <a class="el" href="XYZ_8cpp_source.html#l00127">LNLib::XYZ::Normalize()</a>, <a class="el" href="Constants_8h_source.html#l00027">LNLib::Constants::Pi</a>, <a class="el" href="Projection_8cpp_source.html#l00015">LNLib::Projection::PointToRay()</a>, <a class="el" href="XYZW_8cpp_source.html#l00097">LNLib::XYZW::ToXYZ()</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+</div>
+</div>
+<a id="a87c586fefc6c753b147208266a1564b3" name="a87c586fefc6c753b147208266a1564b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87c586fefc6c753b147208266a1564b3">&#9670;&#160;</a></span>CreateRuledSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::CreateRuledSurface </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>curve0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>curve1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page337 Create a ruled surface. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l01396">1396</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00902">LNLib::NurbsCurve::ElevateDegree()</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00072">LNLib::KnotVectorUtils::GetInsertedKnotElement()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00592">LNLib::NurbsCurve::RefineKnotVector()</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02708">CreateCoonsSurface()</a>.</p>
+
+</div>
+</div>
+<a id="a49035b1fc4a687c17ea9f52cc8a21cdd" name="a49035b1fc4a687c17ea9f52cc8a21cdd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49035b1fc4a687c17ea9f52cc8a21cdd">&#9670;&#160;</a></span>CreateSweepSurface() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::CreateSweepSurface </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>profile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>trajectory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>minimumProfiles</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>customTrajectoryDegree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page477 Algorithm A10.2 Create sweep surface by trajectory not interpolated. Profile must lie on XOY plane. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l02409">2409</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="NurbsCurve_8cpp_source.html#l03732">LNLib::NurbsCurve::ApproximateLength()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00287">LNLib::NurbsCurve::ComputeRationalCurveDerivatives()</a>, <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02194">CreateLoftSurface()</a>, <a class="el" href="XYZ_8cpp_source.html#l00161">LNLib::XYZ::CrossProduct()</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="Polynomials_8cpp_source.html#l00125">LNLib::Polynomials::GetKnotSpanIndex()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03844">LNLib::NurbsCurve::GetParamsOnCurve()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00281">LNLib::NurbsCurve::GetPointOnCurve()</a>, <a class="el" href="XYZW_8cpp_source.html#l00055">LNLib::XYZW::GetW()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="XYZ_8cpp_source.html#l00127">LNLib::XYZ::Normalize()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00261">LNLib::Matrix4d::OfPoint()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00388">LNLib::NurbsCurve::ProjectNormal()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01425">LNLib::NurbsCurve::Reparametrize()</a> , 以及 <a class="el" href="XYZW_8cpp_source.html#l00097">LNLib::XYZW::ToXYZ()</a>.</p>
+
+</div>
+</div>
+<a id="adc43cbf4ffc4dff33abf030563781261" name="adc43cbf4ffc4dff33abf030563781261"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc43cbf4ffc4dff33abf030563781261">&#9670;&#160;</a></span>CreateSweepSurface() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::CreateSweepSurface </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>profile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>trajectory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>minimumProfiles</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page475 Algorithm A10.1 Create sweep surface by trajectory interpolated. Profile must lie on XOY plane. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l02325">2325</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="NurbsCurve_8cpp_source.html#l00287">LNLib::NurbsCurve::ComputeRationalCurveDerivatives()</a>, <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02194">CreateLoftSurface()</a>, <a class="el" href="XYZ_8cpp_source.html#l00161">LNLib::XYZ::CrossProduct()</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00188">LNLib::KnotVectorUtils::GetInsertedKnotElements()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00125">LNLib::Polynomials::GetKnotSpanIndex()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00281">LNLib::NurbsCurve::GetPointOnCurve()</a>, <a class="el" href="XYZW_8cpp_source.html#l00055">LNLib::XYZW::GetW()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="XYZ_8cpp_source.html#l00127">LNLib::XYZ::Normalize()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00261">LNLib::Matrix4d::OfPoint()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00388">LNLib::NurbsCurve::ProjectNormal()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00592">LNLib::NurbsCurve::RefineKnotVector()</a> , 以及 <a class="el" href="XYZW_8cpp_source.html#l00097">LNLib::XYZW::ToXYZ()</a>.</p>
+
+</div>
+</div>
+<a id="a7984000a154886e953d6505c05325e72" name="a7984000a154886e953d6505c05325e72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7984000a154886e953d6505c05325e72">&#9670;&#160;</a></span>CreateSwungSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::NurbsSurface::CreateSwungSurface </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>profile</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>trajectory</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>scale</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page456 Create swung surface. The profile curve lie on the xz-plane and trajectory curve along its y-axis. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l02094">2094</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="NurbsCurve_8cpp_source.html#l00287">LNLib::NurbsCurve::ComputeRationalCurveDerivatives()</a>, <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00158">LNLib::Matrix4d::CreateTranslation()</a>, <a class="el" href="XYZ_8cpp_source.html#l00161">LNLib::XYZ::CrossProduct()</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00281">LNLib::NurbsCurve::GetPointOnCurve()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01996">LNLib::NurbsCurve::GlobalInterpolation()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00234">LNLib::Matrix4d::Multiply()</a>, <a class="el" href="XYZ_8cpp_source.html#l00127">LNLib::XYZ::Normalize()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00272">LNLib::Matrix4d::OfWeightedPoint()</a>.</p>
+
+</div>
+</div>
+<a id="a60b134f31fa91410c1e0facb9c82940e" name="a60b134f31fa91410c1e0facb9c82940e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a60b134f31fa91410c1e0facb9c82940e">&#9670;&#160;</a></span>Curvature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::NurbsSurface::Curvature </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34">SurfaceCurvature</a></td>          <td class="paramname"><span class="paramname"><em>curvature</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1UV.html">UV</a></td>          <td class="paramname"><span class="paramname"><em>uv</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00199">199</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNEnums_8h_source.html#l00049">LNLib::Abs</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00120">ComputeRationalSurfaceDerivatives()</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="XYZ_8cpp_source.html#l00156">LNLib::XYZ::DotProduct()</a>, <a class="el" href="LNEnums_8h_source.html#l00047">LNLib::Gauss</a>, <a class="el" href="UV_8cpp_source.html#l00037">LNLib::UV::GetU()</a>, <a class="el" href="UV_8cpp_source.html#l00045">LNLib::UV::GetV()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="LNEnums_8h_source.html#l00045">LNLib::Maximum</a>, <a class="el" href="LNEnums_8h_source.html#l00048">LNLib::Mean</a>, <a class="el" href="LNEnums_8h_source.html#l00046">LNLib::Minimum</a>, <a class="el" href="LNEnums_8h_source.html#l00032">LNLib::Normal</a>, <a class="el" href="LNEnums_8h_source.html#l00050">LNLib::Rms</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l03149">Triangulate()</a>.</p>
+
+</div>
+</div>
+<a id="a9538e6d1f4259be6726c4c7eeaf51abf" name="a9538e6d1f4259be6726c4c7eeaf51abf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9538e6d1f4259be6726c4c7eeaf51abf">&#9670;&#160;</a></span>DecomposeToBeziers()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LNLib::LN_NurbsSurface</a> &gt; LNLib::NurbsSurface::DecomposeToBeziers </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page177 Algorithm A5.7 Decompose surface into Bezier patches. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00580">580</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="MathUtils_8cpp_source.html#l00056">LNLib::MathUtils::IsLessThanOrEqual()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a> , 以及 <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">ApproximateArea()</a>.</p>
+
+</div>
+</div>
+<a id="a2ec502e7eaff5b249db591604d5118d0" name="a2ec502e7eaff5b249db591604d5118d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ec502e7eaff5b249db591604d5118d0">&#9670;&#160;</a></span>ElevateDegree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::ElevateDegree </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>times</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isUDirection</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page209 Algorithm A5.10 Degree elevate a surface t times. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00847">847</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00902">LNLib::NurbsCurve::ElevateDegree()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="MathUtils_8h_source.html#l00060">LNLib::MathUtils::Transpose()</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02708">CreateCoonsSurface()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l02459">CreateGordonSurface()</a>.</p>
+
+</div>
+</div>
+<a id="a51bbcea2054a45b98c8dfe7215ac96ee" name="a51bbcea2054a45b98c8dfe7215ac96ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51bbcea2054a45b98c8dfe7215ac96ee">&#9670;&#160;</a></span>EquallyTessellate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::EquallyTessellate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>tessellatedPoints</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classLNLib_1_1UV.html">UV</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>correspondingKnots</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page232 Equally spaced parameter values on each candidate span. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00979">979</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00114">GetPointOnSurface()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a> , 以及 <a class="el" href="XYZW_8cpp_source.html#l00097">LNLib::XYZW::ToXYZ()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l01078">GetParamOnSurface()</a>.</p>
+
+</div>
+</div>
+<a id="abc683835adbabab7318ef892bf8f7b81" name="abc683835adbabab7318ef892bf8f7b81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc683835adbabab7318ef892bf8f7b81">&#9670;&#160;</a></span>GetParamOnSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">LNLib::UV</a> LNLib::NurbsSurface::GetParamOnSurface </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>givenPoint</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page232 Point inversion:finding the corresponding parameter make S(u,v) = P. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l01078">1078</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="NurbsSurface_8cpp_source.html#l00120">ComputeRationalSurfaceDerivatives()</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="Constants_8h_source.html#l00024">LNLib::Constants::DistanceEpsilon</a>, <a class="el" href="XYZ_8cpp_source.html#l00156">LNLib::XYZ::DotProduct()</a>, <a class="el" href="Constants_8h_source.html#l00023">LNLib::Constants::DoubleEpsilon</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00979">EquallyTessellate()</a>, <a class="el" href="UV_8cpp_source.html#l00037">LNLib::UV::GetU()</a>, <a class="el" href="UV_8cpp_source.html#l00045">LNLib::UV::GetV()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01035">IsClosed()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00035">LNLib::MathUtils::IsGreaterThan()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00049">LNLib::MathUtils::IsLessThan()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="XYZ_8cpp_source.html#l00102">LNLib::XYZ::Length()</a>, <a class="el" href="Constants_8h_source.html#l00026">LNLib::Constants::MaxDistance</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00127">LNLib::XYZ::Normalize()</a>.</p>
+
+</div>
+</div>
+<a id="ab192b8d5e2fb7aa7d7419496d3318d6e" name="ab192b8d5e2fb7aa7d7419496d3318d6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab192b8d5e2fb7aa7d7419496d3318d6e">&#9670;&#160;</a></span>GetPointOnSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">LNLib::XYZ</a> LNLib::NurbsSurface::GetPointOnSurface </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1UV.html">UV</a></td>          <td class="paramname"><span class="paramname"><em>uv</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page134 Algorithm A4.3 Compute point on rational B-spline surface. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00114">114</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="BsplineSurface_8h_source.html#l00055">LNLib::BsplineSurface::GetPointOnSurface()</a> , 以及 <a class="el" href="XYZW_8cpp_source.html#l00097">LNLib::XYZW::ToXYZ()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l00979">EquallyTessellate()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l03149">Triangulate()</a>.</p>
+
+</div>
+</div>
+<a id="ae95bdd5823234071f597231831532066" name="ae95bdd5823234071f597231831532066"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae95bdd5823234071f597231831532066">&#9670;&#160;</a></span>GetUVTangent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::NurbsSurface::GetUVTangent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a></td>          <td class="paramname"><span class="paramname"><em>param</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>tangent</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uvTangent</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page235 Surface Tangent Vector Inversion: finding the corresponding <a class="el" href="classLNLib_1_1UV.html" title="Represents two-dimension location/vector/offset">UV</a> tangent [du dv] make T = Su*du+Sv*dv. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l01290">1290</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="NurbsSurface_8cpp_source.html#l00120">ComputeRationalSurfaceDerivatives()</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="XYZ_8cpp_source.html#l00156">LNLib::XYZ::DotProduct()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a> , 以及 <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>.</p>
+
+</div>
+</div>
+<a id="a5c11cb23e377b932073ce8b6c16cea5e" name="a5c11cb23e377b932073ce8b6c16cea5e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c11cb23e377b932073ce8b6c16cea5e">&#9670;&#160;</a></span>GlobalApproximation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::NurbsSurface::GlobalApproximation </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>throughPoints</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degreeU</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degreeV</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>controlPointsRows</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>controlPointsColumns</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page422 Algorithm A9.7 Global surface approximation with fixed number of control points. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l02044">2044</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="MathUtils_8h_source.html#l00076">LNLib::MathUtils::GetColumn()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02246">LNLib::NurbsCurve::LeastSquaresApproximation()</a>, <a class="el" href="ControlPointsUtils_8cpp_source.html#l00019">LNLib::ControlPointsUtils::ToXYZ()</a>, <a class="el" href="ControlPointsUtils_8cpp_source.html#l00045">LNLib::ControlPointsUtils::ToXYZW()</a>, <a class="el" href="MathUtils_8h_source.html#l00060">LNLib::MathUtils::Transpose()</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+</div>
+</div>
+<a id="a8ac0276375f7207c5ac2468f98a47d42" name="a8ac0276375f7207c5ac2468f98a47d42"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ac0276375f7207c5ac2468f98a47d42">&#9670;&#160;</a></span>GlobalInterpolation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::GlobalInterpolation </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>throughPoints</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degreeU</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degreeV</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page380 Algorithm A9.4 Global surface interpolation. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l01778">1778</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Interpolation_8cpp_source.html#l00095">LNLib::Interpolation::AverageKnotVector()</a>, <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="Interpolation_8cpp_source.html#l00203">LNLib::Interpolation::GetSurfaceMeshParameterization()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01996">LNLib::NurbsCurve::GlobalInterpolation()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02459">CreateGordonSurface()</a>.</p>
+
+</div>
+</div>
+<a id="ae4c0cc4c62f62d0d36d8dcb2589a7ebe" name="ae4c0cc4c62f62d0d36d8dcb2589a7ebe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae4c0cc4c62f62d0d36d8dcb2589a7ebe">&#9670;&#160;</a></span>InsertKnot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::InsertKnot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>insertKnot</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>times</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isUDirection</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page137 Algorithm A5.3 Surface knot insertion along U or V direction. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00371">371</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="Polynomials_8cpp_source.html#l00105">LNLib::Polynomials::GetKnotMultiplicity()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00125">LNLib::Polynomials::GetKnotSpanIndex()</a>, <a class="el" href="ValidationUtils_8cpp_source.html#l00033">LNLib::ValidationUtils::IsValidNurbs()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+</div>
+</div>
+<a id="ae7d02f0bb46ff33f81934990f3058c61" name="ae7d02f0bb46ff33f81934990f3058c61"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7d02f0bb46ff33f81934990f3058c61">&#9670;&#160;</a></span>IsClosed()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::NurbsSurface::IsClosed </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isUDirection</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>[0][0] [0][1] ... ... [0][m] ----&mdash; v direction [1][0] [1][1] ... ... [1][m] | . | . u direction<br  />
+ [n][0] [n][1] ... ... [n][m] </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l01035">1035</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01217">LNLib::NurbsCurve::IsClosed()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a> , 以及 <a class="el" href="MathUtils_8h_source.html#l00060">LNLib::MathUtils::Transpose()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l01078">GetParamOnSurface()</a>.</p>
+
+</div>
+</div>
+<a id="a4ced86f8e12a782303ac840d7845ff68" name="a4ced86f8e12a782303ac840d7845ff68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ced86f8e12a782303ac840d7845ff68">&#9670;&#160;</a></span>MakeCornerFilletSurface()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::MakeCornerFilletSurface </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>arc</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page359 Algorithm A8.2 Create NURBS corner fillet surface. </p>
+<p>Curve1,2,3 are three boundary arcs and could arbitrarily positioned and oriented in space but joined at their endpoints. The parameter 'arc' represents curve2; </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l01656">1656</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00112">LNLib::XYZ::AngleTo()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00565">LNLib::Polynomials::BezierToPowerMatrix()</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="XYZ_8cpp_source.html#l00168">LNLib::XYZ::Distance()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00281">LNLib::NurbsCurve::GetPointOnCurve()</a>, <a class="el" href="XYZW_8cpp_source.html#l00055">LNLib::XYZW::GetW()</a>, <a class="el" href="XYZW_8cpp_source.html#l00043">LNLib::XYZW::GetWX()</a>, <a class="el" href="XYZW_8cpp_source.html#l00045">LNLib::XYZW::GetWY()</a>, <a class="el" href="XYZ_8cpp_source.html#l00038">LNLib::XYZ::GetX()</a>, <a class="el" href="XYZ_8cpp_source.html#l00046">LNLib::XYZ::GetY()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00173">LNLib::MathUtils::MakeInverse()</a>, <a class="el" href="ControlPointsUtils_8cpp_source.html#l00061">LNLib::ControlPointsUtils::Multiply()</a>, <a class="el" href="Projection_8cpp_source.html#l00022">LNLib::Projection::PointToLine()</a>, <a class="el" href="Projection_8cpp_source.html#l00039">LNLib::Projection::Stereographic()</a> , 以及 <a class="el" href="MathUtils_8h_source.html#l00060">LNLib::MathUtils::Transpose()</a>.</p>
+
+</div>
+</div>
+<a id="a072d0d647cb3a269d028a3e1854f86e0" name="a072d0d647cb3a269d028a3e1854f86e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a072d0d647cb3a269d028a3e1854f86e0">&#9670;&#160;</a></span>NonUniformScaling()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZW.html">LNLib::XYZW</a> &gt; &gt; LNLib::NurbsSurface::NonUniformScaling </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>controlPoints</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>xFactor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>yFactor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>zFactor</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>referencePoint</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page348 Nonuniform scaling of surface. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l01607">1607</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZW_8cpp_source.html#l00055">LNLib::XYZW::GetW()</a>, <a class="el" href="XYZW_8cpp_source.html#l00043">LNLib::XYZW::GetWX()</a>, <a class="el" href="XYZW_8cpp_source.html#l00045">LNLib::XYZW::GetWY()</a>, <a class="el" href="XYZW_8cpp_source.html#l00047">LNLib::XYZW::GetWZ()</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00095">LNLib::XYZ::IsAlmostEqualTo()</a>.</p>
+
+</div>
+</div>
+<a id="a0fd2b94f65d58371b66c889d78da169e" name="a0fd2b94f65d58371b66c889d78da169e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fd2b94f65d58371b66c889d78da169e">&#9670;&#160;</a></span>Normal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">LNLib::XYZ</a> LNLib::NurbsSurface::Normal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1UV.html">UV</a></td>          <td class="paramname"><span class="paramname"><em>uv</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00265">265</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="NurbsSurface_8cpp_source.html#l00120">ComputeRationalSurfaceDerivatives()</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="UV_8cpp_source.html#l00037">LNLib::UV::GetU()</a>, <a class="el" href="UV_8cpp_source.html#l00045">LNLib::UV::GetV()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+</div>
+</div>
+<a id="a7a9e7a726f52d682af231145e2d8ab0d" name="a7a9e7a726f52d682af231145e2d8ab0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7a9e7a726f52d682af231145e2d8ab0d">&#9670;&#160;</a></span>ReduceDegree()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::NurbsSurface::ReduceDegree </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isUDirection</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page227 Degree reduce U or V Direction Bezier-shape nurbs curve from degree to degree - 1. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00909">909</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01119">LNLib::NurbsCurve::ReduceDegree()</a> , 以及 <a class="el" href="MathUtils_8h_source.html#l00060">LNLib::MathUtils::Transpose()</a>.</p>
+
+</div>
+</div>
+<a id="a5c4ffae2f300a6bbe80b1476f888d1a1" name="a5c4ffae2f300a6bbe80b1476f888d1a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c4ffae2f300a6bbe80b1476f888d1a1">&#9670;&#160;</a></span>RefineKnotVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::RefineKnotVector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>insertKnotElements</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isUDirection</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page167 Algorithm A5.5 Refine surface knot vector. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00522">522</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00592">LNLib::NurbsCurve::RefineKnotVector()</a>, <a class="el" href="MathUtils_8h_source.html#l00060">LNLib::MathUtils::Transpose()</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02708">CreateCoonsSurface()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l02459">CreateGordonSurface()</a>.</p>
+
+</div>
+</div>
+<a id="aea92ce33c35e7dfe55aff7983779eb7b" name="aea92ce33c35e7dfe55aff7983779eb7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aea92ce33c35e7dfe55aff7983779eb7b">&#9670;&#160;</a></span>RemoveKnot()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::RemoveKnot </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>removeKnot</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>times</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isUDirection</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page186 Surface knot removal. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00780">780</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00749">LNLib::NurbsCurve::RemoveKnot()</a>, <a class="el" href="MathUtils_8h_source.html#l00060">LNLib::MathUtils::Transpose()</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+</div>
+</div>
+<a id="a3e4433db0a80d09ac79cb07cc20e1be6" name="a3e4433db0a80d09ac79cb07cc20e1be6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e4433db0a80d09ac79cb07cc20e1be6">&#9670;&#160;</a></span>Reparametrize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::Reparametrize </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>minU</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>maxU</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>minV</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>maxV</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l01270">1270</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a> , 以及 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00057">LNLib::KnotVectorUtils::Rescale()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">ApproximateArea()</a>.</p>
+
+</div>
+</div>
+<a id="a047b59e319853e8eed24612816276cb4" name="a047b59e319853e8eed24612816276cb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a047b59e319853e8eed24612816276cb4">&#9670;&#160;</a></span>Reverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::Reverse </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8">SurfaceDirection</a></td>          <td class="paramname"><span class="paramname"><em>direction</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Reverse surface U or V direction. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00297">297</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNEnums_8h_source.html#l00038">LNLib::All</a>, <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="LNEnums_8h_source.html#l00039">LNLib::UDirection</a> , 以及 <a class="el" href="LNEnums_8h_source.html#l00040">LNLib::VDirection</a>.</p>
+
+</div>
+</div>
+<a id="ad5749714f0c77809be3fff7ab3e267fc" name="ad5749714f0c77809be3fff7ab3e267fc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5749714f0c77809be3fff7ab3e267fc">&#9670;&#160;</a></span>Swap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::NurbsSurface::Swap </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Swap surface <a class="el" href="classLNLib_1_1UV.html" title="Represents two-dimension location/vector/offset">UV</a>. </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00280">280</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a> , 以及 <a class="el" href="MathUtils_8h_source.html#l00060">LNLib::MathUtils::Transpose()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02708">CreateCoonsSurface()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l02459">CreateGordonSurface()</a>.</p>
+
+</div>
+</div>
+<a id="a67b959e219cb28d3fe619ae1bd912245" name="a67b959e219cb28d3fe619ae1bd912245"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67b959e219cb28d3fe619ae1bd912245">&#9670;&#160;</a></span>Triangulate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structLNLib_1_1LN__Mesh.html">LNLib::LN_Mesh</a> LNLib::NurbsSurface::Triangulate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Triangulate nurbs surface. According to <a href="https://github.com/nortikin/sverchok/blob/master/utils/adaptive_surface.py">https://github.com/nortikin/sverchok/blob/master/utils/adaptive_surface.py</a> </p>
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l03149">3149</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00052">LNLib::LN_BsplineSurface&lt; T &gt;::ControlPoints</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00199">Curvature()</a>, <a class="el" href="LNObject_8h_source.html#l00048">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeU</a>, <a class="el" href="LNObject_8h_source.html#l00049">LNLib::LN_BsplineSurface&lt; T &gt;::DegreeV</a>, <a class="el" href="Constants_8h_source.html#l00024">LNLib::Constants::DistanceEpsilon</a>, <a class="el" href="LNObject_8h_source.html#l00060">LNLib::LN_Mesh::Faces</a>, <a class="el" href="LNEnums_8h_source.html#l00047">LNLib::Gauss</a>, <a class="el" href="Voronoi_8cpp_source.html#l00114">LNLib::VoronoiDiagramGenerator::generateVoronoi()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00114">GetPointOnSurface()</a>, <a class="el" href="Voronoi_8cpp_source.html#l00099">LNLib::VoronoiDiagramGenerator::getTriangles()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="LNObject_8h_source.html#l00050">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorU</a>, <a class="el" href="LNObject_8h_source.html#l00051">LNLib::LN_BsplineSurface&lt; T &gt;::KnotVectorV</a>, <a class="el" href="Voronoi_8cpp_source.html#l00104">LNLib::VoronoiDiagramGenerator::setGenerateDelaunay()</a>, <a class="el" href="Voronoi_8cpp_source.html#l00109">LNLib::VoronoiDiagramGenerator::setGenerateVoronoi()</a> , 以及 <a class="el" href="LNObject_8h_source.html#l00059">LNLib::LN_Mesh::Vertices</a>.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/LNLib/include/<a class="el" href="NurbsSurface_8h_source.html">NurbsSurface.h</a></li>
+<li>src/LNLib/Geometry/Surface/<a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceLNLib.html">LNLib</a></li><li class="navelem"><a class="el" href="classLNLib_1_1NurbsSurface.html">NurbsSurface</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

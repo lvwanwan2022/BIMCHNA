@@ -1,0 +1,1028 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: LNLib::Matrix4d类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classLNLib_1_1Matrix4d.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classLNLib_1_1Matrix4d-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">LNLib::Matrix4d类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>4 * 4 Matrix for model transformation, such as T(x) = M * x <a class="el" href="classLNLib_1_1Matrix4d.html" title="4 * 4 Matrix for model transformation, such as T(x) = M * x Matrix4d : [x y z w]">Matrix4d</a> : [x y z w]  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="Matrix4d_8h_source.html">Matrix4d.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a01a5f70fe1c1db58d10ce6b6696894b1" id="r_a01a5f70fe1c1db58d10ce6b6696894b1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a01a5f70fe1c1db58d10ce6b6696894b1">Matrix4d</a> ()</td></tr>
+<tr class="separator:a01a5f70fe1c1db58d10ce6b6696894b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa535127083da70138a8c0a93fd7d51d7" id="r_aa535127083da70138a8c0a93fd7d51d7"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa535127083da70138a8c0a93fd7d51d7">Matrix4d</a> (<a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> basisX, <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> basisY, <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> basisZ, <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> origin)</td></tr>
+<tr class="separator:aa535127083da70138a8c0a93fd7d51d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30a293ad3931ecf4b27d9b17da25e05a" id="r_a30a293ad3931ecf4b27d9b17da25e05a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a30a293ad3931ecf4b27d9b17da25e05a">Matrix4d</a> (double a00, double a01, double a02, double a03, double a10, double a11, double a12, double a13, double a20, double a21, double a22, double a23, double a30, double a31, double a32, double a33)</td></tr>
+<tr class="separator:a30a293ad3931ecf4b27d9b17da25e05a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab87da1d4eebc2f88e41ce4d5b3dcb82d" id="r_ab87da1d4eebc2f88e41ce4d5b3dcb82d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab87da1d4eebc2f88e41ce4d5b3dcb82d">SetBasisX</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;basisX)</td></tr>
+<tr class="separator:ab87da1d4eebc2f88e41ce4d5b3dcb82d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06ff3a1b139e6d3dc142a197ff478c7c" id="r_a06ff3a1b139e6d3dc142a197ff478c7c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06ff3a1b139e6d3dc142a197ff478c7c">GetBasisX</a> () const</td></tr>
+<tr class="separator:a06ff3a1b139e6d3dc142a197ff478c7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e36878ad9cb0395b552fac317207331" id="r_a4e36878ad9cb0395b552fac317207331"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4e36878ad9cb0395b552fac317207331">SetBasisY</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;basisY)</td></tr>
+<tr class="separator:a4e36878ad9cb0395b552fac317207331"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05dde2bda4c62f2f1e98f9f0fad4c7a3" id="r_a05dde2bda4c62f2f1e98f9f0fad4c7a3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05dde2bda4c62f2f1e98f9f0fad4c7a3">GetBasisY</a> () const</td></tr>
+<tr class="separator:a05dde2bda4c62f2f1e98f9f0fad4c7a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef2e62487b802b9e2716086f37752131" id="r_aef2e62487b802b9e2716086f37752131"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef2e62487b802b9e2716086f37752131">SetBasisZ</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;basisZ)</td></tr>
+<tr class="separator:aef2e62487b802b9e2716086f37752131"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3c7efa25b2917f3b702606ef55d9c4dc" id="r_a3c7efa25b2917f3b702606ef55d9c4dc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3c7efa25b2917f3b702606ef55d9c4dc">GetBasisZ</a> () const</td></tr>
+<tr class="separator:a3c7efa25b2917f3b702606ef55d9c4dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adf74a5d6c767d5ed55d0f7d213bda031" id="r_adf74a5d6c767d5ed55d0f7d213bda031"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adf74a5d6c767d5ed55d0f7d213bda031">SetBasisW</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;basisW)</td></tr>
+<tr class="separator:adf74a5d6c767d5ed55d0f7d213bda031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ae0fe42885d852a35053b094039e2fe" id="r_a6ae0fe42885d852a35053b094039e2fe"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ae0fe42885d852a35053b094039e2fe">GetBasisW</a> () const</td></tr>
+<tr class="separator:a6ae0fe42885d852a35053b094039e2fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa880c799088794654cd8b00a71e2322c" id="r_aa880c799088794654cd8b00a71e2322c"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa880c799088794654cd8b00a71e2322c">GetElement</a> (int row, int column) const</td></tr>
+<tr class="separator:aa880c799088794654cd8b00a71e2322c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a877a73e886e43e9f49a8ad15375c109b" id="r_a877a73e886e43e9f49a8ad15375c109b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a877a73e886e43e9f49a8ad15375c109b">SetElement</a> (int row, int column, double value)</td></tr>
+<tr class="separator:a877a73e886e43e9f49a8ad15375c109b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ece9d63d5fcf5c872b71388cbfae7d5" id="r_a3ece9d63d5fcf5c872b71388cbfae7d5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ece9d63d5fcf5c872b71388cbfae7d5">Multiply</a> (const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;right)</td></tr>
+<tr class="separator:a3ece9d63d5fcf5c872b71388cbfae7d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a449c235091c1224629880bdbb9a09611" id="r_a449c235091c1224629880bdbb9a09611"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a449c235091c1224629880bdbb9a09611">OfPoint</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;point)</td></tr>
+<tr class="separator:a449c235091c1224629880bdbb9a09611"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f40619b168c7d3fbea582a6dcabec2d" id="r_a5f40619b168c7d3fbea582a6dcabec2d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZW.html">XYZW</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f40619b168c7d3fbea582a6dcabec2d">OfWeightedPoint</a> (const <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &amp;point)</td></tr>
+<tr class="separator:a5f40619b168c7d3fbea582a6dcabec2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0b561eef2b723d90a9d183905afc266" id="r_aa0b561eef2b723d90a9d183905afc266"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa0b561eef2b723d90a9d183905afc266">OfVector</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;vector)</td></tr>
+<tr class="separator:aa0b561eef2b723d90a9d183905afc266"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab85022bd327fb520e0a0415d89b33da8" id="r_ab85022bd327fb520e0a0415d89b33da8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab85022bd327fb520e0a0415d89b33da8">GetInverse</a> (<a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;inverse)</td></tr>
+<tr class="separator:ab85022bd327fb520e0a0415d89b33da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab59b6aa7968b3d8b45602dc34122de0e" id="r_ab59b6aa7968b3d8b45602dc34122de0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab59b6aa7968b3d8b45602dc34122de0e">GetTranspose</a> ()</td></tr>
+<tr class="separator:ab59b6aa7968b3d8b45602dc34122de0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae67249ece33a1327a20585cbe5ebc3f1" id="r_ae67249ece33a1327a20585cbe5ebc3f1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae67249ece33a1327a20585cbe5ebc3f1">GetScale</a> ()</td></tr>
+<tr class="separator:ae67249ece33a1327a20585cbe5ebc3f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae83792069671b80356dba1331e5e47bf" id="r_ae83792069671b80356dba1331e5e47bf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae83792069671b80356dba1331e5e47bf">GetDeterminant</a> ()</td></tr>
+<tr class="separator:ae83792069671b80356dba1331e5e47bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c6efbed2e48443c17833d87ebadfa57" id="r_a8c6efbed2e48443c17833d87ebadfa57"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c6efbed2e48443c17833d87ebadfa57">IsIdentity</a> ()</td></tr>
+<tr class="separator:a8c6efbed2e48443c17833d87ebadfa57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4076fa7b77162fd45bd1b43faa56d2c" id="r_aa4076fa7b77162fd45bd1b43faa56d2c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa4076fa7b77162fd45bd1b43faa56d2c">HasReflection</a> ()</td></tr>
+<tr class="separator:aa4076fa7b77162fd45bd1b43faa56d2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0c583f35c3bab380661d928b4fe2056" id="r_ab0c583f35c3bab380661d928b4fe2056"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0c583f35c3bab380661d928b4fe2056">IsTranslation</a> ()</td></tr>
+<tr class="separator:ab0c583f35c3bab380661d928b4fe2056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3bfbe43c11382486d9d167ded0a1a50d" id="r_a3bfbe43c11382486d9d167ded0a1a50d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3bfbe43c11382486d9d167ded0a1a50d">operator=</a> (const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;another)</td></tr>
+<tr class="separator:a3bfbe43c11382486d9d167ded0a1a50d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a3d6130261195f89cca26cacbd4be2983" id="r_a3d6130261195f89cca26cacbd4be2983"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d6130261195f89cca26cacbd4be2983">CreateReflection</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;normal, double distanceFromOrigin)</td></tr>
+<tr class="separator:a3d6130261195f89cca26cacbd4be2983"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aad65bd94822048625a04b08d635ca2f6" id="r_aad65bd94822048625a04b08d635ca2f6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aad65bd94822048625a04b08d635ca2f6">CreateReflection</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;normal)</td></tr>
+<tr class="separator:aad65bd94822048625a04b08d635ca2f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2c9413b9b3dc2483704b12664183c43" id="r_aa2c9413b9b3dc2483704b12664183c43"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa2c9413b9b3dc2483704b12664183c43">CreateRotation</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;axis, double rad)</td></tr>
+<tr class="separator:aa2c9413b9b3dc2483704b12664183c43"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ebfb28eb80ab0c8d920fbc817a569d6" id="r_a8ebfb28eb80ab0c8d920fbc817a569d6"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ebfb28eb80ab0c8d920fbc817a569d6">CreateRotationAtPoint</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;origin, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;axis, double rad)</td></tr>
+<tr class="separator:a8ebfb28eb80ab0c8d920fbc817a569d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52f02cf0096ed7fe9a9a3646c1cac57a" id="r_a52f02cf0096ed7fe9a9a3646c1cac57a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52f02cf0096ed7fe9a9a3646c1cac57a">CreateTranslation</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;vector)</td></tr>
+<tr class="separator:a52f02cf0096ed7fe9a9a3646c1cac57a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1cb06fa4057733901860b50ad9dffac" id="r_aa1cb06fa4057733901860b50ad9dffac"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1cb06fa4057733901860b50ad9dffac">CreateScale</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;scale)</td></tr>
+<tr class="separator:aa1cb06fa4057733901860b50ad9dffac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>4 * 4 Matrix for model transformation, such as T(x) = M * x <a class="el" href="classLNLib_1_1Matrix4d.html" title="4 * 4 Matrix for model transformation, such as T(x) = M * x Matrix4d : [x y z w]">Matrix4d</a> : [x y z w] </p>
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8h_source.html">Matrix4d.h</a> 第 <a class="el" href="Matrix4d_8h_source.html#l00022">22</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a01a5f70fe1c1db58d10ce6b6696894b1" name="a01a5f70fe1c1db58d10ce6b6696894b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a01a5f70fe1c1db58d10ce6b6696894b1">&#9670;&#160;</a></span>Matrix4d() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LNLib::Matrix4d::Matrix4d </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00021">21</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Matrix4d_8cpp_source.html#l00107">CreateReflection()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00076">CreateReflection()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00112">CreateRotation()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00146">CreateRotationAtPoint()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00167">CreateScale()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00158">CreateTranslation()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00295">GetInverse()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00322">GetTranspose()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00234">Multiply()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00401">operator=()</a>.</p>
+
+</div>
+</div>
+<a id="aa535127083da70138a8c0a93fd7d51d7" name="aa535127083da70138a8c0a93fd7d51d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa535127083da70138a8c0a93fd7d51d7">&#9670;&#160;</a></span>Matrix4d() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LNLib::Matrix4d::Matrix4d </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a></td>          <td class="paramname"><span class="paramname"><em>basisX</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a></td>          <td class="paramname"><span class="paramname"><em>basisY</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a></td>          <td class="paramname"><span class="paramname"><em>basisZ</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a></td>          <td class="paramname"><span class="paramname"><em>origin</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00030">30</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a30a293ad3931ecf4b27d9b17da25e05a" name="a30a293ad3931ecf4b27d9b17da25e05a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30a293ad3931ecf4b27d9b17da25e05a">&#9670;&#160;</a></span>Matrix4d() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LNLib::Matrix4d::Matrix4d </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a00</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a01</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a02</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a03</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a10</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a11</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a12</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a13</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a20</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a21</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a22</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a23</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a30</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a31</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a32</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>a33</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00053">53</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="aad65bd94822048625a04b08d635ca2f6" name="aad65bd94822048625a04b08d635ca2f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad65bd94822048625a04b08d635ca2f6">&#9670;&#160;</a></span>CreateReflection() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> LNLib::Matrix4d::CreateReflection </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>normal</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00107">107</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Matrix4d_8cpp_source.html#l00076">CreateReflection()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00021">Matrix4d()</a>.</p>
+
+</div>
+</div>
+<a id="a3d6130261195f89cca26cacbd4be2983" name="a3d6130261195f89cca26cacbd4be2983"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d6130261195f89cca26cacbd4be2983">&#9670;&#160;</a></span>CreateReflection() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> LNLib::Matrix4d::CreateReflection </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>normal</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>distanceFromOrigin</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00076">76</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Matrix4d_8cpp_source.html#l00021">Matrix4d()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Matrix4d_8cpp_source.html#l00107">CreateReflection()</a>.</p>
+
+</div>
+</div>
+<a id="aa2c9413b9b3dc2483704b12664183c43" name="aa2c9413b9b3dc2483704b12664183c43"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2c9413b9b3dc2483704b12664183c43">&#9670;&#160;</a></span>CreateRotation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> LNLib::Matrix4d::CreateRotation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>rad</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00112">112</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00038">LNLib::XYZ::GetX()</a>, <a class="el" href="XYZ_8cpp_source.html#l00046">LNLib::XYZ::GetY()</a>, <a class="el" href="XYZ_8cpp_source.html#l00053">LNLib::XYZ::GetZ()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00021">Matrix4d()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Matrix4d_8cpp_source.html#l00146">CreateRotationAtPoint()</a>.</p>
+
+</div>
+</div>
+<a id="a8ebfb28eb80ab0c8d920fbc817a569d6" name="a8ebfb28eb80ab0c8d920fbc817a569d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ebfb28eb80ab0c8d920fbc817a569d6">&#9670;&#160;</a></span>CreateRotationAtPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> LNLib::Matrix4d::CreateRotationAtPoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>origin</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>axis</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>rad</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00146">146</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Matrix4d_8cpp_source.html#l00112">CreateRotation()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00224">GetElement()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00021">Matrix4d()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00212">SetBasisW()</a>.</p>
+
+</div>
+</div>
+<a id="aa1cb06fa4057733901860b50ad9dffac" name="aa1cb06fa4057733901860b50ad9dffac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1cb06fa4057733901860b50ad9dffac">&#9670;&#160;</a></span>CreateScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> LNLib::Matrix4d::CreateScale </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>scale</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00167">167</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Matrix4d_8cpp_source.html#l00021">Matrix4d()</a>.</p>
+
+</div>
+</div>
+<a id="a52f02cf0096ed7fe9a9a3646c1cac57a" name="a52f02cf0096ed7fe9a9a3646c1cac57a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52f02cf0096ed7fe9a9a3646c1cac57a">&#9670;&#160;</a></span>CreateTranslation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> LNLib::Matrix4d::CreateTranslation </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vector</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00158">158</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Matrix4d_8cpp_source.html#l00021">Matrix4d()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02094">LNLib::NurbsSurface::CreateSwungSurface()</a>.</p>
+
+</div>
+</div>
+<a id="a6ae0fe42885d852a35053b094039e2fe" name="a6ae0fe42885d852a35053b094039e2fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ae0fe42885d852a35053b094039e2fe">&#9670;&#160;</a></span>GetBasisW()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::Matrix4d::GetBasisW </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00219">219</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a06ff3a1b139e6d3dc142a197ff478c7c" name="a06ff3a1b139e6d3dc142a197ff478c7c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06ff3a1b139e6d3dc142a197ff478c7c">&#9670;&#160;</a></span>GetBasisX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::Matrix4d::GetBasisX </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00183">183</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Matrix4d_8cpp_source.html#l00330">GetScale()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00378">HasReflection()</a>.</p>
+
+</div>
+</div>
+<a id="a05dde2bda4c62f2f1e98f9f0fad4c7a3" name="a05dde2bda4c62f2f1e98f9f0fad4c7a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05dde2bda4c62f2f1e98f9f0fad4c7a3">&#9670;&#160;</a></span>GetBasisY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::Matrix4d::GetBasisY </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00195">195</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Matrix4d_8cpp_source.html#l00330">GetScale()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00378">HasReflection()</a>.</p>
+
+</div>
+</div>
+<a id="a3c7efa25b2917f3b702606ef55d9c4dc" name="a3c7efa25b2917f3b702606ef55d9c4dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3c7efa25b2917f3b702606ef55d9c4dc">&#9670;&#160;</a></span>GetBasisZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::Matrix4d::GetBasisZ </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00207">207</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Matrix4d_8cpp_source.html#l00330">GetScale()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00378">HasReflection()</a>.</p>
+
+</div>
+</div>
+<a id="ae83792069671b80356dba1331e5e47bf" name="ae83792069671b80356dba1331e5e47bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae83792069671b80356dba1331e5e47bf">&#9670;&#160;</a></span>GetDeterminant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::Matrix4d::GetDeterminant </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00335">335</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00163">LNLib::MathUtils::GetDeterminant()</a>.</p>
+
+</div>
+</div>
+<a id="aa880c799088794654cd8b00a71e2322c" name="aa880c799088794654cd8b00a71e2322c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa880c799088794654cd8b00a71e2322c">&#9670;&#160;</a></span>GetElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::Matrix4d::GetElement </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>column</em></span>&#160;) const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00224">224</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Matrix4d_8cpp_source.html#l00146">CreateRotationAtPoint()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00414">LNLib::operator+()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00427">LNLib::operator-()</a>.</p>
+
+</div>
+</div>
+<a id="ab85022bd327fb520e0a0415d89b33da8" name="ab85022bd327fb520e0a0415d89b33da8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab85022bd327fb520e0a0415d89b33da8">&#9670;&#160;</a></span>GetInverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::Matrix4d::GetInverse </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>inverse</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00295">295</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00173">LNLib::MathUtils::MakeInverse()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00021">Matrix4d()</a>.</p>
+
+</div>
+</div>
+<a id="ae67249ece33a1327a20585cbe5ebc3f1" name="ae67249ece33a1327a20585cbe5ebc3f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae67249ece33a1327a20585cbe5ebc3f1">&#9670;&#160;</a></span>GetScale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::Matrix4d::GetScale </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00330">330</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Matrix4d_8cpp_source.html#l00183">GetBasisX()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00195">GetBasisY()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00207">GetBasisZ()</a>.</p>
+
+</div>
+</div>
+<a id="ab59b6aa7968b3d8b45602dc34122de0e" name="ab59b6aa7968b3d8b45602dc34122de0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab59b6aa7968b3d8b45602dc34122de0e">&#9670;&#160;</a></span>GetTranspose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> LNLib::Matrix4d::GetTranspose </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00322">322</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Matrix4d_8cpp_source.html#l00021">Matrix4d()</a>.</p>
+
+</div>
+</div>
+<a id="aa4076fa7b77162fd45bd1b43faa56d2c" name="aa4076fa7b77162fd45bd1b43faa56d2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4076fa7b77162fd45bd1b43faa56d2c">&#9670;&#160;</a></span>HasReflection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::Matrix4d::HasReflection </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00378">378</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00156">LNLib::XYZ::DotProduct()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00183">GetBasisX()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00195">GetBasisY()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00207">GetBasisZ()</a> , 以及 <a class="el" href="MathUtils_8cpp_source.html#l00049">LNLib::MathUtils::IsLessThan()</a>.</p>
+
+</div>
+</div>
+<a id="a8c6efbed2e48443c17833d87ebadfa57" name="a8c6efbed2e48443c17833d87ebadfa57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c6efbed2e48443c17833d87ebadfa57">&#9670;&#160;</a></span>IsIdentity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::Matrix4d::IsIdentity </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00348">348</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>.</p>
+
+</div>
+</div>
+<a id="ab0c583f35c3bab380661d928b4fe2056" name="ab0c583f35c3bab380661d928b4fe2056"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0c583f35c3bab380661d928b4fe2056">&#9670;&#160;</a></span>IsTranslation()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::Matrix4d::IsTranslation </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00385">385</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>.</p>
+
+</div>
+</div>
+<a id="a3ece9d63d5fcf5c872b71388cbfae7d5" name="a3ece9d63d5fcf5c872b71388cbfae7d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ece9d63d5fcf5c872b71388cbfae7d5">&#9670;&#160;</a></span>Multiply()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> LNLib::Matrix4d::Multiply </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00234">234</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Matrix4d_8cpp_source.html#l00021">Matrix4d()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02094">LNLib::NurbsSurface::CreateSwungSurface()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00407">LNLib::operator*()</a>.</p>
+
+</div>
+</div>
+<a id="a449c235091c1224629880bdbb9a09611" name="a449c235091c1224629880bdbb9a09611"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a449c235091c1224629880bdbb9a09611">&#9670;&#160;</a></span>OfPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::Matrix4d::OfPoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00261">261</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02409">LNLib::NurbsSurface::CreateSweepSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02325">LNLib::NurbsSurface::CreateSweepSurface()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00272">OfWeightedPoint()</a>.</p>
+
+</div>
+</div>
+<a id="aa0b561eef2b723d90a9d183905afc266" name="aa0b561eef2b723d90a9d183905afc266"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0b561eef2b723d90a9d183905afc266">&#9670;&#160;</a></span>OfVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::Matrix4d::OfVector </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>vector</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00286">286</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a5f40619b168c7d3fbea582a6dcabec2d" name="a5f40619b168c7d3fbea582a6dcabec2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f40619b168c7d3fbea582a6dcabec2d">&#9670;&#160;</a></span>OfWeightedPoint()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> LNLib::Matrix4d::OfWeightedPoint </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>point</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00272">272</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZW_8cpp_source.html#l00055">LNLib::XYZW::GetW()</a>, <a class="el" href="XYZW_8cpp_source.html#l00043">LNLib::XYZW::GetWX()</a>, <a class="el" href="XYZW_8cpp_source.html#l00045">LNLib::XYZW::GetWY()</a>, <a class="el" href="XYZW_8cpp_source.html#l00047">LNLib::XYZW::GetWZ()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00261">OfPoint()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02094">LNLib::NurbsSurface::CreateSwungSurface()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l01374">LNLib::NurbsCurve::CreateTransformed()</a>.</p>
+
+</div>
+</div>
+<a id="a3bfbe43c11382486d9d167ded0a1a50d" name="a3bfbe43c11382486d9d167ded0a1a50d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3bfbe43c11382486d9d167ded0a1a50d">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp; LNLib::Matrix4d::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00401">401</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Matrix4d_8cpp_source.html#l00021">Matrix4d()</a>.</p>
+
+</div>
+</div>
+<a id="adf74a5d6c767d5ed55d0f7d213bda031" name="adf74a5d6c767d5ed55d0f7d213bda031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adf74a5d6c767d5ed55d0f7d213bda031">&#9670;&#160;</a></span>SetBasisW()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::Matrix4d::SetBasisW </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>basisW</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00212">212</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Matrix4d_8cpp_source.html#l00146">CreateRotationAtPoint()</a>.</p>
+
+</div>
+</div>
+<a id="ab87da1d4eebc2f88e41ce4d5b3dcb82d" name="ab87da1d4eebc2f88e41ce4d5b3dcb82d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab87da1d4eebc2f88e41ce4d5b3dcb82d">&#9670;&#160;</a></span>SetBasisX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::Matrix4d::SetBasisX </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>basisX</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00176">176</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a4e36878ad9cb0395b552fac317207331" name="a4e36878ad9cb0395b552fac317207331"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e36878ad9cb0395b552fac317207331">&#9670;&#160;</a></span>SetBasisY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::Matrix4d::SetBasisY </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>basisY</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00188">188</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aef2e62487b802b9e2716086f37752131" name="aef2e62487b802b9e2716086f37752131"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef2e62487b802b9e2716086f37752131">&#9670;&#160;</a></span>SetBasisZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::Matrix4d::SetBasisZ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>basisZ</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00200">200</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a877a73e886e43e9f49a8ad15375c109b" name="a877a73e886e43e9f49a8ad15375c109b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a877a73e886e43e9f49a8ad15375c109b">&#9670;&#160;</a></span>SetElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::Matrix4d::SetElement </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>column</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00229">229</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Matrix4d_8cpp_source.html#l00414">LNLib::operator+()</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00427">LNLib::operator-()</a>.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/LNLib/include/<a class="el" href="Matrix4d_8h_source.html">Matrix4d.h</a></li>
+<li>src/LNLib/Mathematics/Math/<a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceLNLib.html">LNLib</a></li><li class="navelem"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

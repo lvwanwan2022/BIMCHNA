@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: src/LNLib/include/LNObject.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('LNObject_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LNObject.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="LNObject_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Author:</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * 2023/11/15 - Yuqing Liang (BIMCoder Liang)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * bim.frankliang@foxmail.com</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * Use of this source code is governed by a GPL-3.0 license that can be found in</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * the LICENSE file.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="LNLibDefinitions_8h.html">LNLibDefinitions.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="UV_8h.html">UV.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="XYZ_8h.html">XYZ.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="XYZW_8h.html">XYZW.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span> </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceLNLib.html">LNLib</a></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BezierCurve.html">   21</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1LN__BezierCurve.html">LN_BezierCurve</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BezierCurve.html#a9005e783e4bb85da2bd2447219e639ef">   23</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structLNLib_1_1LN__BezierCurve.html#a9005e783e4bb85da2bd2447219e639ef">Degree</a>;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BezierCurve.html#a42ec91d6a29b9ad47daecdf507ccfc14">   24</a></span>        std::vector&lt;T&gt; <a class="code hl_variable" href="structLNLib_1_1LN__BezierCurve.html#a42ec91d6a29b9ad47daecdf507ccfc14">ControlPoints</a>;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    };</div>
+</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BezierSurface.html">   28</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1LN__BezierSurface.html">LN_BezierSurface</a></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    {</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BezierSurface.html#a567f8143a2da18b23c695e68d5b5619d">   30</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structLNLib_1_1LN__BezierSurface.html#a567f8143a2da18b23c695e68d5b5619d">DegreeU</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BezierSurface.html#a611f043cb11bd126a209dff83928e768">   31</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structLNLib_1_1LN__BezierSurface.html#a611f043cb11bd126a209dff83928e768">DegreeV</a>;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BezierSurface.html#aca8a6b7f4c6eba199950ad0549c79ed1">   32</a></span>        std::vector&lt;std::vector&lt;T&gt;&gt; <a class="code hl_variable" href="structLNLib_1_1LN__BezierSurface.html#aca8a6b7f4c6eba199950ad0549c79ed1">ControlPoints</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    };</div>
+</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BsplineCurve.html">   36</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BsplineCurve.html#a04112751ec95e9f2c46ed9bafacb414f">   38</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structLNLib_1_1LN__BsplineCurve.html#a04112751ec95e9f2c46ed9bafacb414f">Degree</a>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BsplineCurve.html#a108d84c2bf217f649e026cbf9287dc74">   39</a></span>        std::vector&lt;double&gt; <a class="code hl_variable" href="structLNLib_1_1LN__BsplineCurve.html#a108d84c2bf217f649e026cbf9287dc74">KnotVector</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BsplineCurve.html#a71fd0927313f83270eced566ddf41df8">   40</a></span>        std::vector&lt;T&gt; <a class="code hl_variable" href="structLNLib_1_1LN__BsplineCurve.html#a71fd0927313f83270eced566ddf41df8">ControlPoints</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    };</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">   43</a></span>    <span class="keyword">typedef</span> <a class="code hl_struct" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve&lt;XYZW&gt;</a> <a class="code hl_define" href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a> <a class="code hl_typedef" href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00046" data-start="{" data-end="};">
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BsplineSurface.html">   46</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1LN__BsplineSurface.html">LN_BsplineSurface</a></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    {</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BsplineSurface.html#acece2ad31e2d0f8052995aacbf4090ae">   48</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structLNLib_1_1LN__BsplineSurface.html#acece2ad31e2d0f8052995aacbf4090ae">DegreeU</a>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BsplineSurface.html#aa43931b99f7cb4dcfaa91fb793017a3b">   49</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structLNLib_1_1LN__BsplineSurface.html#aa43931b99f7cb4dcfaa91fb793017a3b">DegreeV</a>;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BsplineSurface.html#a128e1318a562c1546970f6b578380f2a">   50</a></span>        std::vector&lt;double&gt; <a class="code hl_variable" href="structLNLib_1_1LN__BsplineSurface.html#a128e1318a562c1546970f6b578380f2a">KnotVectorU</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BsplineSurface.html#a0306551da99e6c0ba743278ef8ab72c7">   51</a></span>        std::vector&lt;double&gt; <a class="code hl_variable" href="structLNLib_1_1LN__BsplineSurface.html#a0306551da99e6c0ba743278ef8ab72c7">KnotVectorV</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__BsplineSurface.html#ad4a0c3fe5fd4e74a94e7f8dffb97e0fa">   52</a></span>        std::vector&lt;std::vector&lt;T&gt;&gt; <a class="code hl_variable" href="structLNLib_1_1LN__BsplineSurface.html#ad4a0c3fe5fd4e74a94e7f8dffb97e0fa">ControlPoints</a>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    };</div>
+</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">   55</a></span>    <span class="keyword">typedef</span> <a class="code hl_struct" href="structLNLib_1_1LN__BsplineSurface.html">LN_BsplineSurface&lt;XYZW&gt;</a> <a class="code hl_define" href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a> <a class="code hl_typedef" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="foldopen" id="foldopen00057" data-start="{" data-end="};">
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__Mesh.html">   57</a></span>    <span class="keyword">struct </span><a class="code hl_define" href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a> <a class="code hl_struct" href="structLNLib_1_1LN__Mesh.html">LN_Mesh</a></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    {</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__Mesh.html#a67ad4b614d1cf1b1fb075e85e5e8863c">   59</a></span>        std::vector&lt;XYZ&gt; <a class="code hl_variable" href="structLNLib_1_1LN__Mesh.html#a67ad4b614d1cf1b1fb075e85e5e8863c">Vertices</a>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__Mesh.html#a367a227e34751780a3b55485b6a63bde">   60</a></span>        std::vector&lt;std::vector&lt;int&gt;&gt; <a class="code hl_variable" href="structLNLib_1_1LN__Mesh.html#a367a227e34751780a3b55485b6a63bde">Faces</a>;</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__Mesh.html#adb53c37984698c83e2e614e3b68ecdb3">   61</a></span>        std::vector&lt;UV&gt; <a class="code hl_variable" href="structLNLib_1_1LN__Mesh.html#adb53c37984698c83e2e614e3b68ecdb3">UVs</a>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__Mesh.html#afb03e44882d9c49bee88f0159c3c5cf9">   62</a></span>        std::vector&lt;int&gt; <a class="code hl_variable" href="structLNLib_1_1LN__Mesh.html#afb03e44882d9c49bee88f0159c3c5cf9">UVIndices</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__Mesh.html#a3cbaa928dbceb9fb48ed72f89c13a5ab">   63</a></span>        std::vector&lt;XYZ&gt; <a class="code hl_variable" href="structLNLib_1_1LN__Mesh.html#a3cbaa928dbceb9fb48ed72f89c13a5ab">Normals</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__Mesh.html#ad802c51ca73e63438cb3bbb293eeff93">   64</a></span>        std::vector&lt;int&gt; <a class="code hl_variable" href="structLNLib_1_1LN__Mesh.html#ad802c51ca73e63438cb3bbb293eeff93">NormalIndices</a>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    };</div>
+</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="};">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__ArcInfo.html">   67</a></span>    <span class="keyword">struct </span><a class="code hl_define" href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a> <a class="code hl_struct" href="structLNLib_1_1LN__ArcInfo.html">LN_ArcInfo</a></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>    {</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__ArcInfo.html#ab2c8b3779d31d7c497d374032397f388">   69</a></span>        <span class="keywordtype">double</span> <a class="code hl_variable" href="structLNLib_1_1LN__ArcInfo.html#ab2c8b3779d31d7c497d374032397f388">Radius</a>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="structLNLib_1_1LN__ArcInfo.html#a0f51f588a329b6c7d1108b673475735c">   70</a></span>        <a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a> <a class="code hl_variable" href="structLNLib_1_1LN__ArcInfo.html#a0f51f588a329b6c7d1108b673475735c">Center</a>;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    };</div>
+</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>}</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="ttc" id="aLNLibDefinitions_8h_html"><div class="ttname"><a href="LNLibDefinitions_8h.html">LNLibDefinitions.h</a></div></div>
+<div class="ttc" id="aLNLibDefinitions_8h_html_ae9d1336b32fdad9d4d368c029c9597af"><div class="ttname"><a href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a></div><div class="ttdeci">#define LNLIB_EXPORT</div><div class="ttdef"><b>定义</b> <a href="LNLibDefinitions_8h_source.html#l00023">LNLibDefinitions.h:23</a></div></div>
+<div class="ttc" id="aUV_8h_html"><div class="ttname"><a href="UV_8h.html">UV.h</a></div></div>
+<div class="ttc" id="aXYZW_8h_html"><div class="ttname"><a href="XYZW_8h.html">XYZW.h</a></div></div>
+<div class="ttc" id="aXYZ_8h_html"><div class="ttname"><a href="XYZ_8h.html">XYZ.h</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html"><div class="ttname"><a href="classLNLib_1_1XYZ.html">LNLib::XYZ</a></div><div class="ttdoc">Represents three-dimension location/vector/offset</div><div class="ttdef"><b>定义</b> <a href="XYZ_8h_source.html#l00020">XYZ.h:21</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html"><div class="ttname"><a href="namespaceLNLib.html">LNLib</a></div><div class="ttdef"><b>定义</b> <a href="Integrator_8cpp_source.html#l00017">Integrator.cpp:18</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a5b230458dcc27e09eca3bc2771d94fe3"><div class="ttname"><a href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LNLib::LN_NurbsSurface</a></div><div class="ttdeci">LN_BsplineSurface&lt; XYZW &gt; LN_NurbsSurface</div><div class="ttdef"><b>定义</b> <a href="#l00055">LNObject.h:55</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_ad7a697da398104134afc92856e20a140"><div class="ttname"><a href="namespaceLNLib.html#ad7a697da398104134afc92856e20a140">LNLib::LN_NurbsCurve</a></div><div class="ttdeci">LN_BsplineCurve&lt; XYZW &gt; LN_NurbsCurve</div><div class="ttdef"><b>定义</b> <a href="#l00043">LNObject.h:43</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__ArcInfo_html"><div class="ttname"><a href="structLNLib_1_1LN__ArcInfo.html">LNLib::LN_ArcInfo</a></div><div class="ttdef"><b>定义</b> <a href="#l00067">LNObject.h:68</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__ArcInfo_html_a0f51f588a329b6c7d1108b673475735c"><div class="ttname"><a href="structLNLib_1_1LN__ArcInfo.html#a0f51f588a329b6c7d1108b673475735c">LNLib::LN_ArcInfo::Center</a></div><div class="ttdeci">XYZ Center</div><div class="ttdef"><b>定义</b> <a href="#l00070">LNObject.h:70</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__ArcInfo_html_ab2c8b3779d31d7c497d374032397f388"><div class="ttname"><a href="structLNLib_1_1LN__ArcInfo.html#ab2c8b3779d31d7c497d374032397f388">LNLib::LN_ArcInfo::Radius</a></div><div class="ttdeci">double Radius</div><div class="ttdef"><b>定义</b> <a href="#l00069">LNObject.h:69</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BezierCurve_html"><div class="ttname"><a href="structLNLib_1_1LN__BezierCurve.html">LNLib::LN_BezierCurve</a></div><div class="ttdef"><b>定义</b> <a href="#l00021">LNObject.h:22</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BezierCurve_html_a42ec91d6a29b9ad47daecdf507ccfc14"><div class="ttname"><a href="structLNLib_1_1LN__BezierCurve.html#a42ec91d6a29b9ad47daecdf507ccfc14">LNLib::LN_BezierCurve::ControlPoints</a></div><div class="ttdeci">std::vector&lt; T &gt; ControlPoints</div><div class="ttdef"><b>定义</b> <a href="#l00024">LNObject.h:24</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BezierCurve_html_a9005e783e4bb85da2bd2447219e639ef"><div class="ttname"><a href="structLNLib_1_1LN__BezierCurve.html#a9005e783e4bb85da2bd2447219e639ef">LNLib::LN_BezierCurve::Degree</a></div><div class="ttdeci">int Degree</div><div class="ttdef"><b>定义</b> <a href="#l00023">LNObject.h:23</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BezierSurface_html"><div class="ttname"><a href="structLNLib_1_1LN__BezierSurface.html">LNLib::LN_BezierSurface</a></div><div class="ttdef"><b>定义</b> <a href="#l00028">LNObject.h:29</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BezierSurface_html_a567f8143a2da18b23c695e68d5b5619d"><div class="ttname"><a href="structLNLib_1_1LN__BezierSurface.html#a567f8143a2da18b23c695e68d5b5619d">LNLib::LN_BezierSurface::DegreeU</a></div><div class="ttdeci">int DegreeU</div><div class="ttdef"><b>定义</b> <a href="#l00030">LNObject.h:30</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BezierSurface_html_a611f043cb11bd126a209dff83928e768"><div class="ttname"><a href="structLNLib_1_1LN__BezierSurface.html#a611f043cb11bd126a209dff83928e768">LNLib::LN_BezierSurface::DegreeV</a></div><div class="ttdeci">int DegreeV</div><div class="ttdef"><b>定义</b> <a href="#l00031">LNObject.h:31</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BezierSurface_html_aca8a6b7f4c6eba199950ad0549c79ed1"><div class="ttname"><a href="structLNLib_1_1LN__BezierSurface.html#aca8a6b7f4c6eba199950ad0549c79ed1">LNLib::LN_BezierSurface::ControlPoints</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; T &gt; &gt; ControlPoints</div><div class="ttdef"><b>定义</b> <a href="#l00032">LNObject.h:32</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BsplineCurve_html"><div class="ttname"><a href="structLNLib_1_1LN__BsplineCurve.html">LNLib::LN_BsplineCurve</a></div><div class="ttdef"><b>定义</b> <a href="#l00036">LNObject.h:37</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BsplineCurve_html_a04112751ec95e9f2c46ed9bafacb414f"><div class="ttname"><a href="structLNLib_1_1LN__BsplineCurve.html#a04112751ec95e9f2c46ed9bafacb414f">LNLib::LN_BsplineCurve&lt; XYZW &gt;::Degree</a></div><div class="ttdeci">int Degree</div><div class="ttdef"><b>定义</b> <a href="#l00038">LNObject.h:38</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BsplineCurve_html_a108d84c2bf217f649e026cbf9287dc74"><div class="ttname"><a href="structLNLib_1_1LN__BsplineCurve.html#a108d84c2bf217f649e026cbf9287dc74">LNLib::LN_BsplineCurve&lt; XYZW &gt;::KnotVector</a></div><div class="ttdeci">std::vector&lt; double &gt; KnotVector</div><div class="ttdef"><b>定义</b> <a href="#l00039">LNObject.h:39</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BsplineCurve_html_a71fd0927313f83270eced566ddf41df8"><div class="ttname"><a href="structLNLib_1_1LN__BsplineCurve.html#a71fd0927313f83270eced566ddf41df8">LNLib::LN_BsplineCurve&lt; XYZW &gt;::ControlPoints</a></div><div class="ttdeci">std::vector&lt; XYZW &gt; ControlPoints</div><div class="ttdef"><b>定义</b> <a href="#l00040">LNObject.h:40</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BsplineSurface_html"><div class="ttname"><a href="structLNLib_1_1LN__BsplineSurface.html">LNLib::LN_BsplineSurface</a></div><div class="ttdef"><b>定义</b> <a href="#l00046">LNObject.h:47</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BsplineSurface_html_a0306551da99e6c0ba743278ef8ab72c7"><div class="ttname"><a href="structLNLib_1_1LN__BsplineSurface.html#a0306551da99e6c0ba743278ef8ab72c7">LNLib::LN_BsplineSurface&lt; XYZW &gt;::KnotVectorV</a></div><div class="ttdeci">std::vector&lt; double &gt; KnotVectorV</div><div class="ttdef"><b>定义</b> <a href="#l00051">LNObject.h:51</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BsplineSurface_html_a128e1318a562c1546970f6b578380f2a"><div class="ttname"><a href="structLNLib_1_1LN__BsplineSurface.html#a128e1318a562c1546970f6b578380f2a">LNLib::LN_BsplineSurface&lt; XYZW &gt;::KnotVectorU</a></div><div class="ttdeci">std::vector&lt; double &gt; KnotVectorU</div><div class="ttdef"><b>定义</b> <a href="#l00050">LNObject.h:50</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BsplineSurface_html_aa43931b99f7cb4dcfaa91fb793017a3b"><div class="ttname"><a href="structLNLib_1_1LN__BsplineSurface.html#aa43931b99f7cb4dcfaa91fb793017a3b">LNLib::LN_BsplineSurface&lt; XYZW &gt;::DegreeV</a></div><div class="ttdeci">int DegreeV</div><div class="ttdef"><b>定义</b> <a href="#l00049">LNObject.h:49</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BsplineSurface_html_acece2ad31e2d0f8052995aacbf4090ae"><div class="ttname"><a href="structLNLib_1_1LN__BsplineSurface.html#acece2ad31e2d0f8052995aacbf4090ae">LNLib::LN_BsplineSurface&lt; XYZW &gt;::DegreeU</a></div><div class="ttdeci">int DegreeU</div><div class="ttdef"><b>定义</b> <a href="#l00048">LNObject.h:48</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__BsplineSurface_html_ad4a0c3fe5fd4e74a94e7f8dffb97e0fa"><div class="ttname"><a href="structLNLib_1_1LN__BsplineSurface.html#ad4a0c3fe5fd4e74a94e7f8dffb97e0fa">LNLib::LN_BsplineSurface&lt; XYZW &gt;::ControlPoints</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; XYZW &gt; &gt; ControlPoints</div><div class="ttdef"><b>定义</b> <a href="#l00052">LNObject.h:52</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__Mesh_html"><div class="ttname"><a href="structLNLib_1_1LN__Mesh.html">LNLib::LN_Mesh</a></div><div class="ttdef"><b>定义</b> <a href="#l00057">LNObject.h:58</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__Mesh_html_a367a227e34751780a3b55485b6a63bde"><div class="ttname"><a href="structLNLib_1_1LN__Mesh.html#a367a227e34751780a3b55485b6a63bde">LNLib::LN_Mesh::Faces</a></div><div class="ttdeci">std::vector&lt; std::vector&lt; int &gt; &gt; Faces</div><div class="ttdef"><b>定义</b> <a href="#l00060">LNObject.h:60</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__Mesh_html_a3cbaa928dbceb9fb48ed72f89c13a5ab"><div class="ttname"><a href="structLNLib_1_1LN__Mesh.html#a3cbaa928dbceb9fb48ed72f89c13a5ab">LNLib::LN_Mesh::Normals</a></div><div class="ttdeci">std::vector&lt; XYZ &gt; Normals</div><div class="ttdef"><b>定义</b> <a href="#l00063">LNObject.h:63</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__Mesh_html_a67ad4b614d1cf1b1fb075e85e5e8863c"><div class="ttname"><a href="structLNLib_1_1LN__Mesh.html#a67ad4b614d1cf1b1fb075e85e5e8863c">LNLib::LN_Mesh::Vertices</a></div><div class="ttdeci">std::vector&lt; XYZ &gt; Vertices</div><div class="ttdef"><b>定义</b> <a href="#l00059">LNObject.h:59</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__Mesh_html_ad802c51ca73e63438cb3bbb293eeff93"><div class="ttname"><a href="structLNLib_1_1LN__Mesh.html#ad802c51ca73e63438cb3bbb293eeff93">LNLib::LN_Mesh::NormalIndices</a></div><div class="ttdeci">std::vector&lt; int &gt; NormalIndices</div><div class="ttdef"><b>定义</b> <a href="#l00064">LNObject.h:64</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__Mesh_html_adb53c37984698c83e2e614e3b68ecdb3"><div class="ttname"><a href="structLNLib_1_1LN__Mesh.html#adb53c37984698c83e2e614e3b68ecdb3">LNLib::LN_Mesh::UVs</a></div><div class="ttdeci">std::vector&lt; UV &gt; UVs</div><div class="ttdef"><b>定义</b> <a href="#l00061">LNObject.h:61</a></div></div>
+<div class="ttc" id="astructLNLib_1_1LN__Mesh_html_afb03e44882d9c49bee88f0159c3c5cf9"><div class="ttname"><a href="structLNLib_1_1LN__Mesh.html#afb03e44882d9c49bee88f0159c3c5cf9">LNLib::LN_Mesh::UVIndices</a></div><div class="ttdeci">std::vector&lt; int &gt; UVIndices</div><div class="ttdef"><b>定义</b> <a href="#l00062">LNObject.h:62</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_16b010a3eb20297cce52e62ed2fbdb73.html">LNLib</a></li><li class="navelem"><a class="el" href="dir_d94eecf3a687f27b8738855f648c5010.html">include</a></li><li class="navelem"><a class="el" href="LNObject_8h.html">LNObject.h</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

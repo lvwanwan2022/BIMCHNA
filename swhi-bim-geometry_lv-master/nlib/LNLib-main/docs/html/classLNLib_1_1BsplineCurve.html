@@ -1,0 +1,367 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: LNLib::BsplineCurve类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classLNLib_1_1BsplineCurve.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classLNLib_1_1BsplineCurve-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">LNLib::BsplineCurve类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="BsplineCurve_8h_source.html">BsplineCurve.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:ab7990c874dcb699781e646014ab54a87" id="r_ab7990c874dcb699781e646014ab54a87"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:ab7990c874dcb699781e646014ab54a87"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab7990c874dcb699781e646014ab54a87">Check</a> (const <a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a>&lt; T &gt; &amp;curve)</td></tr>
+<tr class="separator:ab7990c874dcb699781e646014ab54a87"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a937e7969b117647137033972a7723b6b" id="r_a937e7969b117647137033972a7723b6b"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a937e7969b117647137033972a7723b6b"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a937e7969b117647137033972a7723b6b">GetPointOnCurve</a> (const <a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a>&lt; T &gt; &amp;curve, double paramT)</td></tr>
+<tr class="memdesc:a937e7969b117647137033972a7723b6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page82 Algorithm A3.1 Compute Bspline curve point.  <br /></td></tr>
+<tr class="separator:a937e7969b117647137033972a7723b6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05cc6d89649db52ba72ced83dc86a892" id="r_a05cc6d89649db52ba72ced83dc86a892"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a05cc6d89649db52ba72ced83dc86a892"><td class="memTemplItemLeft" align="right" valign="top">static std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a05cc6d89649db52ba72ced83dc86a892">ComputeDerivatives</a> (const <a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a>&lt; T &gt; &amp;curve, int derivative, double paramT)</td></tr>
+<tr class="memdesc:a05cc6d89649db52ba72ced83dc86a892"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page93 Algorithm A3.2 Compute curve derivatives. (Usually Use)  <br /></td></tr>
+<tr class="separator:a05cc6d89649db52ba72ced83dc86a892"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2471bb2933eb467736255c22197fbc0f" id="r_a2471bb2933eb467736255c22197fbc0f"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a2471bb2933eb467736255c22197fbc0f"><td class="memTemplItemLeft" align="right" valign="top">static std::vector&lt; std::vector&lt; T &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2471bb2933eb467736255c22197fbc0f">ComputeControlPointsOfDerivatives</a> (const <a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a>&lt; T &gt; &amp;curve, int derivative, int minSpanIndex, int maxSpanIndex)</td></tr>
+<tr class="memdesc:a2471bb2933eb467736255c22197fbc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page98 Algorithm A3.3 Compute control points of curve derivatives.  <br /></td></tr>
+<tr class="separator:a2471bb2933eb467736255c22197fbc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d5434c54bbfc3787d9e4c28446fb3ed" id="r_a1d5434c54bbfc3787d9e4c28446fb3ed"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a1d5434c54bbfc3787d9e4c28446fb3ed"><td class="memTemplItemLeft" align="right" valign="top">static std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a1d5434c54bbfc3787d9e4c28446fb3ed">ComputeDerivativesByAllBasisFunctions</a> (const <a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a>&lt; T &gt; &amp;curve, int derivative, double paramT)</td></tr>
+<tr class="memdesc:a1d5434c54bbfc3787d9e4c28446fb3ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page99 Algorithm A3.4 Compute curve detivatives.  <br /></td></tr>
+<tr class="separator:a1d5434c54bbfc3787d9e4c28446fb3ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="BsplineCurve_8h_source.html">BsplineCurve.h</a> 第 <a class="el" href="BsplineCurve_8h_source.html#l00024">24</a> 行定义.</p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="ab7990c874dcb699781e646014ab54a87" name="ab7990c874dcb699781e646014ab54a87"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab7990c874dcb699781e646014ab54a87">&#9670;&#160;</a></span>Check()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void LNLib::BsplineCurve::Check </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>curve</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="BsplineCurve_8h_source.html">BsplineCurve.h</a> 第 <a class="el" href="BsplineCurve_8h_source.html#l00029">29</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="ValidationUtils_8cpp_source.html#l00028">LNLib::ValidationUtils::IsValidBspline()</a>, <a class="el" href="ValidationUtils_8cpp_source.html#l00023">LNLib::ValidationUtils::IsValidKnotVector()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+</div>
+</div>
+<a id="a2471bb2933eb467736255c22197fbc0f" name="a2471bb2933eb467736255c22197fbc0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2471bb2933eb467736255c22197fbc0f">&#9670;&#160;</a></span>ComputeControlPointsOfDerivatives()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::vector&lt; std::vector&lt; T &gt; &gt; LNLib::BsplineCurve::ComputeControlPointsOfDerivatives </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>curve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>derivative</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>minSpanIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxSpanIndex</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page98 Algorithm A3.3 Compute control points of curve derivatives. </p>
+
+<p class="definition">在文件 <a class="el" href="BsplineCurve_8h_source.html">BsplineCurve.h</a> 第 <a class="el" href="BsplineCurve_8h_source.html#l00106">106</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="BsplineSurface_8h_source.html#l00197">LNLib::BsplineSurface::ComputeControlPointsOfDerivatives()</a> , 以及 <a class="el" href="BsplineCurve_8h_source.html#l00139">ComputeDerivativesByAllBasisFunctions()</a>.</p>
+
+</div>
+</div>
+<a id="a05cc6d89649db52ba72ced83dc86a892" name="a05cc6d89649db52ba72ced83dc86a892"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05cc6d89649db52ba72ced83dc86a892">&#9670;&#160;</a></span>ComputeDerivatives()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::vector&lt; T &gt; LNLib::BsplineCurve::ComputeDerivatives </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>curve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>derivative</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page93 Algorithm A3.2 Compute curve derivatives. (Usually Use) </p>
+
+<p class="definition">在文件 <a class="el" href="BsplineCurve_8h_source.html">BsplineCurve.h</a> 第 <a class="el" href="BsplineCurve_8h_source.html#l00074">74</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Polynomials_8cpp_source.html#l00193">LNLib::Polynomials::BasisFunctionsDerivatives()</a>, <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="Polynomials_8cpp_source.html#l00125">LNLib::Polynomials::GetKnotSpanIndex()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l00287">LNLib::NurbsCurve::ComputeRationalCurveDerivatives()</a>.</p>
+
+</div>
+</div>
+<a id="a1d5434c54bbfc3787d9e4c28446fb3ed" name="a1d5434c54bbfc3787d9e4c28446fb3ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d5434c54bbfc3787d9e4c28446fb3ed">&#9670;&#160;</a></span>ComputeDerivativesByAllBasisFunctions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::vector&lt; T &gt; LNLib::BsplineCurve::ComputeDerivativesByAllBasisFunctions </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>curve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>derivative</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page99 Algorithm A3.4 Compute curve detivatives. </p>
+
+<p class="definition">在文件 <a class="el" href="BsplineCurve_8h_source.html">BsplineCurve.h</a> 第 <a class="el" href="BsplineCurve_8h_source.html#l00139">139</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Polynomials_8cpp_source.html#l00544">LNLib::Polynomials::AllBasisFunctions()</a>, <a class="el" href="BsplineCurve_8h_source.html#l00106">ComputeControlPointsOfDerivatives()</a>, <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="Polynomials_8cpp_source.html#l00125">LNLib::Polynomials::GetKnotSpanIndex()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+</div>
+</div>
+<a id="a937e7969b117647137033972a7723b6b" name="a937e7969b117647137033972a7723b6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a937e7969b117647137033972a7723b6b">&#9670;&#160;</a></span>GetPointOnCurve()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static T LNLib::BsplineCurve::GetPointOnCurve </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a>&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>curve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page82 Algorithm A3.1 Compute Bspline curve point. </p>
+
+<p class="definition">在文件 <a class="el" href="BsplineCurve_8h_source.html">BsplineCurve.h</a> 第 <a class="el" href="BsplineCurve_8h_source.html#l00048">48</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Polynomials_8cpp_source.html#l00162">LNLib::Polynomials::BasisFunctions()</a>, <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="Polynomials_8cpp_source.html#l00125">LNLib::Polynomials::GetKnotSpanIndex()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="Constants_8h_source.html#l00028">LNLib::Constants::NURBSMaxDegree</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l00281">LNLib::NurbsCurve::GetPointOnCurve()</a>.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/LNLib/include/<a class="el" href="BsplineCurve_8h_source.html">BsplineCurve.h</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceLNLib.html">LNLib</a></li><li class="navelem"><a class="el" href="classLNLib_1_1BsplineCurve.html">BsplineCurve</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

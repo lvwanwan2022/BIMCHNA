@@ -1,0 +1,314 @@
+\doxysection{Knot\+Vector\+Utils.\+cpp}
+\hypertarget{KnotVectorUtils_8cpp_source}{}\label{KnotVectorUtils_8cpp_source}\index{src/LNLib/Algorithm/KnotVectorUtils.cpp@{src/LNLib/Algorithm/KnotVectorUtils.cpp}}
+\mbox{\hyperlink{KnotVectorUtils_8cpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/10/17\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{KnotVectorUtils_8h}{KnotVectorUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{UV_8h}{UV.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MathUtils_8h}{MathUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Polynomials_8h}{Polynomials.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ValidationUtils_8h}{ValidationUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibExceptions_8h}{LNLibExceptions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00019}00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00021}\mbox{\hyperlink{namespaceLNLib_a578dc4c45890c6cc2e11ee7537382103}{00021}}\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{namespaceLNLib_a578dc4c45890c6cc2e11ee7537382103}{InsertMidKnotCore}}(std::vector<double>\&\ unqiueKnotVector,\ std::vector<double>\&\ insert,\ \textcolor{keywordtype}{int}\ limitNumber)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00022}00022\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (insert.size()\ ==\ limitNumber)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ standard\ =\ \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants::DoubleEpsilon}};}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ index\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ unqiueKnotVector.size()\ -\/\ 1;\ i++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ delta\ =\ unqiueKnotVector[i\ +\ 1]\ -\/\ unqiueKnotVector[i];}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_a995f6f889c781f69e0736108dd8c59bf}{MathUtils::IsGreaterThan}}(delta,\ standard))}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ standard\ =\ delta;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ index\ =\ i;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ current\ =\ unqiueKnotVector[index]\ +\ standard\ /\ 2.0;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ unqiueKnotVector.emplace\_back(current);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ std::sort(unqiueKnotVector.begin(),\ unqiueKnotVector.end());}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ insert.emplace\_back(current);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceLNLib_a578dc4c45890c6cc2e11ee7537382103}{InsertMidKnotCore}}(unqiueKnotVector,\ insert,\ limitNumber);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00047}00047\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00048}00048\ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00050}\mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a4bc4a08963c254fec381e3c7b98c1d57}{00050}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a4bc4a08963c254fec381e3c7b98c1d57}{LNLib::KnotVectorUtils::GetContinuity}}(\textcolor{keywordtype}{int}\ degree,\ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVector,\ \textcolor{keywordtype}{double}\ knot)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00051}00051\ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00052}00052\ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(degree\ >\ 0,\ \textcolor{stringliteral}{"{}degree"{}},\ \textcolor{stringliteral}{"{}Degree\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{int}\ multi\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a9fb1eb590895ca8bd7a3b23ab1e39e4a}{Polynomials::GetKnotMultiplicity}}(knotVector,\ knot);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00054}00054\ \ \ \ \ \textcolor{keywordflow}{return}\ degree\ -\/\ multi;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00055}00055\ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00057}\mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_ad4ee7bb45b62cdc2ef951c859c9515a4}{00057}}\ std::vector<double>\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_ad4ee7bb45b62cdc2ef951c859c9515a4}{LNLib::KnotVectorUtils::Rescale}}(\textcolor{keyword}{const}\ std::vector<double>\&\ knotVector,\ \textcolor{keywordtype}{double}\ min,\ \textcolor{keywordtype}{double}\ max)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00058}00058\ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordtype}{double}\ origintMin\ =\ knotVector[0];}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{double}\ origintMax\ =\ knotVector[knotVector.size()\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keywordtype}{double}\ k\ =\ (max\ -\/\ min)\ /\ (origintMax\ -\/\ origintMin);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ knotVector.size();}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00064}00064\ \ \ \ \ std::vector<double>\ result(size);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00066}00066\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ result[i]\ =\ (k\ *\ knotVector[i]\ -\/\ origintMin)\ +\ min;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00068}00068\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00070}00070\ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00071}00071\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00072}\mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_ad5256aa577db6a37841e89d9652fc595}{00072}}\ std::vector<double>\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_ad5256aa577db6a37841e89d9652fc595}{LNLib::KnotVectorUtils::GetInsertedKnotElement}}(\textcolor{keywordtype}{int}\ degree,\ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVector,\ \textcolor{keywordtype}{double}\ startParam,\ \textcolor{keywordtype}{double}\ endParam)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00073}00073\ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00074}00074\ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(degree\ >=\ 0,\ \textcolor{stringliteral}{"{}degree"{}},\ \textcolor{stringliteral}{"{}Degree\ must\ be\ greater\ than\ or\ equal\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00075}00075\ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(knotVector.size()\ >\ 0,\ \textcolor{stringliteral}{"{}knotVector"{}},\ \textcolor{stringliteral}{"{}KnotVector\ size\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00076}00076\ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(\mbox{\hyperlink{classLNLib_1_1ValidationUtils_a77d48dba299f49eb347e8287e5208c16}{ValidationUtils::IsValidKnotVector}}(knotVector),\ \textcolor{stringliteral}{"{}knotVector"{}},\ \textcolor{stringliteral}{"{}KnotVector\ must\ be\ a\ nondecreasing\ sequence\ of\ real\ numbers."{}});}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00077}00077\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00078}00078\ \ \ \ \ std::vector<double>\ result;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{keywordtype}{int}\ startMulti\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a9fb1eb590895ca8bd7a3b23ab1e39e4a}{Polynomials::GetKnotMultiplicity}}(knotVector,\ startParam);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00080}00080\ \ \ \ \ \textcolor{keywordflow}{if}\ (startMulti\ <\ degree)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00081}00081\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ degree\ -\/\ startMulti;\ i++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ result.emplace\_back(startParam);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00086}00086\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordtype}{int}\ endMulti\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a9fb1eb590895ca8bd7a3b23ab1e39e4a}{Polynomials::GetKnotMultiplicity}}(knotVector,\ endParam);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{if}\ (endMulti\ <\ degree)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00090}00090\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ degree\ -\/\ endMulti;\ i++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ result.emplace\_back(endParam);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00095}00095\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00097}00097\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00098}00098\ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00100}\mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_af3402b00885fa3d255aac142f3af81cb}{00100}}\ std::map<double,\ int>\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_af3402b00885fa3d255aac142f3af81cb}{LNLib::KnotVectorUtils::GetKnotMultiplicityMap}}(\textcolor{keyword}{const}\ std::vector<double>\&\ knotVector)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00101}00101\ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00102}00102\ \ \ \ \ std::map<double,\ int>\ result;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ knotVector.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00105}00105\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ knot\ =\ knotVector[i];}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ got\ =\ result.find(knot);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (got\ ==\ result.end())}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ multi\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a9fb1eb590895ca8bd7a3b23ab1e39e4a}{Polynomials::GetKnotMultiplicity}}(knotVector,\ knotVector[i]);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ result.insert(std::make\_pair(knotVector[i],\ multi));}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00113}00113\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00114}00114\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00115}00115\ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00117}\mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_ae7a3df848dfe04042aa2c89b590db02b}{00117}}\ std::map<double,\ int>\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_ae7a3df848dfe04042aa2c89b590db02b}{LNLib::KnotVectorUtils::GetInternalKnotMultiplicityMap}}(\textcolor{keyword}{const}\ std::vector<double>\&\ knotVector)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00118}00118\ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_af3402b00885fa3d255aac142f3af81cb}{GetKnotMultiplicityMap}}(knotVector);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00120}00120\ \ \ \ \ \textcolor{keywordflow}{if}\ (!result.empty())\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00121}00121\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ result.erase(result.begin());}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ lastElementIterator\ =\ prev(result.end(),\ 1);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ result.erase(lastElementIterator);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00125}00125\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00126}00126\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00127}00127\ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00129}\mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a888a16fb5b51befa4da85a6082d69987}{00129}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_ad5256aa577db6a37841e89d9652fc595}{LNLib::KnotVectorUtils::GetInsertedKnotElement}}(\textcolor{keyword}{const}\ std::vector<double>\&\ knotVector0,\ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVector1,\ std::vector<double>\&\ insertElements0,\ std::vector<double>\&\ insertElements1)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00130}00130\ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00131}00131\ \ \ \ \ std::map<double,\ int>\ map0\ =\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_af3402b00885fa3d255aac142f3af81cb}{GetKnotMultiplicityMap}}(knotVector0);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00132}00132\ \ \ \ \ std::map<double,\ int>\ map1\ =\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_af3402b00885fa3d255aac142f3af81cb}{GetKnotMultiplicityMap}}(knotVector1);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ map0.begin();\ it\ !=\ map0.end();\ ++it)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00135}00135\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ key0\ =\ it-\/>first;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count0\ =\ it-\/>second;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ got\ =\ map1.find(key0);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (got\ ==\ map1.end())}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count0;\ i++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ insertElements1.emplace\_back(key0);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count1\ =\ got-\/>second;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count0\ >\ count1)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ times\ =\ count0\ -\/\ count1;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ times;\ j++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ insertElements1.emplace\_back(key0);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ times\ =\ count1\ -\/\ count0;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ times;\ j++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ insertElements0.emplace\_back(key0);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00167}00167\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00169}00169\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ map1.begin();\ it\ !=\ map1.end();\ ++it)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00170}00170\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ key1\ =\ it-\/>first;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count1\ =\ it-\/>second;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ got\ =\ map0.find(key1);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (got\ ==\ map0.end())}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ count1;\ i++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ insertElements0.emplace\_back(key1);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00182}00182\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00184}00184\ \ \ \ \ std::sort(insertElements0.begin(),\ insertElements0.end());}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00185}00185\ \ \ \ \ std::sort(insertElements1.begin(),\ insertElements1.end());}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00186}00186\ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00188}\mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a5333d5a832510acfa719d048a6662e5b}{00188}}\ std::vector<std::vector<double>>\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a5333d5a832510acfa719d048a6662e5b}{LNLib::KnotVectorUtils::GetInsertedKnotElements}}(\textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ knotVectors)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00189}00189\ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00190}00190\ \ \ \ \ std::map<double,\ int>\ finalMap;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00191}00191\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ knotVectors.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00192}00192\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ kv\ =\ knotVectors[i];}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ std::map<double,\ int>\ map\ =\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_af3402b00885fa3d255aac142f3af81cb}{GetKnotMultiplicityMap}}(kv);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ map.begin();\ it\ !=\ map.end();\ ++it)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ key\ =\ it-\/>first;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ it-\/>second;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ got\ =\ finalMap.find(key);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (got\ ==\ finalMap.end())}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ finalMap.insert(\{\ key,\ count\ \});}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ currentCount\ =\ got-\/>second;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentCount\ <\ count)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ finalMap[key]\ =\ count;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00213}00213\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00215}00215\ \ \ \ \ std::vector<std::vector<double>>\ result;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00216}00216\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ knotVectors.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00217}00217\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ kv\ =\ knotVectors[i];}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ std::map<double,\ int>\ map\ =\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_af3402b00885fa3d255aac142f3af81cb}{GetKnotMultiplicityMap}}(kv);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ std::vector<double>\ insertElements;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ finalMap.begin();\ it\ !=\ finalMap.end();\ ++it)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ key\ =\ it-\/>first;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ it-\/>second;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00226}00226\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ got\ =\ map.find(key);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (got\ ==\ map.end())}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ count;\ j++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ insertElements.emplace\_back(key);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ currentCount\ =\ got-\/>second;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ times\ =\ count\ -\/\ currentCount;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ times;\ j++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ insertElements.emplace\_back(key);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ result.emplace\_back(insertElements);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00246}00246\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00247}00247\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00248}00248\ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00250}\mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a94175b66a36f58a46e42308222b40885}{00250}}\ std::vector<double>\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a5333d5a832510acfa719d048a6662e5b}{LNLib::KnotVectorUtils::GetInsertedKnotElements}}(\textcolor{keywordtype}{int}\ insertKnotsNumber,\ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVector)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00251}00251\ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00252}00252\ \ \ \ \ std::vector<double>\ unqiueKnotVector\ =\ knotVector;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00253}00253\ \ \ \ \ unqiueKnotVector.erase(std::unique(unqiueKnotVector.begin(),\ unqiueKnotVector.end()),\ unqiueKnotVector.end());}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00254}00254\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00255}00255\ \ \ \ \ std::vector<double>\ insert;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00256}00256\ \ \ \ \ \mbox{\hyperlink{namespaceLNLib_a578dc4c45890c6cc2e11ee7537382103}{InsertMidKnotCore}}(unqiueKnotVector,\ insert,\ insertKnotsNumber);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00257}00257\ \ \ \ \ std::sort(insert.begin(),\ insert.end());}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00258}00258\ \ \ \ \ \textcolor{keywordflow}{return}\ insert;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00259}00259\ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00261}\mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a46b835bef6db6b656d5a332e357a07a0}{00261}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_a46b835bef6db6b656d5a332e357a07a0}{LNLib::KnotVectorUtils::IsUniform}}(\textcolor{keyword}{const}\ std::vector<double>\&\ knotVector)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00262}00262\ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00263}00263\ \ \ \ \ \textcolor{keyword}{auto}\ map\ =\ \mbox{\hyperlink{classLNLib_1_1KnotVectorUtils_af3402b00885fa3d255aac142f3af81cb}{GetKnotMultiplicityMap}}(knotVector);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00264}00264\ \ \ \ \ \textcolor{keywordflow}{if}\ (map.empty())}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00265}00265\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00267}00267\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00268}00268\ \ \ \ \ std::vector<double>\ knots;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00269}00269\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keyword}{auto}\ it\ =\ map.begin();\ it\ !=\ map.end();\ ++it)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00270}00270\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ key\ =\ it-\/>first;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ knots.emplace\_back(key);}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00273}00273\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00274}00274\ \ \ \ \ std::sort(knots.begin(),\ knots.end());}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00275}00275\ \ \ \ \ \textcolor{keywordflow}{if}\ (map[knots[0]]\ !=\ map[knots[knots.size()\ -\/\ 1]])}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00276}00276\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00278}00278\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00279}00279\ \ \ \ \ \textcolor{keywordtype}{double}\ standard\ =\ knots[1]\ -\/\ knots[0];}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00280}00280\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ knots.size()\ -\/\ 1;\ i++)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00281}00281\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ current\ =\ knots[i];}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ next\ =\ knots[i\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00284}00284\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ gap\ =\ next\ -\/\ current;}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(gap,\ standard))}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ currentCounts\ =\ map[current];}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ nextCounts\ =\ map[next];}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentCounts\ !=\ nextCounts)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ +\ 1\ ==\ knots.size()\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00303}00303\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00304}00304\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00305}00305\ \}}
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00306}00306\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{KnotVectorUtils_8cpp_source_l00308}00308\ }
+
+\end{DoxyCode}

@@ -1,0 +1,160 @@
+\doxysection{Bspline\+Curve.\+h}
+\hypertarget{BsplineCurve_8h_source}{}\label{BsplineCurve_8h_source}\index{src/LNLib/include/BsplineCurve.h@{src/LNLib/include/BsplineCurve.h}}
+\mbox{\hyperlink{BsplineCurve_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/06/08\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00011}00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibDefinitions_8h}{LNLibDefinitions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Polynomials_8h}{Polynomials.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ValidationUtils_8h}{ValidationUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibExceptions_8h}{LNLibExceptions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNObject_8h}{LNObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00020}00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00024}\mbox{\hyperlink{classLNLib_1_1BsplineCurve}{00024}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{classLNLib_1_1BsplineCurve}{BsplineCurve}}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00025}00025\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00029}\mbox{\hyperlink{classLNLib_1_1BsplineCurve_ab7990c874dcb699781e646014ab54a87}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1BsplineCurve_ab7990c874dcb699781e646014ab54a87}{Check}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\_BsplineCurve<T>}}\&\ curve)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degree\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a04112751ec95e9f2c46ed9bafacb414f}{Degree}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ knotVector\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a108d84c2bf217f649e026cbf9287dc74}{KnotVector}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ controlPoints\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a71fd0927313f83270eced566ddf41df8}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(degree\ >\ 0,\ \textcolor{stringliteral}{"{}degree"{}},\ \textcolor{stringliteral}{"{}Degree\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(knotVector.size()\ >\ 0,\ \textcolor{stringliteral}{"{}knotVector"{}},\ \textcolor{stringliteral}{"{}KnotVector\ size\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(\mbox{\hyperlink{classLNLib_1_1ValidationUtils_a77d48dba299f49eb347e8287e5208c16}{ValidationUtils::IsValidKnotVector}}(knotVector),\ \textcolor{stringliteral}{"{}knotVector"{}},\ \textcolor{stringliteral}{"{}KnotVector\ must\ be\ a\ nondecreasing\ sequence\ of\ real\ numbers."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(controlPoints.size()\ >\ 0,\ \textcolor{stringliteral}{"{}controlPoints"{}},\ \textcolor{stringliteral}{"{}ControlPoints\ must\ contain\ one\ point\ at\ least."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(\mbox{\hyperlink{classLNLib_1_1ValidationUtils_a61f3d0372991a2b462aa8db768a673a9}{ValidationUtils::IsValidBspline}}(degree,\ knotVector.size(),\ controlPoints.size()),\ \textcolor{stringliteral}{"{}controlPoints"{}},\ \textcolor{stringliteral}{"{}Arguments\ must\ be\ fit:\ m\ =\ n\ +\ p\ +\ 1"{}});}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00048}\mbox{\hyperlink{classLNLib_1_1BsplineCurve_a937e7969b117647137033972a7723b6b}{00048}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ T\ \mbox{\hyperlink{classLNLib_1_1BsplineCurve_a937e7969b117647137033972a7723b6b}{GetPointOnCurve}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\_BsplineCurve<T>}}\&\ curve,\ \textcolor{keywordtype}{double}\ paramT)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degree\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a04112751ec95e9f2c46ed9bafacb414f}{Degree}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVector\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a108d84c2bf217f649e026cbf9287dc74}{KnotVector}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<T>\&\ controlPoints\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a71fd0927313f83270eced566ddf41df8}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(paramT,\ knotVector[0],\ knotVector[knotVector.size()\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ T\ point;}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ spanIndex\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{Polynomials::GetKnotSpanIndex}}(degree,\ knotVector,\ paramT);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ N[\mbox{\hyperlink{classLNLib_1_1Constants_a0aeb8534e051a2deb63e222feb3f9963}{Constants::NURBSMaxDegree}}\ +\ 1];\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Polynomials_a8e2b821ce7ef5ace1be5a138edd45f5a}{Polynomials::BasisFunctions}}(spanIndex,\ degree,\ knotVector,\ paramT,\ N);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ degree;\ i++)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ point\ +=\ N[i]\ *\ controlPoints[spanIndex\ -\/\ degree\ +\ i];}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ point;}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00074}\mbox{\hyperlink{classLNLib_1_1BsplineCurve_a05cc6d89649db52ba72ced83dc86a892}{00074}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<T>\ \mbox{\hyperlink{classLNLib_1_1BsplineCurve_a05cc6d89649db52ba72ced83dc86a892}{ComputeDerivatives}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\_BsplineCurve<T>}}\&\ curve,\ \textcolor{keywordtype}{int}\ derivative,\ \textcolor{keywordtype}{double}\ paramT)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degree\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a04112751ec95e9f2c46ed9bafacb414f}{Degree}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ knotVector\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a108d84c2bf217f649e026cbf9287dc74}{KnotVector}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ controlPoints\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a71fd0927313f83270eced566ddf41df8}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(derivative\ >\ 0,\ \textcolor{stringliteral}{"{}derivative"{}},\ \textcolor{stringliteral}{"{}derivative\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(paramT,\ knotVector[0],\ knotVector[knotVector.size()\ -\/\ 1]);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ derivatives(derivative\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ du\ =\ std::min(derivative,\ degree);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ spanIndex\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{Polynomials::GetKnotSpanIndex}}(degree,\ knotVector,\ paramT);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<double>>\ nders\ =\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Polynomials_aebcbc937b4c1273e47f68ac7595845fd}{Polynomials::BasisFunctionsDerivatives}}(spanIndex,\ degree,\ du,\ knotVector,\ paramT);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <=\ du;\ k++)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <=\ degree;\ j++)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ derivatives[k]\ +=\ nders[k][j]\ *\ controlPoints[spanIndex\ -\/\ degree\ +\ j];}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ derivatives;}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00106}\mbox{\hyperlink{classLNLib_1_1BsplineCurve_a2471bb2933eb467736255c22197fbc0f}{00106}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<T>>\ \mbox{\hyperlink{classLNLib_1_1BsplineCurve_a2471bb2933eb467736255c22197fbc0f}{ComputeControlPointsOfDerivatives}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\_BsplineCurve<T>}}\&\ curve,\ \textcolor{keywordtype}{int}\ derivative,\ \textcolor{keywordtype}{int}\ minSpanIndex,\ \textcolor{keywordtype}{int}\ maxSpanIndex)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00107}00107\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(derivative\ >\ 0,\ \textcolor{stringliteral}{"{}derivative"{}},\ \textcolor{stringliteral}{"{}derivative\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(minSpanIndex,\ 0,\ maxSpanIndex);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degree\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a04112751ec95e9f2c46ed9bafacb414f}{Degree}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ knotVector\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a108d84c2bf217f649e026cbf9287dc74}{KnotVector}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ controlPoints\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a71fd0927313f83270eced566ddf41df8}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00114}00114\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ range\ =\ maxSpanIndex\ -\/\ minSpanIndex;}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>\ PK(derivative\ +\ 1,\ std::vector<T>(range\ +\ 1));}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ range;\ i++)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PK[0][i]\ =\ controlPoints[minSpanIndex\ +\ i];}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 1;\ k\ <=\ derivative;\ k++)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ temp\ =\ degree\ -\/\ k\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ range\ -\/\ k;\ i++)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PK[k][i]\ =\ temp\ *\ (PK[k\ -\/\ 1][i\ +\ 1]\ -\/\ PK[k\ -\/\ 1][i])\ /\ (knotVector[minSpanIndex\ +\ i\ +\ degree\ +\ 1]\ -\/\ knotVector[minSpanIndex\ +\ i\ +\ k]);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PK;}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00131}00131\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00138}00138\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00139}\mbox{\hyperlink{classLNLib_1_1BsplineCurve_a1d5434c54bbfc3787d9e4c28446fb3ed}{00139}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<T>\ \mbox{\hyperlink{classLNLib_1_1BsplineCurve_a1d5434c54bbfc3787d9e4c28446fb3ed}{ComputeDerivativesByAllBasisFunctions}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\_BsplineCurve<T>}}\&\ curve,\ \textcolor{keywordtype}{int}\ derivative,\ \textcolor{keywordtype}{double}\ paramT)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00140}00140\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degree\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a04112751ec95e9f2c46ed9bafacb414f}{Degree}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ knotVector\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a108d84c2bf217f649e026cbf9287dc74}{KnotVector}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ controlPoints\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a71fd0927313f83270eced566ddf41df8}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00144}00144\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(derivative\ >\ 0,\ \textcolor{stringliteral}{"{}derivative"{}},\ \textcolor{stringliteral}{"{}derivative\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(paramT,\ knotVector[0],\ knotVector[knotVector.size()\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00147}00147\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ derivatives(derivative\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ spanIndex\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{Polynomials::GetKnotSpanIndex}}(degree,\ knotVector,\ paramT);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<double>>\ N\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_af8571e825aea3a881d6ed4754689146c}{Polynomials::AllBasisFunctions}}(spanIndex,\ degree,\ knotVector,\ paramT);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ du\ =\ std::min(derivative,\ degree);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\_BsplineCurve<T>}}\ bsplineCurve;}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ bsplineCurve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a04112751ec95e9f2c46ed9bafacb414f}{Degree}}\ =\ degree;}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ bsplineCurve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a108d84c2bf217f649e026cbf9287dc74}{KnotVector}}\ =\ knotVector;}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ bsplineCurve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a71fd0927313f83270eced566ddf41df8}{ControlPoints}}\ =\ controlPoints;}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00158}00158\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>\ PK\ =\ \mbox{\hyperlink{classLNLib_1_1BsplineCurve_a2471bb2933eb467736255c22197fbc0f}{ComputeControlPointsOfDerivatives}}(bsplineCurve,\ du,\ spanIndex\ -\/\ degree,\ spanIndex);}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <=\ du;\ k++)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <=\ degree\ -\/\ k;\ j++)}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ derivatives[k]\ +=\ N[j][degree\ -\/\ k]\ *\ PK[k][j];}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00168}00168\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ derivatives;}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00170}00170\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00171}00171\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00172}00172\ \}}
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{BsplineCurve_8h_source_l00174}00174\ }
+
+\end{DoxyCode}

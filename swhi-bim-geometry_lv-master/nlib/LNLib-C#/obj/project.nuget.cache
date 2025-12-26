@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "qeIHD1NOMGA=",
+  "success": true,
+  "projectFilePath": "F:\\lvwan\\2025\\nlib\\LNLib-C#\\LNLib.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\SWHI\\.nuget\\packages\\mathnet.numerics\\5.0.0\\mathnet.numerics.5.0.0.nupkg.sha512",
+    "C:\\Users\\SWHI\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\7.0.20\\microsoft.windowsdesktop.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\SWHI\\.nuget\\packages\\microsoft.netcore.app.ref\\7.0.20\\microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "C:\\Users\\SWHI\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\7.0.20\\microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
+  ],
+  "logs": []
+}

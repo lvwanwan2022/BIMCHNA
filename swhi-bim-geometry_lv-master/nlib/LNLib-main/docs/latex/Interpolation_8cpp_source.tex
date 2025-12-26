@@ -1,0 +1,344 @@
+\doxysection{Interpolation.\+cpp}
+\hypertarget{Interpolation_8cpp_source}{}\label{Interpolation_8cpp_source}\index{src/LNLib/Algorithm/Interpolation.cpp@{src/LNLib/Algorithm/Interpolation.cpp}}
+\mbox{\hyperlink{Interpolation_8cpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/07/04\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Interpolation_8h}{Interpolation.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{XYZ_8h}{XYZ.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MathUtils_8h}{MathUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Intersection_8h}{Intersection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Polynomials_8h}{Polynomials.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00020}00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00022}\mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{00022}}\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(\textcolor{keyword}{const}\ std::vector<XYZ>\&\ throughPoints,\ \textcolor{keywordtype}{int}\ index)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00023}00023\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ throughPoints[index]\ -\/\ throughPoints[index\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00027}\mbox{\hyperlink{namespaceLNLib_a458593b8c696d9d0fff448b409f4f834}{00027}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{namespaceLNLib_a458593b8c696d9d0fff448b409f4f834}{Getak}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ qk\_1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ qk,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ qk1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ qk2)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00028}00028\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (qk\_1.\mbox{\hyperlink{classLNLib_1_1XYZ_a0f4c2a266c4ff4956ae6d4f46915354d}{CrossProduct}}(qk)).\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}()\ /\ ((qk\_1.\mbox{\hyperlink{classLNLib_1_1XYZ_a0f4c2a266c4ff4956ae6d4f46915354d}{CrossProduct}}(qk).Length())\ +\ (qk1.\mbox{\hyperlink{classLNLib_1_1XYZ_a0f4c2a266c4ff4956ae6d4f46915354d}{CrossProduct}}(qk2)).Length());}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00030}00030\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00031}00031\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00032}\mbox{\hyperlink{namespaceLNLib_a0150e2110312595800252c143754d732}{00032}}\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ \mbox{\hyperlink{namespaceLNLib_a0150e2110312595800252c143754d732}{GetTk}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ qk\_1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ qk,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ qk1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ qk2)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00033}00033\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ ak\ =\ \mbox{\hyperlink{namespaceLNLib_a458593b8c696d9d0fff448b409f4f834}{Getak}}(qk\_1,\ qk,\ qk1,\ qk2);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((1\ -\/\ ak)\ *\ qk\ +\ ak\ *\ qk1).Normalize();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00036}00036\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00039}\mbox{\hyperlink{classLNLib_1_1Interpolation_aa85849ef202c5ee918166a3e9ccbfb9f}{00039}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1Interpolation_aa85849ef202c5ee918166a3e9ccbfb9f}{LNLib::Interpolation::GetTotalChordLength}}(\textcolor{keyword}{const}\ std::vector<XYZ>\&\ throughPoints)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00040}00040\ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ throughPoints.size()\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{double}\ length\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ n;\ i++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00044}00044\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ length\ +=\ throughPoints[i].Distance(throughPoints[i\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00046}00046\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordflow}{return}\ length;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00048}00048\ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00050}\mbox{\hyperlink{classLNLib_1_1Interpolation_a9a0dab509f7981bca99e4b88794022f6}{00050}}\ std::vector<double>\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a9a0dab509f7981bca99e4b88794022f6}{LNLib::Interpolation::GetChordParameterization}}(\textcolor{keyword}{const}\ std::vector<XYZ>\&\ throughPoints)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00051}00051\ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00052}00052\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ throughPoints.size();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ size\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00055}00055\ \ \ \ \ std::vector<double>\ uk(size,0.0);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00056}00056\ \ \ \ \ uk[n]\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00057}00057\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordtype}{double}\ d\ =\ \mbox{\hyperlink{classLNLib_1_1Interpolation_aa85849ef202c5ee918166a3e9ccbfb9f}{GetTotalChordLength}}(throughPoints);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00059}00059\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ n\ -\/\ 1;\ i++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00060}00060\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ uk[i]\ =\ uk[i\ -\/\ 1]\ +\ (throughPoints[i].Distance(throughPoints[i\ -\/\ 1]))\ /\ d;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00062}00062\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keywordflow}{return}\ uk;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00066}\mbox{\hyperlink{classLNLib_1_1Interpolation_a3807a0b4aa5ae729f3f7f42255561dd2}{00066}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a3807a0b4aa5ae729f3f7f42255561dd2}{LNLib::Interpolation::GetCentripetalLength}}(\textcolor{keyword}{const}\ std::vector<XYZ>\&\ throughPoints)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00067}00067\ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ throughPoints.size();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00069}00069\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ size\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00071}00071\ \ \ \ \ \textcolor{keywordtype}{double}\ length\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ n;\ i++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00073}00073\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ length\ +=\ std::sqrt(throughPoints[i].Distance(throughPoints[i\ -\/\ 1]));}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00075}00075\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{return}\ length;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00077}00077\ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00079}\mbox{\hyperlink{classLNLib_1_1Interpolation_a405291a0b094ec1e5587b5ee1a5a8a7f}{00079}}\ std::vector<double>\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a405291a0b094ec1e5587b5ee1a5a8a7f}{LNLib::Interpolation::GetCentripetalParameterization}}(\textcolor{keyword}{const}\ std::vector<XYZ>\&\ throughPoints)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00080}00080\ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ throughPoints.size();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ size\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00083}00083\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00084}00084\ \ \ \ \ std::vector<double>\ uk(size,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00085}00085\ \ \ \ \ uk[n]\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordtype}{double}\ d\ =\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a3807a0b4aa5ae729f3f7f42255561dd2}{GetCentripetalLength}}(throughPoints);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <=\ n\ -\/\ 1;\ i++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00089}00089\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ uk[i]\ =\ uk[i\ -\/\ 1]\ +\ std::sqrt(throughPoints[i].Distance(throughPoints[i\ -\/\ 1]))\ /\ d;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00091}00091\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{keywordflow}{return}\ uk;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00093}00093\ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00095}\mbox{\hyperlink{classLNLib_1_1Interpolation_a7771d20e303f8b7e2dcd9e5219f98e7b}{00095}}\ std::vector<double>\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a7771d20e303f8b7e2dcd9e5219f98e7b}{LNLib::Interpolation::AverageKnotVector}}(\textcolor{keywordtype}{int}\ degree,\ \textcolor{keyword}{const}\ std::vector<double>\&\ params)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00096}00096\ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00097}00097\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00098}00098\ \ \ \ \ std::vector<double>\ uk\ =\ params;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00099}00099\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ params.size();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ size\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ n\ +\ degree\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00102}00102\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00103}00103\ \ \ \ \ std::vector<double>\ knotVector(m\ +\ 1,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ m\ -\/\ degree;\ i\ <=\ m;\ i++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00105}00105\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ knotVector[i]\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 1;\ j\ <=\ n\ -\/\ degree;\ j++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00110}00110\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ j;\ i\ <=\ j\ +\ degree\ -\/\ 1;\ i++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ sum\ +=\ uk[i];}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ knotVector[j\ +\ degree]\ =\ (1.0\ /\ degree)\ *\ sum;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00117}00117\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00118}00118\ \ \ \ \ \textcolor{keywordflow}{return}\ knotVector;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00119}00119\ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00121}\mbox{\hyperlink{classLNLib_1_1Interpolation_a77bc2457529a393c55e1c34bfc3b76d2}{00121}}\ std::vector<double>\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a77bc2457529a393c55e1c34bfc3b76d2}{LNLib::Interpolation::ComputeKnotVector}}(\textcolor{keywordtype}{int}\ degree,\ \textcolor{keywordtype}{int}\ pointsCount,\ \textcolor{keywordtype}{int}\ controlPointsCount,\ \textcolor{keyword}{const}\ std::vector<double>\&\ params)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00122}00122\ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00123}00123\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ pointsCount\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00124}00124\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ controlPointsCount\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00125}00125\ \ \ \ \ \textcolor{keywordtype}{int}\ nn\ =\ n\ +\ degree\ +\ 2;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00126}00126\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00127}00127\ \ \ \ \ std::vector<double>\ \ knotVector(nn,0.0);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{keywordtype}{double}\ d\ =\ (double)(m\ +\ 1)\ /\ (double)(n\ -\/\ degree\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 1;\ j\ <=\ n\ -\/\ degree;\ j++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00130}00130\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ i\ =\ floor(j\ *\ d);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ alpha\ =\ (j\ *\ d)\ -\/\ i;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ knotVector[degree\ +\ j]\ =\ (1.0\ -\/\ alpha)\ *\ params[i\ -\/\ 1]\ +\ (alpha\ *\ params[i]);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00134}00134\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ nn;\ i++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00136}00136\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ <=\ degree)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ knotVector[i]\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (i\ >=\ nn\ -\/\ 1\ -\/\ degree)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ knotVector[i]\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00145}00145\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00146}00146\ \ \ \ \ \textcolor{keywordflow}{return}\ knotVector;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00147}00147\ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00148}00148\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00149}\mbox{\hyperlink{classLNLib_1_1Interpolation_a41ac37f3602f5f3377ee28b707d73756}{00149}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a41ac37f3602f5f3377ee28b707d73756}{LNLib::Interpolation::ComputerWeightForRationalQuadraticInterpolation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ startPoint,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ middleControlPoint,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ endPoint,\ \textcolor{keywordtype}{double}\&\ weight)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00150}00150\ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00151}00151\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ SM\ =\ middleControlPoint\ -\/\ startPoint;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00152}00152\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ EM\ =\ middleControlPoint\ -\/\ endPoint;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00153}00153\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ SE\ =\ endPoint\ -\/\ startPoint;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00154}00154\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00155}00155\ \ \ \ \ \textcolor{keywordflow}{if}\ (SM.\mbox{\hyperlink{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961}{Normalize}}().\mbox{\hyperlink{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2}{IsAlmostEqualTo}}(EM.\mbox{\hyperlink{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961}{Normalize}}())\ ||}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ SM.\mbox{\hyperlink{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961}{Normalize}}().\mbox{\hyperlink{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2}{IsAlmostEqualTo}}(EM.\mbox{\hyperlink{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961}{Normalize}}().\mbox{\hyperlink{classLNLib_1_1XYZ_aff06ca55967bee6978ab4c15ceef3c0d}{Negative}}()))}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00157}00157\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ weight\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00160}00160\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00162}00162\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(SM.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}(),\ EM.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}()))}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00163}00163\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ weight\ =\ SM.\mbox{\hyperlink{classLNLib_1_1XYZ_aa634eee7815b0227c7b4ccd4b87609c0}{DotProduct}}(SE)\ /\ (SM.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}()\ *\ SE.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}());}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00166}00166\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00168}00168\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ M\ =\ 0.5\ *\ (startPoint\ +\ endPoint);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00169}00169\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ MR\ =\ middleControlPoint\ -\/\ M;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00170}00170\ \ \ \ \ \textcolor{keywordtype}{double}\ ratio\ =\ SM.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}()\ /\ SE.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00171}00171\ \ \ \ \ \textcolor{keywordtype}{double}\ frac\ =\ 1.0\ /\ (ratio\ +\ 1.0);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00172}00172\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ D\ =\ endPoint\ +\ frac\ *\ EM;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00173}00173\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ SD\ =\ D\ -\/\ startPoint;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00174}00174\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ S1;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00176}00176\ \ \ \ \ \textcolor{keywordtype}{double}\ alf1\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00177}00177\ \ \ \ \ \textcolor{keywordtype}{double}\ alf2\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00179}00179\ \ \ \ \ \textcolor{keyword}{auto}\ type\ =\ \mbox{\hyperlink{classLNLib_1_1Intersection_a08dc65c36ff6e39c14ce9f00d0377f0a}{Intersection::ComputeRays}}(startPoint,\ SD.\mbox{\hyperlink{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961}{Normalize}}(),\ M,\ MR.\mbox{\hyperlink{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961}{Normalize}}(),\ alf1,\ alf2,\ S1);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00180}00180\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ !=\ \mbox{\hyperlink{namespaceLNLib_a990b15d5522b431bd0cfede7b600a59cae2e969432869ed6806cf6eb86082820e}{CurveCurveIntersectionType::Intersecting}})}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00181}00181\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00183}00183\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00184}00184\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00185}00185\ \ \ \ \ ratio\ =\ EM.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}()\ /\ SE.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00186}00186\ \ \ \ \ frac\ =\ 1.0\ /\ (ratio\ +\ 1.0);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00187}00187\ \ \ \ \ D\ =\ startPoint\ +\ frac\ *\ SM;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00188}00188\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ ED\ =\ D\ -\/\ endPoint;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00189}00189\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ S2;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00190}00190\ \ \ \ \ type\ =\ \mbox{\hyperlink{classLNLib_1_1Intersection_a08dc65c36ff6e39c14ce9f00d0377f0a}{Intersection::ComputeRays}}(endPoint,\ ED.\mbox{\hyperlink{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961}{Normalize}}(),\ M,\ MR.\mbox{\hyperlink{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961}{Normalize}}(),\ alf1,\ alf2,\ S2);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00191}00191\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ !=\ \mbox{\hyperlink{namespaceLNLib_a990b15d5522b431bd0cfede7b600a59cae2e969432869ed6806cf6eb86082820e}{CurveCurveIntersectionType::Intersecting}})}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00192}00192\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00194}00194\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00195}00195\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00196}00196\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ S\ =\ 0.5\ *\ (S1\ +\ S2);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00197}00197\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ MS\ =\ S\ -\/\ M;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00198}00198\ \ \ \ \ \textcolor{keywordtype}{double}\ s\ =\ MS.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}()\ /\ MR.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00199}00199\ \ \ \ \ weight\ =\ s\ /\ (1.0\ -\/\ s);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00200}00200\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00201}00201\ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00202}00202\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00203}\mbox{\hyperlink{classLNLib_1_1Interpolation_af32929fad6c2defff3b5656b7bac6f4f}{00203}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1Interpolation_af32929fad6c2defff3b5656b7bac6f4f}{LNLib::Interpolation::GetSurfaceMeshParameterization}}(\textcolor{keyword}{const}\ std::vector<std::vector<XYZ>>\&\ throughPoints,\ std::vector<double>\&\ paramsU,\ std::vector<double>\&\ paramsV)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00204}00204\ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00205}00205\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ throughPoints.size();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00206}00206\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ throughPoints[0].size();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00208}00208\ \ \ \ \ std::vector<double>\ cds(std::max(n,\ m),0.0);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00209}00209\ \ \ \ \ paramsU.resize(n,0.0);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00210}00210\ \ \ \ \ paramsV.resize(m,0.0);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00212}00212\ \ \ \ \ \textcolor{keywordtype}{int}\ num\ =\ m;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00213}00213\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00214}00214\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ l\ =\ 0;\ l\ <\ m;\ l++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00215}00215\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ total\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 1;\ k\ <\ n;\ k++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ cds[k]\ =\ throughPoints[k][l].Distance(throughPoints[k\ -\/\ 1][l]);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ total\ +=\ cds[k];}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00222}00222\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(total,\ 0.0))}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ num-\/-\/;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ d\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 1;\ k\ <\ n;\ k++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\ +=\ cds[k];}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ paramsU[k]\ =\ paramsU[k]\ +\ d\ /\ total;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00236}00236\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00237}00237\ \ \ \ \ \textcolor{keywordflow}{if}\ (num\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00238}00238\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00240}00240\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00241}00241\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00242}00242\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 1;\ k\ <\ n\ -\/\ 1;\ k++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00243}00243\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ paramsU[k]\ =\ paramsU[k]\ /\ num;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00245}00245\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00246}00246\ \ \ \ \ paramsU[n\ -\/\ 1]\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00248}00248\ \ \ \ \ num\ =\ n;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00250}00250\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ n;\ k++)\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00251}00251\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ total\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ l\ =\ 1;\ l\ <\ m;\ l++)\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ cds[l]\ =\ throughPoints[k][l].Distance(throughPoints[k][l-\/1]);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ total\ +=\ cds[l];}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(total,\ 0.0))}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ num-\/-\/;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ d\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ l\ =\ 1;\ l\ <\ m;\ l++)\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ d\ +=\ cds[l];}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ paramsV[l]\ +=\ d\ /\ total;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00271}00271\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00272}00272\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00273}00273\ \ \ \ \ \textcolor{keywordflow}{if}\ (num\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00274}00274\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00276}00276\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00277}00277\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ l\ =\ 1;\ l\ <\ m\ -\/\ 1;\ l++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00278}00278\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ paramsV[l]\ =\ paramsV[l]\ /\ num;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00280}00280\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00281}00281\ \ \ \ \ paramsV[m\ -\/\ 1]\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00283}00283\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00284}00284\ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00286}\mbox{\hyperlink{classLNLib_1_1Interpolation_a5fd8e24911bff38f87bdfcd76bd4ad9d}{00286}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a551c700fc3e54e73e3ca0ceb82b66a2d}{LNLib::Interpolation::ComputeTangent}}(\textcolor{keyword}{const}\ std::vector<XYZ>\&\ throughPoints,\ std::vector<XYZ>\&\ tangents)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00287}00287\ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00288}00288\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ throughPoints.size();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00289}00289\ \ \ \ \ \textcolor{keywordflow}{if}\ (size\ <\ 5)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00290}00290\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00291}00291\ \ \ \ \ tangents.resize(size);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00292}00292\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 2;\ k\ <\ size\ -\/\ 2\ ;\ k++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00293}00293\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib::XYZ}}\ qk\_1\ =\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ k\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib::XYZ}}\ qk\ =\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ k);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib::XYZ}}\ qk1\ =\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ k+1);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib::XYZ}}\ qk2\ =\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ k+2);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ tangents[k]\ =\ \mbox{\hyperlink{namespaceLNLib_a0150e2110312595800252c143754d732}{GetTk}}(qk\_1,\ qk,\ qk1,\ qk2);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00300}00300\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00301}00301\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00302}00302\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ size\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00303}00303\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib::XYZ}}\ q0\ =\ 2*\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ 1)\ -\/\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ 2);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00304}00304\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib::XYZ}}\ q\_1\ =\ 2\ *\ q0\ -\/\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ 1);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00305}00305\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib::XYZ}}\ qn1\ =\ 2\ *\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ n)\ -\/\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ n-\/1);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00306}00306\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib::XYZ}}\ qn2\ =\ 2\ *\ qn1\ -\/\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ n);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00307}00307\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00308}00308\ \ \ \ \ tangents[0]\ =\ \mbox{\hyperlink{namespaceLNLib_a0150e2110312595800252c143754d732}{GetTk}}(q\_1,\ q0,\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ 1),\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ 2));}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00309}00309\ \ \ \ \ tangents[1]\ =\ \mbox{\hyperlink{namespaceLNLib_a0150e2110312595800252c143754d732}{GetTk}}(q0,\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ 1),\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ 2),\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ 3));}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00310}00310\ \ \ \ \ tangents[n-\/1]\ =\ \mbox{\hyperlink{namespaceLNLib_a0150e2110312595800252c143754d732}{GetTk}}(\mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ n\ -\/\ 2),\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ n-\/1),\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ n),qn1);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00311}00311\ \ \ \ \ tangents[n]\ =\ \mbox{\hyperlink{namespaceLNLib_a0150e2110312595800252c143754d732}{GetTk}}(\mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ n-\/1),\ \mbox{\hyperlink{namespaceLNLib_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4}{Getqk}}(throughPoints,\ n),qn1,qn2);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00312}00312\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00313}00313\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00314}00314\ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00315}00315\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00316}\mbox{\hyperlink{classLNLib_1_1Interpolation_a551c700fc3e54e73e3ca0ceb82b66a2d}{00316}}\ std::vector<LNLib::XYZ>\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a551c700fc3e54e73e3ca0ceb82b66a2d}{LNLib::Interpolation::ComputeTangent}}(\textcolor{keyword}{const}\ std::vector<XYZ>\&\ throughPoints)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00317}00317\ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00318}00318\ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ throughPoints.size();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00319}00319\ \ \ \ \ std::vector<XYZ>\ tangents(size,\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(0,\ 0,\ 0));}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00320}00320\ \ \ \ \ std::vector<XYZ>\ qq(size,\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(0,\ 0,\ 0));}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00321}00321\ \ \ \ \ std::vector<double>\ delta(size,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00322}00322\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00323}00323\ \ \ \ \ \textcolor{keyword}{auto}\ params\ =\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a9a0dab509f7981bca99e4b88794022f6}{GetChordParameterization}}(throughPoints);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00324}00324\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00325}00325\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ delta[i]\ =\ params[i]\ -\/\ params[i\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ qq[i]\ =\ throughPoints[i]\ -\/\ throughPoints[i\ -\/\ 1];}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00328}00328\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00329}00329\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 1;\ i\ <\ size\ -\/\ 1;\ i++)}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00330}00330\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00331}00331\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ a\ =\ delta[i]\ /\ (delta[i]\ +\ delta[i\ +\ 1]);}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ tangents[i]\ =\ ((1\ -\/\ a)\ *\ qq[i]\ +\ a\ *\ qq[i\ +\ 1]).Normalize();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00333}00333\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00335}00335\ \ \ \ \ tangents[0]\ =\ (2\ *\ qq[1]\ /\ delta[1]\ -\/\ tangents[1]).Normalize();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00336}00336\ \ \ \ \ tangents[tangents.size()\ -\/\ 1]\ =\ (2\ *\ qq[qq.size()\ -\/\ 1]\ /\ delta[delta.size()\ -\/\ 1]\ -\/\ tangents[tangents.size()\ -\/\ 2]).Normalize();}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00337}00337\ \ \ \ \ \textcolor{keywordflow}{return}\ tangents;}
+\DoxyCodeLine{\Hypertarget{Interpolation_8cpp_source_l00338}00338\ \}}
+
+\end{DoxyCode}

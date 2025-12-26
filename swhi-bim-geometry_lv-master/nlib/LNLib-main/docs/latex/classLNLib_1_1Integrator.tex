@@ -1,0 +1,213 @@
+\doxysection{LNLib\+::Integrator类 参考}
+\hypertarget{classLNLib_1_1Integrator}{}\label{classLNLib_1_1Integrator}\index{LNLib::Integrator@{LNLib::Integrator}}
+
+
+{\ttfamily \#include $<$Integrator.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{classLNLib_1_1Integrator_a678e1ce3937ae65b9ff886f0f5ae6f17}{Simpson}} (\mbox{\hyperlink{classLNLib_1_1IntegrationFunction}{Integration\+Function}} \&function, void \texorpdfstring{$\ast$}{*}custom\+Data, double start, double end)
+\item 
+static double \mbox{\hyperlink{classLNLib_1_1Integrator_a505e812b87ed37f06c191520889d0921}{Simpson}} (\mbox{\hyperlink{classLNLib_1_1BinaryIntegrationFunction}{Binary\+Integration\+Function}} \&function, void \texorpdfstring{$\ast$}{*}custom\+Data, double u\+Start, double u\+End, double v\+Start, double v\+End)
+\item 
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1Integrator_aaf3496342a2d42f08d56527e1433593a}{Chebyshev\+Series}} (int size=100)
+\begin{DoxyCompactList}\small\item\em According to \href{https://github.com/chrisidefix/nurbs}{\texttt{ https\+://github.\+com/chrisidefix/nurbs}} \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1Integrator_aef1a9a4d545b1b0e0b4f6aaf226981b2}{Clenshaw\+Curtis\+Quadrature}} (\mbox{\hyperlink{classLNLib_1_1IntegrationFunction}{Integration\+Function}} \&function, void \texorpdfstring{$\ast$}{*}custom\+Data, double start, double end, std\+::vector$<$ double $>$ \&series, double epsilon=\mbox{\hyperlink{classLNLib_1_1Constants_a8e3851b85ed26364ace1af2266e8947c}{Constants\+::\+Distance\+Epsilon}})
+\item 
+static double \mbox{\hyperlink{classLNLib_1_1Integrator_ac587694266de65c911374c38e23bf0ba}{Clenshaw\+Curtis\+Quadrature2}} (\mbox{\hyperlink{classLNLib_1_1IntegrationFunction}{Integration\+Function}} \&function, void \texorpdfstring{$\ast$}{*}custom\+Data, double start, double end, std\+::vector$<$ double $>$ series, double epsilon=\mbox{\hyperlink{classLNLib_1_1Constants_a8e3851b85ed26364ace1af2266e8947c}{Constants\+::\+Distance\+Epsilon}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+static const std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1Integrator_a226b8450b8ed883154eaefba29fbfc71}{Gauss\+Legendre\+Abscissae}}
+\begin{DoxyCompactList}\small\item\em According to \href{https://github.com/Pomax/bezierjs}{\texttt{ https\+://github.\+com/\+Pomax/bezierjs}} Order is set 24. \end{DoxyCompactList}\item 
+static const std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1Integrator_abb4683361d059b4c31acf9d4b531f8b7}{Gauss\+Legendre\+Weights}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{Integrator_8h_source}{Integrator.\+h}} 第 \mbox{\hyperlink{Integrator_8h_source_l00030}{30}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1Integrator_aaf3496342a2d42f08d56527e1433593a}\index{LNLib::Integrator@{LNLib::Integrator}!ChebyshevSeries@{ChebyshevSeries}}
+\index{ChebyshevSeries@{ChebyshevSeries}!LNLib::Integrator@{LNLib::Integrator}}
+\doxysubsubsection{\texorpdfstring{ChebyshevSeries()}{ChebyshevSeries()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Integrator_aaf3496342a2d42f08d56527e1433593a} 
+std\+::vector$<$ double $>$ LNLib\+::\+Integrator\+::\+Chebyshev\+Series (\begin{DoxyParamCaption}\item[{int}]{size}{ = {\ttfamily 100}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+According to \href{https://github.com/chrisidefix/nurbs}{\texttt{ https\+://github.\+com/chrisidefix/nurbs}} 
+
+
+
+在文件 \mbox{\hyperlink{Integrator_8cpp_source}{Integrator.\+cpp}} 第 \mbox{\hyperlink{Integrator_8cpp_source_l00121}{121}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{FFT_8h_source_l00595}{LNLib\+::dfct()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02979}{LNLib\+::\+Nurbs\+Surface\+::\+Approximate\+Area()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{LNLib\+::\+Nurbs\+Curve\+::\+Approximate\+Length()}}.
+
+\Hypertarget{classLNLib_1_1Integrator_aef1a9a4d545b1b0e0b4f6aaf226981b2}\index{LNLib::Integrator@{LNLib::Integrator}!ClenshawCurtisQuadrature@{ClenshawCurtisQuadrature}}
+\index{ClenshawCurtisQuadrature@{ClenshawCurtisQuadrature}!LNLib::Integrator@{LNLib::Integrator}}
+\doxysubsubsection{\texorpdfstring{ClenshawCurtisQuadrature()}{ClenshawCurtisQuadrature()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Integrator_aef1a9a4d545b1b0e0b4f6aaf226981b2} 
+double LNLib\+::\+Integrator\+::\+Clenshaw\+Curtis\+Quadrature (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLNLib_1_1IntegrationFunction}{Integration\+Function}} \&}]{function}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{custom\+Data}{, }\item[{double}]{start}{, }\item[{double}]{end}{, }\item[{std\+::vector$<$ double $>$ \&}]{series}{, }\item[{double}]{epsilon}{ = {\ttfamily \mbox{\hyperlink{classLNLib_1_1Constants_a8e3851b85ed26364ace1af2266e8947c}{Constants\+::\+Distance\+Epsilon}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Integrator_8cpp_source}{Integrator.\+cpp}} 第 \mbox{\hyperlink{Integrator_8cpp_source_l00166}{166}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{LNLib\+::\+Nurbs\+Curve\+::\+Approximate\+Length()}}.
+
+\Hypertarget{classLNLib_1_1Integrator_ac587694266de65c911374c38e23bf0ba}\index{LNLib::Integrator@{LNLib::Integrator}!ClenshawCurtisQuadrature2@{ClenshawCurtisQuadrature2}}
+\index{ClenshawCurtisQuadrature2@{ClenshawCurtisQuadrature2}!LNLib::Integrator@{LNLib::Integrator}}
+\doxysubsubsection{\texorpdfstring{ClenshawCurtisQuadrature2()}{ClenshawCurtisQuadrature2()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Integrator_ac587694266de65c911374c38e23bf0ba} 
+double LNLib\+::\+Integrator\+::\+Clenshaw\+Curtis\+Quadrature2 (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLNLib_1_1IntegrationFunction}{Integration\+Function}} \&}]{function}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{custom\+Data}{, }\item[{double}]{start}{, }\item[{double}]{end}{, }\item[{std\+::vector$<$ double $>$}]{series}{, }\item[{double}]{epsilon}{ = {\ttfamily \mbox{\hyperlink{classLNLib_1_1Constants_a8e3851b85ed26364ace1af2266e8947c}{Constants\+::\+Distance\+Epsilon}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Integrator_8cpp_source}{Integrator.\+cpp}} 第 \mbox{\hyperlink{Integrator_8cpp_source_l00223}{223}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02979}{LNLib\+::\+Nurbs\+Surface\+::\+Approximate\+Area()}}.
+
+\Hypertarget{classLNLib_1_1Integrator_a505e812b87ed37f06c191520889d0921}\index{LNLib::Integrator@{LNLib::Integrator}!Simpson@{Simpson}}
+\index{Simpson@{Simpson}!LNLib::Integrator@{LNLib::Integrator}}
+\doxysubsubsection{\texorpdfstring{Simpson()}{Simpson()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Integrator_a505e812b87ed37f06c191520889d0921} 
+double LNLib\+::\+Integrator\+::\+Simpson (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLNLib_1_1BinaryIntegrationFunction}{Binary\+Integration\+Function}} \&}]{function}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{custom\+Data}{, }\item[{double}]{u\+Start}{, }\item[{double}]{u\+End}{, }\item[{double}]{v\+Start}{, }\item[{double}]{v\+End}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Integrator_8cpp_source}{Integrator.\+cpp}} 第 \mbox{\hyperlink{Integrator_8cpp_source_l00028}{28}} 行定义.
+
+\Hypertarget{classLNLib_1_1Integrator_a678e1ce3937ae65b9ff886f0f5ae6f17}\index{LNLib::Integrator@{LNLib::Integrator}!Simpson@{Simpson}}
+\index{Simpson@{Simpson}!LNLib::Integrator@{LNLib::Integrator}}
+\doxysubsubsection{\texorpdfstring{Simpson()}{Simpson()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Integrator_a678e1ce3937ae65b9ff886f0f5ae6f17} 
+double LNLib\+::\+Integrator\+::\+Simpson (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLNLib_1_1IntegrationFunction}{Integration\+Function}} \&}]{function}{, }\item[{void \texorpdfstring{$\ast$}{*}}]{custom\+Data}{, }\item[{double}]{start}{, }\item[{double}]{end}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Integrator_8cpp_source}{Integrator.\+cpp}} 第 \mbox{\hyperlink{Integrator_8cpp_source_l00019}{19}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02979}{LNLib\+::\+Nurbs\+Surface\+::\+Approximate\+Area()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{LNLib\+::\+Nurbs\+Curve\+::\+Approximate\+Length()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00061}{LNLib\+::\+Calculate\+Length\+By\+Simpson()}}.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{classLNLib_1_1Integrator_a226b8450b8ed883154eaefba29fbfc71}\index{LNLib::Integrator@{LNLib::Integrator}!GaussLegendreAbscissae@{GaussLegendreAbscissae}}
+\index{GaussLegendreAbscissae@{GaussLegendreAbscissae}!LNLib::Integrator@{LNLib::Integrator}}
+\doxysubsubsection{\texorpdfstring{GaussLegendreAbscissae}{GaussLegendreAbscissae}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Integrator_a226b8450b8ed883154eaefba29fbfc71} 
+const std\+::vector$<$ double $>$ LNLib\+::\+Integrator\+::\+Gauss\+Legendre\+Abscissae\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries 初始值\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/0.0640568928626056260850430826247450385909,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0640568928626056260850430826247450385909,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/0.1911188674736163091586398207570696318404,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.1911188674736163091586398207570696318404,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/0.3150426796961633743867932913198102407864,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.3150426796961633743867932913198102407864,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/0.4337935076260451384870842319133497124524,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.4337935076260451384870842319133497124524,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/0.5454214713888395356583756172183723700107,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.5454214713888395356583756172183723700107,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/0.6480936519369755692524957869107476266696,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.6480936519369755692524957869107476266696,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/0.7401241915785543642438281030999784255232,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.7401241915785543642438281030999784255232,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/0.8200019859739029219539498726697452080761,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.8200019859739029219539498726697452080761,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/0.8864155270044010342131543419821967550873,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.8864155270044010342131543419821967550873,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/0.9382745520027327585236490017087214496548,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.9382745520027327585236490017087214496548,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/0.9747285559713094981983919930081690617411,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.9747285559713094981983919930081690617411,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ -\/0.9951872199970213601799974097007368118745,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.9951872199970213601799974097007368118745,}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+According to \href{https://github.com/Pomax/bezierjs}{\texttt{ https\+://github.\+com/\+Pomax/bezierjs}} Order is set 24. 
+
+
+
+在文件 \mbox{\hyperlink{Integrator_8h_source}{Integrator.\+h}} 第 \mbox{\hyperlink{Integrator_8h_source_l00041}{41}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02979}{LNLib\+::\+Nurbs\+Surface\+::\+Approximate\+Area()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{LNLib\+::\+Nurbs\+Curve\+::\+Approximate\+Length()}}.
+
+\Hypertarget{classLNLib_1_1Integrator_abb4683361d059b4c31acf9d4b531f8b7}\index{LNLib::Integrator@{LNLib::Integrator}!GaussLegendreWeights@{GaussLegendreWeights}}
+\index{GaussLegendreWeights@{GaussLegendreWeights}!LNLib::Integrator@{LNLib::Integrator}}
+\doxysubsubsection{\texorpdfstring{GaussLegendreWeights}{GaussLegendreWeights}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Integrator_abb4683361d059b4c31acf9d4b531f8b7} 
+const std\+::vector$<$ double $>$ LNLib\+::\+Integrator\+::\+Gauss\+Legendre\+Weights\hspace{0.3cm}{\ttfamily [static]}}
+
+{\bfseries 初始值\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.1279381953467521569740561652246953718517,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.1279381953467521569740561652246953718517,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.1258374563468282961213753825111836887264,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.1258374563468282961213753825111836887264,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.121670472927803391204463153476262425607,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.121670472927803391204463153476262425607,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.1155056680537256013533444839067835598622,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.1155056680537256013533444839067835598622,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.1074442701159656347825773424466062227946,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.1074442701159656347825773424466062227946,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0976186521041138882698806644642471544279,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0976186521041138882698806644642471544279,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.086190161531953275917185202983742667185,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.086190161531953275917185202983742667185,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0733464814110803057340336152531165181193,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0733464814110803057340336152531165181193,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0592985849154367807463677585001085845412,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0592985849154367807463677585001085845412,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0442774388174198061686027482113382288593,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0442774388174198061686027482113382288593,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0285313886289336631813078159518782864491,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0285313886289336631813078159518782864491,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0123412297999871995468056670700372915759,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0.0123412297999871995468056670700372915759,}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+
+
+在文件 \mbox{\hyperlink{Integrator_8h_source}{Integrator.\+h}} 第 \mbox{\hyperlink{Integrator_8h_source_l00042}{42}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02979}{LNLib\+::\+Nurbs\+Surface\+::\+Approximate\+Area()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{LNLib\+::\+Nurbs\+Curve\+::\+Approximate\+Length()}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{Integrator_8h}{Integrator.\+h}}\item 
+src/\+LNLib/\+Algorithm/\mbox{\hyperlink{Integrator_8cpp}{Integrator.\+cpp}}\end{DoxyCompactItemize}

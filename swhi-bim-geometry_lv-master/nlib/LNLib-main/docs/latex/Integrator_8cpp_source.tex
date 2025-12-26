@@ -1,0 +1,288 @@
+\doxysection{Integrator.\+cpp}
+\hypertarget{Integrator_8cpp_source}{}\label{Integrator_8cpp_source}\index{src/LNLib/Algorithm/Integrator.cpp@{src/LNLib/Algorithm/Integrator.cpp}}
+\mbox{\hyperlink{Integrator_8cpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00003}00003\ \textcolor{comment}{\ *\ 2024/01/08\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Integrator_8h}{Integrator.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{FFT_8h}{FFT.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Constants_8h}{Constants.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00017}\mbox{\hyperlink{namespaceLNLib}{00017}}\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00019}\mbox{\hyperlink{classLNLib_1_1Integrator_a678e1ce3937ae65b9ff886f0f5ae6f17}{00019}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1Integrator_a678e1ce3937ae65b9ff886f0f5ae6f17}{Integrator::Simpson}}(\mbox{\hyperlink{classLNLib_1_1IntegrationFunction}{IntegrationFunction}}\&\ function,\ \textcolor{keywordtype}{void}*\ customData,\ \textcolor{keywordtype}{double}\ start,\ \textcolor{keywordtype}{double}\ end)}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00020}00020\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ st\ =\ (function)(start,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ mt\ =\ (function)((start\ +\ end)\ /\ 2.0,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ et\ =\ (function)((end),\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ result\ =\ ((end\ -\/\ start)\ /\ 6.0)\ *\ (st\ +\ 4\ *\ mt\ +\ et);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00026}00026\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00028}\mbox{\hyperlink{classLNLib_1_1Integrator_a505e812b87ed37f06c191520889d0921}{00028}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1Integrator_a678e1ce3937ae65b9ff886f0f5ae6f17}{Integrator::Simpson}}(\mbox{\hyperlink{classLNLib_1_1BinaryIntegrationFunction}{BinaryIntegrationFunction}}\&\ function,\ \textcolor{keywordtype}{void}*\ customData,\ \textcolor{keywordtype}{double}\ uStart,\ \textcolor{keywordtype}{double}\ uEnd,\ \textcolor{keywordtype}{double}\ vStart,\ \textcolor{keywordtype}{double}\ vEnd)}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00029}00029\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ du\ =\ uEnd\ -\/\ uStart;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ dv\ =\ vEnd\ -\/\ vStart;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ hdu\ =\ 0.5\ *\ du;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ hdv\ =\ 0.5\ *\ dv;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ Sample\ 9\ points\ with\ weights}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ sampleNumber\ =\ 9;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ patches\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ uvw[27]\ =\ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ uStart,\ \ \ \ \ \ \ \ \ vStart,\ \ \ \ \ \ \ \ \ 1,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ uStart,\ \ \ \ \ \ \ \ \ vStart\ +\ hdv,\ \ \ 4,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ uStart,\ \ \ \ \ \ \ \ \ vEnd,\ \ \ \ \ \ \ \ \ \ \ 1,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ uStart\ +\ hdu,\ \ \ vStart,\ \ \ \ \ \ \ \ \ 4,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ uStart\ +\ hdu,\ \ \ vStart\ +\ hdv,\ \ \ 16,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ uStart\ +\ hdu,\ \ \ vEnd,\ \ \ \ \ \ \ \ \ \ \ 4,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ uEnd,\ \ \ \ \ \ \ \ \ \ \ vStart,\ \ \ \ \ \ \ \ \ 1,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ uEnd,\ \ \ \ \ \ \ \ \ \ \ vStart\ +\ hdv,\ \ \ 4,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ uEnd,\ \ \ \ \ \ \ \ \ \ \ vEnd,\ \ \ \ \ \ \ \ \ \ \ 1,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ i=0;\ i\ <\ sampleNumber;\ ++i)}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}*\ base\ =\ uvw\ +\ i*3;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ u\ =\ base[0];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ v\ =\ base[1];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ w\ =\ base[2];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ f\ =\ function(u,\ v,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ sum\ +=\ w\ *\ f;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ sum\ *=\ du\ *\ dv\ /\ (sampleNumber\ *\ patches);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sum;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00063}00063\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\ \mbox{\hyperlink{classLNLib_1_1Integrator_a226b8450b8ed883154eaefba29fbfc71}{Integrator::GaussLegendreAbscissae}}\ =}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00066}00066\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ -\/0.0640568928626056260850430826247450385909,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ 0.0640568928626056260850430826247450385909,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ -\/0.1911188674736163091586398207570696318404,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ 0.1911188674736163091586398207570696318404,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ -\/0.3150426796961633743867932913198102407864,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ 0.3150426796961633743867932913198102407864,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ -\/0.4337935076260451384870842319133497124524,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ 0.4337935076260451384870842319133497124524,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ -\/0.5454214713888395356583756172183723700107,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ 0.5454214713888395356583756172183723700107,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ -\/0.6480936519369755692524957869107476266696,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ 0.6480936519369755692524957869107476266696,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ -\/0.7401241915785543642438281030999784255232,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ 0.7401241915785543642438281030999784255232,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ -\/0.8200019859739029219539498726697452080761,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ 0.8200019859739029219539498726697452080761,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ -\/0.8864155270044010342131543419821967550873,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ 0.8864155270044010342131543419821967550873,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ -\/0.9382745520027327585236490017087214496548,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ 0.9382745520027327585236490017087214496548,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ -\/0.9747285559713094981983919930081690617411,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ 0.9747285559713094981983919930081690617411,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ -\/0.9951872199970213601799974097007368118745,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ 0.9951872199970213601799974097007368118745,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00091}00091\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\ \mbox{\hyperlink{classLNLib_1_1Integrator_abb4683361d059b4c31acf9d4b531f8b7}{Integrator::GaussLegendreWeights}}\ =}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00094}00094\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ 0.1279381953467521569740561652246953718517,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ 0.1279381953467521569740561652246953718517,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ 0.1258374563468282961213753825111836887264,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ 0.1258374563468282961213753825111836887264,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ 0.121670472927803391204463153476262425607,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ 0.121670472927803391204463153476262425607,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ 0.1155056680537256013533444839067835598622,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ 0.1155056680537256013533444839067835598622,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ 0.1074442701159656347825773424466062227946,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ 0.1074442701159656347825773424466062227946,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ 0.0976186521041138882698806644642471544279,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ 0.0976186521041138882698806644642471544279,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00107}00107\ \ \ \ \ \ \ \ \ 0.086190161531953275917185202983742667185,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ 0.086190161531953275917185202983742667185,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ 0.0733464814110803057340336152531165181193,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ 0.0733464814110803057340336152531165181193,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ 0.0592985849154367807463677585001085845412,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ 0.0592985849154367807463677585001085845412,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ 0.0442774388174198061686027482113382288593,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ 0.0442774388174198061686027482113382288593,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ 0.0285313886289336631813078159518782864491,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ 0.0285313886289336631813078159518782864491,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ 0.0123412297999871995468056670700372915759,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ 0.0123412297999871995468056670700372915759,}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00119}00119\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00121}\mbox{\hyperlink{classLNLib_1_1Integrator_aaf3496342a2d42f08d56527e1433593a}{00121}}\ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{classLNLib_1_1Integrator_aaf3496342a2d42f08d56527e1433593a}{Integrator::ChebyshevSeries}}(\textcolor{keywordtype}{int}\ size)}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00122}00122\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ std::vector<double>\ series(size);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lenw\ =\ series.size()\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j,\ k,\ l,\ m;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ cos2,\ sin1,\ sin2,\ hl;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ cos2\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ sin1\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ sin2\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ hl\ =\ 0.5;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ k\ =\ lenw;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ l\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (l\ <\ k\ -\/\ l\ -\/\ 1)\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ series[0]\ =\ hl\ *\ 0.5;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 1;\ j\ <=\ l;\ j++)\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ series[j]\ =\ hl\ /\ (1\ -\/\ 4\ *\ j\ *\ j);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ series[l]\ *=\ 0.5;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceLNLib_a695a2602375d7a2590d1c70cc24debb0}{dfct}}(l,\ 0.5\ *\ cos2,\ sin1,\ series);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ cos2\ =\ std::sqrt(2\ +\ cos2);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ sin1\ /=\ cos2;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ sin2\ /=\ 2\ +\ cos2;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ series[k]\ =\ sin2;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ series[k\ -\/\ 1]\ =\ series[0];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ series[k\ -\/\ 2]\ =\ series[l];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ k\ -\/=\ 3;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ m\ =\ l;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (m\ >\ 1)\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\ >>=\ 1;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ m;\ j\ <=\ l\ -\/\ m;\ j\ +=\ (m\ <<\ 1))\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ series[k]\ =\ series[j];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ k-\/-\/;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ hl\ *=\ 0.5;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ l\ *=\ 2;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ series;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00165}00165\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00166}\mbox{\hyperlink{classLNLib_1_1Integrator_aef1a9a4d545b1b0e0b4f6aaf226981b2}{00166}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1Integrator_aef1a9a4d545b1b0e0b4f6aaf226981b2}{Integrator::ClenshawCurtisQuadrature}}(\mbox{\hyperlink{classLNLib_1_1IntegrationFunction}{IntegrationFunction}}\&\ function,\ \textcolor{keywordtype}{void}*\ customData,\ \textcolor{keywordtype}{double}\ start,\ \textcolor{keywordtype}{double}\ end,\ std::vector<double>\&\ series,\ \textcolor{keywordtype}{double}\ epsilon)}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00167}00167\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ integration;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j,\ k,\ l;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ err,\ esf,\ eref,\ erefh,\ hh,\ ir,\ iback,\ irback,\ ba,\ ss,\ x,\ y,\ fx,\ errir;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lenw\ =\ series.size()\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ esf\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ ba\ =\ 0.5\ *\ (end\ -\/\ start);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ ss\ =\ 2\ *\ series[lenw];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ x\ =\ ba\ *\ series[lenw];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ series[0]\ =\ 0.5\ *\ (function)(start,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ series[3]\ =\ 0.5\ *\ (function)(end,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ series[2]\ =\ (function)(start\ +\ x,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ series[4]\ =\ (function)(end\ -\/\ x,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ series[1]\ =\ (function)(start\ +\ ba,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ eref\ =\ 0.5\ *\ (fabs(series[0])\ +\ std::fabs(series[1])\ +\ std::fabs(series[2])\ +\ std::fabs(series[3])\ +\ std::fabs(series[4]));}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ series[0]\ +=\ series[3];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ series[2]\ +=\ series[4];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ ir\ =\ series[0]\ +\ series[1]\ +\ series[2];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ integration\ =\ series[0]\ *\ series[lenw\ -\/\ 1]\ +\ series[1]\ *\ series[lenw\ -\/\ 2]\ +\ series[2]\ *\ series[lenw\ -\/\ 3];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ erefh\ =\ eref\ *\ std::sqrt(epsilon);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ eref\ *=\ epsilon;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ hh\ =\ 0.25;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ l\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ k\ =\ lenw\ -\/\ 5;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ iback\ =\ integration;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ irback\ =\ ir;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ ba\ *\ series[k\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ integration\ =\ series[0]\ *\ series[k];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 1;\ j\ <=\ l;\ j++)\ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ +=\ y;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\ +=\ ss\ *\ (ba\ -\/\ x);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fx\ =\ (function)(start\ +\ x,\ customData)\ +\ (function)(end\ -\/\ x,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ir\ +=\ fx;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ integration\ +=\ series[j]\ *\ series[k\ -\/\ j]\ +\ fx\ *\ series[k\ -\/\ j\ -\/\ l];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ series[j\ +\ l]\ =\ fx;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00204}00204\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ =\ 2\ *\ series[k\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ err\ =\ esf\ *\ l\ *\ std::fabs(integration\ -\/\ iback);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ hh\ *=\ 0.25;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ errir\ =\ hh\ *\ std::fabs(ir\ -\/\ 2\ *\ irback);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ l\ *=\ 2;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ k\ -\/=\ l\ +\ 2;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((err\ >\ erefh\ ||\ errir\ >\ eref)\ \&\&\ k\ >\ 4\ *\ l);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ integration\ *=\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (err\ >\ erefh\ ||\ errir\ >\ eref)}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ err\ *=\ -\/fabs(end\ -\/\ start);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ err\ =\ eref\ *\ std::fabs(end\ -\/\ start);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ integration;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00222}00222\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00223}\mbox{\hyperlink{classLNLib_1_1Integrator_ac587694266de65c911374c38e23bf0ba}{00223}}\ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1Integrator_ac587694266de65c911374c38e23bf0ba}{Integrator::ClenshawCurtisQuadrature2}}(\mbox{\hyperlink{classLNLib_1_1IntegrationFunction}{IntegrationFunction}}\&\ function,\ \textcolor{keywordtype}{void}*\ customData,\ \textcolor{keywordtype}{double}\ start,\ \textcolor{keywordtype}{double}\ end,\ std::vector<double>\ series,\ \textcolor{keywordtype}{double}\ epsilon)}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00224}00224\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ integration;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ j,\ k,\ l;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ err,\ esf,\ eref,\ erefh,\ hh,\ ir,\ iback,\ irback,\ ba,\ ss,\ x,\ y,\ fx,\ errir;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ lenw\ =\ series.size()\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ esf\ =\ 10;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ ba\ =\ 0.5\ *\ (end\ -\/\ start);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ ss\ =\ 2\ *\ series[lenw];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ x\ =\ ba\ *\ series[lenw];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ series[0]\ =\ 0.5\ *\ (function)(start,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ series[3]\ =\ 0.5\ *\ (function)(end,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ series[2]\ =\ (function)(start\ +\ x,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ series[4]\ =\ (function)(end\ -\/\ x,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ series[1]\ =\ (function)(start\ +\ ba,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ eref\ =\ 0.5\ *\ (fabs(series[0])\ +\ std::fabs(series[1])\ +\ std::fabs(series[2])\ +\ std::fabs(series[3])\ +\ std::fabs(series[4]));}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ series[0]\ +=\ series[3];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ series[2]\ +=\ series[4];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ ir\ =\ series[0]\ +\ series[1]\ +\ series[2];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ integration\ =\ series[0]\ *\ series[lenw\ -\/\ 1]\ +\ series[1]\ *\ series[lenw\ -\/\ 2]\ +\ series[2]\ *\ series[lenw\ -\/\ 3];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ erefh\ =\ eref\ *\ std::sqrt(epsilon);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ eref\ *=\ epsilon;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ hh\ =\ 0.25;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ l\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ k\ =\ lenw\ -\/\ 5;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ iback\ =\ integration;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ irback\ =\ ir;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ x\ =\ ba\ *\ series[k\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ y\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ integration\ =\ series[0]\ *\ series[k];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 1;\ j\ <=\ l;\ j++)\ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ x\ +=\ y;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ y\ +=\ ss\ *\ (ba\ -\/\ x);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ fx\ =\ (function)(start\ +\ x,\ customData)\ +\ (function)(end\ -\/\ x,\ customData);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ir\ +=\ fx;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ integration\ +=\ series[j]\ *\ series[k\ -\/\ j]\ +\ fx\ *\ series[k\ -\/\ j\ -\/\ l];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ series[j\ +\ l]\ =\ fx;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ ss\ =\ 2\ *\ series[k\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ err\ =\ esf\ *\ l\ *\ std::fabs(integration\ -\/\ iback);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ hh\ *=\ 0.25;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ errir\ =\ hh\ *\ std::fabs(ir\ -\/\ 2\ *\ irback);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ l\ *=\ 2;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ k\ -\/=\ l\ +\ 2;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ ((err\ >\ erefh\ ||\ errir\ >\ eref)\ \&\&\ k\ >\ 4\ *\ l);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ integration\ *=\ end\ -\/\ start;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (err\ >\ erefh\ ||\ errir\ >\ eref)}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ err\ *=\ -\/fabs(end\ -\/\ start);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ err\ =\ eref\ *\ std::fabs(end\ -\/\ start);}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ integration;}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00279}00279\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00280}00280\ \}}
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00281}00281\ }
+\DoxyCodeLine{\Hypertarget{Integrator_8cpp_source_l00282}00282\ }
+
+\end{DoxyCode}

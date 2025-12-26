@@ -1,0 +1,1628 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: LNLib 命名空间参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('namespaceLNLib.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">LNLib 命名空间参考</div></div>
+</div><!--header-->
+<div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1AreaCoreFunction.html">AreaCoreFunction</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1AreaData.html">AreaData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1AreaWrapperFunction.html">AreaWrapperFunction</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1BezierCurve.html">BezierCurve</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1BezierSurface.html">BezierSurface</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1BinaryIntegrationFunction.html">BinaryIntegrationFunction</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1BsplineCurve.html">BsplineCurve</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1BsplineSurface.html">BsplineSurface</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1Constants.html">Constants</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1ControlPointsUtils.html">ControlPointsUtils</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1Edge.html">Edge</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1FirstDerivativeLengthFunction.html">FirstDerivativeLengthFunction</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1Freelist.html">Freelist</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1Freenode.html">Freenode</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1FreeNodeArrayList.html">FreeNodeArrayList</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1GraphEdge.html">GraphEdge</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1Halfedge.html">Halfedge</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1IntegrationFunction.html">IntegrationFunction</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1Integrator.html">Integrator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1Interpolation.html">Interpolation</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1Intersection.html">Intersection</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1KnotVectorUtils.html">KnotVectorUtils</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1LN__ArcInfo.html">LN_ArcInfo</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1LN__BezierCurve.html">LN_BezierCurve</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1LN__BezierSurface.html">LN_BezierSurface</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1LN__BsplineSurface.html">LN_BsplineSurface</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1LN__Mesh.html">LN_Mesh</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1MathUtils.html">MathUtils</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">4 * 4 Matrix for model transformation, such as T(x) = M * x <a class="el" href="classLNLib_1_1Matrix4d.html" title="4 * 4 Matrix for model transformation, such as T(x) = M * x Matrix4d : [x y z w]">Matrix4d</a> : [x y z w]  <a href="classLNLib_1_1Matrix4d.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1NurbsCurve.html">NurbsCurve</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1NurbsSurface.html">NurbsSurface</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1Point3.html">Point3</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1PointVDG.html">PointVDG</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1Polynomials.html">Polynomials</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1Projection.html">Projection</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1Site.html">Site</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1UV.html">UV</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents two-dimension location/vector/offset  <a href="classLNLib_1_1UV.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1ValidationUtils.html">ValidationUtils</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structLNLib_1_1VertexLink.html">VertexLink</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1VoronoiDiagramGenerator.html">VoronoiDiagramGenerator</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents three-dimension location/vector/offset  <a href="classLNLib_1_1XYZ.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classLNLib_1_1XYZW.html">XYZW</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents four-dimension location/vector/offset  <a href="classLNLib_1_1XYZW.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:ad7a697da398104134afc92856e20a140" id="r_ad7a697da398104134afc92856e20a140"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a>&lt; <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a></td></tr>
+<tr class="separator:ad7a697da398104134afc92856e20a140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b230458dcc27e09eca3bc2771d94fe3" id="r_a5b230458dcc27e09eca3bc2771d94fe3"><td class="memItemLeft" align="right" valign="top">typedef <a class="el" href="structLNLib_1_1LN__BsplineSurface.html">LN_BsplineSurface</a>&lt; <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a></td></tr>
+<tr class="separator:a5b230458dcc27e09eca3bc2771d94fe3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a990b15d5522b431bd0cfede7b600a59c" id="r_a990b15d5522b431bd0cfede7b600a59c"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a990b15d5522b431bd0cfede7b600a59c">CurveCurveIntersectionType</a> : int { <a class="el" href="#a990b15d5522b431bd0cfede7b600a59cae2e969432869ed6806cf6eb86082820e">Intersecting</a> = 0
+, <a class="el" href="#a990b15d5522b431bd0cfede7b600a59ca98402eecfbcefc336954458a01752131">Parallel</a> = 1
+, <a class="el" href="#a990b15d5522b431bd0cfede7b600a59ca81126870f8ecd751b93a0f51d10a8945">Coincident</a> = 2
+, <a class="el" href="#a990b15d5522b431bd0cfede7b600a59ca2f2227d480b0c69364d7fddfecb82bd0">Skew</a> = 3
+ }</td></tr>
+<tr class="separator:a990b15d5522b431bd0cfede7b600a59c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab883fb3627937ddd447e9f9ff276c40f" id="r_ab883fb3627937ddd447e9f9ff276c40f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab883fb3627937ddd447e9f9ff276c40f">LinePlaneIntersectionType</a> : int { <a class="el" href="#ab883fb3627937ddd447e9f9ff276c40fae2e969432869ed6806cf6eb86082820e">Intersecting</a> = 0
+, <a class="el" href="#ab883fb3627937ddd447e9f9ff276c40fa98402eecfbcefc336954458a01752131">Parallel</a> = 1
+, <a class="el" href="#ab883fb3627937ddd447e9f9ff276c40fa521c36a31c2762741cf0f8890cbe05e3">On</a> = 2
+ }</td></tr>
+<tr class="separator:ab883fb3627937ddd447e9f9ff276c40f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c2e8e0bb21d9e7da969bbd5538a6186" id="r_a6c2e8e0bb21d9e7da969bbd5538a6186"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c2e8e0bb21d9e7da969bbd5538a6186">CurveNormal</a> : int { <a class="el" href="#a6c2e8e0bb21d9e7da969bbd5538a6186a960b44c579bc2f6818d2daaf9e4c16f0">Normal</a> = 0
+, <a class="el" href="#a6c2e8e0bb21d9e7da969bbd5538a6186a283c29d0adbe0d46bc7229f181c6e7da">Binormal</a> = 1
+ }</td></tr>
+<tr class="separator:a6c2e8e0bb21d9e7da969bbd5538a6186"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53cdce096e0efb00504500dc7bc36bb8" id="r_a53cdce096e0efb00504500dc7bc36bb8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a53cdce096e0efb00504500dc7bc36bb8">SurfaceDirection</a> : int { <a class="el" href="#a53cdce096e0efb00504500dc7bc36bb8ab1c94ca2fbc3e78fc30069c8d0f01680">All</a> = 0
+, <a class="el" href="#a53cdce096e0efb00504500dc7bc36bb8afff9907f6d2a88caa259ec5608056a63">UDirection</a> = 1
+, <a class="el" href="#a53cdce096e0efb00504500dc7bc36bb8ae8b366e7b57f5784f3c2be3937fd9178">VDirection</a> = 2
+ }</td></tr>
+<tr class="separator:a53cdce096e0efb00504500dc7bc36bb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee198db970e5fbb25bb1121b84853a34" id="r_aee198db970e5fbb25bb1121b84853a34"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee198db970e5fbb25bb1121b84853a34">SurfaceCurvature</a> : int { <br />
+&#160;&#160;<a class="el" href="#aee198db970e5fbb25bb1121b84853a34a8321e79c278ec510f63675c040594892">Maximum</a> = 0
+, <a class="el" href="#aee198db970e5fbb25bb1121b84853a34aa1d0ec6d56f8833a078b5a7ac4caf2d4">Minimum</a> = 1
+, <a class="el" href="#aee198db970e5fbb25bb1121b84853a34aedc41fb7bf8bdac012523d1bcd949a4f">Gauss</a> = 2
+, <a class="el" href="#aee198db970e5fbb25bb1121b84853a34a3d6c9ac08ada31c184094bbc67afe00d">Mean</a> = 3
+, <br />
+&#160;&#160;<a class="el" href="#aee198db970e5fbb25bb1121b84853a34a1e34af023adeb7d5f484f8eb4b9826b6">Abs</a> = 4
+, <a class="el" href="#aee198db970e5fbb25bb1121b84853a34a9be8c035c1c87ad77c9b9bd6d994909f">Rms</a> = 5
+<br />
+ }</td></tr>
+<tr class="separator:aee198db970e5fbb25bb1121b84853a34"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7a89821d2b610adc6c8f6c196422f40" id="r_aa7a89821d2b610adc6c8f6c196422f40"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa7a89821d2b610adc6c8f6c196422f40">IntegratorType</a> : int { <a class="el" href="#aa7a89821d2b610adc6c8f6c196422f40afd4dab568d4a6a905e1feb902ea64137">Simpson</a> = 0
+, <a class="el" href="#aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0">GaussLegendre</a> = 1
+, <a class="el" href="#aa7a89821d2b610adc6c8f6c196422f40a7672163939be25b939905898298d3648">Chebyshev</a> = 2
+ }</td></tr>
+<tr class="separator:aa7a89821d2b610adc6c8f6c196422f40"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1307064b77623ba85c4fbec18b75ca66" id="r_a1307064b77623ba85c4fbec18b75ca66"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1307064b77623ba85c4fbec18b75ca66">OffsetType</a> : int { <a class="el" href="#a1307064b77623ba85c4fbec18b75ca66a5bb3d408e594ca3067526a38ef0e9da6">TillerAndHanson</a> = 0
+, <a class="el" href="#a1307064b77623ba85c4fbec18b75ca66a8c0477bb78702531c133467eb3b69b6c">PieglAndTiller</a> = 1
+ }</td></tr>
+<tr class="separator:a1307064b77623ba85c4fbec18b75ca66"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:a3ae5b7e1fd4f4cbf6c416834f7cdc2b4" id="r_a3ae5b7e1fd4f4cbf6c416834f7cdc2b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3ae5b7e1fd4f4cbf6c416834f7cdc2b4">Getqk</a> (const std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &amp;throughPoints, int index)</td></tr>
+<tr class="separator:a3ae5b7e1fd4f4cbf6c416834f7cdc2b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a458593b8c696d9d0fff448b409f4f834" id="r_a458593b8c696d9d0fff448b409f4f834"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a458593b8c696d9d0fff448b409f4f834">Getak</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;qk_1, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;qk, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;qk1, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;qk2)</td></tr>
+<tr class="separator:a458593b8c696d9d0fff448b409f4f834"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0150e2110312595800252c143754d732" id="r_a0150e2110312595800252c143754d732"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0150e2110312595800252c143754d732">GetTk</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;qk_1, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;qk, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;qk1, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;qk2)</td></tr>
+<tr class="separator:a0150e2110312595800252c143754d732"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a578dc4c45890c6cc2e11ee7537382103" id="r_a578dc4c45890c6cc2e11ee7537382103"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a578dc4c45890c6cc2e11ee7537382103">InsertMidKnotCore</a> (std::vector&lt; double &gt; &amp;unqiueKnotVector, std::vector&lt; double &gt; &amp;insert, int limitNumber)</td></tr>
+<tr class="separator:a578dc4c45890c6cc2e11ee7537382103"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee0eeac0de126b83da60488dd0f29f2a" id="r_aee0eeac0de126b83da60488dd0f29f2a"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aee0eeac0de126b83da60488dd0f29f2a">GetNode</a> (int degree, const std::vector&lt; double &gt; &amp;knotVector, int lastIndex)</td></tr>
+<tr class="separator:aee0eeac0de126b83da60488dd0f29f2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a451b8766dc661f59fd096afdbea9d142" id="r_a451b8766dc661f59fd096afdbea9d142"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a451b8766dc661f59fd096afdbea9d142">CalculateLengthBySimpson</a> (<a class="el" href="classLNLib_1_1FirstDerivativeLengthFunction.html">FirstDerivativeLengthFunction</a> function, const <a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;curve, double start, double end, double simpson, double tolearance)</td></tr>
+<tr class="separator:a451b8766dc661f59fd096afdbea9d142"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7237e8ec2d2fd5aca81561bc20a53fbc" id="r_a7237e8ec2d2fd5aca81561bc20a53fbc"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7237e8ec2d2fd5aca81561bc20a53fbc">GetParamByLength</a> (const <a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;curve, double start, double end, double givenLength, <a class="el" href="#aa7a89821d2b610adc6c8f6c196422f40">IntegratorType</a> type)</td></tr>
+<tr class="separator:a7237e8ec2d2fd5aca81561bc20a53fbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46fa1199a0e45761f566c0abc54cd3bd" id="r_a46fa1199a0e45761f566c0abc54cd3bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46fa1199a0e45761f566c0abc54cd3bd">TessellateCore</a> (const <a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;curve, double start, double end, std::vector&lt; double &gt; &amp;parameters)</td></tr>
+<tr class="separator:a46fa1199a0e45761f566c0abc54cd3bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4206f4d3de29aeeb20e34c1c23d82a1b" id="r_a4206f4d3de29aeeb20e34c1c23d82a1b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4206f4d3de29aeeb20e34c1c23d82a1b">OffsetByTillerAndHanson</a> (const <a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;curve, double offset, <a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;result)</td></tr>
+<tr class="separator:a4206f4d3de29aeeb20e34c1c23d82a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe0db170a7085f71b1085865e087c96e" id="r_afe0db170a7085f71b1085865e087c96e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afe0db170a7085f71b1085865e087c96e">OffsetByPieglAndTiller</a> (const <a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;curve, double offset, <a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;result)</td></tr>
+<tr class="separator:afe0db170a7085f71b1085865e087c96e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c17866ca244d68426d7102f39d8bff1" id="r_a9c17866ca244d68426d7102f39d8bff1"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9c17866ca244d68426d7102f39d8bff1">GetIndex</a> (int size)</td></tr>
+<tr class="separator:a9c17866ca244d68426d7102f39d8bff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acb17d4b575bfaba86ef1a0cf454fed2e" id="r_acb17d4b575bfaba86ef1a0cf454fed2e"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:acb17d4b575bfaba86ef1a0cf454fed2e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acb17d4b575bfaba86ef1a0cf454fed2e">bitrv2</a> (int n, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:acb17d4b575bfaba86ef1a0cf454fed2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ca847052d102405ac62110b6f47dcbc" id="r_a4ca847052d102405ac62110b6f47dcbc"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:a4ca847052d102405ac62110b6f47dcbc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a4ca847052d102405ac62110b6f47dcbc">cdft</a> (int n, T wr, T wi, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:a4ca847052d102405ac62110b6f47dcbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbb61f02158196d50257e0e2a5001a1b" id="r_adbb61f02158196d50257e0e2a5001a1b"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:adbb61f02158196d50257e0e2a5001a1b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#adbb61f02158196d50257e0e2a5001a1b">rdft</a> (int n, T wr, T wi, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:adbb61f02158196d50257e0e2a5001a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbe697a4fdcda11b72b2aa1d2ceec9a8" id="r_abbe697a4fdcda11b72b2aa1d2ceec9a8"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:abbe697a4fdcda11b72b2aa1d2ceec9a8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#abbe697a4fdcda11b72b2aa1d2ceec9a8">ddct</a> (int n, T wr, T wi, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:abbe697a4fdcda11b72b2aa1d2ceec9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3f6cead043042bf9271429b23539132" id="r_af3f6cead043042bf9271429b23539132"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:af3f6cead043042bf9271429b23539132"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af3f6cead043042bf9271429b23539132">ddst</a> (int n, T wr, T wi, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:af3f6cead043042bf9271429b23539132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec508ed170aa7379ca0316b2dd385d5b" id="r_aec508ed170aa7379ca0316b2dd385d5b"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:aec508ed170aa7379ca0316b2dd385d5b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aec508ed170aa7379ca0316b2dd385d5b">bitrv</a> (int n, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:aec508ed170aa7379ca0316b2dd385d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a695a2602375d7a2590d1c70cc24debb0" id="r_a695a2602375d7a2590d1c70cc24debb0"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:a695a2602375d7a2590d1c70cc24debb0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a695a2602375d7a2590d1c70cc24debb0">dfct</a> (int n, T wr, T wi, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:a695a2602375d7a2590d1c70cc24debb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be52fb1f3024f40fb50757ca34e454f" id="r_a9be52fb1f3024f40fb50757ca34e454f"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:a9be52fb1f3024f40fb50757ca34e454f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9be52fb1f3024f40fb50757ca34e454f">dfst</a> (int n, T wr, T wi, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:a9be52fb1f3024f40fb50757ca34e454f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d0f2a917f984a069f87f949594c63a5" id="r_a3d0f2a917f984a069f87f949594c63a5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d0f2a917f984a069f87f949594c63a5">operator*</a> (const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;left, const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;right)</td></tr>
+<tr class="separator:a3d0f2a917f984a069f87f949594c63a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c392ce1065a6468a26244a0ed00ba0f" id="r_a8c392ce1065a6468a26244a0ed00ba0f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c392ce1065a6468a26244a0ed00ba0f">operator+</a> (const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;left, const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;right)</td></tr>
+<tr class="separator:a8c392ce1065a6468a26244a0ed00ba0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d0344c1256a472f117843392f921a3e" id="r_a2d0344c1256a472f117843392f921a3e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d0344c1256a472f117843392f921a3e">operator-</a> (const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;left, const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;right)</td></tr>
+<tr class="separator:a2d0344c1256a472f117843392f921a3e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95c6275554acc2b20c3dc94443369d9c" id="r_a95c6275554acc2b20c3dc94443369d9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95c6275554acc2b20c3dc94443369d9c">operator*</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;source, const double d)</td></tr>
+<tr class="separator:a95c6275554acc2b20c3dc94443369d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1ece4bd174b81c9187364ad22d933629" id="r_a1ece4bd174b81c9187364ad22d933629"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1ece4bd174b81c9187364ad22d933629">operator*</a> (const double &amp;d, const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;source)</td></tr>
+<tr class="separator:a1ece4bd174b81c9187364ad22d933629"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a628cca0f476c5ffcd920070f25c5fb39" id="r_a628cca0f476c5ffcd920070f25c5fb39"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a628cca0f476c5ffcd920070f25c5fb39">operator^</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;uv1, const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;uv2)</td></tr>
+<tr class="separator:a628cca0f476c5ffcd920070f25c5fb39"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6ed2c3e4f87afdf2bf47f33f327e9f4" id="r_ad6ed2c3e4f87afdf2bf47f33f327e9f4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6ed2c3e4f87afdf2bf47f33f327e9f4">operator/</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;source, double d)</td></tr>
+<tr class="separator:ad6ed2c3e4f87afdf2bf47f33f327e9f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88a5540f8094b6b3ff5c084f8fd9911f" id="r_a88a5540f8094b6b3ff5c084f8fd9911f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88a5540f8094b6b3ff5c084f8fd9911f">scomp</a> (const void *p1, const void *p2)</td></tr>
+<tr class="separator:a88a5540f8094b6b3ff5c084f8fd9911f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28812cdd3b5987e994486d90551e17b0" id="r_a28812cdd3b5987e994486d90551e17b0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a28812cdd3b5987e994486d90551e17b0">operator*</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;source, const double d)</td></tr>
+<tr class="separator:a28812cdd3b5987e994486d90551e17b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb824a0dd3808f79aef4d64fccef869e" id="r_adb824a0dd3808f79aef4d64fccef869e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb824a0dd3808f79aef4d64fccef869e">operator*</a> (const double &amp;d, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;source)</td></tr>
+<tr class="separator:adb824a0dd3808f79aef4d64fccef869e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5d44a35f460584a4f29213b63a9dcfa" id="r_ac5d44a35f460584a4f29213b63a9dcfa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5d44a35f460584a4f29213b63a9dcfa">operator^</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;xyz1, const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;xyz2)</td></tr>
+<tr class="separator:ac5d44a35f460584a4f29213b63a9dcfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1debd318543cb9593b483cdd9da27c4e" id="r_a1debd318543cb9593b483cdd9da27c4e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1debd318543cb9593b483cdd9da27c4e">operator/</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;source, double d)</td></tr>
+<tr class="separator:a1debd318543cb9593b483cdd9da27c4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74af85cf9273d5284abd611e20ad9850" id="r_a74af85cf9273d5284abd611e20ad9850"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZW.html">XYZW</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a74af85cf9273d5284abd611e20ad9850">operator*</a> (const <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &amp;source, const double d)</td></tr>
+<tr class="separator:a74af85cf9273d5284abd611e20ad9850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15706aec61fe46da9bb8866e7c1d3c90" id="r_a15706aec61fe46da9bb8866e7c1d3c90"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZW.html">XYZW</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15706aec61fe46da9bb8866e7c1d3c90">operator*</a> (const double &amp;d, const <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &amp;source)</td></tr>
+<tr class="separator:a15706aec61fe46da9bb8866e7c1d3c90"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a92a2a375b49c16070e811fd92f6bfd2a" id="r_a92a2a375b49c16070e811fd92f6bfd2a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZW.html">XYZW</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92a2a375b49c16070e811fd92f6bfd2a">operator/</a> (const <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &amp;source, double d)</td></tr>
+<tr class="separator:a92a2a375b49c16070e811fd92f6bfd2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">类型定义说明</h2>
+<a id="ad7a697da398104134afc92856e20a140" name="ad7a697da398104134afc92856e20a140"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7a697da398104134afc92856e20a140">&#9670;&#160;</a></span>LN_NurbsCurve</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="structLNLib_1_1LN__BsplineCurve.html">LN_BsplineCurve</a>&lt;<a class="el" href="classLNLib_1_1XYZW.html">XYZW</a>&gt; <a class="el" href="#ad7a697da398104134afc92856e20a140">LNLib::LN_NurbsCurve</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="LNObject_8h_source.html">LNObject.h</a> 第 <a class="el" href="LNObject_8h_source.html#l00043">43</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a5b230458dcc27e09eca3bc2771d94fe3" name="a5b230458dcc27e09eca3bc2771d94fe3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b230458dcc27e09eca3bc2771d94fe3">&#9670;&#160;</a></span>LN_NurbsSurface</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef <a class="el" href="structLNLib_1_1LN__BsplineSurface.html">LN_BsplineSurface</a>&lt;<a class="el" href="classLNLib_1_1XYZW.html">XYZW</a>&gt; <a class="el" href="#a5b230458dcc27e09eca3bc2771d94fe3">LNLib::LN_NurbsSurface</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="LNObject_8h_source.html">LNObject.h</a> 第 <a class="el" href="LNObject_8h_source.html#l00055">55</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">枚举类型说明</h2>
+<a id="a990b15d5522b431bd0cfede7b600a59c" name="a990b15d5522b431bd0cfede7b600a59c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a990b15d5522b431bd0cfede7b600a59c">&#9670;&#160;</a></span>CurveCurveIntersectionType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a990b15d5522b431bd0cfede7b600a59c">LNLib::CurveCurveIntersectionType</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a990b15d5522b431bd0cfede7b600a59cae2e969432869ed6806cf6eb86082820e" name="a990b15d5522b431bd0cfede7b600a59cae2e969432869ed6806cf6eb86082820e"></a>Intersecting&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a990b15d5522b431bd0cfede7b600a59ca98402eecfbcefc336954458a01752131" name="a990b15d5522b431bd0cfede7b600a59ca98402eecfbcefc336954458a01752131"></a>Parallel&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a990b15d5522b431bd0cfede7b600a59ca81126870f8ecd751b93a0f51d10a8945" name="a990b15d5522b431bd0cfede7b600a59ca81126870f8ecd751b93a0f51d10a8945"></a>Coincident&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a990b15d5522b431bd0cfede7b600a59ca2f2227d480b0c69364d7fddfecb82bd0" name="a990b15d5522b431bd0cfede7b600a59ca2f2227d480b0c69364d7fddfecb82bd0"></a>Skew&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="LNEnums_8h_source.html">LNEnums.h</a> 第 <a class="el" href="LNEnums_8h_source.html#l00015">15</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a6c2e8e0bb21d9e7da969bbd5538a6186" name="a6c2e8e0bb21d9e7da969bbd5538a6186"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c2e8e0bb21d9e7da969bbd5538a6186">&#9670;&#160;</a></span>CurveNormal</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a6c2e8e0bb21d9e7da969bbd5538a6186">LNLib::CurveNormal</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a6c2e8e0bb21d9e7da969bbd5538a6186a960b44c579bc2f6818d2daaf9e4c16f0" name="a6c2e8e0bb21d9e7da969bbd5538a6186a960b44c579bc2f6818d2daaf9e4c16f0"></a>Normal&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a6c2e8e0bb21d9e7da969bbd5538a6186a283c29d0adbe0d46bc7229f181c6e7da" name="a6c2e8e0bb21d9e7da969bbd5538a6186a283c29d0adbe0d46bc7229f181c6e7da"></a>Binormal&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="LNEnums_8h_source.html">LNEnums.h</a> 第 <a class="el" href="LNEnums_8h_source.html#l00030">30</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aa7a89821d2b610adc6c8f6c196422f40" name="aa7a89821d2b610adc6c8f6c196422f40"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa7a89821d2b610adc6c8f6c196422f40">&#9670;&#160;</a></span>IntegratorType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#aa7a89821d2b610adc6c8f6c196422f40">LNLib::IntegratorType</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="aa7a89821d2b610adc6c8f6c196422f40afd4dab568d4a6a905e1feb902ea64137" name="aa7a89821d2b610adc6c8f6c196422f40afd4dab568d4a6a905e1feb902ea64137"></a>Simpson&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0" name="aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0"></a>GaussLegendre&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aa7a89821d2b610adc6c8f6c196422f40a7672163939be25b939905898298d3648" name="aa7a89821d2b610adc6c8f6c196422f40a7672163939be25b939905898298d3648"></a>Chebyshev&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="LNEnums_8h_source.html">LNEnums.h</a> 第 <a class="el" href="LNEnums_8h_source.html#l00053">53</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ab883fb3627937ddd447e9f9ff276c40f" name="ab883fb3627937ddd447e9f9ff276c40f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab883fb3627937ddd447e9f9ff276c40f">&#9670;&#160;</a></span>LinePlaneIntersectionType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#ab883fb3627937ddd447e9f9ff276c40f">LNLib::LinePlaneIntersectionType</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="ab883fb3627937ddd447e9f9ff276c40fae2e969432869ed6806cf6eb86082820e" name="ab883fb3627937ddd447e9f9ff276c40fae2e969432869ed6806cf6eb86082820e"></a>Intersecting&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab883fb3627937ddd447e9f9ff276c40fa98402eecfbcefc336954458a01752131" name="ab883fb3627937ddd447e9f9ff276c40fa98402eecfbcefc336954458a01752131"></a>Parallel&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ab883fb3627937ddd447e9f9ff276c40fa521c36a31c2762741cf0f8890cbe05e3" name="ab883fb3627937ddd447e9f9ff276c40fa521c36a31c2762741cf0f8890cbe05e3"></a>On&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="LNEnums_8h_source.html">LNEnums.h</a> 第 <a class="el" href="LNEnums_8h_source.html#l00023">23</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a1307064b77623ba85c4fbec18b75ca66" name="a1307064b77623ba85c4fbec18b75ca66"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1307064b77623ba85c4fbec18b75ca66">&#9670;&#160;</a></span>OffsetType</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a1307064b77623ba85c4fbec18b75ca66">LNLib::OffsetType</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a1307064b77623ba85c4fbec18b75ca66a5bb3d408e594ca3067526a38ef0e9da6" name="a1307064b77623ba85c4fbec18b75ca66a5bb3d408e594ca3067526a38ef0e9da6"></a>TillerAndHanson&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a1307064b77623ba85c4fbec18b75ca66a8c0477bb78702531c133467eb3b69b6c" name="a1307064b77623ba85c4fbec18b75ca66a8c0477bb78702531c133467eb3b69b6c"></a>PieglAndTiller&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="LNEnums_8h_source.html">LNEnums.h</a> 第 <a class="el" href="LNEnums_8h_source.html#l00060">60</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aee198db970e5fbb25bb1121b84853a34" name="aee198db970e5fbb25bb1121b84853a34"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee198db970e5fbb25bb1121b84853a34">&#9670;&#160;</a></span>SurfaceCurvature</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#aee198db970e5fbb25bb1121b84853a34">LNLib::SurfaceCurvature</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="aee198db970e5fbb25bb1121b84853a34a8321e79c278ec510f63675c040594892" name="aee198db970e5fbb25bb1121b84853a34a8321e79c278ec510f63675c040594892"></a>Maximum&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aee198db970e5fbb25bb1121b84853a34aa1d0ec6d56f8833a078b5a7ac4caf2d4" name="aee198db970e5fbb25bb1121b84853a34aa1d0ec6d56f8833a078b5a7ac4caf2d4"></a>Minimum&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aee198db970e5fbb25bb1121b84853a34aedc41fb7bf8bdac012523d1bcd949a4f" name="aee198db970e5fbb25bb1121b84853a34aedc41fb7bf8bdac012523d1bcd949a4f"></a>Gauss&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aee198db970e5fbb25bb1121b84853a34a3d6c9ac08ada31c184094bbc67afe00d" name="aee198db970e5fbb25bb1121b84853a34a3d6c9ac08ada31c184094bbc67afe00d"></a>Mean&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aee198db970e5fbb25bb1121b84853a34a1e34af023adeb7d5f484f8eb4b9826b6" name="aee198db970e5fbb25bb1121b84853a34a1e34af023adeb7d5f484f8eb4b9826b6"></a>Abs&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="aee198db970e5fbb25bb1121b84853a34a9be8c035c1c87ad77c9b9bd6d994909f" name="aee198db970e5fbb25bb1121b84853a34a9be8c035c1c87ad77c9b9bd6d994909f"></a>Rms&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="LNEnums_8h_source.html">LNEnums.h</a> 第 <a class="el" href="LNEnums_8h_source.html#l00043">43</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a53cdce096e0efb00504500dc7bc36bb8" name="a53cdce096e0efb00504500dc7bc36bb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53cdce096e0efb00504500dc7bc36bb8">&#9670;&#160;</a></span>SurfaceDirection</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum class <a class="el" href="#a53cdce096e0efb00504500dc7bc36bb8">LNLib::SurfaceDirection</a> : int</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel strong">strong</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a53cdce096e0efb00504500dc7bc36bb8ab1c94ca2fbc3e78fc30069c8d0f01680" name="a53cdce096e0efb00504500dc7bc36bb8ab1c94ca2fbc3e78fc30069c8d0f01680"></a>All&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a53cdce096e0efb00504500dc7bc36bb8afff9907f6d2a88caa259ec5608056a63" name="a53cdce096e0efb00504500dc7bc36bb8afff9907f6d2a88caa259ec5608056a63"></a>UDirection&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a53cdce096e0efb00504500dc7bc36bb8ae8b366e7b57f5784f3c2be3937fd9178" name="a53cdce096e0efb00504500dc7bc36bb8ae8b366e7b57f5784f3c2be3937fd9178"></a>VDirection&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="LNEnums_8h_source.html">LNEnums.h</a> 第 <a class="el" href="LNEnums_8h_source.html#l00036">36</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a id="aec508ed170aa7379ca0316b2dd385d5b" name="aec508ed170aa7379ca0316b2dd385d5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec508ed170aa7379ca0316b2dd385d5b">&#9670;&#160;</a></span>bitrv()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::bitrv </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="FFT_8h_source.html">FFT.h</a> 第 <a class="el" href="FFT_8h_source.html#l00559">559</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="FFT_8h_source.html#l00595">dfct()</a> , 以及 <a class="el" href="FFT_8h_source.html#l00642">dfst()</a>.</p>
+
+</div>
+</div>
+<a id="acb17d4b575bfaba86ef1a0cf454fed2e" name="acb17d4b575bfaba86ef1a0cf454fed2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb17d4b575bfaba86ef1a0cf454fed2e">&#9670;&#160;</a></span>bitrv2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::bitrv2 </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="FFT_8h_source.html">FFT.h</a> 第 <a class="el" href="FFT_8h_source.html#l00221">221</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="FFT_8h_source.html#l00267">cdft()</a>.</p>
+
+</div>
+</div>
+<a id="a451b8766dc661f59fd096afdbea9d142" name="a451b8766dc661f59fd096afdbea9d142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a451b8766dc661f59fd096afdbea9d142">&#9670;&#160;</a></span>CalculateLengthBySimpson()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::CalculateLengthBySimpson </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1FirstDerivativeLengthFunction.html">FirstDerivativeLengthFunction</a></td>          <td class="paramname"><span class="paramname"><em>function</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>curve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>simpson</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tolearance</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsCurve_8cpp_source.html">NurbsCurve.cpp</a> 第 <a class="el" href="NurbsCurve_8cpp_source.html#l00061">61</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="NurbsCurve_8cpp_source.html#l00061">CalculateLengthBySimpson()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00049">LNLib::MathUtils::IsLessThan()</a> , 以及 <a class="el" href="Integrator_8cpp_source.html#l00019">LNLib::Integrator::Simpson()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l03732">LNLib::NurbsCurve::ApproximateLength()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l00061">CalculateLengthBySimpson()</a>.</p>
+
+</div>
+</div>
+<a id="a4ca847052d102405ac62110b6f47dcbc" name="a4ca847052d102405ac62110b6f47dcbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4ca847052d102405ac62110b6f47dcbc">&#9670;&#160;</a></span>cdft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::cdft </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>wr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>wi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="FFT_8h_source.html">FFT.h</a> 第 <a class="el" href="FFT_8h_source.html#l00267">267</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="FFT_8h_source.html#l00221">bitrv2()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="FFT_8h_source.html#l00337">rdft()</a>.</p>
+
+</div>
+</div>
+<a id="abbe697a4fdcda11b72b2aa1d2ceec9a8" name="abbe697a4fdcda11b72b2aa1d2ceec9a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbe697a4fdcda11b72b2aa1d2ceec9a8">&#9670;&#160;</a></span>ddct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::ddct </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>wr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>wi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="FFT_8h_source.html">FFT.h</a> 第 <a class="el" href="FFT_8h_source.html#l00417">417</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="FFT_8h_source.html#l00337">rdft()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="FFT_8h_source.html#l00595">dfct()</a>.</p>
+
+</div>
+</div>
+<a id="af3f6cead043042bf9271429b23539132" name="af3f6cead043042bf9271429b23539132"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3f6cead043042bf9271429b23539132">&#9670;&#160;</a></span>ddst()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::ddst </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>wr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>wi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="FFT_8h_source.html">FFT.h</a> 第 <a class="el" href="FFT_8h_source.html#l00488">488</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="FFT_8h_source.html#l00337">rdft()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="FFT_8h_source.html#l00642">dfst()</a>.</p>
+
+</div>
+</div>
+<a id="a695a2602375d7a2590d1c70cc24debb0" name="a695a2602375d7a2590d1c70cc24debb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a695a2602375d7a2590d1c70cc24debb0">&#9670;&#160;</a></span>dfct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::dfct </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>wr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>wi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="FFT_8h_source.html">FFT.h</a> 第 <a class="el" href="FFT_8h_source.html#l00595">595</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="FFT_8h_source.html#l00559">bitrv()</a> , 以及 <a class="el" href="FFT_8h_source.html#l00417">ddct()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Integrator_8cpp_source.html#l00121">LNLib::Integrator::ChebyshevSeries()</a>.</p>
+
+</div>
+</div>
+<a id="a9be52fb1f3024f40fb50757ca34e454f" name="a9be52fb1f3024f40fb50757ca34e454f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9be52fb1f3024f40fb50757ca34e454f">&#9670;&#160;</a></span>dfst()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::dfst </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>wr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>wi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="FFT_8h_source.html">FFT.h</a> 第 <a class="el" href="FFT_8h_source.html#l00642">642</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="FFT_8h_source.html#l00559">bitrv()</a> , 以及 <a class="el" href="FFT_8h_source.html#l00488">ddst()</a>.</p>
+
+</div>
+</div>
+<a id="a458593b8c696d9d0fff448b409f4f834" name="a458593b8c696d9d0fff448b409f4f834"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a458593b8c696d9d0fff448b409f4f834">&#9670;&#160;</a></span>Getak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::Getak </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>qk_1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>qk</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>qk1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>qk2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Interpolation_8cpp_source.html">Interpolation.cpp</a> 第 <a class="el" href="Interpolation_8cpp_source.html#l00027">27</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00161">LNLib::XYZ::CrossProduct()</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00102">LNLib::XYZ::Length()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Interpolation_8cpp_source.html#l00032">GetTk()</a>.</p>
+
+</div>
+</div>
+<a id="a9c17866ca244d68426d7102f39d8bff1" name="a9c17866ca244d68426d7102f39d8bff1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c17866ca244d68426d7102f39d8bff1">&#9670;&#160;</a></span>GetIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; int &gt; LNLib::GetIndex </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00077">77</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l01833">LNLib::NurbsSurface::BicubicLocalInterpolation()</a>.</p>
+
+</div>
+</div>
+<a id="aee0eeac0de126b83da60488dd0f29f2a" name="aee0eeac0de126b83da60488dd0f29f2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aee0eeac0de126b83da60488dd0f29f2a">&#9670;&#160;</a></span>GetNode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::GetNode </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>lastIndex</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsCurve_8cpp_source.html">NurbsCurve.cpp</a> 第 <a class="el" href="NurbsCurve_8cpp_source.html#l00046">46</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a7237e8ec2d2fd5aca81561bc20a53fbc" name="a7237e8ec2d2fd5aca81561bc20a53fbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7237e8ec2d2fd5aca81561bc20a53fbc">&#9670;&#160;</a></span>GetParamByLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::GetParamByLength </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>curve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>givenLength</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#aa7a89821d2b610adc6c8f6c196422f40">IntegratorType</a></td>          <td class="paramname"><span class="paramname"><em>type</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsCurve_8cpp_source.html">NurbsCurve.cpp</a> 第 <a class="el" href="NurbsCurve_8cpp_source.html#l00081">81</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="NurbsCurve_8cpp_source.html#l03732">LNLib::NurbsCurve::ApproximateLength()</a>, <a class="el" href="Constants_8h_source.html#l00024">LNLib::Constants::DistanceEpsilon</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00081">GetParamByLength()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00035">LNLib::MathUtils::IsGreaterThan()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00049">LNLib::MathUtils::IsLessThan()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l01463">LNLib::NurbsCurve::SplitAt()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l00081">GetParamByLength()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03810">LNLib::NurbsCurve::GetParamOnCurve()</a>.</p>
+
+</div>
+</div>
+<a id="a3ae5b7e1fd4f4cbf6c416834f7cdc2b4" name="a3ae5b7e1fd4f4cbf6c416834f7cdc2b4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ae5b7e1fd4f4cbf6c416834f7cdc2b4">&#9670;&#160;</a></span>Getqk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::Getqk </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>throughPoints</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>index</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Interpolation_8cpp_source.html">Interpolation.cpp</a> 第 <a class="el" href="Interpolation_8cpp_source.html#l00022">22</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Interpolation_8cpp_source.html#l00286">LNLib::Interpolation::ComputeTangent()</a>.</p>
+
+</div>
+</div>
+<a id="a0150e2110312595800252c143754d732" name="a0150e2110312595800252c143754d732"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0150e2110312595800252c143754d732">&#9670;&#160;</a></span>GetTk()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::GetTk </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>qk_1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>qk</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>qk1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>qk2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Interpolation_8cpp_source.html">Interpolation.cpp</a> 第 <a class="el" href="Interpolation_8cpp_source.html#l00032">32</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Interpolation_8cpp_source.html#l00027">Getak()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Interpolation_8cpp_source.html#l00286">LNLib::Interpolation::ComputeTangent()</a>.</p>
+
+</div>
+</div>
+<a id="a578dc4c45890c6cc2e11ee7537382103" name="a578dc4c45890c6cc2e11ee7537382103"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a578dc4c45890c6cc2e11ee7537382103">&#9670;&#160;</a></span>InsertMidKnotCore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::InsertMidKnotCore </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>unqiueKnotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>insert</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>limitNumber</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="KnotVectorUtils_8cpp_source.html">KnotVectorUtils.cpp</a> 第 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00021">21</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Constants_8h_source.html#l00023">LNLib::Constants::DoubleEpsilon</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00021">InsertMidKnotCore()</a> , 以及 <a class="el" href="MathUtils_8cpp_source.html#l00035">LNLib::MathUtils::IsGreaterThan()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00250">LNLib::KnotVectorUtils::GetInsertedKnotElements()</a> , 以及 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00021">InsertMidKnotCore()</a>.</p>
+
+</div>
+</div>
+<a id="afe0db170a7085f71b1085865e087c96e" name="afe0db170a7085f71b1085865e087c96e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe0db170a7085f71b1085865e087c96e">&#9670;&#160;</a></span>OffsetByPieglAndTiller()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::OffsetByPieglAndTiller </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>curve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsCurve_8cpp_source.html">NurbsCurve.cpp</a> 第 <a class="el" href="NurbsCurve_8cpp_source.html#l00216">216</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="NurbsCurve_8cpp_source.html#l00287">LNLib::NurbsCurve::ComputeRationalCurveDerivatives()</a>, <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="Constants_8h_source.html#l00024">LNLib::Constants::DistanceEpsilon</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00281">LNLib::NurbsCurve::GetPointOnCurve()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01996">LNLib::NurbsCurve::GlobalInterpolation()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="XYZ_8cpp_source.html#l00102">LNLib::XYZ::Length()</a>, <a class="el" href="LNEnums_8h_source.html#l00032">Normal</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00351">LNLib::NurbsCurve::Normal()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l00880">LNLib::NurbsCurve::RemoveExcessiveKnots()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l01646">LNLib::NurbsCurve::Offset()</a>.</p>
+
+</div>
+</div>
+<a id="a4206f4d3de29aeeb20e34c1c23d82a1b" name="a4206f4d3de29aeeb20e34c1c23d82a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4206f4d3de29aeeb20e34c1c23d82a1b">&#9670;&#160;</a></span>OffsetByTillerAndHanson()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::OffsetByTillerAndHanson </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>curve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>offset</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>result</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsCurve_8cpp_source.html">NurbsCurve.cpp</a> 第 <a class="el" href="NurbsCurve_8cpp_source.html#l00159">159</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Intersection_8cpp_source.html#l00018">LNLib::Intersection::ComputeRays()</a>, <a class="el" href="LNObject_8h_source.html#l00040">LNLib::LN_BsplineCurve&lt; T &gt;::ControlPoints</a>, <a class="el" href="LNObject_8h_source.html#l00038">LNLib::LN_BsplineCurve&lt; T &gt;::Degree</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01261">LNLib::NurbsCurve::GetParamOnCurve()</a>, <a class="el" href="LNEnums_8h_source.html#l00017">Intersecting</a>, <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="LNObject_8h_source.html#l00039">LNLib::LN_BsplineCurve&lt; T &gt;::KnotVector</a>, <a class="el" href="LNEnums_8h_source.html#l00032">Normal</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l00351">LNLib::NurbsCurve::Normal()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l01646">LNLib::NurbsCurve::Offset()</a>.</p>
+
+</div>
+</div>
+<a id="a1ece4bd174b81c9187364ad22d933629" name="a1ece4bd174b81c9187364ad22d933629"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1ece4bd174b81c9187364ad22d933629">&#9670;&#160;</a></span>operator*() <span class="overload">[1/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">LNLib::UV</a> LNLib::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>source</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00213">213</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00037">LNLib::UV::GetU()</a> , 以及 <a class="el" href="UV_8cpp_source.html#l00045">LNLib::UV::GetV()</a>.</p>
+
+</div>
+</div>
+<a id="adb824a0dd3808f79aef4d64fccef869e" name="adb824a0dd3808f79aef4d64fccef869e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb824a0dd3808f79aef4d64fccef869e">&#9670;&#160;</a></span>operator*() <span class="overload">[2/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>source</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00261">261</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00038">LNLib::XYZ::GetX()</a>, <a class="el" href="XYZ_8cpp_source.html#l00046">LNLib::XYZ::GetY()</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00053">LNLib::XYZ::GetZ()</a>.</p>
+
+</div>
+</div>
+<a id="a15706aec61fe46da9bb8866e7c1d3c90" name="a15706aec61fe46da9bb8866e7c1d3c90"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15706aec61fe46da9bb8866e7c1d3c90">&#9670;&#160;</a></span>operator*() <span class="overload">[3/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> LNLib::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;</td>          <td class="paramname"><span class="paramname"><em>d</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>source</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZW_8cpp_source.html">XYZW.cpp</a> 第 <a class="el" href="XYZW_8cpp_source.html#l00165">165</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZW_8cpp_source.html#l00055">LNLib::XYZW::GetW()</a>, <a class="el" href="XYZW_8cpp_source.html#l00043">LNLib::XYZW::GetWX()</a>, <a class="el" href="XYZW_8cpp_source.html#l00045">LNLib::XYZW::GetWY()</a> , 以及 <a class="el" href="XYZW_8cpp_source.html#l00047">LNLib::XYZW::GetWZ()</a>.</p>
+
+</div>
+</div>
+<a id="a3d0f2a917f984a069f87f949594c63a5" name="a3d0f2a917f984a069f87f949594c63a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d0f2a917f984a069f87f949594c63a5">&#9670;&#160;</a></span>operator*() <span class="overload">[4/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> LNLib::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00407">407</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNLibDefinitions_8h_source.html#l00023">LNLIB_EXPORT</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00234">LNLib::Matrix4d::Multiply()</a>.</p>
+
+</div>
+</div>
+<a id="a95c6275554acc2b20c3dc94443369d9c" name="a95c6275554acc2b20c3dc94443369d9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95c6275554acc2b20c3dc94443369d9c">&#9670;&#160;</a></span>operator*() <span class="overload">[5/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">LNLib::UV</a> LNLib::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00209">209</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00037">LNLib::UV::GetU()</a> , 以及 <a class="el" href="UV_8cpp_source.html#l00045">LNLib::UV::GetV()</a>.</p>
+
+</div>
+</div>
+<a id="a28812cdd3b5987e994486d90551e17b0" name="a28812cdd3b5987e994486d90551e17b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28812cdd3b5987e994486d90551e17b0">&#9670;&#160;</a></span>operator*() <span class="overload">[6/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00257">257</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00038">LNLib::XYZ::GetX()</a>, <a class="el" href="XYZ_8cpp_source.html#l00046">LNLib::XYZ::GetY()</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00053">LNLib::XYZ::GetZ()</a>.</p>
+
+</div>
+</div>
+<a id="a74af85cf9273d5284abd611e20ad9850" name="a74af85cf9273d5284abd611e20ad9850"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74af85cf9273d5284abd611e20ad9850">&#9670;&#160;</a></span>operator*() <span class="overload">[7/7]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> LNLib::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZW_8cpp_source.html">XYZW.cpp</a> 第 <a class="el" href="XYZW_8cpp_source.html#l00160">160</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZW_8cpp_source.html#l00055">LNLib::XYZW::GetW()</a>, <a class="el" href="XYZW_8cpp_source.html#l00043">LNLib::XYZW::GetWX()</a>, <a class="el" href="XYZW_8cpp_source.html#l00045">LNLib::XYZW::GetWY()</a> , 以及 <a class="el" href="XYZW_8cpp_source.html#l00047">LNLib::XYZW::GetWZ()</a>.</p>
+
+</div>
+</div>
+<a id="a8c392ce1065a6468a26244a0ed00ba0f" name="a8c392ce1065a6468a26244a0ed00ba0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c392ce1065a6468a26244a0ed00ba0f">&#9670;&#160;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> LNLib::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00414">414</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Matrix4d_8cpp_source.html#l00224">LNLib::Matrix4d::GetElement()</a>, <a class="el" href="LNLibDefinitions_8h_source.html#l00023">LNLIB_EXPORT</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00229">LNLib::Matrix4d::SetElement()</a>.</p>
+
+</div>
+</div>
+<a id="a2d0344c1256a472f117843392f921a3e" name="a2d0344c1256a472f117843392f921a3e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d0344c1256a472f117843392f921a3e">&#9670;&#160;</a></span>operator-()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> LNLib::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1Matrix4d.html">Matrix4d</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Matrix4d_8cpp_source.html">Matrix4d.cpp</a> 第 <a class="el" href="Matrix4d_8cpp_source.html#l00427">427</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Matrix4d_8cpp_source.html#l00224">LNLib::Matrix4d::GetElement()</a>, <a class="el" href="LNLibDefinitions_8h_source.html#l00023">LNLIB_EXPORT</a> , 以及 <a class="el" href="Matrix4d_8cpp_source.html#l00229">LNLib::Matrix4d::SetElement()</a>.</p>
+
+</div>
+</div>
+<a id="ad6ed2c3e4f87afdf2bf47f33f327e9f4" name="ad6ed2c3e4f87afdf2bf47f33f327e9f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad6ed2c3e4f87afdf2bf47f33f327e9f4">&#9670;&#160;</a></span>operator/() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">LNLib::UV</a> LNLib::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00221">221</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00037">LNLib::UV::GetU()</a> , 以及 <a class="el" href="UV_8cpp_source.html#l00045">LNLib::UV::GetV()</a>.</p>
+
+</div>
+</div>
+<a id="a1debd318543cb9593b483cdd9da27c4e" name="a1debd318543cb9593b483cdd9da27c4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1debd318543cb9593b483cdd9da27c4e">&#9670;&#160;</a></span>operator/() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00269">269</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00038">LNLib::XYZ::GetX()</a>, <a class="el" href="XYZ_8cpp_source.html#l00046">LNLib::XYZ::GetY()</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00053">LNLib::XYZ::GetZ()</a>.</p>
+
+</div>
+</div>
+<a id="a92a2a375b49c16070e811fd92f6bfd2a" name="a92a2a375b49c16070e811fd92f6bfd2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a92a2a375b49c16070e811fd92f6bfd2a">&#9670;&#160;</a></span>operator/() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> LNLib::operator/ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZW.html">XYZW</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>source</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>d</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZW_8cpp_source.html">XYZW.cpp</a> 第 <a class="el" href="XYZW_8cpp_source.html#l00170">170</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZW_8cpp_source.html#l00055">LNLib::XYZW::GetW()</a>, <a class="el" href="XYZW_8cpp_source.html#l00043">LNLib::XYZW::GetWX()</a>, <a class="el" href="XYZW_8cpp_source.html#l00045">LNLib::XYZW::GetWY()</a> , 以及 <a class="el" href="XYZW_8cpp_source.html#l00047">LNLib::XYZW::GetWZ()</a>.</p>
+
+</div>
+</div>
+<a id="a628cca0f476c5ffcd920070f25c5fb39" name="a628cca0f476c5ffcd920070f25c5fb39"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a628cca0f476c5ffcd920070f25c5fb39">&#9670;&#160;</a></span>operator^() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::operator^ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uv1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uv2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00217">217</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00133">LNLib::UV::CrossProduct()</a>.</p>
+
+</div>
+</div>
+<a id="ac5d44a35f460584a4f29213b63a9dcfa" name="ac5d44a35f460584a4f29213b63a9dcfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5d44a35f460584a4f29213b63a9dcfa">&#9670;&#160;</a></span>operator^() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::operator^ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>xyz1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>xyz2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00265">265</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00161">LNLib::XYZ::CrossProduct()</a>.</p>
+
+</div>
+</div>
+<a id="adbb61f02158196d50257e0e2a5001a1b" name="adbb61f02158196d50257e0e2a5001a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbb61f02158196d50257e0e2a5001a1b">&#9670;&#160;</a></span>rdft()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::rdft </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>n</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>wr</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T</td>          <td class="paramname"><span class="paramname"><em>wi</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>a</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="FFT_8h_source.html">FFT.h</a> 第 <a class="el" href="FFT_8h_source.html#l00337">337</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="FFT_8h_source.html#l00267">cdft()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="FFT_8h_source.html#l00417">ddct()</a> , 以及 <a class="el" href="FFT_8h_source.html#l00488">ddst()</a>.</p>
+
+</div>
+</div>
+<a id="a88a5540f8094b6b3ff5c084f8fd9911f" name="a88a5540f8094b6b3ff5c084f8fd9911f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88a5540f8094b6b3ff5c084f8fd9911f">&#9670;&#160;</a></span>scomp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LNLib::scomp </td>
+          <td>(</td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>p1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const void *</td>          <td class="paramname"><span class="paramname"><em>p2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8cpp_source.html">Voronoi.cpp</a> 第 <a class="el" href="Voronoi_8cpp_source.html#l01482">1482</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Voronoi_8h_source.html#l00068">LNLib::PointVDG::x</a> , 以及 <a class="el" href="Voronoi_8h_source.html#l00068">LNLib::PointVDG::y</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Voronoi_8cpp_source.html#l00114">LNLib::VoronoiDiagramGenerator::generateVoronoi()</a>.</p>
+
+</div>
+</div>
+<a id="a46fa1199a0e45761f566c0abc54cd3bd" name="a46fa1199a0e45761f566c0abc54cd3bd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46fa1199a0e45761f566c0abc54cd3bd">&#9670;&#160;</a></span>TessellateCore()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::TessellateCore </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="#ad7a697da398104134afc92856e20a140">LN_NurbsCurve</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>curve</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>parameters</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsCurve_8cpp_source.html">NurbsCurve.cpp</a> 第 <a class="el" href="NurbsCurve_8cpp_source.html#l00107">107</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Constants_8h_source.html#l00025">LNLib::Constants::AngleEpsilon</a>, <a class="el" href="XYZ_8cpp_source.html#l00112">LNLib::XYZ::AngleTo()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00287">LNLib::NurbsCurve::ComputeRationalCurveDerivatives()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00331">LNLib::NurbsCurve::Curvature()</a>, <a class="el" href="XYZ_8cpp_source.html#l00168">LNLib::XYZ::Distance()</a>, <a class="el" href="Constants_8h_source.html#l00024">LNLib::Constants::DistanceEpsilon</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00281">LNLib::NurbsCurve::GetPointOnCurve()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00056">LNLib::MathUtils::IsLessThanOrEqual()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l00107">TessellateCore()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l03865">LNLib::NurbsCurve::Tessellate()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l00107">TessellateCore()</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceLNLib.html">LNLib</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

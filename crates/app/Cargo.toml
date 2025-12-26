@@ -1,0 +1,24 @@
+[package]
+name = "app"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+infrastructure = { path = "../infrastructure" }
+geometry = { path = "../geometry" }
+display = { path = "../display" }
+interaction = { path = "../interaction" }
+storage = { path = "../storage" }
+
+eframe = { version = "0.29", features = ["wgpu"] }
+egui = "0.29"
+egui_extras = { version = "0.29", features = ["svg", "image"] }
+egui-wgpu = "0.29"
+image = { version = "0.25", features = ["jpeg", "png", "tga", "bmp", "tiff", "webp"] }
+log = "0.4"
+env_logger = "0.10"
+rfd = "0.15"
+fbxcel = "0.9"
+fbxcel-dom = "0.0.10"
+anyhow = "1.0"
+glam = "0.30"

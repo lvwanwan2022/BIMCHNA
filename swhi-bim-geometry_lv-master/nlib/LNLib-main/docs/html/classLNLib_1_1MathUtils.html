@@ -1,0 +1,881 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: LNLib::MathUtils类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classLNLib_1_1MathUtils.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classLNLib_1_1MathUtils-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">LNLib::MathUtils类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="MathUtils_8h_source.html">MathUtils.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a0a073b900ff796c8a2def044010dcf2d" id="r_a0a073b900ff796c8a2def044010dcf2d"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0a073b900ff796c8a2def044010dcf2d">IsAlmostEqualTo</a> (double value1, double value2, double tolerance=<a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>)</td></tr>
+<tr class="memdesc:a0a073b900ff796c8a2def044010dcf2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">According to <a href="https://referencesource.microsoft.com/#windowsbase/Shared/MS/Internal/DoubleUtil.cs,73bdd52106b3a9e3,references">https://referencesource.microsoft.com/#windowsbase/Shared/MS/Internal/DoubleUtil.cs,73bdd52106b3a9e3,references</a>  <br /></td></tr>
+<tr class="separator:a0a073b900ff796c8a2def044010dcf2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a995f6f889c781f69e0736108dd8c59bf" id="r_a995f6f889c781f69e0736108dd8c59bf"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a995f6f889c781f69e0736108dd8c59bf">IsGreaterThan</a> (double value1, double value2, double tolerance=<a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>)</td></tr>
+<tr class="separator:a995f6f889c781f69e0736108dd8c59bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a244ba0f7bea0ef572b6f2b53b9285fa6" id="r_a244ba0f7bea0ef572b6f2b53b9285fa6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a244ba0f7bea0ef572b6f2b53b9285fa6">IsGreaterThanOrEqual</a> (double value1, double value2, double tolerance=<a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>)</td></tr>
+<tr class="separator:a244ba0f7bea0ef572b6f2b53b9285fa6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abafb9abeffe5d756a37dac392191afdf" id="r_abafb9abeffe5d756a37dac392191afdf"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abafb9abeffe5d756a37dac392191afdf">IsLessThan</a> (double value1, double value2, double tolerance=<a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>)</td></tr>
+<tr class="separator:abafb9abeffe5d756a37dac392191afdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0df1a9322a47b39c1e914c5fa82d9d2a" id="r_a0df1a9322a47b39c1e914c5fa82d9d2a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0df1a9322a47b39c1e914c5fa82d9d2a">IsLessThanOrEqual</a> (double value1, double value2, double tolerance=<a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>)</td></tr>
+<tr class="separator:a0df1a9322a47b39c1e914c5fa82d9d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9172817955251a6a5d326e565aab5ba6" id="r_a9172817955251a6a5d326e565aab5ba6"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9172817955251a6a5d326e565aab5ba6">IsInfinite</a> (double value)</td></tr>
+<tr class="separator:a9172817955251a6a5d326e565aab5ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab066094974b61485bb10eafaf07ee37b" id="r_ab066094974b61485bb10eafaf07ee37b"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab066094974b61485bb10eafaf07ee37b">IsNaN</a> (double value)</td></tr>
+<tr class="separator:ab066094974b61485bb10eafaf07ee37b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f644ec075156b25b5dc1de610fd0448" id="r_a9f644ec075156b25b5dc1de610fd0448"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f644ec075156b25b5dc1de610fd0448">RadiansToAngle</a> (double radians)</td></tr>
+<tr class="separator:a9f644ec075156b25b5dc1de610fd0448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c749ef53dd7c491738acdc5081f3ac9" id="r_a5c749ef53dd7c491738acdc5081f3ac9"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5c749ef53dd7c491738acdc5081f3ac9">AngleToRadians</a> (double angle)</td></tr>
+<tr class="separator:a5c749ef53dd7c491738acdc5081f3ac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a47c11b20bc48752634b8f029c5eae62a" id="r_a47c11b20bc48752634b8f029c5eae62a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47c11b20bc48752634b8f029c5eae62a">Factorial</a> (int number)</td></tr>
+<tr class="separator:a47c11b20bc48752634b8f029c5eae62a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15124b0543679f43aaa79b0360672150" id="r_a15124b0543679f43aaa79b0360672150"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15124b0543679f43aaa79b0360672150">Binomial</a> (int number, int i)</td></tr>
+<tr class="separator:a15124b0543679f43aaa79b0360672150"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:addc3c246ded61a3e57be4aab45b4b61e" id="r_addc3c246ded61a3e57be4aab45b4b61e"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addc3c246ded61a3e57be4aab45b4b61e">ComputerCubicEquationsWithOneVariable</a> (double cubic, double quadratic, double linear, double constant)</td></tr>
+<tr class="memdesc:addc3c246ded61a3e57be4aab45b4b61e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page445 Equation 9.102.  <br /></td></tr>
+<tr class="separator:addc3c246ded61a3e57be4aab45b4b61e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06a410855387fd4bc2a85d081b9e669e" id="r_a06a410855387fd4bc2a85d081b9e669e"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:a06a410855387fd4bc2a85d081b9e669e"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a06a410855387fd4bc2a85d081b9e669e">Transpose</a> (const std::vector&lt; std::vector&lt; T &gt; &gt; &amp;matrix, std::vector&lt; std::vector&lt; T &gt; &gt; &amp;transposed)</td></tr>
+<tr class="separator:a06a410855387fd4bc2a85d081b9e669e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca8583dc182f52aabc45990e704abe50" id="r_aca8583dc182f52aabc45990e704abe50"><td class="memTemplParams" colspan="2">template&lt;typename T&gt; </td></tr>
+<tr class="memitem:aca8583dc182f52aabc45990e704abe50"><td class="memTemplItemLeft" align="right" valign="top">static std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#aca8583dc182f52aabc45990e704abe50">GetColumn</a> (const std::vector&lt; std::vector&lt; T &gt; &gt; &amp;matrix, int columnIndex)</td></tr>
+<tr class="separator:aca8583dc182f52aabc45990e704abe50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15f60990f3fadb7e874873e178cb40e6" id="r_a15f60990f3fadb7e874873e178cb40e6"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a15f60990f3fadb7e874873e178cb40e6">MatrixMultiply</a> (const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;left, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;right)</td></tr>
+<tr class="separator:a15f60990f3fadb7e874873e178cb40e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a933d1d8a008cc9ceebeddc62dd17f7e1" id="r_a933d1d8a008cc9ceebeddc62dd17f7e1"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a933d1d8a008cc9ceebeddc62dd17f7e1">MakeDiagonal</a> (int size)</td></tr>
+<tr class="separator:a933d1d8a008cc9ceebeddc62dd17f7e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7efb4e7211d295ff16642ddb2c73271b" id="r_a7efb4e7211d295ff16642ddb2c73271b"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7efb4e7211d295ff16642ddb2c73271b">CreateMatrix</a> (int row, int column)</td></tr>
+<tr class="separator:a7efb4e7211d295ff16642ddb2c73271b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e78fe5808cf5fcd34f04166907e9ad1" id="r_a8e78fe5808cf5fcd34f04166907e9ad1"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e78fe5808cf5fcd34f04166907e9ad1">GetDeterminant</a> (const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;matrix)</td></tr>
+<tr class="separator:a8e78fe5808cf5fcd34f04166907e9ad1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd3a464a546a33e0455f9dff4eba277a" id="r_abd3a464a546a33e0455f9dff4eba277a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd3a464a546a33e0455f9dff4eba277a">MakeInverse</a> (const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;matrix, std::vector&lt; std::vector&lt; double &gt; &gt; &amp;inverse)</td></tr>
+<tr class="separator:abd3a464a546a33e0455f9dff4eba277a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69f9b12e3d726165dcde49f0e66ec847" id="r_a69f9b12e3d726165dcde49f0e66ec847"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a69f9b12e3d726165dcde49f0e66ec847">SolveLinearSystem</a> (const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;matrix, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;right)</td></tr>
+<tr class="memdesc:a69f9b12e3d726165dcde49f0e66ec847"><td class="mdescLeft">&#160;</td><td class="mdescRight">matrix * result = right.  <br /></td></tr>
+<tr class="separator:a69f9b12e3d726165dcde49f0e66ec847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="MathUtils_8h_source.html">MathUtils.h</a> 第 <a class="el" href="MathUtils_8h_source.html#l00019">19</a> 行定义.</p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a5c749ef53dd7c491738acdc5081f3ac9" name="a5c749ef53dd7c491738acdc5081f3ac9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c749ef53dd7c491738acdc5081f3ac9">&#9670;&#160;</a></span>AngleToRadians()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::MathUtils::AngleToRadians </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>angle</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00080">80</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Constants_8h_source.html#l00027">LNLib::Constants::Pi</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l01886">LNLib::NurbsCurve::CreateOpenConic()</a>.</p>
+
+</div>
+</div>
+<a id="a15124b0543679f43aaa79b0360672150" name="a15124b0543679f43aaa79b0360672150"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15124b0543679f43aaa79b0360672150">&#9670;&#160;</a></span>Binomial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::MathUtils::Binomial </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>number</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>i</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00093">93</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00085">Factorial()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Polynomials_8cpp_source.html#l00565">LNLib::Polynomials::BezierToPowerMatrix()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00287">LNLib::NurbsCurve::ComputeRationalCurveDerivatives()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00120">LNLib::NurbsSurface::ComputeRationalSurfaceDerivatives()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00902">LNLib::NurbsCurve::ElevateDegree()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l01119">LNLib::NurbsCurve::ReduceDegree()</a>.</p>
+
+</div>
+</div>
+<a id="addc3c246ded61a3e57be4aab45b4b61e" name="addc3c246ded61a3e57be4aab45b4b61e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#addc3c246ded61a3e57be4aab45b4b61e">&#9670;&#160;</a></span>ComputerCubicEquationsWithOneVariable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::MathUtils::ComputerCubicEquationsWithOneVariable </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>cubic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>quadratic</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>linear</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>constant</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page445 Equation 9.102. </p>
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00098">98</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Constants_8h_source.html#l00023">LNLib::Constants::DoubleEpsilon</a> , 以及 <a class="el" href="MathUtils_8cpp_source.html#l00035">IsGreaterThan()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l02935">LNLib::NurbsCurve::FitWithCubic()</a>.</p>
+
+</div>
+</div>
+<a id="a7efb4e7211d295ff16642ddb2c73271b" name="a7efb4e7211d295ff16642ddb2c73271b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7efb4e7211d295ff16642ddb2c73271b">&#9670;&#160;</a></span>CreateMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; double &gt; &gt; LNLib::MathUtils::CreateMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>row</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>column</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00152">152</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a47c11b20bc48752634b8f029c5eae62a" name="a47c11b20bc48752634b8f029c5eae62a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a47c11b20bc48752634b8f029c5eae62a">&#9670;&#160;</a></span>Factorial()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LNLib::MathUtils::Factorial </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>number</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00085">85</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00085">Factorial()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="MathUtils_8cpp_source.html#l00093">Binomial()</a> , 以及 <a class="el" href="MathUtils_8cpp_source.html#l00085">Factorial()</a>.</p>
+
+</div>
+</div>
+<a id="aca8583dc182f52aabc45990e704abe50" name="aca8583dc182f52aabc45990e704abe50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca8583dc182f52aabc45990e704abe50">&#9670;&#160;</a></span>GetColumn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::vector&lt; T &gt; LNLib::MathUtils::GetColumn </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; T &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>columnIndex</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8h_source.html">MathUtils.h</a> 第 <a class="el" href="MathUtils_8h_source.html#l00076">76</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l01833">LNLib::NurbsSurface::BicubicLocalInterpolation()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l02044">LNLib::NurbsSurface::GlobalApproximation()</a>.</p>
+
+</div>
+</div>
+<a id="a8e78fe5808cf5fcd34f04166907e9ad1" name="a8e78fe5808cf5fcd34f04166907e9ad1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e78fe5808cf5fcd34f04166907e9ad1">&#9670;&#160;</a></span>GetDeterminant()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::MathUtils::GetDeterminant </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00163">163</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Matrix4d_8cpp_source.html#l00335">LNLib::Matrix4d::GetDeterminant()</a>.</p>
+
+</div>
+</div>
+<a id="a0a073b900ff796c8a2def044010dcf2d" name="a0a073b900ff796c8a2def044010dcf2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a073b900ff796c8a2def044010dcf2d">&#9670;&#160;</a></span>IsAlmostEqualTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::MathUtils::IsAlmostEqualTo </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tolerance</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>According to <a href="https://referencesource.microsoft.com/#windowsbase/Shared/MS/Internal/DoubleUtil.cs,73bdd52106b3a9e3,references">https://referencesource.microsoft.com/#windowsbase/Shared/MS/Internal/DoubleUtil.cs,73bdd52106b3a9e3,references</a> </p>
+<p>Notice that Google Gtest EXPECT_NEAR is more restrict: <a href="https://github.com/google/googletest/blob/fa6de7f4382f5c8fb8b9e32eea28a2eb44966c32/googletest/include/gtest/gtest.h#L2001">https://github.com/google/googletest/blob/fa6de7f4382f5c8fb8b9e32eea28a2eb44966c32/googletest/include/gtest/gtest.h#L2001</a> <a href="https://github.com/google/googletest/blob/fa6de7f4382f5c8fb8b9e32eea28a2eb44966c32/googletest/src/gtest.cc#L1661">https://github.com/google/googletest/blob/fa6de7f4382f5c8fb8b9e32eea28a2eb44966c32/googletest/src/gtest.cc#L1661</a> </p>
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00026">26</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00070">IsNaN()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l00061">LNLib::CalculateLengthBySimpson()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00315">LNLib::NurbsCurve::CanComputerDerivative()</a>, <a class="el" href="Intersection_8cpp_source.html#l00064">LNLib::Intersection::ComputeLineAndPlane()</a>, <a class="el" href="Interpolation_8cpp_source.html#l00149">LNLib::Interpolation::ComputerWeightForRationalQuadraticInterpolation()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03121">LNLib::NurbsCurve::ControlPointReposition()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01479">LNLib::NurbsSurface::CreateRevolvedSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01396">LNLib::NurbsSurface::CreateRuledSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02094">LNLib::NurbsSurface::CreateSwungSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00331">LNLib::NurbsCurve::Curvature()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00199">LNLib::NurbsSurface::Curvature()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00662">LNLib::NurbsCurve::DecomposeToBeziers()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00902">LNLib::NurbsCurve::ElevateDegree()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00105">LNLib::Polynomials::GetKnotMultiplicity()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00081">LNLib::GetParamByLength()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03810">LNLib::NurbsCurve::GetParamOnCurve()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01078">LNLib::NurbsSurface::GetParamOnSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03844">LNLib::NurbsCurve::GetParamsOnCurve()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00554">LNLib::NurbsCurve::GetPointOnCurveByCornerCut()</a>, <a class="el" href="Interpolation_8cpp_source.html#l00203">LNLib::Interpolation::GetSurfaceMeshParameterization()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01290">LNLib::NurbsSurface::GetUVTangent()</a>, <a class="el" href="UV_8cpp_source.html#l00079">LNLib::UV::IsAlmostEqualTo()</a>, <a class="el" href="XYZ_8cpp_source.html#l00095">LNLib::XYZ::IsAlmostEqualTo()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03683">LNLib::NurbsCurve::IsArc()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01217">LNLib::NurbsCurve::IsClosed()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00035">IsGreaterThan()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00042">IsGreaterThanOrEqual()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00348">LNLib::Matrix4d::IsIdentity()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00049">IsLessThan()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00056">IsLessThanOrEqual()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03523">LNLib::NurbsCurve::IsPeriodic()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00385">LNLib::Matrix4d::IsTranslation()</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00261">LNLib::KnotVectorUtils::IsUniform()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03178">LNLib::NurbsCurve::NeighborWeightsModification()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00351">LNLib::NurbsCurve::Normal()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00216">LNLib::OffsetByPieglAndTiller()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00159">LNLib::OffsetByTillerAndHanson()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00397">LNLib::Polynomials::OneBasisFunction()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00455">LNLib::Polynomials::OneBasisFunctionDerivative()</a>, <a class="el" href="Projection_8cpp_source.html#l00022">LNLib::Projection::PointToLine()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00592">LNLib::NurbsCurve::RefineKnotVector()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01425">LNLib::NurbsCurve::Reparametrize()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01270">LNLib::NurbsSurface::Reparametrize()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00107">LNLib::TessellateCore()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00448">LNLib::NurbsCurve::Torsion()</a>, <a class="el" href="XYZW_8cpp_source.html#l00097">LNLib::XYZW::ToXYZ()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l03149">LNLib::NurbsSurface::Triangulate()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03257">LNLib::NurbsCurve::Warping()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03152">LNLib::NurbsCurve::WeightModification()</a>.</p>
+
+</div>
+</div>
+<a id="a995f6f889c781f69e0736108dd8c59bf" name="a995f6f889c781f69e0736108dd8c59bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a995f6f889c781f69e0736108dd8c59bf">&#9670;&#160;</a></span>IsGreaterThan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::MathUtils::IsGreaterThan </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tolerance</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00035">35</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00026">IsAlmostEqualTo()</a> , 以及 <a class="el" href="MathUtils_8cpp_source.html#l00070">IsNaN()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l03334">LNLib::NurbsCurve::Bending()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00098">ComputerCubicEquationsWithOneVariable()</a>, <a class="el" href="BezierCurve_8cpp_source.html#l00039">LNLib::BezierCurve::ComputerMiddleControlPointsOnQuadraticCurve()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03371">LNLib::NurbsCurve::ConstraintBasedModification()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01737">LNLib::NurbsCurve::CreateArc()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01357">LNLib::NurbsSurface::CreateCylindricalSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01886">LNLib::NurbsCurve::CreateOpenConic()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01479">LNLib::NurbsSurface::CreateRevolvedSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02857">LNLib::NurbsCurve::FitWithConic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02935">LNLib::NurbsCurve::FitWithCubic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03289">LNLib::NurbsCurve::Flattening()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00081">LNLib::GetParamByLength()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03810">LNLib::NurbsCurve::GetParamOnCurve()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01078">LNLib::NurbsSurface::GetParamOnSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02821">LNLib::NurbsCurve::GlobalApproximationByErrorBound()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02056">LNLib::NurbsCurve::GlobalInterpolation()</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00021">LNLib::InsertMidKnotCore()</a>, <a class="el" href="Projection_8cpp_source.html#l00022">LNLib::Projection::PointToLine()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02614">LNLib::NurbsCurve::RemoveKnotsByGivenBound()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01393">LNLib::NurbsCurve::Reparametrize()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03257">LNLib::NurbsCurve::Warping()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l02351">LNLib::NurbsCurve::WeightedAndContrainedLeastSquaresApproximation()</a>.</p>
+
+</div>
+</div>
+<a id="a244ba0f7bea0ef572b6f2b53b9285fa6" name="a244ba0f7bea0ef572b6f2b53b9285fa6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a244ba0f7bea0ef572b6f2b53b9285fa6">&#9670;&#160;</a></span>IsGreaterThanOrEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::MathUtils::IsGreaterThanOrEqual </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tolerance</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00042">42</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00026">IsAlmostEqualTo()</a> , 以及 <a class="el" href="MathUtils_8cpp_source.html#l00070">IsNaN()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l01886">LNLib::NurbsCurve::CreateOpenConic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02857">LNLib::NurbsCurve::FitWithConic()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00125">LNLib::Polynomials::GetKnotSpanIndex()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00397">LNLib::Polynomials::OneBasisFunction()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00455">LNLib::Polynomials::OneBasisFunctionDerivative()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01509">LNLib::NurbsCurve::Segment()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l01463">LNLib::NurbsCurve::SplitAt()</a>.</p>
+
+</div>
+</div>
+<a id="a9172817955251a6a5d326e565aab5ba6" name="a9172817955251a6a5d326e565aab5ba6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9172817955251a6a5d326e565aab5ba6">&#9670;&#160;</a></span>IsInfinite()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::MathUtils::IsInfinite </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00063">63</a> 行定义.</p>
+
+</div>
+</div>
+<a id="abafb9abeffe5d756a37dac392191afdf" name="abafb9abeffe5d756a37dac392191afdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abafb9abeffe5d756a37dac392191afdf">&#9670;&#160;</a></span>IsLessThan()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::MathUtils::IsLessThan </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tolerance</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00049">49</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00026">IsAlmostEqualTo()</a> , 以及 <a class="el" href="MathUtils_8cpp_source.html#l00070">IsNaN()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l00061">LNLib::CalculateLengthBySimpson()</a>, <a class="el" href="BezierCurve_8cpp_source.html#l00039">LNLib::BezierCurve::ComputerMiddleControlPointsOnQuadraticCurve()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03121">LNLib::NurbsCurve::ControlPointReposition()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01886">LNLib::NurbsCurve::CreateOpenConic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02935">LNLib::NurbsCurve::FitWithCubic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00081">LNLib::GetParamByLength()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03810">LNLib::NurbsCurve::GetParamOnCurve()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01078">LNLib::NurbsSurface::GetParamOnSurface()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00378">LNLib::Matrix4d::HasReflection()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03178">LNLib::NurbsCurve::NeighborWeightsModification()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00397">LNLib::Polynomials::OneBasisFunction()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00455">LNLib::Polynomials::OneBasisFunctionDerivative()</a>, <a class="el" href="Projection_8cpp_source.html#l00022">LNLib::Projection::PointToLine()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l02614">LNLib::NurbsCurve::RemoveKnotsByGivenBound()</a>.</p>
+
+</div>
+</div>
+<a id="a0df1a9322a47b39c1e914c5fa82d9d2a" name="a0df1a9322a47b39c1e914c5fa82d9d2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0df1a9322a47b39c1e914c5fa82d9d2a">&#9670;&#160;</a></span>IsLessThanOrEqual()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::MathUtils::IsLessThanOrEqual </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>tolerance</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00056">56</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00026">IsAlmostEqualTo()</a> , 以及 <a class="el" href="MathUtils_8cpp_source.html#l00070">IsNaN()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l01737">LNLib::NurbsCurve::CreateArc()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01886">LNLib::NurbsCurve::CreateOpenConic()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01479">LNLib::NurbsSurface::CreateRevolvedSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00580">LNLib::NurbsSurface::DecomposeToBeziers()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02857">LNLib::NurbsCurve::FitWithConic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02935">LNLib::NurbsCurve::FitWithCubic()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00125">LNLib::Polynomials::GetKnotSpanIndex()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00749">LNLib::NurbsCurve::RemoveKnot()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01509">LNLib::NurbsCurve::Segment()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01463">LNLib::NurbsCurve::SplitAt()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03865">LNLib::NurbsCurve::Tessellate()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l00107">LNLib::TessellateCore()</a>.</p>
+
+</div>
+</div>
+<a id="ab066094974b61485bb10eafaf07ee37b" name="ab066094974b61485bb10eafaf07ee37b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab066094974b61485bb10eafaf07ee37b">&#9670;&#160;</a></span>IsNaN()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::MathUtils::IsNaN </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00070">70</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="MathUtils_8cpp_source.html#l00026">IsAlmostEqualTo()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00035">IsGreaterThan()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00042">IsGreaterThanOrEqual()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00049">IsLessThan()</a> , 以及 <a class="el" href="MathUtils_8cpp_source.html#l00056">IsLessThanOrEqual()</a>.</p>
+
+</div>
+</div>
+<a id="a933d1d8a008cc9ceebeddc62dd17f7e1" name="a933d1d8a008cc9ceebeddc62dd17f7e1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a933d1d8a008cc9ceebeddc62dd17f7e1">&#9670;&#160;</a></span>MakeDiagonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; double &gt; &gt; LNLib::MathUtils::MakeDiagonal </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00131">131</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l02351">LNLib::NurbsCurve::WeightedAndContrainedLeastSquaresApproximation()</a>.</p>
+
+</div>
+</div>
+<a id="abd3a464a546a33e0455f9dff4eba277a" name="abd3a464a546a33e0455f9dff4eba277a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd3a464a546a33e0455f9dff4eba277a">&#9670;&#160;</a></span>MakeInverse()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::MathUtils::MakeInverse </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>inverse</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00173">173</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l03371">LNLib::NurbsCurve::ConstraintBasedModification()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00295">LNLib::Matrix4d::GetInverse()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01656">LNLib::NurbsSurface::MakeCornerFilletSurface()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l02351">LNLib::NurbsCurve::WeightedAndContrainedLeastSquaresApproximation()</a>.</p>
+
+</div>
+</div>
+<a id="a15f60990f3fadb7e874873e178cb40e6" name="a15f60990f3fadb7e874873e178cb40e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a15f60990f3fadb7e874873e178cb40e6">&#9670;&#160;</a></span>MatrixMultiply()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; double &gt; &gt; LNLib::MathUtils::MatrixMultiply </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>left</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00111">111</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l03371">LNLib::NurbsCurve::ConstraintBasedModification()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02246">LNLib::NurbsCurve::LeastSquaresApproximation()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l02351">LNLib::NurbsCurve::WeightedAndContrainedLeastSquaresApproximation()</a>.</p>
+
+</div>
+</div>
+<a id="a9f644ec075156b25b5dc1de610fd0448" name="a9f644ec075156b25b5dc1de610fd0448"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f644ec075156b25b5dc1de610fd0448">&#9670;&#160;</a></span>RadiansToAngle()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::MathUtils::RadiansToAngle </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>radians</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00075">75</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Constants_8h_source.html#l00027">LNLib::Constants::Pi</a>.</p>
+
+</div>
+</div>
+<a id="a69f9b12e3d726165dcde49f0e66ec847" name="a69f9b12e3d726165dcde49f0e66ec847"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69f9b12e3d726165dcde49f0e66ec847">&#9670;&#160;</a></span>SolveLinearSystem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; double &gt; &gt; LNLib::MathUtils::SolveLinearSystem </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>right</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>matrix * result = right. </p>
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a> 第 <a class="el" href="MathUtils_8cpp_source.html#l00205">205</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l02056">LNLib::NurbsCurve::GlobalInterpolation()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01996">LNLib::NurbsCurve::GlobalInterpolation()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02246">LNLib::NurbsCurve::LeastSquaresApproximation()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l02351">LNLib::NurbsCurve::WeightedAndContrainedLeastSquaresApproximation()</a>.</p>
+
+</div>
+</div>
+<a id="a06a410855387fd4bc2a85d081b9e669e" name="a06a410855387fd4bc2a85d081b9e669e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06a410855387fd4bc2a85d081b9e669e">&#9670;&#160;</a></span>Transpose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void LNLib::MathUtils::Transpose </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; T &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; T &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>transposed</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="MathUtils_8h_source.html">MathUtils.h</a> 第 <a class="el" href="MathUtils_8h_source.html#l00060">60</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l01833">LNLib::NurbsSurface::BicubicLocalInterpolation()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03371">LNLib::NurbsCurve::ConstraintBasedModification()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02459">LNLib::NurbsSurface::CreateGordonSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00847">LNLib::NurbsSurface::ElevateDegree()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02044">LNLib::NurbsSurface::GlobalApproximation()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01035">LNLib::NurbsSurface::IsClosed()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02246">LNLib::NurbsCurve::LeastSquaresApproximation()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01656">LNLib::NurbsSurface::MakeCornerFilletSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00909">LNLib::NurbsSurface::ReduceDegree()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00522">LNLib::NurbsSurface::RefineKnotVector()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00780">LNLib::NurbsSurface::RemoveKnot()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00280">LNLib::NurbsSurface::Swap()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l02351">LNLib::NurbsCurve::WeightedAndContrainedLeastSquaresApproximation()</a>.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/LNLib/include/<a class="el" href="MathUtils_8h_source.html">MathUtils.h</a></li>
+<li>src/LNLib/Mathematics/Utils/<a class="el" href="MathUtils_8cpp_source.html">MathUtils.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceLNLib.html">LNLib</a></li><li class="navelem"><a class="el" href="classLNLib_1_1MathUtils.html">MathUtils</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

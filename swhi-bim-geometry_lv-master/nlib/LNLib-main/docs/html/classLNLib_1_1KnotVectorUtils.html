@@ -1,0 +1,509 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: LNLib::KnotVectorUtils类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classLNLib_1_1KnotVectorUtils.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classLNLib_1_1KnotVectorUtils-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">LNLib::KnotVectorUtils类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="KnotVectorUtils_8h_source.html">KnotVectorUtils.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a4bc4a08963c254fec381e3c7b98c1d57" id="r_a4bc4a08963c254fec381e3c7b98c1d57"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4bc4a08963c254fec381e3c7b98c1d57">GetContinuity</a> (int degree, const std::vector&lt; double &gt; &amp;knotVector, double knot)</td></tr>
+<tr class="memdesc:a4bc4a08963c254fec381e3c7b98c1d57"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page88 Compute the continuity.  <br /></td></tr>
+<tr class="separator:a4bc4a08963c254fec381e3c7b98c1d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4ee7bb45b62cdc2ef951c859c9515a4" id="r_ad4ee7bb45b62cdc2ef951c859c9515a4"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad4ee7bb45b62cdc2ef951c859c9515a4">Rescale</a> (const std::vector&lt; double &gt; &amp;knotVector, double min, double max)</td></tr>
+<tr class="separator:ad4ee7bb45b62cdc2ef951c859c9515a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5256aa577db6a37841e89d9652fc595" id="r_ad5256aa577db6a37841e89d9652fc595"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad5256aa577db6a37841e89d9652fc595">GetInsertedKnotElement</a> (int degree, const std::vector&lt; double &gt; &amp;knotVector, double startParam, double endParam)</td></tr>
+<tr class="memdesc:ad5256aa577db6a37841e89d9652fc595"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page533 Get insert elements from [Us, Ue] for refine knot vector.  <br /></td></tr>
+<tr class="separator:ad5256aa577db6a37841e89d9652fc595"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3402b00885fa3d255aac142f3af81cb" id="r_af3402b00885fa3d255aac142f3af81cb"><td class="memItemLeft" align="right" valign="top">static std::map&lt; double, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3402b00885fa3d255aac142f3af81cb">GetKnotMultiplicityMap</a> (const std::vector&lt; double &gt; &amp;knotVector)</td></tr>
+<tr class="memdesc:af3402b00885fa3d255aac142f3af81cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page338 Get knot multiplcity map.  <br /></td></tr>
+<tr class="separator:af3402b00885fa3d255aac142f3af81cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae7a3df848dfe04042aa2c89b590db02b" id="r_ae7a3df848dfe04042aa2c89b590db02b"><td class="memItemLeft" align="right" valign="top">static std::map&lt; double, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae7a3df848dfe04042aa2c89b590db02b">GetInternalKnotMultiplicityMap</a> (const std::vector&lt; double &gt; &amp;knotVector)</td></tr>
+<tr class="memdesc:ae7a3df848dfe04042aa2c89b590db02b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get internal knot multiplcity map.  <br /></td></tr>
+<tr class="separator:ae7a3df848dfe04042aa2c89b590db02b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a888a16fb5b51befa4da85a6082d69987" id="r_a888a16fb5b51befa4da85a6082d69987"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a888a16fb5b51befa4da85a6082d69987">GetInsertedKnotElement</a> (const std::vector&lt; double &gt; &amp;knotVector0, const std::vector&lt; double &gt; &amp;knotVector1, std::vector&lt; double &gt; &amp;insertElements0, std::vector&lt; double &gt; &amp;insertElements1)</td></tr>
+<tr class="memdesc:a888a16fb5b51befa4da85a6082d69987"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page338 Get insert elements between two knot vector for create ruled surface.  <br /></td></tr>
+<tr class="separator:a888a16fb5b51befa4da85a6082d69987"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5333d5a832510acfa719d048a6662e5b" id="r_a5333d5a832510acfa719d048a6662e5b"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5333d5a832510acfa719d048a6662e5b">GetInsertedKnotElements</a> (const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;knotVectors)</td></tr>
+<tr class="memdesc:a5333d5a832510acfa719d048a6662e5b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page472 Get insert elements between knot vectors for create sweep surface.  <br /></td></tr>
+<tr class="separator:a5333d5a832510acfa719d048a6662e5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94175b66a36f58a46e42308222b40885" id="r_a94175b66a36f58a46e42308222b40885"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94175b66a36f58a46e42308222b40885">GetInsertedKnotElements</a> (int insertKnotsNumber, const std::vector&lt; double &gt; &amp;knotVector)</td></tr>
+<tr class="memdesc:a94175b66a36f58a46e42308222b40885"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page476 Insert [insertKnotsNumber] knots into [knotVector] by insert at the midpoint of the longest span will do.  <br /></td></tr>
+<tr class="separator:a94175b66a36f58a46e42308222b40885"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46b835bef6db6b656d5a332e357a07a0" id="r_a46b835bef6db6b656d5a332e357a07a0"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46b835bef6db6b656d5a332e357a07a0">IsUniform</a> (const std::vector&lt; double &gt; &amp;knotVector)</td></tr>
+<tr class="memdesc:a46b835bef6db6b656d5a332e357a07a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page572  <br /></td></tr>
+<tr class="separator:a46b835bef6db6b656d5a332e357a07a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="KnotVectorUtils_8h_source.html">KnotVectorUtils.h</a> 第 <a class="el" href="KnotVectorUtils_8h_source.html#l00022">22</a> 行定义.</p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="a4bc4a08963c254fec381e3c7b98c1d57" name="a4bc4a08963c254fec381e3c7b98c1d57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4bc4a08963c254fec381e3c7b98c1d57">&#9670;&#160;</a></span>GetContinuity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LNLib::KnotVectorUtils::GetContinuity </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>knot</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page88 Compute the continuity. </p>
+
+<p class="definition">在文件 <a class="el" href="KnotVectorUtils_8cpp_source.html">KnotVectorUtils.cpp</a> 第 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00050">50</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Polynomials_8cpp_source.html#l00105">LNLib::Polynomials::GetKnotMultiplicity()</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l03523">LNLib::NurbsCurve::IsPeriodic()</a>.</p>
+
+</div>
+</div>
+<a id="a888a16fb5b51befa4da85a6082d69987" name="a888a16fb5b51befa4da85a6082d69987"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a888a16fb5b51befa4da85a6082d69987">&#9670;&#160;</a></span>GetInsertedKnotElement() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::KnotVectorUtils::GetInsertedKnotElement </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>insertElements0</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>insertElements1</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page338 Get insert elements between two knot vector for create ruled surface. </p>
+
+<p class="definition">在文件 <a class="el" href="KnotVectorUtils_8cpp_source.html">KnotVectorUtils.cpp</a> 第 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00129">129</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00100">GetKnotMultiplicityMap()</a>.</p>
+
+</div>
+</div>
+<a id="ad5256aa577db6a37841e89d9652fc595" name="ad5256aa577db6a37841e89d9652fc595"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5256aa577db6a37841e89d9652fc595">&#9670;&#160;</a></span>GetInsertedKnotElement() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; LNLib::KnotVectorUtils::GetInsertedKnotElement </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>startParam</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>endParam</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page533 Get insert elements from [Us, Ue] for refine knot vector. </p>
+
+<p class="definition">在文件 <a class="el" href="KnotVectorUtils_8cpp_source.html">KnotVectorUtils.cpp</a> 第 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00072">72</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Polynomials_8cpp_source.html#l00105">LNLib::Polynomials::GetKnotMultiplicity()</a>, <a class="el" href="ValidationUtils_8cpp_source.html#l00023">LNLib::ValidationUtils::IsValidKnotVector()</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02708">LNLib::NurbsSurface::CreateCoonsSurface()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l01396">LNLib::NurbsSurface::CreateRuledSurface()</a>.</p>
+
+</div>
+</div>
+<a id="a5333d5a832510acfa719d048a6662e5b" name="a5333d5a832510acfa719d048a6662e5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5333d5a832510acfa719d048a6662e5b">&#9670;&#160;</a></span>GetInsertedKnotElements() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; double &gt; &gt; LNLib::KnotVectorUtils::GetInsertedKnotElements </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVectors</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page472 Get insert elements between knot vectors for create sweep surface. </p>
+
+<p class="definition">在文件 <a class="el" href="KnotVectorUtils_8cpp_source.html">KnotVectorUtils.cpp</a> 第 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00188">188</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00100">GetKnotMultiplicityMap()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02708">LNLib::NurbsSurface::CreateCoonsSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02459">LNLib::NurbsSurface::CreateGordonSurface()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l02325">LNLib::NurbsSurface::CreateSweepSurface()</a>.</p>
+
+</div>
+</div>
+<a id="a94175b66a36f58a46e42308222b40885" name="a94175b66a36f58a46e42308222b40885"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94175b66a36f58a46e42308222b40885">&#9670;&#160;</a></span>GetInsertedKnotElements() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; LNLib::KnotVectorUtils::GetInsertedKnotElements </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>insertKnotsNumber</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page476 Insert [insertKnotsNumber] knots into [knotVector] by insert at the midpoint of the longest span will do. </p>
+
+<p class="definition">在文件 <a class="el" href="KnotVectorUtils_8cpp_source.html">KnotVectorUtils.cpp</a> 第 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00250">250</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00021">LNLib::InsertMidKnotCore()</a>.</p>
+
+</div>
+</div>
+<a id="ae7a3df848dfe04042aa2c89b590db02b" name="ae7a3df848dfe04042aa2c89b590db02b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae7a3df848dfe04042aa2c89b590db02b">&#9670;&#160;</a></span>GetInternalKnotMultiplicityMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; double, int &gt; LNLib::KnotVectorUtils::GetInternalKnotMultiplicityMap </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get internal knot multiplcity map. </p>
+
+<p class="definition">在文件 <a class="el" href="KnotVectorUtils_8cpp_source.html">KnotVectorUtils.cpp</a> 第 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00117">117</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00100">GetKnotMultiplicityMap()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l03643">LNLib::NurbsCurve::IsLinear()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01563">LNLib::NurbsCurve::Merge()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l00880">LNLib::NurbsCurve::RemoveExcessiveKnots()</a>.</p>
+
+</div>
+</div>
+<a id="af3402b00885fa3d255aac142f3af81cb" name="af3402b00885fa3d255aac142f3af81cb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3402b00885fa3d255aac142f3af81cb">&#9670;&#160;</a></span>GetKnotMultiplicityMap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::map&lt; double, int &gt; LNLib::KnotVectorUtils::GetKnotMultiplicityMap </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page338 Get knot multiplcity map. </p>
+
+<p class="definition">在文件 <a class="el" href="KnotVectorUtils_8cpp_source.html">KnotVectorUtils.cpp</a> 第 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00100">100</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Polynomials_8cpp_source.html#l00105">LNLib::Polynomials::GetKnotMultiplicity()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00129">GetInsertedKnotElement()</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00188">GetInsertedKnotElements()</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00117">GetInternalKnotMultiplicityMap()</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00261">IsUniform()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l01119">LNLib::NurbsCurve::ReduceDegree()</a>.</p>
+
+</div>
+</div>
+<a id="a46b835bef6db6b656d5a332e357a07a0" name="a46b835bef6db6b656d5a332e357a07a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46b835bef6db6b656d5a332e357a07a0">&#9670;&#160;</a></span>IsUniform()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::KnotVectorUtils::IsUniform </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page572 </p>
+
+<p class="definition">在文件 <a class="el" href="KnotVectorUtils_8cpp_source.html">KnotVectorUtils.cpp</a> 第 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00261">261</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00100">GetKnotMultiplicityMap()</a> , 以及 <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l03523">LNLib::NurbsCurve::IsPeriodic()</a>.</p>
+
+</div>
+</div>
+<a id="ad4ee7bb45b62cdc2ef951c859c9515a4" name="ad4ee7bb45b62cdc2ef951c859c9515a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4ee7bb45b62cdc2ef951c859c9515a4">&#9670;&#160;</a></span>Rescale()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; LNLib::KnotVectorUtils::Rescale </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>min</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>max</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="KnotVectorUtils_8cpp_source.html">KnotVectorUtils.cpp</a> 第 <a class="el" href="KnotVectorUtils_8cpp_source.html#l00057">57</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l01425">LNLib::NurbsCurve::Reparametrize()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l01270">LNLib::NurbsSurface::Reparametrize()</a>.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/LNLib/include/<a class="el" href="KnotVectorUtils_8h_source.html">KnotVectorUtils.h</a></li>
+<li>src/LNLib/Algorithm/<a class="el" href="KnotVectorUtils_8cpp_source.html">KnotVectorUtils.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceLNLib.html">LNLib</a></li><li class="navelem"><a class="el" href="classLNLib_1_1KnotVectorUtils.html">KnotVectorUtils</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

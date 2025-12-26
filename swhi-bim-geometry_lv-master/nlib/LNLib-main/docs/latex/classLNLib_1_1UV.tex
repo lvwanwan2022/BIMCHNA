@@ -1,0 +1,549 @@
+\doxysection{LNLib\+::UV类 参考}
+\hypertarget{classLNLib_1_1UV}{}\label{classLNLib_1_1UV}\index{LNLib::UV@{LNLib::UV}}
+
+
+Represents two-\/dimension location/vector/offset  
+
+
+
+
+{\ttfamily \#include $<$UV.\+h$>$}
+
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV_a25e68a7958f33d87a6fff701d4e56cb8}{UV}} ()
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV_a0e95bdf3d1115ff642b7fa952f4a7a27}{UV}} (double u, double v)
+\item 
+void \mbox{\hyperlink{classLNLib_1_1UV_af4cef87d2c3bfaf9a6d64c0d422d5d2a}{SetU}} (const double x)
+\item 
+double \mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}} () const
+\item 
+void \mbox{\hyperlink{classLNLib_1_1UV_a97d5e418f416eb72c1b361c6a846de7a}{SetV}} (const double y)
+\item 
+double \mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}} () const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1UV_a840d8d8f42eb39bb776ec9155efdae12}{U}} () const
+\item 
+double \& \mbox{\hyperlink{classLNLib_1_1UV_aef27f96bd50d99149a336489cd6128f1}{U}} ()
+\item 
+double \mbox{\hyperlink{classLNLib_1_1UV_ae3dcc5bf6700eef80171687b97eb6048}{V}} () const
+\item 
+double \& \mbox{\hyperlink{classLNLib_1_1UV_a8ec9fae06348c4570ffe0bed4cd66959}{V}} ()
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1UV_ad446b8d348494634fd7966cbe2072a6a}{Is\+Zero}} (const double epsilon=\mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}) const
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1UV_a88595337d9ae85fd260beedfe04eb4c7}{Is\+Unit}} (const double epsilon=\mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}) const
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1UV_a833da631eb44405af0576fe811bad565}{Is\+Almost\+Equal\+To}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&another) const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1UV_afb753511175475ab6dc4d60743157b38}{Length}} () const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1UV_a68dc3dfff7ebb15543cbd1cc9ec0bdac}{Sqr\+Length}} () const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1UV_a6abaf06a45da2f57bdd55c81a035aa44}{Angle\+To}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&another) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \mbox{\hyperlink{classLNLib_1_1UV_a3e23a18e66ec559094882dc6ee6ab16a}{Normalize}} ()
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \mbox{\hyperlink{classLNLib_1_1UV_a76bed2a5c6c6a4dcb09e6abc167cb05d}{Add}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&another) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \mbox{\hyperlink{classLNLib_1_1UV_a1fc0ef0173877c9f633f064a4db1f29d}{Substract}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&another) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \mbox{\hyperlink{classLNLib_1_1UV_a6a6eaffb29567c7951716c87748ed061}{Negative}} () const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1UV_ab0a72096c7d7ea3dd7651440c773ad4d}{Dot\+Product}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&another) const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1UV_a3409376d9f785a40e62d3a0794fca969}{Cross\+Product}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&another) const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1UV_aa57b9f8e5517f572dcf9f7d9c72bad11}{Distance}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&another) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \& \mbox{\hyperlink{classLNLib_1_1UV_a75b64020dafc9bd1f6520e530e053bf5}{operator=}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&uv)
+\item 
+double \& \mbox{\hyperlink{classLNLib_1_1UV_a32ef1c193a7623d680a82e5bb8d6f86d}{operator\mbox{[}$\,$\mbox{]}}} (int index)
+\item 
+const double \& \mbox{\hyperlink{classLNLib_1_1UV_a932cf221036546b0120228dcc63c73db}{operator\mbox{[}$\,$\mbox{]}}} (int index) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \mbox{\hyperlink{classLNLib_1_1UV_a828789e585e808cad81060f2f3cad62b}{operator+}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&uv) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \mbox{\hyperlink{classLNLib_1_1UV_afcc38bb6e8c51830a3a7c3a8bb95dd8d}{operator-\/}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&uv) const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1UV_a034dbf650c053e43d9869d430b22c7bf}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&uv) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \& \mbox{\hyperlink{classLNLib_1_1UV_a349556e0a1bd13dbf4da1f0a3777331c}{operator\texorpdfstring{$\ast$}{*}=}} (const double \&d)
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \& \mbox{\hyperlink{classLNLib_1_1UV_a41665f110e1e9262fd0b387b9bea3d27}{operator/=}} (const double \&d)
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \& \mbox{\hyperlink{classLNLib_1_1UV_ab6aaa639fc8bcea779dd5ef3641691a2}{operator+=}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&uv)
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \& \mbox{\hyperlink{classLNLib_1_1UV_af1d7c22ab799d6b40da4056dd21f79a1}{operator-\/=}} (const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&uv)
+\item 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \mbox{\hyperlink{classLNLib_1_1UV_a5f081d9332d981f864a32910a888a6a4}{operator-\/}} () const
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Represents two-\/dimension location/vector/offset 
+
+在文件 \mbox{\hyperlink{UV_8h_source}{UV.\+h}} 第 \mbox{\hyperlink{UV_8h_source_l00021}{21}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classLNLib_1_1UV_a25e68a7958f33d87a6fff701d4e56cb8}\index{LNLib::UV@{LNLib::UV}!UV@{UV}}
+\index{UV@{UV}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{UV()}{UV()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a25e68a7958f33d87a6fff701d4e56cb8} 
+LNLib\+::\+UV\+::\+UV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00018}{18}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{UV_8cpp_source_l00113}{Add()}}, \mbox{\hyperlink{UV_8cpp_source_l00095}{Angle\+To()}}, \mbox{\hyperlink{UV_8cpp_source_l00133}{Cross\+Product()}}, \mbox{\hyperlink{UV_8cpp_source_l00138}{Distance()}}, \mbox{\hyperlink{UV_8cpp_source_l00128}{Dot\+Product()}}, \mbox{\hyperlink{UV_8cpp_source_l00079}{Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{UV_8cpp_source_l00123}{Negative()}}, \mbox{\hyperlink{UV_8cpp_source_l00100}{Normalize()}}, \mbox{\hyperlink{UV_8cpp_source_l00171}{operator\texorpdfstring{$\ast$}{*}()}}, \mbox{\hyperlink{UV_8cpp_source_l00176}{operator\texorpdfstring{$\ast$}{*}=()}}, \mbox{\hyperlink{UV_8cpp_source_l00161}{operator+()}}, \mbox{\hyperlink{UV_8cpp_source_l00190}{operator+=()}}, \mbox{\hyperlink{UV_8cpp_source_l00204}{operator-\/()}}, \mbox{\hyperlink{UV_8cpp_source_l00166}{operator-\/()}}, \mbox{\hyperlink{UV_8cpp_source_l00197}{operator-\/=()}}, \mbox{\hyperlink{UV_8cpp_source_l00183}{operator/=()}}, \mbox{\hyperlink{UV_8cpp_source_l00144}{operator=()}} , 以及 \mbox{\hyperlink{UV_8cpp_source_l00118}{Substract()}}.
+
+\Hypertarget{classLNLib_1_1UV_a0e95bdf3d1115ff642b7fa952f4a7a27}\index{LNLib::UV@{LNLib::UV}!UV@{UV}}
+\index{UV@{UV}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{UV()}{UV()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a0e95bdf3d1115ff642b7fa952f4a7a27} 
+UV\+::\+UV (\begin{DoxyParamCaption}\item[{double}]{u}{, }\item[{double}]{v}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00025}{25}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1UV_a76bed2a5c6c6a4dcb09e6abc167cb05d}\index{LNLib::UV@{LNLib::UV}!Add@{Add}}
+\index{Add@{Add}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a76bed2a5c6c6a4dcb09e6abc167cb05d} 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} UV\+::\+Add (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00113}{113}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_a6abaf06a45da2f57bdd55c81a035aa44}\index{LNLib::UV@{LNLib::UV}!AngleTo@{AngleTo}}
+\index{AngleTo@{AngleTo}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{AngleTo()}{AngleTo()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a6abaf06a45da2f57bdd55c81a035aa44} 
+double LNLib\+::\+UV\+::\+Angle\+To (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00095}{95}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_a3409376d9f785a40e62d3a0794fca969}\index{LNLib::UV@{LNLib::UV}!CrossProduct@{CrossProduct}}
+\index{CrossProduct@{CrossProduct}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{CrossProduct()}{CrossProduct()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a3409376d9f785a40e62d3a0794fca969} 
+double UV\+::\+Cross\+Product (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00133}{133}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{UV_8cpp_source_l00217}{LNLib\+::operator\texorpdfstring{$^\wedge$}{\string^}()}}.
+
+\Hypertarget{classLNLib_1_1UV_aa57b9f8e5517f572dcf9f7d9c72bad11}\index{LNLib::UV@{LNLib::UV}!Distance@{Distance}}
+\index{Distance@{Distance}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{Distance()}{Distance()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_aa57b9f8e5517f572dcf9f7d9c72bad11} 
+double LNLib\+::\+UV\+::\+Distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00138}{138}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00037}{Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{Get\+V()}} , 以及 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_ab0a72096c7d7ea3dd7651440c773ad4d}\index{LNLib::UV@{LNLib::UV}!DotProduct@{DotProduct}}
+\index{DotProduct@{DotProduct}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{DotProduct()}{DotProduct()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_ab0a72096c7d7ea3dd7651440c773ad4d} 
+double UV\+::\+Dot\+Product (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00128}{128}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{UV_8cpp_source_l00171}{operator\texorpdfstring{$\ast$}{*}()}}.
+
+\Hypertarget{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}\index{LNLib::UV@{LNLib::UV}!GetU@{GetU}}
+\index{GetU@{GetU}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{GetU()}{GetU()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e} 
+double UV\+::\+GetU (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00037}{37}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BsplineSurface_8h_source_l00197}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+Control\+Points\+Of\+Derivatives()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00094}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+Derivatives()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00273}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+Derivatives\+By\+All\+Basis\+Functions()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00145}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+First\+Order\+Derivative()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00120}{LNLib\+::\+Nurbs\+Surface\+::\+Compute\+Rational\+Surface\+Derivatives()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00167}{LNLib\+::\+Nurbs\+Surface\+::\+Compute\+Rational\+Surface\+First\+Order\+Derivative()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00199}{LNLib\+::\+Nurbs\+Surface\+::\+Curvature()}}, \mbox{\hyperlink{UV_8cpp_source_l00138}{Distance()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01078}{LNLib\+::\+Nurbs\+Surface\+::\+Get\+Param\+On\+Surface()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00055}{LNLib\+::\+Bspline\+Surface\+::\+Get\+Point\+On\+Surface()}}, \mbox{\hyperlink{BezierSurface_8h_source_l00059}{LNLib\+::\+Bezier\+Surface\+::\+Get\+Point\+On\+Surface\+By\+De\+Casteljau()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00087}{LNLib\+::\+Polynomials\+::\+Horner()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00265}{LNLib\+::\+Nurbs\+Surface\+::\+Normal()}}, \mbox{\hyperlink{UV_8cpp_source_l00213}{LNLib\+::operator\texorpdfstring{$\ast$}{*}()}}, \mbox{\hyperlink{UV_8cpp_source_l00209}{LNLib\+::operator\texorpdfstring{$\ast$}{*}()}} , 以及 \mbox{\hyperlink{UV_8cpp_source_l00221}{LNLib\+::operator/()}}.
+
+\Hypertarget{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}\index{LNLib::UV@{LNLib::UV}!GetV@{GetV}}
+\index{GetV@{GetV}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{GetV()}{GetV()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6} 
+double UV\+::\+GetV (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00045}{45}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BsplineSurface_8h_source_l00197}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+Control\+Points\+Of\+Derivatives()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00094}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+Derivatives()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00273}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+Derivatives\+By\+All\+Basis\+Functions()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00145}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+First\+Order\+Derivative()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00120}{LNLib\+::\+Nurbs\+Surface\+::\+Compute\+Rational\+Surface\+Derivatives()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00167}{LNLib\+::\+Nurbs\+Surface\+::\+Compute\+Rational\+Surface\+First\+Order\+Derivative()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00199}{LNLib\+::\+Nurbs\+Surface\+::\+Curvature()}}, \mbox{\hyperlink{UV_8cpp_source_l00138}{Distance()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01078}{LNLib\+::\+Nurbs\+Surface\+::\+Get\+Param\+On\+Surface()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00055}{LNLib\+::\+Bspline\+Surface\+::\+Get\+Point\+On\+Surface()}}, \mbox{\hyperlink{BezierSurface_8h_source_l00059}{LNLib\+::\+Bezier\+Surface\+::\+Get\+Point\+On\+Surface\+By\+De\+Casteljau()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00087}{LNLib\+::\+Polynomials\+::\+Horner()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00265}{LNLib\+::\+Nurbs\+Surface\+::\+Normal()}}, \mbox{\hyperlink{UV_8cpp_source_l00213}{LNLib\+::operator\texorpdfstring{$\ast$}{*}()}}, \mbox{\hyperlink{UV_8cpp_source_l00209}{LNLib\+::operator\texorpdfstring{$\ast$}{*}()}} , 以及 \mbox{\hyperlink{UV_8cpp_source_l00221}{LNLib\+::operator/()}}.
+
+\Hypertarget{classLNLib_1_1UV_a833da631eb44405af0576fe811bad565}\index{LNLib::UV@{LNLib::UV}!IsAlmostEqualTo@{IsAlmostEqualTo}}
+\index{IsAlmostEqualTo@{IsAlmostEqualTo}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{IsAlmostEqualTo()}{IsAlmostEqualTo()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a833da631eb44405af0576fe811bad565} 
+bool LNLib\+::\+UV\+::\+Is\+Almost\+Equal\+To (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00079}{79}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}} , 以及 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_a88595337d9ae85fd260beedfe04eb4c7}\index{LNLib::UV@{LNLib::UV}!IsUnit@{IsUnit}}
+\index{IsUnit@{IsUnit}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{IsUnit()}{IsUnit()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a88595337d9ae85fd260beedfe04eb4c7} 
+bool LNLib\+::\+UV\+::\+Is\+Unit (\begin{DoxyParamCaption}\item[{const double}]{epsilon}{ = {\ttfamily \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}}}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00074}{74}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00090}{Sqr\+Length()}}.
+
+\Hypertarget{classLNLib_1_1UV_ad446b8d348494634fd7966cbe2072a6a}\index{LNLib::UV@{LNLib::UV}!IsZero@{IsZero}}
+\index{IsZero@{IsZero}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{IsZero()}{IsZero()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_ad446b8d348494634fd7966cbe2072a6a} 
+bool LNLib\+::\+UV\+::\+Is\+Zero (\begin{DoxyParamCaption}\item[{const double}]{epsilon}{ = {\ttfamily \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}}}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00069}{69}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00090}{Sqr\+Length()}}.
+
+\Hypertarget{classLNLib_1_1UV_afb753511175475ab6dc4d60743157b38}\index{LNLib::UV@{LNLib::UV}!Length@{Length}}
+\index{Length@{Length}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{Length()}{Length()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_afb753511175475ab6dc4d60743157b38} 
+double UV\+::\+Length (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00085}{85}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{UV_8cpp_source_l00100}{Normalize()}}.
+
+\Hypertarget{classLNLib_1_1UV_a6a6eaffb29567c7951716c87748ed061}\index{LNLib::UV@{LNLib::UV}!Negative@{Negative}}
+\index{Negative@{Negative}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{Negative()}{Negative()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a6a6eaffb29567c7951716c87748ed061} 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} UV\+::\+Negative (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00123}{123}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_a3e23a18e66ec559094882dc6ee6ab16a}\index{LNLib::UV@{LNLib::UV}!Normalize@{Normalize}}
+\index{Normalize@{Normalize}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{Normalize()}{Normalize()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a3e23a18e66ec559094882dc6ee6ab16a} 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} UV\+::\+Normalize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00100}{100}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00085}{Length()}} , 以及 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_a034dbf650c053e43d9869d430b22c7bf}\index{LNLib::UV@{LNLib::UV}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a034dbf650c053e43d9869d430b22c7bf} 
+double UV\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{uv}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00171}{171}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00128}{Dot\+Product()}} , 以及 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_a349556e0a1bd13dbf4da1f0a3777331c}\index{LNLib::UV@{LNLib::UV}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a349556e0a1bd13dbf4da1f0a3777331c} 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \& UV\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{const double \&}]{d}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00176}{176}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_a828789e585e808cad81060f2f3cad62b}\index{LNLib::UV@{LNLib::UV}!operator+@{operator+}}
+\index{operator+@{operator+}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a828789e585e808cad81060f2f3cad62b} 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} UV\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{uv}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00161}{161}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_ab6aaa639fc8bcea779dd5ef3641691a2}\index{LNLib::UV@{LNLib::UV}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_ab6aaa639fc8bcea779dd5ef3641691a2} 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \& UV\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{uv}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00190}{190}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_a5f081d9332d981f864a32910a888a6a4}\index{LNLib::UV@{LNLib::UV}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a5f081d9332d981f864a32910a888a6a4} 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} UV\+::operator-\/ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00204}{204}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_afcc38bb6e8c51830a3a7c3a8bb95dd8d}\index{LNLib::UV@{LNLib::UV}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_afcc38bb6e8c51830a3a7c3a8bb95dd8d} 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} UV\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{uv}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00166}{166}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_af1d7c22ab799d6b40da4056dd21f79a1}\index{LNLib::UV@{LNLib::UV}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_af1d7c22ab799d6b40da4056dd21f79a1} 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \& UV\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{uv}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00197}{197}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_a41665f110e1e9262fd0b387b9bea3d27}\index{LNLib::UV@{LNLib::UV}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a41665f110e1e9262fd0b387b9bea3d27} 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \& UV\+::operator/= (\begin{DoxyParamCaption}\item[{const double \&}]{d}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00183}{183}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_a75b64020dafc9bd1f6520e530e053bf5}\index{LNLib::UV@{LNLib::UV}!operator=@{operator=}}
+\index{operator=@{operator=}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a75b64020dafc9bd1f6520e530e053bf5} 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \& UV\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{uv}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00144}{144}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_a32ef1c193a7623d680a82e5bb8d6f86d}\index{LNLib::UV@{LNLib::UV}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a32ef1c193a7623d680a82e5bb8d6f86d} 
+double \& UV\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00151}{151}} 行定义.
+
+\Hypertarget{classLNLib_1_1UV_a932cf221036546b0120228dcc63c73db}\index{LNLib::UV@{LNLib::UV}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a932cf221036546b0120228dcc63c73db} 
+const double \& UV\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00156}{156}} 行定义.
+
+\Hypertarget{classLNLib_1_1UV_af4cef87d2c3bfaf9a6d64c0d422d5d2a}\index{LNLib::UV@{LNLib::UV}!SetU@{SetU}}
+\index{SetU@{SetU}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{SetU()}{SetU()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_af4cef87d2c3bfaf9a6d64c0d422d5d2a} 
+void UV\+::\+SetU (\begin{DoxyParamCaption}\item[{const double}]{x}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00032}{32}} 行定义.
+
+\Hypertarget{classLNLib_1_1UV_a97d5e418f416eb72c1b361c6a846de7a}\index{LNLib::UV@{LNLib::UV}!SetV@{SetV}}
+\index{SetV@{SetV}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{SetV()}{SetV()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a97d5e418f416eb72c1b361c6a846de7a} 
+void UV\+::\+SetV (\begin{DoxyParamCaption}\item[{const double}]{y}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00039}{39}} 行定义.
+
+\Hypertarget{classLNLib_1_1UV_a68dc3dfff7ebb15543cbd1cc9ec0bdac}\index{LNLib::UV@{LNLib::UV}!SqrLength@{SqrLength}}
+\index{SqrLength@{SqrLength}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{SqrLength()}{SqrLength()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a68dc3dfff7ebb15543cbd1cc9ec0bdac} 
+double UV\+::\+Sqr\+Length (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00090}{90}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{UV_8cpp_source_l00074}{Is\+Unit()}} , 以及 \mbox{\hyperlink{UV_8cpp_source_l00069}{Is\+Zero()}}.
+
+\Hypertarget{classLNLib_1_1UV_a1fc0ef0173877c9f633f064a4db1f29d}\index{LNLib::UV@{LNLib::UV}!Substract@{Substract}}
+\index{Substract@{Substract}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{Substract()}{Substract()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a1fc0ef0173877c9f633f064a4db1f29d} 
+\mbox{\hyperlink{classLNLib_1_1UV}{UV}} UV\+::\+Substract (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00118}{118}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00018}{UV()}}.
+
+\Hypertarget{classLNLib_1_1UV_aef27f96bd50d99149a336489cd6128f1}\index{LNLib::UV@{LNLib::UV}!U@{U}}
+\index{U@{U}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{U()}{U()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_aef27f96bd50d99149a336489cd6128f1} 
+double \& UV\+::U (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00053}{53}} 行定义.
+
+\Hypertarget{classLNLib_1_1UV_a840d8d8f42eb39bb776ec9155efdae12}\index{LNLib::UV@{LNLib::UV}!U@{U}}
+\index{U@{U}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{U()}{U()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a840d8d8f42eb39bb776ec9155efdae12} 
+double UV\+::U (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00048}{48}} 行定义.
+
+\Hypertarget{classLNLib_1_1UV_a8ec9fae06348c4570ffe0bed4cd66959}\index{LNLib::UV@{LNLib::UV}!V@{V}}
+\index{V@{V}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{V()}{V()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_a8ec9fae06348c4570ffe0bed4cd66959} 
+double \& UV\+::V (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00063}{63}} 行定义.
+
+\Hypertarget{classLNLib_1_1UV_ae3dcc5bf6700eef80171687b97eb6048}\index{LNLib::UV@{LNLib::UV}!V@{V}}
+\index{V@{V}!LNLib::UV@{LNLib::UV}}
+\doxysubsubsection{\texorpdfstring{V()}{V()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1UV_ae3dcc5bf6700eef80171687b97eb6048} 
+double UV\+::V (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{UV_8cpp_source}{UV.\+cpp}} 第 \mbox{\hyperlink{UV_8cpp_source_l00058}{58}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{UV_8h}{UV.\+h}}\item 
+src/\+LNLib/\+Mathematics/\+Math/\mbox{\hyperlink{UV_8cpp}{UV.\+cpp}}\end{DoxyCompactItemize}

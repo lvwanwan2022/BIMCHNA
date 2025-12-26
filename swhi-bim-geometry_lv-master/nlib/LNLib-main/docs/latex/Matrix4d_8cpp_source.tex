@@ -1,0 +1,444 @@
+\doxysection{Matrix4d.\+cpp}
+\hypertarget{Matrix4d_8cpp_source}{}\label{Matrix4d_8cpp_source}\index{src/LNLib/Mathematics/Math/Matrix4d.cpp@{src/LNLib/Mathematics/Math/Matrix4d.cpp}}
+\mbox{\hyperlink{Matrix4d_8cpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/06/22\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Matrix4d_8h}{Matrix4d.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{XYZ_8h}{XYZ.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{XYZW_8h}{XYZW.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MathUtils_8h}{MathUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <cstring>}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00019}00019\ \textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}};}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00021}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{00021}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{LNLib::Matrix4d::Matrix4d}}()}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00023}00023\ \ \ \ \ std::memset(m\_matrix4d,\ 0,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{double})\ *\ 16);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ 3;\ i++)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00025}00025\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ m\_matrix4d[i][i]\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00027}00027\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00029}00029\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00030}\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa535127083da70138a8c0a93fd7d51d7}{00030}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{LNLib::Matrix4d::Matrix4d}}(\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ basisX,\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ basisY,\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ basisZ,\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ origin)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00031}00031\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00032}00032\ \ \ \ \ m\_matrix4d[0][0]\ =\ basisX[0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00033}00033\ \ \ \ \ m\_matrix4d[1][0]\ =\ basisX[1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00034}00034\ \ \ \ \ m\_matrix4d[2][0]\ =\ basisX[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00035}00035\ \ \ \ \ m\_matrix4d[3][0]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00037}00037\ \ \ \ \ m\_matrix4d[0][1]\ =\ basisY[0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00038}00038\ \ \ \ \ m\_matrix4d[1][1]\ =\ basisY[1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00039}00039\ \ \ \ \ m\_matrix4d[2][1]\ =\ basisY[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00040}00040\ \ \ \ \ m\_matrix4d[3][1]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00042}00042\ \ \ \ \ m\_matrix4d[0][2]\ =\ basisZ[0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00043}00043\ \ \ \ \ m\_matrix4d[1][2]\ =\ basisZ[1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00044}00044\ \ \ \ \ m\_matrix4d[2][2]\ =\ basisZ[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00045}00045\ \ \ \ \ m\_matrix4d[3][2]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00047}00047\ \ \ \ \ m\_matrix4d[0][3]\ =\ origin[0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00048}00048\ \ \ \ \ m\_matrix4d[1][3]\ =\ origin[1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00049}00049\ \ \ \ \ m\_matrix4d[2][3]\ =\ origin[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00050}00050\ \ \ \ \ m\_matrix4d[3][3]\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00051}00051\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00053}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a30a293ad3931ecf4b27d9b17da25e05a}{00053}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{LNLib::Matrix4d::Matrix4d}}(\textcolor{keywordtype}{double}\ a00,\ \textcolor{keywordtype}{double}\ a01,\ \textcolor{keywordtype}{double}\ a02,\ \textcolor{keywordtype}{double}\ a03,\ \textcolor{keywordtype}{double}\ a10,\ \textcolor{keywordtype}{double}\ a11,\ \textcolor{keywordtype}{double}\ a12,\ \textcolor{keywordtype}{double}\ a13,\ \textcolor{keywordtype}{double}\ a20,\ \textcolor{keywordtype}{double}\ a21,\ \textcolor{keywordtype}{double}\ a22,\ \textcolor{keywordtype}{double}\ a23,\ \textcolor{keywordtype}{double}\ a30,\ \textcolor{keywordtype}{double}\ a31,\ \textcolor{keywordtype}{double}\ a32,\ \textcolor{keywordtype}{double}\ a33)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00054}00054\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00055}00055\ \ \ \ \ m\_matrix4d[0][0]\ =\ a00;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00056}00056\ \ \ \ \ m\_matrix4d[0][1]\ =\ a01;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00057}00057\ \ \ \ \ m\_matrix4d[0][2]\ =\ a02;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00058}00058\ \ \ \ \ m\_matrix4d[0][3]\ =\ a03;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00059}00059\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00060}00060\ \ \ \ \ m\_matrix4d[1][0]\ =\ a10;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00061}00061\ \ \ \ \ m\_matrix4d[1][1]\ =\ a11;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00062}00062\ \ \ \ \ m\_matrix4d[1][2]\ =\ a12;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00063}00063\ \ \ \ \ m\_matrix4d[1][3]\ =\ a13;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00064}00064\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00065}00065\ \ \ \ \ m\_matrix4d[2][0]\ =\ a20;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00066}00066\ \ \ \ \ m\_matrix4d[2][1]\ =\ a21;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00067}00067\ \ \ \ \ m\_matrix4d[2][2]\ =\ a22;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00068}00068\ \ \ \ \ m\_matrix4d[2][3]\ =\ a23;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00070}00070\ \ \ \ \ m\_matrix4d[3][0]\ =\ a30;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00071}00071\ \ \ \ \ m\_matrix4d[3][1]\ =\ a31;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00072}00072\ \ \ \ \ m\_matrix4d[3][2]\ =\ a32;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00073}00073\ \ \ \ \ m\_matrix4d[3][3]\ =\ a33;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00074}00074\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00076}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a3d6130261195f89cca26cacbd4be2983}{00076}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a3d6130261195f89cca26cacbd4be2983}{LNLib::Matrix4d::CreateReflection}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ normal,\ \textcolor{keywordtype}{double}\ distanceFromOrigin)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00077}00077\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00078}00078\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ result\ =\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00080}00080\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ t\ =\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\textcolor{keyword}{>}(normal).Normalize();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00081}00081\ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ t[0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keywordtype}{double}\ y\ =\ t[1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{double}\ z\ =\ t[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00085}00085\ \ \ \ \ result.m\_matrix4d[0][0]\ =\ -\/2\ *\ x\ *\ x\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00086}00086\ \ \ \ \ result.m\_matrix4d[0][1]\ =\ -\/2\ *\ y\ *\ x;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00087}00087\ \ \ \ \ result.m\_matrix4d[0][2]\ =\ -\/2\ *\ z\ *\ x;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00088}00088\ \ \ \ \ result.m\_matrix4d[0][3]\ =\ -\/2\ *\ x\ *\ distanceFromOrigin;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00090}00090\ \ \ \ \ result.m\_matrix4d[1][0]\ =\ -\/2\ *\ x\ *\ y;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00091}00091\ \ \ \ \ result.m\_matrix4d[1][1]\ =\ -\/2\ *\ y\ *\ y\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00092}00092\ \ \ \ \ result.m\_matrix4d[1][2]\ =\ -\/2\ *\ z\ *\ y;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00093}00093\ \ \ \ \ result.m\_matrix4d[1][3]\ =\ -\/2\ *\ y\ *\ distanceFromOrigin;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00095}00095\ \ \ \ \ result.m\_matrix4d[2][0]\ =\ -\/2\ *\ x\ *\ z;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00096}00096\ \ \ \ \ result.m\_matrix4d[2][1]\ =\ -\/2\ *\ y\ *\ z;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00097}00097\ \ \ \ \ result.m\_matrix4d[2][2]\ =\ -\/2\ *\ z\ *\ z\ +\ 1;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00098}00098\ \ \ \ \ result.m\_matrix4d[2][3]\ =\ -\/2\ *\ z\ *\ distanceFromOrigin;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00100}00100\ \ \ \ \ result.m\_matrix4d[3][0]\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00101}00101\ \ \ \ \ result.m\_matrix4d[3][1]\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00102}00102\ \ \ \ \ result.m\_matrix4d[3][2]\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00103}00103\ \ \ \ \ result.m\_matrix4d[3][3]\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00104}00104\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00105}00105\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00107}\mbox{\hyperlink{classLNLib_1_1Matrix4d_aad65bd94822048625a04b08d635ca2f6}{00107}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a3d6130261195f89cca26cacbd4be2983}{LNLib::Matrix4d::CreateReflection}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ normal)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00108}00108\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00109}00109\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a3d6130261195f89cca26cacbd4be2983}{CreateReflection}}(normal,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00110}00110\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00111}00111\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00112}\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa2c9413b9b3dc2483704b12664183c43}{00112}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_aa2c9413b9b3dc2483704b12664183c43}{LNLib::Matrix4d::CreateRotation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ axis,\ \textcolor{keywordtype}{double}\ rad)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00113}00113\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00114}00114\ \ \ \ \ \textcolor{keywordtype}{double}\ c\ =\ cos(rad);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00115}00115\ \ \ \ \ \textcolor{keywordtype}{double}\ s\ =\ sin(rad);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00116}00116\ \ \ \ \ \textcolor{keywordtype}{double}\ t\ =\ 1.0\ -\/\ c;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00117}00117\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00118}00118\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ nAxis\ =\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\textcolor{keyword}{>}(axis).Normalize();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ nAxis.\mbox{\hyperlink{classLNLib_1_1XYZ_ad89d7629d1a625493cd1114a6ebbe004}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00120}00120\ \ \ \ \ \textcolor{keywordtype}{double}\ y\ =\ nAxis.\mbox{\hyperlink{classLNLib_1_1XYZ_ac7a68aaac00bbaeecb51d8aa03ee8322}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00121}00121\ \ \ \ \ \textcolor{keywordtype}{double}\ z\ =\ nAxis.\mbox{\hyperlink{classLNLib_1_1XYZ_ac1dd1ddfa09fb299ddc4672d116c7efb}{GetZ}}();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00123}00123\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ result\ =\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00124}00124\ \ \ \ \ result.m\_matrix4d[0][0]\ =\ c\ +\ x\ *\ x\ *\ t;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00125}00125\ \ \ \ \ result.m\_matrix4d[0][1]\ =\ x\ *\ y\ *\ t\ -\/\ z\ *\ s;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00126}00126\ \ \ \ \ result.m\_matrix4d[0][2]\ =\ x\ *\ z\ *\ t\ +\ y\ *\ s;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00127}00127\ \ \ \ \ result.m\_matrix4d[0][3]\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00129}00129\ \ \ \ \ result.m\_matrix4d[1][0]\ =\ y\ *\ x\ *\ t\ +\ z\ *\ s;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00130}00130\ \ \ \ \ result.m\_matrix4d[1][1]\ =\ c\ +\ y\ *\ y\ *\ t;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00131}00131\ \ \ \ \ result.m\_matrix4d[1][2]\ =\ y\ *\ z\ *\ t\ -\/\ x\ *\ s;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00132}00132\ \ \ \ \ result.m\_matrix4d[1][3]\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00133}00133\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00134}00134\ \ \ \ \ result.m\_matrix4d[2][0]\ =\ z\ *\ x\ *\ t\ -\/\ y\ *\ s;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00135}00135\ \ \ \ \ result.m\_matrix4d[2][1]\ =\ z\ *\ y\ *\ t\ +\ x\ *\ s;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00136}00136\ \ \ \ \ result.m\_matrix4d[2][2]\ =\ c\ +\ z\ *\ z\ *\ t;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00137}00137\ \ \ \ \ result.m\_matrix4d[2][3]\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00138}00138\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00139}00139\ \ \ \ \ result.m\_matrix4d[3][0]\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00140}00140\ \ \ \ \ result.m\_matrix4d[3][1]\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00141}00141\ \ \ \ \ result.m\_matrix4d[3][2]\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00142}00142\ \ \ \ \ result.m\_matrix4d[3][3]\ =\ 1.0;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00143}00143\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00144}00144\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00145}00145\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00146}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a8ebfb28eb80ab0c8d920fbc817a569d6}{00146}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a8ebfb28eb80ab0c8d920fbc817a569d6}{LNLib::Matrix4d::CreateRotationAtPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ origin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ axis,\ \textcolor{keywordtype}{double}\ rad)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00147}00147\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00148}00148\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ rodrigues\ =\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_aa2c9413b9b3dc2483704b12664183c43}{CreateRotation}}(axis,\ rad);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00149}00149\ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ rodrigues.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(0,\ 0)\ *\ origin[0]\ +\ rodrigues.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(0,\ 1)\ *\ origin[1]\ +\ rodrigues.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(0,\ 2)\ *\ origin[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00150}00150\ \ \ \ \ \textcolor{keywordtype}{double}\ y\ =\ rodrigues.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(1,\ 0)\ *\ origin[0]\ +\ rodrigues.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(1,\ 1)\ *\ origin[1]\ +\ rodrigues.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(1,\ 2)\ *\ origin[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00151}00151\ \ \ \ \ \textcolor{keywordtype}{double}\ z\ =\ rodrigues.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(2,\ 0)\ *\ origin[0]\ +\ rodrigues.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(2,\ 1)\ *\ origin[1]\ +\ rodrigues.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(2,\ 2)\ *\ origin[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00152}00152\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ Rv\ =\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(x,y,z);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00153}00153\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ offset\ =\ origin\ -\/\ Rv;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00154}00154\ \ \ \ \ rodrigues.\mbox{\hyperlink{classLNLib_1_1Matrix4d_adf74a5d6c767d5ed55d0f7d213bda031}{SetBasisW}}(offset);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00155}00155\ \ \ \ \ \textcolor{keywordflow}{return}\ rodrigues;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00156}00156\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00157}00157\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00158}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a52f02cf0096ed7fe9a9a3646c1cac57a}{00158}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a52f02cf0096ed7fe9a9a3646c1cac57a}{LNLib::Matrix4d::CreateTranslation}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ vector)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00159}00159\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00160}00160\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ result\ =\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00161}00161\ \ \ \ \ result.m\_matrix4d[0][3]\ =\ vector[0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00162}00162\ \ \ \ \ result.m\_matrix4d[1][3]\ =\ vector[1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00163}00163\ \ \ \ \ result.m\_matrix4d[2][3]\ =\ vector[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00164}00164\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00165}00165\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00167}\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa1cb06fa4057733901860b50ad9dffac}{00167}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_aa1cb06fa4057733901860b50ad9dffac}{LNLib::Matrix4d::CreateScale}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ scale)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00168}00168\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00169}00169\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ result\ =\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00170}00170\ \ \ \ \ result.m\_matrix4d[0][0]\ *=\ scale[0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00171}00171\ \ \ \ \ result.m\_matrix4d[1][1]\ *=\ scale[1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00172}00172\ \ \ \ \ result.m\_matrix4d[2][2]\ *=\ scale[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00173}00173\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00174}00174\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00175}00175\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00176}\mbox{\hyperlink{classLNLib_1_1Matrix4d_ab87da1d4eebc2f88e41ce4d5b3dcb82d}{00176}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_ab87da1d4eebc2f88e41ce4d5b3dcb82d}{LNLib::Matrix4d::SetBasisX}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ basisX)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00177}00177\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00178}00178\ \ \ \ \ m\_matrix4d[0][0]\ =\ basisX[0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00179}00179\ \ \ \ \ m\_matrix4d[1][0]\ =\ basisX[1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00180}00180\ \ \ \ \ m\_matrix4d[2][0]\ =\ basisX[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00181}00181\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00182}00182\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00183}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a06ff3a1b139e6d3dc142a197ff478c7c}{00183}}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a06ff3a1b139e6d3dc142a197ff478c7c}{LNLib::Matrix4d::GetBasisX}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00184}00184\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00185}00185\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(m\_matrix4d[0][0],\ m\_matrix4d[1][0],\ m\_matrix4d[2][0]);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00186}00186\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00188}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a4e36878ad9cb0395b552fac317207331}{00188}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a4e36878ad9cb0395b552fac317207331}{LNLib::Matrix4d::SetBasisY}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ basisY)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00189}00189\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00190}00190\ \ \ \ \ m\_matrix4d[0][1]\ =\ basisY[0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00191}00191\ \ \ \ \ m\_matrix4d[1][1]\ =\ basisY[1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00192}00192\ \ \ \ \ m\_matrix4d[2][1]\ =\ basisY[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00193}00193\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00195}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a05dde2bda4c62f2f1e98f9f0fad4c7a3}{00195}}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a05dde2bda4c62f2f1e98f9f0fad4c7a3}{LNLib::Matrix4d::GetBasisY}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00196}00196\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00197}00197\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(m\_matrix4d[0][1],\ m\_matrix4d[1][1],\ m\_matrix4d[2][1]);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00198}00198\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00199}00199\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00200}\mbox{\hyperlink{classLNLib_1_1Matrix4d_aef2e62487b802b9e2716086f37752131}{00200}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_aef2e62487b802b9e2716086f37752131}{LNLib::Matrix4d::SetBasisZ}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ basisZ)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00201}00201\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00202}00202\ \ \ \ \ m\_matrix4d[0][2]\ =\ basisZ[0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00203}00203\ \ \ \ \ m\_matrix4d[1][2]\ =\ basisZ[1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00204}00204\ \ \ \ \ m\_matrix4d[2][2]\ =\ basisZ[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00205}00205\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00206}00206\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00207}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a3c7efa25b2917f3b702606ef55d9c4dc}{00207}}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a3c7efa25b2917f3b702606ef55d9c4dc}{LNLib::Matrix4d::GetBasisZ}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00208}00208\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00209}00209\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(m\_matrix4d[0][2],\ m\_matrix4d[1][2],\ m\_matrix4d[2][2]);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00210}00210\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00211}00211\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00212}\mbox{\hyperlink{classLNLib_1_1Matrix4d_adf74a5d6c767d5ed55d0f7d213bda031}{00212}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_adf74a5d6c767d5ed55d0f7d213bda031}{LNLib::Matrix4d::SetBasisW}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ basisW)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00213}00213\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00214}00214\ \ \ \ \ m\_matrix4d[0][3]\ =\ basisW[0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00215}00215\ \ \ \ \ m\_matrix4d[1][3]\ =\ basisW[1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00216}00216\ \ \ \ \ m\_matrix4d[2][3]\ =\ basisW[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00217}00217\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00218}00218\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00219}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a6ae0fe42885d852a35053b094039e2fe}{00219}}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a6ae0fe42885d852a35053b094039e2fe}{LNLib::Matrix4d::GetBasisW}}()\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00220}00220\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00221}00221\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(m\_matrix4d[0][3],\ m\_matrix4d[1][3],\ m\_matrix4d[2][3]);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00222}00222\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00224}\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{00224}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{LNLib::Matrix4d::GetElement}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ column)\textcolor{keyword}{\ const}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00225}00225\ \textcolor{keyword}{}\{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00226}00226\ \ \ \ \ \textcolor{keywordflow}{return}\ m\_matrix4d[row][column];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00227}00227\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00228}00228\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00229}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a877a73e886e43e9f49a8ad15375c109b}{00229}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a877a73e886e43e9f49a8ad15375c109b}{LNLib::Matrix4d::SetElement}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ column,\ \textcolor{keywordtype}{double}\ value)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00230}00230\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00231}00231\ \ \ \ \ m\_matrix4d[row][column]\ =\ value;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00232}00232\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00234}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a3ece9d63d5fcf5c872b71388cbfae7d5}{00234}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a3ece9d63d5fcf5c872b71388cbfae7d5}{LNLib::Matrix4d::Multiply}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\&\ right)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00235}00235\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00236}00236\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ result\ =\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00238}00238\ \ \ \ \ result.m\_matrix4d[0][0]\ =\ m\_matrix4d[0][0]\ *\ right.m\_matrix4d[0][0]\ +\ m\_matrix4d[0][1]\ *\ right.m\_matrix4d[1][0]\ +\ m\_matrix4d[0][2]\ *\ right.m\_matrix4d[2][0]\ +\ m\_matrix4d[0][3]\ *\ right.m\_matrix4d[3][0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00239}00239\ \ \ \ \ result.m\_matrix4d[0][1]\ =\ m\_matrix4d[0][0]\ *\ right.m\_matrix4d[0][1]\ +\ m\_matrix4d[0][1]\ *\ right.m\_matrix4d[1][1]\ +\ m\_matrix4d[0][2]\ *\ right.m\_matrix4d[2][1]\ +\ m\_matrix4d[0][3]\ *\ right.m\_matrix4d[3][1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00240}00240\ \ \ \ \ result.m\_matrix4d[0][2]\ =\ m\_matrix4d[0][0]\ *\ right.m\_matrix4d[0][2]\ +\ m\_matrix4d[0][1]\ *\ right.m\_matrix4d[1][2]\ +\ m\_matrix4d[0][2]\ *\ right.m\_matrix4d[2][2]\ +\ m\_matrix4d[0][3]\ *\ right.m\_matrix4d[3][2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00241}00241\ \ \ \ \ result.m\_matrix4d[0][3]\ =\ m\_matrix4d[0][0]\ *\ right.m\_matrix4d[0][3]\ +\ m\_matrix4d[0][1]\ *\ right.m\_matrix4d[1][3]\ +\ m\_matrix4d[0][2]\ *\ right.m\_matrix4d[2][3]\ +\ m\_matrix4d[0][3]\ *\ right.m\_matrix4d[3][3];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00242}00242\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00243}00243\ \ \ \ \ result.m\_matrix4d[1][0]\ =\ m\_matrix4d[1][0]\ *\ right.m\_matrix4d[0][0]\ +\ m\_matrix4d[1][1]\ *\ right.m\_matrix4d[1][0]\ +\ m\_matrix4d[1][2]\ *\ right.m\_matrix4d[2][0]\ +\ m\_matrix4d[1][3]\ *\ right.m\_matrix4d[3][0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00244}00244\ \ \ \ \ result.m\_matrix4d[1][1]\ =\ m\_matrix4d[1][0]\ *\ right.m\_matrix4d[0][1]\ +\ m\_matrix4d[1][1]\ *\ right.m\_matrix4d[1][1]\ +\ m\_matrix4d[1][2]\ *\ right.m\_matrix4d[2][1]\ +\ m\_matrix4d[1][3]\ *\ right.m\_matrix4d[3][1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00245}00245\ \ \ \ \ result.m\_matrix4d[1][2]\ =\ m\_matrix4d[1][0]\ *\ right.m\_matrix4d[0][2]\ +\ m\_matrix4d[1][1]\ *\ right.m\_matrix4d[1][2]\ +\ m\_matrix4d[1][2]\ *\ right.m\_matrix4d[2][2]\ +\ m\_matrix4d[1][3]\ *\ right.m\_matrix4d[3][2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00246}00246\ \ \ \ \ result.m\_matrix4d[1][3]\ =\ m\_matrix4d[1][0]\ *\ right.m\_matrix4d[0][3]\ +\ m\_matrix4d[1][1]\ *\ right.m\_matrix4d[1][3]\ +\ m\_matrix4d[1][2]\ *\ right.m\_matrix4d[2][3]\ +\ m\_matrix4d[1][3]\ *\ right.m\_matrix4d[3][3];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00247}00247\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00248}00248\ \ \ \ \ result.m\_matrix4d[2][0]\ =\ m\_matrix4d[2][0]\ *\ right.m\_matrix4d[0][0]\ +\ m\_matrix4d[2][1]\ *\ right.m\_matrix4d[1][0]\ +\ m\_matrix4d[2][2]\ *\ right.m\_matrix4d[2][0]\ +\ m\_matrix4d[2][3]\ *\ right.m\_matrix4d[3][0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00249}00249\ \ \ \ \ result.m\_matrix4d[2][1]\ =\ m\_matrix4d[2][0]\ *\ right.m\_matrix4d[0][1]\ +\ m\_matrix4d[2][1]\ *\ right.m\_matrix4d[1][1]\ +\ m\_matrix4d[2][2]\ *\ right.m\_matrix4d[2][1]\ +\ m\_matrix4d[2][3]\ *\ right.m\_matrix4d[3][1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00250}00250\ \ \ \ \ result.m\_matrix4d[2][2]\ =\ m\_matrix4d[2][0]\ *\ right.m\_matrix4d[0][2]\ +\ m\_matrix4d[2][1]\ *\ right.m\_matrix4d[1][2]\ +\ m\_matrix4d[2][2]\ *\ right.m\_matrix4d[2][2]\ +\ m\_matrix4d[2][3]\ *\ right.m\_matrix4d[3][2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00251}00251\ \ \ \ \ result.m\_matrix4d[2][3]\ =\ m\_matrix4d[2][0]\ *\ right.m\_matrix4d[0][3]\ +\ m\_matrix4d[2][1]\ *\ right.m\_matrix4d[1][3]\ +\ m\_matrix4d[2][2]\ *\ right.m\_matrix4d[2][3]\ +\ m\_matrix4d[2][3]\ *\ right.m\_matrix4d[3][3];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00252}00252\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00253}00253\ \ \ \ \ result.m\_matrix4d[3][0]\ =\ m\_matrix4d[3][0]\ *\ right.m\_matrix4d[0][0]\ +\ m\_matrix4d[3][1]\ *\ right.m\_matrix4d[1][0]\ +\ m\_matrix4d[3][2]\ *\ right.m\_matrix4d[2][0]\ +\ m\_matrix4d[3][3]\ *\ right.m\_matrix4d[3][0];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00254}00254\ \ \ \ \ result.m\_matrix4d[3][1]\ =\ m\_matrix4d[3][0]\ *\ right.m\_matrix4d[0][1]\ +\ m\_matrix4d[3][1]\ *\ right.m\_matrix4d[1][1]\ +\ m\_matrix4d[3][2]\ *\ right.m\_matrix4d[2][1]\ +\ m\_matrix4d[3][3]\ *\ right.m\_matrix4d[3][1];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00255}00255\ \ \ \ \ result.m\_matrix4d[3][2]\ =\ m\_matrix4d[3][0]\ *\ right.m\_matrix4d[0][2]\ +\ m\_matrix4d[3][1]\ *\ right.m\_matrix4d[1][2]\ +\ m\_matrix4d[3][2]\ *\ right.m\_matrix4d[2][2]\ +\ m\_matrix4d[3][3]\ *\ right.m\_matrix4d[3][2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00256}00256\ \ \ \ \ result.m\_matrix4d[3][3]\ =\ m\_matrix4d[3][0]\ *\ right.m\_matrix4d[0][3]\ +\ m\_matrix4d[3][1]\ *\ right.m\_matrix4d[1][3]\ +\ m\_matrix4d[3][2]\ *\ right.m\_matrix4d[2][3]\ +\ m\_matrix4d[3][3]\ *\ right.m\_matrix4d[3][3];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00257}00257\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00258}00258\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00259}00259\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00260}00260\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00261}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a449c235091c1224629880bdbb9a09611}{00261}}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a449c235091c1224629880bdbb9a09611}{LNLib::Matrix4d::OfPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ point)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00262}00262\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00263}00263\ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ m\_matrix4d[0][0]\ *\ point[0]\ +\ m\_matrix4d[0][1]\ *\ point[1]\ +\ m\_matrix4d[0][2]\ *\ point[2]\ +\ m\_matrix4d[0][3]\ *\ 1;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00264}00264\ \ \ \ \ \textcolor{keywordtype}{double}\ y\ =\ m\_matrix4d[1][0]\ *\ point[0]\ +\ m\_matrix4d[1][1]\ *\ point[1]\ +\ m\_matrix4d[1][2]\ *\ point[2]\ +\ m\_matrix4d[1][3]\ *\ 1;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00265}00265\ \ \ \ \ \textcolor{keywordtype}{double}\ z\ =\ m\_matrix4d[2][0]\ *\ point[0]\ +\ m\_matrix4d[2][1]\ *\ point[1]\ +\ m\_matrix4d[2][2]\ *\ point[2]\ +\ m\_matrix4d[2][3]\ *\ 1;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00266}00266\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00267}00267\ \ \ \ \ \textcolor{keywordtype}{double}\ w\ =\ m\_matrix4d[3][0]\ *\ point[0]\ +\ m\_matrix4d[3][1]\ *\ point[1]\ +\ m\_matrix4d[3][2]\ *\ point[2]\ +\ m\_matrix4d[3][3]\ *\ 1;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00268}00268\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00269}00269\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(x,y,z)/w;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00270}00270\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00271}00271\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00272}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a5f40619b168c7d3fbea582a6dcabec2d}{00272}}\ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a5f40619b168c7d3fbea582a6dcabec2d}{LNLib::Matrix4d::OfWeightedPoint}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}\&\ point)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00273}00273\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00274}00274\ \ \ \ \ \textcolor{keywordtype}{double}\ wx\ =\ point.\mbox{\hyperlink{classLNLib_1_1XYZW_a93c40d48184938ef0ebca1cddaff24c7}{GetWX}}();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00275}00275\ \ \ \ \ \textcolor{keywordtype}{double}\ wy\ =\ point.\mbox{\hyperlink{classLNLib_1_1XYZW_ab4e26ac0538c459f2cddfcb917aa85bf}{GetWY}}();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00276}00276\ \ \ \ \ \textcolor{keywordtype}{double}\ wz\ =\ point.\mbox{\hyperlink{classLNLib_1_1XYZW_ab97a1b1820c57a3dff1a366824a45582}{GetWZ}}();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00277}00277\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00278}00278\ \ \ \ \ \textcolor{keywordtype}{double}\ w\ =\ point.\mbox{\hyperlink{classLNLib_1_1XYZW_a6c222fc5ed40a1bf804f800bbf651b12}{GetW}}();}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00279}00279\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00280}00280\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ current\ =\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(wx\ /\ w,\ wy\ /\ w,\ wz\ /\ w);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00281}00281\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ transformed\ =\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a449c235091c1224629880bdbb9a09611}{OfPoint}}(current);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00282}00282\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00283}00283\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}(transformed,w);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00284}00284\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00285}00285\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00286}\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa0b561eef2b723d90a9d183905afc266}{00286}}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_aa0b561eef2b723d90a9d183905afc266}{LNLib::Matrix4d::OfVector}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ vector)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00287}00287\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00288}00288\ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ m\_matrix4d[0][0]\ *\ vector[0]\ +\ m\_matrix4d[0][1]\ *\ vector[1]\ +\ m\_matrix4d[0][2]\ *\ vector[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00289}00289\ \ \ \ \ \textcolor{keywordtype}{double}\ y\ =\ m\_matrix4d[1][0]\ *\ vector[0]\ +\ m\_matrix4d[1][1]\ *\ vector[1]\ +\ m\_matrix4d[1][2]\ *\ vector[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00290}00290\ \ \ \ \ \textcolor{keywordtype}{double}\ z\ =\ m\_matrix4d[2][0]\ *\ vector[0]\ +\ m\_matrix4d[2][1]\ *\ vector[1]\ +\ m\_matrix4d[2][2]\ *\ vector[2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00292}00292\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(x,y,z);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00293}00293\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00294}00294\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00295}\mbox{\hyperlink{classLNLib_1_1Matrix4d_ab85022bd327fb520e0a0415d89b33da8}{00295}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_ab85022bd327fb520e0a0415d89b33da8}{LNLib::Matrix4d::GetInverse}}(\mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\&\ inverse)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00296}00296\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00297}00297\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ 4;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00298}00298\ \ \ \ \ std::vector<std::vector<double>>\ currentMatrix(n);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00299}00299\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00300}00300\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ currentMatrix[i].resize(n);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ n;\ j++)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ currentMatrix[i][j]\ =\ m\_matrix4d[i][j];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00306}00306\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00307}00307\ \ \ \ \ std::vector<std::vector<double>>\ inverseMatrix;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00308}00308\ \ \ \ \ \textcolor{keywordflow}{if}\ (!\mbox{\hyperlink{classLNLib_1_1MathUtils_abd3a464a546a33e0455f9dff4eba277a}{MathUtils::MakeInverse}}(currentMatrix,\ inverseMatrix))}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00309}00309\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00311}00311\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00312}00312\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ n;\ i++)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00313}00313\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ n;\ j++)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ inverse.m\_matrix4d[i][j]\ =\ inverseMatrix[i][j];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00318}00318\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00319}00319\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00320}00320\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00321}00321\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00322}\mbox{\hyperlink{classLNLib_1_1Matrix4d_ab59b6aa7968b3d8b45602dc34122de0e}{00322}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_ab59b6aa7968b3d8b45602dc34122de0e}{LNLib::Matrix4d::GetTranspose}}()}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00323}00323\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00324}00324\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}(m\_matrix4d[0][0],\ m\_matrix4d[1][0],\ m\_matrix4d[2][0],\ m\_matrix4d[3][0],}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_matrix4d[0][1],\ m\_matrix4d[1][1],\ m\_matrix4d[2][1],\ m\_matrix4d[3][1],}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_matrix4d[0][2],\ m\_matrix4d[1][2],\ m\_matrix4d[2][2],\ m\_matrix4d[3][2],}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_matrix4d[0][3],\ m\_matrix4d[1][3],\ m\_matrix4d[2][3],\ m\_matrix4d[3][3]);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00328}00328\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00329}00329\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00330}\mbox{\hyperlink{classLNLib_1_1Matrix4d_ae67249ece33a1327a20585cbe5ebc3f1}{00330}}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_ae67249ece33a1327a20585cbe5ebc3f1}{LNLib::Matrix4d::GetScale}}()}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00331}00331\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00332}00332\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(\mbox{\hyperlink{classLNLib_1_1Matrix4d_a06ff3a1b139e6d3dc142a197ff478c7c}{GetBasisX}}().Length(),\mbox{\hyperlink{classLNLib_1_1Matrix4d_a05dde2bda4c62f2f1e98f9f0fad4c7a3}{GetBasisY}}().Length(),\mbox{\hyperlink{classLNLib_1_1Matrix4d_a3c7efa25b2917f3b702606ef55d9c4dc}{GetBasisZ}}().Length());}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00333}00333\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00334}00334\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00335}\mbox{\hyperlink{classLNLib_1_1Matrix4d_ae83792069671b80356dba1331e5e47bf}{00335}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_ae83792069671b80356dba1331e5e47bf}{LNLib::Matrix4d::GetDeterminant}}()}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00336}00336\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00337}00337\ \ \ \ \ std::vector<std::vector<double>>\ matrix(4,\ (std::vector<double>(4,0.0)));}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00338}00338\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 4;\ i++)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00339}00339\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 4;\ j++)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ matrix[i][j]\ =\ m\_matrix4d[i][j];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00344}00344\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00345}00345\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a8e78fe5808cf5fcd34f04166907e9ad1}{MathUtils::GetDeterminant}}(matrix);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00346}00346\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00348}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a8c6efbed2e48443c17833d87ebadfa57}{00348}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a8c6efbed2e48443c17833d87ebadfa57}{LNLib::Matrix4d::IsIdentity}}()}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00349}00349\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00350}00350\ \ \ \ \ \textcolor{keywordtype}{bool}\ c1\ =\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(m\_matrix4d[0][0],\ 1);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00351}00351\ \ \ \ \ \textcolor{keywordflow}{if}\ (!c1)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00352}00352\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00354}00354\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00355}00355\ \ \ \ \ \textcolor{keywordtype}{bool}\ c2\ =\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(m\_matrix4d[1][1],\ 1);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00356}00356\ \ \ \ \ \textcolor{keywordflow}{if}\ (!c2)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00357}00357\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00358}00358\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00359}00359\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00360}00360\ \ \ \ \ \textcolor{keywordtype}{bool}\ c3\ =\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(m\_matrix4d[2][2],\ 1);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00361}00361\ \ \ \ \ \textcolor{keywordflow}{if}\ (!c3)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00362}00362\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00363}00363\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00364}00364\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00366}00366\ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ m\_matrix4d[0][1]\ +\ m\_matrix4d[0][2]\ +\ m\_matrix4d[0][3]\ +}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_matrix4d[1][0]\ +\ m\_matrix4d[1][2]\ +\ m\_matrix4d[1][3]\ +}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_matrix4d[2][0]\ +\ m\_matrix4d[2][1]\ +\ m\_matrix4d[2][3]\ +}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_matrix4d[3][0]\ +\ m\_matrix4d[3][1]\ +\ m\_matrix4d[3][2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00370}00370\ \ \ \ \ \textcolor{keywordtype}{bool}\ c4\ =\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(sum,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00371}00371\ \ \ \ \ \textcolor{keywordflow}{if}\ (!c4)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00372}00372\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00374}00374\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00375}00375\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00376}00376\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00377}00377\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00378}\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa4076fa7b77162fd45bd1b43faa56d2c}{00378}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_aa4076fa7b77162fd45bd1b43faa56d2c}{LNLib::Matrix4d::HasReflection}}()}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00379}00379\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00380}00380\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ cross\ =\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a06ff3a1b139e6d3dc142a197ff478c7c}{GetBasisX}}().CrossProduct(\mbox{\hyperlink{classLNLib_1_1Matrix4d_a05dde2bda4c62f2f1e98f9f0fad4c7a3}{GetBasisY}}());}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00381}00381\ \ \ \ \ \textcolor{keywordtype}{double}\ dot\ =\ cross.\mbox{\hyperlink{classLNLib_1_1XYZ_aa634eee7815b0227c7b4ccd4b87609c0}{DotProduct}}(\mbox{\hyperlink{classLNLib_1_1Matrix4d_a3c7efa25b2917f3b702606ef55d9c4dc}{GetBasisZ}}());}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00382}00382\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_abafb9abeffe5d756a37dac392191afdf}{MathUtils::IsLessThan}}(dot,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00383}00383\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00384}00384\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00385}\mbox{\hyperlink{classLNLib_1_1Matrix4d_ab0c583f35c3bab380661d928b4fe2056}{00385}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_ab0c583f35c3bab380661d928b4fe2056}{LNLib::Matrix4d::IsTranslation}}()}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00386}00386\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00387}00387\ \ \ \ \ \textcolor{keywordtype}{bool}\ c1\ =\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(m\_matrix4d[0][0],\ 1);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00388}00388\ \ \ \ \ \textcolor{keywordtype}{bool}\ c2\ =\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(m\_matrix4d[1][1],\ 1);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00389}00389\ \ \ \ \ \textcolor{keywordtype}{bool}\ c3\ =\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(m\_matrix4d[2][2],\ 1);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00390}00390\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00391}00391\ \ \ \ \ \textcolor{keywordtype}{double}\ sum\ =\ m\_matrix4d[0][1]\ +\ m\_matrix4d[0][2]\ +}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_matrix4d[1][0]\ +\ m\_matrix4d[1][2]\ +}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_matrix4d[2][0]\ +\ m\_matrix4d[2][1]\ +}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ m\_matrix4d[3][0]\ +\ m\_matrix4d[3][1]\ +\ m\_matrix4d[3][2];}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00395}00395\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00396}00396\ \ \ \ \ \textcolor{keywordtype}{bool}\ c4\ =\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(sum,\ 0.0);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00397}00397\ \ \ \ \ \textcolor{keywordflow}{return}\ c1\ \&\&\ c2\ \&\&\ c3\ \&\&\ c4;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00398}00398\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00399}00399\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00400}00400\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00401}\mbox{\hyperlink{classLNLib_1_1Matrix4d_a3bfbe43c11382486d9d167ded0a1a50d}{00401}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\&\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a3bfbe43c11382486d9d167ded0a1a50d}{LNLib::Matrix4d::operator=}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}}\&\ another)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00402}00402\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00403}00403\ \ \ \ \ std::memcpy(m\_matrix4d,\ another.m\_matrix4d,\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{double})\ *\ 16);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00404}00404\ \ \ \ \ \textcolor{keywordflow}{return}\ *\textcolor{keyword}{this};}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00405}00405\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00406}00406\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00407}\mbox{\hyperlink{namespaceLNLib_a3d0f2a917f984a069f87f949594c63a5}{00407}}\ \mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\ \mbox{\hyperlink{namespaceLNLib_a3d0f2a917f984a069f87f949594c63a5}{LNLib::operator*}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\&\ left,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\&\ right)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00408}00408\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00409}00409\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\ l\ =\ left;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00410}00410\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\ r\ =\ right;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00411}00411\ \ \ \ \ \textcolor{keywordflow}{return}\ l.\mbox{\hyperlink{classLNLib_1_1Matrix4d_a3ece9d63d5fcf5c872b71388cbfae7d5}{Multiply}}(r);}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00412}00412\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00413}00413\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00414}\mbox{\hyperlink{namespaceLNLib_a8c392ce1065a6468a26244a0ed00ba0f}{00414}}\ \mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\ \mbox{\hyperlink{namespaceLNLib_a8c392ce1065a6468a26244a0ed00ba0f}{LNLib::operator+}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\&\ left,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\&\ right)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00415}00415\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00416}00416\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\ result;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00417}00417\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 4;\ i++)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00418}00418\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00419}00419\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 4;\ j++)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00420}00420\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00421}00421\ \ \ \ \ \ \ \ \ \ \ \ \ result.\mbox{\hyperlink{classLNLib_1_1Matrix4d_a877a73e886e43e9f49a8ad15375c109b}{SetElement}}(i,\ j,\ left.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(i,\ j)\ +\ right.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(i,\ j));}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00422}00422\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00423}00423\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00424}00424\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00425}00425\ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00426}00426\ }
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00427}\mbox{\hyperlink{namespaceLNLib_a2d0344c1256a472f117843392f921a3e}{00427}}\ \mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\ \mbox{\hyperlink{namespaceLNLib_a2d0344c1256a472f117843392f921a3e}{LNLib::operator-\/}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\&\ left,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\&\ right)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00428}00428\ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00429}00429\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}}\ result;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00430}00430\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ 4;\ i++)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00431}00431\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00432}00432\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ 4;\ j++)}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00433}00433\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00434}00434\ \ \ \ \ \ \ \ \ \ \ \ \ result.\mbox{\hyperlink{classLNLib_1_1Matrix4d_a877a73e886e43e9f49a8ad15375c109b}{SetElement}}(i,j,left.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(i,j)-\/right.\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{GetElement}}(i,j));}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00435}00435\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00436}00436\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00437}00437\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{Matrix4d_8cpp_source_l00438}00438\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,247 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: src/LNLib/include/LNEnums.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('LNEnums_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">LNEnums.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="LNEnums_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Author:</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * 2024/01/13 - Yuqing Liang (BIMCoder Liang)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * bim.frankliang@foxmail.com</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * Use of this source code is governed by a GPL-3.0 license that can be found in</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * the LICENSE file.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceLNLib.html">LNLib</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59c">   15</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59c">CurveCurveIntersectionType</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59cae2e969432869ed6806cf6eb86082820e">   17</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59cae2e969432869ed6806cf6eb86082820e">Intersecting</a> = 0,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59ca98402eecfbcefc336954458a01752131">   18</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59ca98402eecfbcefc336954458a01752131">Parallel</a> = 1,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59ca81126870f8ecd751b93a0f51d10a8945">   19</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59ca81126870f8ecd751b93a0f51d10a8945">Coincident</a> = 2,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59ca2f2227d480b0c69364d7fddfecb82bd0">   20</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59ca2f2227d480b0c69364d7fddfecb82bd0">Skew</a> = 3,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    };</div>
+</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="foldopen" id="foldopen00023" data-start="{" data-end="};">
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#ab883fb3627937ddd447e9f9ff276c40f">   23</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceLNLib.html#ab883fb3627937ddd447e9f9ff276c40f">LinePlaneIntersectionType</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    {</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#ab883fb3627937ddd447e9f9ff276c40fae2e969432869ed6806cf6eb86082820e">   25</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59cae2e969432869ed6806cf6eb86082820e">Intersecting</a> = 0,</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#ab883fb3627937ddd447e9f9ff276c40fa98402eecfbcefc336954458a01752131">   26</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59ca98402eecfbcefc336954458a01752131">Parallel</a> = 1,</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#ab883fb3627937ddd447e9f9ff276c40fa521c36a31c2762741cf0f8890cbe05e3">   27</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#ab883fb3627937ddd447e9f9ff276c40fa521c36a31c2762741cf0f8890cbe05e3">On</a> = 2,</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    };</div>
+</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="};">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a6c2e8e0bb21d9e7da969bbd5538a6186">   30</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceLNLib.html#a6c2e8e0bb21d9e7da969bbd5538a6186">CurveNormal</a> :<span class="keywordtype">int</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a6c2e8e0bb21d9e7da969bbd5538a6186a960b44c579bc2f6818d2daaf9e4c16f0">   32</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a6c2e8e0bb21d9e7da969bbd5538a6186a960b44c579bc2f6818d2daaf9e4c16f0">Normal</a> = 0,</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a6c2e8e0bb21d9e7da969bbd5538a6186a283c29d0adbe0d46bc7229f181c6e7da">   33</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a6c2e8e0bb21d9e7da969bbd5538a6186a283c29d0adbe0d46bc7229f181c6e7da">Binormal</a> = 1,</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    };</div>
+</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="foldopen" id="foldopen00036" data-start="{" data-end="};">
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8">   36</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8">SurfaceDirection</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8ab1c94ca2fbc3e78fc30069c8d0f01680">   38</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8ab1c94ca2fbc3e78fc30069c8d0f01680">All</a> = 0,</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8afff9907f6d2a88caa259ec5608056a63">   39</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8afff9907f6d2a88caa259ec5608056a63">UDirection</a> = 1,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8ae8b366e7b57f5784f3c2be3937fd9178">   40</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8ae8b366e7b57f5784f3c2be3937fd9178">VDirection</a> = 2,</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    };</div>
+</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34">   43</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34">SurfaceCurvature</a> : <span class="keywordtype">int</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    {</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34a8321e79c278ec510f63675c040594892">   45</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34a8321e79c278ec510f63675c040594892">Maximum</a> = 0,</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34aa1d0ec6d56f8833a078b5a7ac4caf2d4">   46</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34aa1d0ec6d56f8833a078b5a7ac4caf2d4">Minimum</a> = 1,</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34aedc41fb7bf8bdac012523d1bcd949a4f">   47</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34aedc41fb7bf8bdac012523d1bcd949a4f">Gauss</a> = 2,</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34a3d6c9ac08ada31c184094bbc67afe00d">   48</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34a3d6c9ac08ada31c184094bbc67afe00d">Mean</a> = 3,</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34a1e34af023adeb7d5f484f8eb4b9826b6">   49</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34a1e34af023adeb7d5f484f8eb4b9826b6">Abs</a> = 4,</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34a9be8c035c1c87ad77c9b9bd6d994909f">   50</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34a9be8c035c1c87ad77c9b9bd6d994909f">Rms</a> = 5</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    };</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="foldopen" id="foldopen00053" data-start="{" data-end="};">
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40">   53</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40">IntegratorType</a> :<span class="keywordtype">int</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    {</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40afd4dab568d4a6a905e1feb902ea64137">   55</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40afd4dab568d4a6a905e1feb902ea64137">Simpson</a> = 0,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0">   56</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0">GaussLegendre</a> = 1,</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40a7672163939be25b939905898298d3648">   57</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40a7672163939be25b939905898298d3648">Chebyshev</a> = 2,</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    };</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="};">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a1307064b77623ba85c4fbec18b75ca66">   60</a></span>    <span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespaceLNLib.html#a1307064b77623ba85c4fbec18b75ca66">OffsetType</a> :<span class="keywordtype">int</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="comment">// Tiller &amp; Hanson Algorithm for C0 profile.</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="comment">// </span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="comment">// 1. Tiller &amp; Hanson Algorithm should iterative use. </span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="comment">// When diff is larger than tolerance, should subdivide curve util less than tolerance.</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="comment">// Finally use Merge curve.</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <span class="comment">// </span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="comment">// 2. Tiller &amp; Hanson Algorithm is not good in negative offset &amp; hight degree curve.</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a1307064b77623ba85c4fbec18b75ca66a5bb3d408e594ca3067526a38ef0e9da6">   69</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a1307064b77623ba85c4fbec18b75ca66a5bb3d408e594ca3067526a38ef0e9da6">TillerAndHanson</a> = 0,</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        <span class="comment">// Piegl &amp; Tiller Algorithm for high degree profile.</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a1307064b77623ba85c4fbec18b75ca66a8c0477bb78702531c133467eb3b69b6c">   72</a></span>        <a class="code hl_enumvalue" href="namespaceLNLib.html#a1307064b77623ba85c4fbec18b75ca66a8c0477bb78702531c133467eb3b69b6c">PieglAndTiller</a> = 1,</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    };</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="ttc" id="anamespaceLNLib_html"><div class="ttname"><a href="namespaceLNLib.html">LNLib</a></div><div class="ttdef"><b>定义</b> <a href="Integrator_8cpp_source.html#l00017">Integrator.cpp:18</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a1307064b77623ba85c4fbec18b75ca66"><div class="ttname"><a href="namespaceLNLib.html#a1307064b77623ba85c4fbec18b75ca66">LNLib::OffsetType</a></div><div class="ttdeci">OffsetType</div><div class="ttdef"><b>定义</b> <a href="#l00060">LNEnums.h:61</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a1307064b77623ba85c4fbec18b75ca66a5bb3d408e594ca3067526a38ef0e9da6"><div class="ttname"><a href="namespaceLNLib.html#a1307064b77623ba85c4fbec18b75ca66a5bb3d408e594ca3067526a38ef0e9da6">LNLib::OffsetType::TillerAndHanson</a></div><div class="ttdeci">@ TillerAndHanson</div><div class="ttdef"><b>定义</b> <a href="#l00069">LNEnums.h:69</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a1307064b77623ba85c4fbec18b75ca66a8c0477bb78702531c133467eb3b69b6c"><div class="ttname"><a href="namespaceLNLib.html#a1307064b77623ba85c4fbec18b75ca66a8c0477bb78702531c133467eb3b69b6c">LNLib::OffsetType::PieglAndTiller</a></div><div class="ttdeci">@ PieglAndTiller</div><div class="ttdef"><b>定义</b> <a href="#l00072">LNEnums.h:72</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a53cdce096e0efb00504500dc7bc36bb8"><div class="ttname"><a href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8">LNLib::SurfaceDirection</a></div><div class="ttdeci">SurfaceDirection</div><div class="ttdef"><b>定义</b> <a href="#l00036">LNEnums.h:37</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a53cdce096e0efb00504500dc7bc36bb8ab1c94ca2fbc3e78fc30069c8d0f01680"><div class="ttname"><a href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8ab1c94ca2fbc3e78fc30069c8d0f01680">LNLib::SurfaceDirection::All</a></div><div class="ttdeci">@ All</div><div class="ttdef"><b>定义</b> <a href="#l00038">LNEnums.h:38</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a53cdce096e0efb00504500dc7bc36bb8ae8b366e7b57f5784f3c2be3937fd9178"><div class="ttname"><a href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8ae8b366e7b57f5784f3c2be3937fd9178">LNLib::SurfaceDirection::VDirection</a></div><div class="ttdeci">@ VDirection</div><div class="ttdef"><b>定义</b> <a href="#l00040">LNEnums.h:40</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a53cdce096e0efb00504500dc7bc36bb8afff9907f6d2a88caa259ec5608056a63"><div class="ttname"><a href="namespaceLNLib.html#a53cdce096e0efb00504500dc7bc36bb8afff9907f6d2a88caa259ec5608056a63">LNLib::SurfaceDirection::UDirection</a></div><div class="ttdeci">@ UDirection</div><div class="ttdef"><b>定义</b> <a href="#l00039">LNEnums.h:39</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a6c2e8e0bb21d9e7da969bbd5538a6186"><div class="ttname"><a href="namespaceLNLib.html#a6c2e8e0bb21d9e7da969bbd5538a6186">LNLib::CurveNormal</a></div><div class="ttdeci">CurveNormal</div><div class="ttdef"><b>定义</b> <a href="#l00030">LNEnums.h:31</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a6c2e8e0bb21d9e7da969bbd5538a6186a283c29d0adbe0d46bc7229f181c6e7da"><div class="ttname"><a href="namespaceLNLib.html#a6c2e8e0bb21d9e7da969bbd5538a6186a283c29d0adbe0d46bc7229f181c6e7da">LNLib::CurveNormal::Binormal</a></div><div class="ttdeci">@ Binormal</div><div class="ttdef"><b>定义</b> <a href="#l00033">LNEnums.h:33</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a6c2e8e0bb21d9e7da969bbd5538a6186a960b44c579bc2f6818d2daaf9e4c16f0"><div class="ttname"><a href="namespaceLNLib.html#a6c2e8e0bb21d9e7da969bbd5538a6186a960b44c579bc2f6818d2daaf9e4c16f0">LNLib::CurveNormal::Normal</a></div><div class="ttdeci">@ Normal</div><div class="ttdef"><b>定义</b> <a href="#l00032">LNEnums.h:32</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a990b15d5522b431bd0cfede7b600a59c"><div class="ttname"><a href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59c">LNLib::CurveCurveIntersectionType</a></div><div class="ttdeci">CurveCurveIntersectionType</div><div class="ttdef"><b>定义</b> <a href="#l00015">LNEnums.h:16</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a990b15d5522b431bd0cfede7b600a59ca2f2227d480b0c69364d7fddfecb82bd0"><div class="ttname"><a href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59ca2f2227d480b0c69364d7fddfecb82bd0">LNLib::CurveCurveIntersectionType::Skew</a></div><div class="ttdeci">@ Skew</div><div class="ttdef"><b>定义</b> <a href="#l00020">LNEnums.h:20</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a990b15d5522b431bd0cfede7b600a59ca81126870f8ecd751b93a0f51d10a8945"><div class="ttname"><a href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59ca81126870f8ecd751b93a0f51d10a8945">LNLib::CurveCurveIntersectionType::Coincident</a></div><div class="ttdeci">@ Coincident</div><div class="ttdef"><b>定义</b> <a href="#l00019">LNEnums.h:19</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a990b15d5522b431bd0cfede7b600a59ca98402eecfbcefc336954458a01752131"><div class="ttname"><a href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59ca98402eecfbcefc336954458a01752131">LNLib::CurveCurveIntersectionType::Parallel</a></div><div class="ttdeci">@ Parallel</div><div class="ttdef"><b>定义</b> <a href="#l00018">LNEnums.h:18</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a990b15d5522b431bd0cfede7b600a59cae2e969432869ed6806cf6eb86082820e"><div class="ttname"><a href="namespaceLNLib.html#a990b15d5522b431bd0cfede7b600a59cae2e969432869ed6806cf6eb86082820e">LNLib::CurveCurveIntersectionType::Intersecting</a></div><div class="ttdeci">@ Intersecting</div><div class="ttdef"><b>定义</b> <a href="#l00017">LNEnums.h:17</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_aa7a89821d2b610adc6c8f6c196422f40"><div class="ttname"><a href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40">LNLib::IntegratorType</a></div><div class="ttdeci">IntegratorType</div><div class="ttdef"><b>定义</b> <a href="#l00053">LNEnums.h:54</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_aa7a89821d2b610adc6c8f6c196422f40a7672163939be25b939905898298d3648"><div class="ttname"><a href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40a7672163939be25b939905898298d3648">LNLib::IntegratorType::Chebyshev</a></div><div class="ttdeci">@ Chebyshev</div><div class="ttdef"><b>定义</b> <a href="#l00057">LNEnums.h:57</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0"><div class="ttname"><a href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0">LNLib::IntegratorType::GaussLegendre</a></div><div class="ttdeci">@ GaussLegendre</div><div class="ttdef"><b>定义</b> <a href="#l00056">LNEnums.h:56</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_aa7a89821d2b610adc6c8f6c196422f40afd4dab568d4a6a905e1feb902ea64137"><div class="ttname"><a href="namespaceLNLib.html#aa7a89821d2b610adc6c8f6c196422f40afd4dab568d4a6a905e1feb902ea64137">LNLib::IntegratorType::Simpson</a></div><div class="ttdeci">@ Simpson</div><div class="ttdef"><b>定义</b> <a href="#l00055">LNEnums.h:55</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_ab883fb3627937ddd447e9f9ff276c40f"><div class="ttname"><a href="namespaceLNLib.html#ab883fb3627937ddd447e9f9ff276c40f">LNLib::LinePlaneIntersectionType</a></div><div class="ttdeci">LinePlaneIntersectionType</div><div class="ttdef"><b>定义</b> <a href="#l00023">LNEnums.h:24</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_ab883fb3627937ddd447e9f9ff276c40fa521c36a31c2762741cf0f8890cbe05e3"><div class="ttname"><a href="namespaceLNLib.html#ab883fb3627937ddd447e9f9ff276c40fa521c36a31c2762741cf0f8890cbe05e3">LNLib::LinePlaneIntersectionType::On</a></div><div class="ttdeci">@ On</div><div class="ttdef"><b>定义</b> <a href="#l00027">LNEnums.h:27</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_aee198db970e5fbb25bb1121b84853a34"><div class="ttname"><a href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34">LNLib::SurfaceCurvature</a></div><div class="ttdeci">SurfaceCurvature</div><div class="ttdef"><b>定义</b> <a href="#l00043">LNEnums.h:44</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_aee198db970e5fbb25bb1121b84853a34a1e34af023adeb7d5f484f8eb4b9826b6"><div class="ttname"><a href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34a1e34af023adeb7d5f484f8eb4b9826b6">LNLib::SurfaceCurvature::Abs</a></div><div class="ttdeci">@ Abs</div><div class="ttdef"><b>定义</b> <a href="#l00049">LNEnums.h:49</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_aee198db970e5fbb25bb1121b84853a34a3d6c9ac08ada31c184094bbc67afe00d"><div class="ttname"><a href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34a3d6c9ac08ada31c184094bbc67afe00d">LNLib::SurfaceCurvature::Mean</a></div><div class="ttdeci">@ Mean</div><div class="ttdef"><b>定义</b> <a href="#l00048">LNEnums.h:48</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_aee198db970e5fbb25bb1121b84853a34a8321e79c278ec510f63675c040594892"><div class="ttname"><a href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34a8321e79c278ec510f63675c040594892">LNLib::SurfaceCurvature::Maximum</a></div><div class="ttdeci">@ Maximum</div><div class="ttdef"><b>定义</b> <a href="#l00045">LNEnums.h:45</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_aee198db970e5fbb25bb1121b84853a34a9be8c035c1c87ad77c9b9bd6d994909f"><div class="ttname"><a href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34a9be8c035c1c87ad77c9b9bd6d994909f">LNLib::SurfaceCurvature::Rms</a></div><div class="ttdeci">@ Rms</div><div class="ttdef"><b>定义</b> <a href="#l00050">LNEnums.h:50</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_aee198db970e5fbb25bb1121b84853a34aa1d0ec6d56f8833a078b5a7ac4caf2d4"><div class="ttname"><a href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34aa1d0ec6d56f8833a078b5a7ac4caf2d4">LNLib::SurfaceCurvature::Minimum</a></div><div class="ttdeci">@ Minimum</div><div class="ttdef"><b>定义</b> <a href="#l00046">LNEnums.h:46</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_aee198db970e5fbb25bb1121b84853a34aedc41fb7bf8bdac012523d1bcd949a4f"><div class="ttname"><a href="namespaceLNLib.html#aee198db970e5fbb25bb1121b84853a34aedc41fb7bf8bdac012523d1bcd949a4f">LNLib::SurfaceCurvature::Gauss</a></div><div class="ttdeci">@ Gauss</div><div class="ttdef"><b>定义</b> <a href="#l00047">LNEnums.h:47</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_16b010a3eb20297cce52e62ed2fbdb73.html">LNLib</a></li><li class="navelem"><a class="el" href="dir_d94eecf3a687f27b8738855f648c5010.html">include</a></li><li class="navelem"><a class="el" href="LNEnums_8h.html">LNEnums.h</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

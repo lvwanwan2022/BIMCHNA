@@ -1,0 +1,96 @@
+\doxysection{Math\+Utils.\+h}
+\hypertarget{MathUtils_8h_source}{}\label{MathUtils_8h_source}\index{src/LNLib/include/MathUtils.h@{src/LNLib/include/MathUtils.h}}
+\mbox{\hyperlink{MathUtils_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/06/08\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00011}00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibDefinitions_8h}{LNLibDefinitions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Constants_8h}{Constants.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00017}00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00019}\mbox{\hyperlink{classLNLib_1_1MathUtils}{00019}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{classLNLib_1_1MathUtils}{MathUtils}}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00020}00020\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00023}00023\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{IsAlmostEqualTo}}(\textcolor{keywordtype}{double}\ value1,\ \textcolor{keywordtype}{double}\ value2,\ \textcolor{keywordtype}{double}\ tolerance\ =\ \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants::DoubleEpsilon}});}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a995f6f889c781f69e0736108dd8c59bf}{IsGreaterThan}}(\textcolor{keywordtype}{double}\ value1,\ \textcolor{keywordtype}{double}\ value2,\ \textcolor{keywordtype}{double}\ tolerance\ =\ \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants::DoubleEpsilon}});}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a244ba0f7bea0ef572b6f2b53b9285fa6}{IsGreaterThanOrEqual}}(\textcolor{keywordtype}{double}\ value1,\ \textcolor{keywordtype}{double}\ value2,\ \textcolor{keywordtype}{double}\ tolerance\ =\ \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants::DoubleEpsilon}});}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_abafb9abeffe5d756a37dac392191afdf}{IsLessThan}}(\textcolor{keywordtype}{double}\ value1,\ \textcolor{keywordtype}{double}\ value2,\ \textcolor{keywordtype}{double}\ tolerance\ =\ \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants::DoubleEpsilon}});}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0df1a9322a47b39c1e914c5fa82d9d2a}{IsLessThanOrEqual}}(\textcolor{keywordtype}{double}\ value1,\ \textcolor{keywordtype}{double}\ value2,\ \textcolor{keywordtype}{double}\ tolerance\ =\ \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants::DoubleEpsilon}});}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00040}00040\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a9172817955251a6a5d326e565aab5ba6}{IsInfinite}}(\textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{IsNaN}}(\textcolor{keywordtype}{double}\ value);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a9f644ec075156b25b5dc1de610fd0448}{RadiansToAngle}}(\textcolor{keywordtype}{double}\ radians);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00046}00046\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a5c749ef53dd7c491738acdc5081f3ac9}{AngleToRadians}}(\textcolor{keywordtype}{double}\ angle);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a47c11b20bc48752634b8f029c5eae62a}{Factorial}}(\textcolor{keywordtype}{int}\ number);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a15124b0543679f43aaa79b0360672150}{Binomial}}(\textcolor{keywordtype}{int}\ number,\ \textcolor{keywordtype}{int}\ i);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00052}00052\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_addc3c246ded61a3e57be4aab45b4b61e}{ComputerCubicEquationsWithOneVariable}}(\textcolor{keywordtype}{double}\ cubic,\ \textcolor{keywordtype}{double}\ quadratic,\ \textcolor{keywordtype}{double}\ linear,\ \textcolor{keywordtype}{double}\ constant);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00060}\mbox{\hyperlink{classLNLib_1_1MathUtils_a06a410855387fd4bc2a85d081b9e669e}{00060}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a06a410855387fd4bc2a85d081b9e669e}{Transpose}}(\textcolor{keyword}{const}\ std::vector<std::vector<T>>\&\ matrix,\ std::vector<std::vector<T>>\&\ transposed)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ temp;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ matrix[0].size();\ i++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ matrix.size();\ j++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp.emplace\_back(matrix[j][i]);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ transposed.emplace\_back(temp);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp.erase(temp.begin(),\ temp.end());}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00076}\mbox{\hyperlink{classLNLib_1_1MathUtils_aca8583dc182f52aabc45990e704abe50}{00076}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<T>\ \mbox{\hyperlink{classLNLib_1_1MathUtils_aca8583dc182f52aabc45990e704abe50}{GetColumn}}(\textcolor{keyword}{const}\ std::vector<std::vector<T>>\&\ matrix,\ \textcolor{keywordtype}{int}\ columnIndex)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ size\ =\ matrix.size();}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ result(size);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[i]\ =\ matrix[i][columnIndex];}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<double>>\ MatrixMultiply(\textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ left,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ right);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00088}00088\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<double>>\ MakeDiagonal(\textcolor{keywordtype}{int}\ size);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00090}00090\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<double>>\ CreateMatrix(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ column);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ GetDeterminant(\textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ matrix);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ MakeInverse(\textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ matrix,\ std::vector<std::vector<double>>\&\ inverse);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00096}00096\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00100}00100\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<double>>\ SolveLinearSystem(\textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ matrix,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ right);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00101}00101\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00102}00102\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8h_source_l00104}00104\ }
+
+\end{DoxyCode}

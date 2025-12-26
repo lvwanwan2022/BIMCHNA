@@ -1,0 +1,798 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: LNLib::Polynomials类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classLNLib_1_1Polynomials.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classLNLib_1_1Polynomials-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">LNLib::Polynomials类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Polynomials_8h_source.html">Polynomials.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:ad7772b8afd6ae4d7b5d70127ad47bed1" id="r_ad7772b8afd6ae4d7b5d70127ad47bed1"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7772b8afd6ae4d7b5d70127ad47bed1">Horner</a> (int degree, const std::vector&lt; double &gt; &amp;coefficients, double paramT)</td></tr>
+<tr class="memdesc:ad7772b8afd6ae4d7b5d70127ad47bed1"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page20 Algorithm A1.1 Compute point on power basis curve.  <br /></td></tr>
+<tr class="separator:ad7772b8afd6ae4d7b5d70127ad47bed1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3a9dd8a4728ae8c177d436182d183d9" id="r_af3a9dd8a4728ae8c177d436182d183d9"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af3a9dd8a4728ae8c177d436182d183d9">Bernstein</a> (int index, int degree, double paramT)</td></tr>
+<tr class="memdesc:af3a9dd8a4728ae8c177d436182d183d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page7 Algorithm A1.2 compute the value of a Berstein polynomial.  <br /></td></tr>
+<tr class="separator:af3a9dd8a4728ae8c177d436182d183d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29c2f3c57dfdbac5a5c03d9e1e7aa129" id="r_a29c2f3c57dfdbac5a5c03d9e1e7aa129"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a29c2f3c57dfdbac5a5c03d9e1e7aa129">AllBernstein</a> (int degree, double paramT)</td></tr>
+<tr class="memdesc:a29c2f3c57dfdbac5a5c03d9e1e7aa129"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page21 Algorithm A1.3 Compute All nth-degree Berstein polynomials.  <br /></td></tr>
+<tr class="separator:a29c2f3c57dfdbac5a5c03d9e1e7aa129"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adae2d862f564d668c6bda0a63bc4963a" id="r_adae2d862f564d668c6bda0a63bc4963a"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adae2d862f564d668c6bda0a63bc4963a">Horner</a> (int degreeU, int degreeV, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;coefficients, <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;uv)</td></tr>
+<tr class="memdesc:adae2d862f564d668c6bda0a63bc4963a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page36 Algorithm A1.6 Compute point on a power basis surface. coefficients with (n+1) * (m+1)  <br /></td></tr>
+<tr class="separator:adae2d862f564d668c6bda0a63bc4963a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fb1eb590895ca8bd7a3b23ab1e39e4a" id="r_a9fb1eb590895ca8bd7a3b23ab1e39e4a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9fb1eb590895ca8bd7a3b23ab1e39e4a">GetKnotMultiplicity</a> (const std::vector&lt; double &gt; &amp;knotVector, double paramT)</td></tr>
+<tr class="memdesc:a9fb1eb590895ca8bd7a3b23ab1e39e4a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page63 Get the knot multiplicity.  <br /></td></tr>
+<tr class="separator:a9fb1eb590895ca8bd7a3b23ab1e39e4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a078c49eb69ff2d78bc1e134677b0c76f" id="r_a078c49eb69ff2d78bc1e134677b0c76f"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a078c49eb69ff2d78bc1e134677b0c76f">GetKnotSpanIndex</a> (int degree, const std::vector&lt; double &gt; &amp;knotVector, double paramT)</td></tr>
+<tr class="memdesc:a078c49eb69ff2d78bc1e134677b0c76f"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page68 Algorithm A2.1 Determine the knot span index.  <br /></td></tr>
+<tr class="separator:a078c49eb69ff2d78bc1e134677b0c76f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e2b821ce7ef5ace1be5a138edd45f5a" id="r_a8e2b821ce7ef5ace1be5a138edd45f5a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8e2b821ce7ef5ace1be5a138edd45f5a">BasisFunctions</a> (int spanIndex, int degree, const std::vector&lt; double &gt; &amp;knotVector, double paramT, double *basisFunctions)</td></tr>
+<tr class="memdesc:a8e2b821ce7ef5ace1be5a138edd45f5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page70 Algorithm A2.2 Compute the nonvanishing basis functions.  <br /></td></tr>
+<tr class="separator:a8e2b821ce7ef5ace1be5a138edd45f5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aebcbc937b4c1273e47f68ac7595845fd" id="r_aebcbc937b4c1273e47f68ac7595845fd"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebcbc937b4c1273e47f68ac7595845fd">BasisFunctionsDerivatives</a> (int spanIndex, int degree, int derivative, const std::vector&lt; double &gt; &amp;knotVector, double paramT)</td></tr>
+<tr class="memdesc:aebcbc937b4c1273e47f68ac7595845fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page72 Algorithm A2.3 Compute nonzero basis functions and their derivative.  <br /></td></tr>
+<tr class="separator:aebcbc937b4c1273e47f68ac7595845fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ade29241ea29a5b6c521154e14562a805" id="r_ade29241ea29a5b6c521154e14562a805"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ade29241ea29a5b6c521154e14562a805">BasisFunctionsFirstOrderDerivative</a> (int spanIndex, int degree, const std::vector&lt; double &gt; &amp;knotVector, double paramT, double derivatives[2][<a class="el" href="classLNLib_1_1Constants.html#a0aeb8534e051a2deb63e222feb3f9963">Constants::NURBSMaxDegree</a>+1])</td></tr>
+<tr class="memdesc:ade29241ea29a5b6c521154e14562a805"><td class="mdescLeft">&#160;</td><td class="mdescRight">This is an optimized function of BasisFunctionsDerivatives, for order 1 case.  <br /></td></tr>
+<tr class="separator:ade29241ea29a5b6c521154e14562a805"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac2923820e8e24d290792df766547f04d" id="r_ac2923820e8e24d290792df766547f04d"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac2923820e8e24d290792df766547f04d">OneBasisFunction</a> (int spanIndex, int degree, const std::vector&lt; double &gt; &amp;knotVector, double paramT)</td></tr>
+<tr class="memdesc:ac2923820e8e24d290792df766547f04d"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page74 Algorithm A2.4 Compute the basis function Ni,p.  <br /></td></tr>
+<tr class="separator:ac2923820e8e24d290792df766547f04d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ffff95a1fa76aec409e243cb67fcac8" id="r_a8ffff95a1fa76aec409e243cb67fcac8"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ffff95a1fa76aec409e243cb67fcac8">OneBasisFunctionDerivative</a> (int spanIndex, int degree, int derivative, const std::vector&lt; double &gt; &amp;knotVector, double paramT)</td></tr>
+<tr class="memdesc:a8ffff95a1fa76aec409e243cb67fcac8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page76 Algorithm A2.5 Compute a single basis function and its derivative.  <br /></td></tr>
+<tr class="separator:a8ffff95a1fa76aec409e243cb67fcac8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8571e825aea3a881d6ed4754689146c" id="r_af8571e825aea3a881d6ed4754689146c"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af8571e825aea3a881d6ed4754689146c">AllBasisFunctions</a> (int spanIndex, int degree, const std::vector&lt; double &gt; &amp;knotVector, double knot)</td></tr>
+<tr class="memdesc:af8571e825aea3a881d6ed4754689146c"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page99 A simple modification of A2.2 to return all nonzero basis functions of all degrees from 0 up to degree.  <br /></td></tr>
+<tr class="separator:af8571e825aea3a881d6ed4754689146c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab703bb2e2968ce6af5389a35e818cfde" id="r_ab703bb2e2968ce6af5389a35e818cfde"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab703bb2e2968ce6af5389a35e818cfde">BezierToPowerMatrix</a> (int degree)</td></tr>
+<tr class="memdesc:ab703bb2e2968ce6af5389a35e818cfde"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page269 Algorithm A6.1 Compute pth degree Bezier matrix.  <br /></td></tr>
+<tr class="separator:ab703bb2e2968ce6af5389a35e818cfde"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6a51e900e1a0ca40740309067013963" id="r_ac6a51e900e1a0ca40740309067013963"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::vector&lt; double &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac6a51e900e1a0ca40740309067013963">PowerToBezierMatrix</a> (int degree, const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;matrix)</td></tr>
+<tr class="memdesc:ac6a51e900e1a0ca40740309067013963"><td class="mdescLeft">&#160;</td><td class="mdescRight">The NURBS Book 2nd Edition Page275 Algorithm A6.2 Compute inverse of pth-degree Bezier matrix.  <br /></td></tr>
+<tr class="separator:ac6a51e900e1a0ca40740309067013963"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="Polynomials_8h_source.html">Polynomials.h</a> 第 <a class="el" href="Polynomials_8h_source.html#l00020">20</a> 行定义.</p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="af8571e825aea3a881d6ed4754689146c" name="af8571e825aea3a881d6ed4754689146c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8571e825aea3a881d6ed4754689146c">&#9670;&#160;</a></span>AllBasisFunctions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; double &gt; &gt; LNLib::Polynomials::AllBasisFunctions </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>spanIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>knot</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page99 A simple modification of A2.2 to return all nonzero basis functions of all degrees from 0 up to degree. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00544">544</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Polynomials_8cpp_source.html#l00162">BasisFunctions()</a>, <a class="el" href="ValidationUtils_8cpp_source.html#l00023">LNLib::ValidationUtils::IsValidKnotVector()</a>, <a class="el" href="Constants_8h_source.html#l00028">LNLib::Constants::NURBSMaxDegree</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="BsplineCurve_8h_source.html#l00139">LNLib::BsplineCurve::ComputeDerivativesByAllBasisFunctions()</a> , 以及 <a class="el" href="BsplineSurface_8h_source.html#l00273">LNLib::BsplineSurface::ComputeDerivativesByAllBasisFunctions()</a>.</p>
+
+</div>
+</div>
+<a id="a29c2f3c57dfdbac5a5c03d9e1e7aa129" name="a29c2f3c57dfdbac5a5c03d9e1e7aa129"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a29c2f3c57dfdbac5a5c03d9e1e7aa129">&#9670;&#160;</a></span>AllBernstein()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; Polynomials::AllBernstein </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page21 Algorithm A1.3 Compute All nth-degree Berstein polynomials. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00064">64</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="BezierCurve_8h_source.html#l00047">LNLib::BezierCurve::GetPointOnCurveByBernstein()</a>.</p>
+
+</div>
+</div>
+<a id="a8e2b821ce7ef5ace1be5a138edd45f5a" name="a8e2b821ce7ef5ace1be5a138edd45f5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e2b821ce7ef5ace1be5a138edd45f5a">&#9670;&#160;</a></span>BasisFunctions()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::Polynomials::BasisFunctions </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>spanIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double *</td>          <td class="paramname"><span class="paramname"><em>basisFunctions</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page70 Algorithm A2.2 Compute the nonvanishing basis functions. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00162">162</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="ValidationUtils_8cpp_source.html#l00023">LNLib::ValidationUtils::IsValidKnotVector()</a>, <a class="el" href="Constants_8h_source.html#l00028">LNLib::Constants::NURBSMaxDegree</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Polynomials_8cpp_source.html#l00544">AllBasisFunctions()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03121">LNLib::NurbsCurve::ControlPointReposition()</a>, <a class="el" href="BsplineCurve_8h_source.html#l00048">LNLib::BsplineCurve::GetPointOnCurve()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00055">LNLib::BsplineSurface::GetPointOnSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02056">LNLib::NurbsCurve::GlobalInterpolation()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01996">LNLib::NurbsCurve::GlobalInterpolation()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02246">LNLib::NurbsCurve::LeastSquaresApproximation()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02351">LNLib::NurbsCurve::WeightedAndContrainedLeastSquaresApproximation()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03152">LNLib::NurbsCurve::WeightModification()</a>.</p>
+
+</div>
+</div>
+<a id="aebcbc937b4c1273e47f68ac7595845fd" name="aebcbc937b4c1273e47f68ac7595845fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebcbc937b4c1273e47f68ac7595845fd">&#9670;&#160;</a></span>BasisFunctionsDerivatives()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; double &gt; &gt; LNLib::Polynomials::BasisFunctionsDerivatives </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>spanIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>derivative</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page72 Algorithm A2.3 Compute nonzero basis functions and their derivative. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00193">193</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="ValidationUtils_8cpp_source.html#l00023">LNLib::ValidationUtils::IsValidKnotVector()</a>, <a class="el" href="Constants_8h_source.html#l00028">LNLib::Constants::NURBSMaxDegree</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="BsplineCurve_8h_source.html#l00074">LNLib::BsplineCurve::ComputeDerivatives()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00094">LNLib::BsplineSurface::ComputeDerivatives()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03371">LNLib::NurbsCurve::ConstraintBasedModification()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02056">LNLib::NurbsCurve::GlobalInterpolation()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l02351">LNLib::NurbsCurve::WeightedAndContrainedLeastSquaresApproximation()</a>.</p>
+
+</div>
+</div>
+<a id="ade29241ea29a5b6c521154e14562a805" name="ade29241ea29a5b6c521154e14562a805"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ade29241ea29a5b6c521154e14562a805">&#9670;&#160;</a></span>BasisFunctionsFirstOrderDerivative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::Polynomials::BasisFunctionsFirstOrderDerivative </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>spanIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>derivatives</em></span>[2][Constants::NURBSMaxDegree+1]&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>This is an optimized function of BasisFunctionsDerivatives, for order 1 case. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00298">298</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="ValidationUtils_8cpp_source.html#l00023">LNLib::ValidationUtils::IsValidKnotVector()</a>, <a class="el" href="Constants_8h_source.html#l00028">LNLib::Constants::NURBSMaxDegree</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="BsplineSurface_8h_source.html#l00145">LNLib::BsplineSurface::ComputeFirstOrderDerivative()</a>.</p>
+
+</div>
+</div>
+<a id="af3a9dd8a4728ae8c177d436182d183d9" name="af3a9dd8a4728ae8c177d436182d183d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3a9dd8a4728ae8c177d436182d183d9">&#9670;&#160;</a></span>Bernstein()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Polynomials::Bernstein </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>index</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page7 Algorithm A1.2 compute the value of a Berstein polynomial. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00034">34</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l02935">LNLib::NurbsCurve::FitWithCubic()</a>.</p>
+
+</div>
+</div>
+<a id="ab703bb2e2968ce6af5389a35e818cfde" name="ab703bb2e2968ce6af5389a35e818cfde"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab703bb2e2968ce6af5389a35e818cfde">&#9670;&#160;</a></span>BezierToPowerMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; double &gt; &gt; LNLib::Polynomials::BezierToPowerMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page269 Algorithm A6.1 Compute pth degree Bezier matrix. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00565">565</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00093">LNLib::MathUtils::Binomial()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l01656">LNLib::NurbsSurface::MakeCornerFilletSurface()</a>.</p>
+
+</div>
+</div>
+<a id="a9fb1eb590895ca8bd7a3b23ab1e39e4a" name="a9fb1eb590895ca8bd7a3b23ab1e39e4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fb1eb590895ca8bd7a3b23ab1e39e4a">&#9670;&#160;</a></span>GetKnotMultiplicity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LNLib::Polynomials::GetKnotMultiplicity </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page63 Get the knot multiplicity. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00105">105</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="ValidationUtils_8cpp_source.html#l00023">LNLib::ValidationUtils::IsValidKnotVector()</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l02566">LNLib::NurbsCurve::ComputerRemoveKnotErrorBound()</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00050">LNLib::KnotVectorUtils::GetContinuity()</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00072">LNLib::KnotVectorUtils::GetInsertedKnotElement()</a>, <a class="el" href="KnotVectorUtils_8cpp_source.html#l00100">LNLib::KnotVectorUtils::GetKnotMultiplicityMap()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00554">LNLib::NurbsCurve::GetPointOnCurveByCornerCut()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00475">LNLib::NurbsCurve::InsertKnot()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00371">LNLib::NurbsSurface::InsertKnot()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03627">LNLib::NurbsCurve::IsClamp()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01563">LNLib::NurbsCurve::Merge()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00749">LNLib::NurbsCurve::RemoveKnot()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02614">LNLib::NurbsCurve::RemoveKnotsByGivenBound()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01463">LNLib::NurbsCurve::SplitAt()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03478">LNLib::NurbsCurve::ToClampCurve()</a>.</p>
+
+</div>
+</div>
+<a id="a078c49eb69ff2d78bc1e134677b0c76f" name="a078c49eb69ff2d78bc1e134677b0c76f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a078c49eb69ff2d78bc1e134677b0c76f">&#9670;&#160;</a></span>GetKnotSpanIndex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int LNLib::Polynomials::GetKnotSpanIndex </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page68 Algorithm A2.1 Determine the knot span index. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00125">125</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00042">LNLib::MathUtils::IsGreaterThanOrEqual()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00056">LNLib::MathUtils::IsLessThanOrEqual()</a>, <a class="el" href="ValidationUtils_8cpp_source.html#l00023">LNLib::ValidationUtils::IsValidKnotVector()</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l03334">LNLib::NurbsCurve::Bending()</a>, <a class="el" href="BsplineCurve_8h_source.html#l00074">LNLib::BsplineCurve::ComputeDerivatives()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00094">LNLib::BsplineSurface::ComputeDerivatives()</a>, <a class="el" href="BsplineCurve_8h_source.html#l00139">LNLib::BsplineCurve::ComputeDerivativesByAllBasisFunctions()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00273">LNLib::BsplineSurface::ComputeDerivativesByAllBasisFunctions()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00145">LNLib::BsplineSurface::ComputeFirstOrderDerivative()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03371">LNLib::NurbsCurve::ConstraintBasedModification()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03121">LNLib::NurbsCurve::ControlPointReposition()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02409">LNLib::NurbsSurface::CreateSweepSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02325">LNLib::NurbsSurface::CreateSweepSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03289">LNLib::NurbsCurve::Flattening()</a>, <a class="el" href="BsplineCurve_8h_source.html#l00048">LNLib::BsplineCurve::GetPointOnCurve()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00554">LNLib::NurbsCurve::GetPointOnCurveByCornerCut()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00055">LNLib::BsplineSurface::GetPointOnSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02056">LNLib::NurbsCurve::GlobalInterpolation()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01996">LNLib::NurbsCurve::GlobalInterpolation()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00475">LNLib::NurbsCurve::InsertKnot()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00371">LNLib::NurbsSurface::InsertKnot()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02246">LNLib::NurbsCurve::LeastSquaresApproximation()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00592">LNLib::NurbsCurve::RefineKnotVector()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00749">LNLib::NurbsCurve::RemoveKnot()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02614">LNLib::NurbsCurve::RemoveKnotsByGivenBound()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01463">LNLib::NurbsCurve::SplitAt()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02351">LNLib::NurbsCurve::WeightedAndContrainedLeastSquaresApproximation()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03152">LNLib::NurbsCurve::WeightModification()</a>.</p>
+
+</div>
+</div>
+<a id="ad7772b8afd6ae4d7b5d70127ad47bed1" name="ad7772b8afd6ae4d7b5d70127ad47bed1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7772b8afd6ae4d7b5d70127ad47bed1">&#9670;&#160;</a></span>Horner() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Polynomials::Horner </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>coefficients</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page20 Algorithm A1.1 Compute point on power basis curve. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00022">22</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="ValidationUtils_8cpp_source.html#l00018">LNLib::ValidationUtils::IsValidBezier()</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Polynomials_8cpp_source.html#l00087">Horner()</a>.</p>
+
+</div>
+</div>
+<a id="adae2d862f564d668c6bda0a63bc4963a" name="adae2d862f564d668c6bda0a63bc4963a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adae2d862f564d668c6bda0a63bc4963a">&#9670;&#160;</a></span>Horner() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Polynomials::Horner </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degreeU</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degreeV</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>coefficients</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uv</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page36 Algorithm A1.6 Compute point on a power basis surface. coefficients with (n+1) * (m+1) </p>
+<p>[0][0] [0][1] ... ... [0][m] ----&mdash; v direction [1][0] [1][1] ... ... [1][m] | . | . u direction [n][0] [n][1] ... ... [n][m] </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00087">87</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00037">LNLib::UV::GetU()</a>, <a class="el" href="UV_8cpp_source.html#l00045">LNLib::UV::GetV()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00022">Horner()</a>, <a class="el" href="ValidationUtils_8cpp_source.html#l00018">LNLib::ValidationUtils::IsValidBezier()</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+</div>
+</div>
+<a id="ac2923820e8e24d290792df766547f04d" name="ac2923820e8e24d290792df766547f04d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2923820e8e24d290792df766547f04d">&#9670;&#160;</a></span>OneBasisFunction()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::Polynomials::OneBasisFunction </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>spanIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page74 Algorithm A2.4 Compute the basis function Ni,p. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00397">397</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00042">LNLib::MathUtils::IsGreaterThanOrEqual()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00049">LNLib::MathUtils::IsLessThan()</a>, <a class="el" href="ValidationUtils_8cpp_source.html#l00023">LNLib::ValidationUtils::IsValidKnotVector()</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l02614">LNLib::NurbsCurve::RemoveKnotsByGivenBound()</a>.</p>
+
+</div>
+</div>
+<a id="a8ffff95a1fa76aec409e243cb67fcac8" name="a8ffff95a1fa76aec409e243cb67fcac8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ffff95a1fa76aec409e243cb67fcac8">&#9670;&#160;</a></span>OneBasisFunctionDerivative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; LNLib::Polynomials::OneBasisFunctionDerivative </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>spanIndex</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>derivative</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>knotVector</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>paramT</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page76 Algorithm A2.5 Compute a single basis function and its derivative. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00455">455</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00042">LNLib::MathUtils::IsGreaterThanOrEqual()</a>, <a class="el" href="MathUtils_8cpp_source.html#l00049">LNLib::MathUtils::IsLessThan()</a>, <a class="el" href="ValidationUtils_8cpp_source.html#l00023">LNLib::ValidationUtils::IsValidKnotVector()</a>, <a class="el" href="LNLibExceptions_8h_source.html#l00016">VALIDATE_ARGUMENT</a> , 以及 <a class="el" href="LNLibExceptions_8h_source.html#l00021">VALIDATE_ARGUMENT_RANGE</a>.</p>
+
+</div>
+</div>
+<a id="ac6a51e900e1a0ca40740309067013963" name="ac6a51e900e1a0ca40740309067013963"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6a51e900e1a0ca40740309067013963">&#9670;&#160;</a></span>PowerToBezierMatrix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; double &gt; &gt; LNLib::Polynomials::PowerToBezierMatrix </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>degree</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; std::vector&lt; double &gt; &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>matrix</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>The NURBS Book 2nd Edition Page275 Algorithm A6.2 Compute inverse of pth-degree Bezier matrix. </p>
+
+<p class="definition">在文件 <a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a> 第 <a class="el" href="Polynomials_8cpp_source.html#l00602">602</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/LNLib/include/<a class="el" href="Polynomials_8h_source.html">Polynomials.h</a></li>
+<li>src/LNLib/Algorithm/<a class="el" href="Polynomials_8cpp_source.html">Polynomials.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceLNLib.html">LNLib</a></li><li class="navelem"><a class="el" href="classLNLib_1_1Polynomials.html">Polynomials</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

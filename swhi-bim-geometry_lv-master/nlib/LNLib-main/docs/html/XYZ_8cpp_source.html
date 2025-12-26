@@ -1,0 +1,521 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: src/LNLib/Mathematics/Math/XYZ.cpp 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('XYZ_8cpp_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">XYZ.cpp</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="XYZ_8cpp.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Author:</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * 2023/06/08 - Yuqing Liang (BIMCoder Liang)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * bim.frankliang@foxmail.com</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * Use of this source code is governed by a GPL-3.0 license that can be found in</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * the LICENSE file.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="XYZ_8h.html">XYZ.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="MathUtils_8h.html">MathUtils.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">using namespace </span><a class="code hl_namespace" href="namespaceLNLib.html">LNLib</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="}">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">   19</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ::XYZ</a>()</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    m_xyz[0] = 0;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    m_xyz[1] = 0;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    m_xyz[2] = 0;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>}</div>
+</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="}">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a04ba0b5c68bc0bd6fc1fab38c4c065d3">   26</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ::XYZ</a>(<span class="keywordtype">double</span> x, <span class="keywordtype">double</span> y, <span class="keywordtype">double</span> z){</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    m_xyz[0] = x;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    m_xyz[1] = y;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    m_xyz[2] = z;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>}</div>
+</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="foldopen" id="foldopen00033" data-start="{" data-end="}">
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a007a32676629037b9c443248fa28ed95">   33</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a007a32676629037b9c443248fa28ed95">XYZ::SetX</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    m_xyz[0] = x;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>}</div>
+</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#ad89d7629d1a625493cd1114a6ebbe004">   38</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#ad89d7629d1a625493cd1114a6ebbe004">XYZ::GetX</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_xyz[0]; };</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="foldopen" id="foldopen00040" data-start="{" data-end="}">
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a8053f323903089bd9e1fb43a7bc0a404">   40</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a8053f323903089bd9e1fb43a7bc0a404">XYZ::SetY</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> y)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    m_xyz[1] = y;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#ac7a68aaac00bbaeecb51d8aa03ee8322">   46</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#ac7a68aaac00bbaeecb51d8aa03ee8322">XYZ::GetY</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_xyz[1]; };</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="foldopen" id="foldopen00048" data-start="{" data-end="}">
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#af97cf5a4b6fe5f26b9899e2355f453b3">   48</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#af97cf5a4b6fe5f26b9899e2355f453b3">XYZ::SetZ</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> z) </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    m_xyz[2] = z;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>}</div>
+</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#ac1dd1ddfa09fb299ddc4672d116c7efb">   53</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#ac1dd1ddfa09fb299ddc4672d116c7efb">XYZ::GetZ</a>()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> m_xyz[2]; }</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="foldopen" id="foldopen00055" data-start="{" data-end="}">
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a06858f179cea40342851ea985f861e74">   55</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a06858f179cea40342851ea985f861e74">XYZ::X</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keywordflow">return</span> m_xyz[0];</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>}</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#aa129731bda1a807b75b8cd4403c72402">   60</a></span><span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classLNLib_1_1XYZ.html#a06858f179cea40342851ea985f861e74">XYZ::X</a>()</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>{</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">return</span> m_xyz[0];</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>}</div>
+</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="foldopen" id="foldopen00065" data-start="{" data-end="}">
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a8d6988a56b4c78faff46690da3e3a931">   65</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a8d6988a56b4c78faff46690da3e3a931">XYZ::Y</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordflow">return</span> m_xyz[1];</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>}</div>
+</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="foldopen" id="foldopen00070" data-start="{" data-end="}">
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a945f6efc2214a02e2dff6533157c7481">   70</a></span><span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classLNLib_1_1XYZ.html#a8d6988a56b4c78faff46690da3e3a931">XYZ::Y</a>()</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>{</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    <span class="keywordflow">return</span> m_xyz[1];</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="foldopen" id="foldopen00075" data-start="{" data-end="}">
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#ac5d5926aa9258b951acc09534636b05d">   75</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#ac5d5926aa9258b951acc09534636b05d">XYZ::Z</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <span class="keywordflow">return</span> m_xyz[2];</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>}</div>
+</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="foldopen" id="foldopen00080" data-start="{" data-end="}">
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#af6a8d9596c30fc1d91fb051f7a4f17f1">   80</a></span><span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classLNLib_1_1XYZ.html#ac5d5926aa9258b951acc09534636b05d">XYZ::Z</a>()</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>{</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">return</span> m_xyz[2];</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
+</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="foldopen" id="foldopen00085" data-start="{" data-end="}">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#abd9e6f3e06a7efe439c2639913fc310f">   85</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#abd9e6f3e06a7efe439c2639913fc310f">LNLib::XYZ::IsZero</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa9e0f5966aaaf4e55f1a128b0ef1759">SqrLength</a>() &lt;= epsilon * epsilon;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>}</div>
+</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
+<div class="foldopen" id="foldopen00090" data-start="{" data-end="}">
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a364bff0eea9a2f39bd2d20e08bb683f3">   90</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a364bff0eea9a2f39bd2d20e08bb683f3">LNLib::XYZ::IsUnit</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordflow">return</span> std::fabs(<a class="code hl_function" href="classLNLib_1_1XYZ.html#afa9e0f5966aaaf4e55f1a128b0ef1759">SqrLength</a>() - 1) &lt; epsilon * epsilon;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
+</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="foldopen" id="foldopen00095" data-start="{" data-end="}">
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#afa69d0f95034851b7d8f84c24d1140c2">   95</a></span><span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa69d0f95034851b7d8f84c24d1140c2">LNLib::XYZ::IsAlmostEqualTo</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; another)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a0a073b900ff796c8a2def044010dcf2d">MathUtils::IsAlmostEqualTo</a>(m_xyz[0], another.m_xyz[0]) &amp;&amp;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>           <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a0a073b900ff796c8a2def044010dcf2d">MathUtils::IsAlmostEqualTo</a>(m_xyz[1], another.m_xyz[1]) &amp;&amp;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>           <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a0a073b900ff796c8a2def044010dcf2d">MathUtils::IsAlmostEqualTo</a>(m_xyz[2], another.m_xyz[2]);</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>}</div>
+</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="}">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a39a9aba82641a0c1fd903a5dc2a4ef82">  102</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a39a9aba82641a0c1fd903a5dc2a4ef82">XYZ::Length</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="keywordflow">return</span> std::sqrt(m_xyz[0]* m_xyz[0] + m_xyz[1] * m_xyz[1] + m_xyz[2] * m_xyz[2]);</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>}</div>
+</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="foldopen" id="foldopen00107" data-start="{" data-end="}">
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#afa9e0f5966aaaf4e55f1a128b0ef1759">  107</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa9e0f5966aaaf4e55f1a128b0ef1759">XYZ::SqrLength</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordflow">return</span> m_xyz[0] * m_xyz[0] + m_xyz[1] * m_xyz[1] + m_xyz[2] * m_xyz[2];</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>}</div>
+</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
+<div class="foldopen" id="foldopen00112" data-start="{" data-end="}">
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a1f6974cca4e5c8cf539eb5ee9cf72c18">  112</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a1f6974cca4e5c8cf539eb5ee9cf72c18">LNLib::XYZ::AngleTo</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; another)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> ntTemp = <span class="keyword">const_cast&lt;</span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp;<span class="keyword">&gt;</span>(*this).Normalize();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> naTemp = <span class="keyword">const_cast&lt;</span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp;<span class="keyword">&gt;</span>(another).<a class="code hl_function" href="classLNLib_1_1XYZ.html#a00c64e01eb6e5a00239535969e9e1961">Normalize</a>();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">if</span> (ntTemp.<a class="code hl_function" href="classLNLib_1_1XYZ.html#abd9e6f3e06a7efe439c2639913fc310f">IsZero</a>() ||</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        naTemp.<a class="code hl_function" href="classLNLib_1_1XYZ.html#abd9e6f3e06a7efe439c2639913fc310f">IsZero</a>())</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>    {</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <span class="keywordflow">return</span> 0.0;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    }</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">double</span> dot = ntTemp.<a class="code hl_function" href="classLNLib_1_1XYZ.html#aa634eee7815b0227c7b4ccd4b87609c0">DotProduct</a>(naTemp);</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    dot = dot &lt; -1.0 ? -1.0 : dot &gt; 1.0 ? 1.0 : dot;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <span class="keywordflow">return</span> acos(dot);</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>}</div>
+</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="foldopen" id="foldopen00127" data-start="{" data-end="}">
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a00c64e01eb6e5a00239535969e9e1961">  127</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a00c64e01eb6e5a00239535969e9e1961">XYZ::Normalize</a>()</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>{</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <span class="keywordtype">double</span> length = <a class="code hl_function" href="classLNLib_1_1XYZ.html#a39a9aba82641a0c1fd903a5dc2a4ef82">Length</a>();</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> newXYZ = *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    <span class="keywordflow">if</span> (length &gt; 0)</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    {</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordtype">double</span> invLength = (double)(1.0 / length);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>        newXYZ.m_xyz[0] *= invLength;</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>        newXYZ.m_xyz[1] *= invLength;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        newXYZ.m_xyz[2] *= invLength;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    }</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordflow">return</span> newXYZ;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>}</div>
+</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="foldopen" id="foldopen00141" data-start="{" data-end="}">
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#ac9a0c80c7c1d6f358462dd7656f634ce">  141</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> <a class="code hl_function" href="classLNLib_1_1XYZ.html#ac9a0c80c7c1d6f358462dd7656f634ce">XYZ::Add</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; another)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span> + another;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>}</div>
+</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
+<div class="foldopen" id="foldopen00146" data-start="{" data-end="}">
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#af77aadb54489544ba8d912ef7a3efcf9">  146</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> <a class="code hl_function" href="classLNLib_1_1XYZ.html#af77aadb54489544ba8d912ef7a3efcf9">XYZ::Substract</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; another)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span> - another;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>}</div>
+</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="foldopen" id="foldopen00151" data-start="{" data-end="}">
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#aff06ca55967bee6978ab4c15ceef3c0d">  151</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> <a class="code hl_function" href="classLNLib_1_1XYZ.html#aff06ca55967bee6978ab4c15ceef3c0d">XYZ::Negative</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>(-m_xyz[0], -m_xyz[1], -m_xyz[2]);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>}</div>
+</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="foldopen" id="foldopen00156" data-start="{" data-end="}">
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#aa634eee7815b0227c7b4ccd4b87609c0">  156</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#aa634eee7815b0227c7b4ccd4b87609c0">XYZ::DotProduct</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; another)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="keywordflow">return</span> m_xyz[0] * another.m_xyz[0] + m_xyz[1] * another.m_xyz[1] + m_xyz[2] * another.m_xyz[2];</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>}</div>
+</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="foldopen" id="foldopen00161" data-start="{" data-end="}">
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a0f4c2a266c4ff4956ae6d4f46915354d">  161</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a0f4c2a266c4ff4956ae6d4f46915354d">XYZ::CrossProduct</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; another)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>(m_xyz[1] * another.m_xyz[2] - another.m_xyz[1] * m_xyz[2],</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                m_xyz[2] * another.m_xyz[0] - another.m_xyz[2] * m_xyz[0],</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>                m_xyz[0] * another.m_xyz[1] - another.m_xyz[0] * m_xyz[1]);</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>}</div>
+</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
+<div class="foldopen" id="foldopen00168" data-start="{" data-end="}">
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a6bbe2197a3621446dc100d8b385b7aac">  168</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a6bbe2197a3621446dc100d8b385b7aac">LNLib::XYZ::Distance</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; another)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keywordtype">double</span> squareValue = pow((another.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ad89d7629d1a625493cd1114a6ebbe004">GetX</a>() - m_xyz[0]),2) + pow((another.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ac7a68aaac00bbaeecb51d8aa03ee8322">GetY</a>() - m_xyz[1]),2) + pow((another.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ac1dd1ddfa09fb299ddc4672d116c7efb">GetZ</a>() - m_xyz[2]),2);</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordflow">return</span> std::sqrt(squareValue);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>}</div>
+</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span> </div>
+<div class="foldopen" id="foldopen00174" data-start="{" data-end="}">
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a94878ed6f22683432a7d944ccf697833">  174</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a94878ed6f22683432a7d944ccf697833">LNLib::XYZ::CreateRandomOrthogonal</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; xyz)</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>{</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> current = xyz;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> normal = current.<a class="code hl_function" href="classLNLib_1_1XYZ.html#a00c64e01eb6e5a00239535969e9e1961">Normalize</a>();</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> tangent = normal.<a class="code hl_function" href="classLNLib_1_1XYZ.html#a0f4c2a266c4ff4956ae6d4f46915354d">CrossProduct</a>(<a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>(-normal.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ac1dd1ddfa09fb299ddc4672d116c7efb">GetZ</a>(), normal.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ad89d7629d1a625493cd1114a6ebbe004">GetX</a>(), normal.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ac7a68aaac00bbaeecb51d8aa03ee8322">GetY</a>()));</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> bitangent = normal.<a class="code hl_function" href="classLNLib_1_1XYZ.html#a0f4c2a266c4ff4956ae6d4f46915354d">CrossProduct</a>(tangent);</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span> </div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    std::random_device rd;</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    std::mt19937 gen(rd());</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    std::uniform_int_distribution&lt;&gt; distrib(-<a class="code hl_variable" href="classLNLib_1_1Constants.html#a61f81a7c07ffbc58273a360da017c0c4">Constants::Pi</a>, <a class="code hl_variable" href="classLNLib_1_1Constants.html#a61f81a7c07ffbc58273a360da017c0c4">Constants::Pi</a>);</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    <span class="keywordtype">double</span> angle = distrib(gen);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keywordflow">return</span> (tangent * std::sin(angle) + bitangent * std::cos(angle)).Normalize();</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>}</div>
+</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="foldopen" id="foldopen00188" data-start="{" data-end="}">
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#ae35201de40fff3de177e1bbf7d9b1665">  188</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; <a class="code hl_function" href="classLNLib_1_1XYZ.html#ae35201de40fff3de177e1bbf7d9b1665">XYZ::operator=</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; xyz)</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>{</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    m_xyz[0] = xyz.m_xyz[0];</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    m_xyz[1] = xyz.m_xyz[1];</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    m_xyz[2] = xyz.m_xyz[2];</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>}</div>
+</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
+<div class="foldopen" id="foldopen00196" data-start="{" data-end="}">
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a8ad6d9faa36994bcc283ea5b70643e14">  196</a></span><span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classLNLib_1_1XYZ.html#a8ad6d9faa36994bcc283ea5b70643e14">XYZ::operator[]</a>(<span class="keywordtype">int</span> index)</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>{</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    <span class="keywordflow">return</span> m_xyz[index];</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>}</div>
+</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
+<div class="foldopen" id="foldopen00201" data-start="{" data-end="}">
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a760476be0142b7a57adf5da3a90c40f7">  201</a></span><span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classLNLib_1_1XYZ.html#a8ad6d9faa36994bcc283ea5b70643e14">XYZ::operator[]</a>(<span class="keywordtype">int</span> index)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordflow">return</span> m_xyz[index];</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>}</div>
+</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="foldopen" id="foldopen00206" data-start="{" data-end="}">
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#afef4cf0a73277fc72edb25326e758ea7">  206</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afef4cf0a73277fc72edb25326e758ea7">XYZ::operator+</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; xyz)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>(m_xyz[0] + xyz.m_xyz[0], m_xyz[1] + xyz.m_xyz[1], m_xyz[2] + xyz.m_xyz[2]);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>}</div>
+</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
+<div class="foldopen" id="foldopen00211" data-start="{" data-end="}">
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#ae06ec765f25cbb401ce909619e967342">  211</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a381ab99c4e43c2de72020a98798b8348">XYZ::operator-</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; xyz)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>(m_xyz[0] - xyz.m_xyz[0], m_xyz[1] - xyz.m_xyz[1], m_xyz[2] - xyz.m_xyz[2]);</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>}</div>
+</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span> </div>
+<div class="foldopen" id="foldopen00216" data-start="{" data-end="}">
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a378d52a18fc2dfd0f299b8507152c87f">  216</a></span><span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a378d52a18fc2dfd0f299b8507152c87f">XYZ::operator*</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; xyz)<span class="keyword"> const</span></div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#aa634eee7815b0227c7b4ccd4b87609c0">DotProduct</a>(xyz);</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>}</div>
+</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="foldopen" id="foldopen00221" data-start="{" data-end="}">
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a1e6705b80036b0d76594555b6233cceb">  221</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; <a class="code hl_function" href="classLNLib_1_1XYZ.html#a1e6705b80036b0d76594555b6233cceb">XYZ::operator*=</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; d)</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>{</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    m_xyz[0] *= d;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    m_xyz[1] *= d;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    m_xyz[2] *= d;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>}</div>
+</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span> </div>
+<div class="foldopen" id="foldopen00229" data-start="{" data-end="}">
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a4391296eb4ab08cf8406580123db42eb">  229</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; <a class="code hl_function" href="classLNLib_1_1XYZ.html#a4391296eb4ab08cf8406580123db42eb">XYZ::operator/=</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; d)</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>{</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>    m_xyz[0] /= d;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>    m_xyz[1] /= d;</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    m_xyz[2] /= d;</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>}</div>
+</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
+<div class="foldopen" id="foldopen00237" data-start="{" data-end="}">
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#ac84697efe8a1464ec33fd58738d65fd9">  237</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; <a class="code hl_function" href="classLNLib_1_1XYZ.html#ac84697efe8a1464ec33fd58738d65fd9">XYZ::operator+=</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; xyz)</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>{</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    m_xyz[0] += xyz.m_xyz[0];</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>    m_xyz[1] += xyz.m_xyz[1];</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    m_xyz[2] += xyz.m_xyz[2];</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>}</div>
+</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span> </div>
+<div class="foldopen" id="foldopen00245" data-start="{" data-end="}">
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a3cde09c4d41a9e3d45110fdcb6994e67">  245</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; <a class="code hl_function" href="classLNLib_1_1XYZ.html#a3cde09c4d41a9e3d45110fdcb6994e67">XYZ::operator-=</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>&amp; xyz)</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>{</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    m_xyz[0] -= xyz.m_xyz[0];</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    m_xyz[1] -= xyz.m_xyz[1];</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    m_xyz[2] -= xyz.m_xyz[2];</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keywordflow">return</span> *<span class="keyword">this</span>;</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>}</div>
+</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="foldopen" id="foldopen00253" data-start="{" data-end="}">
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno"><a class="line" href="classLNLib_1_1XYZ.html#a381ab99c4e43c2de72020a98798b8348">  253</a></span><a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> <a class="code hl_function" href="classLNLib_1_1XYZ.html#a381ab99c4e43c2de72020a98798b8348">XYZ::operator-</a>()<span class="keyword"> const</span></div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span><span class="keyword"></span>{</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a>(-m_xyz[0],-m_xyz[1],-m_xyz[2]);</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>}</div>
+</div>
+<div class="foldopen" id="foldopen00257" data-start="{" data-end="}">
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a28812cdd3b5987e994486d90551e17b0">  257</a></span><a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a> <a class="code hl_function" href="namespaceLNLib.html#a3d0f2a917f984a069f87f949594c63a5">LNLib::operator*</a>(<span class="keyword">const</span> <a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a>&amp; source, <span class="keyword">const</span> <span class="keywordtype">double</span> d)</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>{</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a>(source.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ad89d7629d1a625493cd1114a6ebbe004">GetX</a>()*d, source.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ac7a68aaac00bbaeecb51d8aa03ee8322">GetY</a>()*d, source.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ac1dd1ddfa09fb299ddc4672d116c7efb">GetZ</a>()*d);</div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>}</div>
+</div>
+<div class="foldopen" id="foldopen00261" data-start="{" data-end="}">
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#adb824a0dd3808f79aef4d64fccef869e">  261</a></span><a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a> <a class="code hl_function" href="namespaceLNLib.html#a3d0f2a917f984a069f87f949594c63a5">LNLib::operator*</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; d, <span class="keyword">const</span> <a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a>&amp; source)</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>{</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a>(source.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ad89d7629d1a625493cd1114a6ebbe004">GetX</a>() * d, source.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ac7a68aaac00bbaeecb51d8aa03ee8322">GetY</a>() * d, source.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ac1dd1ddfa09fb299ddc4672d116c7efb">GetZ</a>() * d);</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>}</div>
+</div>
+<div class="foldopen" id="foldopen00265" data-start="{" data-end="}">
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#ac5d44a35f460584a4f29213b63a9dcfa">  265</a></span><a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a> <a class="code hl_function" href="namespaceLNLib.html#a628cca0f476c5ffcd920070f25c5fb39">LNLib::operator^</a>(<span class="keyword">const</span> <a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a>&amp; xyz1, <span class="keyword">const</span> <a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a>&amp; xyz2)</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>{</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    <span class="keywordflow">return</span> xyz1.<a class="code hl_function" href="classLNLib_1_1XYZ.html#a0f4c2a266c4ff4956ae6d4f46915354d">CrossProduct</a>(xyz2);</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>}</div>
+</div>
+<div class="foldopen" id="foldopen00269" data-start="{" data-end="}">
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno"><a class="line" href="namespaceLNLib.html#a1debd318543cb9593b483cdd9da27c4e">  269</a></span><a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a> <a class="code hl_function" href="namespaceLNLib.html#ad6ed2c3e4f87afdf2bf47f33f327e9f4">LNLib::operator/</a>(<span class="keyword">const</span> <a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a>&amp; source, <span class="keywordtype">double</span> d)</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>{</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keywordflow">return</span> <a class="code hl_class" href="classLNLib_1_1XYZ.html">XYZ</a>(source.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ad89d7629d1a625493cd1114a6ebbe004">GetX</a>() / d, source.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ac7a68aaac00bbaeecb51d8aa03ee8322">GetY</a>() / d, source.<a class="code hl_function" href="classLNLib_1_1XYZ.html#ac1dd1ddfa09fb299ddc4672d116c7efb">GetZ</a>() / d);</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>}</div>
+</div>
+<div class="ttc" id="aMathUtils_8h_html"><div class="ttname"><a href="MathUtils_8h.html">MathUtils.h</a></div></div>
+<div class="ttc" id="aXYZ_8h_html"><div class="ttname"><a href="XYZ_8h.html">XYZ.h</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1Constants_html_a61f81a7c07ffbc58273a360da017c0c4"><div class="ttname"><a href="classLNLib_1_1Constants.html#a61f81a7c07ffbc58273a360da017c0c4">LNLib::Constants::Pi</a></div><div class="ttdeci">static const double Pi</div><div class="ttdef"><b>定义</b> <a href="Constants_8h_source.html#l00027">Constants.h:27</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_a0a073b900ff796c8a2def044010dcf2d"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#a0a073b900ff796c8a2def044010dcf2d">LNLib::MathUtils::IsAlmostEqualTo</a></div><div class="ttdeci">static bool IsAlmostEqualTo(double value1, double value2, double tolerance=Constants::DoubleEpsilon)</div><div class="ttdoc">According to https://referencesource.microsoft.com/#windowsbase/Shared/MS/Internal/DoubleUtil....</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00026">MathUtils.cpp:26</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html"><div class="ttname"><a href="classLNLib_1_1XYZ.html">LNLib::XYZ</a></div><div class="ttdoc">Represents three-dimension location/vector/offset</div><div class="ttdef"><b>定义</b> <a href="XYZ_8h_source.html#l00020">XYZ.h:21</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a007a32676629037b9c443248fa28ed95"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a007a32676629037b9c443248fa28ed95">LNLib::XYZ::SetX</a></div><div class="ttdeci">void SetX(const double x)</div><div class="ttdef"><b>定义</b> <a href="#l00033">XYZ.cpp:33</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a00c64e01eb6e5a00239535969e9e1961"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a00c64e01eb6e5a00239535969e9e1961">LNLib::XYZ::Normalize</a></div><div class="ttdeci">XYZ Normalize()</div><div class="ttdef"><b>定义</b> <a href="#l00127">XYZ.cpp:127</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a06858f179cea40342851ea985f861e74"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a06858f179cea40342851ea985f861e74">LNLib::XYZ::X</a></div><div class="ttdeci">double X() const</div><div class="ttdef"><b>定义</b> <a href="#l00055">XYZ.cpp:55</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a0f4c2a266c4ff4956ae6d4f46915354d"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a0f4c2a266c4ff4956ae6d4f46915354d">LNLib::XYZ::CrossProduct</a></div><div class="ttdeci">XYZ CrossProduct(const XYZ &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="#l00161">XYZ.cpp:161</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a1e6705b80036b0d76594555b6233cceb"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a1e6705b80036b0d76594555b6233cceb">LNLib::XYZ::operator*=</a></div><div class="ttdeci">XYZ &amp; operator*=(const double &amp;d)</div><div class="ttdef"><b>定义</b> <a href="#l00221">XYZ.cpp:221</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a1f6974cca4e5c8cf539eb5ee9cf72c18"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a1f6974cca4e5c8cf539eb5ee9cf72c18">LNLib::XYZ::AngleTo</a></div><div class="ttdeci">double AngleTo(const XYZ &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="#l00112">XYZ.cpp:112</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a364bff0eea9a2f39bd2d20e08bb683f3"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a364bff0eea9a2f39bd2d20e08bb683f3">LNLib::XYZ::IsUnit</a></div><div class="ttdeci">bool IsUnit(const double epsilon=Constants::DoubleEpsilon) const</div><div class="ttdef"><b>定义</b> <a href="#l00090">XYZ.cpp:90</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a378d52a18fc2dfd0f299b8507152c87f"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a378d52a18fc2dfd0f299b8507152c87f">LNLib::XYZ::operator*</a></div><div class="ttdeci">double operator*(const XYZ &amp;xyz) const</div><div class="ttdef"><b>定义</b> <a href="#l00216">XYZ.cpp:216</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a381ab99c4e43c2de72020a98798b8348"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a381ab99c4e43c2de72020a98798b8348">LNLib::XYZ::operator-</a></div><div class="ttdeci">XYZ operator-() const</div><div class="ttdef"><b>定义</b> <a href="#l00253">XYZ.cpp:253</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a39a9aba82641a0c1fd903a5dc2a4ef82"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a39a9aba82641a0c1fd903a5dc2a4ef82">LNLib::XYZ::Length</a></div><div class="ttdeci">double Length() const</div><div class="ttdef"><b>定义</b> <a href="#l00102">XYZ.cpp:102</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a3cde09c4d41a9e3d45110fdcb6994e67"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a3cde09c4d41a9e3d45110fdcb6994e67">LNLib::XYZ::operator-=</a></div><div class="ttdeci">XYZ &amp; operator-=(const XYZ &amp;xyz)</div><div class="ttdef"><b>定义</b> <a href="#l00245">XYZ.cpp:245</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a4391296eb4ab08cf8406580123db42eb"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a4391296eb4ab08cf8406580123db42eb">LNLib::XYZ::operator/=</a></div><div class="ttdeci">XYZ &amp; operator/=(const double &amp;d)</div><div class="ttdef"><b>定义</b> <a href="#l00229">XYZ.cpp:229</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a6bbe2197a3621446dc100d8b385b7aac"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a6bbe2197a3621446dc100d8b385b7aac">LNLib::XYZ::Distance</a></div><div class="ttdeci">double Distance(const XYZ &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="#l00168">XYZ.cpp:168</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a8053f323903089bd9e1fb43a7bc0a404"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a8053f323903089bd9e1fb43a7bc0a404">LNLib::XYZ::SetY</a></div><div class="ttdeci">void SetY(const double y)</div><div class="ttdef"><b>定义</b> <a href="#l00040">XYZ.cpp:40</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a8ad6d9faa36994bcc283ea5b70643e14"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a8ad6d9faa36994bcc283ea5b70643e14">LNLib::XYZ::operator[]</a></div><div class="ttdeci">double &amp; operator[](int index)</div><div class="ttdef"><b>定义</b> <a href="#l00196">XYZ.cpp:196</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a8d6988a56b4c78faff46690da3e3a931"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a8d6988a56b4c78faff46690da3e3a931">LNLib::XYZ::Y</a></div><div class="ttdeci">double Y() const</div><div class="ttdef"><b>定义</b> <a href="#l00065">XYZ.cpp:65</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_a94878ed6f22683432a7d944ccf697833"><div class="ttname"><a href="classLNLib_1_1XYZ.html#a94878ed6f22683432a7d944ccf697833">LNLib::XYZ::CreateRandomOrthogonal</a></div><div class="ttdeci">static XYZ CreateRandomOrthogonal(const XYZ &amp;xyz)</div><div class="ttdef"><b>定义</b> <a href="#l00174">XYZ.cpp:174</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_aa634eee7815b0227c7b4ccd4b87609c0"><div class="ttname"><a href="classLNLib_1_1XYZ.html#aa634eee7815b0227c7b4ccd4b87609c0">LNLib::XYZ::DotProduct</a></div><div class="ttdeci">double DotProduct(const XYZ &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="#l00156">XYZ.cpp:156</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_abd9e6f3e06a7efe439c2639913fc310f"><div class="ttname"><a href="classLNLib_1_1XYZ.html#abd9e6f3e06a7efe439c2639913fc310f">LNLib::XYZ::IsZero</a></div><div class="ttdeci">bool IsZero(const double epsilon=Constants::DoubleEpsilon) const</div><div class="ttdef"><b>定义</b> <a href="#l00085">XYZ.cpp:85</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_ac1dd1ddfa09fb299ddc4672d116c7efb"><div class="ttname"><a href="classLNLib_1_1XYZ.html#ac1dd1ddfa09fb299ddc4672d116c7efb">LNLib::XYZ::GetZ</a></div><div class="ttdeci">double GetZ() const</div><div class="ttdef"><b>定义</b> <a href="#l00053">XYZ.cpp:53</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_ac5d5926aa9258b951acc09534636b05d"><div class="ttname"><a href="classLNLib_1_1XYZ.html#ac5d5926aa9258b951acc09534636b05d">LNLib::XYZ::Z</a></div><div class="ttdeci">double Z() const</div><div class="ttdef"><b>定义</b> <a href="#l00075">XYZ.cpp:75</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_ac7a68aaac00bbaeecb51d8aa03ee8322"><div class="ttname"><a href="classLNLib_1_1XYZ.html#ac7a68aaac00bbaeecb51d8aa03ee8322">LNLib::XYZ::GetY</a></div><div class="ttdeci">double GetY() const</div><div class="ttdef"><b>定义</b> <a href="#l00046">XYZ.cpp:46</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_ac84697efe8a1464ec33fd58738d65fd9"><div class="ttname"><a href="classLNLib_1_1XYZ.html#ac84697efe8a1464ec33fd58738d65fd9">LNLib::XYZ::operator+=</a></div><div class="ttdeci">XYZ &amp; operator+=(const XYZ &amp;xyz)</div><div class="ttdef"><b>定义</b> <a href="#l00237">XYZ.cpp:237</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_ac9a0c80c7c1d6f358462dd7656f634ce"><div class="ttname"><a href="classLNLib_1_1XYZ.html#ac9a0c80c7c1d6f358462dd7656f634ce">LNLib::XYZ::Add</a></div><div class="ttdeci">XYZ Add(const XYZ &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="#l00141">XYZ.cpp:141</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_ad89d7629d1a625493cd1114a6ebbe004"><div class="ttname"><a href="classLNLib_1_1XYZ.html#ad89d7629d1a625493cd1114a6ebbe004">LNLib::XYZ::GetX</a></div><div class="ttdeci">double GetX() const</div><div class="ttdef"><b>定义</b> <a href="#l00038">XYZ.cpp:38</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_ae35201de40fff3de177e1bbf7d9b1665"><div class="ttname"><a href="classLNLib_1_1XYZ.html#ae35201de40fff3de177e1bbf7d9b1665">LNLib::XYZ::operator=</a></div><div class="ttdeci">XYZ &amp; operator=(const XYZ &amp;xyz)</div><div class="ttdef"><b>定义</b> <a href="#l00188">XYZ.cpp:188</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_af77aadb54489544ba8d912ef7a3efcf9"><div class="ttname"><a href="classLNLib_1_1XYZ.html#af77aadb54489544ba8d912ef7a3efcf9">LNLib::XYZ::Substract</a></div><div class="ttdeci">XYZ Substract(const XYZ &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="#l00146">XYZ.cpp:146</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_af97cf5a4b6fe5f26b9899e2355f453b3"><div class="ttname"><a href="classLNLib_1_1XYZ.html#af97cf5a4b6fe5f26b9899e2355f453b3">LNLib::XYZ::SetZ</a></div><div class="ttdeci">void SetZ(const double z)</div><div class="ttdef"><b>定义</b> <a href="#l00048">XYZ.cpp:48</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_afa55cea1b74cbc9ca9615432f8d744db"><div class="ttname"><a href="classLNLib_1_1XYZ.html#afa55cea1b74cbc9ca9615432f8d744db">LNLib::XYZ::XYZ</a></div><div class="ttdeci">XYZ()</div><div class="ttdef"><b>定义</b> <a href="#l00019">XYZ.cpp:19</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_afa69d0f95034851b7d8f84c24d1140c2"><div class="ttname"><a href="classLNLib_1_1XYZ.html#afa69d0f95034851b7d8f84c24d1140c2">LNLib::XYZ::IsAlmostEqualTo</a></div><div class="ttdeci">bool IsAlmostEqualTo(const XYZ &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="#l00095">XYZ.cpp:95</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_afa9e0f5966aaaf4e55f1a128b0ef1759"><div class="ttname"><a href="classLNLib_1_1XYZ.html#afa9e0f5966aaaf4e55f1a128b0ef1759">LNLib::XYZ::SqrLength</a></div><div class="ttdeci">double SqrLength() const</div><div class="ttdef"><b>定义</b> <a href="#l00107">XYZ.cpp:107</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_afef4cf0a73277fc72edb25326e758ea7"><div class="ttname"><a href="classLNLib_1_1XYZ.html#afef4cf0a73277fc72edb25326e758ea7">LNLib::XYZ::operator+</a></div><div class="ttdeci">XYZ operator+(const XYZ &amp;xyz) const</div><div class="ttdef"><b>定义</b> <a href="#l00206">XYZ.cpp:206</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1XYZ_html_aff06ca55967bee6978ab4c15ceef3c0d"><div class="ttname"><a href="classLNLib_1_1XYZ.html#aff06ca55967bee6978ab4c15ceef3c0d">LNLib::XYZ::Negative</a></div><div class="ttdeci">XYZ Negative() const</div><div class="ttdef"><b>定义</b> <a href="#l00151">XYZ.cpp:151</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html"><div class="ttname"><a href="namespaceLNLib.html">LNLib</a></div><div class="ttdef"><b>定义</b> <a href="Integrator_8cpp_source.html#l00017">Integrator.cpp:18</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a3d0f2a917f984a069f87f949594c63a5"><div class="ttname"><a href="namespaceLNLib.html#a3d0f2a917f984a069f87f949594c63a5">LNLib::operator*</a></div><div class="ttdeci">Matrix4d operator*(const Matrix4d &amp;left, const Matrix4d &amp;right)</div><div class="ttdef"><b>定义</b> <a href="Matrix4d_8cpp_source.html#l00407">Matrix4d.cpp:407</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a628cca0f476c5ffcd920070f25c5fb39"><div class="ttname"><a href="namespaceLNLib.html#a628cca0f476c5ffcd920070f25c5fb39">LNLib::operator^</a></div><div class="ttdeci">double operator^(const UV &amp;uv1, const UV &amp;uv2)</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00217">UV.cpp:217</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_ad6ed2c3e4f87afdf2bf47f33f327e9f4"><div class="ttname"><a href="namespaceLNLib.html#ad6ed2c3e4f87afdf2bf47f33f327e9f4">LNLib::operator/</a></div><div class="ttdeci">UV operator/(const UV &amp;source, double d)</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00221">UV.cpp:221</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_16b010a3eb20297cce52e62ed2fbdb73.html">LNLib</a></li><li class="navelem"><a class="el" href="dir_f774456f2a5bc4faadd815307dfc5b42.html">Mathematics</a></li><li class="navelem"><a class="el" href="dir_94ec5fc6eb8ff752a81d101dc5e50b04.html">Math</a></li><li class="navelem"><a class="el" href="XYZ_8cpp.html">XYZ.cpp</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

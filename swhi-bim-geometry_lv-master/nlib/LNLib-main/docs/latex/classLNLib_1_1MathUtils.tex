@@ -1,0 +1,387 @@
+\doxysection{LNLib\+::Math\+Utils类 参考}
+\hypertarget{classLNLib_1_1MathUtils}{}\label{classLNLib_1_1MathUtils}\index{LNLib::MathUtils@{LNLib::MathUtils}}
+
+
+{\ttfamily \#include $<$Math\+Utils.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{Is\+Almost\+Equal\+To}} (double value1, double value2, double tolerance=\mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}})
+\begin{DoxyCompactList}\small\item\em According to \href{https://referencesource.microsoft.com/\#windowsbase/Shared/MS/Internal/DoubleUtil.cs,73bdd52106b3a9e3,references}{\texttt{ https\+://referencesource.\+microsoft.\+com/\#windowsbase/\+Shared/\+MS/\+Internal/\+Double\+Util.\+cs,73bdd52106b3a9e3,references}} \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1MathUtils_a995f6f889c781f69e0736108dd8c59bf}{Is\+Greater\+Than}} (double value1, double value2, double tolerance=\mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}})
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1MathUtils_a244ba0f7bea0ef572b6f2b53b9285fa6}{Is\+Greater\+Than\+Or\+Equal}} (double value1, double value2, double tolerance=\mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}})
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1MathUtils_abafb9abeffe5d756a37dac392191afdf}{Is\+Less\+Than}} (double value1, double value2, double tolerance=\mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}})
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1MathUtils_a0df1a9322a47b39c1e914c5fa82d9d2a}{Is\+Less\+Than\+Or\+Equal}} (double value1, double value2, double tolerance=\mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}})
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1MathUtils_a9172817955251a6a5d326e565aab5ba6}{Is\+Infinite}} (double value)
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{Is\+NaN}} (double value)
+\item 
+static double \mbox{\hyperlink{classLNLib_1_1MathUtils_a9f644ec075156b25b5dc1de610fd0448}{Radians\+To\+Angle}} (double radians)
+\item 
+static double \mbox{\hyperlink{classLNLib_1_1MathUtils_a5c749ef53dd7c491738acdc5081f3ac9}{Angle\+To\+Radians}} (double angle)
+\item 
+static int \mbox{\hyperlink{classLNLib_1_1MathUtils_a47c11b20bc48752634b8f029c5eae62a}{Factorial}} (int number)
+\item 
+static double \mbox{\hyperlink{classLNLib_1_1MathUtils_a15124b0543679f43aaa79b0360672150}{Binomial}} (int number, int i)
+\item 
+static double \mbox{\hyperlink{classLNLib_1_1MathUtils_addc3c246ded61a3e57be4aab45b4b61e}{Computer\+Cubic\+Equations\+With\+One\+Variable}} (double cubic, double quadratic, double linear, double constant)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page445 Equation 9.\+102. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\static void \mbox{\hyperlink{classLNLib_1_1MathUtils_a06a410855387fd4bc2a85d081b9e669e}{Transpose}} (const std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&matrix, std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&transposed)
+\item 
+{\footnotesize template$<$typename T$>$ }\\static std\+::vector$<$ T $>$ \mbox{\hyperlink{classLNLib_1_1MathUtils_aca8583dc182f52aabc45990e704abe50}{Get\+Column}} (const std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&matrix, int column\+Index)
+\item 
+static std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classLNLib_1_1MathUtils_a15f60990f3fadb7e874873e178cb40e6}{Matrix\+Multiply}} (const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&left, const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&right)
+\item 
+static std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classLNLib_1_1MathUtils_a933d1d8a008cc9ceebeddc62dd17f7e1}{Make\+Diagonal}} (int size)
+\item 
+static std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classLNLib_1_1MathUtils_a7efb4e7211d295ff16642ddb2c73271b}{Create\+Matrix}} (int row, int column)
+\item 
+static double \mbox{\hyperlink{classLNLib_1_1MathUtils_a8e78fe5808cf5fcd34f04166907e9ad1}{Get\+Determinant}} (const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&matrix)
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1MathUtils_abd3a464a546a33e0455f9dff4eba277a}{Make\+Inverse}} (const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&matrix, std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&inverse)
+\item 
+static std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classLNLib_1_1MathUtils_a69f9b12e3d726165dcde49f0e66ec847}{Solve\+Linear\+System}} (const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&matrix, const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&right)
+\begin{DoxyCompactList}\small\item\em matrix \texorpdfstring{$\ast$}{*} result = right. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{MathUtils_8h_source}{Math\+Utils.\+h}} 第 \mbox{\hyperlink{MathUtils_8h_source_l00019}{19}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1MathUtils_a5c749ef53dd7c491738acdc5081f3ac9}\index{LNLib::MathUtils@{LNLib::MathUtils}!AngleToRadians@{AngleToRadians}}
+\index{AngleToRadians@{AngleToRadians}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{AngleToRadians()}{AngleToRadians()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a5c749ef53dd7c491738acdc5081f3ac9} 
+double LNLib\+::\+Math\+Utils\+::\+Angle\+To\+Radians (\begin{DoxyParamCaption}\item[{double}]{angle}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00080}{80}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Constants_8h_source_l00027}{LNLib\+::\+Constants\+::\+Pi}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01886}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Open\+Conic()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a15124b0543679f43aaa79b0360672150}\index{LNLib::MathUtils@{LNLib::MathUtils}!Binomial@{Binomial}}
+\index{Binomial@{Binomial}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{Binomial()}{Binomial()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a15124b0543679f43aaa79b0360672150} 
+double LNLib\+::\+Math\+Utils\+::\+Binomial (\begin{DoxyParamCaption}\item[{int}]{number}{, }\item[{int}]{i}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00093}{93}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00085}{Factorial()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Polynomials_8cpp_source_l00565}{LNLib\+::\+Polynomials\+::\+Bezier\+To\+Power\+Matrix()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{LNLib\+::\+Nurbs\+Curve\+::\+Compute\+Rational\+Curve\+Derivatives()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00120}{LNLib\+::\+Nurbs\+Surface\+::\+Compute\+Rational\+Surface\+Derivatives()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00902}{LNLib\+::\+Nurbs\+Curve\+::\+Elevate\+Degree()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01119}{LNLib\+::\+Nurbs\+Curve\+::\+Reduce\+Degree()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_addc3c246ded61a3e57be4aab45b4b61e}\index{LNLib::MathUtils@{LNLib::MathUtils}!ComputerCubicEquationsWithOneVariable@{ComputerCubicEquationsWithOneVariable}}
+\index{ComputerCubicEquationsWithOneVariable@{ComputerCubicEquationsWithOneVariable}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{ComputerCubicEquationsWithOneVariable()}{ComputerCubicEquationsWithOneVariable()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_addc3c246ded61a3e57be4aab45b4b61e} 
+double LNLib\+::\+Math\+Utils\+::\+Computer\+Cubic\+Equations\+With\+One\+Variable (\begin{DoxyParamCaption}\item[{double}]{cubic}{, }\item[{double}]{quadratic}{, }\item[{double}]{linear}{, }\item[{double}]{constant}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page445 Equation 9.\+102. 
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00098}{98}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Constants_8h_source_l00023}{LNLib\+::\+Constants\+::\+Double\+Epsilon}} , 以及 \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{Is\+Greater\+Than()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a7efb4e7211d295ff16642ddb2c73271b}\index{LNLib::MathUtils@{LNLib::MathUtils}!CreateMatrix@{CreateMatrix}}
+\index{CreateMatrix@{CreateMatrix}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{CreateMatrix()}{CreateMatrix()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a7efb4e7211d295ff16642ddb2c73271b} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ LNLib\+::\+Math\+Utils\+::\+Create\+Matrix (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{column}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00152}{152}} 行定义.
+
+\Hypertarget{classLNLib_1_1MathUtils_a47c11b20bc48752634b8f029c5eae62a}\index{LNLib::MathUtils@{LNLib::MathUtils}!Factorial@{Factorial}}
+\index{Factorial@{Factorial}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{Factorial()}{Factorial()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a47c11b20bc48752634b8f029c5eae62a} 
+int LNLib\+::\+Math\+Utils\+::\+Factorial (\begin{DoxyParamCaption}\item[{int}]{number}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00085}{85}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00085}{Factorial()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{MathUtils_8cpp_source_l00093}{Binomial()}} , 以及 \mbox{\hyperlink{MathUtils_8cpp_source_l00085}{Factorial()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_aca8583dc182f52aabc45990e704abe50}\index{LNLib::MathUtils@{LNLib::MathUtils}!GetColumn@{GetColumn}}
+\index{GetColumn@{GetColumn}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{GetColumn()}{GetColumn()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_aca8583dc182f52aabc45990e704abe50} 
+template$<$typename T$>$ \\
+static std\+::vector$<$ T $>$ LNLib\+::\+Math\+Utils\+::\+Get\+Column (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&}]{matrix}{, }\item[{int}]{column\+Index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8h_source}{Math\+Utils.\+h}} 第 \mbox{\hyperlink{MathUtils_8h_source_l00076}{76}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01833}{LNLib\+::\+Nurbs\+Surface\+::\+Bicubic\+Local\+Interpolation()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02044}{LNLib\+::\+Nurbs\+Surface\+::\+Global\+Approximation()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a8e78fe5808cf5fcd34f04166907e9ad1}\index{LNLib::MathUtils@{LNLib::MathUtils}!GetDeterminant@{GetDeterminant}}
+\index{GetDeterminant@{GetDeterminant}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{GetDeterminant()}{GetDeterminant()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a8e78fe5808cf5fcd34f04166907e9ad1} 
+double LNLib\+::\+Math\+Utils\+::\+Get\+Determinant (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{matrix}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00163}{163}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Matrix4d_8cpp_source_l00335}{LNLib\+::\+Matrix4d\+::\+Get\+Determinant()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}\index{LNLib::MathUtils@{LNLib::MathUtils}!IsAlmostEqualTo@{IsAlmostEqualTo}}
+\index{IsAlmostEqualTo@{IsAlmostEqualTo}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{IsAlmostEqualTo()}{IsAlmostEqualTo()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d} 
+bool LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To (\begin{DoxyParamCaption}\item[{double}]{value1}{, }\item[{double}]{value2}{, }\item[{double}]{tolerance}{ = {\ttfamily \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+According to \href{https://referencesource.microsoft.com/\#windowsbase/Shared/MS/Internal/DoubleUtil.cs,73bdd52106b3a9e3,references}{\texttt{ https\+://referencesource.\+microsoft.\+com/\#windowsbase/\+Shared/\+MS/\+Internal/\+Double\+Util.\+cs,73bdd52106b3a9e3,references}} 
+
+Notice that Google Gtest EXPECT\+\_\+\+NEAR is more restrict\+: \href{https://github.com/google/googletest/blob/fa6de7f4382f5c8fb8b9e32eea28a2eb44966c32/googletest/include/gtest/gtest.h\#L2001}{\texttt{ https\+://github.\+com/google/googletest/blob/fa6de7f4382f5c8fb8b9e32eea28a2eb44966c32/googletest/include/gtest/gtest.\+h\#\+L2001}} \href{https://github.com/google/googletest/blob/fa6de7f4382f5c8fb8b9e32eea28a2eb44966c32/googletest/src/gtest.cc\#L1661}{\texttt{ https\+://github.\+com/google/googletest/blob/fa6de7f4382f5c8fb8b9e32eea28a2eb44966c32/googletest/src/gtest.\+cc\#\+L1661}} 
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{26}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00070}{Is\+Na\+N()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00061}{LNLib\+::\+Calculate\+Length\+By\+Simpson()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00315}{LNLib\+::\+Nurbs\+Curve\+::\+Can\+Computer\+Derivative()}}, \mbox{\hyperlink{Intersection_8cpp_source_l00064}{LNLib\+::\+Intersection\+::\+Compute\+Line\+And\+Plane()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00149}{LNLib\+::\+Interpolation\+::\+Computer\+Weight\+For\+Rational\+Quadratic\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03121}{LNLib\+::\+Nurbs\+Curve\+::\+Control\+Point\+Reposition()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01479}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Revolved\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01396}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Ruled\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02094}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Swung\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00331}{LNLib\+::\+Nurbs\+Curve\+::\+Curvature()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00199}{LNLib\+::\+Nurbs\+Surface\+::\+Curvature()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00662}{LNLib\+::\+Nurbs\+Curve\+::\+Decompose\+To\+Beziers()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00902}{LNLib\+::\+Nurbs\+Curve\+::\+Elevate\+Degree()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00081}{LNLib\+::\+Get\+Param\+By\+Length()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03810}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Param\+On\+Curve()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01078}{LNLib\+::\+Nurbs\+Surface\+::\+Get\+Param\+On\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03844}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Params\+On\+Curve()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00554}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Point\+On\+Curve\+By\+Corner\+Cut()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00203}{LNLib\+::\+Interpolation\+::\+Get\+Surface\+Mesh\+Parameterization()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01290}{LNLib\+::\+Nurbs\+Surface\+::\+Get\+UVTangent()}}, \mbox{\hyperlink{UV_8cpp_source_l00079}{LNLib\+::\+UV\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03683}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Arc()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01217}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Closed()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{Is\+Greater\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00042}{Is\+Greater\+Than\+Or\+Equal()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00348}{LNLib\+::\+Matrix4d\+::\+Is\+Identity()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{Is\+Less\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{Is\+Less\+Than\+Or\+Equal()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03523}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Periodic()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00385}{LNLib\+::\+Matrix4d\+::\+Is\+Translation()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00261}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Is\+Uniform()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03178}{LNLib\+::\+Nurbs\+Curve\+::\+Neighbor\+Weights\+Modification()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00351}{LNLib\+::\+Nurbs\+Curve\+::\+Normal()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00216}{LNLib\+::\+Offset\+By\+Piegl\+And\+Tiller()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00159}{LNLib\+::\+Offset\+By\+Tiller\+And\+Hanson()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00397}{LNLib\+::\+Polynomials\+::\+One\+Basis\+Function()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00455}{LNLib\+::\+Polynomials\+::\+One\+Basis\+Function\+Derivative()}}, \mbox{\hyperlink{Projection_8cpp_source_l00022}{LNLib\+::\+Projection\+::\+Point\+To\+Line()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00592}{LNLib\+::\+Nurbs\+Curve\+::\+Refine\+Knot\+Vector()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01425}{LNLib\+::\+Nurbs\+Curve\+::\+Reparametrize()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01270}{LNLib\+::\+Nurbs\+Surface\+::\+Reparametrize()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00107}{LNLib\+::\+Tessellate\+Core()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00448}{LNLib\+::\+Nurbs\+Curve\+::\+Torsion()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00097}{LNLib\+::\+XYZW\+::\+To\+XYZ()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l03149}{LNLib\+::\+Nurbs\+Surface\+::\+Triangulate()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03257}{LNLib\+::\+Nurbs\+Curve\+::\+Warping()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03152}{LNLib\+::\+Nurbs\+Curve\+::\+Weight\+Modification()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a995f6f889c781f69e0736108dd8c59bf}\index{LNLib::MathUtils@{LNLib::MathUtils}!IsGreaterThan@{IsGreaterThan}}
+\index{IsGreaterThan@{IsGreaterThan}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{IsGreaterThan()}{IsGreaterThan()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a995f6f889c781f69e0736108dd8c59bf} 
+bool LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than (\begin{DoxyParamCaption}\item[{double}]{value1}{, }\item[{double}]{value2}{, }\item[{double}]{tolerance}{ = {\ttfamily \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{35}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{Is\+Almost\+Equal\+To()}} , 以及 \mbox{\hyperlink{MathUtils_8cpp_source_l00070}{Is\+Na\+N()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03334}{LNLib\+::\+Nurbs\+Curve\+::\+Bending()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00098}{Computer\+Cubic\+Equations\+With\+One\+Variable()}}, \mbox{\hyperlink{BezierCurve_8cpp_source_l00039}{LNLib\+::\+Bezier\+Curve\+::\+Computer\+Middle\+Control\+Points\+On\+Quadratic\+Curve()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03371}{LNLib\+::\+Nurbs\+Curve\+::\+Constraint\+Based\+Modification()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01737}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Arc()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01357}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Cylindrical\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01886}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Open\+Conic()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01479}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Revolved\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02857}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Conic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03289}{LNLib\+::\+Nurbs\+Curve\+::\+Flattening()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00081}{LNLib\+::\+Get\+Param\+By\+Length()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03810}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Param\+On\+Curve()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01078}{LNLib\+::\+Nurbs\+Surface\+::\+Get\+Param\+On\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02821}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Approximation\+By\+Error\+Bound()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02056}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00021}{LNLib\+::\+Insert\+Mid\+Knot\+Core()}}, \mbox{\hyperlink{Projection_8cpp_source_l00022}{LNLib\+::\+Projection\+::\+Point\+To\+Line()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02614}{LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Knots\+By\+Given\+Bound()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01393}{LNLib\+::\+Nurbs\+Curve\+::\+Reparametrize()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03257}{LNLib\+::\+Nurbs\+Curve\+::\+Warping()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02351}{LNLib\+::\+Nurbs\+Curve\+::\+Weighted\+And\+Contrained\+Least\+Squares\+Approximation()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a244ba0f7bea0ef572b6f2b53b9285fa6}\index{LNLib::MathUtils@{LNLib::MathUtils}!IsGreaterThanOrEqual@{IsGreaterThanOrEqual}}
+\index{IsGreaterThanOrEqual@{IsGreaterThanOrEqual}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{IsGreaterThanOrEqual()}{IsGreaterThanOrEqual()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a244ba0f7bea0ef572b6f2b53b9285fa6} 
+bool LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than\+Or\+Equal (\begin{DoxyParamCaption}\item[{double}]{value1}{, }\item[{double}]{value2}{, }\item[{double}]{tolerance}{ = {\ttfamily \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00042}{42}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{Is\+Almost\+Equal\+To()}} , 以及 \mbox{\hyperlink{MathUtils_8cpp_source_l00070}{Is\+Na\+N()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01886}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Open\+Conic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02857}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Conic()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00397}{LNLib\+::\+Polynomials\+::\+One\+Basis\+Function()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00455}{LNLib\+::\+Polynomials\+::\+One\+Basis\+Function\+Derivative()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01509}{LNLib\+::\+Nurbs\+Curve\+::\+Segment()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01463}{LNLib\+::\+Nurbs\+Curve\+::\+Split\+At()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a9172817955251a6a5d326e565aab5ba6}\index{LNLib::MathUtils@{LNLib::MathUtils}!IsInfinite@{IsInfinite}}
+\index{IsInfinite@{IsInfinite}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{IsInfinite()}{IsInfinite()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a9172817955251a6a5d326e565aab5ba6} 
+bool LNLib\+::\+Math\+Utils\+::\+Is\+Infinite (\begin{DoxyParamCaption}\item[{double}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00063}{63}} 行定义.
+
+\Hypertarget{classLNLib_1_1MathUtils_abafb9abeffe5d756a37dac392191afdf}\index{LNLib::MathUtils@{LNLib::MathUtils}!IsLessThan@{IsLessThan}}
+\index{IsLessThan@{IsLessThan}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{IsLessThan()}{IsLessThan()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_abafb9abeffe5d756a37dac392191afdf} 
+bool LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than (\begin{DoxyParamCaption}\item[{double}]{value1}{, }\item[{double}]{value2}{, }\item[{double}]{tolerance}{ = {\ttfamily \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{49}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{Is\+Almost\+Equal\+To()}} , 以及 \mbox{\hyperlink{MathUtils_8cpp_source_l00070}{Is\+Na\+N()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00061}{LNLib\+::\+Calculate\+Length\+By\+Simpson()}}, \mbox{\hyperlink{BezierCurve_8cpp_source_l00039}{LNLib\+::\+Bezier\+Curve\+::\+Computer\+Middle\+Control\+Points\+On\+Quadratic\+Curve()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03121}{LNLib\+::\+Nurbs\+Curve\+::\+Control\+Point\+Reposition()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01886}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Open\+Conic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00081}{LNLib\+::\+Get\+Param\+By\+Length()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03810}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Param\+On\+Curve()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01078}{LNLib\+::\+Nurbs\+Surface\+::\+Get\+Param\+On\+Surface()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00378}{LNLib\+::\+Matrix4d\+::\+Has\+Reflection()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03178}{LNLib\+::\+Nurbs\+Curve\+::\+Neighbor\+Weights\+Modification()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00397}{LNLib\+::\+Polynomials\+::\+One\+Basis\+Function()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00455}{LNLib\+::\+Polynomials\+::\+One\+Basis\+Function\+Derivative()}}, \mbox{\hyperlink{Projection_8cpp_source_l00022}{LNLib\+::\+Projection\+::\+Point\+To\+Line()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02614}{LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Knots\+By\+Given\+Bound()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a0df1a9322a47b39c1e914c5fa82d9d2a}\index{LNLib::MathUtils@{LNLib::MathUtils}!IsLessThanOrEqual@{IsLessThanOrEqual}}
+\index{IsLessThanOrEqual@{IsLessThanOrEqual}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{IsLessThanOrEqual()}{IsLessThanOrEqual()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a0df1a9322a47b39c1e914c5fa82d9d2a} 
+bool LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than\+Or\+Equal (\begin{DoxyParamCaption}\item[{double}]{value1}{, }\item[{double}]{value2}{, }\item[{double}]{tolerance}{ = {\ttfamily \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{56}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{Is\+Almost\+Equal\+To()}} , 以及 \mbox{\hyperlink{MathUtils_8cpp_source_l00070}{Is\+Na\+N()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01737}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Arc()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01886}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Open\+Conic()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01479}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Revolved\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00580}{LNLib\+::\+Nurbs\+Surface\+::\+Decompose\+To\+Beziers()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02857}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Conic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00749}{LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Knot()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01509}{LNLib\+::\+Nurbs\+Curve\+::\+Segment()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01463}{LNLib\+::\+Nurbs\+Curve\+::\+Split\+At()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03865}{LNLib\+::\+Nurbs\+Curve\+::\+Tessellate()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00107}{LNLib\+::\+Tessellate\+Core()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}\index{LNLib::MathUtils@{LNLib::MathUtils}!IsNaN@{IsNaN}}
+\index{IsNaN@{IsNaN}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{IsNaN()}{IsNaN()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b} 
+bool LNLib\+::\+Math\+Utils\+::\+Is\+NaN (\begin{DoxyParamCaption}\item[{double}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00070}{70}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{Is\+Greater\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00042}{Is\+Greater\+Than\+Or\+Equal()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{Is\+Less\+Than()}} , 以及 \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{Is\+Less\+Than\+Or\+Equal()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a933d1d8a008cc9ceebeddc62dd17f7e1}\index{LNLib::MathUtils@{LNLib::MathUtils}!MakeDiagonal@{MakeDiagonal}}
+\index{MakeDiagonal@{MakeDiagonal}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{MakeDiagonal()}{MakeDiagonal()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a933d1d8a008cc9ceebeddc62dd17f7e1} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ LNLib\+::\+Math\+Utils\+::\+Make\+Diagonal (\begin{DoxyParamCaption}\item[{int}]{size}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00131}{131}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02351}{LNLib\+::\+Nurbs\+Curve\+::\+Weighted\+And\+Contrained\+Least\+Squares\+Approximation()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_abd3a464a546a33e0455f9dff4eba277a}\index{LNLib::MathUtils@{LNLib::MathUtils}!MakeInverse@{MakeInverse}}
+\index{MakeInverse@{MakeInverse}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{MakeInverse()}{MakeInverse()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_abd3a464a546a33e0455f9dff4eba277a} 
+bool LNLib\+::\+Math\+Utils\+::\+Make\+Inverse (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{matrix}{, }\item[{std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{inverse}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00173}{173}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03371}{LNLib\+::\+Nurbs\+Curve\+::\+Constraint\+Based\+Modification()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00295}{LNLib\+::\+Matrix4d\+::\+Get\+Inverse()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01656}{LNLib\+::\+Nurbs\+Surface\+::\+Make\+Corner\+Fillet\+Surface()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02351}{LNLib\+::\+Nurbs\+Curve\+::\+Weighted\+And\+Contrained\+Least\+Squares\+Approximation()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a15f60990f3fadb7e874873e178cb40e6}\index{LNLib::MathUtils@{LNLib::MathUtils}!MatrixMultiply@{MatrixMultiply}}
+\index{MatrixMultiply@{MatrixMultiply}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{MatrixMultiply()}{MatrixMultiply()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a15f60990f3fadb7e874873e178cb40e6} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ LNLib\+::\+Math\+Utils\+::\+Matrix\+Multiply (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{left}{, }\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{right}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00111}{111}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03371}{LNLib\+::\+Nurbs\+Curve\+::\+Constraint\+Based\+Modification()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02246}{LNLib\+::\+Nurbs\+Curve\+::\+Least\+Squares\+Approximation()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02351}{LNLib\+::\+Nurbs\+Curve\+::\+Weighted\+And\+Contrained\+Least\+Squares\+Approximation()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a9f644ec075156b25b5dc1de610fd0448}\index{LNLib::MathUtils@{LNLib::MathUtils}!RadiansToAngle@{RadiansToAngle}}
+\index{RadiansToAngle@{RadiansToAngle}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{RadiansToAngle()}{RadiansToAngle()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a9f644ec075156b25b5dc1de610fd0448} 
+double LNLib\+::\+Math\+Utils\+::\+Radians\+To\+Angle (\begin{DoxyParamCaption}\item[{double}]{radians}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00075}{75}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Constants_8h_source_l00027}{LNLib\+::\+Constants\+::\+Pi}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a69f9b12e3d726165dcde49f0e66ec847}\index{LNLib::MathUtils@{LNLib::MathUtils}!SolveLinearSystem@{SolveLinearSystem}}
+\index{SolveLinearSystem@{SolveLinearSystem}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{SolveLinearSystem()}{SolveLinearSystem()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a69f9b12e3d726165dcde49f0e66ec847} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ LNLib\+::\+Math\+Utils\+::\+Solve\+Linear\+System (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{matrix}{, }\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{right}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+matrix \texorpdfstring{$\ast$}{*} result = right. 
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8cpp_source}{Math\+Utils.\+cpp}} 第 \mbox{\hyperlink{MathUtils_8cpp_source_l00205}{205}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02056}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01996}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02246}{LNLib\+::\+Nurbs\+Curve\+::\+Least\+Squares\+Approximation()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02351}{LNLib\+::\+Nurbs\+Curve\+::\+Weighted\+And\+Contrained\+Least\+Squares\+Approximation()}}.
+
+\Hypertarget{classLNLib_1_1MathUtils_a06a410855387fd4bc2a85d081b9e669e}\index{LNLib::MathUtils@{LNLib::MathUtils}!Transpose@{Transpose}}
+\index{Transpose@{Transpose}!LNLib::MathUtils@{LNLib::MathUtils}}
+\doxysubsubsection{\texorpdfstring{Transpose()}{Transpose()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1MathUtils_a06a410855387fd4bc2a85d081b9e669e} 
+template$<$typename T$>$ \\
+static void LNLib\+::\+Math\+Utils\+::\+Transpose (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&}]{matrix}{, }\item[{std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \&}]{transposed}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{MathUtils_8h_source}{Math\+Utils.\+h}} 第 \mbox{\hyperlink{MathUtils_8h_source_l00060}{60}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01833}{LNLib\+::\+Nurbs\+Surface\+::\+Bicubic\+Local\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03371}{LNLib\+::\+Nurbs\+Curve\+::\+Constraint\+Based\+Modification()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02459}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Gordon\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00847}{LNLib\+::\+Nurbs\+Surface\+::\+Elevate\+Degree()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02044}{LNLib\+::\+Nurbs\+Surface\+::\+Global\+Approximation()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01035}{LNLib\+::\+Nurbs\+Surface\+::\+Is\+Closed()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02246}{LNLib\+::\+Nurbs\+Curve\+::\+Least\+Squares\+Approximation()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01656}{LNLib\+::\+Nurbs\+Surface\+::\+Make\+Corner\+Fillet\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00909}{LNLib\+::\+Nurbs\+Surface\+::\+Reduce\+Degree()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00522}{LNLib\+::\+Nurbs\+Surface\+::\+Refine\+Knot\+Vector()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00780}{LNLib\+::\+Nurbs\+Surface\+::\+Remove\+Knot()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00280}{LNLib\+::\+Nurbs\+Surface\+::\+Swap()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02351}{LNLib\+::\+Nurbs\+Curve\+::\+Weighted\+And\+Contrained\+Least\+Squares\+Approximation()}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{MathUtils_8h}{Math\+Utils.\+h}}\item 
+src/\+LNLib/\+Mathematics/\+Utils/\mbox{\hyperlink{MathUtils_8cpp}{Math\+Utils.\+cpp}}\end{DoxyCompactItemize}

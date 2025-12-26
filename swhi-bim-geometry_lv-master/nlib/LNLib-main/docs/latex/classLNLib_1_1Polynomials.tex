@@ -1,0 +1,345 @@
+\doxysection{LNLib\+::Polynomials类 参考}
+\hypertarget{classLNLib_1_1Polynomials}{}\label{classLNLib_1_1Polynomials}\index{LNLib::Polynomials@{LNLib::Polynomials}}
+
+
+{\ttfamily \#include $<$Polynomials.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{classLNLib_1_1Polynomials_ad7772b8afd6ae4d7b5d70127ad47bed1}{Horner}} (int degree, const std\+::vector$<$ double $>$ \&coefficients, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page20 Algorithm A1.\+1 Compute point on power basis curve. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1Polynomials_af3a9dd8a4728ae8c177d436182d183d9}{Bernstein}} (int index, int degree, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page7 Algorithm A1.\+2 compute the value of a Berstein polynomial. \end{DoxyCompactList}\item 
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1Polynomials_a29c2f3c57dfdbac5a5c03d9e1e7aa129}{All\+Bernstein}} (int degree, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page21 Algorithm A1.\+3 Compute All nth-\/degree Berstein polynomials. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1Polynomials_adae2d862f564d668c6bda0a63bc4963a}{Horner}} (int degreeU, int degreeV, const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&coefficients, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&uv)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page36 Algorithm A1.\+6 Compute point on a power basis surface. coefficients with (n+1) \texorpdfstring{$\ast$}{*} (m+1) \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classLNLib_1_1Polynomials_a9fb1eb590895ca8bd7a3b23ab1e39e4a}{Get\+Knot\+Multiplicity}} (const std\+::vector$<$ double $>$ \&knot\+Vector, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page63 Get the knot multiplicity. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{Get\+Knot\+Span\+Index}} (int degree, const std\+::vector$<$ double $>$ \&knot\+Vector, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page68 Algorithm A2.\+1 Determine the knot span index. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1Polynomials_a8e2b821ce7ef5ace1be5a138edd45f5a}{Basis\+Functions}} (int span\+Index, int degree, const std\+::vector$<$ double $>$ \&knot\+Vector, double paramT, double \texorpdfstring{$\ast$}{*}basis\+Functions)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page70 Algorithm A2.\+2 Compute the nonvanishing basis functions. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classLNLib_1_1Polynomials_aebcbc937b4c1273e47f68ac7595845fd}{Basis\+Functions\+Derivatives}} (int span\+Index, int degree, int derivative, const std\+::vector$<$ double $>$ \&knot\+Vector, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page72 Algorithm A2.\+3 Compute nonzero basis functions and their derivative. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1Polynomials_ade29241ea29a5b6c521154e14562a805}{Basis\+Functions\+First\+Order\+Derivative}} (int span\+Index, int degree, const std\+::vector$<$ double $>$ \&knot\+Vector, double paramT, double derivatives\mbox{[}2\mbox{]}\mbox{[}\mbox{\hyperlink{classLNLib_1_1Constants_a0aeb8534e051a2deb63e222feb3f9963}{Constants\+::\+NURBSMax\+Degree}}+1\mbox{]})
+\begin{DoxyCompactList}\small\item\em This is an optimized function of Basis\+Functions\+Derivatives, for order 1 case. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1Polynomials_ac2923820e8e24d290792df766547f04d}{One\+Basis\+Function}} (int span\+Index, int degree, const std\+::vector$<$ double $>$ \&knot\+Vector, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page74 Algorithm A2.\+4 Compute the basis function Ni,p. \end{DoxyCompactList}\item 
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1Polynomials_a8ffff95a1fa76aec409e243cb67fcac8}{One\+Basis\+Function\+Derivative}} (int span\+Index, int degree, int derivative, const std\+::vector$<$ double $>$ \&knot\+Vector, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page76 Algorithm A2.\+5 Compute a single basis function and its derivative. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classLNLib_1_1Polynomials_af8571e825aea3a881d6ed4754689146c}{All\+Basis\+Functions}} (int span\+Index, int degree, const std\+::vector$<$ double $>$ \&knot\+Vector, double knot)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page99 A simple modification of A2.\+2 to return all nonzero basis functions of all degrees from 0 up to degree. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classLNLib_1_1Polynomials_ab703bb2e2968ce6af5389a35e818cfde}{Bezier\+To\+Power\+Matrix}} (int degree)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page269 Algorithm A6.\+1 Compute pth degree Bezier matrix. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \mbox{\hyperlink{classLNLib_1_1Polynomials_ac6a51e900e1a0ca40740309067013963}{Power\+To\+Bezier\+Matrix}} (int degree, const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&matrix)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page275 Algorithm A6.\+2 Compute inverse of pth-\/degree Bezier matrix. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{Polynomials_8h_source}{Polynomials.\+h}} 第 \mbox{\hyperlink{Polynomials_8h_source_l00020}{20}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1Polynomials_af8571e825aea3a881d6ed4754689146c}\index{LNLib::Polynomials@{LNLib::Polynomials}!AllBasisFunctions@{AllBasisFunctions}}
+\index{AllBasisFunctions@{AllBasisFunctions}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{AllBasisFunctions()}{AllBasisFunctions()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_af8571e825aea3a881d6ed4754689146c} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ LNLib\+::\+Polynomials\+::\+All\+Basis\+Functions (\begin{DoxyParamCaption}\item[{int}]{span\+Index}{, }\item[{int}]{degree}{, }\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{, }\item[{double}]{knot}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page99 A simple modification of A2.\+2 to return all nonzero basis functions of all degrees from 0 up to degree. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00544}{544}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00162}{Basis\+Functions()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}}, \mbox{\hyperlink{Constants_8h_source_l00028}{LNLib\+::\+Constants\+::\+NURBSMax\+Degree}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BsplineCurve_8h_source_l00139}{LNLib\+::\+Bspline\+Curve\+::\+Compute\+Derivatives\+By\+All\+Basis\+Functions()}} , 以及 \mbox{\hyperlink{BsplineSurface_8h_source_l00273}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+Derivatives\+By\+All\+Basis\+Functions()}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_a29c2f3c57dfdbac5a5c03d9e1e7aa129}\index{LNLib::Polynomials@{LNLib::Polynomials}!AllBernstein@{AllBernstein}}
+\index{AllBernstein@{AllBernstein}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{AllBernstein()}{AllBernstein()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_a29c2f3c57dfdbac5a5c03d9e1e7aa129} 
+std\+::vector$<$ double $>$ Polynomials\+::\+All\+Bernstein (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page21 Algorithm A1.\+3 Compute All nth-\/degree Berstein polynomials. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00064}{64}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BezierCurve_8h_source_l00047}{LNLib\+::\+Bezier\+Curve\+::\+Get\+Point\+On\+Curve\+By\+Bernstein()}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_a8e2b821ce7ef5ace1be5a138edd45f5a}\index{LNLib::Polynomials@{LNLib::Polynomials}!BasisFunctions@{BasisFunctions}}
+\index{BasisFunctions@{BasisFunctions}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{BasisFunctions()}{BasisFunctions()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_a8e2b821ce7ef5ace1be5a138edd45f5a} 
+void LNLib\+::\+Polynomials\+::\+Basis\+Functions (\begin{DoxyParamCaption}\item[{int}]{span\+Index}{, }\item[{int}]{degree}{, }\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{, }\item[{double}]{paramT}{, }\item[{double \texorpdfstring{$\ast$}{*}}]{basis\+Functions}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page70 Algorithm A2.\+2 Compute the nonvanishing basis functions. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00162}{162}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}}, \mbox{\hyperlink{Constants_8h_source_l00028}{LNLib\+::\+Constants\+::\+NURBSMax\+Degree}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Polynomials_8cpp_source_l00544}{All\+Basis\+Functions()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03121}{LNLib\+::\+Nurbs\+Curve\+::\+Control\+Point\+Reposition()}}, \mbox{\hyperlink{BsplineCurve_8h_source_l00048}{LNLib\+::\+Bspline\+Curve\+::\+Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00055}{LNLib\+::\+Bspline\+Surface\+::\+Get\+Point\+On\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02056}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01996}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02246}{LNLib\+::\+Nurbs\+Curve\+::\+Least\+Squares\+Approximation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02351}{LNLib\+::\+Nurbs\+Curve\+::\+Weighted\+And\+Contrained\+Least\+Squares\+Approximation()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03152}{LNLib\+::\+Nurbs\+Curve\+::\+Weight\+Modification()}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_aebcbc937b4c1273e47f68ac7595845fd}\index{LNLib::Polynomials@{LNLib::Polynomials}!BasisFunctionsDerivatives@{BasisFunctionsDerivatives}}
+\index{BasisFunctionsDerivatives@{BasisFunctionsDerivatives}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{BasisFunctionsDerivatives()}{BasisFunctionsDerivatives()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_aebcbc937b4c1273e47f68ac7595845fd} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ LNLib\+::\+Polynomials\+::\+Basis\+Functions\+Derivatives (\begin{DoxyParamCaption}\item[{int}]{span\+Index}{, }\item[{int}]{degree}{, }\item[{int}]{derivative}{, }\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page72 Algorithm A2.\+3 Compute nonzero basis functions and their derivative. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00193}{193}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}}, \mbox{\hyperlink{Constants_8h_source_l00028}{LNLib\+::\+Constants\+::\+NURBSMax\+Degree}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BsplineCurve_8h_source_l00074}{LNLib\+::\+Bspline\+Curve\+::\+Compute\+Derivatives()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00094}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+Derivatives()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03371}{LNLib\+::\+Nurbs\+Curve\+::\+Constraint\+Based\+Modification()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02056}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02351}{LNLib\+::\+Nurbs\+Curve\+::\+Weighted\+And\+Contrained\+Least\+Squares\+Approximation()}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_ade29241ea29a5b6c521154e14562a805}\index{LNLib::Polynomials@{LNLib::Polynomials}!BasisFunctionsFirstOrderDerivative@{BasisFunctionsFirstOrderDerivative}}
+\index{BasisFunctionsFirstOrderDerivative@{BasisFunctionsFirstOrderDerivative}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{BasisFunctionsFirstOrderDerivative()}{BasisFunctionsFirstOrderDerivative()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_ade29241ea29a5b6c521154e14562a805} 
+void LNLib\+::\+Polynomials\+::\+Basis\+Functions\+First\+Order\+Derivative (\begin{DoxyParamCaption}\item[{int}]{span\+Index}{, }\item[{int}]{degree}{, }\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{, }\item[{double}]{paramT}{, }\item[{double}]{derivatives}{\mbox{[}2\mbox{]}\mbox{[}\+Constants\+::\+NURBSMax\+Degree+1\mbox{]}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is an optimized function of Basis\+Functions\+Derivatives, for order 1 case. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00298}{298}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}}, \mbox{\hyperlink{Constants_8h_source_l00028}{LNLib\+::\+Constants\+::\+NURBSMax\+Degree}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BsplineSurface_8h_source_l00145}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+First\+Order\+Derivative()}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_af3a9dd8a4728ae8c177d436182d183d9}\index{LNLib::Polynomials@{LNLib::Polynomials}!Bernstein@{Bernstein}}
+\index{Bernstein@{Bernstein}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{Bernstein()}{Bernstein()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_af3a9dd8a4728ae8c177d436182d183d9} 
+double Polynomials\+::\+Bernstein (\begin{DoxyParamCaption}\item[{int}]{index}{, }\item[{int}]{degree}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page7 Algorithm A1.\+2 compute the value of a Berstein polynomial. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00034}{34}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_ab703bb2e2968ce6af5389a35e818cfde}\index{LNLib::Polynomials@{LNLib::Polynomials}!BezierToPowerMatrix@{BezierToPowerMatrix}}
+\index{BezierToPowerMatrix@{BezierToPowerMatrix}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{BezierToPowerMatrix()}{BezierToPowerMatrix()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_ab703bb2e2968ce6af5389a35e818cfde} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ LNLib\+::\+Polynomials\+::\+Bezier\+To\+Power\+Matrix (\begin{DoxyParamCaption}\item[{int}]{degree}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page269 Algorithm A6.\+1 Compute pth degree Bezier matrix. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00565}{565}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00093}{LNLib\+::\+Math\+Utils\+::\+Binomial()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01656}{LNLib\+::\+Nurbs\+Surface\+::\+Make\+Corner\+Fillet\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_a9fb1eb590895ca8bd7a3b23ab1e39e4a}\index{LNLib::Polynomials@{LNLib::Polynomials}!GetKnotMultiplicity@{GetKnotMultiplicity}}
+\index{GetKnotMultiplicity@{GetKnotMultiplicity}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{GetKnotMultiplicity()}{GetKnotMultiplicity()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_a9fb1eb590895ca8bd7a3b23ab1e39e4a} 
+int LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page63 Get the knot multiplicity. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{105}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02566}{LNLib\+::\+Nurbs\+Curve\+::\+Computer\+Remove\+Knot\+Error\+Bound()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00050}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Continuity()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00072}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Inserted\+Knot\+Element()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00100}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Knot\+Multiplicity\+Map()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00554}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Point\+On\+Curve\+By\+Corner\+Cut()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00475}{LNLib\+::\+Nurbs\+Curve\+::\+Insert\+Knot()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00371}{LNLib\+::\+Nurbs\+Surface\+::\+Insert\+Knot()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03627}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Clamp()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01563}{LNLib\+::\+Nurbs\+Curve\+::\+Merge()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00749}{LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Knot()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02614}{LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Knots\+By\+Given\+Bound()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01463}{LNLib\+::\+Nurbs\+Curve\+::\+Split\+At()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03478}{LNLib\+::\+Nurbs\+Curve\+::\+To\+Clamp\+Curve()}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}\index{LNLib::Polynomials@{LNLib::Polynomials}!GetKnotSpanIndex@{GetKnotSpanIndex}}
+\index{GetKnotSpanIndex@{GetKnotSpanIndex}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{GetKnotSpanIndex()}{GetKnotSpanIndex()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f} 
+int LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page68 Algorithm A2.\+1 Determine the knot span index. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{125}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00042}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than\+Or\+Equal()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than\+Or\+Equal()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03334}{LNLib\+::\+Nurbs\+Curve\+::\+Bending()}}, \mbox{\hyperlink{BsplineCurve_8h_source_l00074}{LNLib\+::\+Bspline\+Curve\+::\+Compute\+Derivatives()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00094}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+Derivatives()}}, \mbox{\hyperlink{BsplineCurve_8h_source_l00139}{LNLib\+::\+Bspline\+Curve\+::\+Compute\+Derivatives\+By\+All\+Basis\+Functions()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00273}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+Derivatives\+By\+All\+Basis\+Functions()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00145}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+First\+Order\+Derivative()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03371}{LNLib\+::\+Nurbs\+Curve\+::\+Constraint\+Based\+Modification()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03121}{LNLib\+::\+Nurbs\+Curve\+::\+Control\+Point\+Reposition()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02409}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02325}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03289}{LNLib\+::\+Nurbs\+Curve\+::\+Flattening()}}, \mbox{\hyperlink{BsplineCurve_8h_source_l00048}{LNLib\+::\+Bspline\+Curve\+::\+Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00554}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Point\+On\+Curve\+By\+Corner\+Cut()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00055}{LNLib\+::\+Bspline\+Surface\+::\+Get\+Point\+On\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02056}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01996}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00475}{LNLib\+::\+Nurbs\+Curve\+::\+Insert\+Knot()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00371}{LNLib\+::\+Nurbs\+Surface\+::\+Insert\+Knot()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02246}{LNLib\+::\+Nurbs\+Curve\+::\+Least\+Squares\+Approximation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00592}{LNLib\+::\+Nurbs\+Curve\+::\+Refine\+Knot\+Vector()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00749}{LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Knot()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02614}{LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Knots\+By\+Given\+Bound()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01463}{LNLib\+::\+Nurbs\+Curve\+::\+Split\+At()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02351}{LNLib\+::\+Nurbs\+Curve\+::\+Weighted\+And\+Contrained\+Least\+Squares\+Approximation()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03152}{LNLib\+::\+Nurbs\+Curve\+::\+Weight\+Modification()}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_ad7772b8afd6ae4d7b5d70127ad47bed1}\index{LNLib::Polynomials@{LNLib::Polynomials}!Horner@{Horner}}
+\index{Horner@{Horner}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{Horner()}{Horner()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_ad7772b8afd6ae4d7b5d70127ad47bed1} 
+double Polynomials\+::\+Horner (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{const std\+::vector$<$ double $>$ \&}]{coefficients}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page20 Algorithm A1.\+1 Compute point on power basis curve. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00022}{22}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{ValidationUtils_8cpp_source_l00018}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Bezier()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Polynomials_8cpp_source_l00087}{Horner()}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_adae2d862f564d668c6bda0a63bc4963a}\index{LNLib::Polynomials@{LNLib::Polynomials}!Horner@{Horner}}
+\index{Horner@{Horner}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{Horner()}{Horner()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_adae2d862f564d668c6bda0a63bc4963a} 
+double Polynomials\+::\+Horner (\begin{DoxyParamCaption}\item[{int}]{degreeU}{, }\item[{int}]{degreeV}{, }\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{coefficients}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{uv}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page36 Algorithm A1.\+6 Compute point on a power basis surface. coefficients with (n+1) \texorpdfstring{$\ast$}{*} (m+1) 
+
+\mbox{[}0\mbox{]}\mbox{[}0\mbox{]} \mbox{[}0\mbox{]}\mbox{[}1\mbox{]} ... ... \mbox{[}0\mbox{]}\mbox{[}m\mbox{]} -\/-\/-\/-\/--- v direction \mbox{[}1\mbox{]}\mbox{[}0\mbox{]} \mbox{[}1\mbox{]}\mbox{[}1\mbox{]} ... ... \mbox{[}1\mbox{]}\mbox{[}m\mbox{]} \texorpdfstring{$\vert$}{|} . \texorpdfstring{$\vert$}{|} . u direction \mbox{[}n\mbox{]}\mbox{[}0\mbox{]} \mbox{[}n\mbox{]}\mbox{[}1\mbox{]} ... ... \mbox{[}n\mbox{]}\mbox{[}m\mbox{]} 
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00087}{87}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{UV_8cpp_source_l00037}{LNLib\+::\+UV\+::\+Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{LNLib\+::\+UV\+::\+Get\+V()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00022}{Horner()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00018}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Bezier()}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_ac2923820e8e24d290792df766547f04d}\index{LNLib::Polynomials@{LNLib::Polynomials}!OneBasisFunction@{OneBasisFunction}}
+\index{OneBasisFunction@{OneBasisFunction}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{OneBasisFunction()}{OneBasisFunction()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_ac2923820e8e24d290792df766547f04d} 
+double LNLib\+::\+Polynomials\+::\+One\+Basis\+Function (\begin{DoxyParamCaption}\item[{int}]{span\+Index}{, }\item[{int}]{degree}{, }\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page74 Algorithm A2.\+4 Compute the basis function Ni,p. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00397}{397}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00042}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than\+Or\+Equal()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02614}{LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Knots\+By\+Given\+Bound()}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_a8ffff95a1fa76aec409e243cb67fcac8}\index{LNLib::Polynomials@{LNLib::Polynomials}!OneBasisFunctionDerivative@{OneBasisFunctionDerivative}}
+\index{OneBasisFunctionDerivative@{OneBasisFunctionDerivative}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{OneBasisFunctionDerivative()}{OneBasisFunctionDerivative()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_a8ffff95a1fa76aec409e243cb67fcac8} 
+std\+::vector$<$ double $>$ LNLib\+::\+Polynomials\+::\+One\+Basis\+Function\+Derivative (\begin{DoxyParamCaption}\item[{int}]{span\+Index}{, }\item[{int}]{degree}{, }\item[{int}]{derivative}{, }\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page76 Algorithm A2.\+5 Compute a single basis function and its derivative. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00455}{455}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00042}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than\+Or\+Equal()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1Polynomials_ac6a51e900e1a0ca40740309067013963}\index{LNLib::Polynomials@{LNLib::Polynomials}!PowerToBezierMatrix@{PowerToBezierMatrix}}
+\index{PowerToBezierMatrix@{PowerToBezierMatrix}!LNLib::Polynomials@{LNLib::Polynomials}}
+\doxysubsubsection{\texorpdfstring{PowerToBezierMatrix()}{PowerToBezierMatrix()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Polynomials_ac6a51e900e1a0ca40740309067013963} 
+std\+::vector$<$ std\+::vector$<$ double $>$ $>$ LNLib\+::\+Polynomials\+::\+Power\+To\+Bezier\+Matrix (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{const std\+::vector$<$ std\+::vector$<$ double $>$ $>$ \&}]{matrix}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page275 Algorithm A6.\+2 Compute inverse of pth-\/degree Bezier matrix. 
+
+
+
+在文件 \mbox{\hyperlink{Polynomials_8cpp_source}{Polynomials.\+cpp}} 第 \mbox{\hyperlink{Polynomials_8cpp_source_l00602}{602}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{Polynomials_8h}{Polynomials.\+h}}\item 
+src/\+LNLib/\+Algorithm/\mbox{\hyperlink{Polynomials_8cpp}{Polynomials.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,136 @@
+\doxysection{Bezier\+Curve.\+cpp}
+\hypertarget{BezierCurve_8cpp_source}{}\label{BezierCurve_8cpp_source}\index{src/LNLib/Geometry/Curve/BezierCurve.cpp@{src/LNLib/Geometry/Curve/BezierCurve.cpp}}
+\mbox{\hyperlink{BezierCurve_8cpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ Author:\ }}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/06/08\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BezierCurve_8h}{BezierCurve.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ValidationUtils_8h}{ValidationUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{XYZ_8h}{XYZ.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{XYZW_8h}{XYZW.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Matrix4d_8h}{Matrix4d.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Polynomials_8h}{Polynomials.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Intersection_8h}{Intersection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Interpolation_8h}{Interpolation.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ValidationUtils_8h}{ValidationUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00020}00020\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibExceptions_8h}{LNLibExceptions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00023}00023\ \textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00025}\mbox{\hyperlink{classLNLib_1_1BezierCurve_a27db7aaef717e21215fea7b708dca62f}{00025}}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ \mbox{\hyperlink{classLNLib_1_1BezierCurve_a27db7aaef717e21215fea7b708dca62f}{LNLib::BezierCurve::GetPointOnQuadraticArc}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}\&\ startPoint,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}\&\ middlePoint,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}\&\ endPoint,\ \textcolor{keywordtype}{double}\ paramT)}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00026}00026\ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00027}00027\ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(paramT,\ 0,\ 1);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{double}\ w0\ =\ startPoint.\mbox{\hyperlink{classLNLib_1_1XYZW_a6c222fc5ed40a1bf804f800bbf651b12}{GetW}}();}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00030}00030\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ P0\ =\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(startPoint.\mbox{\hyperlink{classLNLib_1_1XYZW_a93c40d48184938ef0ebca1cddaff24c7}{GetWX}}()/w0,\ startPoint.\mbox{\hyperlink{classLNLib_1_1XYZW_ab4e26ac0538c459f2cddfcb917aa85bf}{GetWY}}()/w0,\ startPoint.\mbox{\hyperlink{classLNLib_1_1XYZW_ab97a1b1820c57a3dff1a366824a45582}{GetWZ}}()/w0);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{double}\ w1\ =\ middlePoint.\mbox{\hyperlink{classLNLib_1_1XYZW_a6c222fc5ed40a1bf804f800bbf651b12}{GetW}}();}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00032}00032\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ P1\ =\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(middlePoint.\mbox{\hyperlink{classLNLib_1_1XYZW_a93c40d48184938ef0ebca1cddaff24c7}{GetWX}}()\ /\ w0,\ middlePoint.\mbox{\hyperlink{classLNLib_1_1XYZW_ab4e26ac0538c459f2cddfcb917aa85bf}{GetWY}}()\ /\ w0,\ middlePoint.\mbox{\hyperlink{classLNLib_1_1XYZW_ab97a1b1820c57a3dff1a366824a45582}{GetWZ}}()\ /\ w0);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00033}00033\ \ \ \ \ \textcolor{keywordtype}{double}\ w2\ =\ endPoint.\mbox{\hyperlink{classLNLib_1_1XYZW_a6c222fc5ed40a1bf804f800bbf651b12}{GetW}}();}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00034}00034\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ P2\ =\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(endPoint.\mbox{\hyperlink{classLNLib_1_1XYZW_a93c40d48184938ef0ebca1cddaff24c7}{GetWX}}()\ /\ w0,\ endPoint.\mbox{\hyperlink{classLNLib_1_1XYZW_ab4e26ac0538c459f2cddfcb917aa85bf}{GetWY}}()\ /\ w0,\ endPoint.\mbox{\hyperlink{classLNLib_1_1XYZW_ab97a1b1820c57a3dff1a366824a45582}{GetWZ}}()\ /\ w0);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00035}00035\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{return}\ \ ((1\ -\/\ paramT)\ *\ (1\ -\/\ paramT)\ *\ w0\ *\ P0\ +\ 2\ *\ paramT\ *\ (1\ -\/\ paramT)\ *\ w1\ *\ P1\ +\ paramT\ *\ paramT\ *\ w2\ *\ P2)\ /\ ((1\ -\/\ paramT)\ *\ (1\ -\/\ paramT)\ *\ w0\ +\ 2\ *\ paramT\ *\ (1\ -\/\ paramT)\ *\ w1\ +\ paramT\ *\ paramT\ *\ w2);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00039}\mbox{\hyperlink{classLNLib_1_1BezierCurve_a03d039ae9d2f06ef26ab07cc745c350f}{00039}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1BezierCurve_a03d039ae9d2f06ef26ab07cc745c350f}{LNLib::BezierCurve::ComputerMiddleControlPointsOnQuadraticCurve}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ startPoint,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ startTangent,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ endPoint,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ endTangent,\ std::vector<XYZW>\&\ controlPoints)}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00040}00040\ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00041}00041\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ chord\ =\ (endPoint\ -\/\ startPoint).Normalize();}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00042}00042\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ nST\ =\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\textcolor{keyword}{>}(startTangent).Normalize();}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00043}00043\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ nET\ =\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\textcolor{keyword}{>}(endTangent).Normalize();}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordflow}{if}\ (nST.\mbox{\hyperlink{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2}{IsAlmostEqualTo}}(chord)\ ||}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ nST.\mbox{\hyperlink{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2}{IsAlmostEqualTo}}(chord.\mbox{\hyperlink{classLNLib_1_1XYZ_aff06ca55967bee6978ab4c15ceef3c0d}{Negative}}()))}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00047}00047\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (nST.\mbox{\hyperlink{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2}{IsAlmostEqualTo}}(nET)\ ||}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ nST.\mbox{\hyperlink{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2}{IsAlmostEqualTo}}(nET.\mbox{\hyperlink{classLNLib_1_1XYZ_aff06ca55967bee6978ab4c15ceef3c0d}{Negative}}()))}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ controlPoints.emplace\_back((startPoint\ +\ endPoint)\ /\ 2,\ 1);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00054}00054\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00056}00056\ \ \ \ \ \textcolor{keywordtype}{double}\ alf1\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00057}00057\ \ \ \ \ \textcolor{keywordtype}{double}\ alf2\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ R(0,\ 0,\ 0);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordtype}{double}\ weight\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00061}00061\ \ \ \ \ \textcolor{keyword}{auto}\ type\ =\ \mbox{\hyperlink{classLNLib_1_1Intersection_a08dc65c36ff6e39c14ce9f00d0377f0a}{Intersection::ComputeRays}}(startPoint,\ nST,\ endPoint,\ nET,\ alf1,\ alf2,\ R);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00062}00062\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ ==\ \mbox{\hyperlink{namespaceLNLib_a990b15d5522b431bd0cfede7b600a59cae2e969432869ed6806cf6eb86082820e}{CurveCurveIntersectionType::Intersecting}})}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00063}00063\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (startPoint.\mbox{\hyperlink{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2}{IsAlmostEqualTo}}(R)\ ||\ endPoint.\mbox{\hyperlink{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2}{IsAlmostEqualTo}}(R))}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ R\ =\ 0.5\ *\ (startPoint\ +\ endPoint);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a41ac37f3602f5f3377ee28b707d73756}{Interpolation::ComputerWeightForRationalQuadraticInterpolation}}(startPoint,\ R,\ endPoint,\ weight);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ controlPoints.emplace\_back(\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}(R,\ weight));}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_a995f6f889c781f69e0736108dd8c59bf}{MathUtils::IsGreaterThan}}(alf1,\ 0.0)\ \&\&\ \mbox{\hyperlink{classLNLib_1_1MathUtils_abafb9abeffe5d756a37dac392191afdf}{MathUtils::IsLessThan}}(alf2,\ 0.0))}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a41ac37f3602f5f3377ee28b707d73756}{Interpolation::ComputerWeightForRationalQuadraticInterpolation}}(startPoint,\ R,\ endPoint,\ weight);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ controlPoints.emplace\_back(\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}(R,\ weight));}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00080}00080\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00081}00081\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00082}00082\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ SE\ =\ endPoint\ -\/\ startPoint;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{keywordflow}{if}\ (SE.\mbox{\hyperlink{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961}{Normalize}}().\mbox{\hyperlink{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2}{IsAlmostEqualTo}}(startTangent)\ \&\&\ SE.\mbox{\hyperlink{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961}{Normalize}}().\mbox{\hyperlink{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2}{IsAlmostEqualTo}}(endTangent))}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00084}00084\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ R\ =\ 0.5\ *\ (startPoint\ +\ endPoint);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a41ac37f3602f5f3377ee28b707d73756}{Interpolation::ComputerWeightForRationalQuadraticInterpolation}}(startPoint,\ R,\ endPoint,\ weight);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!result)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ controlPoints.emplace\_back(\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}(R,\ weight));}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00090}00090\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00091}00091\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00092}00092\ \ \ \ \ \textcolor{keywordtype}{double}\ gamma1\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00093}00093\ \ \ \ \ \textcolor{keywordtype}{double}\ gamma2\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00094}00094\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{if}\ (type\ !=\ \mbox{\hyperlink{namespaceLNLib_a990b15d5522b431bd0cfede7b600a59cae2e969432869ed6806cf6eb86082820e}{CurveCurveIntersectionType::Intersecting}})}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00096}00096\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ gamma1\ =\ 0.5\ *\ SE.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}();}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ gamma2\ =\ gamma1;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00099}00099\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00101}00101\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ SR\ =\ R\ -\/\ startPoint;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00103}00103\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ ER\ =\ R\ -\/\ endPoint;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00104}00104\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ theta0\ =\ SR.\mbox{\hyperlink{classLNLib_1_1XYZ_aa634eee7815b0227c7b4ccd4b87609c0}{DotProduct}}(SE)\ /\ (SR.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}()\ *\ SE.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}());}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ theta1\ =\ ER.\mbox{\hyperlink{classLNLib_1_1XYZ_aa634eee7815b0227c7b4ccd4b87609c0}{DotProduct}}(SE)\ /\ (ER.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}()\ *\ SE.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}());}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ alpha\ =\ 2.0\ /\ 3.0;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ gamma1\ =\ 0.5\ *\ SE.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}()\ /\ (1.0\ +\ alpha\ *\ theta1\ +\ (1\ -\/\ alpha)\ *\ theta0);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ gamma2\ =\ 0.5\ *\ SE.\mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}}()\ /\ (1.0\ +\ alpha\ *\ theta0\ +\ (1\ -\/\ alpha)\ *\ theta1);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00111}00111\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00113}00113\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ R1\ =\ startPoint\ +\ gamma1\ *\ startTangent;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00114}00114\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ R2\ =\ endPoint\ -\/\ gamma2\ *\ endTangent;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00115}00115\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ Qk\ =\ (gamma1\ *\ R2\ +\ gamma2\ *\ R1)\ /\ (gamma1\ +\ gamma2);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00117}00117\ \ \ \ \ \textcolor{keywordtype}{double}\ weight1\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00118}00118\ \ \ \ \ \textcolor{keywordtype}{bool}\ result\ =\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a41ac37f3602f5f3377ee28b707d73756}{Interpolation::ComputerWeightForRationalQuadraticInterpolation}}(startPoint,\ R1,\ Qk,\ weight1);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordflow}{if}\ (!result)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00121}00121\ \ \ \ \ \textcolor{keywordtype}{double}\ weight2\ =\ 0.0;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00122}00122\ \ \ \ \ result\ =\ \mbox{\hyperlink{classLNLib_1_1Interpolation_a41ac37f3602f5f3377ee28b707d73756}{Interpolation::ComputerWeightForRationalQuadraticInterpolation}}(Qk,\ R2,\ endPoint,\ weight2);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00123}00123\ \ \ \ \ \textcolor{keywordflow}{if}\ (!result)\ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00124}00124\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00125}00125\ \ \ \ \ controlPoints.emplace\_back(\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}(R1,\ weight1));}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00126}00126\ \ \ \ \ controlPoints.emplace\_back(\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}(Qk,\ 1.0));}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00127}00127\ \ \ \ \ controlPoints.emplace\_back(\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}(R2,\ weight2));}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00128}00128\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00129}00129\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8cpp_source_l00130}00130\ \}}
+
+\end{DoxyCode}

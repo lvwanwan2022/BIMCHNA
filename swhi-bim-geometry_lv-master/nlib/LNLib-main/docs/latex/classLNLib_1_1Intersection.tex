@@ -1,0 +1,65 @@
+\doxysection{LNLib\+::Intersection类 参考}
+\hypertarget{classLNLib_1_1Intersection}{}\label{classLNLib_1_1Intersection}\index{LNLib::Intersection@{LNLib::Intersection}}
+
+
+{\ttfamily \#include $<$Intersection.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{namespaceLNLib_a990b15d5522b431bd0cfede7b600a59c}{Curve\+Curve\+Intersection\+Type}} \mbox{\hyperlink{classLNLib_1_1Intersection_a08dc65c36ff6e39c14ce9f00d0377f0a}{Compute\+Rays}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&point0, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&vector0, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&point1, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&vector1, double \&param0, double \&param1, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&intersect\+Point)
+\item 
+static \mbox{\hyperlink{namespaceLNLib_ab883fb3627937ddd447e9f9ff276c40f}{Line\+Plane\+Intersection\+Type}} \mbox{\hyperlink{classLNLib_1_1Intersection_a6a0db8b1d60cc8f3a209427e83ac8bd0}{Compute\+Line\+And\+Plane}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&normal, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&point\+On\+Plane, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&point\+On\+Line, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&line\+Direction, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&intersect\+Point)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{Intersection_8h_source}{Intersection.\+h}} 第 \mbox{\hyperlink{Intersection_8h_source_l00019}{19}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1Intersection_a6a0db8b1d60cc8f3a209427e83ac8bd0}\index{LNLib::Intersection@{LNLib::Intersection}!ComputeLineAndPlane@{ComputeLineAndPlane}}
+\index{ComputeLineAndPlane@{ComputeLineAndPlane}!LNLib::Intersection@{LNLib::Intersection}}
+\doxysubsubsection{\texorpdfstring{ComputeLineAndPlane()}{ComputeLineAndPlane()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Intersection_a6a0db8b1d60cc8f3a209427e83ac8bd0} 
+\mbox{\hyperlink{namespaceLNLib_ab883fb3627937ddd447e9f9ff276c40f}{Line\+Plane\+Intersection\+Type}} LNLib\+::\+Intersection\+::\+Compute\+Line\+And\+Plane (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{normal}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{point\+On\+Plane}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{point\+On\+Line}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{line\+Direction}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{intersect\+Point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Intersection_8cpp_source}{Intersection.\+cpp}} 第 \mbox{\hyperlink{Intersection_8cpp_source_l00064}{64}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00112}{LNLib\+::\+XYZ\+::\+Angle\+To()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}, \mbox{\hyperlink{LNEnums_8h_source_l00025}{LNLib\+::\+Intersecting}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}}, \mbox{\hyperlink{LNEnums_8h_source_l00027}{LNLib\+::\+On}}, \mbox{\hyperlink{LNEnums_8h_source_l00026}{LNLib\+::\+Parallel}} , 以及 \mbox{\hyperlink{Constants_8h_source_l00027}{LNLib\+::\+Constants\+::\+Pi}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}.
+
+\Hypertarget{classLNLib_1_1Intersection_a08dc65c36ff6e39c14ce9f00d0377f0a}\index{LNLib::Intersection@{LNLib::Intersection}!ComputeRays@{ComputeRays}}
+\index{ComputeRays@{ComputeRays}!LNLib::Intersection@{LNLib::Intersection}}
+\doxysubsubsection{\texorpdfstring{ComputeRays()}{ComputeRays()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Intersection_a08dc65c36ff6e39c14ce9f00d0377f0a} 
+\mbox{\hyperlink{namespaceLNLib_a990b15d5522b431bd0cfede7b600a59c}{Curve\+Curve\+Intersection\+Type}} Intersection\+::\+Compute\+Rays (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{point0}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{vector0}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{point1}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{vector1}{, }\item[{double \&}]{param0}{, }\item[{double \&}]{param1}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{intersect\+Point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Intersection_8cpp_source}{Intersection.\+cpp}} 第 \mbox{\hyperlink{Intersection_8cpp_source_l00018}{18}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNEnums_8h_source_l00019}{LNLib\+::\+Coincident}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{LNLib\+::\+XYZ\+::\+Cross\+Product()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}, \mbox{\hyperlink{LNEnums_8h_source_l00017}{LNLib\+::\+Intersecting}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00085}{LNLib\+::\+XYZ\+::\+Is\+Zero()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}}, \mbox{\hyperlink{LNEnums_8h_source_l00018}{LNLib\+::\+Parallel}}, \mbox{\hyperlink{LNEnums_8h_source_l00020}{LNLib\+::\+Skew}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BezierCurve_8cpp_source_l00039}{LNLib\+::\+Bezier\+Curve\+::\+Computer\+Middle\+Control\+Points\+On\+Quadratic\+Curve()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00149}{LNLib\+::\+Interpolation\+::\+Computer\+Weight\+For\+Rational\+Quadratic\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01737}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Arc()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01834}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+One\+Conic\+Arc()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01479}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Revolved\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02857}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Conic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03178}{LNLib\+::\+Nurbs\+Curve\+::\+Neighbor\+Weights\+Modification()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00159}{LNLib\+::\+Offset\+By\+Tiller\+And\+Hanson()}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{Intersection_8h}{Intersection.\+h}}\item 
+src/\+LNLib/\+Algorithm/\mbox{\hyperlink{Intersection_8cpp}{Intersection.\+cpp}}\end{DoxyCompactItemize}

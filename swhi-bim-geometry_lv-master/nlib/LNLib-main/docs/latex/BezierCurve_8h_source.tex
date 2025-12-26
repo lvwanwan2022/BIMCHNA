@@ -1,0 +1,86 @@
+\doxysection{Bezier\+Curve.\+h}
+\hypertarget{BezierCurve_8h_source}{}\label{BezierCurve_8h_source}\index{src/LNLib/include/BezierCurve.h@{src/LNLib/include/BezierCurve.h}}
+\mbox{\hyperlink{BezierCurve_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/06/08\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00011}00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Polynomials_8h}{Polynomials.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ValidationUtils_8h}{ValidationUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibDefinitions_8h}{LNLibDefinitions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibExceptions_8h}{LNLibExceptions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNObject_8h}{LNObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00019}00019\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00020}00020\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00021}00021\ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00024}\mbox{\hyperlink{classLNLib_1_1BezierCurve}{00024}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{classLNLib_1_1BezierCurve}{BezierCurve}}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00025}00025\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00029}\mbox{\hyperlink{classLNLib_1_1BezierCurve_a47b4080175dc4306fd136165e5562060}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1BezierCurve_a47b4080175dc4306fd136165e5562060}{Check}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{LN\_BezierCurve<T>}}\&\ curve)}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degree\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a9005e783e4bb85da2bd2447219e639ef}{Degree}};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ controlPoints\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a42ec91d6a29b9ad47daecdf507ccfc14}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(degree\ >\ 0,\ \textcolor{stringliteral}{"{}degree"{}},\ \textcolor{stringliteral}{"{}Degree\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(controlPoints.size()\ >\ 0,\ \textcolor{stringliteral}{"{}controlPoints"{}},\ \textcolor{stringliteral}{"{}ControlPoints\ must\ contain\ one\ point\ at\ least."{}});}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(\mbox{\hyperlink{classLNLib_1_1ValidationUtils_a33298c65cd285c15bb31683cab9787d3}{ValidationUtils::IsValidBezier}}(degree,\ controlPoints.size()),\ \textcolor{stringliteral}{"{}controlPoints"{}},\ \textcolor{stringliteral}{"{}ControlPoints\ count\ equals\ degree\ plus\ one."{}});}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00047}\mbox{\hyperlink{classLNLib_1_1BezierCurve_aa19b2fc3f26df879dba2636afc99bce3}{00047}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ T\ \mbox{\hyperlink{classLNLib_1_1BezierCurve_aa19b2fc3f26df879dba2636afc99bce3}{GetPointOnCurveByBernstein}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{LN\_BezierCurve<T>}}\&\ curve,\ \textcolor{keywordtype}{double}\ paramT)}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00048}00048\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(paramT,\ 0.0,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00050}00050\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degree\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a9005e783e4bb85da2bd2447219e639ef}{Degree}};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ controlPoints\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a42ec91d6a29b9ad47daecdf507ccfc14}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ bernsteinArray\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a29c2f3c57dfdbac5a5c03d9e1e7aa129}{Polynomials::AllBernstein}}(degree,\ paramT);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ T\ temp;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <=\ degree;\ k++)}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp\ +=\ bernsteinArray[k]\ *\ controlPoints[k];}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ temp;}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00071}\mbox{\hyperlink{classLNLib_1_1BezierCurve_afa16e5198387e647ef220a19c4acc87f}{00071}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ T\ \mbox{\hyperlink{classLNLib_1_1BezierCurve_afa16e5198387e647ef220a19c4acc87f}{GetPointOnCurveByDeCasteljau}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{LN\_BezierCurve<T>}}\&\ curve,\ \textcolor{keywordtype}{double}\ paramT)}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(paramT,\ 0.0,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degree\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a9005e783e4bb85da2bd2447219e639ef}{Degree}};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ temp\ =\ curve.\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a42ec91d6a29b9ad47daecdf507ccfc14}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 1;\ k\ <=\ degree;\ k++)}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ degree\ -\/\ k;\ i++)}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[i]\ =\ (1.0\ -\/\ paramT)\ *\ temp[i]\ +\ paramT\ *\ temp[i\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ temp[0];}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ GetPointOnQuadraticArc(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}\&\ startPoint,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}\&\ middlePoint,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}\&\ endPoint,\ \textcolor{keywordtype}{double}\ paramT);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00092}00092\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{bool}\ ComputerMiddleControlPointsOnQuadraticCurve(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ startPoint,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ startTangent,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ endPoint,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ endTangent,\ std::vector<XYZW>\&\ controlPoints);}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00099}00099\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00100}00100\ \}}
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{BezierCurve_8h_source_l00102}00102\ }
+
+\end{DoxyCode}

@@ -1,0 +1,1061 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: LNLib::XYZ类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classLNLib_1_1XYZ.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="classLNLib_1_1XYZ-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">LNLib::XYZ类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Represents three-dimension location/vector/offset  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="XYZ_8h_source.html">XYZ.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:afa55cea1b74cbc9ca9615432f8d744db" id="r_afa55cea1b74cbc9ca9615432f8d744db"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa55cea1b74cbc9ca9615432f8d744db">XYZ</a> ()</td></tr>
+<tr class="separator:afa55cea1b74cbc9ca9615432f8d744db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04ba0b5c68bc0bd6fc1fab38c4c065d3" id="r_a04ba0b5c68bc0bd6fc1fab38c4c065d3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a04ba0b5c68bc0bd6fc1fab38c4c065d3">XYZ</a> (double x, double y, double z)</td></tr>
+<tr class="separator:a04ba0b5c68bc0bd6fc1fab38c4c065d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a007a32676629037b9c443248fa28ed95" id="r_a007a32676629037b9c443248fa28ed95"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a007a32676629037b9c443248fa28ed95">SetX</a> (const double x)</td></tr>
+<tr class="separator:a007a32676629037b9c443248fa28ed95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad89d7629d1a625493cd1114a6ebbe004" id="r_ad89d7629d1a625493cd1114a6ebbe004"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad89d7629d1a625493cd1114a6ebbe004">GetX</a> () const</td></tr>
+<tr class="separator:ad89d7629d1a625493cd1114a6ebbe004"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8053f323903089bd9e1fb43a7bc0a404" id="r_a8053f323903089bd9e1fb43a7bc0a404"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8053f323903089bd9e1fb43a7bc0a404">SetY</a> (const double y)</td></tr>
+<tr class="separator:a8053f323903089bd9e1fb43a7bc0a404"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac7a68aaac00bbaeecb51d8aa03ee8322" id="r_ac7a68aaac00bbaeecb51d8aa03ee8322"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac7a68aaac00bbaeecb51d8aa03ee8322">GetY</a> () const</td></tr>
+<tr class="separator:ac7a68aaac00bbaeecb51d8aa03ee8322"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af97cf5a4b6fe5f26b9899e2355f453b3" id="r_af97cf5a4b6fe5f26b9899e2355f453b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af97cf5a4b6fe5f26b9899e2355f453b3">SetZ</a> (const double z)</td></tr>
+<tr class="separator:af97cf5a4b6fe5f26b9899e2355f453b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac1dd1ddfa09fb299ddc4672d116c7efb" id="r_ac1dd1ddfa09fb299ddc4672d116c7efb"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac1dd1ddfa09fb299ddc4672d116c7efb">GetZ</a> () const</td></tr>
+<tr class="separator:ac1dd1ddfa09fb299ddc4672d116c7efb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06858f179cea40342851ea985f861e74" id="r_a06858f179cea40342851ea985f861e74"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06858f179cea40342851ea985f861e74">X</a> () const</td></tr>
+<tr class="separator:a06858f179cea40342851ea985f861e74"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa129731bda1a807b75b8cd4403c72402" id="r_aa129731bda1a807b75b8cd4403c72402"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa129731bda1a807b75b8cd4403c72402">X</a> ()</td></tr>
+<tr class="separator:aa129731bda1a807b75b8cd4403c72402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d6988a56b4c78faff46690da3e3a931" id="r_a8d6988a56b4c78faff46690da3e3a931"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8d6988a56b4c78faff46690da3e3a931">Y</a> () const</td></tr>
+<tr class="separator:a8d6988a56b4c78faff46690da3e3a931"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a945f6efc2214a02e2dff6533157c7481" id="r_a945f6efc2214a02e2dff6533157c7481"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a945f6efc2214a02e2dff6533157c7481">Y</a> ()</td></tr>
+<tr class="separator:a945f6efc2214a02e2dff6533157c7481"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac5d5926aa9258b951acc09534636b05d" id="r_ac5d5926aa9258b951acc09534636b05d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac5d5926aa9258b951acc09534636b05d">Z</a> () const</td></tr>
+<tr class="separator:ac5d5926aa9258b951acc09534636b05d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a8d9596c30fc1d91fb051f7a4f17f1" id="r_af6a8d9596c30fc1d91fb051f7a4f17f1"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6a8d9596c30fc1d91fb051f7a4f17f1">Z</a> ()</td></tr>
+<tr class="separator:af6a8d9596c30fc1d91fb051f7a4f17f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abd9e6f3e06a7efe439c2639913fc310f" id="r_abd9e6f3e06a7efe439c2639913fc310f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abd9e6f3e06a7efe439c2639913fc310f">IsZero</a> (const double epsilon=<a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>) const</td></tr>
+<tr class="separator:abd9e6f3e06a7efe439c2639913fc310f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a364bff0eea9a2f39bd2d20e08bb683f3" id="r_a364bff0eea9a2f39bd2d20e08bb683f3"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a364bff0eea9a2f39bd2d20e08bb683f3">IsUnit</a> (const double epsilon=<a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>) const</td></tr>
+<tr class="separator:a364bff0eea9a2f39bd2d20e08bb683f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa69d0f95034851b7d8f84c24d1140c2" id="r_afa69d0f95034851b7d8f84c24d1140c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa69d0f95034851b7d8f84c24d1140c2">IsAlmostEqualTo</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;another) const</td></tr>
+<tr class="separator:afa69d0f95034851b7d8f84c24d1140c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39a9aba82641a0c1fd903a5dc2a4ef82" id="r_a39a9aba82641a0c1fd903a5dc2a4ef82"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39a9aba82641a0c1fd903a5dc2a4ef82">Length</a> () const</td></tr>
+<tr class="separator:a39a9aba82641a0c1fd903a5dc2a4ef82"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa9e0f5966aaaf4e55f1a128b0ef1759" id="r_afa9e0f5966aaaf4e55f1a128b0ef1759"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa9e0f5966aaaf4e55f1a128b0ef1759">SqrLength</a> () const</td></tr>
+<tr class="separator:afa9e0f5966aaaf4e55f1a128b0ef1759"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1f6974cca4e5c8cf539eb5ee9cf72c18" id="r_a1f6974cca4e5c8cf539eb5ee9cf72c18"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1f6974cca4e5c8cf539eb5ee9cf72c18">AngleTo</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;another) const</td></tr>
+<tr class="separator:a1f6974cca4e5c8cf539eb5ee9cf72c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a00c64e01eb6e5a00239535969e9e1961" id="r_a00c64e01eb6e5a00239535969e9e1961"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a00c64e01eb6e5a00239535969e9e1961">Normalize</a> ()</td></tr>
+<tr class="separator:a00c64e01eb6e5a00239535969e9e1961"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9a0c80c7c1d6f358462dd7656f634ce" id="r_ac9a0c80c7c1d6f358462dd7656f634ce"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac9a0c80c7c1d6f358462dd7656f634ce">Add</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;another) const</td></tr>
+<tr class="separator:ac9a0c80c7c1d6f358462dd7656f634ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af77aadb54489544ba8d912ef7a3efcf9" id="r_af77aadb54489544ba8d912ef7a3efcf9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af77aadb54489544ba8d912ef7a3efcf9">Substract</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;another) const</td></tr>
+<tr class="separator:af77aadb54489544ba8d912ef7a3efcf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff06ca55967bee6978ab4c15ceef3c0d" id="r_aff06ca55967bee6978ab4c15ceef3c0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aff06ca55967bee6978ab4c15ceef3c0d">Negative</a> () const</td></tr>
+<tr class="separator:aff06ca55967bee6978ab4c15ceef3c0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa634eee7815b0227c7b4ccd4b87609c0" id="r_aa634eee7815b0227c7b4ccd4b87609c0"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa634eee7815b0227c7b4ccd4b87609c0">DotProduct</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;another) const</td></tr>
+<tr class="separator:aa634eee7815b0227c7b4ccd4b87609c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f4c2a266c4ff4956ae6d4f46915354d" id="r_a0f4c2a266c4ff4956ae6d4f46915354d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0f4c2a266c4ff4956ae6d4f46915354d">CrossProduct</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;another) const</td></tr>
+<tr class="separator:a0f4c2a266c4ff4956ae6d4f46915354d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6bbe2197a3621446dc100d8b385b7aac" id="r_a6bbe2197a3621446dc100d8b385b7aac"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bbe2197a3621446dc100d8b385b7aac">Distance</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;another) const</td></tr>
+<tr class="separator:a6bbe2197a3621446dc100d8b385b7aac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae35201de40fff3de177e1bbf7d9b1665" id="r_ae35201de40fff3de177e1bbf7d9b1665"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae35201de40fff3de177e1bbf7d9b1665">operator=</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;xyz)</td></tr>
+<tr class="separator:ae35201de40fff3de177e1bbf7d9b1665"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ad6d9faa36994bcc283ea5b70643e14" id="r_a8ad6d9faa36994bcc283ea5b70643e14"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ad6d9faa36994bcc283ea5b70643e14">operator[]</a> (int index)</td></tr>
+<tr class="separator:a8ad6d9faa36994bcc283ea5b70643e14"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a760476be0142b7a57adf5da3a90c40f7" id="r_a760476be0142b7a57adf5da3a90c40f7"><td class="memItemLeft" align="right" valign="top">const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a760476be0142b7a57adf5da3a90c40f7">operator[]</a> (int index) const</td></tr>
+<tr class="separator:a760476be0142b7a57adf5da3a90c40f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afef4cf0a73277fc72edb25326e758ea7" id="r_afef4cf0a73277fc72edb25326e758ea7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afef4cf0a73277fc72edb25326e758ea7">operator+</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;xyz) const</td></tr>
+<tr class="separator:afef4cf0a73277fc72edb25326e758ea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae06ec765f25cbb401ce909619e967342" id="r_ae06ec765f25cbb401ce909619e967342"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae06ec765f25cbb401ce909619e967342">operator-</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;xyz) const</td></tr>
+<tr class="separator:ae06ec765f25cbb401ce909619e967342"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a378d52a18fc2dfd0f299b8507152c87f" id="r_a378d52a18fc2dfd0f299b8507152c87f"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a378d52a18fc2dfd0f299b8507152c87f">operator*</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;xyz) const</td></tr>
+<tr class="separator:a378d52a18fc2dfd0f299b8507152c87f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e6705b80036b0d76594555b6233cceb" id="r_a1e6705b80036b0d76594555b6233cceb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1e6705b80036b0d76594555b6233cceb">operator*=</a> (const double &amp;d)</td></tr>
+<tr class="separator:a1e6705b80036b0d76594555b6233cceb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4391296eb4ab08cf8406580123db42eb" id="r_a4391296eb4ab08cf8406580123db42eb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4391296eb4ab08cf8406580123db42eb">operator/=</a> (const double &amp;d)</td></tr>
+<tr class="separator:a4391296eb4ab08cf8406580123db42eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac84697efe8a1464ec33fd58738d65fd9" id="r_ac84697efe8a1464ec33fd58738d65fd9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac84697efe8a1464ec33fd58738d65fd9">operator+=</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;xyz)</td></tr>
+<tr class="separator:ac84697efe8a1464ec33fd58738d65fd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3cde09c4d41a9e3d45110fdcb6994e67" id="r_a3cde09c4d41a9e3d45110fdcb6994e67"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3cde09c4d41a9e3d45110fdcb6994e67">operator-=</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;xyz)</td></tr>
+<tr class="separator:a3cde09c4d41a9e3d45110fdcb6994e67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a381ab99c4e43c2de72020a98798b8348" id="r_a381ab99c4e43c2de72020a98798b8348"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a381ab99c4e43c2de72020a98798b8348">operator-</a> () const</td></tr>
+<tr class="separator:a381ab99c4e43c2de72020a98798b8348"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a94878ed6f22683432a7d944ccf697833" id="r_a94878ed6f22683432a7d944ccf697833"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a94878ed6f22683432a7d944ccf697833">CreateRandomOrthogonal</a> (const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;xyz)</td></tr>
+<tr class="separator:a94878ed6f22683432a7d944ccf697833"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>Represents three-dimension location/vector/offset </p>
+
+<p class="definition">在文件 <a class="el" href="XYZ_8h_source.html">XYZ.h</a> 第 <a class="el" href="XYZ_8h_source.html#l00020">20</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="afa55cea1b74cbc9ca9615432f8d744db" name="afa55cea1b74cbc9ca9615432f8d744db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa55cea1b74cbc9ca9615432f8d744db">&#9670;&#160;</a></span>XYZ() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">XYZ::XYZ </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00019">19</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="XYZ_8cpp_source.html#l00141">Add()</a>, <a class="el" href="XYZ_8cpp_source.html#l00112">AngleTo()</a>, <a class="el" href="XYZ_8cpp_source.html#l00174">CreateRandomOrthogonal()</a>, <a class="el" href="XYZ_8cpp_source.html#l00161">CrossProduct()</a>, <a class="el" href="XYZ_8cpp_source.html#l00168">Distance()</a>, <a class="el" href="XYZ_8cpp_source.html#l00156">DotProduct()</a>, <a class="el" href="XYZ_8cpp_source.html#l00095">IsAlmostEqualTo()</a>, <a class="el" href="XYZ_8cpp_source.html#l00151">Negative()</a>, <a class="el" href="XYZ_8cpp_source.html#l00127">Normalize()</a>, <a class="el" href="XYZ_8cpp_source.html#l00216">operator*()</a>, <a class="el" href="XYZ_8cpp_source.html#l00221">operator*=()</a>, <a class="el" href="XYZ_8cpp_source.html#l00206">operator+()</a>, <a class="el" href="XYZ_8cpp_source.html#l00237">operator+=()</a>, <a class="el" href="XYZ_8cpp_source.html#l00253">operator-()</a>, <a class="el" href="XYZ_8cpp_source.html#l00211">operator-()</a>, <a class="el" href="XYZ_8cpp_source.html#l00245">operator-=()</a>, <a class="el" href="XYZ_8cpp_source.html#l00229">operator/=()</a>, <a class="el" href="XYZ_8cpp_source.html#l00188">operator=()</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00146">Substract()</a>.</p>
+
+</div>
+</div>
+<a id="a04ba0b5c68bc0bd6fc1fab38c4c065d3" name="a04ba0b5c68bc0bd6fc1fab38c4c065d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04ba0b5c68bc0bd6fc1fab38c4c065d3">&#9670;&#160;</a></span>XYZ() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">XYZ::XYZ </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>y</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>z</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00026">26</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="ac9a0c80c7c1d6f358462dd7656f634ce" name="ac9a0c80c7c1d6f358462dd7656f634ce"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9a0c80c7c1d6f358462dd7656f634ce">&#9670;&#160;</a></span>Add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> XYZ::Add </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00141">141</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+</div>
+</div>
+<a id="a1f6974cca4e5c8cf539eb5ee9cf72c18" name="a1f6974cca4e5c8cf539eb5ee9cf72c18"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f6974cca4e5c8cf539eb5ee9cf72c18">&#9670;&#160;</a></span>AngleTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::XYZ::AngleTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00112">112</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00156">DotProduct()</a>, <a class="el" href="XYZ_8cpp_source.html#l00085">IsZero()</a>, <a class="el" href="XYZ_8cpp_source.html#l00127">Normalize()</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Intersection_8cpp_source.html#l00064">LNLib::Intersection::ComputeLineAndPlane()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01886">LNLib::NurbsCurve::CreateOpenConic()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01656">LNLib::NurbsSurface::MakeCornerFilletSurface()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l00107">LNLib::TessellateCore()</a>.</p>
+
+</div>
+</div>
+<a id="a94878ed6f22683432a7d944ccf697833" name="a94878ed6f22683432a7d944ccf697833"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94878ed6f22683432a7d944ccf697833">&#9670;&#160;</a></span>CreateRandomOrthogonal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> LNLib::XYZ::CreateRandomOrthogonal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>xyz</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00174">174</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00161">CrossProduct()</a>, <a class="el" href="XYZ_8cpp_source.html#l00038">GetX()</a>, <a class="el" href="XYZ_8cpp_source.html#l00046">GetY()</a>, <a class="el" href="XYZ_8cpp_source.html#l00053">GetZ()</a>, <a class="el" href="XYZ_8cpp_source.html#l00127">Normalize()</a>, <a class="el" href="Constants_8h_source.html#l00027">LNLib::Constants::Pi</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l00388">LNLib::NurbsCurve::ProjectNormal()</a>.</p>
+
+</div>
+</div>
+<a id="a0f4c2a266c4ff4956ae6d4f46915354d" name="a0f4c2a266c4ff4956ae6d4f46915354d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f4c2a266c4ff4956ae6d4f46915354d">&#9670;&#160;</a></span>CrossProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> XYZ::CrossProduct </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00161">161</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Intersection_8cpp_source.html#l00018">LNLib::Intersection::ComputeRays()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01357">LNLib::NurbsSurface::CreateCylindricalSurface()</a>, <a class="el" href="XYZ_8cpp_source.html#l00174">CreateRandomOrthogonal()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01479">LNLib::NurbsSurface::CreateRevolvedSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02409">LNLib::NurbsSurface::CreateSweepSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02325">LNLib::NurbsSurface::CreateSweepSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02094">LNLib::NurbsSurface::CreateSwungSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00331">LNLib::NurbsCurve::Curvature()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02935">LNLib::NurbsCurve::FitWithCubic()</a>, <a class="el" href="Interpolation_8cpp_source.html#l00027">LNLib::Getak()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00351">LNLib::NurbsCurve::Normal()</a>, <a class="el" href="XYZ_8cpp_source.html#l00265">LNLib::operator^()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00388">LNLib::NurbsCurve::ProjectNormal()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00448">LNLib::NurbsCurve::Torsion()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03257">LNLib::NurbsCurve::Warping()</a>.</p>
+
+</div>
+</div>
+<a id="a6bbe2197a3621446dc100d8b385b7aac" name="a6bbe2197a3621446dc100d8b385b7aac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bbe2197a3621446dc100d8b385b7aac">&#9670;&#160;</a></span>Distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::XYZ::Distance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00168">168</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00038">GetX()</a>, <a class="el" href="XYZ_8cpp_source.html#l00046">GetY()</a>, <a class="el" href="XYZ_8cpp_source.html#l00053">GetZ()</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l03732">LNLib::NurbsCurve::ApproximateLength()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03334">LNLib::NurbsCurve::Bending()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02857">LNLib::NurbsCurve::FitWithConic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02935">LNLib::NurbsCurve::FitWithCubic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03289">LNLib::NurbsCurve::Flattening()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03683">LNLib::NurbsCurve::IsArc()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01217">LNLib::NurbsCurve::IsClosed()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01656">LNLib::NurbsSurface::MakeCornerFilletSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03178">LNLib::NurbsCurve::NeighborWeightsModification()</a>, <a class="el" href="Projection_8cpp_source.html#l00022">LNLib::Projection::PointToLine()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00107">LNLib::TessellateCore()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03152">LNLib::NurbsCurve::WeightModification()</a>.</p>
+
+</div>
+</div>
+<a id="aa634eee7815b0227c7b4ccd4b87609c0" name="aa634eee7815b0227c7b4ccd4b87609c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa634eee7815b0227c7b4ccd4b87609c0">&#9670;&#160;</a></span>DotProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double XYZ::DotProduct </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00156">156</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="XYZ_8cpp_source.html#l00112">AngleTo()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02979">LNLib::NurbsSurface::ApproximateArea()</a>, <a class="el" href="Intersection_8cpp_source.html#l00064">LNLib::Intersection::ComputeLineAndPlane()</a>, <a class="el" href="Intersection_8cpp_source.html#l00018">LNLib::Intersection::ComputeRays()</a>, <a class="el" href="BezierCurve_8cpp_source.html#l00039">LNLib::BezierCurve::ComputerMiddleControlPointsOnQuadraticCurve()</a>, <a class="el" href="Interpolation_8cpp_source.html#l00149">LNLib::Interpolation::ComputerWeightForRationalQuadraticInterpolation()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00199">LNLib::NurbsSurface::Curvature()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01261">LNLib::NurbsCurve::GetParamOnCurve()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01078">LNLib::NurbsSurface::GetParamOnSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01290">LNLib::NurbsSurface::GetUVTangent()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00378">LNLib::Matrix4d::HasReflection()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03683">LNLib::NurbsCurve::IsArc()</a>, <a class="el" href="XYZ_8cpp_source.html#l00216">operator*()</a>, <a class="el" href="Projection_8cpp_source.html#l00015">LNLib::Projection::PointToRay()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l00448">LNLib::NurbsCurve::Torsion()</a>.</p>
+
+</div>
+</div>
+<a id="ad89d7629d1a625493cd1114a6ebbe004" name="ad89d7629d1a625493cd1114a6ebbe004"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad89d7629d1a625493cd1114a6ebbe004">&#9670;&#160;</a></span>GetX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double XYZ::GetX </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00038">38</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="XYZ_8cpp_source.html#l00174">CreateRandomOrthogonal()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00112">LNLib::Matrix4d::CreateRotation()</a>, <a class="el" href="XYZ_8cpp_source.html#l00168">Distance()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01656">LNLib::NurbsSurface::MakeCornerFilletSurface()</a>, <a class="el" href="XYZ_8cpp_source.html#l00261">LNLib::operator*()</a>, <a class="el" href="XYZ_8cpp_source.html#l00257">LNLib::operator*()</a>, <a class="el" href="XYZ_8cpp_source.html#l00269">LNLib::operator/()</a>, <a class="el" href="Projection_8cpp_source.html#l00039">LNLib::Projection::Stereographic()</a> , 以及 <a class="el" href="XYZW_8cpp_source.html#l00027">LNLib::XYZW::XYZW()</a>.</p>
+
+</div>
+</div>
+<a id="ac7a68aaac00bbaeecb51d8aa03ee8322" name="ac7a68aaac00bbaeecb51d8aa03ee8322"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac7a68aaac00bbaeecb51d8aa03ee8322">&#9670;&#160;</a></span>GetY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double XYZ::GetY </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00046">46</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="XYZ_8cpp_source.html#l00174">CreateRandomOrthogonal()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00112">LNLib::Matrix4d::CreateRotation()</a>, <a class="el" href="XYZ_8cpp_source.html#l00168">Distance()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01656">LNLib::NurbsSurface::MakeCornerFilletSurface()</a>, <a class="el" href="XYZ_8cpp_source.html#l00261">LNLib::operator*()</a>, <a class="el" href="XYZ_8cpp_source.html#l00257">LNLib::operator*()</a>, <a class="el" href="XYZ_8cpp_source.html#l00269">LNLib::operator/()</a>, <a class="el" href="Projection_8cpp_source.html#l00039">LNLib::Projection::Stereographic()</a> , 以及 <a class="el" href="XYZW_8cpp_source.html#l00027">LNLib::XYZW::XYZW()</a>.</p>
+
+</div>
+</div>
+<a id="ac1dd1ddfa09fb299ddc4672d116c7efb" name="ac1dd1ddfa09fb299ddc4672d116c7efb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac1dd1ddfa09fb299ddc4672d116c7efb">&#9670;&#160;</a></span>GetZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double XYZ::GetZ </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00053">53</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="XYZ_8cpp_source.html#l00174">CreateRandomOrthogonal()</a>, <a class="el" href="Matrix4d_8cpp_source.html#l00112">LNLib::Matrix4d::CreateRotation()</a>, <a class="el" href="XYZ_8cpp_source.html#l00168">Distance()</a>, <a class="el" href="XYZ_8cpp_source.html#l00261">LNLib::operator*()</a>, <a class="el" href="XYZ_8cpp_source.html#l00257">LNLib::operator*()</a>, <a class="el" href="XYZ_8cpp_source.html#l00269">LNLib::operator/()</a>, <a class="el" href="Projection_8cpp_source.html#l00039">LNLib::Projection::Stereographic()</a> , 以及 <a class="el" href="XYZW_8cpp_source.html#l00027">LNLib::XYZW::XYZW()</a>.</p>
+
+</div>
+</div>
+<a id="afa69d0f95034851b7d8f84c24d1140c2" name="afa69d0f95034851b7d8f84c24d1140c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa69d0f95034851b7d8f84c24d1140c2">&#9670;&#160;</a></span>IsAlmostEqualTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::XYZ::IsAlmostEqualTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00095">95</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l00315">LNLib::NurbsCurve::CanComputerDerivative()</a>, <a class="el" href="Intersection_8cpp_source.html#l00018">LNLib::Intersection::ComputeRays()</a>, <a class="el" href="BezierCurve_8cpp_source.html#l00039">LNLib::BezierCurve::ComputerMiddleControlPointsOnQuadraticCurve()</a>, <a class="el" href="Interpolation_8cpp_source.html#l00149">LNLib::Interpolation::ComputerWeightForRationalQuadraticInterpolation()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02708">LNLib::NurbsSurface::CreateCoonsSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01680">LNLib::NurbsCurve::CreateCubicHermite()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01663">LNLib::NurbsCurve::CreateLine()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02935">LNLib::NurbsCurve::FitWithCubic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03289">LNLib::NurbsCurve::Flattening()</a>, <a class="el" href="XYZW_8cpp_source.html#l00117">LNLib::XYZW::IsAlmostEqualTo()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01217">LNLib::NurbsCurve::IsClosed()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03643">LNLib::NurbsCurve::IsLinear()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03523">LNLib::NurbsCurve::IsPeriodic()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l01607">LNLib::NurbsSurface::NonUniformScaling()</a>.</p>
+
+</div>
+</div>
+<a id="a364bff0eea9a2f39bd2d20e08bb683f3" name="a364bff0eea9a2f39bd2d20e08bb683f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a364bff0eea9a2f39bd2d20e08bb683f3">&#9670;&#160;</a></span>IsUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::XYZ::IsUnit </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>epsilon</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00090">90</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00107">SqrLength()</a>.</p>
+
+</div>
+</div>
+<a id="abd9e6f3e06a7efe439c2639913fc310f" name="abd9e6f3e06a7efe439c2639913fc310f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abd9e6f3e06a7efe439c2639913fc310f">&#9670;&#160;</a></span>IsZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::XYZ::IsZero </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>epsilon</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00085">85</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00107">SqrLength()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="XYZ_8cpp_source.html#l00112">AngleTo()</a>, <a class="el" href="Intersection_8cpp_source.html#l00018">LNLib::Intersection::ComputeRays()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03121">LNLib::NurbsCurve::ControlPointReposition()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01737">LNLib::NurbsCurve::CreateArc()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01357">LNLib::NurbsSurface::CreateCylindricalSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01834">LNLib::NurbsCurve::CreateOneConicArc()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01886">LNLib::NurbsCurve::CreateOpenConic()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01479">LNLib::NurbsSurface::CreateRevolvedSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02857">LNLib::NurbsCurve::FitWithConic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02935">LNLib::NurbsCurve::FitWithCubic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00388">LNLib::NurbsCurve::ProjectNormal()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03257">LNLib::NurbsCurve::Warping()</a>.</p>
+
+</div>
+</div>
+<a id="a39a9aba82641a0c1fd903a5dc2a4ef82" name="a39a9aba82641a0c1fd903a5dc2a4ef82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39a9aba82641a0c1fd903a5dc2a4ef82">&#9670;&#160;</a></span>Length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double XYZ::Length </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00102">102</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="ValidationUtils_8cpp_source.html#l00043">LNLib::ValidationUtils::ComputeCurveModifyTolerance()</a>, <a class="el" href="Intersection_8cpp_source.html#l00018">LNLib::Intersection::ComputeRays()</a>, <a class="el" href="BezierCurve_8cpp_source.html#l00039">LNLib::BezierCurve::ComputerMiddleControlPointsOnQuadraticCurve()</a>, <a class="el" href="Interpolation_8cpp_source.html#l00149">LNLib::Interpolation::ComputerWeightForRationalQuadraticInterpolation()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03121">LNLib::NurbsCurve::ControlPointReposition()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01479">LNLib::NurbsSurface::CreateRevolvedSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00331">LNLib::NurbsCurve::Curvature()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l02935">LNLib::NurbsCurve::FitWithCubic()</a>, <a class="el" href="Interpolation_8cpp_source.html#l00027">LNLib::Getak()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01261">LNLib::NurbsCurve::GetParamOnCurve()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01078">LNLib::NurbsSurface::GetParamOnSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03523">LNLib::NurbsCurve::IsPeriodic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00351">LNLib::NurbsCurve::Normal()</a>, <a class="el" href="XYZ_8cpp_source.html#l00127">Normalize()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00216">LNLib::OffsetByPieglAndTiller()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l00448">LNLib::NurbsCurve::Torsion()</a>.</p>
+
+</div>
+</div>
+<a id="aff06ca55967bee6978ab4c15ceef3c0d" name="aff06ca55967bee6978ab4c15ceef3c0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aff06ca55967bee6978ab4c15ceef3c0d">&#9670;&#160;</a></span>Negative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> XYZ::Negative </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00151">151</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="BezierCurve_8cpp_source.html#l00039">LNLib::BezierCurve::ComputerMiddleControlPointsOnQuadraticCurve()</a>, <a class="el" href="Interpolation_8cpp_source.html#l00149">LNLib::Interpolation::ComputerWeightForRationalQuadraticInterpolation()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03643">LNLib::NurbsCurve::IsLinear()</a>.</p>
+
+</div>
+</div>
+<a id="a00c64e01eb6e5a00239535969e9e1961" name="a00c64e01eb6e5a00239535969e9e1961"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a00c64e01eb6e5a00239535969e9e1961">&#9670;&#160;</a></span>Normalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> XYZ::Normalize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00127">127</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00102">Length()</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="XYZ_8cpp_source.html#l00112">AngleTo()</a>, <a class="el" href="Intersection_8cpp_source.html#l00064">LNLib::Intersection::ComputeLineAndPlane()</a>, <a class="el" href="BezierCurve_8cpp_source.html#l00039">LNLib::BezierCurve::ComputerMiddleControlPointsOnQuadraticCurve()</a>, <a class="el" href="Interpolation_8cpp_source.html#l00149">LNLib::Interpolation::ComputerWeightForRationalQuadraticInterpolation()</a>, <a class="el" href="XYZ_8cpp_source.html#l00174">CreateRandomOrthogonal()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01479">LNLib::NurbsSurface::CreateRevolvedSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02409">LNLib::NurbsSurface::CreateSweepSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02325">LNLib::NurbsSurface::CreateSweepSurface()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l02094">LNLib::NurbsSurface::CreateSwungSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l01261">LNLib::NurbsCurve::GetParamOnCurve()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01078">LNLib::NurbsSurface::GetParamOnSurface()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03523">LNLib::NurbsCurve::IsPeriodic()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00351">LNLib::NurbsCurve::Normal()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l00388">LNLib::NurbsCurve::ProjectNormal()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03257">LNLib::NurbsCurve::Warping()</a>.</p>
+
+</div>
+</div>
+<a id="a378d52a18fc2dfd0f299b8507152c87f" name="a378d52a18fc2dfd0f299b8507152c87f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a378d52a18fc2dfd0f299b8507152c87f">&#9670;&#160;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double XYZ::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>xyz</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00216">216</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00156">DotProduct()</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+</div>
+</div>
+<a id="a1e6705b80036b0d76594555b6233cceb" name="a1e6705b80036b0d76594555b6233cceb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e6705b80036b0d76594555b6233cceb">&#9670;&#160;</a></span>operator*=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp; XYZ::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;</td>          <td class="paramname"><span class="paramname"><em>d</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00221">221</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+</div>
+</div>
+<a id="afef4cf0a73277fc72edb25326e758ea7" name="afef4cf0a73277fc72edb25326e758ea7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afef4cf0a73277fc72edb25326e758ea7">&#9670;&#160;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> XYZ::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>xyz</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00206">206</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+</div>
+</div>
+<a id="ac84697efe8a1464ec33fd58738d65fd9" name="ac84697efe8a1464ec33fd58738d65fd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac84697efe8a1464ec33fd58738d65fd9">&#9670;&#160;</a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp; XYZ::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>xyz</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00237">237</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+</div>
+</div>
+<a id="a381ab99c4e43c2de72020a98798b8348" name="a381ab99c4e43c2de72020a98798b8348"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a381ab99c4e43c2de72020a98798b8348">&#9670;&#160;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> XYZ::operator- </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00253">253</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+</div>
+</div>
+<a id="ae06ec765f25cbb401ce909619e967342" name="ae06ec765f25cbb401ce909619e967342"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae06ec765f25cbb401ce909619e967342">&#9670;&#160;</a></span>operator-() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> XYZ::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>xyz</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00211">211</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+</div>
+</div>
+<a id="a3cde09c4d41a9e3d45110fdcb6994e67" name="a3cde09c4d41a9e3d45110fdcb6994e67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3cde09c4d41a9e3d45110fdcb6994e67">&#9670;&#160;</a></span>operator-=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp; XYZ::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>xyz</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00245">245</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+</div>
+</div>
+<a id="a4391296eb4ab08cf8406580123db42eb" name="a4391296eb4ab08cf8406580123db42eb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4391296eb4ab08cf8406580123db42eb">&#9670;&#160;</a></span>operator/=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp; XYZ::operator/= </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;</td>          <td class="paramname"><span class="paramname"><em>d</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00229">229</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+</div>
+</div>
+<a id="ae35201de40fff3de177e1bbf7d9b1665" name="ae35201de40fff3de177e1bbf7d9b1665"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae35201de40fff3de177e1bbf7d9b1665">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp; XYZ::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>xyz</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00188">188</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+</div>
+</div>
+<a id="a8ad6d9faa36994bcc283ea5b70643e14" name="a8ad6d9faa36994bcc283ea5b70643e14"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ad6d9faa36994bcc283ea5b70643e14">&#9670;&#160;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double &amp; XYZ::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00196">196</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a760476be0142b7a57adf5da3a90c40f7" name="a760476be0142b7a57adf5da3a90c40f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a760476be0142b7a57adf5da3a90c40f7">&#9670;&#160;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double &amp; XYZ::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00201">201</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a007a32676629037b9c443248fa28ed95" name="a007a32676629037b9c443248fa28ed95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a007a32676629037b9c443248fa28ed95">&#9670;&#160;</a></span>SetX()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XYZ::SetX </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00033">33</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a8053f323903089bd9e1fb43a7bc0a404" name="a8053f323903089bd9e1fb43a7bc0a404"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8053f323903089bd9e1fb43a7bc0a404">&#9670;&#160;</a></span>SetY()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XYZ::SetY </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00040">40</a> 行定义.</p>
+
+</div>
+</div>
+<a id="af97cf5a4b6fe5f26b9899e2355f453b3" name="af97cf5a4b6fe5f26b9899e2355f453b3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af97cf5a4b6fe5f26b9899e2355f453b3">&#9670;&#160;</a></span>SetZ()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void XYZ::SetZ </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>z</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00048">48</a> 行定义.</p>
+
+</div>
+</div>
+<a id="afa9e0f5966aaaf4e55f1a128b0ef1759" name="afa9e0f5966aaaf4e55f1a128b0ef1759"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa9e0f5966aaaf4e55f1a128b0ef1759">&#9670;&#160;</a></span>SqrLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double XYZ::SqrLength </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00107">107</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="XYZ_8cpp_source.html#l00090">IsUnit()</a> , 以及 <a class="el" href="XYZ_8cpp_source.html#l00085">IsZero()</a>.</p>
+
+</div>
+</div>
+<a id="af77aadb54489544ba8d912ef7a3efcf9" name="af77aadb54489544ba8d912ef7a3efcf9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af77aadb54489544ba8d912ef7a3efcf9">&#9670;&#160;</a></span>Substract()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> XYZ::Substract </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1XYZ.html">XYZ</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00146">146</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="XYZ_8cpp_source.html#l00019">XYZ()</a>.</p>
+
+</div>
+</div>
+<a id="aa129731bda1a807b75b8cd4403c72402" name="aa129731bda1a807b75b8cd4403c72402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa129731bda1a807b75b8cd4403c72402">&#9670;&#160;</a></span>X() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double &amp; XYZ::X </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00060">60</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a06858f179cea40342851ea985f861e74" name="a06858f179cea40342851ea985f861e74"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06858f179cea40342851ea985f861e74">&#9670;&#160;</a></span>X() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double XYZ::X </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00055">55</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a945f6efc2214a02e2dff6533157c7481" name="a945f6efc2214a02e2dff6533157c7481"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a945f6efc2214a02e2dff6533157c7481">&#9670;&#160;</a></span>Y() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double &amp; XYZ::Y </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00070">70</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a8d6988a56b4c78faff46690da3e3a931" name="a8d6988a56b4c78faff46690da3e3a931"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d6988a56b4c78faff46690da3e3a931">&#9670;&#160;</a></span>Y() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double XYZ::Y </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00065">65</a> 行定义.</p>
+
+</div>
+</div>
+<a id="af6a8d9596c30fc1d91fb051f7a4f17f1" name="af6a8d9596c30fc1d91fb051f7a4f17f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6a8d9596c30fc1d91fb051f7a4f17f1">&#9670;&#160;</a></span>Z() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double &amp; XYZ::Z </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00080">80</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ac5d5926aa9258b951acc09534636b05d" name="ac5d5926aa9258b951acc09534636b05d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5d5926aa9258b951acc09534636b05d">&#9670;&#160;</a></span>Z() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double XYZ::Z </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a> 第 <a class="el" href="XYZ_8cpp_source.html#l00075">75</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/LNLib/include/<a class="el" href="XYZ_8h_source.html">XYZ.h</a></li>
+<li>src/LNLib/Mathematics/Math/<a class="el" href="XYZ_8cpp_source.html">XYZ.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceLNLib.html">LNLib</a></li><li class="navelem"><a class="el" href="classLNLib_1_1XYZ.html">XYZ</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

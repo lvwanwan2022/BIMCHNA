@@ -1,0 +1,129 @@
+\doxysection{LNLib\+::Validation\+Utils类 参考}
+\hypertarget{classLNLib_1_1ValidationUtils}{}\label{classLNLib_1_1ValidationUtils}\index{LNLib::ValidationUtils@{LNLib::ValidationUtils}}
+
+
+{\ttfamily \#include $<$Validation\+Utils.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1ValidationUtils_a33298c65cd285c15bb31683cab9787d3}{Is\+Valid\+Bezier}} (int degree, int control\+Points\+Count)
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1ValidationUtils_a77d48dba299f49eb347e8287e5208c16}{Is\+Valid\+Knot\+Vector}} (const std\+::vector$<$ double $>$ \&knot\+Vector)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page50 Knot Vector is a nondecreasing sequence of real numbers. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1ValidationUtils_a61f3d0372991a2b462aa8db768a673a9}{Is\+Valid\+Bspline}} (int degree, int knot\+Vector\+Count, int control\+Points\+Count)
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1ValidationUtils_af632bd4ac0276b99de4989b5699ae4f2}{Is\+Valid\+Nurbs}} (int degree, int knot\+Vector\+Count, int weighted\+Control\+Points\+Count)
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1ValidationUtils_a0cecdd40b471285338ed33b474d72952}{Is\+Valid\+Degree\+Reduction}} (int degree)
+\item 
+static double \mbox{\hyperlink{classLNLib_1_1ValidationUtils_a61a3c851947e9241bf4015ae2eca0e8e}{Compute\+Curve\+Modify\+Tolerance}} (const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} $>$ \&control\+Points)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page185 TOL = d\+Wmin / (1+abs(\+Pmax)) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{ValidationUtils_8h_source}{Validation\+Utils.\+h}} 第 \mbox{\hyperlink{ValidationUtils_8h_source_l00021}{21}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1ValidationUtils_a61a3c851947e9241bf4015ae2eca0e8e}\index{LNLib::ValidationUtils@{LNLib::ValidationUtils}!ComputeCurveModifyTolerance@{ComputeCurveModifyTolerance}}
+\index{ComputeCurveModifyTolerance@{ComputeCurveModifyTolerance}!LNLib::ValidationUtils@{LNLib::ValidationUtils}}
+\doxysubsubsection{\texorpdfstring{ComputeCurveModifyTolerance()}{ComputeCurveModifyTolerance()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1ValidationUtils_a61a3c851947e9241bf4015ae2eca0e8e} 
+double LNLib\+::\+Validation\+Utils\+::\+Compute\+Curve\+Modify\+Tolerance (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} $>$ \&}]{control\+Points}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page185 TOL = d\+Wmin / (1+abs(\+Pmax)) 
+
+
+
+在文件 \mbox{\hyperlink{ValidationUtils_8cpp_source}{Validation\+Utils.\+cpp}} 第 \mbox{\hyperlink{ValidationUtils_8cpp_source_l00043}{43}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Constants_8h_source_l00024}{LNLib\+::\+Constants\+::\+Distance\+Epsilon}}, \mbox{\hyperlink{XYZW_8cpp_source_l00055}{LNLib\+::\+XYZW\+::\+Get\+W()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}} , 以及 \mbox{\hyperlink{XYZW_8cpp_source_l00097}{LNLib\+::\+XYZW\+::\+To\+XYZ()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01119}{LNLib\+::\+Nurbs\+Curve\+::\+Reduce\+Degree()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00749}{LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Knot()}}.
+
+\Hypertarget{classLNLib_1_1ValidationUtils_a33298c65cd285c15bb31683cab9787d3}\index{LNLib::ValidationUtils@{LNLib::ValidationUtils}!IsValidBezier@{IsValidBezier}}
+\index{IsValidBezier@{IsValidBezier}!LNLib::ValidationUtils@{LNLib::ValidationUtils}}
+\doxysubsubsection{\texorpdfstring{IsValidBezier()}{IsValidBezier()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1ValidationUtils_a33298c65cd285c15bb31683cab9787d3} 
+bool LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Bezier (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{int}]{control\+Points\+Count}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{ValidationUtils_8cpp_source}{Validation\+Utils.\+cpp}} 第 \mbox{\hyperlink{ValidationUtils_8cpp_source_l00018}{18}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BezierCurve_8h_source_l00029}{LNLib\+::\+Bezier\+Curve\+::\+Check()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00022}{LNLib\+::\+Polynomials\+::\+Horner()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00087}{LNLib\+::\+Polynomials\+::\+Horner()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01119}{LNLib\+::\+Nurbs\+Curve\+::\+Reduce\+Degree()}}.
+
+\Hypertarget{classLNLib_1_1ValidationUtils_a61f3d0372991a2b462aa8db768a673a9}\index{LNLib::ValidationUtils@{LNLib::ValidationUtils}!IsValidBspline@{IsValidBspline}}
+\index{IsValidBspline@{IsValidBspline}!LNLib::ValidationUtils@{LNLib::ValidationUtils}}
+\doxysubsubsection{\texorpdfstring{IsValidBspline()}{IsValidBspline()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1ValidationUtils_a61f3d0372991a2b462aa8db768a673a9} 
+bool LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Bspline (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{int}]{knot\+Vector\+Count}{, }\item[{int}]{control\+Points\+Count}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{ValidationUtils_8cpp_source}{Validation\+Utils.\+cpp}} 第 \mbox{\hyperlink{ValidationUtils_8cpp_source_l00028}{28}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BsplineCurve_8h_source_l00029}{LNLib\+::\+Bspline\+Curve\+::\+Check()}} , 以及 \mbox{\hyperlink{BsplineSurface_8h_source_l00030}{LNLib\+::\+Bspline\+Surface\+::\+Check()}}.
+
+\Hypertarget{classLNLib_1_1ValidationUtils_a0cecdd40b471285338ed33b474d72952}\index{LNLib::ValidationUtils@{LNLib::ValidationUtils}!IsValidDegreeReduction@{IsValidDegreeReduction}}
+\index{IsValidDegreeReduction@{IsValidDegreeReduction}!LNLib::ValidationUtils@{LNLib::ValidationUtils}}
+\doxysubsubsection{\texorpdfstring{IsValidDegreeReduction()}{IsValidDegreeReduction()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1ValidationUtils_a0cecdd40b471285338ed33b474d72952} 
+bool LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Degree\+Reduction (\begin{DoxyParamCaption}\item[{int}]{degree}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{ValidationUtils_8cpp_source}{Validation\+Utils.\+cpp}} 第 \mbox{\hyperlink{ValidationUtils_8cpp_source_l00038}{38}} 行定义.
+
+\Hypertarget{classLNLib_1_1ValidationUtils_a77d48dba299f49eb347e8287e5208c16}\index{LNLib::ValidationUtils@{LNLib::ValidationUtils}!IsValidKnotVector@{IsValidKnotVector}}
+\index{IsValidKnotVector@{IsValidKnotVector}!LNLib::ValidationUtils@{LNLib::ValidationUtils}}
+\doxysubsubsection{\texorpdfstring{IsValidKnotVector()}{IsValidKnotVector()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1ValidationUtils_a77d48dba299f49eb347e8287e5208c16} 
+bool LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ double $>$ \&}]{knot\+Vector}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page50 Knot Vector is a nondecreasing sequence of real numbers. 
+
+
+
+在文件 \mbox{\hyperlink{ValidationUtils_8cpp_source}{Validation\+Utils.\+cpp}} 第 \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{23}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Polynomials_8cpp_source_l00544}{LNLib\+::\+Polynomials\+::\+All\+Basis\+Functions()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00162}{LNLib\+::\+Polynomials\+::\+Basis\+Functions()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00193}{LNLib\+::\+Polynomials\+::\+Basis\+Functions\+Derivatives()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00298}{LNLib\+::\+Polynomials\+::\+Basis\+Functions\+First\+Order\+Derivative()}}, \mbox{\hyperlink{BsplineCurve_8h_source_l00029}{LNLib\+::\+Bspline\+Curve\+::\+Check()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00030}{LNLib\+::\+Bspline\+Surface\+::\+Check()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00267}{LNLib\+::\+Nurbs\+Curve\+::\+Check()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00095}{LNLib\+::\+Nurbs\+Surface\+::\+Check()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00072}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Inserted\+Knot\+Element()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00397}{LNLib\+::\+Polynomials\+::\+One\+Basis\+Function()}} , 以及 \mbox{\hyperlink{Polynomials_8cpp_source_l00455}{LNLib\+::\+Polynomials\+::\+One\+Basis\+Function\+Derivative()}}.
+
+\Hypertarget{classLNLib_1_1ValidationUtils_af632bd4ac0276b99de4989b5699ae4f2}\index{LNLib::ValidationUtils@{LNLib::ValidationUtils}!IsValidNurbs@{IsValidNurbs}}
+\index{IsValidNurbs@{IsValidNurbs}!LNLib::ValidationUtils@{LNLib::ValidationUtils}}
+\doxysubsubsection{\texorpdfstring{IsValidNurbs()}{IsValidNurbs()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1ValidationUtils_af632bd4ac0276b99de4989b5699ae4f2} 
+bool LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Nurbs (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{int}]{knot\+Vector\+Count}{, }\item[{int}]{weighted\+Control\+Points\+Count}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{ValidationUtils_8cpp_source}{Validation\+Utils.\+cpp}} 第 \mbox{\hyperlink{ValidationUtils_8cpp_source_l00033}{33}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00267}{LNLib\+::\+Nurbs\+Curve\+::\+Check()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00095}{LNLib\+::\+Nurbs\+Surface\+::\+Check()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00371}{LNLib\+::\+Nurbs\+Surface\+::\+Insert\+Knot()}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{ValidationUtils_8h}{Validation\+Utils.\+h}}\item 
+src/\+LNLib/\+Algorithm/\mbox{\hyperlink{ValidationUtils_8cpp}{Validation\+Utils.\+cpp}}\end{DoxyCompactItemize}

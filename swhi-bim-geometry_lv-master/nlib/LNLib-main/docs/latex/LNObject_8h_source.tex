@@ -1,0 +1,81 @@
+\doxysection{LNObject.\+h}
+\hypertarget{LNObject_8h_source}{}\label{LNObject_8h_source}\index{src/LNLib/include/LNObject.h@{src/LNLib/include/LNObject.h}}
+\mbox{\hyperlink{LNObject_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/11/15\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00011}00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibDefinitions_8h}{LNLibDefinitions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{UV_8h}{UV.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{XYZ_8h}{XYZ.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{XYZW_8h}{XYZW.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00018}00018\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00019}00019\ \{}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00020}00020\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00021}\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{00021}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{LN\_BezierCurve}}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00022}00022\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00023}\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a9005e783e4bb85da2bd2447219e639ef}{00023}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a9005e783e4bb85da2bd2447219e639ef}{Degree}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00024}\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a42ec91d6a29b9ad47daecdf507ccfc14}{00024}}\ \ \ \ \ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a42ec91d6a29b9ad47daecdf507ccfc14}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00025}00025\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00028}\mbox{\hyperlink{structLNLib_1_1LN__BezierSurface}{00028}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1LN__BezierSurface}{LN\_BezierSurface}}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00029}00029\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00030}\mbox{\hyperlink{structLNLib_1_1LN__BezierSurface_a567f8143a2da18b23c695e68d5b5619d}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLNLib_1_1LN__BezierSurface_a567f8143a2da18b23c695e68d5b5619d}{DegreeU}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00031}\mbox{\hyperlink{structLNLib_1_1LN__BezierSurface_a611f043cb11bd126a209dff83928e768}{00031}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLNLib_1_1LN__BezierSurface_a611f043cb11bd126a209dff83928e768}{DegreeV}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00032}\mbox{\hyperlink{structLNLib_1_1LN__BezierSurface_aca8a6b7f4c6eba199950ad0549c79ed1}{00032}}\ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>\ \mbox{\hyperlink{structLNLib_1_1LN__BezierSurface_aca8a6b7f4c6eba199950ad0549c79ed1}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00033}00033\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00035}00035\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00036}\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{00036}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\_BsplineCurve}}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00037}00037\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00038}\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a04112751ec95e9f2c46ed9bafacb414f}{00038}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a04112751ec95e9f2c46ed9bafacb414f}{Degree}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00039}\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a108d84c2bf217f649e026cbf9287dc74}{00039}}\ \ \ \ \ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a108d84c2bf217f649e026cbf9287dc74}{KnotVector}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00040}\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a71fd0927313f83270eced566ddf41df8}{00040}}\ \ \ \ \ \ \ \ \ std::vector<T>\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a71fd0927313f83270eced566ddf41df8}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00041}00041\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00042}00042\ }
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00043}\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{00043}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\_BsplineCurve<XYZW>}}\ \mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\_NurbsCurve}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00045}00045\ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00046}\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{00046}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\_BsplineSurface}}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00047}00047\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00048}\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_acece2ad31e2d0f8052995aacbf4090ae}{00048}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_acece2ad31e2d0f8052995aacbf4090ae}{DegreeU}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00049}\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_aa43931b99f7cb4dcfaa91fb793017a3b}{00049}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_aa43931b99f7cb4dcfaa91fb793017a3b}{DegreeV}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00050}\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a128e1318a562c1546970f6b578380f2a}{00050}}\ \ \ \ \ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a128e1318a562c1546970f6b578380f2a}{KnotVectorU}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00051}\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a0306551da99e6c0ba743278ef8ab72c7}{00051}}\ \ \ \ \ \ \ \ \ std::vector<double>\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a0306551da99e6c0ba743278ef8ab72c7}{KnotVectorV}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00052}\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_ad4a0c3fe5fd4e74a94e7f8dffb97e0fa}{00052}}\ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_ad4a0c3fe5fd4e74a94e7f8dffb97e0fa}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00053}00053\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00054}00054\ }
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00055}\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{00055}}\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\_BsplineSurface<XYZW>}}\ \mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\_NurbsSurface}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00056}00056\ }
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00057}\mbox{\hyperlink{structLNLib_1_1LN__Mesh}{00057}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{structLNLib_1_1LN__Mesh}{LN\_Mesh}}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00058}00058\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00059}\mbox{\hyperlink{structLNLib_1_1LN__Mesh_a67ad4b614d1cf1b1fb075e85e5e8863c}{00059}}\ \ \ \ \ \ \ \ \ std::vector<XYZ>\ \mbox{\hyperlink{structLNLib_1_1LN__Mesh_a67ad4b614d1cf1b1fb075e85e5e8863c}{Vertices}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00060}\mbox{\hyperlink{structLNLib_1_1LN__Mesh_a367a227e34751780a3b55485b6a63bde}{00060}}\ \ \ \ \ \ \ \ \ std::vector<std::vector<int>>\ \mbox{\hyperlink{structLNLib_1_1LN__Mesh_a367a227e34751780a3b55485b6a63bde}{Faces}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00061}\mbox{\hyperlink{structLNLib_1_1LN__Mesh_adb53c37984698c83e2e614e3b68ecdb3}{00061}}\ \ \ \ \ \ \ \ \ std::vector<UV>\ \mbox{\hyperlink{structLNLib_1_1LN__Mesh_adb53c37984698c83e2e614e3b68ecdb3}{UVs}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00062}\mbox{\hyperlink{structLNLib_1_1LN__Mesh_afb03e44882d9c49bee88f0159c3c5cf9}{00062}}\ \ \ \ \ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{structLNLib_1_1LN__Mesh_afb03e44882d9c49bee88f0159c3c5cf9}{UVIndices}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00063}\mbox{\hyperlink{structLNLib_1_1LN__Mesh_a3cbaa928dbceb9fb48ed72f89c13a5ab}{00063}}\ \ \ \ \ \ \ \ \ std::vector<XYZ>\ \mbox{\hyperlink{structLNLib_1_1LN__Mesh_a3cbaa928dbceb9fb48ed72f89c13a5ab}{Normals}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00064}\mbox{\hyperlink{structLNLib_1_1LN__Mesh_ad802c51ca73e63438cb3bbb293eeff93}{00064}}\ \ \ \ \ \ \ \ \ std::vector<int>\ \mbox{\hyperlink{structLNLib_1_1LN__Mesh_ad802c51ca73e63438cb3bbb293eeff93}{NormalIndices}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00065}00065\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00067}\mbox{\hyperlink{structLNLib_1_1LN__ArcInfo}{00067}}\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{structLNLib_1_1LN__ArcInfo}{LN\_ArcInfo}}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00068}00068\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00069}\mbox{\hyperlink{structLNLib_1_1LN__ArcInfo_ab2c8b3779d31d7c497d374032397f388}{00069}}\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{structLNLib_1_1LN__ArcInfo_ab2c8b3779d31d7c497d374032397f388}{Radius}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00070}\mbox{\hyperlink{structLNLib_1_1LN__ArcInfo_a0f51f588a329b6c7d1108b673475735c}{00070}}\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ \mbox{\hyperlink{structLNLib_1_1LN__ArcInfo_a0f51f588a329b6c7d1108b673475735c}{Center}};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00071}00071\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00072}00072\ \}}
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{LNObject_8h_source_l00075}00075\ }
+
+\end{DoxyCode}

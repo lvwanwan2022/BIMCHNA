@@ -1,0 +1,62 @@
+\doxysection{Polynomials.\+h}
+\hypertarget{Polynomials_8h_source}{}\label{Polynomials_8h_source}\index{src/LNLib/include/Polynomials.h@{src/LNLib/include/Polynomials.h}}
+\mbox{\hyperlink{Polynomials_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/06/08\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00011}00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibDefinitions_8h}{LNLibDefinitions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Constants_8h}{Constants.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00017}00017\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00018}00018\ \{}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00019}00019\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLNLib_1_1UV}{UV}};}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00020}\mbox{\hyperlink{classLNLib_1_1Polynomials}{00020}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{classLNLib_1_1Polynomials}{Polynomials}}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00021}00021\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1Polynomials_ad7772b8afd6ae4d7b5d70127ad47bed1}{Horner}}(\textcolor{keywordtype}{int}\ degree,\ \textcolor{keyword}{const}\ std::vector<double>\&\ coefficients,\ \textcolor{keywordtype}{double}\ paramT);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00030}00030\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1Polynomials_af3a9dd8a4728ae8c177d436182d183d9}{Bernstein}}(\textcolor{keywordtype}{int}\ index,\ \textcolor{keywordtype}{int}\ degree,\ \textcolor{keywordtype}{double}\ paramT);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<double>\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a29c2f3c57dfdbac5a5c03d9e1e7aa129}{AllBernstein}}(\textcolor{keywordtype}{int}\ degree,\ \textcolor{keywordtype}{double}\ paramT);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1Polynomials_ad7772b8afd6ae4d7b5d70127ad47bed1}{Horner}}(\textcolor{keywordtype}{int}\ degreeU,\ \textcolor{keywordtype}{int}\ degreeV,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ coefficients,\ \mbox{\hyperlink{classLNLib_1_1UV}{UV}}\&\ uv);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a9fb1eb590895ca8bd7a3b23ab1e39e4a}{GetKnotMultiplicity}}(\textcolor{keyword}{const}\ std::vector<double>\&\ knotVector,\ \textcolor{keywordtype}{double}\ paramT);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{GetKnotSpanIndex}}(\textcolor{keywordtype}{int}\ degree,\ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVector,\ \textcolor{keywordtype}{double}\ paramT);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00073}00073\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a8e2b821ce7ef5ace1be5a138edd45f5a}{BasisFunctions}}(\textcolor{keywordtype}{int}\ spanIndex,\ \textcolor{keywordtype}{int}\ degree,\ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVector,\ \textcolor{keywordtype}{double}\ paramT,\ \textcolor{keywordtype}{double}*\ basisFunctions);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<double>>\ \mbox{\hyperlink{classLNLib_1_1Polynomials_aebcbc937b4c1273e47f68ac7595845fd}{BasisFunctionsDerivatives}}(\textcolor{keywordtype}{int}\ spanIndex,\ \textcolor{keywordtype}{int}\ degree,\ \textcolor{keywordtype}{int}\ derivative,\ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVector,\ \textcolor{keywordtype}{double}\ paramT);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00091}00091\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1Polynomials_ade29241ea29a5b6c521154e14562a805}{BasisFunctionsFirstOrderDerivative}}(\textcolor{keywordtype}{int}\ spanIndex,\ \textcolor{keywordtype}{int}\ degree,\ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVector,\ \textcolor{keywordtype}{double}\ paramT,\ \textcolor{keywordtype}{double}\ derivatives[2][\mbox{\hyperlink{classLNLib_1_1Constants_a0aeb8534e051a2deb63e222feb3f9963}{Constants::NURBSMaxDegree}}\ +\ 1]);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1Polynomials_ac2923820e8e24d290792df766547f04d}{OneBasisFunction}}(\textcolor{keywordtype}{int}\ spanIndex,\ \textcolor{keywordtype}{int}\ degree,\ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVector,\ \textcolor{keywordtype}{double}\ paramT);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00099}00099\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00105}00105\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<double>\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a8ffff95a1fa76aec409e243cb67fcac8}{OneBasisFunctionDerivative}}(\textcolor{keywordtype}{int}\ spanIndex,\ \textcolor{keywordtype}{int}\ degree,\ \textcolor{keywordtype}{int}\ derivative,\ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVector,\ \textcolor{keywordtype}{double}\ paramT);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00106}00106\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<double>>\ \mbox{\hyperlink{classLNLib_1_1Polynomials_af8571e825aea3a881d6ed4754689146c}{AllBasisFunctions}}(\textcolor{keywordtype}{int}\ spanIndex,\ \textcolor{keywordtype}{int}\ degree,\ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVector,\ \textcolor{keywordtype}{double}\ knot);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00112}00112\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00118}00118\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<double>>\ \mbox{\hyperlink{classLNLib_1_1Polynomials_ab703bb2e2968ce6af5389a35e818cfde}{BezierToPowerMatrix}}(\textcolor{keywordtype}{int}\ degree);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00119}00119\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<double>>\ \mbox{\hyperlink{classLNLib_1_1Polynomials_ac6a51e900e1a0ca40740309067013963}{PowerToBezierMatrix}}(\textcolor{keywordtype}{int}\ degree,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ matrix);}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00126}00126\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00127}00127\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00128}00128\ \}}
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00129}00129\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{Polynomials_8h_source_l00131}00131\ }
+
+\end{DoxyCode}

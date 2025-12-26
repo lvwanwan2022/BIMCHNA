@@ -1,0 +1,45 @@
+\doxysection{src/\+LNLib/\+Geometry/\+Surface/\+Nurbs\+Surface.cpp 文件参考}
+\hypertarget{NurbsSurface_8cpp}{}\label{NurbsSurface_8cpp}\index{src/LNLib/Geometry/Surface/NurbsSurface.cpp@{src/LNLib/Geometry/Surface/NurbsSurface.cpp}}
+{\ttfamily \#include "{}Nurbs\+Surface.\+h"{}}\newline
+{\ttfamily \#include "{}Polynomials.\+h"{}}\newline
+{\ttfamily \#include "{}UV.\+h"{}}\newline
+{\ttfamily \#include "{}XYZ.\+h"{}}\newline
+{\ttfamily \#include "{}XYZW.\+h"{}}\newline
+{\ttfamily \#include "{}Matrix4d.\+h"{}}\newline
+{\ttfamily \#include "{}Math\+Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Nurbs\+Curve.\+h"{}}\newline
+{\ttfamily \#include "{}Bspline\+Surface.\+h"{}}\newline
+{\ttfamily \#include "{}Projection.\+h"{}}\newline
+{\ttfamily \#include "{}Intersection.\+h"{}}\newline
+{\ttfamily \#include "{}Interpolation.\+h"{}}\newline
+{\ttfamily \#include "{}Validation\+Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Knot\+Vector\+Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Control\+Points\+Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Voronoi.\+h"{}}\newline
+{\ttfamily \#include "{}Integrator.\+h"{}}\newline
+{\ttfamily \#include "{}LNLib\+Exceptions.\+h"{}}\newline
+{\ttfamily \#include "{}LNObject.\+h"{}}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Nurbs\+Surface.\+cpp 的引用(Include)关系图\+:
+% FIG 0
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1AreaData}{LNLib\+::\+Area\+Data}}
+\item 
+class \mbox{\hyperlink{classLNLib_1_1AreaCoreFunction}{LNLib\+::\+Area\+Core\+Function}}
+\item 
+class \mbox{\hyperlink{classLNLib_1_1AreaWrapperFunction}{LNLib\+::\+Area\+Wrapper\+Function}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceLNLib}{LNLib}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ int $>$ \mbox{\hyperlink{namespaceLNLib_a9c17866ca244d68426d7102f39d8bff1}{LNLib\+::\+Get\+Index}} (int size)
+\end{DoxyCompactItemize}

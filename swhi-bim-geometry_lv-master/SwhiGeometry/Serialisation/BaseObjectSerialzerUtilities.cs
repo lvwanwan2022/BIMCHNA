@@ -1,0 +1,335 @@
+﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.Serialization;
+using System.Threading;
+using Microsoft.CSharp.RuntimeBinder;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json.Serialization;
+
+namespace Swhi.BIM.Geometry
+{
+  internal static class SerializationUtilities
+  {
+    #region Getting Types
+
+    private static Dictionary<string, Type> cachedTypes = new Dictionary<string, Type>();
+    private static Dictionary<string, Dictionary<string, PropertyInfo>> typeProperties = new Dictionary<string, Dictionary<string, PropertyInfo>>();
+    private static Dictionary<string, List<MethodInfo>> onDeserializedCallbacks = new Dictionary<string, List<MethodInfo>>();
+
+    internal static Type GetType(string objFullType)
+    {
+      lock (cachedTypes)
+      {
+        if (cachedTypes.ContainsKey(objFullType))
+        {
+          return cachedTypes[objFullType];
+        }
+
+        var type = GetAtomicType(objFullType);
+        cachedTypes[objFullType] = type;
+        return type;
+      }
+    }
+
+    internal static Type GetAtomicType(string objFullType)
+    {
+      var objectTypes = objFullType.Split(':').Reverse();
+      foreach (var typeName in objectTypes)
+      {
+        //TODO: rather than getting the type from the first loaded kit that has it, maybe 
+        //we get it from a specific Kit
+        var type = KitManager.Types.FirstOrDefault(tp => tp.FullName == typeName);
+        if (type != null)
+        {
+          return type;
+        }
+      }
+
+      return typeof(Base);
+    }
+
+    internal static Dictionary<string, PropertyInfo> GetTypePropeties(string objFullType)
+    {
+      lock (typeProperties)
+      {
+        if (!typeProperties.ContainsKey(objFullType))
+        {
+          Dictionary<string, PropertyInfo> ret = new Dictionary<string, PropertyInfo>();
+          Type type = GetType(objFullType);
+          PropertyInfo[] properties = type.GetProperties();
+          foreach (PropertyInfo prop in properties)
+            ret[prop.Name.ToLower()] = prop;
+          typeProperties[objFullType] = ret;
+        }
+        return typeProperties[objFullType];
+      }
+    }
+
+    internal static List<MethodInfo> GetOnDeserializedCallbacks(string objFullType)
+    {
+      // return new List<MethodInfo>();
+      lock (onDeserializedCallbacks)
+      {
+        // System.Runtime.Serialization.Ca
+        if (!onDeserializedCallbacks.ContainsKey(objFullType))
+        {
+          List<MethodInfo> ret = new List<MethodInfo>();
+          Type type = GetType(objFullType);
+          MethodInfo[] methods = type.GetMethods(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
+          foreach (MethodInfo method in methods)
+          {
+            List<OnDeserializedAttribute> onDeserializedAttributes = method.GetCustomAttributes<OnDeserializedAttribute>(true).ToList();
+            if (onDeserializedAttributes.Count > 0)
+              ret.Add(method);
+          }
+          onDeserializedCallbacks[objFullType] = ret;
+        }
+        return onDeserializedCallbacks[objFullType];
+      }
+    }
+
+    internal static Type GetSytemOrSpeckleType(string typeName)
+    {
+      var systemType = Type.GetType(typeName);
+      if (systemType != null)
+      {
+        return systemType;
+      }
+      return GetAtomicType(typeName);
+    }
+
+    /// <summary>
+    /// Flushes kit's (discriminator, type) cache. Useful if you're dynamically loading more kits at runtime, that provide better coverage of what you're deserialising, and it's now somehow poisoned because the higher level types were not originally available.
+    /// </summary>
+    public static void FlushCachedTypes()
+    {
+      cachedTypes = new Dictionary<string, Type>();
+    }
+
+    #endregion
+
+    #region Value handling
+
+    internal static object HandleValue(JToken value, JsonSerializer serializer, CancellationToken CancellationToken, JsonProperty jsonProperty = null, string TypeDiscriminator = "speckle_type")
+    {
+      if (CancellationToken.IsCancellationRequested)
+      {
+        return null; // Check for cancellation
+      }
+
+      if (value is JValue)
+      {
+        if (jsonProperty != null)
+        {
+          return value.ToObject(jsonProperty.PropertyType);
+        }
+        else
+        {
+          return ((JValue)value).Value;
+        }
+      }
+
+      // Lists
+      if (value is JArray)
+      {
+        if (CancellationToken.IsCancellationRequested)
+        {
+          return null; // Check for cancellation
+        }
+
+        if (jsonProperty != null && jsonProperty.PropertyType.GetConstructor(Type.EmptyTypes) != null)
+        {
+          var arr = Activator.CreateInstance(jsonProperty.PropertyType);
+
+          var addMethod = arr.GetType().GetMethod("Add");
+          var hasGenericType = jsonProperty.PropertyType.GenericTypeArguments.Count() != 0;
+
+          foreach (var val in ((JArray)value))
+          {
+            if (CancellationToken.IsCancellationRequested)
+            {
+              return null; // Check for cancellation
+            }
+
+            if (val == null)
+            {
+              continue;
+            }
+
+            var item = HandleValue(val, serializer, CancellationToken);
+
+            if (item is DataChunk chunk)
+            {
+              foreach (var dataItem in chunk.data)
+              {
+                if (hasGenericType && !jsonProperty.PropertyType.GenericTypeArguments[0].IsInterface)
+                {
+                  if (jsonProperty.PropertyType.GenericTypeArguments[0].IsAssignableFrom(dataItem.GetType()))
+                  {
+                    addMethod.Invoke(arr, new object[ ] { dataItem });
+                  }
+                  else
+                  {
+                    addMethod.Invoke(arr, new object[ ] { Convert.ChangeType(dataItem, jsonProperty.PropertyType.GenericTypeArguments[0]) });
+                  }
+                }
+                else
+                {
+                  addMethod.Invoke(arr, new object[ ] { dataItem });
+                }
+              }
+            }
+            else if (hasGenericType && !jsonProperty.PropertyType.GenericTypeArguments[0].IsInterface)
+            {
+              if (jsonProperty.PropertyType.GenericTypeArguments[0].IsAssignableFrom(item.GetType()))
+              {
+                addMethod.Invoke(arr, new object[ ] { item });
+              }
+              else
+              {
+                addMethod.Invoke(arr, new object[ ] { Convert.ChangeType(item, jsonProperty.PropertyType.GenericTypeArguments[0]) });
+              }
+            }
+            else
+            {
+              addMethod.Invoke(arr, new object[ ] { item });
+            }
+          }
+          return arr;
+        }
+        else if (jsonProperty != null)
+        {
+
+          if (CancellationToken.IsCancellationRequested)
+          {
+            return null; // Check for cancellation
+          }
+
+          var arr = Activator.CreateInstance(typeof(List<>).MakeGenericType(jsonProperty.PropertyType.GetElementType()));
+
+          foreach (var val in ((JArray)value))
+          {
+            if (CancellationToken.IsCancellationRequested)
+            {
+              return null; // Check for cancellation
+            }
+
+            if (val == null)
+            {
+              continue;
+            }
+
+            var item = HandleValue(val, serializer, CancellationToken);
+            if (item is DataChunk chunk)
+            {
+              foreach (var dataItem in chunk.data)
+              {
+                if (!jsonProperty.PropertyType.GetElementType().IsInterface)
+                {
+                  ((IList)arr).Add(Convert.ChangeType(dataItem, jsonProperty.PropertyType.GetElementType()));
+                }
+                else
+                {
+                  ((IList)arr).Add(dataItem);
+                }
+              }
+            }
+            else
+            {
+              if (!jsonProperty.PropertyType.GetElementType().IsInterface)
+              {
+                ((IList)arr).Add(Convert.ChangeType(item, jsonProperty.PropertyType.GetElementType()));
+              }
+              else
+              {
+                ((IList)arr).Add(item);
+              }
+            }
+          }
+          var actualArr = Array.CreateInstance(jsonProperty.PropertyType.GetElementType(), ((IList)arr).Count);
+          ((IList)arr).CopyTo(actualArr, 0);
+          return actualArr;
+        }
+        else
+        {
+          if (CancellationToken.IsCancellationRequested)
+          {
+            return null; // Check for cancellation
+          }
+
+          var arr = new List<object>();
+          foreach (var val in ((JArray)value))
+          {
+            if (CancellationToken.IsCancellationRequested)
+            {
+              return null; // Check for cancellation
+            }
+
+            if (val == null)
+            {
+              continue;
+            }
+
+            var item = HandleValue(val, serializer, CancellationToken);
+
+            if (item is DataChunk chunk)
+            {
+              arr.AddRange(chunk.data);
+            }
+            else
+            {
+              arr.Add(item);
+            }
+          }
+          return arr;
+        }
+      }
+
+      if (CancellationToken.IsCancellationRequested)
+      {
+        return null; // Check for cancellation
+      }
+
+      if (value is JObject)
+      {
+        if (((JObject)value).Property(TypeDiscriminator) != null)
+        {
+          return value.ToObject<Base>(serializer);
+        }
+
+        var dict = jsonProperty != null ? Activator.CreateInstance(jsonProperty.PropertyType) : new Dictionary<string, object>();
+        foreach (var prop in ((JObject)value))
+        {
+          if (CancellationToken.IsCancellationRequested)
+          {
+            return null; // Check for cancellation
+          }
+
+          object key = prop.Key;
+          if (jsonProperty != null)
+          {
+            key = Convert.ChangeType(prop.Key, jsonProperty.PropertyType.GetGenericArguments()[0]);
+          }((IDictionary)dict)[key] = HandleValue(prop.Value, serializer, CancellationToken);
+        }
+        return dict;
+      }
+      return null;
+    }
+
+    #endregion
+
+    #region Abstract Handling
+
+    private static Dictionary<string, Type> cachedAbstractTypes = new Dictionary<string, Type>();
+
+  
+
+    #endregion
+  }
+
+}

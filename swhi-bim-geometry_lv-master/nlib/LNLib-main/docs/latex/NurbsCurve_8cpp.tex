@@ -1,0 +1,52 @@
+\doxysection{src/\+LNLib/\+Geometry/\+Curve/\+Nurbs\+Curve.cpp 文件参考}
+\hypertarget{NurbsCurve_8cpp}{}\label{NurbsCurve_8cpp}\index{src/LNLib/Geometry/Curve/NurbsCurve.cpp@{src/LNLib/Geometry/Curve/NurbsCurve.cpp}}
+{\ttfamily \#include "{}Nurbs\+Curve.\+h"{}}\newline
+{\ttfamily \#include "{}Constants.\+h"{}}\newline
+{\ttfamily \#include "{}Polynomials.\+h"{}}\newline
+{\ttfamily \#include "{}XYZ.\+h"{}}\newline
+{\ttfamily \#include "{}XYZW.\+h"{}}\newline
+{\ttfamily \#include "{}Matrix4d.\+h"{}}\newline
+{\ttfamily \#include "{}Math\+Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Bezier\+Curve.\+h"{}}\newline
+{\ttfamily \#include "{}Bspline\+Curve.\+h"{}}\newline
+{\ttfamily \#include "{}Intersection.\+h"{}}\newline
+{\ttfamily \#include "{}Projection.\+h"{}}\newline
+{\ttfamily \#include "{}Validation\+Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Knot\+Vector\+Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Control\+Points\+Utils.\+h"{}}\newline
+{\ttfamily \#include "{}Interpolation.\+h"{}}\newline
+{\ttfamily \#include "{}Integrator.\+h"{}}\newline
+{\ttfamily \#include "{}LNLib\+Exceptions.\+h"{}}\newline
+{\ttfamily \#include "{}LNObject.\+h"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$random$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+Nurbs\+Curve.\+cpp 的引用(Include)关系图\+:
+% FIG 0
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classLNLib_1_1FirstDerivativeLengthFunction}{LNLib\+::\+First\+Derivative\+Length\+Function}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceLNLib}{LNLib}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{namespaceLNLib_aee0eeac0de126b83da60488dd0f29f2a}{LNLib\+::\+Get\+Node}} (int degree, const std\+::vector$<$ double $>$ \&knot\+Vector, int last\+Index)
+\item 
+double \mbox{\hyperlink{namespaceLNLib_a451b8766dc661f59fd096afdbea9d142}{LNLib\+::\+Calculate\+Length\+By\+Simpson}} (\mbox{\hyperlink{classLNLib_1_1FirstDerivativeLengthFunction}{First\+Derivative\+Length\+Function}} function, const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double start, double end, double simpson, double tolearance)
+\item 
+double \mbox{\hyperlink{namespaceLNLib_a7237e8ec2d2fd5aca81561bc20a53fbc}{LNLib\+::\+Get\+Param\+By\+Length}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double start, double end, double given\+Length, \mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40}{Integrator\+Type}} type)
+\item 
+void \mbox{\hyperlink{namespaceLNLib_a46fa1199a0e45761f566c0abc54cd3bd}{LNLib\+::\+Tessellate\+Core}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double start, double end, std\+::vector$<$ double $>$ \&parameters)
+\item 
+void \mbox{\hyperlink{namespaceLNLib_a4206f4d3de29aeeb20e34c1c23d82a1b}{LNLib\+::\+Offset\+By\+Tiller\+And\+Hanson}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double offset, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\item 
+void \mbox{\hyperlink{namespaceLNLib_afe0db170a7085f71b1085865e087c96e}{LNLib\+::\+Offset\+By\+Piegl\+And\+Tiller}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double offset, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\end{DoxyCompactItemize}

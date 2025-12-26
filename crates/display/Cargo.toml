@@ -1,0 +1,16 @@
+[package]
+name = "display"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+infrastructure = { path = "../infrastructure" }
+geometry = { path = "../geometry" }
+
+wgpu = "22.0"
+bytemuck = { version = "1.16", features = ["derive"] }
+egui = "0.29"
+egui-wgpu = "0.29"
+log = "0.4"
+glam = { version = "0.30.9", features = ["bytemuck"] }
+image = { version = "0.25.9", features = ["jpeg", "png", "tga", "bmp", "tiff", "webp"] }

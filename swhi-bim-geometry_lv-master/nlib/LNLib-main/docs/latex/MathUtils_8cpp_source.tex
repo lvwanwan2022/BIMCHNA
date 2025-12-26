@@ -1,0 +1,238 @@
+\doxysection{Math\+Utils.\+cpp}
+\hypertarget{MathUtils_8cpp_source}{}\label{MathUtils_8cpp_source}\index{src/LNLib/Mathematics/Utils/MathUtils.cpp@{src/LNLib/Mathematics/Utils/MathUtils.cpp}}
+\mbox{\hyperlink{MathUtils_8cpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/06/08\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00011}00011\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00012}00012\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00013}00013\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00014}00014\ \textcolor{comment}{\ *\ NOTICE:\ The\ Eigen\ C++\ Library\ is\ Only\ used\ in\ MathUitls.cpp\ }}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00015}00015\ \textcolor{comment}{\ *\ since\ we\ should\ provide\ uniform\ style\ API\ to\ the\ public.}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00016}00016\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00017}00017\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00019}00019\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MathUtils_8h}{MathUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00021}00021\ \textcolor{preprocessor}{\#include\ <Eigen/Dense>}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00023}00023\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00024}00024\ \textcolor{preprocessor}{\#include\ <limits>}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00025}00025\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00026}\mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{00026}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{LNLib::MathUtils::IsAlmostEqualTo}}(\textcolor{keywordtype}{double}\ value1,\ \textcolor{keywordtype}{double}\ value2,\ \textcolor{keywordtype}{double}\ tolerance)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00027}00027\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00028}00028\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{IsNaN}}(value1)\ ||\ \mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{IsNaN}}(value2))}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordtype}{double}\ eps\ =\ (std::abs(value1)\ +\ std::abs(value2)\ +\ 10)\ *\ tolerance;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{double}\ delta\ =\ value1\ -\/\ value2;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordflow}{return}\ (-\/eps\ <\ delta)\ \&\&\ (eps\ >\ delta);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00033}00033\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00035}\mbox{\hyperlink{classLNLib_1_1MathUtils_a995f6f889c781f69e0736108dd8c59bf}{00035}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a995f6f889c781f69e0736108dd8c59bf}{LNLib::MathUtils::IsGreaterThan}}(\textcolor{keywordtype}{double}\ value1,\ \textcolor{keywordtype}{double}\ value2,\ \textcolor{keywordtype}{double}\ tolerance)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00036}00036\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00037}00037\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{IsNaN}}(value1)\ ||\ \mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{IsNaN}}(value2))}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00039}00039\ \ \ \ \ \textcolor{keywordflow}{return}\ value1\ >\ value2\ \&\&\ !\mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{IsAlmostEqualTo}}(value1,\ value2,\ tolerance);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00040}00040\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00042}\mbox{\hyperlink{classLNLib_1_1MathUtils_a244ba0f7bea0ef572b6f2b53b9285fa6}{00042}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a244ba0f7bea0ef572b6f2b53b9285fa6}{LNLib::MathUtils::IsGreaterThanOrEqual}}(\textcolor{keywordtype}{double}\ value1,\ \textcolor{keywordtype}{double}\ value2,\ \textcolor{keywordtype}{double}\ tolerance)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00043}00043\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00044}00044\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{IsNaN}}(value1)\ ||\ \mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{IsNaN}}(value2))}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordflow}{return}\ (value1\ -\/\ value2\ >\ tolerance)\ ||\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{IsAlmostEqualTo}}(value1,\ value2,\ tolerance);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00047}00047\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00049}\mbox{\hyperlink{classLNLib_1_1MathUtils_abafb9abeffe5d756a37dac392191afdf}{00049}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_abafb9abeffe5d756a37dac392191afdf}{LNLib::MathUtils::IsLessThan}}(\textcolor{keywordtype}{double}\ value1,\ \textcolor{keywordtype}{double}\ value2,\ \textcolor{keywordtype}{double}\ tolerance)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00050}00050\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{IsNaN}}(value1)\ ||\ \mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{IsNaN}}(value2))}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00053}00053\ \ \ \ \ \textcolor{keywordflow}{return}\ value1\ <\ value2\ \&\&\ !\mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{IsAlmostEqualTo}}(value1,\ value2,\ tolerance);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00054}00054\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00055}00055\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00056}\mbox{\hyperlink{classLNLib_1_1MathUtils_a0df1a9322a47b39c1e914c5fa82d9d2a}{00056}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0df1a9322a47b39c1e914c5fa82d9d2a}{LNLib::MathUtils::IsLessThanOrEqual}}(\textcolor{keywordtype}{double}\ value1,\ \textcolor{keywordtype}{double}\ value2,\ \textcolor{keywordtype}{double}\ tolerance)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00057}00057\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{IsNaN}}(value1)\ ||\ \mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{IsNaN}}(value2))}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00060}00060\ \ \ \ \ \textcolor{keywordflow}{return}\ value1\ <\ value2\ ||\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{IsAlmostEqualTo}}(value1,\ value2,\ tolerance);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00061}00061\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00063}\mbox{\hyperlink{classLNLib_1_1MathUtils_a9172817955251a6a5d326e565aab5ba6}{00063}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a9172817955251a6a5d326e565aab5ba6}{LNLib::MathUtils::IsInfinite}}(\textcolor{keywordtype}{double}\ value)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00064}00064\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keyword}{constexpr}\ \textcolor{keywordtype}{double}\ maxValue\ =\ (std::numeric\_limits<double>::max)();}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00066}00066\ \ \ \ \ \textcolor{keywordtype}{double}\ minValue\ =\ -\/maxValue;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00067}00067\ \ \ \ \ \textcolor{keywordflow}{return}\ !(minValue\ <=\ value\ \&\&\ value\ <=\ maxValue);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00068}00068\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00069}00069\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00070}\mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{00070}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_ab066094974b61485bb10eafaf07ee37b}{LNLib::MathUtils::IsNaN}}(\textcolor{keywordtype}{double}\ value)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00071}00071\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00072}00072\ \ \ \ \ \textcolor{keywordflow}{return}\ value\ !=\ value;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00073}00073\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00074}00074\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00075}\mbox{\hyperlink{classLNLib_1_1MathUtils_a9f644ec075156b25b5dc1de610fd0448}{00075}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a9f644ec075156b25b5dc1de610fd0448}{LNLib::MathUtils::RadiansToAngle}}(\textcolor{keywordtype}{double}\ radians)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00076}00076\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00077}00077\ \ \ \ \ \textcolor{keywordflow}{return}\ radians\ *\ 180.0\ /\ \mbox{\hyperlink{classLNLib_1_1Constants_a61f81a7c07ffbc58273a360da017c0c4}{Constants::Pi}};}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00078}00078\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00079}00079\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00080}\mbox{\hyperlink{classLNLib_1_1MathUtils_a5c749ef53dd7c491738acdc5081f3ac9}{00080}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a5c749ef53dd7c491738acdc5081f3ac9}{LNLib::MathUtils::AngleToRadians}}(\textcolor{keywordtype}{double}\ angle)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00081}00081\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{return}\ angle\ *\ \mbox{\hyperlink{classLNLib_1_1Constants_a61f81a7c07ffbc58273a360da017c0c4}{Constants::Pi}}\ /\ 180.0;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00083}00083\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00085}\mbox{\hyperlink{classLNLib_1_1MathUtils_a47c11b20bc48752634b8f029c5eae62a}{00085}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a47c11b20bc48752634b8f029c5eae62a}{LNLib::MathUtils::Factorial}}(\textcolor{keywordtype}{int}\ number)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00086}00086\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00087}00087\ \ \ \ \ \textcolor{keywordflow}{if}\ (number\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 1;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00089}00089\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ number\ *\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a47c11b20bc48752634b8f029c5eae62a}{Factorial}}(number\ -\/\ 1);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00091}00091\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00092}00092\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00093}\mbox{\hyperlink{classLNLib_1_1MathUtils_a15124b0543679f43aaa79b0360672150}{00093}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a15124b0543679f43aaa79b0360672150}{LNLib::MathUtils::Binomial}}(\textcolor{keywordtype}{int}\ number,\ \textcolor{keywordtype}{int}\ i)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00094}00094\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00095}00095\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a47c11b20bc48752634b8f029c5eae62a}{Factorial}}(number)\ /\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_a47c11b20bc48752634b8f029c5eae62a}{Factorial}}(i)\ *\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a47c11b20bc48752634b8f029c5eae62a}{Factorial}}(number\ -\/\ i));}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00096}00096\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00097}00097\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00098}\mbox{\hyperlink{classLNLib_1_1MathUtils_addc3c246ded61a3e57be4aab45b4b61e}{00098}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_addc3c246ded61a3e57be4aab45b4b61e}{LNLib::MathUtils::ComputerCubicEquationsWithOneVariable}}(\textcolor{keywordtype}{double}\ cubic,\ \textcolor{keywordtype}{double}\ quadratic,\ \textcolor{keywordtype}{double}\ linear,\ \textcolor{keywordtype}{double}\ constant)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00099}00099\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00100}00100\ \ \ \ \ \textcolor{keywordtype}{double}\ result;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{keywordtype}{double}\ initial\ =\ 0.001;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00102}00102\ \ \ \ \ result\ =\ initial\ -\/\ ((cubic\ *\ std::pow(initial,3)\ +\ quadratic\ *\ std::pow(initial,\ 2)\ +\ linear\ *\ initial\ +\ constant)\ /\ (3\ *\ cubic\ *\ std::pow(initial,\ 2)\ +\ 2\ *\ quadratic\ *\ initial\ +\ linear));}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00103}00103\ \ \ \ \ \textcolor{keywordflow}{while}(\mbox{\hyperlink{classLNLib_1_1MathUtils_a995f6f889c781f69e0736108dd8c59bf}{MathUtils::IsGreaterThan}}(std::abs(result-\/initial),\mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants::DoubleEpsilon}}))}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00104}00104\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ initial\ =\ result;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ result\ =\ initial\ -\/\ ((cubic\ *\ std::pow(initial,3)\ +\ quadratic\ *\ std::pow(initial,\ 2)\ +\ linear\ *\ initial\ +\ constant)\ /\ (3\ *\ cubic\ *\ std::pow(initial,\ 2)\ +\ 2\ *\ quadratic\ *\ initial\ +\ linear));}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00107}00107\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00108}00108\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00109}00109\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00111}\mbox{\hyperlink{classLNLib_1_1MathUtils_a15f60990f3fadb7e874873e178cb40e6}{00111}}\ std::vector<std::vector<double>>\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a15f60990f3fadb7e874873e178cb40e6}{LNLib::MathUtils::MatrixMultiply}}(\textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ left,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ right)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00112}00112\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00113}00113\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ left.size();}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00114}00114\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ left[0].size();}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00115}00115\ \ \ \ \ \textcolor{keywordtype}{int}\ p\ =\ right[0].size();}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00117}00117\ \ \ \ \ std::vector<std::vector<double>>\ result(m,\ std::vector<double>(p,0.0));}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00118}00118\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ m;\ i++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00119}00119\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ p;\ j++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ n;\ k++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[i][j]\ +=\ left[i][k]\ *\ right[k][j];}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00127}00127\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00129}00129\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00131}\mbox{\hyperlink{classLNLib_1_1MathUtils_a933d1d8a008cc9ceebeddc62dd17f7e1}{00131}}\ std::vector<std::vector<double>>\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a933d1d8a008cc9ceebeddc62dd17f7e1}{LNLib::MathUtils::MakeDiagonal}}(\textcolor{keywordtype}{int}\ size)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00132}00132\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00133}00133\ \ \ \ \ std::vector<std::vector<double>>\ result(size);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00134}00134\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ size;\ i++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00135}00135\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ result[i].resize(size);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ size;\ j++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (i\ ==\ j)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[i][j]\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[i][j]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00148}00148\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00149}00149\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00150}00150\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00152}\mbox{\hyperlink{classLNLib_1_1MathUtils_a7efb4e7211d295ff16642ddb2c73271b}{00152}}\ std::vector<std::vector<double>>\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a7efb4e7211d295ff16642ddb2c73271b}{LNLib::MathUtils::CreateMatrix}}(\textcolor{keywordtype}{int}\ row,\ \textcolor{keywordtype}{int}\ column)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00153}00153\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00154}00154\ \ \ \ \ std::vector<std::vector<double>>\ result;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00155}00155\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ row;\ i++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00156}00156\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ std::vector<double>\ v(column,\ 0);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ result.emplace\_back(v);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00159}00159\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00160}00160\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00161}00161\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00162}00162\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00163}\mbox{\hyperlink{classLNLib_1_1MathUtils_a8e78fe5808cf5fcd34f04166907e9ad1}{00163}}\ \textcolor{keywordtype}{double}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a8e78fe5808cf5fcd34f04166907e9ad1}{LNLib::MathUtils::GetDeterminant}}(\textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ matrix)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00164}00164\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00165}00165\ \ \ \ \ Eigen::MatrixXd\ m(matrix.size(),\ matrix[0].size());}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00166}00166\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ matrix.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00167}00167\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ m.row(i)\ =\ Eigen::VectorXd::Map(\&matrix[i][0],\ matrix[i].size());}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00169}00169\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00170}00170\ \ \ \ \ \textcolor{keywordflow}{return}\ m.determinant();}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00171}00171\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00172}00172\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00173}\mbox{\hyperlink{classLNLib_1_1MathUtils_abd3a464a546a33e0455f9dff4eba277a}{00173}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1MathUtils_abd3a464a546a33e0455f9dff4eba277a}{LNLib::MathUtils::MakeInverse}}(\textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ matrix,\ std::vector<std::vector<double>>\&\ inverse)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00174}00174\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00175}00175\ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ matrix.size();}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00176}00176\ \ \ \ \ \textcolor{keywordtype}{int}\ column\ =\ matrix[0].size();}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00177}00177\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00178}00178\ \ \ \ \ \textcolor{keywordflow}{if}\ (!(row\ ==\ column))}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00179}00179\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00181}00181\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00182}00182\ \ \ \ \ Eigen::MatrixXd\ m(matrix.size(),\ matrix[0].size());}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00183}00183\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ row;\ i++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00184}00184\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ m.row(i)\ =\ Eigen::VectorXd::Map(\&matrix[i][0],\ matrix[i].size());}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00186}00186\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00188}00188\ \ \ \ \ \textcolor{keyword}{auto}\ result\ =\ m.inverse();}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00189}00189\ \ \ \ \ inverse.resize(row);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00190}00190\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ row;\ k++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00191}00191\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ inverse[k].resize(column);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00193}00193\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00194}00194\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00195}00195\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ result.cols();\ ++col)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00196}00196\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ result.rows();\ ++row)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ inverse[row][col]\ =\ result(row,\ col);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00201}00201\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00202}00202\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00203}00203\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00205}\mbox{\hyperlink{classLNLib_1_1MathUtils_a69f9b12e3d726165dcde49f0e66ec847}{00205}}\ std::vector<std::vector<double>>\ \mbox{\hyperlink{classLNLib_1_1MathUtils_a69f9b12e3d726165dcde49f0e66ec847}{LNLib::MathUtils::SolveLinearSystem}}(\textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ matrix,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ right)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00206}00206\ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00207}00207\ \ \ \ \ std::vector<std::vector<double>>\ result(matrix.size(),\ std::vector<double>(right[0].size()));}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00208}00208\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00209}00209\ \ \ \ \ Eigen::MatrixXd\ m(matrix.size(),\ matrix[0].size());}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00210}00210\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ matrix.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00211}00211\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ m.row(i)\ =\ Eigen::VectorXd::Map(\&matrix[i][0],\ matrix[i].size());}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00213}00213\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00215}00215\ \ \ \ \ Eigen::MatrixXd\ r(right.size(),\ \ right[0].size());}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00216}00216\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ right.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00217}00217\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ r.row(i)\ =\ Eigen::VectorXd::Map(\&right[i][0],\ right[i].size());}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00219}00219\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00221}00221\ \ \ \ \ Eigen::Matrix<double,\ Eigen::Dynamic,\ Eigen::Dynamic>\ solve\ =\ m.lu().solve(r);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00222}00222\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ col\ =\ 0;\ col\ <\ solve.cols();\ ++col)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00223}00223\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ row\ =\ 0;\ row\ <\ solve.rows();\ ++row)}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ result[row][col]\ =\ solve(row,\ col);}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00228}00228\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00229}00229\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00230}00230\ \}}
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00231}00231\ }
+\DoxyCodeLine{\Hypertarget{MathUtils_8cpp_source_l00232}00232\ }
+
+\end{DoxyCode}

@@ -1,0 +1,326 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: LNLib::AreaData结构体 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('structLNLib_1_1AreaData.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="structLNLib_1_1AreaData-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">LNLib::AreaData结构体 参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="dynheader">
+LNLib::AreaData 的协作图:</div>
+<div class="dyncontent">
+<div class="center"><img src="structLNLib_1_1AreaData__coll__graph.png" border="0" usemap="#aLNLib_1_1AreaData_coll__map" alt="Collaboration graph"/></div>
+<center><span class="legend">[<a target="top" href="graph_legend.html">图例</a>]</span></center></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a0790cee0d6994922c86db018c4f7ae20" id="r_a0790cee0d6994922c86db018c4f7ae20"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0790cee0d6994922c86db018c4f7ae20">AreaData</a> (const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;surface, const std::vector&lt; double &gt; &amp;series)</td></tr>
+<tr class="separator:a0790cee0d6994922c86db018c4f7ae20"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:aebb1e77917b7c14232b3288e5e26c76c" id="r_aebb1e77917b7c14232b3288e5e26c76c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aebb1e77917b7c14232b3288e5e26c76c">Surface</a></td></tr>
+<tr class="separator:aebb1e77917b7c14232b3288e5e26c76c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd3100be942551932288d758ddca7fc1" id="r_afd3100be942551932288d758ddca7fc1"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afd3100be942551932288d758ddca7fc1">ParameterV</a></td></tr>
+<tr class="separator:afd3100be942551932288d758ddca7fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a246434a8b2b4cb7d54646a628334a77d" id="r_a246434a8b2b4cb7d54646a628334a77d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a246434a8b2b4cb7d54646a628334a77d">CurrentKnotU</a></td></tr>
+<tr class="separator:a246434a8b2b4cb7d54646a628334a77d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1964848d3390838aae4d61cbb887ef09" id="r_a1964848d3390838aae4d61cbb887ef09"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1964848d3390838aae4d61cbb887ef09">NextKnotU</a></td></tr>
+<tr class="separator:a1964848d3390838aae4d61cbb887ef09"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07d8f113d00583e1b8448b9dfd3c0e97" id="r_a07d8f113d00583e1b8448b9dfd3c0e97"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07d8f113d00583e1b8448b9dfd3c0e97">CurrentKnotV</a></td></tr>
+<tr class="separator:a07d8f113d00583e1b8448b9dfd3c0e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:affff6796499e10f1955522f48fb5656e" id="r_affff6796499e10f1955522f48fb5656e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#affff6796499e10f1955522f48fb5656e">NextKnotV</a></td></tr>
+<tr class="separator:affff6796499e10f1955522f48fb5656e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9272e88783fe5ad691ef6d8707f3ebe6" id="r_a9272e88783fe5ad691ef6d8707f3ebe6"><td class="memItemLeft" align="right" valign="top">const std::vector&lt; double &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9272e88783fe5ad691ef6d8707f3ebe6">Series</a></td></tr>
+<tr class="separator:a9272e88783fe5ad691ef6d8707f3ebe6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00037">37</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a0790cee0d6994922c86db018c4f7ae20" name="a0790cee0d6994922c86db018c4f7ae20"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0790cee0d6994922c86db018c4f7ae20">&#9670;&#160;</a></span>AreaData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">LNLib::AreaData::AreaData </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>surface</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>series</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00047">47</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="NurbsSurface_8cpp_source.html#l00041">CurrentKnotU</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00042">NextKnotU</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00040">ParameterV</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00045">Series</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l00039">Surface</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a246434a8b2b4cb7d54646a628334a77d" name="a246434a8b2b4cb7d54646a628334a77d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a246434a8b2b4cb7d54646a628334a77d">&#9670;&#160;</a></span>CurrentKnotU</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::AreaData::CurrentKnotU</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00041">41</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">LNLib::NurbsSurface::ApproximateArea()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l00047">AreaData()</a>.</p>
+
+</div>
+</div>
+<a id="a07d8f113d00583e1b8448b9dfd3c0e97" name="a07d8f113d00583e1b8448b9dfd3c0e97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07d8f113d00583e1b8448b9dfd3c0e97">&#9670;&#160;</a></span>CurrentKnotV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::AreaData::CurrentKnotV</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00043">43</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">LNLib::NurbsSurface::ApproximateArea()</a>.</p>
+
+</div>
+</div>
+<a id="a1964848d3390838aae4d61cbb887ef09" name="a1964848d3390838aae4d61cbb887ef09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1964848d3390838aae4d61cbb887ef09">&#9670;&#160;</a></span>NextKnotU</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::AreaData::NextKnotU</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00042">42</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">LNLib::NurbsSurface::ApproximateArea()</a> , 以及 <a class="el" href="NurbsSurface_8cpp_source.html#l00047">AreaData()</a>.</p>
+
+</div>
+</div>
+<a id="affff6796499e10f1955522f48fb5656e" name="affff6796499e10f1955522f48fb5656e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#affff6796499e10f1955522f48fb5656e">&#9670;&#160;</a></span>NextKnotV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::AreaData::NextKnotV</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00044">44</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">LNLib::NurbsSurface::ApproximateArea()</a>.</p>
+
+</div>
+</div>
+<a id="afd3100be942551932288d758ddca7fc1" name="afd3100be942551932288d758ddca7fc1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd3100be942551932288d758ddca7fc1">&#9670;&#160;</a></span>ParameterV</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::AreaData::ParameterV</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00040">40</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l00047">AreaData()</a>.</p>
+
+</div>
+</div>
+<a id="a9272e88783fe5ad691ef6d8707f3ebe6" name="a9272e88783fe5ad691ef6d8707f3ebe6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9272e88783fe5ad691ef6d8707f3ebe6">&#9670;&#160;</a></span>Series</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;double&gt;&amp; LNLib::AreaData::Series</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00045">45</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l00047">AreaData()</a>.</p>
+
+</div>
+</div>
+<a id="aebb1e77917b7c14232b3288e5e26c76c" name="aebb1e77917b7c14232b3288e5e26c76c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebb1e77917b7c14232b3288e5e26c76c">&#9670;&#160;</a></span>Surface</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="namespaceLNLib.html#a5b230458dcc27e09eca3bc2771d94fe3">LN_NurbsSurface</a>&amp; LNLib::AreaData::Surface</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a> 第 <a class="el" href="NurbsSurface_8cpp_source.html#l00039">39</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l00047">AreaData()</a>.</p>
+
+</div>
+</div>
+<hr/>该结构体的文档由以下文件生成:<ul>
+<li>src/LNLib/Geometry/Surface/<a class="el" href="NurbsSurface_8cpp_source.html">NurbsSurface.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceLNLib.html">LNLib</a></li><li class="navelem"><a class="el" href="structLNLib_1_1AreaData.html">AreaData</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

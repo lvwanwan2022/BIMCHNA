@@ -1,0 +1,506 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: LNLib::Integrator类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classLNLib_1_1Integrator.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-static-methods">静态 Public 成员函数</a> &#124;
+<a href="#pub-static-attribs">静态 Public 属性</a> &#124;
+<a href="classLNLib_1_1Integrator-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">LNLib::Integrator类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Integrator_8h_source.html">Integrator.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+静态 Public 成员函数</h2></td></tr>
+<tr class="memitem:a678e1ce3937ae65b9ff886f0f5ae6f17" id="r_a678e1ce3937ae65b9ff886f0f5ae6f17"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a678e1ce3937ae65b9ff886f0f5ae6f17">Simpson</a> (<a class="el" href="classLNLib_1_1IntegrationFunction.html">IntegrationFunction</a> &amp;function, void *customData, double start, double end)</td></tr>
+<tr class="separator:a678e1ce3937ae65b9ff886f0f5ae6f17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a505e812b87ed37f06c191520889d0921" id="r_a505e812b87ed37f06c191520889d0921"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a505e812b87ed37f06c191520889d0921">Simpson</a> (<a class="el" href="classLNLib_1_1BinaryIntegrationFunction.html">BinaryIntegrationFunction</a> &amp;function, void *customData, double uStart, double uEnd, double vStart, double vEnd)</td></tr>
+<tr class="separator:a505e812b87ed37f06c191520889d0921"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf3496342a2d42f08d56527e1433593a" id="r_aaf3496342a2d42f08d56527e1433593a"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf3496342a2d42f08d56527e1433593a">ChebyshevSeries</a> (int size=100)</td></tr>
+<tr class="memdesc:aaf3496342a2d42f08d56527e1433593a"><td class="mdescLeft">&#160;</td><td class="mdescRight">According to <a href="https://github.com/chrisidefix/nurbs">https://github.com/chrisidefix/nurbs</a>  <br /></td></tr>
+<tr class="separator:aaf3496342a2d42f08d56527e1433593a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef1a9a4d545b1b0e0b4f6aaf226981b2" id="r_aef1a9a4d545b1b0e0b4f6aaf226981b2"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef1a9a4d545b1b0e0b4f6aaf226981b2">ClenshawCurtisQuadrature</a> (<a class="el" href="classLNLib_1_1IntegrationFunction.html">IntegrationFunction</a> &amp;function, void *customData, double start, double end, std::vector&lt; double &gt; &amp;series, double epsilon=<a class="el" href="classLNLib_1_1Constants.html#a8e3851b85ed26364ace1af2266e8947c">Constants::DistanceEpsilon</a>)</td></tr>
+<tr class="separator:aef1a9a4d545b1b0e0b4f6aaf226981b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac587694266de65c911374c38e23bf0ba" id="r_ac587694266de65c911374c38e23bf0ba"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac587694266de65c911374c38e23bf0ba">ClenshawCurtisQuadrature2</a> (<a class="el" href="classLNLib_1_1IntegrationFunction.html">IntegrationFunction</a> &amp;function, void *customData, double start, double end, std::vector&lt; double &gt; series, double epsilon=<a class="el" href="classLNLib_1_1Constants.html#a8e3851b85ed26364ace1af2266e8947c">Constants::DistanceEpsilon</a>)</td></tr>
+<tr class="separator:ac587694266de65c911374c38e23bf0ba"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+静态 Public 属性</h2></td></tr>
+<tr class="memitem:a226b8450b8ed883154eaefba29fbfc71" id="r_a226b8450b8ed883154eaefba29fbfc71"><td class="memItemLeft" align="right" valign="top">static const std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a226b8450b8ed883154eaefba29fbfc71">GaussLegendreAbscissae</a></td></tr>
+<tr class="memdesc:a226b8450b8ed883154eaefba29fbfc71"><td class="mdescLeft">&#160;</td><td class="mdescRight">According to <a href="https://github.com/Pomax/bezierjs">https://github.com/Pomax/bezierjs</a> Order is set 24.  <br /></td></tr>
+<tr class="separator:a226b8450b8ed883154eaefba29fbfc71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb4683361d059b4c31acf9d4b531f8b7" id="r_abb4683361d059b4c31acf9d4b531f8b7"><td class="memItemLeft" align="right" valign="top">static const std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abb4683361d059b4c31acf9d4b531f8b7">GaussLegendreWeights</a></td></tr>
+<tr class="separator:abb4683361d059b4c31acf9d4b531f8b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="Integrator_8h_source.html">Integrator.h</a> 第 <a class="el" href="Integrator_8h_source.html#l00030">30</a> 行定义.</p>
+</div><h2 class="groupheader">成员函数说明</h2>
+<a id="aaf3496342a2d42f08d56527e1433593a" name="aaf3496342a2d42f08d56527e1433593a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf3496342a2d42f08d56527e1433593a">&#9670;&#160;</a></span>ChebyshevSeries()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; double &gt; LNLib::Integrator::ChebyshevSeries </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>size</em></span><span class="paramdefsep"> = </span><span class="paramdefval">100</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>According to <a href="https://github.com/chrisidefix/nurbs">https://github.com/chrisidefix/nurbs</a> </p>
+
+<p class="definition">在文件 <a class="el" href="Integrator_8cpp_source.html">Integrator.cpp</a> 第 <a class="el" href="Integrator_8cpp_source.html#l00121">121</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="FFT_8h_source.html#l00595">LNLib::dfct()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">LNLib::NurbsSurface::ApproximateArea()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03732">LNLib::NurbsCurve::ApproximateLength()</a>.</p>
+
+</div>
+</div>
+<a id="aef1a9a4d545b1b0e0b4f6aaf226981b2" name="aef1a9a4d545b1b0e0b4f6aaf226981b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef1a9a4d545b1b0e0b4f6aaf226981b2">&#9670;&#160;</a></span>ClenshawCurtisQuadrature()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::Integrator::ClenshawCurtisQuadrature </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1IntegrationFunction.html">IntegrationFunction</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>function</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>customData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>series</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>epsilon</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classLNLib_1_1Constants.html#a8e3851b85ed26364ace1af2266e8947c">Constants::DistanceEpsilon</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Integrator_8cpp_source.html">Integrator.cpp</a> 第 <a class="el" href="Integrator_8cpp_source.html#l00166">166</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsCurve_8cpp_source.html#l03732">LNLib::NurbsCurve::ApproximateLength()</a>.</p>
+
+</div>
+</div>
+<a id="ac587694266de65c911374c38e23bf0ba" name="ac587694266de65c911374c38e23bf0ba"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac587694266de65c911374c38e23bf0ba">&#9670;&#160;</a></span>ClenshawCurtisQuadrature2()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::Integrator::ClenshawCurtisQuadrature2 </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1IntegrationFunction.html">IntegrationFunction</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>function</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>customData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>end</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; double &gt;</td>          <td class="paramname"><span class="paramname"><em>series</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>epsilon</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classLNLib_1_1Constants.html#a8e3851b85ed26364ace1af2266e8947c">Constants::DistanceEpsilon</a></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Integrator_8cpp_source.html">Integrator.cpp</a> 第 <a class="el" href="Integrator_8cpp_source.html#l00223">223</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">LNLib::NurbsSurface::ApproximateArea()</a>.</p>
+
+</div>
+</div>
+<a id="a505e812b87ed37f06c191520889d0921" name="a505e812b87ed37f06c191520889d0921"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a505e812b87ed37f06c191520889d0921">&#9670;&#160;</a></span>Simpson() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::Integrator::Simpson </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1BinaryIntegrationFunction.html">BinaryIntegrationFunction</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>function</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>customData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>uStart</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>uEnd</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>vStart</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>vEnd</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Integrator_8cpp_source.html">Integrator.cpp</a> 第 <a class="el" href="Integrator_8cpp_source.html#l00028">28</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a678e1ce3937ae65b9ff886f0f5ae6f17" name="a678e1ce3937ae65b9ff886f0f5ae6f17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a678e1ce3937ae65b9ff886f0f5ae6f17">&#9670;&#160;</a></span>Simpson() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::Integrator::Simpson </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classLNLib_1_1IntegrationFunction.html">IntegrationFunction</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>function</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *</td>          <td class="paramname"><span class="paramname"><em>customData</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>end</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Integrator_8cpp_source.html">Integrator.cpp</a> 第 <a class="el" href="Integrator_8cpp_source.html#l00019">19</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">LNLib::NurbsSurface::ApproximateArea()</a>, <a class="el" href="NurbsCurve_8cpp_source.html#l03732">LNLib::NurbsCurve::ApproximateLength()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l00061">LNLib::CalculateLengthBySimpson()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">类成员变量说明</h2>
+<a id="a226b8450b8ed883154eaefba29fbfc71" name="a226b8450b8ed883154eaefba29fbfc71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a226b8450b8ed883154eaefba29fbfc71">&#9670;&#160;</a></span>GaussLegendreAbscissae</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; double &gt; LNLib::Integrator::GaussLegendreAbscissae</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    {</div>
+<div class="line">        -0.0640568928626056260850430826247450385909,</div>
+<div class="line">        0.0640568928626056260850430826247450385909,</div>
+<div class="line">        -0.1911188674736163091586398207570696318404,</div>
+<div class="line">        0.1911188674736163091586398207570696318404,</div>
+<div class="line">        -0.3150426796961633743867932913198102407864,</div>
+<div class="line">        0.3150426796961633743867932913198102407864,</div>
+<div class="line">        -0.4337935076260451384870842319133497124524,</div>
+<div class="line">        0.4337935076260451384870842319133497124524,</div>
+<div class="line">        -0.5454214713888395356583756172183723700107,</div>
+<div class="line">        0.5454214713888395356583756172183723700107,</div>
+<div class="line">        -0.6480936519369755692524957869107476266696,</div>
+<div class="line">        0.6480936519369755692524957869107476266696,</div>
+<div class="line">        -0.7401241915785543642438281030999784255232,</div>
+<div class="line">        0.7401241915785543642438281030999784255232,</div>
+<div class="line">        -0.8200019859739029219539498726697452080761,</div>
+<div class="line">        0.8200019859739029219539498726697452080761,</div>
+<div class="line">        -0.8864155270044010342131543419821967550873,</div>
+<div class="line">        0.8864155270044010342131543419821967550873,</div>
+<div class="line">        -0.9382745520027327585236490017087214496548,</div>
+<div class="line">        0.9382745520027327585236490017087214496548,</div>
+<div class="line">        -0.9747285559713094981983919930081690617411,</div>
+<div class="line">        0.9747285559713094981983919930081690617411,</div>
+<div class="line">        -0.9951872199970213601799974097007368118745,</div>
+<div class="line">        0.9951872199970213601799974097007368118745,</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p>According to <a href="https://github.com/Pomax/bezierjs">https://github.com/Pomax/bezierjs</a> Order is set 24. </p>
+
+<p class="definition">在文件 <a class="el" href="Integrator_8h_source.html">Integrator.h</a> 第 <a class="el" href="Integrator_8h_source.html#l00041">41</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">LNLib::NurbsSurface::ApproximateArea()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03732">LNLib::NurbsCurve::ApproximateLength()</a>.</p>
+
+</div>
+</div>
+<a id="abb4683361d059b4c31acf9d4b531f8b7" name="abb4683361d059b4c31acf9d4b531f8b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb4683361d059b4c31acf9d4b531f8b7">&#9670;&#160;</a></span>GaussLegendreWeights</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt; double &gt; LNLib::Integrator::GaussLegendreWeights</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel static">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<b>初始值:</b><div class="fragment"><div class="line">=</div>
+<div class="line">    {</div>
+<div class="line">        0.1279381953467521569740561652246953718517,</div>
+<div class="line">        0.1279381953467521569740561652246953718517,</div>
+<div class="line">        0.1258374563468282961213753825111836887264,</div>
+<div class="line">        0.1258374563468282961213753825111836887264,</div>
+<div class="line">        0.121670472927803391204463153476262425607,</div>
+<div class="line">        0.121670472927803391204463153476262425607,</div>
+<div class="line">        0.1155056680537256013533444839067835598622,</div>
+<div class="line">        0.1155056680537256013533444839067835598622,</div>
+<div class="line">        0.1074442701159656347825773424466062227946,</div>
+<div class="line">        0.1074442701159656347825773424466062227946,</div>
+<div class="line">        0.0976186521041138882698806644642471544279,</div>
+<div class="line">        0.0976186521041138882698806644642471544279,</div>
+<div class="line">        0.086190161531953275917185202983742667185,</div>
+<div class="line">        0.086190161531953275917185202983742667185,</div>
+<div class="line">        0.0733464814110803057340336152531165181193,</div>
+<div class="line">        0.0733464814110803057340336152531165181193,</div>
+<div class="line">        0.0592985849154367807463677585001085845412,</div>
+<div class="line">        0.0592985849154367807463677585001085845412,</div>
+<div class="line">        0.0442774388174198061686027482113382288593,</div>
+<div class="line">        0.0442774388174198061686027482113382288593,</div>
+<div class="line">        0.0285313886289336631813078159518782864491,</div>
+<div class="line">        0.0285313886289336631813078159518782864491,</div>
+<div class="line">        0.0123412297999871995468056670700372915759,</div>
+<div class="line">        0.0123412297999871995468056670700372915759,</div>
+<div class="line">    }</div>
+</div><!-- fragment -->
+<p class="definition">在文件 <a class="el" href="Integrator_8h_source.html">Integrator.h</a> 第 <a class="el" href="Integrator_8h_source.html#l00042">42</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l02979">LNLib::NurbsSurface::ApproximateArea()</a> , 以及 <a class="el" href="NurbsCurve_8cpp_source.html#l03732">LNLib::NurbsCurve::ApproximateLength()</a>.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/LNLib/include/<a class="el" href="Integrator_8h_source.html">Integrator.h</a></li>
+<li>src/LNLib/Algorithm/<a class="el" href="Integrator_8cpp_source.html">Integrator.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceLNLib.html">LNLib</a></li><li class="navelem"><a class="el" href="classLNLib_1_1Integrator.html">Integrator</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

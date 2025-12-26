@@ -1,0 +1,35 @@
+\doxysection{Intersection.\+h}
+\hypertarget{Intersection_8h_source}{}\label{Intersection_8h_source}\index{src/LNLib/include/Intersection.h@{src/LNLib/include/Intersection.h}}
+\mbox{\hyperlink{Intersection_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/06/23\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00011}00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNEnums_8h}{LNEnums.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibDefinitions_8h}{LNLibDefinitions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00016}00016\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00017}00017\ \{}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00018}00018\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}};}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00019}\mbox{\hyperlink{classLNLib_1_1Intersection}{00019}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{classLNLib_1_1Intersection}{Intersection}}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00020}00020\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00023}00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespaceLNLib_a990b15d5522b431bd0cfede7b600a59c}{CurveCurveIntersectionType}}\ \mbox{\hyperlink{classLNLib_1_1Intersection_a08dc65c36ff6e39c14ce9f00d0377f0a}{ComputeRays}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ point0,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ vector0,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ point1,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ vector1,\ \textcolor{keywordtype}{double}\&\ param0,\ \textcolor{keywordtype}{double}\&\ param1,\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ intersectPoint);}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00024}00024\ }
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00025}00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \mbox{\hyperlink{namespaceLNLib_ab883fb3627937ddd447e9f9ff276c40f}{LinePlaneIntersectionType}}\ \mbox{\hyperlink{classLNLib_1_1Intersection_a6a0db8b1d60cc8f3a209427e83ac8bd0}{ComputeLineAndPlane}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ normal,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ pointOnPlane,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ pointOnLine,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ lineDirection,\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ intersectPoint);}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00026}00026\ }
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00027}00027\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00028}00028\ \}}
+\DoxyCodeLine{\Hypertarget{Intersection_8h_source_l00029}00029\ }
+
+\end{DoxyCode}

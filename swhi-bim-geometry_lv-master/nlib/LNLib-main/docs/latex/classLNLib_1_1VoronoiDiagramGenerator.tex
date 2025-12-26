@@ -1,0 +1,240 @@
+\doxysection{LNLib\+::Voronoi\+Diagram\+Generator类 参考}
+\hypertarget{classLNLib_1_1VoronoiDiagramGenerator}{}\label{classLNLib_1_1VoronoiDiagramGenerator}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+
+
+{\ttfamily \#include $<$Voronoi.\+h$>$}
+
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a8b0f9314aaf6186d25734adf8be0d86f}{Voronoi\+Diagram\+Generator}} ()
+\item 
+\mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_aaec24df4cdb4366284acfb251146f28f}{\texorpdfstring{$\sim$}{\string~}\+Voronoi\+Diagram\+Generator}} ()
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a0e9c9012d8f75f4aef404c4cd8b90775}{generate\+Voronoi}} (float \texorpdfstring{$\ast$}{*}x\+Values, float \texorpdfstring{$\ast$}{*}y\+Values, int num\+Points, float minX, float maxX, float minY, float maxY, float min\+Dist, bool gen\+Vector\+Info=true)
+\item 
+void \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_adc728eeb2c8731d90afeabd2b666fc8c}{set\+Generate\+Delaunay}} (bool gen\+Del)
+\item 
+void \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a5a4260c45f7d422a747398158473ab15}{set\+Generate\+Voronoi}} (bool gen\+Vor)
+\item 
+void \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a579c5c2307ffc625c4674037b5ae55fd}{reset\+Iterator}} ()
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a8f5a84a51e4fa021811d0f5df3358501}{get\+Next}} (float \&x1, float \&y1, float \&x2, float \&y2)
+\item 
+void \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a9deb8c2ccdc798edbddc80c254e12847}{reset\+Delaunay\+Edges\+Iterator}} ()
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a88f7919f533bda3a2cd49a5bcfca0b4a}{get\+Next\+Delaunay}} (float \&x1, float \&y1, float \&x2, float \&y2)
+\item 
+void \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_ac550e75277b8eccf769b7fcb1efa67ca}{reset\+Vertex\+Pair\+Iterator}} ()
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_ad45f158fe06a7129a6c43e6b2f6e8a2b}{get\+Next\+Vertex\+Pair}} (float \&x1, float \&y1, float \&x2, float \&y2)
+\item 
+void \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a4c940f25a34b2a5d0ff867c39b49c44b}{reset\+Vertices\+Iterator}} ()
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a06e9091845f6b4bc969f1cdd76d0f10a}{get\+Next\+Vertex}} (float \&x, float \&y)
+\item 
+void \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_ad91fbd215845b9c793f369ffc2bf54f6}{reset}} ()
+\item 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a357b00cec994c1302513c2dc9b9b91a3}{get\+Triangles}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00120}{120}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_a8b0f9314aaf6186d25734adf8be0d86f}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!VoronoiDiagramGenerator@{VoronoiDiagramGenerator}}
+\index{VoronoiDiagramGenerator@{VoronoiDiagramGenerator}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{VoronoiDiagramGenerator()}{VoronoiDiagramGenerator()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_a8b0f9314aaf6186d25734adf8be0d86f} 
+LNLib\+::\+Voronoi\+Diagram\+Generator\+::\+Voronoi\+Diagram\+Generator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8cpp_source}{Voronoi.\+cpp}} 第 \mbox{\hyperlink{Voronoi_8cpp_source_l00037}{37}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Voronoi_8h_source_l00056}{LNLib\+::\+Free\+Node\+Array\+List\+::memory}}, \mbox{\hyperlink{Voronoi_8cpp_source_l00104}{set\+Generate\+Delaunay()}} , 以及 \mbox{\hyperlink{Voronoi_8cpp_source_l00109}{set\+Generate\+Voronoi()}}.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_aaec24df4cdb4366284acfb251146f28f}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!````~VoronoiDiagramGenerator@{\texorpdfstring{$\sim$}{\string~}VoronoiDiagramGenerator}}
+\index{````~VoronoiDiagramGenerator@{\texorpdfstring{$\sim$}{\string~}VoronoiDiagramGenerator}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{\texorpdfstring{$\sim$}{\string~}VoronoiDiagramGenerator()}{\string~VoronoiDiagramGenerator()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_aaec24df4cdb4366284acfb251146f28f} 
+LNLib\+::\+Voronoi\+Diagram\+Generator\+::\texorpdfstring{$\sim$}{\string~}\+Voronoi\+Diagram\+Generator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8cpp_source}{Voronoi.\+cpp}} 第 \mbox{\hyperlink{Voronoi_8cpp_source_l00066}{66}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Voronoi_8cpp_source_l00071}{reset()}}.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_a0e9c9012d8f75f4aef404c4cd8b90775}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!generateVoronoi@{generateVoronoi}}
+\index{generateVoronoi@{generateVoronoi}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{generateVoronoi()}{generateVoronoi()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_a0e9c9012d8f75f4aef404c4cd8b90775} 
+bool LNLib\+::\+Voronoi\+Diagram\+Generator\+::generate\+Voronoi (\begin{DoxyParamCaption}\item[{float \texorpdfstring{$\ast$}{*}}]{x\+Values}{, }\item[{float \texorpdfstring{$\ast$}{*}}]{y\+Values}{, }\item[{int}]{num\+Points}{, }\item[{float}]{minX}{, }\item[{float}]{maxX}{, }\item[{float}]{minY}{, }\item[{float}]{maxY}{, }\item[{float}]{min\+Dist}{, }\item[{bool}]{gen\+Vector\+Info}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8cpp_source}{Voronoi.\+cpp}} 第 \mbox{\hyperlink{Voronoi_8cpp_source_l00114}{114}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Voronoi_8cpp_source_l01482}{LNLib\+::scomp()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l03149}{LNLib\+::\+Nurbs\+Surface\+::\+Triangulate()}}.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_a8f5a84a51e4fa021811d0f5df3358501}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!getNext@{getNext}}
+\index{getNext@{getNext}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{getNext()}{getNext()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_a8f5a84a51e4fa021811d0f5df3358501} 
+bool LNLib\+::\+Voronoi\+Diagram\+Generator\+::get\+Next (\begin{DoxyParamCaption}\item[{float \&}]{x1}{, }\item[{float \&}]{y1}{, }\item[{float \&}]{x2}{, }\item[{float \&}]{y2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00140}{140}} 行定义.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_a88f7919f533bda3a2cd49a5bcfca0b4a}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!getNextDelaunay@{getNextDelaunay}}
+\index{getNextDelaunay@{getNextDelaunay}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{getNextDelaunay()}{getNextDelaunay()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_a88f7919f533bda3a2cd49a5bcfca0b4a} 
+bool LNLib\+::\+Voronoi\+Diagram\+Generator\+::get\+Next\+Delaunay (\begin{DoxyParamCaption}\item[{float \&}]{x1}{, }\item[{float \&}]{y1}{, }\item[{float \&}]{x2}{, }\item[{float \&}]{y2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00160}{160}} 行定义.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_a06e9091845f6b4bc969f1cdd76d0f10a}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!getNextVertex@{getNextVertex}}
+\index{getNextVertex@{getNextVertex}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{getNextVertex()}{getNextVertex()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_a06e9091845f6b4bc969f1cdd76d0f10a} 
+bool LNLib\+::\+Voronoi\+Diagram\+Generator\+::get\+Next\+Vertex (\begin{DoxyParamCaption}\item[{float \&}]{x}{, }\item[{float \&}]{y}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00187}{187}} 行定义.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_ad45f158fe06a7129a6c43e6b2f6e8a2b}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!getNextVertexPair@{getNextVertexPair}}
+\index{getNextVertexPair@{getNextVertexPair}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{getNextVertexPair()}{getNextVertexPair()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_ad45f158fe06a7129a6c43e6b2f6e8a2b} 
+bool LNLib\+::\+Voronoi\+Diagram\+Generator\+::get\+Next\+Vertex\+Pair (\begin{DoxyParamCaption}\item[{float \&}]{x1}{, }\item[{float \&}]{y1}{, }\item[{float \&}]{x2}{, }\item[{float \&}]{y2}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8cpp_source}{Voronoi.\+cpp}} 第 \mbox{\hyperlink{Voronoi_8cpp_source_l01460}{1460}} 行定义.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_a357b00cec994c1302513c2dc9b9b91a3}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!getTriangles@{getTriangles}}
+\index{getTriangles@{getTriangles}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{getTriangles()}{getTriangles()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_a357b00cec994c1302513c2dc9b9b91a3} 
+std\+::vector$<$ std\+::vector$<$ int $>$ $>$ LNLib\+::\+Voronoi\+Diagram\+Generator\+::get\+Triangles (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8cpp_source}{Voronoi.\+cpp}} 第 \mbox{\hyperlink{Voronoi_8cpp_source_l00099}{99}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l03149}{LNLib\+::\+Nurbs\+Surface\+::\+Triangulate()}}.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_ad91fbd215845b9c793f369ffc2bf54f6}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!reset@{reset}}
+\index{reset@{reset}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_ad91fbd215845b9c793f369ffc2bf54f6} 
+void LNLib\+::\+Voronoi\+Diagram\+Generator\+::reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8cpp_source}{Voronoi.\+cpp}} 第 \mbox{\hyperlink{Voronoi_8cpp_source_l00071}{71}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Voronoi_8cpp_source_l00066}{\texorpdfstring{$\sim$}{\string~}\+Voronoi\+Diagram\+Generator()}}.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_a9deb8c2ccdc798edbddc80c254e12847}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!resetDelaunayEdgesIterator@{resetDelaunayEdgesIterator}}
+\index{resetDelaunayEdgesIterator@{resetDelaunayEdgesIterator}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{resetDelaunayEdgesIterator()}{resetDelaunayEdgesIterator()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_a9deb8c2ccdc798edbddc80c254e12847} 
+void LNLib\+::\+Voronoi\+Diagram\+Generator\+::reset\+Delaunay\+Edges\+Iterator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00155}{155}} 行定义.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_a579c5c2307ffc625c4674037b5ae55fd}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!resetIterator@{resetIterator}}
+\index{resetIterator@{resetIterator}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{resetIterator()}{resetIterator()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_a579c5c2307ffc625c4674037b5ae55fd} 
+void LNLib\+::\+Voronoi\+Diagram\+Generator\+::reset\+Iterator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00135}{135}} 行定义.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_ac550e75277b8eccf769b7fcb1efa67ca}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!resetVertexPairIterator@{resetVertexPairIterator}}
+\index{resetVertexPairIterator@{resetVertexPairIterator}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{resetVertexPairIterator()}{resetVertexPairIterator()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_ac550e75277b8eccf769b7fcb1efa67ca} 
+void LNLib\+::\+Voronoi\+Diagram\+Generator\+::reset\+Vertex\+Pair\+Iterator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00175}{175}} 行定义.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_a4c940f25a34b2a5d0ff867c39b49c44b}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!resetVerticesIterator@{resetVerticesIterator}}
+\index{resetVerticesIterator@{resetVerticesIterator}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{resetVerticesIterator()}{resetVerticesIterator()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_a4c940f25a34b2a5d0ff867c39b49c44b} 
+void LNLib\+::\+Voronoi\+Diagram\+Generator\+::reset\+Vertices\+Iterator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00182}{182}} 行定义.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_adc728eeb2c8731d90afeabd2b666fc8c}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!setGenerateDelaunay@{setGenerateDelaunay}}
+\index{setGenerateDelaunay@{setGenerateDelaunay}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{setGenerateDelaunay()}{setGenerateDelaunay()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_adc728eeb2c8731d90afeabd2b666fc8c} 
+void LNLib\+::\+Voronoi\+Diagram\+Generator\+::set\+Generate\+Delaunay (\begin{DoxyParamCaption}\item[{bool}]{gen\+Del}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8cpp_source}{Voronoi.\+cpp}} 第 \mbox{\hyperlink{Voronoi_8cpp_source_l00104}{104}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l03149}{LNLib\+::\+Nurbs\+Surface\+::\+Triangulate()}} , 以及 \mbox{\hyperlink{Voronoi_8cpp_source_l00037}{Voronoi\+Diagram\+Generator()}}.
+
+\Hypertarget{classLNLib_1_1VoronoiDiagramGenerator_a5a4260c45f7d422a747398158473ab15}\index{LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}!setGenerateVoronoi@{setGenerateVoronoi}}
+\index{setGenerateVoronoi@{setGenerateVoronoi}!LNLib::VoronoiDiagramGenerator@{LNLib::VoronoiDiagramGenerator}}
+\doxysubsubsection{\texorpdfstring{setGenerateVoronoi()}{setGenerateVoronoi()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1VoronoiDiagramGenerator_a5a4260c45f7d422a747398158473ab15} 
+void LNLib\+::\+Voronoi\+Diagram\+Generator\+::set\+Generate\+Voronoi (\begin{DoxyParamCaption}\item[{bool}]{gen\+Vor}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8cpp_source}{Voronoi.\+cpp}} 第 \mbox{\hyperlink{Voronoi_8cpp_source_l00109}{109}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l03149}{LNLib\+::\+Nurbs\+Surface\+::\+Triangulate()}} , 以及 \mbox{\hyperlink{Voronoi_8cpp_source_l00037}{Voronoi\+Diagram\+Generator()}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{Voronoi_8h}{Voronoi.\+h}}\item 
+src/\+LNLib/\+Algorithm/\mbox{\hyperlink{Voronoi_8cpp}{Voronoi.\+cpp}}\end{DoxyCompactItemize}

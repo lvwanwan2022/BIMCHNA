@@ -1,0 +1,14 @@
+\doxysection{src/\+LNLib/\+Geometry/\+Curve/\+Bezier\+Curve.cpp 文件参考}
+\hypertarget{BezierCurve_8cpp}{}\label{BezierCurve_8cpp}\index{src/LNLib/Geometry/Curve/BezierCurve.cpp@{src/LNLib/Geometry/Curve/BezierCurve.cpp}}
+{\ttfamily \#include "{}Bezier\+Curve.\+h"{}}\newline
+{\ttfamily \#include "{}Validation\+Utils.\+h"{}}\newline
+{\ttfamily \#include "{}XYZ.\+h"{}}\newline
+{\ttfamily \#include "{}XYZW.\+h"{}}\newline
+{\ttfamily \#include "{}Matrix4d.\+h"{}}\newline
+{\ttfamily \#include "{}Polynomials.\+h"{}}\newline
+{\ttfamily \#include "{}Intersection.\+h"{}}\newline
+{\ttfamily \#include "{}Interpolation.\+h"{}}\newline
+{\ttfamily \#include "{}LNLib\+Exceptions.\+h"{}}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+Bezier\+Curve.\+cpp 的引用(Include)关系图\+:
+% FIG 0

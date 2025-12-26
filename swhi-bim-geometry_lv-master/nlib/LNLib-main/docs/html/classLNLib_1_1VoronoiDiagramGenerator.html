@@ -1,0 +1,617 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: LNLib::VoronoiDiagramGenerator类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classLNLib_1_1VoronoiDiagramGenerator.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classLNLib_1_1VoronoiDiagramGenerator-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">LNLib::VoronoiDiagramGenerator类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p><code>#include &lt;<a class="el" href="Voronoi_8h_source.html">Voronoi.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a8b0f9314aaf6186d25734adf8be0d86f" id="r_a8b0f9314aaf6186d25734adf8be0d86f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b0f9314aaf6186d25734adf8be0d86f">VoronoiDiagramGenerator</a> ()</td></tr>
+<tr class="separator:a8b0f9314aaf6186d25734adf8be0d86f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaec24df4cdb4366284acfb251146f28f" id="r_aaec24df4cdb4366284acfb251146f28f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaec24df4cdb4366284acfb251146f28f">~VoronoiDiagramGenerator</a> ()</td></tr>
+<tr class="separator:aaec24df4cdb4366284acfb251146f28f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e9c9012d8f75f4aef404c4cd8b90775" id="r_a0e9c9012d8f75f4aef404c4cd8b90775"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e9c9012d8f75f4aef404c4cd8b90775">generateVoronoi</a> (float *xValues, float *yValues, int numPoints, float minX, float maxX, float minY, float maxY, float minDist, bool genVectorInfo=true)</td></tr>
+<tr class="separator:a0e9c9012d8f75f4aef404c4cd8b90775"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc728eeb2c8731d90afeabd2b666fc8c" id="r_adc728eeb2c8731d90afeabd2b666fc8c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adc728eeb2c8731d90afeabd2b666fc8c">setGenerateDelaunay</a> (bool genDel)</td></tr>
+<tr class="separator:adc728eeb2c8731d90afeabd2b666fc8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5a4260c45f7d422a747398158473ab15" id="r_a5a4260c45f7d422a747398158473ab15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a4260c45f7d422a747398158473ab15">setGenerateVoronoi</a> (bool genVor)</td></tr>
+<tr class="separator:a5a4260c45f7d422a747398158473ab15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a579c5c2307ffc625c4674037b5ae55fd" id="r_a579c5c2307ffc625c4674037b5ae55fd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a579c5c2307ffc625c4674037b5ae55fd">resetIterator</a> ()</td></tr>
+<tr class="separator:a579c5c2307ffc625c4674037b5ae55fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f5a84a51e4fa021811d0f5df3358501" id="r_a8f5a84a51e4fa021811d0f5df3358501"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8f5a84a51e4fa021811d0f5df3358501">getNext</a> (float &amp;x1, float &amp;y1, float &amp;x2, float &amp;y2)</td></tr>
+<tr class="separator:a8f5a84a51e4fa021811d0f5df3358501"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9deb8c2ccdc798edbddc80c254e12847" id="r_a9deb8c2ccdc798edbddc80c254e12847"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9deb8c2ccdc798edbddc80c254e12847">resetDelaunayEdgesIterator</a> ()</td></tr>
+<tr class="separator:a9deb8c2ccdc798edbddc80c254e12847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88f7919f533bda3a2cd49a5bcfca0b4a" id="r_a88f7919f533bda3a2cd49a5bcfca0b4a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88f7919f533bda3a2cd49a5bcfca0b4a">getNextDelaunay</a> (float &amp;x1, float &amp;y1, float &amp;x2, float &amp;y2)</td></tr>
+<tr class="separator:a88f7919f533bda3a2cd49a5bcfca0b4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac550e75277b8eccf769b7fcb1efa67ca" id="r_ac550e75277b8eccf769b7fcb1efa67ca"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac550e75277b8eccf769b7fcb1efa67ca">resetVertexPairIterator</a> ()</td></tr>
+<tr class="separator:ac550e75277b8eccf769b7fcb1efa67ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad45f158fe06a7129a6c43e6b2f6e8a2b" id="r_ad45f158fe06a7129a6c43e6b2f6e8a2b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad45f158fe06a7129a6c43e6b2f6e8a2b">getNextVertexPair</a> (float &amp;x1, float &amp;y1, float &amp;x2, float &amp;y2)</td></tr>
+<tr class="separator:ad45f158fe06a7129a6c43e6b2f6e8a2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c940f25a34b2a5d0ff867c39b49c44b" id="r_a4c940f25a34b2a5d0ff867c39b49c44b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c940f25a34b2a5d0ff867c39b49c44b">resetVerticesIterator</a> ()</td></tr>
+<tr class="separator:a4c940f25a34b2a5d0ff867c39b49c44b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06e9091845f6b4bc969f1cdd76d0f10a" id="r_a06e9091845f6b4bc969f1cdd76d0f10a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06e9091845f6b4bc969f1cdd76d0f10a">getNextVertex</a> (float &amp;x, float &amp;y)</td></tr>
+<tr class="separator:a06e9091845f6b4bc969f1cdd76d0f10a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad91fbd215845b9c793f369ffc2bf54f6" id="r_ad91fbd215845b9c793f369ffc2bf54f6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad91fbd215845b9c793f369ffc2bf54f6">reset</a> ()</td></tr>
+<tr class="separator:ad91fbd215845b9c793f369ffc2bf54f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a357b00cec994c1302513c2dc9b9b91a3" id="r_a357b00cec994c1302513c2dc9b9b91a3"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::vector&lt; int &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a357b00cec994c1302513c2dc9b9b91a3">getTriangles</a> ()</td></tr>
+<tr class="separator:a357b00cec994c1302513c2dc9b9b91a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock">
+<p class="definition">在文件 <a class="el" href="Voronoi_8h_source.html">Voronoi.h</a> 第 <a class="el" href="Voronoi_8h_source.html#l00120">120</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a8b0f9314aaf6186d25734adf8be0d86f" name="a8b0f9314aaf6186d25734adf8be0d86f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b0f9314aaf6186d25734adf8be0d86f">&#9670;&#160;</a></span>VoronoiDiagramGenerator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LNLib::VoronoiDiagramGenerator::VoronoiDiagramGenerator </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8cpp_source.html">Voronoi.cpp</a> 第 <a class="el" href="Voronoi_8cpp_source.html#l00037">37</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Voronoi_8h_source.html#l00056">LNLib::FreeNodeArrayList::memory</a>, <a class="el" href="Voronoi_8cpp_source.html#l00104">setGenerateDelaunay()</a> , 以及 <a class="el" href="Voronoi_8cpp_source.html#l00109">setGenerateVoronoi()</a>.</p>
+
+</div>
+</div>
+<a id="aaec24df4cdb4366284acfb251146f28f" name="aaec24df4cdb4366284acfb251146f28f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaec24df4cdb4366284acfb251146f28f">&#9670;&#160;</a></span>~VoronoiDiagramGenerator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LNLib::VoronoiDiagramGenerator::~VoronoiDiagramGenerator </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8cpp_source.html">Voronoi.cpp</a> 第 <a class="el" href="Voronoi_8cpp_source.html#l00066">66</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Voronoi_8cpp_source.html#l00071">reset()</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a0e9c9012d8f75f4aef404c4cd8b90775" name="a0e9c9012d8f75f4aef404c4cd8b90775"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e9c9012d8f75f4aef404c4cd8b90775">&#9670;&#160;</a></span>generateVoronoi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::VoronoiDiagramGenerator::generateVoronoi </td>
+          <td>(</td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>xValues</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float *</td>          <td class="paramname"><span class="paramname"><em>yValues</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>numPoints</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>minX</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>maxX</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>minY</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>maxY</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float</td>          <td class="paramname"><span class="paramname"><em>minDist</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>genVectorInfo</em></span><span class="paramdefsep"> = </span><span class="paramdefval">true</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8cpp_source.html">Voronoi.cpp</a> 第 <a class="el" href="Voronoi_8cpp_source.html#l00114">114</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="Voronoi_8cpp_source.html#l01482">LNLib::scomp()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l03149">LNLib::NurbsSurface::Triangulate()</a>.</p>
+
+</div>
+</div>
+<a id="a8f5a84a51e4fa021811d0f5df3358501" name="a8f5a84a51e4fa021811d0f5df3358501"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f5a84a51e4fa021811d0f5df3358501">&#9670;&#160;</a></span>getNext()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::VoronoiDiagramGenerator::getNext </td>
+          <td>(</td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>x2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>y2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8h_source.html">Voronoi.h</a> 第 <a class="el" href="Voronoi_8h_source.html#l00140">140</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a88f7919f533bda3a2cd49a5bcfca0b4a" name="a88f7919f533bda3a2cd49a5bcfca0b4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88f7919f533bda3a2cd49a5bcfca0b4a">&#9670;&#160;</a></span>getNextDelaunay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::VoronoiDiagramGenerator::getNextDelaunay </td>
+          <td>(</td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>x2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>y2</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8h_source.html">Voronoi.h</a> 第 <a class="el" href="Voronoi_8h_source.html#l00160">160</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a06e9091845f6b4bc969f1cdd76d0f10a" name="a06e9091845f6b4bc969f1cdd76d0f10a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06e9091845f6b4bc969f1cdd76d0f10a">&#9670;&#160;</a></span>getNextVertex()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::VoronoiDiagramGenerator::getNextVertex </td>
+          <td>(</td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>x</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>y</em></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8h_source.html">Voronoi.h</a> 第 <a class="el" href="Voronoi_8h_source.html#l00187">187</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ad45f158fe06a7129a6c43e6b2f6e8a2b" name="ad45f158fe06a7129a6c43e6b2f6e8a2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad45f158fe06a7129a6c43e6b2f6e8a2b">&#9670;&#160;</a></span>getNextVertexPair()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::VoronoiDiagramGenerator::getNextVertexPair </td>
+          <td>(</td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>x1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>y1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>x2</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;</td>          <td class="paramname"><span class="paramname"><em>y2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8cpp_source.html">Voronoi.cpp</a> 第 <a class="el" href="Voronoi_8cpp_source.html#l01460">1460</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a357b00cec994c1302513c2dc9b9b91a3" name="a357b00cec994c1302513c2dc9b9b91a3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a357b00cec994c1302513c2dc9b9b91a3">&#9670;&#160;</a></span>getTriangles()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::vector&lt; int &gt; &gt; LNLib::VoronoiDiagramGenerator::getTriangles </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8cpp_source.html">Voronoi.cpp</a> 第 <a class="el" href="Voronoi_8cpp_source.html#l00099">99</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l03149">LNLib::NurbsSurface::Triangulate()</a>.</p>
+
+</div>
+</div>
+<a id="ad91fbd215845b9c793f369ffc2bf54f6" name="ad91fbd215845b9c793f369ffc2bf54f6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad91fbd215845b9c793f369ffc2bf54f6">&#9670;&#160;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::VoronoiDiagramGenerator::reset </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8cpp_source.html">Voronoi.cpp</a> 第 <a class="el" href="Voronoi_8cpp_source.html#l00071">71</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="Voronoi_8cpp_source.html#l00066">~VoronoiDiagramGenerator()</a>.</p>
+
+</div>
+</div>
+<a id="a9deb8c2ccdc798edbddc80c254e12847" name="a9deb8c2ccdc798edbddc80c254e12847"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9deb8c2ccdc798edbddc80c254e12847">&#9670;&#160;</a></span>resetDelaunayEdgesIterator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::VoronoiDiagramGenerator::resetDelaunayEdgesIterator </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8h_source.html">Voronoi.h</a> 第 <a class="el" href="Voronoi_8h_source.html#l00155">155</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a579c5c2307ffc625c4674037b5ae55fd" name="a579c5c2307ffc625c4674037b5ae55fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a579c5c2307ffc625c4674037b5ae55fd">&#9670;&#160;</a></span>resetIterator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::VoronoiDiagramGenerator::resetIterator </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8h_source.html">Voronoi.h</a> 第 <a class="el" href="Voronoi_8h_source.html#l00135">135</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ac550e75277b8eccf769b7fcb1efa67ca" name="ac550e75277b8eccf769b7fcb1efa67ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac550e75277b8eccf769b7fcb1efa67ca">&#9670;&#160;</a></span>resetVertexPairIterator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::VoronoiDiagramGenerator::resetVertexPairIterator </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8h_source.html">Voronoi.h</a> 第 <a class="el" href="Voronoi_8h_source.html#l00175">175</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a4c940f25a34b2a5d0ff867c39b49c44b" name="a4c940f25a34b2a5d0ff867c39b49c44b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c940f25a34b2a5d0ff867c39b49c44b">&#9670;&#160;</a></span>resetVerticesIterator()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::VoronoiDiagramGenerator::resetVerticesIterator </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel inline">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8h_source.html">Voronoi.h</a> 第 <a class="el" href="Voronoi_8h_source.html#l00182">182</a> 行定义.</p>
+
+</div>
+</div>
+<a id="adc728eeb2c8731d90afeabd2b666fc8c" name="adc728eeb2c8731d90afeabd2b666fc8c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc728eeb2c8731d90afeabd2b666fc8c">&#9670;&#160;</a></span>setGenerateDelaunay()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::VoronoiDiagramGenerator::setGenerateDelaunay </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>genDel</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8cpp_source.html">Voronoi.cpp</a> 第 <a class="el" href="Voronoi_8cpp_source.html#l00104">104</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l03149">LNLib::NurbsSurface::Triangulate()</a> , 以及 <a class="el" href="Voronoi_8cpp_source.html#l00037">VoronoiDiagramGenerator()</a>.</p>
+
+</div>
+</div>
+<a id="a5a4260c45f7d422a747398158473ab15" name="a5a4260c45f7d422a747398158473ab15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a4260c45f7d422a747398158473ab15">&#9670;&#160;</a></span>setGenerateVoronoi()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void LNLib::VoronoiDiagramGenerator::setGenerateVoronoi </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>genVor</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="Voronoi_8cpp_source.html">Voronoi.cpp</a> 第 <a class="el" href="Voronoi_8cpp_source.html#l00109">109</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="NurbsSurface_8cpp_source.html#l03149">LNLib::NurbsSurface::Triangulate()</a> , 以及 <a class="el" href="Voronoi_8cpp_source.html#l00037">VoronoiDiagramGenerator()</a>.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/LNLib/include/<a class="el" href="Voronoi_8h_source.html">Voronoi.h</a></li>
+<li>src/LNLib/Algorithm/<a class="el" href="Voronoi_8cpp_source.html">Voronoi.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceLNLib.html">LNLib</a></li><li class="navelem"><a class="el" href="classLNLib_1_1VoronoiDiagramGenerator.html">VoronoiDiagramGenerator</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,309 @@
+\doxysection{Bspline\+Surface.\+h}
+\hypertarget{BsplineSurface_8h_source}{}\label{BsplineSurface_8h_source}\index{src/LNLib/include/BsplineSurface.h@{src/LNLib/include/BsplineSurface.h}}
+\mbox{\hyperlink{BsplineSurface_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/06/08\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00011}00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibDefinitions_8h}{LNLibDefinitions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Polynomials_8h}{Polynomials.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{UV_8h}{UV.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BsplineCurve_8h}{BsplineCurve.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ValidationUtils_8h}{ValidationUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibExceptions_8h}{LNLibExceptions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00018}00018\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNObject_8h}{LNObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00019}00019\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00021}00021\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00022}00022\ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00024}00024\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00025}\mbox{\hyperlink{classLNLib_1_1BsplineSurface}{00025}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{classLNLib_1_1BsplineSurface}{BsplineSurface}}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00026}00026\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00027}00027\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00029}00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00030}\mbox{\hyperlink{classLNLib_1_1BsplineSurface_a1b771c0a8571256759e890ff43eb8947}{00030}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1BsplineSurface_a1b771c0a8571256759e890ff43eb8947}{Check}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\_BsplineSurface<T>}}\&\ surface)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_acece2ad31e2d0f8052995aacbf4090ae}{DegreeU}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_aa43931b99f7cb4dcfaa91fb793017a3b}{DegreeV}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00034}00034\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ knotVectorU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a128e1318a562c1546970f6b578380f2a}{KnotVectorU}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ knotVectorV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a0306551da99e6c0ba743278ef8ab72c7}{KnotVectorV}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>\ controlPoints\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_ad4a0c3fe5fd4e74a94e7f8dffb97e0fa}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00037}00037\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(degreeU\ >\ 0,\ \textcolor{stringliteral}{"{}degreeU"{}},\ \textcolor{stringliteral}{"{}Degree\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(degreeV\ >\ 0,\ \textcolor{stringliteral}{"{}degreeV"{}},\ \textcolor{stringliteral}{"{}Degree\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(knotVectorU.size()\ >\ 0,\ \textcolor{stringliteral}{"{}knotVectorU"{}},\ \textcolor{stringliteral}{"{}KnotVector\ size\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(\mbox{\hyperlink{classLNLib_1_1ValidationUtils_a77d48dba299f49eb347e8287e5208c16}{ValidationUtils::IsValidKnotVector}}(knotVectorU),\ \textcolor{stringliteral}{"{}knotVectorU"{}},\ \textcolor{stringliteral}{"{}KnotVector\ must\ be\ a\ nondecreasing\ sequence\ of\ real\ numbers."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(knotVectorV.size()\ >\ 0,\ \textcolor{stringliteral}{"{}knotVectorV"{}},\ \textcolor{stringliteral}{"{}KnotVector\ size\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(\mbox{\hyperlink{classLNLib_1_1ValidationUtils_a77d48dba299f49eb347e8287e5208c16}{ValidationUtils::IsValidKnotVector}}(knotVectorV),\ \textcolor{stringliteral}{"{}knotVectorV"{}},\ \textcolor{stringliteral}{"{}KnotVector\ must\ be\ a\ nondecreasing\ sequence\ of\ real\ numbers."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(controlPoints.size()\ >\ 0,\ \textcolor{stringliteral}{"{}controlPoints"{}},\ \textcolor{stringliteral}{"{}ControlPoints\ must\ contains\ one\ point\ at\ least."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(\mbox{\hyperlink{classLNLib_1_1ValidationUtils_a61f3d0372991a2b462aa8db768a673a9}{ValidationUtils::IsValidBspline}}(degreeU,\ knotVectorU.size(),\ controlPoints.size()),\ \textcolor{stringliteral}{"{}controlPoints"{}},\ \textcolor{stringliteral}{"{}Arguments\ must\ be\ fit:\ m\ =\ n\ +\ p\ +\ 1"{}});}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(\mbox{\hyperlink{classLNLib_1_1ValidationUtils_a61f3d0372991a2b462aa8db768a673a9}{ValidationUtils::IsValidBspline}}(degreeV,\ knotVectorV.size(),\ controlPoints[0].size()),\ \textcolor{stringliteral}{"{}controlPoints"{}},\ \textcolor{stringliteral}{"{}Arguments\ must\ be\ fit:\ m\ =\ n\ +\ p\ +\ 1"{}});}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00047}00047\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00054}00054\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00055}\mbox{\hyperlink{classLNLib_1_1BsplineSurface_ad65afc7649397a2fec95fdd2a022fb09}{00055}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ T\ \mbox{\hyperlink{classLNLib_1_1BsplineSurface_ad65afc7649397a2fec95fdd2a022fb09}{GetPointOnSurface}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\_BsplineSurface<T>}}\&\ surface,\ \mbox{\hyperlink{classLNLib_1_1UV}{UV}}\ uv)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00056}00056\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_acece2ad31e2d0f8052995aacbf4090ae}{DegreeU}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_aa43931b99f7cb4dcfaa91fb793017a3b}{DegreeV}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00059}00059\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVectorU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a128e1318a562c1546970f6b578380f2a}{KnotVectorU}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVectorV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a0306551da99e6c0ba743278ef8ab72c7}{KnotVectorV}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<T>>\&\ controlPoints\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_ad4a0c3fe5fd4e74a94e7f8dffb97e0fa}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00062}00062\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}(),\ knotVectorU[0],\ knotVectorU[knotVectorU.size()\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}(),\ knotVectorV[0],\ knotVectorV[knotVectorV.size()\ -\/\ 1]);\ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ uSpanIndex\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{Polynomials::GetKnotSpanIndex}}(degreeU,\ knotVectorU,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}());}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ Nu[\mbox{\hyperlink{classLNLib_1_1Constants_a0aeb8534e051a2deb63e222feb3f9963}{Constants::NURBSMaxDegree}}\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Polynomials_a8e2b821ce7ef5ace1be5a138edd45f5a}{Polynomials::BasisFunctions}}(uSpanIndex,\ degreeU,\ knotVectorU,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}(),\ Nu);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ vSpanIndex\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{Polynomials::GetKnotSpanIndex}}(degreeV,\ knotVectorV,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}());}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ Nv[\mbox{\hyperlink{classLNLib_1_1Constants_a0aeb8534e051a2deb63e222feb3f9963}{Constants::NURBSMaxDegree}}\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Polynomials_a8e2b821ce7ef5ace1be5a138edd45f5a}{Polynomials::BasisFunctions}}(vSpanIndex,\ degreeV,\ knotVectorV,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}(),\ Nv);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00072}00072\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ uind\ =\ uSpanIndex\ -\/\ degreeU;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ T\ point;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ l\ =\ 0;\ l\ <=\ degreeV;\ l++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ temp;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00078}00078\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ vind\ =\ vSpanIndex\ -\/\ degreeV\ +\ l;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <=\ degreeU;\ k++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp\ +=\ Nu[k]\ *\ controlPoints[uind\ +\ k][vind];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ point\ +=\ Nv[l]\ *\ temp;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ point;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00086}00086\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00093}00093\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00094}\mbox{\hyperlink{classLNLib_1_1BsplineSurface_a8d71f5d5b0735f6cbbd9860693370397}{00094}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<T>>\ \mbox{\hyperlink{classLNLib_1_1BsplineSurface_a8d71f5d5b0735f6cbbd9860693370397}{ComputeDerivatives}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\_BsplineSurface<T>}}\&\ surface,\ \textcolor{keywordtype}{int}\ derivative,\ \mbox{\hyperlink{classLNLib_1_1UV}{UV}}\ uv)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00095}00095\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_acece2ad31e2d0f8052995aacbf4090ae}{DegreeU}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_aa43931b99f7cb4dcfaa91fb793017a3b}{DegreeV}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00098}00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVectorU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a128e1318a562c1546970f6b578380f2a}{KnotVectorU}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00099}00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVectorV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a0306551da99e6c0ba743278ef8ab72c7}{KnotVectorV}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<T>>\&\ controlPoints\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_ad4a0c3fe5fd4e74a94e7f8dffb97e0fa}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00101}00101\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(derivative\ >\ 0,\ \textcolor{stringliteral}{"{}derivative"{}},\ \textcolor{stringliteral}{"{}derivative\ must\ be\ greater\ than\ zero."{}});\ \ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00103}00103\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}(),\ knotVectorU[0],\ knotVectorU[knotVectorU.size()\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}(),\ knotVectorV[0],\ knotVectorV[knotVectorV.size()\ -\/\ 1]);\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00105}00105\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>\ derivatives(derivative\ +\ 1,\ std::vector<T>(derivative\ +\ 1));}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ uSpanIndex\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{Polynomials::GetKnotSpanIndex}}(degreeU,\ knotVectorU,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}());}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<double>>\ Nu\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_aebcbc937b4c1273e47f68ac7595845fd}{Polynomials::BasisFunctionsDerivatives}}(uSpanIndex,\ degreeU,\ derivative,\ knotVectorU,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}());}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00110}00110\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ vSpanIndex\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{Polynomials::GetKnotSpanIndex}}(degreeV,\ knotVectorV,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}());}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<double>>\ Nv\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_aebcbc937b4c1273e47f68ac7595845fd}{Polynomials::BasisFunctionsDerivatives}}(vSpanIndex,\ degreeV,\ derivative,\ knotVectorV,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}());}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ du\ =\ std::min(derivative,\ degreeU);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dv\ =\ std::min(derivative,\ degreeV);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00116}00116\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ temp(degreeV\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00118}00118\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <=\ du;\ k++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ s\ =\ 0;\ s\ <=\ degreeV;\ s++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[s]\ =\ T();}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00124}00124\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <=\ degreeU;\ r++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00125}00125\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[s]\ +=\ Nu[k][r]\ *\ controlPoints[uSpanIndex\ -\/\ degreeU\ +\ r][vSpanIndex\ -\/\ degreeV\ +\ s];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00128}00128\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00129}00129\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dd\ =\ std::min(derivative,\ dv);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ l\ =\ 0;\ l\ <=\ dd;\ l++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ s\ =\ 0;\ s\ <=\ degreeV;\ s++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00134}00134\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ derivatives[k][l]\ +=\ Nv[l][s]\ *\ temp[s];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00135}00135\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ derivatives;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00139}00139\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00144}00144\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00145}\mbox{\hyperlink{classLNLib_1_1BsplineSurface_a0a115c629eeb6a576677e71742553c4d}{00145}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1BsplineSurface_a0a115c629eeb6a576677e71742553c4d}{ComputeFirstOrderDerivative}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\_BsplineSurface<T>}}\&\ surface,\ \mbox{\hyperlink{classLNLib_1_1UV}{UV}}\ uv,}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00146}00146\ \ \ \ \ \ \ \ \ \ \ \ \ T\ derivatives[2][2])}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00147}00147\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_acece2ad31e2d0f8052995aacbf4090ae}{DegreeU}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_aa43931b99f7cb4dcfaa91fb793017a3b}{DegreeV}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVectorU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a128e1318a562c1546970f6b578380f2a}{KnotVectorU}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<double>\&\ knotVectorV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a0306551da99e6c0ba743278ef8ab72c7}{KnotVectorV}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ std::vector<std::vector<T>>\&\ controlPoints\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_ad4a0c3fe5fd4e74a94e7f8dffb97e0fa}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00153}00153\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}(),\ knotVectorU[0],\ knotVectorU[knotVectorU.size()\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}(),\ knotVectorV[0],\ knotVectorV[knotVectorV.size()\ -\/\ 1]);\ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ uSpanIndex\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{Polynomials::GetKnotSpanIndex}}(degreeU,\ knotVectorU,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}());}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ Nu[2][\mbox{\hyperlink{classLNLib_1_1Constants_a0aeb8534e051a2deb63e222feb3f9963}{Constants::NURBSMaxDegree}}\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Polynomials_ade29241ea29a5b6c521154e14562a805}{Polynomials::BasisFunctionsFirstOrderDerivative}}(uSpanIndex,\ degreeU,\ knotVectorU,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}(),\ Nu);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00160}00160\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ vSpanIndex\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{Polynomials::GetKnotSpanIndex}}(degreeV,\ knotVectorV,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}());}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ Nv[2][\mbox{\hyperlink{classLNLib_1_1Constants_a0aeb8534e051a2deb63e222feb3f9963}{Constants::NURBSMaxDegree}}\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1Polynomials_ade29241ea29a5b6c521154e14562a805}{Polynomials::BasisFunctionsFirstOrderDerivative}}(vSpanIndex,\ degreeV,\ knotVectorV,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}(),\ Nv);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00164}00164\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ du\ =\ std::min(1,\ degreeU);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dv\ =\ std::min(1,\ degreeV);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00167}00167\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ T\ temp[\mbox{\hyperlink{classLNLib_1_1Constants_a0aeb8534e051a2deb63e222feb3f9963}{Constants::NURBSMaxDegree}}\ +\ 1];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00169}00169\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <=\ du;\ k++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ s\ =\ 0;\ s\ <=\ degreeV;\ s++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[s]\ =\ T();}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ r\ =\ 0;\ r\ <=\ degreeU;\ r++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[s]\ +=\ Nu[k][r]\ *\ controlPoints[uSpanIndex\ -\/\ degreeU\ +\ r][vSpanIndex\ -\/\ degreeV\ +\ s];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dd\ =\ std::min(1,\ dv);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ l\ =\ 0;\ l\ <=\ dd;\ l++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ s\ =\ 0;\ s\ <=\ degreeV;\ s++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ derivatives[k][l]\ +=\ Nv[l][s]\ *\ temp[s];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00189}00189\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00190}00190\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00196}00196\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00197}\mbox{\hyperlink{classLNLib_1_1BsplineSurface_afa45343a64876d26cfb9e804d6332f44}{00197}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<std::vector<std::vector<T>>>>\ \mbox{\hyperlink{classLNLib_1_1BsplineSurface_afa45343a64876d26cfb9e804d6332f44}{ComputeControlPointsOfDerivatives}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\_BsplineSurface<T>}}\&\ surface,\ \textcolor{keywordtype}{int}\ derivative,\ \textcolor{keywordtype}{int}\ minSpanIndexU,\ \textcolor{keywordtype}{int}\ maxSpanIndexU,\ \textcolor{keywordtype}{int}\ minSpanIndexV,\ \textcolor{keywordtype}{int}\ maxSpanIndexV,\ \mbox{\hyperlink{classLNLib_1_1UV}{UV}}\ uv)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00198}00198\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_acece2ad31e2d0f8052995aacbf4090ae}{DegreeU}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_aa43931b99f7cb4dcfaa91fb793017a3b}{DegreeV}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ knotVectorU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a128e1318a562c1546970f6b578380f2a}{KnotVectorU}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ knotVectorV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a0306551da99e6c0ba743278ef8ab72c7}{KnotVectorV}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>\ controlPoints\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_ad4a0c3fe5fd4e74a94e7f8dffb97e0fa}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(derivative\ >\ 0,\ \textcolor{stringliteral}{"{}derivative"{}},\ \textcolor{stringliteral}{"{}derivative\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(minSpanIndexU,\ 0,\ maxSpanIndexU);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(minSpanIndexV,\ 0,\ maxSpanIndexV);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}(),\ knotVectorU[0],\ knotVectorU[knotVectorU.size()\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}(),\ knotVectorV[0],\ knotVectorV[knotVectorV.size()\ -\/\ 1]);\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<std::vector<std::vector<T>>>>\ PKL(derivative\ +\ 1,}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<std::vector<T>>>(derivative\ +\ 1,}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>(controlPoints.size(),\ std::vector<T>(controlPoints[0].size()))));}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00214}00214\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00215}00215\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ du\ =\ std::min(derivative,\ degreeU);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dv\ =\ std::min(derivative,\ degreeV);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rangeU\ =\ maxSpanIndexU\ -\/\ minSpanIndexU;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ rangeV\ =\ maxSpanIndexV\ -\/\ minSpanIndexV;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00219}00219\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ minSpanIndexV;\ j\ <=\ maxSpanIndexV;\ j++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ points;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ controlPoints.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ points.emplace\_back(controlPoints[i][j]);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00227}00227\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\_BsplineCurve<T>}}\ bsplineCurve;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bsplineCurve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a04112751ec95e9f2c46ed9bafacb414f}{Degree}}\ =\ degreeU;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bsplineCurve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a108d84c2bf217f649e026cbf9287dc74}{KnotVector}}\ =\ knotVectorU;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bsplineCurve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a71fd0927313f83270eced566ddf41df8}{ControlPoints}}\ =\ points;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00232}00232\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>\ temp\ =\ \mbox{\hyperlink{classLNLib_1_1BsplineCurve_a2471bb2933eb467736255c22197fbc0f}{BsplineCurve::ComputeControlPointsOfDerivatives}}(bsplineCurve,\ du,\ minSpanIndexU,\ maxSpanIndexU);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <=\ du;\ k++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ rangeU\ -\/\ k;\ i++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PKL[k][0][i][j\ -\/\ minSpanIndexV]\ =\ temp[k][i];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ tempKv(knotVectorV.size(),\ minSpanIndexV);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ du;\ k++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ rangeU\ -\/\ k;\ i++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dd\ =\ std::min(derivative\ -\/\ k,\ dv);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00248}00248\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\_BsplineCurve<T>}}\ bsplineCurve;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bsplineCurve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a04112751ec95e9f2c46ed9bafacb414f}{Degree}}\ =\ degreeV;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bsplineCurve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a108d84c2bf217f649e026cbf9287dc74}{KnotVector}}\ =\ tempKv;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bsplineCurve.\mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve_a71fd0927313f83270eced566ddf41df8}{ControlPoints}}\ =\ PKL[k][0][i];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00253}00253\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>\ temp\ =\ \mbox{\hyperlink{classLNLib_1_1BsplineCurve_a2471bb2933eb467736255c22197fbc0f}{BsplineCurve::ComputeControlPointsOfDerivatives}}(bsplineCurve,\ dd,\ 0,\ rangeV);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ l\ =\ 1;\ l\ <=\ dd;\ l++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ rangeV\ -\/\ l;\ j++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PKL[k][l][i][j]\ =\ temp[l][j];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ PKL;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00265}00265\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00266}00266\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00272}00272\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00273}\mbox{\hyperlink{classLNLib_1_1BsplineSurface_aa033200a0e273cb1bad420a547650ce2}{00273}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ std::vector<std::vector<T>>\ \mbox{\hyperlink{classLNLib_1_1BsplineSurface_aa033200a0e273cb1bad420a547650ce2}{ComputeDerivativesByAllBasisFunctions}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\_BsplineSurface<T>}}\&\ surface,\ \textcolor{keywordtype}{int}\ derivative,\ \mbox{\hyperlink{classLNLib_1_1UV}{UV}}\ uv)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00274}00274\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_acece2ad31e2d0f8052995aacbf4090ae}{DegreeU}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_aa43931b99f7cb4dcfaa91fb793017a3b}{DegreeV}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ knotVectorU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a128e1318a562c1546970f6b578380f2a}{KnotVectorU}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<double>\ knotVectorV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a0306551da99e6c0ba743278ef8ab72c7}{KnotVectorV}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>\ controlPoints\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_ad4a0c3fe5fd4e74a94e7f8dffb97e0fa}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(derivative\ >\ 0,\ \textcolor{stringliteral}{"{}derivative"{}},\ \textcolor{stringliteral}{"{}derivative\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}(),\ knotVectorU[0],\ knotVectorU[knotVectorU.size()\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}(),\ knotVectorV[0],\ knotVectorV[knotVectorV.size()\ -\/\ 1]);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>\ SKL(derivative\ +\ 1,\ std::vector<T>(derivative\ +\ 1));}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00287}00287\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ uSpanIndex\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{Polynomials::GetKnotSpanIndex}}(degreeU,\ knotVectorU,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}());}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00288}00288\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ vSpanIndex\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_a078c49eb69ff2d78bc1e134677b0c76f}{Polynomials::GetKnotSpanIndex}}(degreeV,\ knotVectorV,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}());}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<double>>\ Nu\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_af8571e825aea3a881d6ed4754689146c}{Polynomials::AllBasisFunctions}}(uSpanIndex,\ degreeU,\ knotVectorU,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}());}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<double>>\ Nv\ =\ \mbox{\hyperlink{classLNLib_1_1Polynomials_af8571e825aea3a881d6ed4754689146c}{Polynomials::AllBasisFunctions}}(vSpanIndex,\ degreeV,\ knotVectorV,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}());}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00291}00291\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\_BsplineSurface<T>}}\ bsplineSurface;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ bsplineSurface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_acece2ad31e2d0f8052995aacbf4090ae}{DegreeU}}\ =\ degreeU;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ bsplineSurface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_aa43931b99f7cb4dcfaa91fb793017a3b}{DegreeV}}\ =\ degreeV;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ bsplineSurface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a128e1318a562c1546970f6b578380f2a}{KnotVectorU}}\ =\ knotVectorU;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ bsplineSurface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_a0306551da99e6c0ba743278ef8ab72c7}{KnotVectorV}}\ =\ knotVectorV;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ bsplineSurface.\mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface_ad4a0c3fe5fd4e74a94e7f8dffb97e0fa}{ControlPoints}}\ =\ controlPoints;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00298}00298\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<std::vector<std::vector<T>>>>\ PKL\ =\ \mbox{\hyperlink{classLNLib_1_1BsplineSurface_afa45343a64876d26cfb9e804d6332f44}{ComputeControlPointsOfDerivatives}}(bsplineSurface,\ derivative,\ uSpanIndex\ -\/\ degreeU,\ uSpanIndex,\ vSpanIndex\ -\/\ degreeV,\ vSpanIndex,\ uv);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00300}00300\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ du\ =\ std::min(derivative,\ degreeU);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dv\ =\ std::min(derivative,\ degreeV);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00303}00303\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <=\ du;\ k++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ dd\ =\ std::min(derivative\ -\/\ k,\ dv);}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ l\ =\ 0;\ l\ <=\ dd;\ l++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SKL[k][l]\ =\ T();}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ degreeV\ -\/\ l;\ i++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ T\ temp\ =\ T();}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <=\ degreeU\ -\/\ k;\ j++)}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp\ +=\ Nu[j][degreeU\ -\/\ k]\ *\ PKL[k][l][j][i];}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ SKL[k][l]\ +=\ Nv[i][degreeV\ -\/\ l]\ *\ temp;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ SKL;}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00322}00322\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00323}00323\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00324}00324\ \}}
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00325}00325\ }
+\DoxyCodeLine{\Hypertarget{BsplineSurface_8h_source_l00326}00326\ }
+
+\end{DoxyCode}

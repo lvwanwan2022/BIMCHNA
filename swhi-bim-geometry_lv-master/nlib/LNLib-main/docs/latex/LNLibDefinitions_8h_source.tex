@@ -1,0 +1,30 @@
+\doxysection{LNLib\+Definitions.\+h}
+\hypertarget{LNLibDefinitions_8h_source}{}\label{LNLibDefinitions_8h_source}\index{src/LNLib/include/LNLibDefinitions.h@{src/LNLib/include/LNLibDefinitions.h}}
+\mbox{\hyperlink{LNLibDefinitions_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/06/08\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00011}00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00013}\mbox{\hyperlink{LNLibDefinitions_8h_a1ca888bd091694c05472e1b91df1a97b}{00013}}\ \textcolor{preprocessor}{\#define\ DLL\_EXPORT\ \_\_declspec(dllexport)}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00014}\mbox{\hyperlink{LNLibDefinitions_8h_a14d005bd653c82f4e705b4ded2a4fc07}{00014}}\ \textcolor{preprocessor}{\#define\ DLL\_IMPORT\ \_\_declspec(dllimport)}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00015}00015\ }
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00016}00016\ \textcolor{preprocessor}{\#if\ defined(WIN64)\ ||\ defined(\_WIN64)\ ||\ defined(\_\_WIN64\_\_)\ ||\ defined(\_\_CYGWIN\_\_)}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00017}00017\ \textcolor{preprocessor}{\ \ \ \ \#ifdef\ LNLIB\_HOME}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00018}00018\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LNLIB\_EXPORT\ DLL\_EXPORT}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00019}00019\ \textcolor{preprocessor}{\ \ \ \ \#else}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00020}00020\ \textcolor{preprocessor}{\ \ \ \ \ \ \ \ \#define\ LNLIB\_EXPORT\ DLL\_IMPORT}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00021}00021\ \textcolor{preprocessor}{\ \ \ \ \#endif}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00022}00022\ \textcolor{preprocessor}{\#else}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00023}\mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{00023}}\ \textcolor{preprocessor}{\ \ \ \ \#define\ LNLIB\_EXPORT}}
+\DoxyCodeLine{\Hypertarget{LNLibDefinitions_8h_source_l00024}00024\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

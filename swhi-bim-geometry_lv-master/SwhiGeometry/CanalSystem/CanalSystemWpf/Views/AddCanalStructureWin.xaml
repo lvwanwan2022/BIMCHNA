@@ -1,0 +1,77 @@
+﻿<Window x:Class="CanalSystem.Views.AddCanalStructureWin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CanalSystem.Views"
+        mc:Ignorable="d"
+        Title="AddCanalStructure" Width="400" Height="350" ResizeMode="CanMinimize" Topmost="True" >
+    <Grid>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Content="流量段"  VerticalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1" ></Label>
+        <ComboBox x:Name="ComboBoxSegNames" Grid.Row="0" Grid.Column="1" SelectionChanged="ComboBoxSegNames_SelectionChanged"/>
+        <Label Grid.Row="1" Grid.Column="0" Content="渠道类型" VerticalContentAlignment="Center"  Grid.ColumnSpan="1" BorderBrush="LightBlue" BorderThickness="1"></Label>
+        <ComboBox x:Name="ComboBoxStructureType" Grid.Row="1" Grid.Column="1" SelectionChanged="ComboBoxStructureType_SelectionChanged"/>
+        <Label Grid.Row="2" Grid.Column="0" Content="建筑物名" VerticalContentAlignment="Center"   Grid.ColumnSpan="1" BorderBrush="LightBlue" BorderThickness="1"></Label>
+        <TextBox x:Name="TextboxStructureName" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" Text="无"/>
+        
+
+        <Grid Grid.Row="3" Grid.Column="0" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="2.5*"/>
+            </Grid.ColumnDefinitions>
+            <Label  Content="起点桩号" VerticalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1"></Label>
+            <CheckBox x:Name="checkBox" Grid.Column="1" Content="连续添加" VerticalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1" Checked="checkBox_Checked" Unchecked="checkBox_Unchecked"></CheckBox>
+        </Grid>
+       
+        <Grid Grid.Row="3" Grid.Column="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox x:Name="TextboxStartStation"  Grid.Column="0" Grid.ColumnSpan="2" VerticalContentAlignment="Center" IsReadOnly="False" Text="0" />
+            <Button x:Name="buttonstartstation"  Content="在图上点选" Grid.Column="1" Click="startstation_Click"/>
+        </Grid>
+        <Label Grid.Row="4" Grid.Column="0" Content="终点桩号" VerticalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1"></Label>
+        <Grid  Grid.Row="4" Grid.Column="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBox   x:Name="TextboxEndStation" Grid.Column="0" Grid.ColumnSpan="2" VerticalContentAlignment="Center" Text="100"/>
+            <Button  Content="在图上点选" Grid.Column="1" Click="endstation_Click"/>
+        </Grid>
+        <Label Grid.Row="5" Grid.Column="0" Content="进口渐变段长度" VerticalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1"></Label>
+        <TextBox x:Name="TextboxenterTransL" Grid.Row="5" Grid.Column="1" Text="10" VerticalContentAlignment="Center"/>
+        <Label Grid.Row="6" Grid.Column="0" Content="进口过渡段长度" VerticalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1"></Label>
+        <TextBox x:Name="TextboxenterConnectL" Grid.Row="6" Grid.Column="1" VerticalContentAlignment="Center" Text="0"/>
+        <Label Grid.Row="7" Grid.Column="0" Content="出口过渡段长度" VerticalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1"></Label>
+        <TextBox x:Name="TextboxexitConnectL" Grid.Row="7" Grid.Column="1" VerticalContentAlignment="Center" Text="0"/>
+        <Label Grid.Row="8" Grid.Column="0" Content="出口渐变段长度" VerticalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1"></Label>
+        <TextBox x:Name="TextboxexitTransL" Grid.Row="8" Grid.Column="1" VerticalContentAlignment="Center" Text="10"/>
+        <Label Grid.Row="9" Grid.Column="0" Content="绘制桩号比例" VerticalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1"></Label>
+        <TextBox x:Name="Textboxscale" Grid.Row="9" Grid.Column="1" VerticalContentAlignment="Center" Text="1"/>
+        <Label Grid.Row="10" Grid.Column="0" Content="固定水头损失" VerticalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1"></Label>
+        <TextBox x:Name="TextboxWaterloss" Grid.Row="10" Grid.Column="1" VerticalContentAlignment="Center" Text="0"/>
+        <Button Content="保存建筑物信息" Grid.Row="11" Grid.ColumnSpan="2" Click="Button_Click_2"/>
+    </Grid>
+</Window>

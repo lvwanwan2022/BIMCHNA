@@ -1,0 +1,137 @@
+\doxysection{LNLib\+::Bspline\+Curve类 参考}
+\hypertarget{classLNLib_1_1BsplineCurve}{}\label{classLNLib_1_1BsplineCurve}\index{LNLib::BsplineCurve@{LNLib::BsplineCurve}}
+
+
+{\ttfamily \#include $<$Bspline\+Curve.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\static void \mbox{\hyperlink{classLNLib_1_1BsplineCurve_ab7990c874dcb699781e646014ab54a87}{Check}} (const \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\+\_\+\+Bspline\+Curve}}$<$ T $>$ \&curve)
+\item 
+{\footnotesize template$<$typename T$>$ }\\static T \mbox{\hyperlink{classLNLib_1_1BsplineCurve_a937e7969b117647137033972a7723b6b}{Get\+Point\+On\+Curve}} (const \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\+\_\+\+Bspline\+Curve}}$<$ T $>$ \&curve, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page82 Algorithm A3.\+1 Compute Bspline curve point. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\static std\+::vector$<$ T $>$ \mbox{\hyperlink{classLNLib_1_1BsplineCurve_a05cc6d89649db52ba72ced83dc86a892}{Compute\+Derivatives}} (const \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\+\_\+\+Bspline\+Curve}}$<$ T $>$ \&curve, int derivative, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page93 Algorithm A3.\+2 Compute curve derivatives. (Usually Use) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\static std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{classLNLib_1_1BsplineCurve_a2471bb2933eb467736255c22197fbc0f}{Compute\+Control\+Points\+Of\+Derivatives}} (const \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\+\_\+\+Bspline\+Curve}}$<$ T $>$ \&curve, int derivative, int min\+Span\+Index, int max\+Span\+Index)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page98 Algorithm A3.\+3 Compute control points of curve derivatives. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\static std\+::vector$<$ T $>$ \mbox{\hyperlink{classLNLib_1_1BsplineCurve_a1d5434c54bbfc3787d9e4c28446fb3ed}{Compute\+Derivatives\+By\+All\+Basis\+Functions}} (const \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\+\_\+\+Bspline\+Curve}}$<$ T $>$ \&curve, int derivative, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page99 Algorithm A3.\+4 Compute curve detivatives. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{BsplineCurve_8h_source}{Bspline\+Curve.\+h}} 第 \mbox{\hyperlink{BsplineCurve_8h_source_l00024}{24}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1BsplineCurve_ab7990c874dcb699781e646014ab54a87}\index{LNLib::BsplineCurve@{LNLib::BsplineCurve}!Check@{Check}}
+\index{Check@{Check}!LNLib::BsplineCurve@{LNLib::BsplineCurve}}
+\doxysubsubsection{\texorpdfstring{Check()}{Check()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BsplineCurve_ab7990c874dcb699781e646014ab54a87} 
+template$<$typename T$>$ \\
+static void LNLib\+::\+Bspline\+Curve\+::\+Check (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\+\_\+\+Bspline\+Curve}}$<$ T $>$ \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{BsplineCurve_8h_source}{Bspline\+Curve.\+h}} 第 \mbox{\hyperlink{BsplineCurve_8h_source_l00029}{29}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00028}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Bspline()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1BsplineCurve_a2471bb2933eb467736255c22197fbc0f}\index{LNLib::BsplineCurve@{LNLib::BsplineCurve}!ComputeControlPointsOfDerivatives@{ComputeControlPointsOfDerivatives}}
+\index{ComputeControlPointsOfDerivatives@{ComputeControlPointsOfDerivatives}!LNLib::BsplineCurve@{LNLib::BsplineCurve}}
+\doxysubsubsection{\texorpdfstring{ComputeControlPointsOfDerivatives()}{ComputeControlPointsOfDerivatives()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BsplineCurve_a2471bb2933eb467736255c22197fbc0f} 
+template$<$typename T$>$ \\
+static std\+::vector$<$ std\+::vector$<$ T $>$ $>$ LNLib\+::\+Bspline\+Curve\+::\+Compute\+Control\+Points\+Of\+Derivatives (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\+\_\+\+Bspline\+Curve}}$<$ T $>$ \&}]{curve}{, }\item[{int}]{derivative}{, }\item[{int}]{min\+Span\+Index}{, }\item[{int}]{max\+Span\+Index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page98 Algorithm A3.\+3 Compute control points of curve derivatives. 
+
+
+
+在文件 \mbox{\hyperlink{BsplineCurve_8h_source}{Bspline\+Curve.\+h}} 第 \mbox{\hyperlink{BsplineCurve_8h_source_l00106}{106}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BsplineSurface_8h_source_l00197}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+Control\+Points\+Of\+Derivatives()}} , 以及 \mbox{\hyperlink{BsplineCurve_8h_source_l00139}{Compute\+Derivatives\+By\+All\+Basis\+Functions()}}.
+
+\Hypertarget{classLNLib_1_1BsplineCurve_a05cc6d89649db52ba72ced83dc86a892}\index{LNLib::BsplineCurve@{LNLib::BsplineCurve}!ComputeDerivatives@{ComputeDerivatives}}
+\index{ComputeDerivatives@{ComputeDerivatives}!LNLib::BsplineCurve@{LNLib::BsplineCurve}}
+\doxysubsubsection{\texorpdfstring{ComputeDerivatives()}{ComputeDerivatives()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BsplineCurve_a05cc6d89649db52ba72ced83dc86a892} 
+template$<$typename T$>$ \\
+static std\+::vector$<$ T $>$ LNLib\+::\+Bspline\+Curve\+::\+Compute\+Derivatives (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\+\_\+\+Bspline\+Curve}}$<$ T $>$ \&}]{curve}{, }\item[{int}]{derivative}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page93 Algorithm A3.\+2 Compute curve derivatives. (Usually Use) 
+
+
+
+在文件 \mbox{\hyperlink{BsplineCurve_8h_source}{Bspline\+Curve.\+h}} 第 \mbox{\hyperlink{BsplineCurve_8h_source_l00074}{74}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00193}{LNLib\+::\+Polynomials\+::\+Basis\+Functions\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{LNLib\+::\+Nurbs\+Curve\+::\+Compute\+Rational\+Curve\+Derivatives()}}.
+
+\Hypertarget{classLNLib_1_1BsplineCurve_a1d5434c54bbfc3787d9e4c28446fb3ed}\index{LNLib::BsplineCurve@{LNLib::BsplineCurve}!ComputeDerivativesByAllBasisFunctions@{ComputeDerivativesByAllBasisFunctions}}
+\index{ComputeDerivativesByAllBasisFunctions@{ComputeDerivativesByAllBasisFunctions}!LNLib::BsplineCurve@{LNLib::BsplineCurve}}
+\doxysubsubsection{\texorpdfstring{ComputeDerivativesByAllBasisFunctions()}{ComputeDerivativesByAllBasisFunctions()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BsplineCurve_a1d5434c54bbfc3787d9e4c28446fb3ed} 
+template$<$typename T$>$ \\
+static std\+::vector$<$ T $>$ LNLib\+::\+Bspline\+Curve\+::\+Compute\+Derivatives\+By\+All\+Basis\+Functions (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\+\_\+\+Bspline\+Curve}}$<$ T $>$ \&}]{curve}{, }\item[{int}]{derivative}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page99 Algorithm A3.\+4 Compute curve detivatives. 
+
+
+
+在文件 \mbox{\hyperlink{BsplineCurve_8h_source}{Bspline\+Curve.\+h}} 第 \mbox{\hyperlink{BsplineCurve_8h_source_l00139}{139}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00544}{LNLib\+::\+Polynomials\+::\+All\+Basis\+Functions()}}, \mbox{\hyperlink{BsplineCurve_8h_source_l00106}{Compute\+Control\+Points\+Of\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1BsplineCurve_a937e7969b117647137033972a7723b6b}\index{LNLib::BsplineCurve@{LNLib::BsplineCurve}!GetPointOnCurve@{GetPointOnCurve}}
+\index{GetPointOnCurve@{GetPointOnCurve}!LNLib::BsplineCurve@{LNLib::BsplineCurve}}
+\doxysubsubsection{\texorpdfstring{GetPointOnCurve()}{GetPointOnCurve()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BsplineCurve_a937e7969b117647137033972a7723b6b} 
+template$<$typename T$>$ \\
+static T LNLib\+::\+Bspline\+Curve\+::\+Get\+Point\+On\+Curve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BsplineCurve}{LN\+\_\+\+Bspline\+Curve}}$<$ T $>$ \&}]{curve}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page82 Algorithm A3.\+1 Compute Bspline curve point. 
+
+
+
+在文件 \mbox{\hyperlink{BsplineCurve_8h_source}{Bspline\+Curve.\+h}} 第 \mbox{\hyperlink{BsplineCurve_8h_source_l00048}{48}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00162}{LNLib\+::\+Polynomials\+::\+Basis\+Functions()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{Constants_8h_source_l00028}{LNLib\+::\+Constants\+::\+NURBSMax\+Degree}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Point\+On\+Curve()}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{BsplineCurve_8h}{Bspline\+Curve.\+h}}\end{DoxyCompactItemize}

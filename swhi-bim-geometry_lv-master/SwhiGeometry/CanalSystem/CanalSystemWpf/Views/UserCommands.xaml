@@ -1,0 +1,154 @@
+﻿<Window x:Class="CanalSystem.Views.UserCommands"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CanalSystem.Views" 
+             mc:Ignorable="d" Title="渠道系统命令集" Height="800" Width="600"  Topmost="True" WindowStartupLocation="Manual">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.1*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="4*"/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.1*"/>
+        </Grid.RowDefinitions>
+        <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Content="命令快捷键" VerticalContentAlignment="Center"  BorderThickness="1"></Label>
+        <TextBox x:Name="textCommand" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Text="null" IsReadOnly="True" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+       
+        <GroupBox Header="命令集" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="2" BorderThickness="1" BorderBrush="Black"></GroupBox>
+        <Grid Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="1" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>         
+
+            <Grid x:Name="box0" Grid.Row="0" Grid.Column="0" Grid.RowSpan="12" Grid.ColumnSpan="5" Margin="1,1">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                    <ColumnDefinition Width="1*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <GroupBox Header="路线" Grid.Row="0" Grid.Column="0" Margin="10,10"  Grid.RowSpan="12" BorderBrush="DarkGray"  BorderThickness="1">
+                </GroupBox>
+                <Button Grid.Row="1" Grid.Column="0" Margin="14,1" Click="Button_Click_centerline">从中心线创建(查询)</Button>
+                <Button Grid.Row="2" Grid.Column="0" Margin="14,1" Click="Button_Click_constructline">从构造线创建</Button>
+                <Button Grid.Row="3" Grid.Column="0" Margin="14,1" Click="Button_Click_Grips">夹点编辑</Button>
+                <Button Grid.Row="4" Grid.Column="0" Margin="14,1" Click="Button_Click_ResetCanalData">重设路线信息</Button>
+                <Button Grid.Row="5" Grid.Column="0" Margin="14,1" Click="Button_Click_deleteCanalData">删除路线信息</Button>
+                <Button Grid.Row="6" Grid.Column="0" Margin="14,1" Click="Button_Click_drawConstructLine">绘制构造线</Button>
+                <Button Grid.Row="7" Grid.Column="0" Margin="14,1" Click="Button_Click_drawcenterline">绘制中心线</Button>
+                <Button Grid.Row="8" Grid.Column="0" Margin="14,1" Click="Button_Click_setCenterElevation">拟合三维轴线</Button>
+                <Button Grid.Row="9" Grid.Column="0" Margin="14,1" Click="Button_Click_importCenterline">导入中心线坐标</Button>
+                <Button Grid.Row="10" Grid.Column="0" Margin="14,1" Click="Button_Click_importConstructLine">导入构造线坐标</Button>
+                <GroupBox Header="纵断面" Grid.Row="0" Grid.Column="1" Margin="10,10"  Grid.RowSpan="12" BorderBrush="DarkGray" BorderThickness="1"/>
+                <Button Grid.Row="1" Grid.Column="1" Margin="14,1" Click="Button_Click_GenerateprofileByCurves">从曲线生成</Button>
+                <Button Grid.Row="2" Grid.Column="1" Margin="14,1" Click="Button_Click_GenerateprofileByMesh">从地形网格生成</Button>
+                <Button Grid.Row="3" Grid.Column="1" Margin="14,1" Click="Button_Click_DeleteProfileprojectcurve">删除纵断面文件存储</Button>
+                <Button Grid.Row="4" Grid.Column="1" Margin="14,1" Click="Button_Click_GenerateElevationscale">生成高程标尺</Button>
+                <Button Grid.Row="5" Grid.Column="1" Margin="14,1" Click="Button_Click_showCanalProfile">显示纵断面</Button>
+                <Button Grid.Row="6" Grid.Column="1" Margin="14,1" Click="Button_Click_ProfileTrackCenter">纵追踪平</Button>
+                <GroupBox Header="流量段" Grid.Row="0" Grid.Column="2" Margin="10,10"  Grid.RowSpan="12" BorderBrush="DarkGray"  BorderThickness="1"/>
+                <Button Grid.Row="1" Grid.Column="2" Margin="14,1" Click="Button_Click_AddFlowsegment">查询(设置)流量段</Button>
+                <GroupBox Header="建筑物" Grid.Row="0" Grid.Column="3" Margin="10,10"  Grid.RowSpan="12" BorderBrush="DarkGray" BorderThickness="1"/>
+                <Button Grid.Row="1" Grid.Column="3" Margin="14,1" Click="Button_Click_addStructure">添加建筑物</Button>
+                <Button Grid.Row="2" Grid.Column="3" Margin="14,1" Click="Button_Click_queryStructure">查询(修改)建筑物</Button>
+                <Button Grid.Row="3" Grid.Column="3" Margin="14,1" Click="Button_Click_queryAllStructure">查询所有建筑物</Button>
+                <Button Grid.Row="4" Grid.Column="3" Margin="14,1" Click="Button_Click_drawStructureCenterLine">建筑物轴线</Button>
+                <Button Grid.Row="5" Grid.Column="3" Margin="14,1" Click="Button_Click_drawStructureListCenterLine">所有建筑物轴线</Button>
+                <Button Grid.Row="6" Grid.Column="3" Margin="14,1" Click="Button_Click_queryStructureWaterLevel">查询建筑物水位</Button>
+                <Button Grid.Row="7" Grid.Column="3" Margin="14,1" Click="Button_Click_queryStructureListWaterLevel">所有建筑物水位</Button>
+                <Button Grid.Row="8" Grid.Column="3" Margin="14,1" Click="Button_Click_AddLittleStructure">添加小建</Button>
+                <Button Grid.Row="9" Grid.Column="3" Margin="14,1" Click="Button_Click_QueryLittleStructure">查询小建</Button>
+                <Button Grid.Row="10" Grid.Column="3" Margin="14,1" Click="Button_Click_DeleteLittleStructure">删除小建</Button>
+            </Grid>
+        </Grid>    
+            <Grid Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="4" Grid.RowSpan="1" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+           
+            <Grid x:Name="box1" Grid.Row="0" Grid.Column="0" Grid.RowSpan="12" Grid.ColumnSpan="5" Margin="1,1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                        <ColumnDefinition Width="1*"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <GroupBox Header="标签" Grid.Row="0" Grid.Column="0" Margin="10,2"  Grid.RowSpan="12" BorderBrush="DarkGray"  BorderThickness="1"/>
+                <Button Grid.Row="1" Grid.Column="0" Margin="14,1" Click="Button_Click_stationLabels">路线所有桩号</Button>
+                <Button Grid.Row="2" Grid.Column="0" Margin="14,1" Click="Button_Click_stationLabelByNumber">路线桩号(数值)</Button>
+                <Button Grid.Row="3" Grid.Column="0" Margin="14,1" Click="Button_Click_stationLabelByPoint">路线桩号(点选)</Button>
+                <Button Grid.Row="4" Grid.Column="0" Margin="14,1" Click="Button_Click_CurveStationLabelByNumber">曲线桩号(数值)</Button>
+                <Button Grid.Row="5" Grid.Column="0" Margin="14,1" Click="Button_Click_CurveStationLabelByPoint">曲线桩号(点选)</Button>
+                <Button Grid.Row="6" Grid.Column="0" Margin="14,1" Click="Button_Click_ArcLabels">所有路线圆弧标注</Button>
+                <Button Grid.Row="7" Grid.Column="0" Margin="14,1" Click="Button_Click_ArcLabel">单个路线圆弧标注</Button>
+                <Button Grid.Row="8" Grid.Column="0" Margin="14,1" Click="Button_Click_IPpointLabels">所有路线IP标注</Button>
+                <Button Grid.Row="9" Grid.Column="0" Margin="14,1" Click="Button_Click_OneIPpointLabel">单个路线IP标注</Button>
+                
+                <GroupBox Header="横断面" Grid.Row="0" Grid.Column="1" Margin="10,2"  Grid.RowSpan="12" BorderBrush="DarkGray" BorderThickness="1"/>
+                    <GroupBox Header="工程量" Grid.Row="0" Grid.Column="2" Margin="10,2"  Grid.RowSpan="12" BorderBrush="DarkGray"  BorderThickness="1"/>
+                    <GroupBox Header="其他" Grid.Row="0" Grid.Column="3" Margin="10,2"  Grid.RowSpan="12" BorderBrush="DarkGray" BorderThickness="1"/>
+                <Button Grid.Row="1" Grid.Column="3" Margin="14,1" Click="Button_Click_Listgrips">线路夹点显示与拖拽控制</Button>
+                <Button Grid.Row="2" Grid.Column="3" Margin="14,1" Click="Button_Click_ExcavationandFill">枢纽开挖与回填</Button>
+                <Button Grid.Row="3" Grid.Column="3" Margin="14,1" Click="Button_Click_SetWaterLevel">设置中心线起始水位</Button>
+                <Button Grid.Row="4" Grid.Column="3" Margin="14,1" Click="Button_Click_AddPointEndOfCanal">渠段末端加点</Button>
+                <Button Grid.Row="5" Grid.Column="3" Margin="14,1" Click="Button_Click_AddPointStartOfCanal">渠段起点加点</Button>
+                <Button Grid.Row="6" Grid.Column="3" Margin="14,1" Click="Button_Click_AddPointMiddleOfCanal">渠段中间加点</Button>
+                <Button Grid.Row="7" Grid.Column="3" Margin="14,1" Click="Button_Click_JoinCanal">合并渠段</Button>
+                <Button Grid.Row="8" Grid.Column="3" Margin="14,1" Click="Button_Click_SplitCanal">分割渠段</Button>
+
+            </Grid>
+            </Grid>
+        <Button x:Name="okbutton" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" Content="确定" Margin="30,5"></Button>
+        <Button x:Name="cancelbutton" Grid.Column="3" Grid.ColumnSpan="3" Grid.Row="5" Content="取消" Margin="30,5"></Button>
+        <Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,245 @@
+\doxysection{LNLib\+::Interpolation类 参考}
+\hypertarget{classLNLib_1_1Interpolation}{}\label{classLNLib_1_1Interpolation}\index{LNLib::Interpolation@{LNLib::Interpolation}}
+
+
+{\ttfamily \#include $<$Interpolation.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static double \mbox{\hyperlink{classLNLib_1_1Interpolation_aa85849ef202c5ee918166a3e9ccbfb9f}{Get\+Total\+Chord\+Length}} (const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page364 The total chord length. \end{DoxyCompactList}\item 
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1Interpolation_a9a0dab509f7981bca99e4b88794022f6}{Get\+Chord\+Parameterization}} (const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page365 The chord length parameterization. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1Interpolation_a3807a0b4aa5ae729f3f7f42255561dd2}{Get\+Centripetal\+Length}} (const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page365 The total centripetal length. \end{DoxyCompactList}\item 
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1Interpolation_a405291a0b094ec1e5587b5ee1a5a8a7f}{Get\+Centripetal\+Parameterization}} (const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page365 The centripetal length parameterization. \end{DoxyCompactList}\item 
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1Interpolation_a7771d20e303f8b7e2dcd9e5219f98e7b}{Average\+Knot\+Vector}} (int degree, const std\+::vector$<$ double $>$ \&params)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page365 Technique of averaging. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1Interpolation_af32929fad6c2defff3b5656b7bac6f4f}{Get\+Surface\+Mesh\+Parameterization}} (const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ $>$ \&through\+Points, std\+::vector$<$ double $>$ \&paramsU, std\+::vector$<$ double $>$ \&paramsV)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page377 Algorithm A9.\+3 Compute paramters for global surface interpolation. \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \mbox{\hyperlink{classLNLib_1_1Interpolation_a551c700fc3e54e73e3ca0ceb82b66a2d}{Compute\+Tangent}} (const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page386 Computer tangent of each through point (at least three points). \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1Interpolation_a5fd8e24911bff38f87bdfcd76bd4ad9d}{Compute\+Tangent}} (const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points, std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&tangents)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page386 Computer tangent of each through point (at least five points). \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1Interpolation_a41ac37f3602f5f3377ee28b707d73756}{Computer\+Weight\+For\+Rational\+Quadratic\+Interpolation}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&start\+Point, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&middle\+Control\+Point, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&end\+Point, double \&weight)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page394 Compute weight for local rational quadratic curve interpolation. \end{DoxyCompactList}\item 
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1Interpolation_a77bc2457529a393c55e1c34bfc3b76d2}{Compute\+Knot\+Vector}} (int degree, int points\+Count, int control\+Points\+Count, const std\+::vector$<$ double $>$ \&params)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page412 Computes a knot vector ensuring that every knot span has at least one. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{Interpolation_8h_source}{Interpolation.\+h}} 第 \mbox{\hyperlink{Interpolation_8h_source_l00018}{18}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1Interpolation_a7771d20e303f8b7e2dcd9e5219f98e7b}\index{LNLib::Interpolation@{LNLib::Interpolation}!AverageKnotVector@{AverageKnotVector}}
+\index{AverageKnotVector@{AverageKnotVector}!LNLib::Interpolation@{LNLib::Interpolation}}
+\doxysubsubsection{\texorpdfstring{AverageKnotVector()}{AverageKnotVector()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Interpolation_a7771d20e303f8b7e2dcd9e5219f98e7b} 
+std\+::vector$<$ double $>$ LNLib\+::\+Interpolation\+::\+Average\+Knot\+Vector (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{const std\+::vector$<$ double $>$ \&}]{params}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page365 Technique of averaging. 
+
+
+
+在文件 \mbox{\hyperlink{Interpolation_8cpp_source}{Interpolation.\+cpp}} 第 \mbox{\hyperlink{Interpolation_8cpp_source_l00095}{95}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02194}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Loft\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02056}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01996}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01778}{LNLib\+::\+Nurbs\+Surface\+::\+Global\+Interpolation()}}.
+
+\Hypertarget{classLNLib_1_1Interpolation_a77bc2457529a393c55e1c34bfc3b76d2}\index{LNLib::Interpolation@{LNLib::Interpolation}!ComputeKnotVector@{ComputeKnotVector}}
+\index{ComputeKnotVector@{ComputeKnotVector}!LNLib::Interpolation@{LNLib::Interpolation}}
+\doxysubsubsection{\texorpdfstring{ComputeKnotVector()}{ComputeKnotVector()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Interpolation_a77bc2457529a393c55e1c34bfc3b76d2} 
+std\+::vector$<$ double $>$ LNLib\+::\+Interpolation\+::\+Compute\+Knot\+Vector (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{int}]{points\+Count}{, }\item[{int}]{control\+Points\+Count}{, }\item[{const std\+::vector$<$ double $>$ \&}]{params}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page412 Computes a knot vector ensuring that every knot span has at least one. 
+
+
+
+在文件 \mbox{\hyperlink{Interpolation_8cpp_source}{Interpolation.\+cpp}} 第 \mbox{\hyperlink{Interpolation_8cpp_source_l00121}{121}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02351}{LNLib\+::\+Nurbs\+Curve\+::\+Weighted\+And\+Contrained\+Least\+Squares\+Approximation()}}.
+
+\Hypertarget{classLNLib_1_1Interpolation_a41ac37f3602f5f3377ee28b707d73756}\index{LNLib::Interpolation@{LNLib::Interpolation}!ComputerWeightForRationalQuadraticInterpolation@{ComputerWeightForRationalQuadraticInterpolation}}
+\index{ComputerWeightForRationalQuadraticInterpolation@{ComputerWeightForRationalQuadraticInterpolation}!LNLib::Interpolation@{LNLib::Interpolation}}
+\doxysubsubsection{\texorpdfstring{ComputerWeightForRationalQuadraticInterpolation()}{ComputerWeightForRationalQuadraticInterpolation()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Interpolation_a41ac37f3602f5f3377ee28b707d73756} 
+bool LNLib\+::\+Interpolation\+::\+Computer\+Weight\+For\+Rational\+Quadratic\+Interpolation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{start\+Point}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{middle\+Control\+Point}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{end\+Point}{, }\item[{double \&}]{weight}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page394 Compute weight for local rational quadratic curve interpolation. 
+
+
+
+在文件 \mbox{\hyperlink{Interpolation_8cpp_source}{Interpolation.\+cpp}} 第 \mbox{\hyperlink{Interpolation_8cpp_source_l00149}{149}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}, \mbox{\hyperlink{LNEnums_8h_source_l00017}{LNLib\+::\+Intersecting}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00151}{LNLib\+::\+XYZ\+::\+Negative()}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BezierCurve_8cpp_source_l00039}{LNLib\+::\+Bezier\+Curve\+::\+Computer\+Middle\+Control\+Points\+On\+Quadratic\+Curve()}}.
+
+\Hypertarget{classLNLib_1_1Interpolation_a551c700fc3e54e73e3ca0ceb82b66a2d}\index{LNLib::Interpolation@{LNLib::Interpolation}!ComputeTangent@{ComputeTangent}}
+\index{ComputeTangent@{ComputeTangent}!LNLib::Interpolation@{LNLib::Interpolation}}
+\doxysubsubsection{\texorpdfstring{ComputeTangent()}{ComputeTangent()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Interpolation_a551c700fc3e54e73e3ca0ceb82b66a2d} 
+std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib\+::\+XYZ}} $>$ LNLib\+::\+Interpolation\+::\+Compute\+Tangent (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page386 Computer tangent of each through point (at least three points). 
+
+
+
+在文件 \mbox{\hyperlink{Interpolation_8cpp_source}{Interpolation.\+cpp}} 第 \mbox{\hyperlink{Interpolation_8cpp_source_l00316}{316}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Interpolation_8cpp_source_l00050}{Get\+Chord\+Parameterization()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01833}{LNLib\+::\+Nurbs\+Surface\+::\+Bicubic\+Local\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02180}{LNLib\+::\+Nurbs\+Curve\+::\+Cubic\+Local\+Interpolation()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}.
+
+\Hypertarget{classLNLib_1_1Interpolation_a5fd8e24911bff38f87bdfcd76bd4ad9d}\index{LNLib::Interpolation@{LNLib::Interpolation}!ComputeTangent@{ComputeTangent}}
+\index{ComputeTangent@{ComputeTangent}!LNLib::Interpolation@{LNLib::Interpolation}}
+\doxysubsubsection{\texorpdfstring{ComputeTangent()}{ComputeTangent()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Interpolation_a5fd8e24911bff38f87bdfcd76bd4ad9d} 
+bool LNLib\+::\+Interpolation\+::\+Compute\+Tangent (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{tangents}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page386 Computer tangent of each through point (at least five points). 
+
+
+
+在文件 \mbox{\hyperlink{Interpolation_8cpp_source}{Interpolation.\+cpp}} 第 \mbox{\hyperlink{Interpolation_8cpp_source_l00286}{286}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Interpolation_8cpp_source_l00022}{LNLib\+::\+Getqk()}} , 以及 \mbox{\hyperlink{Interpolation_8cpp_source_l00032}{LNLib\+::\+Get\+Tk()}}.
+
+\Hypertarget{classLNLib_1_1Interpolation_a3807a0b4aa5ae729f3f7f42255561dd2}\index{LNLib::Interpolation@{LNLib::Interpolation}!GetCentripetalLength@{GetCentripetalLength}}
+\index{GetCentripetalLength@{GetCentripetalLength}!LNLib::Interpolation@{LNLib::Interpolation}}
+\doxysubsubsection{\texorpdfstring{GetCentripetalLength()}{GetCentripetalLength()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Interpolation_a3807a0b4aa5ae729f3f7f42255561dd2} 
+double LNLib\+::\+Interpolation\+::\+Get\+Centripetal\+Length (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page365 The total centripetal length. 
+
+
+
+在文件 \mbox{\hyperlink{Interpolation_8cpp_source}{Interpolation.\+cpp}} 第 \mbox{\hyperlink{Interpolation_8cpp_source_l00066}{66}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Interpolation_8cpp_source_l00079}{Get\+Centripetal\+Parameterization()}}.
+
+\Hypertarget{classLNLib_1_1Interpolation_a405291a0b094ec1e5587b5ee1a5a8a7f}\index{LNLib::Interpolation@{LNLib::Interpolation}!GetCentripetalParameterization@{GetCentripetalParameterization}}
+\index{GetCentripetalParameterization@{GetCentripetalParameterization}!LNLib::Interpolation@{LNLib::Interpolation}}
+\doxysubsubsection{\texorpdfstring{GetCentripetalParameterization()}{GetCentripetalParameterization()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Interpolation_a405291a0b094ec1e5587b5ee1a5a8a7f} 
+std\+::vector$<$ double $>$ LNLib\+::\+Interpolation\+::\+Get\+Centripetal\+Parameterization (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page365 The centripetal length parameterization. 
+
+
+
+在文件 \mbox{\hyperlink{Interpolation_8cpp_source}{Interpolation.\+cpp}} 第 \mbox{\hyperlink{Interpolation_8cpp_source_l00079}{79}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Interpolation_8cpp_source_l00066}{Get\+Centripetal\+Length()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01680}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Cubic\+Hermite()}}.
+
+\Hypertarget{classLNLib_1_1Interpolation_a9a0dab509f7981bca99e4b88794022f6}\index{LNLib::Interpolation@{LNLib::Interpolation}!GetChordParameterization@{GetChordParameterization}}
+\index{GetChordParameterization@{GetChordParameterization}!LNLib::Interpolation@{LNLib::Interpolation}}
+\doxysubsubsection{\texorpdfstring{GetChordParameterization()}{GetChordParameterization()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Interpolation_a9a0dab509f7981bca99e4b88794022f6} 
+std\+::vector$<$ double $>$ LNLib\+::\+Interpolation\+::\+Get\+Chord\+Parameterization (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page365 The chord length parameterization. 
+
+
+
+在文件 \mbox{\hyperlink{Interpolation_8cpp_source}{Interpolation.\+cpp}} 第 \mbox{\hyperlink{Interpolation_8cpp_source_l00050}{50}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Interpolation_8cpp_source_l00039}{Get\+Total\+Chord\+Length()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Interpolation_8cpp_source_l00316}{Compute\+Tangent()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02821}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Approximation\+By\+Error\+Bound()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02056}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01996}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02246}{LNLib\+::\+Nurbs\+Curve\+::\+Least\+Squares\+Approximation()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02351}{LNLib\+::\+Nurbs\+Curve\+::\+Weighted\+And\+Contrained\+Least\+Squares\+Approximation()}}.
+
+\Hypertarget{classLNLib_1_1Interpolation_af32929fad6c2defff3b5656b7bac6f4f}\index{LNLib::Interpolation@{LNLib::Interpolation}!GetSurfaceMeshParameterization@{GetSurfaceMeshParameterization}}
+\index{GetSurfaceMeshParameterization@{GetSurfaceMeshParameterization}!LNLib::Interpolation@{LNLib::Interpolation}}
+\doxysubsubsection{\texorpdfstring{GetSurfaceMeshParameterization()}{GetSurfaceMeshParameterization()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Interpolation_af32929fad6c2defff3b5656b7bac6f4f} 
+bool LNLib\+::\+Interpolation\+::\+Get\+Surface\+Mesh\+Parameterization (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ $>$ \&}]{through\+Points}{, }\item[{std\+::vector$<$ double $>$ \&}]{paramsU}{, }\item[{std\+::vector$<$ double $>$ \&}]{paramsV}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page377 Algorithm A9.\+3 Compute paramters for global surface interpolation. 
+
+
+
+在文件 \mbox{\hyperlink{Interpolation_8cpp_source}{Interpolation.\+cpp}} 第 \mbox{\hyperlink{Interpolation_8cpp_source_l00203}{203}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01778}{LNLib\+::\+Nurbs\+Surface\+::\+Global\+Interpolation()}}.
+
+\Hypertarget{classLNLib_1_1Interpolation_aa85849ef202c5ee918166a3e9ccbfb9f}\index{LNLib::Interpolation@{LNLib::Interpolation}!GetTotalChordLength@{GetTotalChordLength}}
+\index{GetTotalChordLength@{GetTotalChordLength}!LNLib::Interpolation@{LNLib::Interpolation}}
+\doxysubsubsection{\texorpdfstring{GetTotalChordLength()}{GetTotalChordLength()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Interpolation_aa85849ef202c5ee918166a3e9ccbfb9f} 
+double LNLib\+::\+Interpolation\+::\+Get\+Total\+Chord\+Length (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page364 The total chord length. 
+
+
+
+在文件 \mbox{\hyperlink{Interpolation_8cpp_source}{Interpolation.\+cpp}} 第 \mbox{\hyperlink{Interpolation_8cpp_source_l00039}{39}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01833}{LNLib\+::\+Nurbs\+Surface\+::\+Bicubic\+Local\+Interpolation()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02194}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Loft\+Surface()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00050}{Get\+Chord\+Parameterization()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02056}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{Interpolation_8h}{Interpolation.\+h}}\item 
+src/\+LNLib/\+Algorithm/\mbox{\hyperlink{Interpolation_8cpp}{Interpolation.\+cpp}}\end{DoxyCompactItemize}

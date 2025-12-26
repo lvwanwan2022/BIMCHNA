@@ -1,0 +1,136 @@
+\doxysection{LNLib\+::Bezier\+Curve类 参考}
+\hypertarget{classLNLib_1_1BezierCurve}{}\label{classLNLib_1_1BezierCurve}\index{LNLib::BezierCurve@{LNLib::BezierCurve}}
+
+
+{\ttfamily \#include $<$Bezier\+Curve.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\static void \mbox{\hyperlink{classLNLib_1_1BezierCurve_a47b4080175dc4306fd136165e5562060}{Check}} (const \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{LN\+\_\+\+Bezier\+Curve}}$<$ T $>$ \&curve)
+\item 
+{\footnotesize template$<$typename T$>$ }\\static T \mbox{\hyperlink{classLNLib_1_1BezierCurve_aa19b2fc3f26df879dba2636afc99bce3}{Get\+Point\+On\+Curve\+By\+Bernstein}} (const \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{LN\+\_\+\+Bezier\+Curve}}$<$ T $>$ \&curve, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page22 Algorithm A1.\+4 Compute point on Bezier curve. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\static T \mbox{\hyperlink{classLNLib_1_1BezierCurve_afa16e5198387e647ef220a19c4acc87f}{Get\+Point\+On\+Curve\+By\+De\+Casteljau}} (const \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{LN\+\_\+\+Bezier\+Curve}}$<$ T $>$ \&curve, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page24 Algorithm A1.\+5 Compute point on Bezier curve. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1BezierCurve_a27db7aaef717e21215fea7b708dca62f}{Get\+Point\+On\+Quadratic\+Arc}} (const \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} \&start\+Point, const \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} \&middle\+Point, const \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} \&end\+Point, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page291 The quadratic rational Bezier arc. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1BezierCurve_a03d039ae9d2f06ef26ab07cc745c350f}{Computer\+Middle\+Control\+Points\+On\+Quadratic\+Curve}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&start\+Point, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&start\+Tangent, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&end\+Point, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&end\+Tangent, std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} $>$ \&control\+Points)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page392 Local rational quadratic curve interpolation. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{BezierCurve_8h_source}{Bezier\+Curve.\+h}} 第 \mbox{\hyperlink{BezierCurve_8h_source_l00024}{24}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1BezierCurve_a47b4080175dc4306fd136165e5562060}\index{LNLib::BezierCurve@{LNLib::BezierCurve}!Check@{Check}}
+\index{Check@{Check}!LNLib::BezierCurve@{LNLib::BezierCurve}}
+\doxysubsubsection{\texorpdfstring{Check()}{Check()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BezierCurve_a47b4080175dc4306fd136165e5562060} 
+template$<$typename T$>$ \\
+static void LNLib\+::\+Bezier\+Curve\+::\+Check (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{LN\+\_\+\+Bezier\+Curve}}$<$ T $>$ \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{BezierCurve_8h_source}{Bezier\+Curve.\+h}} 第 \mbox{\hyperlink{BezierCurve_8h_source_l00029}{29}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00024}{LNLib\+::\+LN\+\_\+\+Bezier\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00023}{LNLib\+::\+LN\+\_\+\+Bezier\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00018}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Bezier()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1BezierCurve_a03d039ae9d2f06ef26ab07cc745c350f}\index{LNLib::BezierCurve@{LNLib::BezierCurve}!ComputerMiddleControlPointsOnQuadraticCurve@{ComputerMiddleControlPointsOnQuadraticCurve}}
+\index{ComputerMiddleControlPointsOnQuadraticCurve@{ComputerMiddleControlPointsOnQuadraticCurve}!LNLib::BezierCurve@{LNLib::BezierCurve}}
+\doxysubsubsection{\texorpdfstring{ComputerMiddleControlPointsOnQuadraticCurve()}{ComputerMiddleControlPointsOnQuadraticCurve()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BezierCurve_a03d039ae9d2f06ef26ab07cc745c350f} 
+bool LNLib\+::\+Bezier\+Curve\+::\+Computer\+Middle\+Control\+Points\+On\+Quadratic\+Curve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{start\+Point}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{start\+Tangent}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{end\+Point}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{end\+Tangent}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} $>$ \&}]{control\+Points}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page392 Local rational quadratic curve interpolation. 
+
+
+
+在文件 \mbox{\hyperlink{BezierCurve_8cpp_source}{Bezier\+Curve.\+cpp}} 第 \mbox{\hyperlink{BezierCurve_8cpp_source_l00039}{39}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00149}{LNLib\+::\+Interpolation\+::\+Computer\+Weight\+For\+Rational\+Quadratic\+Interpolation()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}, \mbox{\hyperlink{LNEnums_8h_source_l00017}{LNLib\+::\+Intersecting}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00151}{LNLib\+::\+XYZ\+::\+Negative()}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02857}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Conic()}}.
+
+\Hypertarget{classLNLib_1_1BezierCurve_aa19b2fc3f26df879dba2636afc99bce3}\index{LNLib::BezierCurve@{LNLib::BezierCurve}!GetPointOnCurveByBernstein@{GetPointOnCurveByBernstein}}
+\index{GetPointOnCurveByBernstein@{GetPointOnCurveByBernstein}!LNLib::BezierCurve@{LNLib::BezierCurve}}
+\doxysubsubsection{\texorpdfstring{GetPointOnCurveByBernstein()}{GetPointOnCurveByBernstein()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BezierCurve_aa19b2fc3f26df879dba2636afc99bce3} 
+template$<$typename T$>$ \\
+static T LNLib\+::\+Bezier\+Curve\+::\+Get\+Point\+On\+Curve\+By\+Bernstein (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{LN\+\_\+\+Bezier\+Curve}}$<$ T $>$ \&}]{curve}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page22 Algorithm A1.\+4 Compute point on Bezier curve. 
+
+Rational Bezier Curve\+:Use \doxylink{classLNLib_1_1XYZW}{XYZW} 
+
+在文件 \mbox{\hyperlink{BezierCurve_8h_source}{Bezier\+Curve.\+h}} 第 \mbox{\hyperlink{BezierCurve_8h_source_l00047}{47}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00064}{LNLib\+::\+Polynomials\+::\+All\+Bernstein()}}, \mbox{\hyperlink{LNObject_8h_source_l00024}{LNLib\+::\+LN\+\_\+\+Bezier\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00023}{LNLib\+::\+LN\+\_\+\+Bezier\+Curve$<$ T $>$\+::\+Degree}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}.
+
+\Hypertarget{classLNLib_1_1BezierCurve_afa16e5198387e647ef220a19c4acc87f}\index{LNLib::BezierCurve@{LNLib::BezierCurve}!GetPointOnCurveByDeCasteljau@{GetPointOnCurveByDeCasteljau}}
+\index{GetPointOnCurveByDeCasteljau@{GetPointOnCurveByDeCasteljau}!LNLib::BezierCurve@{LNLib::BezierCurve}}
+\doxysubsubsection{\texorpdfstring{GetPointOnCurveByDeCasteljau()}{GetPointOnCurveByDeCasteljau()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BezierCurve_afa16e5198387e647ef220a19c4acc87f} 
+template$<$typename T$>$ \\
+static T LNLib\+::\+Bezier\+Curve\+::\+Get\+Point\+On\+Curve\+By\+De\+Casteljau (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{LN\+\_\+\+Bezier\+Curve}}$<$ T $>$ \&}]{curve}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page24 Algorithm A1.\+5 Compute point on Bezier curve. 
+
+Rational Bezier Curve\+:Use \doxylink{classLNLib_1_1XYZW}{XYZW} 
+
+在文件 \mbox{\hyperlink{BezierCurve_8h_source}{Bezier\+Curve.\+h}} 第 \mbox{\hyperlink{BezierCurve_8h_source_l00071}{71}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00024}{LNLib\+::\+LN\+\_\+\+Bezier\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00023}{LNLib\+::\+LN\+\_\+\+Bezier\+Curve$<$ T $>$\+::\+Degree}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BezierSurface_8h_source_l00059}{LNLib\+::\+Bezier\+Surface\+::\+Get\+Point\+On\+Surface\+By\+De\+Casteljau()}}.
+
+\Hypertarget{classLNLib_1_1BezierCurve_a27db7aaef717e21215fea7b708dca62f}\index{LNLib::BezierCurve@{LNLib::BezierCurve}!GetPointOnQuadraticArc@{GetPointOnQuadraticArc}}
+\index{GetPointOnQuadraticArc@{GetPointOnQuadraticArc}!LNLib::BezierCurve@{LNLib::BezierCurve}}
+\doxysubsubsection{\texorpdfstring{GetPointOnQuadraticArc()}{GetPointOnQuadraticArc()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BezierCurve_a27db7aaef717e21215fea7b708dca62f} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} LNLib\+::\+Bezier\+Curve\+::\+Get\+Point\+On\+Quadratic\+Arc (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} \&}]{start\+Point}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} \&}]{middle\+Point}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} \&}]{end\+Point}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page291 The quadratic rational Bezier arc. 
+
+
+
+在文件 \mbox{\hyperlink{BezierCurve_8cpp_source}{Bezier\+Curve.\+cpp}} 第 \mbox{\hyperlink{BezierCurve_8cpp_source_l00025}{25}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZW_8cpp_source_l00055}{LNLib\+::\+XYZW\+::\+Get\+W()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00043}{LNLib\+::\+XYZW\+::\+Get\+WX()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00045}{LNLib\+::\+XYZW\+::\+Get\+WY()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00047}{LNLib\+::\+XYZW\+::\+Get\+WZ()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{BezierCurve_8h}{Bezier\+Curve.\+h}}\item 
+src/\+LNLib/\+Geometry/\+Curve/\mbox{\hyperlink{BezierCurve_8cpp}{Bezier\+Curve.\+cpp}}\end{DoxyCompactItemize}

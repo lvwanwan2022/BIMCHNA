@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32526.322
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LvGeometry", "LvGeometry.csproj", "{C1B06A7B-6A9A-4283-89A6-765785BFC2FE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WpfTest", "WpfTest\WpfTest.csproj", "{8C018533-0367-4E57-B66B-A3C22690A86E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RhinoConvert", "RhinoConvert\RhinoConvert.csproj", "{09870B9C-C2EF-4462-B139-D9F9D34B033C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GCadConvert", "GCadConvert\GCadConvert.csproj", "{ECC6CEE3-A378-442B-897D-251DD73D3C75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoCadConvert", "AutoCadConvert\AutoCadConvert.csproj", "{968F72FD-BD28-4C85-9251-4DA5BF108377}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CanalSystem", "CanalSystem\CanalSystem.csproj", "{ECEB984C-2D97-43BB-9161-2E74C1A9B26E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C1B06A7B-6A9A-4283-89A6-765785BFC2FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1B06A7B-6A9A-4283-89A6-765785BFC2FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1B06A7B-6A9A-4283-89A6-765785BFC2FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1B06A7B-6A9A-4283-89A6-765785BFC2FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C018533-0367-4E57-B66B-A3C22690A86E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C018533-0367-4E57-B66B-A3C22690A86E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C018533-0367-4E57-B66B-A3C22690A86E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C018533-0367-4E57-B66B-A3C22690A86E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09870B9C-C2EF-4462-B139-D9F9D34B033C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09870B9C-C2EF-4462-B139-D9F9D34B033C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09870B9C-C2EF-4462-B139-D9F9D34B033C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09870B9C-C2EF-4462-B139-D9F9D34B033C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECC6CEE3-A378-442B-897D-251DD73D3C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECC6CEE3-A378-442B-897D-251DD73D3C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECC6CEE3-A378-442B-897D-251DD73D3C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECC6CEE3-A378-442B-897D-251DD73D3C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{968F72FD-BD28-4C85-9251-4DA5BF108377}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{968F72FD-BD28-4C85-9251-4DA5BF108377}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{968F72FD-BD28-4C85-9251-4DA5BF108377}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{968F72FD-BD28-4C85-9251-4DA5BF108377}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ECEB984C-2D97-43BB-9161-2E74C1A9B26E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ECEB984C-2D97-43BB-9161-2E74C1A9B26E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ECEB984C-2D97-43BB-9161-2E74C1A9B26E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ECEB984C-2D97-43BB-9161-2E74C1A9B26E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F8E433FF-0314-46FD-9642-8D9D975D2841}
+	EndGlobalSection
+EndGlobal

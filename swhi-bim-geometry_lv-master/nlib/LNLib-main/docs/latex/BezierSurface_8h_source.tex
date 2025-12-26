@@ -1,0 +1,80 @@
+\doxysection{Bezier\+Surface.\+h}
+\hypertarget{BezierSurface_8h_source}{}\label{BezierSurface_8h_source}\index{src/LNLib/include/BezierSurface.h@{src/LNLib/include/BezierSurface.h}}
+\mbox{\hyperlink{BezierSurface_8h}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/06/08\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00011}00011\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00012}00012\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BezierSurface_8h}{BezierSurface.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{BezierCurve_8h}{BezierCurve.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00015}00015\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibDefinitions_8h}{LNLibDefinitions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00016}00016\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNObject_8h}{LNObject.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00017}00017\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00019}00019\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}}\ \{}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00020}00020\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00021}00021\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLNLib_1_1UV}{UV}};}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00022}00022\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}};}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00023}00023\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}};}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00024}\mbox{\hyperlink{classLNLib_1_1BezierSurface}{00024}}\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{LNLibDefinitions_8h_ae9d1336b32fdad9d4d368c029c9597af}{LNLIB\_EXPORT}}\ \mbox{\hyperlink{classLNLib_1_1BezierSurface}{BezierSurface}}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00025}00025\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00026}00026\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00027}00027\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00028}00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00029}\mbox{\hyperlink{classLNLib_1_1BezierSurface_ae632936c78f0610c3bc45c78a7c31c7e}{00029}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1BezierSurface_ae632936c78f0610c3bc45c78a7c31c7e}{Check}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BezierSurface}{LN\_BezierSurface<T>}}\&\ surface)}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00030}00030\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BezierSurface_a567f8143a2da18b23c695e68d5b5619d}{DegreeU}};}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BezierSurface_a611f043cb11bd126a209dff83928e768}{DegreeV}};}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00033}00033\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ controlPoints\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BezierSurface_aca8a6b7f4c6eba199950ad0549c79ed1}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(degreeU\ >\ 0,\ \textcolor{stringliteral}{"{}degreeU"{}},\ \textcolor{stringliteral}{"{}Degree\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(degreeV\ >\ 0,\ \textcolor{stringliteral}{"{}degreeV"{}},\ \textcolor{stringliteral}{"{}Degree\ must\ be\ greater\ than\ zero."{}});}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(controlPoints.size()\ >\ 0,\ \textcolor{stringliteral}{"{}controlPoints"{}},\ \textcolor{stringliteral}{"{}ControlPoints\ must\ contain\ one\ point\ at\ least."{}});}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(degreeU\ +\ 1\ ==\ controlPoints.size(),\ \textcolor{stringliteral}{"{}controlPoints"{}},\ \textcolor{stringliteral}{"{}ControlPoints\ row\ size\ equals\ degreeU\ plus\ one."{}});}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_abf79253d7dce474da07edbcac0464959}{VALIDATE\_ARGUMENT}}(degreeV\ +\ 1\ ==\ controlPoints[0].size(),\ \textcolor{stringliteral}{"{}controlPoints"{}},\ \textcolor{stringliteral}{"{}ControlPoints\ column\ size\ equals\ degreeV\ plus\ one."{}});}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00040}00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00058}00058\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}\ <\textcolor{keyword}{typename}\ T>}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00059}\mbox{\hyperlink{classLNLib_1_1BezierSurface_a36ec809c5ba5b2969dc343dd2adeecf2}{00059}}\ \ \ \ \ \ \ \ \ \textcolor{keyword}{static}\ T\ \mbox{\hyperlink{classLNLib_1_1BezierSurface_a36ec809c5ba5b2969dc343dd2adeecf2}{GetPointOnSurfaceByDeCasteljau}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{structLNLib_1_1LN__BezierSurface}{LN\_BezierSurface<T>}}\&\ surface,\ \mbox{\hyperlink{classLNLib_1_1UV}{UV}}\ uv)}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00060}00060\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}(),\ 0.0,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{LNLibExceptions_8h_a196bf034379e5d379c765e5ec6923154}{VALIDATE\_ARGUMENT\_RANGE}}(uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}(),\ 0.0,\ 1.0);}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00063}00063\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeU\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BezierSurface_a567f8143a2da18b23c695e68d5b5619d}{DegreeU}};}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ degreeV\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BezierSurface_a611f043cb11bd126a209dff83928e768}{DegreeV}};}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<std::vector<T>>\ controlPoints\ =\ surface.\mbox{\hyperlink{structLNLib_1_1LN__BezierSurface_aca8a6b7f4c6eba199950ad0549c79ed1}{ControlPoints}};}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00067}00067\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ T\ point;}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ std::vector<T>\ temp(degreeU\ +\ 1);}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00070}00070\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <=\ degreeU;\ i++)}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{LN\_BezierCurve<T>}}\ b;}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b.\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a9005e783e4bb85da2bd2447219e639ef}{Degree}}\ =\ degreeV;}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ b.\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a42ec91d6a29b9ad47daecdf507ccfc14}{ControlPoints}}\ =\ controlPoints[i];}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp[i]\ =\ \mbox{\hyperlink{classLNLib_1_1BezierCurve_afa16e5198387e647ef220a19c4acc87f}{BezierCurve::GetPointOnCurveByDeCasteljau}}(b,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a7b4e7f930a066e8701bd2ad9b1a715d6}{GetV}}());}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00079}00079\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structLNLib_1_1LN__BezierCurve}{LN\_BezierCurve<T>}}\ bezierCurve;}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ bezierCurve.\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a9005e783e4bb85da2bd2447219e639ef}{Degree}}\ =\ degreeU;}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ bezierCurve.\mbox{\hyperlink{structLNLib_1_1LN__BezierCurve_a42ec91d6a29b9ad47daecdf507ccfc14}{ControlPoints}}\ =\ temp;}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00082}00082\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ point\ =\ \mbox{\hyperlink{classLNLib_1_1BezierCurve_afa16e5198387e647ef220a19c4acc87f}{BezierCurve::GetPointOnCurveByDeCasteljau}}(bezierCurve,\ uv.\mbox{\hyperlink{classLNLib_1_1UV_a08ffa26fdc28e72f4871a50f0776a18e}{GetU}}());}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ point;}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00085}00085\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00086}00086\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00087}00087\ \}}
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00088}00088\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00089}00089\ }
+\DoxyCodeLine{\Hypertarget{BezierSurface_8h_source_l00090}00090\ }
+
+\end{DoxyCode}

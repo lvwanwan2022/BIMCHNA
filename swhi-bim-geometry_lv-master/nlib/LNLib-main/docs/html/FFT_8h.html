@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: src/LNLib/include/FFT.h 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('FFT_8h.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#namespaces">命名空间</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">FFT.h 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><code>#include &lt;vector&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+FFT.h 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="FFT_8h__incl.png" border="0" usemap="#asrc_2LNLib_2include_2FFT_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+此图展示该文件被哪些文件直接或间接地引用了:</div>
+<div class="dyncontent">
+<div class="center"><img src="FFT_8h__dep__incl.png" border="0" usemap="#asrc_2LNLib_2include_2FFT_8hdep" alt=""/></div>
+</div>
+</div>
+<p><a href="FFT_8h_source.html">浏览该文件的源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+命名空间</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceLNLib.html">LNLib</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:acb17d4b575bfaba86ef1a0cf454fed2e" id="r_acb17d4b575bfaba86ef1a0cf454fed2e"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:acb17d4b575bfaba86ef1a0cf454fed2e"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceLNLib.html#acb17d4b575bfaba86ef1a0cf454fed2e">LNLib::bitrv2</a> (int n, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:acb17d4b575bfaba86ef1a0cf454fed2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4ca847052d102405ac62110b6f47dcbc" id="r_a4ca847052d102405ac62110b6f47dcbc"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:a4ca847052d102405ac62110b6f47dcbc"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceLNLib.html#a4ca847052d102405ac62110b6f47dcbc">LNLib::cdft</a> (int n, T wr, T wi, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:a4ca847052d102405ac62110b6f47dcbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbb61f02158196d50257e0e2a5001a1b" id="r_adbb61f02158196d50257e0e2a5001a1b"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:adbb61f02158196d50257e0e2a5001a1b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceLNLib.html#adbb61f02158196d50257e0e2a5001a1b">LNLib::rdft</a> (int n, T wr, T wi, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:adbb61f02158196d50257e0e2a5001a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbe697a4fdcda11b72b2aa1d2ceec9a8" id="r_abbe697a4fdcda11b72b2aa1d2ceec9a8"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:abbe697a4fdcda11b72b2aa1d2ceec9a8"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceLNLib.html#abbe697a4fdcda11b72b2aa1d2ceec9a8">LNLib::ddct</a> (int n, T wr, T wi, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:abbe697a4fdcda11b72b2aa1d2ceec9a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3f6cead043042bf9271429b23539132" id="r_af3f6cead043042bf9271429b23539132"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:af3f6cead043042bf9271429b23539132"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceLNLib.html#af3f6cead043042bf9271429b23539132">LNLib::ddst</a> (int n, T wr, T wi, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:af3f6cead043042bf9271429b23539132"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec508ed170aa7379ca0316b2dd385d5b" id="r_aec508ed170aa7379ca0316b2dd385d5b"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:aec508ed170aa7379ca0316b2dd385d5b"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceLNLib.html#aec508ed170aa7379ca0316b2dd385d5b">LNLib::bitrv</a> (int n, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:aec508ed170aa7379ca0316b2dd385d5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a695a2602375d7a2590d1c70cc24debb0" id="r_a695a2602375d7a2590d1c70cc24debb0"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:a695a2602375d7a2590d1c70cc24debb0"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceLNLib.html#a695a2602375d7a2590d1c70cc24debb0">LNLib::dfct</a> (int n, T wr, T wi, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:a695a2602375d7a2590d1c70cc24debb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9be52fb1f3024f40fb50757ca34e454f" id="r_a9be52fb1f3024f40fb50757ca34e454f"><td class="memTemplParams" colspan="2">template&lt;class T&gt; </td></tr>
+<tr class="memitem:a9be52fb1f3024f40fb50757ca34e454f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespaceLNLib.html#a9be52fb1f3024f40fb50757ca34e454f">LNLib::dfst</a> (int n, T wr, T wi, std::vector&lt; T &gt; &amp;a)</td></tr>
+<tr class="separator:a9be52fb1f3024f40fb50757ca34e454f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_16b010a3eb20297cce52e62ed2fbdb73.html">LNLib</a></li><li class="navelem"><a class="el" href="dir_d94eecf3a687f27b8738855f648c5010.html">include</a></li><li class="navelem"><a class="el" href="FFT_8h.html">FFT.h</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

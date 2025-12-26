@@ -1,0 +1,1341 @@
+\doxysection{LNLib\+::Nurbs\+Curve类 参考}
+\hypertarget{classLNLib_1_1NurbsCurve}{}\label{classLNLib_1_1NurbsCurve}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+
+
+{\ttfamily \#include $<$Nurbs\+Curve.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_ae9fb650fe4f17554cbedb7724d936ee0}{Check}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em Check curve whether fits NURBS. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a07de19fccb86448d5dbb160d9daf8f7d}{Get\+Point\+On\+Curve}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page124 Algorithm A4.\+1 Compute point on rational B-\/spline curve. \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \mbox{\hyperlink{classLNLib_1_1NurbsCurve_ac1a1cf47d76076fe16def634d24e0a18}{Compute\+Rational\+Curve\+Derivatives}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, int derivative, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page127 Algorithm A4.\+2 Compute C(param\+T) derivatives from Cw(param\+T) derivatives. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_ab9df6ed3f90d7bed5b80990df0577c93}{Can\+Computer\+Derivative}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double paramT)
+\begin{DoxyCompactList}\small\item\em Computer left and right hand derivatives. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1NurbsCurve_ae1a8610d5c9b30c2c0542af54b0d7f2e}{Curvature}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double paramT)
+\begin{DoxyCompactList}\small\item\em Calculate curve curvature. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a2308d189620fee8d029ae9ab72373290}{Torsion}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double paramT)
+\begin{DoxyCompactList}\small\item\em Calculate curve torsion. \end{DoxyCompactList}\item 
+static int \mbox{\hyperlink{classLNLib_1_1NurbsCurve_aca29f400996f0a666831353e08321791}{Insert\+Knot}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double insert\+Knot, int times, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page151 Algorithm A5.\+1 Curve knot insertion. Note that multiplicity + times \texorpdfstring{$<$}{<}= degree. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1NurbsCurve_aa65b64b5b2d3408a2667c3e828c9f3f1}{Get\+Point\+On\+Curve\+By\+Corner\+Cut}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page155 Algorithm A5.\+2 Computes point on rational B-\/spline curve. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a8fb24c3596e8e5847d8b2ad923b5cf26}{Refine\+Knot\+Vector}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, const std\+::vector$<$ double $>$ \&insert\+Knot\+Elements, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page164 Algorithm A5.\+4 Refine curve knot vector. \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} $>$ \mbox{\hyperlink{classLNLib_1_1NurbsCurve_aafb8fc8dfafa5f88a79321bc97d13365}{Decompose\+To\+Beziers}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page173 Algorithm A5.\+6 Decompose curve into Bezier segements. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a36ce5f3e7eec2b8ddb1f17415dd33827}{Remove\+Knot}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double remove\+Knot, int times, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page185 Algorithm A5.\+8 Curve knot removal. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a11b1305472502a51e45ca4ed4d78b0f4}{Remove\+Excessive\+Knots}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em Remove excessive knots. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a6b6f0f32c65157fac2367db29f40502d}{Elevate\+Degree}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, int times, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page206 Algorithm A5.\+9 Degree elevate a curve t times. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a90f2f0dcff2d6eb45178512d8f0e8b21}{Reduce\+Degree}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page223 Algorithm A5.\+11 Degree reduce a bezier-\/shape nurbs curve from degree to degree -\/ 1. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a92a4e2153cadd030ad390f4192c6dcb6}{Equally\+Tessellate}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&tessellated\+Points, std\+::vector$<$ double $>$ \&corresponding\+Knots)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page230 Equally spaced parameter values on each candidate span. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_aa8a8367d65a5a8c2d5d8daa6bb1f9b5c}{Is\+Closed}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em Detemine curve is closed. Close means end point equals start point or points overlap. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a629a121f7a14383b43c4e1f6d7f53771}{Get\+Param\+On\+Curve}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&given\+Point)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page230 Point inversion\+:finding the corresponding parameter make C(u) = P. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_aac5b10c863172370958d58ac09feceb5}{Create\+Transformed}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, const \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \&matrix, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page236 Curve make Transform. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a30de3aab1fdf5c8d4dc54f0f4f640d22}{Reparametrize}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double min, double max, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page241 Reparameterization of curve. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a3062a26189b4b4c80c0f01ae483e30e7}{Reparametrize}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double alpha, double beta, double gamma, double delta, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page255 Reparameterization using a linear rational function \+: (alpha \texorpdfstring{$\ast$}{*} u + beta)/(gamma \texorpdfstring{$\ast$}{*} u + delta) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a91c9761b56713a870591fa6886a650f5}{Reverse}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page263 Curve reverse,but not use reparameterization. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a81a3709a507e97c193eb69add94df03f}{Split\+At}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double parameter, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&left, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&right)
+\begin{DoxyCompactList}\small\item\em Split curve at certain parameter. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a66138ba18d2983d08d1e51b6a997ba91}{Segment}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double start\+Parameter, double end\+Parameter, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&segment)
+\begin{DoxyCompactList}\small\item\em Segment curve. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_ad0cad1fbe7eaec706a9820402abea3c4}{Merge}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&left, const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&right, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em Merge two connected curves to one curve. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a9129f3a66020bb001e30bf6d009eca99}{Offset}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double offset, \mbox{\hyperlink{namespaceLNLib_a1307064b77623ba85c4fbec18b75ca66}{Offset\+Type}} type, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em Offset curve makes bigger or smaller. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_aa8029e69e01c87e17edcd9704d5e5030}{Create\+Line}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&start, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&end, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em Create line represented by NURBS. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_ac77cd22a41ff55c2df108f933030a980}{Create\+Cubic\+Hermite}} (const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points, const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&tangents, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em The SISL Reference Manual v4.\+4 Page30 s1379 Create cubic hermite spline by interpolation. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a837c312abaf59a1749de5dfa5e97dffc}{Create\+Arc}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&center, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&x\+Axis, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&y\+Axis, double start\+Rad, double end\+Rad, double x\+Radius, double y\+Radius, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page308 Algorithm A7.\+1 Create arbitrary NURBS arc. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a7cd6ca8768820dc63c4430cde8fffc60}{Create\+One\+Conic\+Arc}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&start, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&start\+Tangent, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&end, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&end\+Tangent, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&point\+On\+Conic, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&project\+Point, double \&project\+Point\+Weight)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page314 Algorithm A7.\+2 Create one Bezier conic arc. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a9012abcc34ee35a993aa38913c8967bd}{Split\+Arc}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&start, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&project\+Point, double project\+Point\+Weight, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&end, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&insert\+Point\+At\+Start\+Side, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&split\+Point, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&insert\+Point\+At\+End\+Side, double insert\+Weight)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page317 Split arc. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_ad00c4db9db3e0c2d9d72dd1c5c056022}{Create\+Open\+Conic}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&start, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&start\+Tangent, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&end, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&end\+Tangent, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&point\+On\+Conic, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page317 Algorithm A7.\+3 Create open conic arc. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_aeebe79cfdd092da2ef444bca0b7d097b}{Global\+Interpolation}} (int degree, const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, const std\+::vector$<$ double $>$ \&params=\{\})
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page369 Algorithm A9.\+1 Global interpolation through n+1 points. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a025b3dc3d5df1a1f7dd2d9680c62f596}{Global\+Interpolation}} (int degree, const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points, const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&tangents, double tangent\+Factor, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page369 -\/ 374 Global interpolation by through points and tangents. (including Algorithm A9.\+2) \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_ad908df2fc341befc08b1eda649084353}{Cubic\+Local\+Interpolation}} (const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page395 Local cubic curve interpolation by through points. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a588645519b40c2389ddcd1f0dcaa569a}{Least\+Squares\+Approximation}} (int degree, const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points, int control\+Points\+Count, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page410 Least square curve approximation. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_ae7c80a074d01547d2abd990dada59356}{Weighted\+And\+Contrained\+Least\+Squares\+Approximation}} (int degree, const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points, const std\+::vector$<$ double $>$ \&through\+Point\+Weights, const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&tangents, const std\+::vector$<$ int $>$ \&tangent\+Indices, const std\+::vector$<$ double $>$ \&tangent\+Weights, int control\+Points\+Count, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page413 Algorithm A9.\+6 Weighted and contrained least squares approximation. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a65e62928f1dce20ee2a1b5bac7bbc349}{Computer\+Remove\+Knot\+Error\+Bound}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, int removal\+Index)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page428 Algorithm A9.\+8 Get knot removal error bound (nonrational). \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a1219ca4ba0e528a56488814c00592d64}{Remove\+Knots\+By\+Given\+Bound}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, const std\+::vector$<$ double $>$ params, std\+::vector$<$ double $>$ \&errors, double max\+Error, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page429 Algorithm A9.\+9 Remove knots from curve by given bound. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a828a5c5d9a4bf8bdae652fa64294e315}{Global\+Approximation\+By\+Error\+Bound}} (int degree, const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points, double max\+Error, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page431 Algorithm A9.\+10 Global curve approximation to within bound max\+Error. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a73a4fe2970d518ff64f30066493ba484}{Fit\+With\+Conic}} (const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points, int start\+Point\+Index, int end\+Point\+Index, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&start\+Tangent, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&end\+Tangent, double max\+Error, std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} $>$ \&middle\+Control\+Points)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page440 Algorithm A9.\+11 Fit to tolerance with conic segment. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a8a74a29b4c06a70ddd4b6087efe77113}{Fit\+With\+Cubic}} (const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&through\+Points, int start\+Point\+Index, int end\+Point\+Index, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&start\+Tangent, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&end\+Tangent, double max\+Error, std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} $>$ \&middle\+Control\+Points)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page448 Algorithm A9.\+12 Fit to tolerance with cubic segment. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1NurbsCurve_acf49ba9723c84affd2b85fc512ac2c9b}{Normal}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, \mbox{\hyperlink{namespaceLNLib_a6c2e8e0bb21d9e7da969bbd5538a6186}{Curve\+Normal}} normal\+Type, double paramT)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page479 Calculate curve normal direction. \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \mbox{\hyperlink{classLNLib_1_1NurbsCurve_ae7e5fd17423d9306e9b58b0562c95ff7}{Project\+Normal}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page481 \doxylink{classLNLib_1_1Projection}{Projection} normal method invented by Siltanen and Woodward. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_abf805c119ca72651aaf4e0fcde94a98e}{Control\+Point\+Reposition}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double parameter, int move\+Index, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} move\+Direction, double move\+Distance, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page511 Reposition an arbitrary control point. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a8bd9c72da996dd7c95aa1e6afea3c62e}{Weight\+Modification}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double parameter, int move\+Index, double move\+Distance, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page520 Modify one curve weight. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a14cfa218d0f4ac4d37b38529c247e51c}{Neighbor\+Weights\+Modification}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double parameter, int move\+Index, double move\+Distance, double scale, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page526 Modify two neighboring curve weights. (move\+Index and move\+Index + 1) \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a20d85b900e690909247fb83950b36f66}{Warping}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, const std\+::vector$<$ double $>$ \&warp\+Shape, double warp\+Distance, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&plane\+Normal, double start\+Parameter, double end\+Parameter, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page533 \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a9e2215c2072fa4e222980a2989daef09}{Flattening}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} line\+Start\+Point, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} line\+End\+Point, double start\+Parameter, double end\+Parameter, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page542 \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a1b4b23227d44ed8d38a1d21ce40f10d7}{Bending}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double start\+Parameter, double end\+Parameter, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} bend\+Center, double radius, double cross\+Ratio, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page547 \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_aa5b3de71ee81fe468fe88bcbc07389e0}{Constraint\+Based\+Modification}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, const std\+::vector$<$ double $>$ \&constraint\+Params, const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&derivative\+Constraints, const std\+::vector$<$ int $>$ \&applied\+Indices, const std\+::vector$<$ int $>$ \&applied\+Degree, const std\+::vector$<$ int $>$ \&fixed\+Control\+Point\+Indices, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page555 Constraint-\/based curve modification. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_ab58063e881ff23228c8365acad7f1217}{Is\+Clamp}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page572 \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_aad0b447db3de2b8aaf97a4d8a3e1e6e5}{To\+Clamp\+Curve}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page572 Clamp a unclamped curve. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_ae9be458f20996fbfe045e81f0408d643}{Is\+Periodic}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page575 Un\+Clamped, uniform and C\mbox{[}degree-\/1\mbox{]} continues closed curve. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsCurve_abf8550cacd6fd48441afe82ee94e9709}{To\+Unclamp\+Curve}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page577 Algorithm A12.\+1 Unclamp a clamped curve. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_afee9f04545cd52522ef3eee35994dda5}{Is\+Linear}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em Detemine curve whether is linear. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsCurve_af4af5b13b3ce287a3137985730279f6e}{Is\+Arc}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, \mbox{\hyperlink{structLNLib_1_1LN__ArcInfo}{LN\+\_\+\+Arc\+Info}} \&arc\+Info)
+\begin{DoxyCompactList}\small\item\em Detemine curve whether is arc. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1NurbsCurve_aa95cb7c9f5e4b1973ceed83eaab721e8}{Approximate\+Length}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, \mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40}{Integrator\+Type}} type=\mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0}{Integrator\+Type\+::\+Gauss\+Legendre}})
+\begin{DoxyCompactList}\small\item\em Calculate curve arc length. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a70902b1c8ce5f5983a8daf9d935b150b}{Get\+Param\+On\+Curve}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double given\+Length, \mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40}{Integrator\+Type}} type=\mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0}{Integrator\+Type\+::\+Gauss\+Legendre}})
+\begin{DoxyCompactList}\small\item\em Calculate parameter makes first segment length equals to given length. \end{DoxyCompactList}\item 
+static std\+::vector$<$ double $>$ \mbox{\hyperlink{classLNLib_1_1NurbsCurve_a5c113199785eb475a4c97c12fa573a06}{Get\+Params\+On\+Curve}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve, double given\+Length, \mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40}{Integrator\+Type}} type=\mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0}{Integrator\+Type\+::\+Gauss\+Legendre}})
+\begin{DoxyCompactList}\small\item\em Calculate parameters makes every segments length equals to given length. \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \mbox{\hyperlink{classLNLib_1_1NurbsCurve_aeb01948067648dae1ea512edc2b2481c}{Tessellate}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve)
+\begin{DoxyCompactList}\small\item\em Tessellate nurbs curve. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8h_source}{Nurbs\+Curve.\+h}} 第 \mbox{\hyperlink{NurbsCurve_8h_source_l00024}{24}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1NurbsCurve_aa95cb7c9f5e4b1973ceed83eaab721e8}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!ApproximateLength@{ApproximateLength}}
+\index{ApproximateLength@{ApproximateLength}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{ApproximateLength()}{ApproximateLength()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_aa95cb7c9f5e4b1973ceed83eaab721e8} 
+double LNLib\+::\+Nurbs\+Curve\+::\+Approximate\+Length (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{\mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40}{Integrator\+Type}}}]{type}{ = {\ttfamily \mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0}{Integrator\+Type\+::\+Gauss\+Legendre}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculate curve arc length. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{3732}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00061}{LNLib\+::\+Calculate\+Length\+By\+Simpson()}}, \mbox{\hyperlink{LNEnums_8h_source_l00057}{LNLib\+::\+Chebyshev}}, \mbox{\hyperlink{Integrator_8cpp_source_l00121}{LNLib\+::\+Integrator\+::\+Chebyshev\+Series()}}, \mbox{\hyperlink{Integrator_8cpp_source_l00166}{LNLib\+::\+Integrator\+::\+Clenshaw\+Curtis\+Quadrature()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{Compute\+Rational\+Curve\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00662}{Decompose\+To\+Beziers()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{LNLib\+::\+XYZ\+::\+Distance()}}, \mbox{\hyperlink{Constants_8h_source_l00024}{LNLib\+::\+Constants\+::\+Distance\+Epsilon}}, \mbox{\hyperlink{LNEnums_8h_source_l00056}{LNLib\+::\+Gauss\+Legendre}}, \mbox{\hyperlink{Integrator_8h_source_l00041}{LNLib\+::\+Integrator\+::\+Gauss\+Legendre\+Abscissae}}, \mbox{\hyperlink{Integrator_8h_source_l00042}{LNLib\+::\+Integrator\+::\+Gauss\+Legendre\+Weights}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03643}{Is\+Linear()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01425}{Reparametrize()}}, \mbox{\hyperlink{Integrator_8cpp_source_l00019}{LNLib\+::\+Integrator\+::\+Simpson()}} , 以及 \mbox{\hyperlink{LNEnums_8h_source_l00055}{LNLib\+::\+Simpson}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02409}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00081}{LNLib\+::\+Get\+Param\+By\+Length()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03810}{Get\+Param\+On\+Curve()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a1b4b23227d44ed8d38a1d21ce40f10d7}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Bending@{Bending}}
+\index{Bending@{Bending}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Bending()}{Bending()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a1b4b23227d44ed8d38a1d21ce40f10d7} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Bending (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{start\+Parameter}{, }\item[{double}]{end\+Parameter}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}}]{bend\+Center}{, }\item[{double}]{radius}{, }\item[{double}]{cross\+Ratio}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page547 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03334}{3334}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{LNLib\+::\+XYZ\+::\+Distance()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_ab9df6ed3f90d7bed5b80990df0577c93}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!CanComputerDerivative@{CanComputerDerivative}}
+\index{CanComputerDerivative@{CanComputerDerivative}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{CanComputerDerivative()}{CanComputerDerivative()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_ab9df6ed3f90d7bed5b80990df0577c93} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Can\+Computer\+Derivative (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Computer left and right hand derivatives. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00315}{315}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Constants_8h_source_l00023}{LNLib\+::\+Constants\+::\+Double\+Epsilon}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_ae9fb650fe4f17554cbedb7724d936ee0}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Check@{Check}}
+\index{Check@{Check}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Check()}{Check()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_ae9fb650fe4f17554cbedb7724d936ee0} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Check (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Check curve whether fits NURBS. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00267}{267}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00033}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Nurbs()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_ac1a1cf47d76076fe16def634d24e0a18}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!ComputeRationalCurveDerivatives@{ComputeRationalCurveDerivatives}}
+\index{ComputeRationalCurveDerivatives@{ComputeRationalCurveDerivatives}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{ComputeRationalCurveDerivatives()}{ComputeRationalCurveDerivatives()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_ac1a1cf47d76076fe16def634d24e0a18} 
+std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib\+::\+XYZ}} $>$ LNLib\+::\+Nurbs\+Curve\+::\+Compute\+Rational\+Curve\+Derivatives (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{int}]{derivative}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page127 Algorithm A4.\+2 Compute C(param\+T) derivatives from Cw(param\+T) derivatives. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{287}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00093}{LNLib\+::\+Math\+Utils\+::\+Binomial()}} , 以及 \mbox{\hyperlink{BsplineCurve_8h_source_l00074}{LNLib\+::\+Bspline\+Curve\+::\+Compute\+Derivatives()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{Approximate\+Length()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02409}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02325}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02094}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Swung\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00331}{Curvature()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01261}{Get\+Param\+On\+Curve()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03523}{Is\+Periodic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00351}{Normal()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00216}{LNLib\+::\+Offset\+By\+Piegl\+And\+Tiller()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00388}{Project\+Normal()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00107}{LNLib\+::\+Tessellate\+Core()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00448}{Torsion()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03257}{Warping()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a65e62928f1dce20ee2a1b5bac7bbc349}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!ComputerRemoveKnotErrorBound@{ComputerRemoveKnotErrorBound}}
+\index{ComputerRemoveKnotErrorBound@{ComputerRemoveKnotErrorBound}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{ComputerRemoveKnotErrorBound()}{ComputerRemoveKnotErrorBound()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a65e62928f1dce20ee2a1b5bac7bbc349} 
+double LNLib\+::\+Nurbs\+Curve\+::\+Computer\+Remove\+Knot\+Error\+Bound (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{int}]{removal\+Index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page428 Algorithm A9.\+8 Get knot removal error bound (nonrational). 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02566}{2566}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02614}{Remove\+Knots\+By\+Given\+Bound()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_aa5b3de71ee81fe468fe88bcbc07389e0}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!ConstraintBasedModification@{ConstraintBasedModification}}
+\index{ConstraintBasedModification@{ConstraintBasedModification}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{ConstraintBasedModification()}{ConstraintBasedModification()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_aa5b3de71ee81fe468fe88bcbc07389e0} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Constraint\+Based\+Modification (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{const std\+::vector$<$ double $>$ \&}]{constraint\+Params}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{derivative\+Constraints}{, }\item[{const std\+::vector$<$ int $>$ \&}]{applied\+Indices}{, }\item[{const std\+::vector$<$ int $>$ \&}]{applied\+Degree}{, }\item[{const std\+::vector$<$ int $>$ \&}]{fixed\+Control\+Point\+Indices}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page555 Constraint-\/based curve modification. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03371}{3371}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00193}{LNLib\+::\+Polynomials\+::\+Basis\+Functions\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00173}{LNLib\+::\+Math\+Utils\+::\+Make\+Inverse()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00111}{LNLib\+::\+Math\+Utils\+::\+Matrix\+Multiply()}}, \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_abf805c119ca72651aaf4e0fcde94a98e}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!ControlPointReposition@{ControlPointReposition}}
+\index{ControlPointReposition@{ControlPointReposition}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{ControlPointReposition()}{ControlPointReposition()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_abf805c119ca72651aaf4e0fcde94a98e} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Control\+Point\+Reposition (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{parameter}{, }\item[{int}]{move\+Index}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}}]{move\+Direction}{, }\item[{double}]{move\+Distance}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page511 Reposition an arbitrary control point. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03121}{3121}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00162}{LNLib\+::\+Polynomials\+::\+Basis\+Functions()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00085}{LNLib\+::\+XYZ\+::\+Is\+Zero()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}}, \mbox{\hyperlink{Constants_8h_source_l00028}{LNLib\+::\+Constants\+::\+NURBSMax\+Degree}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a837c312abaf59a1749de5dfa5e97dffc}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!CreateArc@{CreateArc}}
+\index{CreateArc@{CreateArc}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{CreateArc()}{CreateArc()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a837c312abaf59a1749de5dfa5e97dffc} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Create\+Arc (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{center}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{x\+Axis}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{y\+Axis}{, }\item[{double}]{start\+Rad}{, }\item[{double}]{end\+Rad}{, }\item[{double}]{x\+Radius}{, }\item[{double}]{y\+Radius}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page308 Algorithm A7.\+1 Create arbitrary NURBS arc. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01737}{1737}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNEnums_8h_source_l00017}{LNLib\+::\+Intersecting}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than\+Or\+Equal()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00085}{LNLib\+::\+XYZ\+::\+Is\+Zero()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{Constants_8h_source_l00027}{LNLib\+::\+Constants\+::\+Pi}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01357}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Cylindrical\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_ac77cd22a41ff55c2df108f933030a980}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!CreateCubicHermite@{CreateCubicHermite}}
+\index{CreateCubicHermite@{CreateCubicHermite}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{CreateCubicHermite()}{CreateCubicHermite()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_ac77cd22a41ff55c2df108f933030a980} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Create\+Cubic\+Hermite (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{tangents}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The SISL Reference Manual v4.\+4 Page30 s1379 Create cubic hermite spline by interpolation. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01680}{1680}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00079}{LNLib\+::\+Interpolation\+::\+Get\+Centripetal\+Parameterization()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_aa8029e69e01c87e17edcd9704d5e5030}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!CreateLine@{CreateLine}}
+\index{CreateLine@{CreateLine}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{CreateLine()}{CreateLine()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_aa8029e69e01c87e17edcd9704d5e5030} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Create\+Line (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{start}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{end}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Create line represented by NURBS. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01663}{1663}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a7cd6ca8768820dc63c4430cde8fffc60}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!CreateOneConicArc@{CreateOneConicArc}}
+\index{CreateOneConicArc@{CreateOneConicArc}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{CreateOneConicArc()}{CreateOneConicArc()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a7cd6ca8768820dc63c4430cde8fffc60} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Create\+One\+Conic\+Arc (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{start}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{start\+Tangent}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{end}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{end\+Tangent}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{point\+On\+Conic}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{project\+Point}{, }\item[{double \&}]{project\+Point\+Weight}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page314 Algorithm A7.\+2 Create one Bezier conic arc. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01834}{1834}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{LNEnums_8h_source_l00017}{LNLib\+::\+Intersecting}}, \mbox{\hyperlink{XYZ_8cpp_source_l00085}{LNLib\+::\+XYZ\+::\+Is\+Zero()}}, \mbox{\hyperlink{LNEnums_8h_source_l00018}{LNLib\+::\+Parallel}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01886}{Create\+Open\+Conic()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02857}{Fit\+With\+Conic()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_ad00c4db9db3e0c2d9d72dd1c5c056022}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!CreateOpenConic@{CreateOpenConic}}
+\index{CreateOpenConic@{CreateOpenConic}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{CreateOpenConic()}{CreateOpenConic()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_ad00c4db9db3e0c2d9d72dd1c5c056022} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Create\+Open\+Conic (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{start}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{start\+Tangent}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{end}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{end\+Tangent}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{point\+On\+Conic}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page317 Algorithm A7.\+3 Create open conic arc. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01886}{1886}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00112}{LNLib\+::\+XYZ\+::\+Angle\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00080}{LNLib\+::\+Math\+Utils\+::\+Angle\+To\+Radians()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01834}{Create\+One\+Conic\+Arc()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00042}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than\+Or\+Equal()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than\+Or\+Equal()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00085}{LNLib\+::\+XYZ\+::\+Is\+Zero()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01878}{Split\+Arc()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_aac5b10c863172370958d58ac09feceb5}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!CreateTransformed@{CreateTransformed}}
+\index{CreateTransformed@{CreateTransformed}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{CreateTransformed()}{CreateTransformed()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_aac5b10c863172370958d58ac09feceb5} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Create\+Transformed (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \&}]{matrix}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page236 Curve make Transform. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01374}{1374}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00272}{LNLib\+::\+Matrix4d\+::\+Of\+Weighted\+Point()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_ad908df2fc341befc08b1eda649084353}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!CubicLocalInterpolation@{CubicLocalInterpolation}}
+\index{CubicLocalInterpolation@{CubicLocalInterpolation}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{CubicLocalInterpolation()}{CubicLocalInterpolation()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_ad908df2fc341befc08b1eda649084353} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Cubic\+Local\+Interpolation (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page395 Local cubic curve interpolation by through points. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02180}{2180}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Interpolation_8cpp_source_l00316}{LNLib\+::\+Interpolation\+::\+Compute\+Tangent()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_ae1a8610d5c9b30c2c0542af54b0d7f2e}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Curvature@{Curvature}}
+\index{Curvature@{Curvature}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Curvature()}{Curvature()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_ae1a8610d5c9b30c2c0542af54b0d7f2e} 
+double LNLib\+::\+Nurbs\+Curve\+::\+Curvature (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculate curve curvature. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00331}{331}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{Compute\+Rational\+Curve\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{LNLib\+::\+XYZ\+::\+Cross\+Product()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00107}{LNLib\+::\+Tessellate\+Core()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_aafb8fc8dfafa5f88a79321bc97d13365}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!DecomposeToBeziers@{DecomposeToBeziers}}
+\index{DecomposeToBeziers@{DecomposeToBeziers}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{DecomposeToBeziers()}{DecomposeToBeziers()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_aafb8fc8dfafa5f88a79321bc97d13365} 
+std\+::vector$<$ \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LNLib\+::\+LN\+\_\+\+Nurbs\+Curve}} $>$ LNLib\+::\+Nurbs\+Curve\+::\+Decompose\+To\+Beziers (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page173 Algorithm A5.\+6 Decompose curve into Bezier segements. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00662}{662}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{Approximate\+Length()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a6b6f0f32c65157fac2367db29f40502d}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!ElevateDegree@{ElevateDegree}}
+\index{ElevateDegree@{ElevateDegree}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{ElevateDegree()}{ElevateDegree()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a6b6f0f32c65157fac2367db29f40502d} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Elevate\+Degree (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{int}]{times}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page206 Algorithm A5.\+9 Degree elevate a curve t times. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00902}{902}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00093}{LNLib\+::\+Math\+Utils\+::\+Binomial()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{Constants_8h_source_l00026}{LNLib\+::\+Constants\+::\+Max\+Distance}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Coons\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02459}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Gordon\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02194}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Loft\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01396}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Ruled\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00847}{LNLib\+::\+Nurbs\+Surface\+::\+Elevate\+Degree()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02821}{Global\+Approximation\+By\+Error\+Bound()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01563}{Merge()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a92a4e2153cadd030ad390f4192c6dcb6}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!EquallyTessellate@{EquallyTessellate}}
+\index{EquallyTessellate@{EquallyTessellate}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{EquallyTessellate()}{EquallyTessellate()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a92a4e2153cadd030ad390f4192c6dcb6} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Equally\+Tessellate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{tessellated\+Points}{, }\item[{std\+::vector$<$ double $>$ \&}]{corresponding\+Knots}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page230 Equally spaced parameter values on each candidate span. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01192}{1192}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{Get\+Point\+On\+Curve()}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01261}{Get\+Param\+On\+Curve()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03683}{Is\+Arc()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a73a4fe2970d518ff64f30066493ba484}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!FitWithConic@{FitWithConic}}
+\index{FitWithConic@{FitWithConic}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{FitWithConic()}{FitWithConic()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a73a4fe2970d518ff64f30066493ba484} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Conic (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{, }\item[{int}]{start\+Point\+Index}{, }\item[{int}]{end\+Point\+Index}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{start\+Tangent}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{end\+Tangent}{, }\item[{double}]{max\+Error}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} $>$ \&}]{middle\+Control\+Points}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page440 Algorithm A9.\+11 Fit to tolerance with conic segment. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02857}{2857}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNEnums_8h_source_l00019}{LNLib\+::\+Coincident}}, \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{BezierCurve_8cpp_source_l00039}{LNLib\+::\+Bezier\+Curve\+::\+Computer\+Middle\+Control\+Points\+On\+Quadratic\+Curve()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01834}{Create\+One\+Conic\+Arc()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{LNLib\+::\+XYZ\+::\+Distance()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01261}{Get\+Param\+On\+Curve()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{LNEnums_8h_source_l00017}{LNLib\+::\+Intersecting}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00042}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than\+Or\+Equal()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than\+Or\+Equal()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00085}{LNLib\+::\+XYZ\+::\+Is\+Zero()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNEnums_8h_source_l00018}{LNLib\+::\+Parallel}}, \mbox{\hyperlink{LNEnums_8h_source_l00020}{LNLib\+::\+Skew}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a8a74a29b4c06a70ddd4b6087efe77113}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!FitWithCubic@{FitWithCubic}}
+\index{FitWithCubic@{FitWithCubic}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{FitWithCubic()}{FitWithCubic()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a8a74a29b4c06a70ddd4b6087efe77113} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{, }\item[{int}]{start\+Point\+Index}{, }\item[{int}]{end\+Point\+Index}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{start\+Tangent}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{end\+Tangent}{, }\item[{double}]{max\+Error}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} $>$ \&}]{middle\+Control\+Points}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page448 Algorithm A9.\+12 Fit to tolerance with cubic segment. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{2935}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00034}{LNLib\+::\+Polynomials\+::\+Bernstein()}}, \mbox{\hyperlink{Intersection_8cpp_source_l00064}{LNLib\+::\+Intersection\+::\+Compute\+Line\+And\+Plane()}}, \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00098}{LNLib\+::\+Math\+Utils\+::\+Computer\+Cubic\+Equations\+With\+One\+Variable()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00316}{LNLib\+::\+Interpolation\+::\+Compute\+Tangent()}}, \mbox{\hyperlink{LNObject_8h_source_l00024}{LNLib\+::\+LN\+\_\+\+Bezier\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{LNLib\+::\+XYZ\+::\+Cross\+Product()}}, \mbox{\hyperlink{LNObject_8h_source_l00023}{LNLib\+::\+LN\+\_\+\+Bezier\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{LNLib\+::\+XYZ\+::\+Distance()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00050}{LNLib\+::\+Interpolation\+::\+Get\+Chord\+Parameterization()}}, \mbox{\hyperlink{BezierCurve_8h_source_l00047}{LNLib\+::\+Bezier\+Curve\+::\+Get\+Point\+On\+Curve\+By\+Bernstein()}}, \mbox{\hyperlink{LNEnums_8h_source_l00025}{LNLib\+::\+Intersecting}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than\+Or\+Equal()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00085}{LNLib\+::\+XYZ\+::\+Is\+Zero()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}}, \mbox{\hyperlink{LNEnums_8h_source_l00027}{LNLib\+::\+On}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a9e2215c2072fa4e222980a2989daef09}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Flattening@{Flattening}}
+\index{Flattening@{Flattening}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Flattening()}{Flattening()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a9e2215c2072fa4e222980a2989daef09} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Flattening (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}}]{line\+Start\+Point}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}}]{line\+End\+Point}{, }\item[{double}]{start\+Parameter}{, }\item[{double}]{end\+Parameter}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page542 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03289}{3289}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{LNLib\+::\+XYZ\+::\+Distance()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{Projection_8cpp_source_l00022}{LNLib\+::\+Projection\+::\+Point\+To\+Line()}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a629a121f7a14383b43c4e1f6d7f53771}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!GetParamOnCurve@{GetParamOnCurve}}
+\index{GetParamOnCurve@{GetParamOnCurve}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{GetParamOnCurve()}{GetParamOnCurve()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a629a121f7a14383b43c4e1f6d7f53771} 
+double LNLib\+::\+Nurbs\+Curve\+::\+Get\+Param\+On\+Curve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{given\+Point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page230 Point inversion\+:finding the corresponding parameter make C(u) = P. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01261}{1261}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{Compute\+Rational\+Curve\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Constants_8h_source_l00024}{LNLib\+::\+Constants\+::\+Distance\+Epsilon}}, \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}, \mbox{\hyperlink{Constants_8h_source_l00023}{LNLib\+::\+Constants\+::\+Double\+Epsilon}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01192}{Equally\+Tessellate()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01217}{Is\+Closed()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}}, \mbox{\hyperlink{Constants_8h_source_l00026}{LNLib\+::\+Constants\+::\+Max\+Distance}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02857}{Fit\+With\+Conic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03844}{Get\+Params\+On\+Curve()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00159}{LNLib\+::\+Offset\+By\+Tiller\+And\+Hanson()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a70902b1c8ce5f5983a8daf9d935b150b}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!GetParamOnCurve@{GetParamOnCurve}}
+\index{GetParamOnCurve@{GetParamOnCurve}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{GetParamOnCurve()}{GetParamOnCurve()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a70902b1c8ce5f5983a8daf9d935b150b} 
+double LNLib\+::\+Nurbs\+Curve\+::\+Get\+Param\+On\+Curve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{given\+Length}{, }\item[{\mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40}{Integrator\+Type}}}]{type}{ = {\ttfamily \mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0}{Integrator\+Type\+::\+Gauss\+Legendre}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculate parameter makes first segment length equals to given length. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03810}{3810}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{Approximate\+Length()}}, \mbox{\hyperlink{Constants_8h_source_l00024}{LNLib\+::\+Constants\+::\+Distance\+Epsilon}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00081}{LNLib\+::\+Get\+Param\+By\+Length()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01463}{Split\+At()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a5c113199785eb475a4c97c12fa573a06}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!GetParamsOnCurve@{GetParamsOnCurve}}
+\index{GetParamsOnCurve@{GetParamsOnCurve}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{GetParamsOnCurve()}{GetParamsOnCurve()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a5c113199785eb475a4c97c12fa573a06} 
+std\+::vector$<$ double $>$ LNLib\+::\+Nurbs\+Curve\+::\+Get\+Params\+On\+Curve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{given\+Length}{, }\item[{\mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40}{Integrator\+Type}}}]{type}{ = {\ttfamily \mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0}{Integrator\+Type\+::\+Gauss\+Legendre}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculate parameters makes every segments length equals to given length. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03844}{3844}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01261}{Get\+Param\+On\+Curve()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01463}{Split\+At()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02409}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a07de19fccb86448d5dbb160d9daf8f7d}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!GetPointOnCurve@{GetPointOnCurve}}
+\index{GetPointOnCurve@{GetPointOnCurve}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{GetPointOnCurve()}{GetPointOnCurve()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a07de19fccb86448d5dbb160d9daf8f7d} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib\+::\+XYZ}} LNLib\+::\+Nurbs\+Curve\+::\+Get\+Point\+On\+Curve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page124 Algorithm A4.\+1 Compute point on rational B-\/spline curve. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{281}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{BsplineCurve_8h_source_l00048}{LNLib\+::\+Bspline\+Curve\+::\+Get\+Point\+On\+Curve()}} , 以及 \mbox{\hyperlink{XYZW_8cpp_source_l00097}{LNLib\+::\+XYZW\+::\+To\+XYZ()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00315}{Can\+Computer\+Derivative()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Coons\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02409}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02325}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02094}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Swung\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01192}{Equally\+Tessellate()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02857}{Fit\+With\+Conic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03683}{Is\+Arc()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01217}{Is\+Closed()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03643}{Is\+Linear()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01656}{LNLib\+::\+Nurbs\+Surface\+::\+Make\+Corner\+Fillet\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03178}{Neighbor\+Weights\+Modification()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00216}{LNLib\+::\+Offset\+By\+Piegl\+And\+Tiller()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03865}{Tessellate()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00107}{LNLib\+::\+Tessellate\+Core()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03152}{Weight\+Modification()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_aa65b64b5b2d3408a2667c3e828c9f3f1}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!GetPointOnCurveByCornerCut@{GetPointOnCurveByCornerCut}}
+\index{GetPointOnCurveByCornerCut@{GetPointOnCurveByCornerCut}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{GetPointOnCurveByCornerCut()}{GetPointOnCurveByCornerCut()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_aa65b64b5b2d3408a2667c3e828c9f3f1} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib\+::\+XYZ}} LNLib\+::\+Nurbs\+Curve\+::\+Get\+Point\+On\+Curve\+By\+Corner\+Cut (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page155 Algorithm A5.\+2 Computes point on rational B-\/spline curve. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00554}{554}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a828a5c5d9a4bf8bdae652fa64294e315}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!GlobalApproximationByErrorBound@{GlobalApproximationByErrorBound}}
+\index{GlobalApproximationByErrorBound@{GlobalApproximationByErrorBound}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{GlobalApproximationByErrorBound()}{GlobalApproximationByErrorBound()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a828a5c5d9a4bf8bdae652fa64294e315} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Global\+Approximation\+By\+Error\+Bound (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{, }\item[{double}]{max\+Error}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page431 Algorithm A9.\+10 Global curve approximation to within bound max\+Error. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02821}{2821}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00902}{Elevate\+Degree()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00050}{LNLib\+::\+Interpolation\+::\+Get\+Chord\+Parameterization()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02614}{Remove\+Knots\+By\+Given\+Bound()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a025b3dc3d5df1a1f7dd2d9680c62f596}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!GlobalInterpolation@{GlobalInterpolation}}
+\index{GlobalInterpolation@{GlobalInterpolation}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{GlobalInterpolation()}{GlobalInterpolation()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a025b3dc3d5df1a1f7dd2d9680c62f596} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{tangents}{, }\item[{double}]{tangent\+Factor}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page369 -\/ 374 Global interpolation by through points and tangents. (including Algorithm A9.\+2) 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02056}{2056}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Interpolation_8cpp_source_l00095}{LNLib\+::\+Interpolation\+::\+Average\+Knot\+Vector()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00162}{LNLib\+::\+Polynomials\+::\+Basis\+Functions()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00193}{LNLib\+::\+Polynomials\+::\+Basis\+Functions\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00050}{LNLib\+::\+Interpolation\+::\+Get\+Chord\+Parameterization()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00039}{LNLib\+::\+Interpolation\+::\+Get\+Total\+Chord\+Length()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{Constants_8h_source_l00028}{LNLib\+::\+Constants\+::\+NURBSMax\+Degree}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00205}{LNLib\+::\+Math\+Utils\+::\+Solve\+Linear\+System()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_aeebe79cfdd092da2ef444bca0b7d097b}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!GlobalInterpolation@{GlobalInterpolation}}
+\index{GlobalInterpolation@{GlobalInterpolation}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{GlobalInterpolation()}{GlobalInterpolation()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_aeebe79cfdd092da2ef444bca0b7d097b} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{const std\+::vector$<$ double $>$ \&}]{params}{ = {\ttfamily \{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page369 Algorithm A9.\+1 Global interpolation through n+1 points. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01996}{1996}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Interpolation_8cpp_source_l00095}{LNLib\+::\+Interpolation\+::\+Average\+Knot\+Vector()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00162}{LNLib\+::\+Polynomials\+::\+Basis\+Functions()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00050}{LNLib\+::\+Interpolation\+::\+Get\+Chord\+Parameterization()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{Constants_8h_source_l00028}{LNLib\+::\+Constants\+::\+NURBSMax\+Degree}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00205}{LNLib\+::\+Math\+Utils\+::\+Solve\+Linear\+System()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02194}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Loft\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02094}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Swung\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01778}{LNLib\+::\+Nurbs\+Surface\+::\+Global\+Interpolation()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00216}{LNLib\+::\+Offset\+By\+Piegl\+And\+Tiller()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_aca29f400996f0a666831353e08321791}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!InsertKnot@{InsertKnot}}
+\index{InsertKnot@{InsertKnot}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{InsertKnot()}{InsertKnot()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_aca29f400996f0a666831353e08321791} 
+int LNLib\+::\+Nurbs\+Curve\+::\+Insert\+Knot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{insert\+Knot}{, }\item[{int}]{times}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page151 Algorithm A5.\+1 Curve knot insertion. Note that multiplicity + times \texorpdfstring{$<$}{<}= degree. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00475}{475}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03478}{To\+Clamp\+Curve()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_af4af5b13b3ce287a3137985730279f6e}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!IsArc@{IsArc}}
+\index{IsArc@{IsArc}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{IsArc()}{IsArc()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_af4af5b13b3ce287a3137985730279f6e} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Is\+Arc (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{\mbox{\hyperlink{structLNLib_1_1LN__ArcInfo}{LN\+\_\+\+Arc\+Info}} \&}]{arc\+Info}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Detemine curve whether is arc. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03683}{3683}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00070}{LNLib\+::\+LN\+\_\+\+Arc\+Info\+::\+Center}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{LNLib\+::\+XYZ\+::\+Distance()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01192}{Equally\+Tessellate()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01217}{Is\+Closed()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03643}{Is\+Linear()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00069}{LNLib\+::\+LN\+\_\+\+Arc\+Info\+::\+Radius}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_ab58063e881ff23228c8365acad7f1217}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!IsClamp@{IsClamp}}
+\index{IsClamp@{IsClamp}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{IsClamp()}{IsClamp()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_ab58063e881ff23228c8365acad7f1217} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Is\+Clamp (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page572 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03627}{3627}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03523}{Is\+Periodic()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_aa8a8367d65a5a8c2d5d8daa6bb1f9b5c}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!IsClosed@{IsClosed}}
+\index{IsClosed@{IsClosed}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{IsClosed()}{IsClosed()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_aa8a8367d65a5a8c2d5d8daa6bb1f9b5c} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Is\+Closed (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Detemine curve is closed. Close means end point equals start point or points overlap. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01217}{1217}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{LNLib\+::\+XYZ\+::\+Distance()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01261}{Get\+Param\+On\+Curve()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03683}{Is\+Arc()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01035}{LNLib\+::\+Nurbs\+Surface\+::\+Is\+Closed()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03523}{Is\+Periodic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00388}{Project\+Normal()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03478}{To\+Clamp\+Curve()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_afee9f04545cd52522ef3eee35994dda5}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!IsLinear@{IsLinear}}
+\index{IsLinear@{IsLinear}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{IsLinear()}{IsLinear()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_afee9f04545cd52522ef3eee35994dda5} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Is\+Linear (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Detemine curve whether is linear. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03643}{3643}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00117}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Internal\+Knot\+Multiplicity\+Map()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00151}{LNLib\+::\+XYZ\+::\+Negative()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{Approximate\+Length()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03683}{Is\+Arc()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03865}{Tessellate()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_ae9be458f20996fbfe045e81f0408d643}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!IsPeriodic@{IsPeriodic}}
+\index{IsPeriodic@{IsPeriodic}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{IsPeriodic()}{IsPeriodic()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_ae9be458f20996fbfe045e81f0408d643} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Is\+Periodic (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page575 Un\+Clamped, uniform and C\mbox{[}degree-\/1\mbox{]} continues closed curve. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03523}{3523}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{Compute\+Rational\+Curve\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00050}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Continuity()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03627}{Is\+Clamp()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01217}{Is\+Closed()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00261}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Is\+Uniform()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a588645519b40c2389ddcd1f0dcaa569a}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!LeastSquaresApproximation@{LeastSquaresApproximation}}
+\index{LeastSquaresApproximation@{LeastSquaresApproximation}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{LeastSquaresApproximation()}{LeastSquaresApproximation()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a588645519b40c2389ddcd1f0dcaa569a} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Least\+Squares\+Approximation (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{, }\item[{int}]{control\+Points\+Count}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page410 Least square curve approximation. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02246}{2246}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00162}{LNLib\+::\+Polynomials\+::\+Basis\+Functions()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00050}{LNLib\+::\+Interpolation\+::\+Get\+Chord\+Parameterization()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00111}{LNLib\+::\+Math\+Utils\+::\+Matrix\+Multiply()}}, \mbox{\hyperlink{Constants_8h_source_l00028}{LNLib\+::\+Constants\+::\+NURBSMax\+Degree}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00205}{LNLib\+::\+Math\+Utils\+::\+Solve\+Linear\+System()}}, \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02044}{LNLib\+::\+Nurbs\+Surface\+::\+Global\+Approximation()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_ad0cad1fbe7eaec706a9820402abea3c4}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Merge@{Merge}}
+\index{Merge@{Merge}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Merge()}{Merge()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_ad0cad1fbe7eaec706a9820402abea3c4} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Merge (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{left}{, }\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{right}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Merge two connected curves to one curve. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01563}{1563}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00902}{Elevate\+Degree()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00117}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Internal\+Knot\+Multiplicity\+Map()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01425}{Reparametrize()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a14cfa218d0f4ac4d37b38529c247e51c}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!NeighborWeightsModification@{NeighborWeightsModification}}
+\index{NeighborWeightsModification@{NeighborWeightsModification}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{NeighborWeightsModification()}{NeighborWeightsModification()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a14cfa218d0f4ac4d37b38529c247e51c} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Neighbor\+Weights\+Modification (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{parameter}{, }\item[{int}]{move\+Index}{, }\item[{double}]{move\+Distance}{, }\item[{double}]{scale}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page526 Modify two neighboring curve weights. (move\+Index and move\+Index + 1) 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03178}{3178}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{LNLib\+::\+XYZ\+::\+Distance()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{LNEnums_8h_source_l00017}{LNLib\+::\+Intersecting}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_acf49ba9723c84affd2b85fc512ac2c9b}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Normal@{Normal}}
+\index{Normal@{Normal}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Normal()}{Normal()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_acf49ba9723c84affd2b85fc512ac2c9b} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib\+::\+XYZ}} LNLib\+::\+Nurbs\+Curve\+::\+Normal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a6c2e8e0bb21d9e7da969bbd5538a6186}{Curve\+Normal}}}]{normal\+Type}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page479 Calculate curve normal direction. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00351}{351}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNEnums_8h_source_l00033}{LNLib\+::\+Binormal}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{Compute\+Rational\+Curve\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{LNLib\+::\+XYZ\+::\+Cross\+Product()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}}, \mbox{\hyperlink{LNEnums_8h_source_l00032}{LNLib\+::\+Normal}}, \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00216}{LNLib\+::\+Offset\+By\+Piegl\+And\+Tiller()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00159}{LNLib\+::\+Offset\+By\+Tiller\+And\+Hanson()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a9129f3a66020bb001e30bf6d009eca99}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Offset@{Offset}}
+\index{Offset@{Offset}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Offset()}{Offset()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a9129f3a66020bb001e30bf6d009eca99} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Offset (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{offset}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a1307064b77623ba85c4fbec18b75ca66}{Offset\+Type}}}]{type}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Offset curve makes bigger or smaller. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01646}{1646}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00216}{LNLib\+::\+Offset\+By\+Piegl\+And\+Tiller()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00159}{LNLib\+::\+Offset\+By\+Tiller\+And\+Hanson()}}, \mbox{\hyperlink{LNEnums_8h_source_l00072}{LNLib\+::\+Piegl\+And\+Tiller}} , 以及 \mbox{\hyperlink{LNEnums_8h_source_l00069}{LNLib\+::\+Tiller\+And\+Hanson}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_ae7e5fd17423d9306e9b58b0562c95ff7}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!ProjectNormal@{ProjectNormal}}
+\index{ProjectNormal@{ProjectNormal}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{ProjectNormal()}{ProjectNormal()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_ae7e5fd17423d9306e9b58b0562c95ff7} 
+std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib\+::\+XYZ}} $>$ LNLib\+::\+Nurbs\+Curve\+::\+Project\+Normal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page481 \doxylink{classLNLib_1_1Projection}{Projection} normal method invented by Siltanen and Woodward. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00388}{388}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{Compute\+Rational\+Curve\+Derivatives()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00174}{LNLib\+::\+XYZ\+::\+Create\+Random\+Orthogonal()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{LNLib\+::\+XYZ\+::\+Cross\+Product()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01217}{Is\+Closed()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00085}{LNLib\+::\+XYZ\+::\+Is\+Zero()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02409}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02325}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a90f2f0dcff2d6eb45178512d8f0e8b21}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!ReduceDegree@{ReduceDegree}}
+\index{ReduceDegree@{ReduceDegree}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{ReduceDegree()}{ReduceDegree()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a90f2f0dcff2d6eb45178512d8f0e8b21} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Reduce\+Degree (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page223 Algorithm A5.\+11 Degree reduce a bezier-\/shape nurbs curve from degree to degree -\/ 1. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01119}{1119}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00093}{LNLib\+::\+Math\+Utils\+::\+Binomial()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00043}{LNLib\+::\+Validation\+Utils\+::\+Compute\+Curve\+Modify\+Tolerance()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{XYZW_8cpp_source_l00124}{LNLib\+::\+XYZW\+::\+Distance()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00100}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Knot\+Multiplicity\+Map()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00018}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Bezier()}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00909}{LNLib\+::\+Nurbs\+Surface\+::\+Reduce\+Degree()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a8fb24c3596e8e5847d8b2ad923b5cf26}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!RefineKnotVector@{RefineKnotVector}}
+\index{RefineKnotVector@{RefineKnotVector}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{RefineKnotVector()}{RefineKnotVector()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a8fb24c3596e8e5847d8b2ad923b5cf26} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Refine\+Knot\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{const std\+::vector$<$ double $>$ \&}]{insert\+Knot\+Elements}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page164 Algorithm A5.\+4 Refine curve knot vector. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00592}{592}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Coons\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02459}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Gordon\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01396}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Ruled\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02325}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00522}{LNLib\+::\+Nurbs\+Surface\+::\+Refine\+Knot\+Vector()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01463}{Split\+At()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a11b1305472502a51e45ca4ed4d78b0f4}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!RemoveExcessiveKnots@{RemoveExcessiveKnots}}
+\index{RemoveExcessiveKnots@{RemoveExcessiveKnots}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{RemoveExcessiveKnots()}{RemoveExcessiveKnots()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a11b1305472502a51e45ca4ed4d78b0f4} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Excessive\+Knots (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Remove excessive knots. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00880}{880}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00117}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Internal\+Knot\+Multiplicity\+Map()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00749}{Remove\+Knot()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00216}{LNLib\+::\+Offset\+By\+Piegl\+And\+Tiller()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a36ce5f3e7eec2b8ddb1f17415dd33827}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!RemoveKnot@{RemoveKnot}}
+\index{RemoveKnot@{RemoveKnot}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{RemoveKnot()}{RemoveKnot()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a36ce5f3e7eec2b8ddb1f17415dd33827} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Knot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{remove\+Knot}{, }\item[{int}]{times}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page185 Algorithm A5.\+8 Curve knot removal. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00749}{749}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{ValidationUtils_8cpp_source_l00043}{LNLib\+::\+Validation\+Utils\+::\+Compute\+Curve\+Modify\+Tolerance()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than\+Or\+Equal()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00880}{Remove\+Excessive\+Knots()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00780}{LNLib\+::\+Nurbs\+Surface\+::\+Remove\+Knot()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02614}{Remove\+Knots\+By\+Given\+Bound()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a1219ca4ba0e528a56488814c00592d64}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!RemoveKnotsByGivenBound@{RemoveKnotsByGivenBound}}
+\index{RemoveKnotsByGivenBound@{RemoveKnotsByGivenBound}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{RemoveKnotsByGivenBound()}{RemoveKnotsByGivenBound()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a1219ca4ba0e528a56488814c00592d64} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Knots\+By\+Given\+Bound (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{const std\+::vector$<$ double $>$}]{params}{, }\item[{std\+::vector$<$ double $>$ \&}]{errors}{, }\item[{double}]{max\+Error}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page429 Algorithm A9.\+9 Remove knots from curve by given bound. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02614}{2614}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02566}{Computer\+Remove\+Knot\+Error\+Bound()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{Constants_8h_source_l00026}{LNLib\+::\+Constants\+::\+Max\+Distance}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00397}{LNLib\+::\+Polynomials\+::\+One\+Basis\+Function()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00749}{Remove\+Knot()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02821}{Global\+Approximation\+By\+Error\+Bound()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a3062a26189b4b4c80c0f01ae483e30e7}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Reparametrize@{Reparametrize}}
+\index{Reparametrize@{Reparametrize}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Reparametrize()}{Reparametrize()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a3062a26189b4b4c80c0f01ae483e30e7} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Reparametrize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{alpha}{, }\item[{double}]{beta}{, }\item[{double}]{gamma}{, }\item[{double}]{delta}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page255 Reparameterization using a linear rational function \+: (alpha \texorpdfstring{$\ast$}{*} u + beta)/(gamma \texorpdfstring{$\ast$}{*} u + delta) 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01393}{1393}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a30de3aab1fdf5c8d4dc54f0f4f640d22}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Reparametrize@{Reparametrize}}
+\index{Reparametrize@{Reparametrize}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Reparametrize()}{Reparametrize()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a30de3aab1fdf5c8d4dc54f0f4f640d22} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Reparametrize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{min}{, }\item[{double}]{max}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page241 Reparameterization of curve. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01425}{1425}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00057}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Rescale()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{Approximate\+Length()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Coons\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02459}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Gordon\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02409}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01563}{Merge()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a91c9761b56713a870591fa6886a650f5}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Reverse@{Reverse}}
+\index{Reverse@{Reverse}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Reverse()}{Reverse()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a91c9761b56713a870591fa6886a650f5} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Reverse (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page263 Curve reverse,but not use reparameterization. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01440}{1440}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Coons\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a66138ba18d2983d08d1e51b6a997ba91}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Segment@{Segment}}
+\index{Segment@{Segment}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Segment()}{Segment()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a66138ba18d2983d08d1e51b6a997ba91} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Segment (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{start\+Parameter}{, }\item[{double}]{end\+Parameter}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{segment}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Segment curve. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01509}{1509}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00042}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than\+Or\+Equal()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than\+Or\+Equal()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01463}{Split\+At()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03865}{Tessellate()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a9012abcc34ee35a993aa38913c8967bd}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!SplitArc@{SplitArc}}
+\index{SplitArc@{SplitArc}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{SplitArc()}{SplitArc()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a9012abcc34ee35a993aa38913c8967bd} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Split\+Arc (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{start}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{project\+Point}{, }\item[{double}]{project\+Point\+Weight}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{end}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{insert\+Point\+At\+Start\+Side}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{split\+Point}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{insert\+Point\+At\+End\+Side}{, }\item[{double}]{insert\+Weight}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page317 Split arc. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01878}{1878}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01886}{Create\+Open\+Conic()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a81a3709a507e97c193eb69add94df03f}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!SplitAt@{SplitAt}}
+\index{SplitAt@{SplitAt}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{SplitAt()}{SplitAt()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a81a3709a507e97c193eb69add94df03f} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Split\+At (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{parameter}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{left}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{right}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Split curve at certain parameter. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01463}{1463}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00042}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than\+Or\+Equal()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than\+Or\+Equal()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00592}{Refine\+Knot\+Vector()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00081}{LNLib\+::\+Get\+Param\+By\+Length()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03810}{Get\+Param\+On\+Curve()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03844}{Get\+Params\+On\+Curve()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01509}{Segment()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_aeb01948067648dae1ea512edc2b2481c}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Tessellate@{Tessellate}}
+\index{Tessellate@{Tessellate}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Tessellate()}{Tessellate()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_aeb01948067648dae1ea512edc2b2481c} 
+std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib\+::\+XYZ}} $>$ LNLib\+::\+Nurbs\+Curve\+::\+Tessellate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Tessellate nurbs curve. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03865}{3865}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Constants_8h_source_l00023}{LNLib\+::\+Constants\+::\+Double\+Epsilon}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than\+Or\+Equal()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03643}{Is\+Linear()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01509}{Segment()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00107}{LNLib\+::\+Tessellate\+Core()}} , 以及 \mbox{\hyperlink{ControlPointsUtils_8cpp_source_l00019}{LNLib\+::\+Control\+Points\+Utils\+::\+To\+XYZ()}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_aad0b447db3de2b8aaf97a4d8a3e1e6e5}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!ToClampCurve@{ToClampCurve}}
+\index{ToClampCurve@{ToClampCurve}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{ToClampCurve()}{ToClampCurve()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_aad0b447db3de2b8aaf97a4d8a3e1e6e5} 
+void LNLib\+::\+Nurbs\+Curve\+::\+To\+Clamp\+Curve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page572 Clamp a unclamped curve. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03478}{3478}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00475}{Insert\+Knot()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01217}{Is\+Closed()}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a2308d189620fee8d029ae9ab72373290}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Torsion@{Torsion}}
+\index{Torsion@{Torsion}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Torsion()}{Torsion()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a2308d189620fee8d029ae9ab72373290} 
+double LNLib\+::\+Nurbs\+Curve\+::\+Torsion (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{paramT}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculate curve torsion. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00448}{448}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{Compute\+Rational\+Curve\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{LNLib\+::\+XYZ\+::\+Cross\+Product()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_abf8550cacd6fd48441afe82ee94e9709}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!ToUnclampCurve@{ToUnclampCurve}}
+\index{ToUnclampCurve@{ToUnclampCurve}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{ToUnclampCurve()}{ToUnclampCurve()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_abf8550cacd6fd48441afe82ee94e9709} 
+void LNLib\+::\+Nurbs\+Curve\+::\+To\+Unclamp\+Curve (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page577 Algorithm A12.\+1 Unclamp a clamped curve. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03592}{3592}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a20d85b900e690909247fb83950b36f66}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!Warping@{Warping}}
+\index{Warping@{Warping}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{Warping()}{Warping()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a20d85b900e690909247fb83950b36f66} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Warping (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{const std\+::vector$<$ double $>$ \&}]{warp\+Shape}{, }\item[{double}]{warp\+Distance}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{plane\+Normal}{, }\item[{double}]{start\+Parameter}{, }\item[{double}]{end\+Parameter}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page533 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03257}{3257}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{Compute\+Rational\+Curve\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{LNLib\+::\+XYZ\+::\+Cross\+Product()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00085}{LNLib\+::\+XYZ\+::\+Is\+Zero()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_ae7c80a074d01547d2abd990dada59356}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!WeightedAndContrainedLeastSquaresApproximation@{WeightedAndContrainedLeastSquaresApproximation}}
+\index{WeightedAndContrainedLeastSquaresApproximation@{WeightedAndContrainedLeastSquaresApproximation}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{WeightedAndContrainedLeastSquaresApproximation()}{WeightedAndContrainedLeastSquaresApproximation()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_ae7c80a074d01547d2abd990dada59356} 
+bool LNLib\+::\+Nurbs\+Curve\+::\+Weighted\+And\+Contrained\+Least\+Squares\+Approximation (\begin{DoxyParamCaption}\item[{int}]{degree}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{through\+Points}{, }\item[{const std\+::vector$<$ double $>$ \&}]{through\+Point\+Weights}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{tangents}{, }\item[{const std\+::vector$<$ int $>$ \&}]{tangent\+Indices}{, }\item[{const std\+::vector$<$ double $>$ \&}]{tangent\+Weights}{, }\item[{int}]{control\+Points\+Count}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page413 Algorithm A9.\+6 Weighted and contrained least squares approximation. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l02351}{2351}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00162}{LNLib\+::\+Polynomials\+::\+Basis\+Functions()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00193}{LNLib\+::\+Polynomials\+::\+Basis\+Functions\+Derivatives()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00121}{LNLib\+::\+Interpolation\+::\+Compute\+Knot\+Vector()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00050}{LNLib\+::\+Interpolation\+::\+Get\+Chord\+Parameterization()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00131}{LNLib\+::\+Math\+Utils\+::\+Make\+Diagonal()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00173}{LNLib\+::\+Math\+Utils\+::\+Make\+Inverse()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00111}{LNLib\+::\+Math\+Utils\+::\+Matrix\+Multiply()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00205}{LNLib\+::\+Math\+Utils\+::\+Solve\+Linear\+System()}}, \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsCurve_a8bd9c72da996dd7c95aa1e6afea3c62e}\index{LNLib::NurbsCurve@{LNLib::NurbsCurve}!WeightModification@{WeightModification}}
+\index{WeightModification@{WeightModification}!LNLib::NurbsCurve@{LNLib::NurbsCurve}}
+\doxysubsubsection{\texorpdfstring{WeightModification()}{WeightModification()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsCurve_a8bd9c72da996dd7c95aa1e6afea3c62e} 
+void LNLib\+::\+Nurbs\+Curve\+::\+Weight\+Modification (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve}{, }\item[{double}]{parameter}{, }\item[{int}]{move\+Index}{, }\item[{double}]{move\+Distance}{, }\item[{\mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page520 Modify one curve weight. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsCurve_8cpp_source}{Nurbs\+Curve.\+cpp}} 第 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03152}{3152}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00162}{LNLib\+::\+Polynomials\+::\+Basis\+Functions()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{LNLib\+::\+XYZ\+::\+Distance()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{Constants_8h_source_l00028}{LNLib\+::\+Constants\+::\+NURBSMax\+Degree}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{NurbsCurve_8h}{Nurbs\+Curve.\+h}}\item 
+src/\+LNLib/\+Geometry/\+Curve/\mbox{\hyperlink{NurbsCurve_8cpp}{Nurbs\+Curve.\+cpp}}\end{DoxyCompactItemize}

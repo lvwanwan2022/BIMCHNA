@@ -1,0 +1,3082 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LNLib</name>
+    </assembly>
+    <members>
+        <member name="T:LNLib.Algorithm.ControlPointsUtils">
+            <summary>
+            控制点操作工具类
+            </summary>
+        </member>
+        <member name="M:LNLib.Algorithm.ControlPointsUtils.ToXYZ(System.Collections.Generic.IList{LNLib.Mathematics.XYZW})">
+            <summary>
+            将带权重的控制点转换为普通三维点
+            </summary>
+            <param name="weightedControlPoints">带权重的控制点列表</param>
+            <returns>三维点列表</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.ControlPointsUtils.ToXYZ(System.Collections.Generic.IList{System.Collections.Generic.IList{LNLib.Mathematics.XYZW}})">
+            <summary>
+            将二维带权重的控制点数组转换为普通三维点二维数组
+            </summary>
+            <param name="points">二维带权重的点数组</param>
+            <returns>三维点二维数组</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.ControlPointsUtils.ToXYZW(System.Collections.Generic.IList{System.Collections.Generic.IList{LNLib.Mathematics.XYZ}})">
+            <summary>
+            将二维三维点数组转换为带权重的点二维数组
+            </summary>
+            <param name="points">三维点二维数组</param>
+            <returns>带权重的点二维数组</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.ControlPointsUtils.Multiply(System.Collections.Generic.IList{System.Collections.Generic.IList{LNLib.Mathematics.XYZW}},System.Collections.Generic.IList{System.Collections.Generic.IList{System.Double}})">
+            <summary>
+            将二维带权重的点数组与系数矩阵相乘
+            </summary>
+            <param name="points">二维带权重的点数组</param>
+            <param name="coefficient">系数矩阵</param>
+            <returns>结果矩阵</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.ControlPointsUtils.Multiply(System.Collections.Generic.IList{System.Collections.Generic.IList{System.Double}},System.Collections.Generic.IList{System.Collections.Generic.IList{LNLib.Mathematics.XYZW}})">
+            <summary>
+            将系数矩阵与二维带权重的点数组相乘
+            </summary>
+            <param name="coefficient">系数矩阵</param>
+            <param name="points">二维带权重的点数组</param>
+            <returns>结果矩阵</returns>
+        </member>
+        <member name="T:LNLib.Algorithm.Integrator">
+            <summary>
+            数值积分器
+            </summary>
+        </member>
+        <member name="T:LNLib.Algorithm.Integrator.IntegrationFunction">
+            <summary>
+            用于一元函数积分的委托
+            </summary>
+            <param name="x">自变量</param>
+            <param name="customData">自定义数据</param>
+            <returns>函数值</returns>
+        </member>
+        <member name="T:LNLib.Algorithm.Integrator.BinaryIntegrationFunction">
+            <summary>
+            用于二元函数积分的委托
+            </summary>
+            <param name="u">第一个自变量</param>
+            <param name="v">第二个自变量</param>
+            <param name="customData">自定义数据</param>
+            <returns>函数值</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Integrator.Simpson(LNLib.Algorithm.Integrator.IntegrationFunction,System.Object,System.Double,System.Double)">
+            <summary>
+            使用辛普森法则计算一元函数积分
+            </summary>
+            <param name="function">待积分函数</param>
+            <param name="customData">自定义数据</param>
+            <param name="start">积分下限</param>
+            <param name="end">积分上限</param>
+            <returns>积分结果</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Integrator.Simpson(LNLib.Algorithm.Integrator.BinaryIntegrationFunction,System.Object,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            使用辛普森法则计算二元函数积分
+            </summary>
+            <param name="function">待积分函数</param>
+            <param name="customData">自定义数据</param>
+            <param name="uStart">第一个变量积分下限</param>
+            <param name="uEnd">第一个变量积分上限</param>
+            <param name="vStart">第二个变量积分下限</param>
+            <param name="vEnd">第二个变量积分上限</param>
+            <returns>积分结果</returns>
+        </member>
+        <member name="F:LNLib.Algorithm.Integrator.GaussLegendreAbscissae">
+            <summary>
+            高斯-勒让德求积法的节点（零点）
+            </summary>
+        </member>
+        <member name="F:LNLib.Algorithm.Integrator.GaussLegendreWeights">
+            <summary>
+            高斯-勒让德求积法的权重
+            </summary>
+        </member>
+        <member name="M:LNLib.Algorithm.Integrator.GaussLegendre(LNLib.Algorithm.Integrator.IntegrationFunction,System.Object,System.Double,System.Double)">
+            <summary>
+            使用高斯-勒让德求积法计算一元函数积分
+            </summary>
+            <param name="function">待积分函数</param>
+            <param name="customData">自定义数据</param>
+            <param name="start">积分下限</param>
+            <param name="end">积分上限</param>
+            <returns>积分结果</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Integrator.GaussLegendre(LNLib.Algorithm.Integrator.BinaryIntegrationFunction,System.Object,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            使用高斯-勒让德求积法计算二元函数积分
+            </summary>
+            <param name="function">待积分函数</param>
+            <param name="customData">自定义数据</param>
+            <param name="uStart">第一个变量积分下限</param>
+            <param name="uEnd">第一个变量积分上限</param>
+            <param name="vStart">第二个变量积分下限</param>
+            <param name="vEnd">第二个变量积分上限</param>
+            <returns>积分结果</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Integrator.ChebyshevSeries(System.Int32)">
+            <summary>
+            生成切比雪夫级数
+            </summary>
+            <param name="size">级数大小</param>
+            <returns>切比雪夫级数</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Integrator.DFCT(System.Int32,System.Double,System.Double,System.Double[])">
+            <summary>
+            离散余弦变换辅助方法
+            </summary>
+        </member>
+        <member name="M:LNLib.Algorithm.Integrator.FFT(System.Int32,System.Double[])">
+            <summary>
+            快速傅里叶变换辅助方法
+            </summary>
+        </member>
+        <member name="M:LNLib.Algorithm.Integrator.ClenshawCurtisQuadrature(LNLib.Algorithm.Integrator.IntegrationFunction,System.Object,System.Double,System.Double,System.Double[],System.Double)">
+            <summary>
+            使用Clenshaw-Curtis求积法计算一元函数积分
+            </summary>
+            <param name="function">待积分函数</param>
+            <param name="customData">自定义数据</param>
+            <param name="start">积分下限</param>
+            <param name="end">积分上限</param>
+            <param name="series">切比雪夫级数</param>
+            <param name="epsilon">精度</param>
+            <returns>积分结果</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Integrator.ApplySimpsonRule(System.Func{System.Double,System.Double},System.Double,System.Double,System.Double)">
+            <summary>
+            使用辛普森规则进行数值积分
+            </summary>
+            <param name="function">要积分的函数</param>
+            <param name="lowerBound">积分下限</param>
+            <param name="upperBound">积分上限</param>
+            <param name="tolerance">容差</param>
+            <returns>积分结果</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Integrator.AdaptiveSimpson(System.Func{System.Double,System.Double},System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            自适应Simpson积分递归实现
+            </summary>
+            <param name="function">要积分的函数</param>
+            <param name="a">积分下限</param>
+            <param name="b">积分上限</param>
+            <param name="wholeS">整体区间的Simpson积分估计值</param>
+            <param name="tolerance">容差</param>
+            <returns>积分结果</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Integrator.ApplyGaussIntegration(System.Func{System.Double,System.Double},System.Double,System.Double,System.Int32)">
+            <summary>
+            使用高斯积分法计算定积分
+            </summary>
+            <param name="function">要积分的函数</param>
+            <param name="lowerBound">积分下限</param>
+            <param name="upperBound">积分上限</param>
+            <param name="points">高斯点数量</param>
+            <returns>积分结果</returns>
+        </member>
+        <member name="T:LNLib.Algorithm.Interpolation">
+            <summary>
+            插值算法类
+            </summary>
+        </member>
+        <member name="M:LNLib.Algorithm.Interpolation.Getqk(System.Collections.Generic.IList{LNLib.Mathematics.XYZ},System.Int32)">
+            <summary>
+            获取向量qk
+            </summary>
+        </member>
+        <member name="M:LNLib.Algorithm.Interpolation.Getak(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            获取参数ak
+            </summary>
+        </member>
+        <member name="M:LNLib.Algorithm.Interpolation.GetTk(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            获取切向量Tk
+            </summary>
+        </member>
+        <member name="M:LNLib.Algorithm.Interpolation.GetTotalChordLength(System.Collections.Generic.IList{LNLib.Mathematics.XYZ})">
+            <summary>
+            获取总弦长
+            </summary>
+            <param name="throughPoints">通过点</param>
+            <returns>总弦长</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Interpolation.GetChordParameterization(System.Collections.Generic.IList{LNLib.Mathematics.XYZ})">
+            <summary>
+            获取弦长参数化
+            </summary>
+            <param name="throughPoints">通过点</param>
+            <returns>参数化结果</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Interpolation.GetCentripetalLength(System.Collections.Generic.IList{LNLib.Mathematics.XYZ})">
+            <summary>
+            获取向心长度
+            </summary>
+            <param name="throughPoints">通过点</param>
+            <returns>向心长度</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Interpolation.GetCentripetalParameterization(System.Collections.Generic.IList{LNLib.Mathematics.XYZ})">
+            <summary>
+            获取向心参数化
+            </summary>
+            <param name="throughPoints">通过点</param>
+            <returns>参数化结果</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Interpolation.AverageKnotVector(System.Int32,System.Collections.Generic.IList{System.Double})">
+            <summary>
+            计算平均节点向量
+            </summary>
+            <param name="degree">次数</param>
+            <param name="params">参数</param>
+            <returns>节点向量</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Interpolation.ComputeKnotVector(System.Int32,System.Int32,System.Int32,System.Collections.Generic.IList{System.Double})">
+            <summary>
+            计算节点向量
+            </summary>
+            <param name="degree">次数</param>
+            <param name="pointsCount">点数量</param>
+            <param name="controlPointsCount">控制点数量</param>
+            <param name="params">参数</param>
+            <returns>节点向量</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Interpolation.ComputerWeightForRationalQuadraticInterpolation(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Double@)">
+            <summary>
+            计算有理二次插值的权重
+            </summary>
+            <param name="startPoint">起点</param>
+            <param name="middleControlPoint">中间控制点</param>
+            <param name="endPoint">终点</param>
+            <param name="weight">权重</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Interpolation.GetSurfaceMeshParameterization(System.Collections.Generic.IList{System.Collections.Generic.IList{LNLib.Mathematics.XYZ}},System.Collections.Generic.List{System.Double}@,System.Collections.Generic.List{System.Double}@)">
+            <summary>
+            获取曲面网格参数化
+            </summary>
+            <param name="throughPoints">通过点</param>
+            <param name="paramsU">U方向参数</param>
+            <param name="paramsV">V方向参数</param>
+            <returns>是否成功</returns>
+        </member>
+        <member name="T:LNLib.Algorithm.CurveCurveIntersectionType">
+            <summary>
+            曲线相交类型
+            </summary>
+        </member>
+        <member name="F:LNLib.Algorithm.CurveCurveIntersectionType.Intersecting">
+            <summary>
+            相交
+            </summary>
+        </member>
+        <member name="F:LNLib.Algorithm.CurveCurveIntersectionType.Parallel">
+            <summary>
+            平行
+            </summary>
+        </member>
+        <member name="F:LNLib.Algorithm.CurveCurveIntersectionType.Coincident">
+            <summary>
+            重合
+            </summary>
+        </member>
+        <member name="F:LNLib.Algorithm.CurveCurveIntersectionType.Skew">
+            <summary>
+            异面
+            </summary>
+        </member>
+        <member name="T:LNLib.Algorithm.LinePlaneIntersectionType">
+            <summary>
+            直线与平面相交类型
+            </summary>
+        </member>
+        <member name="F:LNLib.Algorithm.LinePlaneIntersectionType.Intersecting">
+            <summary>
+            相交
+            </summary>
+        </member>
+        <member name="F:LNLib.Algorithm.LinePlaneIntersectionType.Parallel">
+            <summary>
+            平行
+            </summary>
+        </member>
+        <member name="F:LNLib.Algorithm.LinePlaneIntersectionType.On">
+            <summary>
+            在平面上
+            </summary>
+        </member>
+        <member name="T:LNLib.Algorithm.Intersection">
+            <summary>
+            相交计算工具类
+            </summary>
+        </member>
+        <member name="M:LNLib.Algorithm.Intersection.ComputeRays(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Double@,System.Double@,LNLib.Mathematics.XYZ@)">
+            <summary>
+            计算两条射线的交点
+            </summary>
+            <param name="point0">第一条射线的起点</param>
+            <param name="vector0">第一条射线的方向向量</param>
+            <param name="point1">第二条射线的起点</param>
+            <param name="vector1">第二条射线的方向向量</param>
+            <param name="param0">第一条射线的参数</param>
+            <param name="param1">第二条射线的参数</param>
+            <param name="intersectPoint">交点</param>
+            <returns>相交类型</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Intersection.ComputeLineAndPlane(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ@)">
+            <summary>
+            计算直线与平面的交点
+            </summary>
+            <param name="normal">平面法向量</param>
+            <param name="pointOnPlane">平面上的点</param>
+            <param name="pointOnLine">直线上的点</param>
+            <param name="lineDirection">直线方向向量</param>
+            <param name="intersectPoint">交点</param>
+            <returns>相交类型</returns>
+        </member>
+        <member name="T:LNLib.Algorithm.KnotVectorUtils">
+            <summary>
+            节点向量工具类
+            </summary>
+        </member>
+        <member name="M:LNLib.Algorithm.KnotVectorUtils.InsertMidKnotCore(System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double},System.Int32)">
+            <summary>
+            递归插入中点节点
+            </summary>
+        </member>
+        <member name="M:LNLib.Algorithm.KnotVectorUtils.GetContinuity(System.Int32,System.Collections.Generic.IList{System.Double},System.Double)">
+            <summary>
+            获取连续性
+            </summary>
+            <param name="degree">次数</param>
+            <param name="knotVector">节点向量</param>
+            <param name="knot">节点</param>
+            <returns>连续性</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.KnotVectorUtils.Rescale(System.Collections.Generic.IList{System.Double},System.Double,System.Double)">
+            <summary>
+            重新缩放节点向量
+            </summary>
+            <param name="knotVector">原始节点向量</param>
+            <param name="min">最小值</param>
+            <param name="max">最大值</param>
+            <returns>缩放后的节点向量</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.KnotVectorUtils.GetInsertedKnotElement(System.Int32,System.Collections.Generic.IList{System.Double},System.Double,System.Double)">
+            <summary>
+            获取插入的节点元素
+            </summary>
+            <param name="degree">次数</param>
+            <param name="knotVector">节点向量</param>
+            <param name="startParam">起始参数</param>
+            <param name="endParam">结束参数</param>
+            <returns>插入的节点元素</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.KnotVectorUtils.GetKnotMultiplicityMap(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            获取节点重复度映射
+            </summary>
+            <param name="knotVector">节点向量</param>
+            <returns>节点重复度映射</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.KnotVectorUtils.GetInternalKnotMultiplicityMap(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            获取内部节点重复度映射
+            </summary>
+            <param name="knotVector">节点向量</param>
+            <returns>内部节点重复度映射</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.KnotVectorUtils.GetInsertedKnotElement(System.Collections.Generic.IList{System.Double},System.Collections.Generic.IList{System.Double},System.Collections.Generic.List{System.Double}@,System.Collections.Generic.List{System.Double}@)">
+            <summary>
+            获取插入的节点元素
+            </summary>
+            <param name="knotVector0">节点向量0</param>
+            <param name="knotVector1">节点向量1</param>
+            <param name="insertElements0">输出的插入元素0</param>
+            <param name="insertElements1">输出的插入元素1</param>
+        </member>
+        <member name="M:LNLib.Algorithm.KnotVectorUtils.GetInsertedKnotElements(System.Collections.Generic.IList{System.Collections.Generic.IList{System.Double}})">
+            <summary>
+            获取插入的节点元素列表
+            </summary>
+            <param name="knotVectors">节点向量列表</param>
+            <returns>插入的节点元素列表</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.KnotVectorUtils.GetInsertedKnotElements(System.Int32,System.Collections.Generic.IList{System.Double})">
+            <summary>
+            获取插入的节点元素
+            </summary>
+            <param name="insertKnotsNumber">插入节点数量</param>
+            <param name="knotVector">节点向量</param>
+            <returns>插入的节点元素</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.KnotVectorUtils.GetUniformInsertKnotElements(System.Int32,System.Double,System.Double)">
+            <summary>
+            获取均匀分布的插入节点元素
+            </summary>
+            <param name="insertKnotsNumber">插入节点数量</param>
+            <param name="start">起始参数</param>
+            <param name="end">结束参数</param>
+            <returns>插入的节点元素</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.KnotVectorUtils.GetKnotInterval(System.Int32,System.Collections.Generic.IList{System.Double})">
+            <summary>
+            获取区间
+            </summary>
+            <param name="knotSpanIndex">节点跨度索引</param>
+            <param name="knotVector">节点向量</param>
+            <returns>区间</returns>
+        </member>
+        <member name="T:LNLib.Algorithm.Polynomials">
+            <summary>
+            多项式计算工具类
+            </summary>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.Horner(System.Int32,System.Double[],System.Double)">
+            <summary>
+            霍纳法则计算幂基函数曲线上的点
+            NURBS Book第2版第20页
+            Algorithm A1.1
+            </summary>
+            <param name="degree">曲线次数</param>
+            <param name="coefficients">系数</param>
+            <param name="paramT">参数t</param>
+            <returns>函数值</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.Bernstein(System.Int32,System.Int32,System.Double)">
+            <summary>
+            计算伯恩斯坦多项式的值
+            NURBS Book第2版第7页
+            Algorithm A1.2
+            </summary>
+            <param name="index">指标</param>
+            <param name="degree">次数</param>
+            <param name="paramT">参数t</param>
+            <returns>多项式值</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.AllBernstein(System.Int32,System.Double)">
+            <summary>
+            计算所有n次伯恩斯坦多项式的值
+            NURBS Book第2版第21页
+            Algorithm A1.3
+            </summary>
+            <param name="degree">次数</param>
+            <param name="paramT">参数t</param>
+            <returns>多项式值数组</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.Horner(System.Int32,System.Int32,System.Double[0:,0:],LNLib.Mathematics.UV)">
+            <summary>
+            使用霍纳法则计算幂基曲面上的点
+            NURBS Book第2版第36页
+            Algorithm A1.6
+            </summary>
+            <param name="degreeU">U方向次数</param>
+            <param name="degreeV">V方向次数</param>
+            <param name="coefficients">系数矩阵</param>
+            <param name="uv">参数uv</param>
+            <returns>曲面上的点值</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.GetKnotMultiplicity(System.Double[],System.Double)">
+            <summary>
+            获取节点的重复度
+            NURBS Book第2版第63页
+            </summary>
+            <param name="knotVector">节点向量</param>
+            <param name="paramT">参数t</param>
+            <returns>重复度</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.GetKnotSpanIndex(System.Int32,System.Double[],System.Double)">
+            <summary>
+            确定参数t所在的节点跨度索引
+            NURBS Book第2版第68页
+            Algorithm A2.1
+            </summary>
+            <param name="degree">次数</param>
+            <param name="knotVector">节点向量</param>
+            <param name="paramT">参数t</param>
+            <returns>节点跨度索引</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.BasisFunctions(System.Int32,System.Int32,System.Double[],System.Double,System.Double[])">
+            <summary>
+            计算B样条基函数数组
+            NURBS Book第2版第70页
+            Algorithm A2.2
+            </summary>
+            <param name="spanIndex">节点跨度索引</param>
+            <param name="degree">次数</param>
+            <param name="knotVector">节点向量</param>
+            <param name="paramT">参数t</param>
+            <param name="basisFunctions">输出的基函数值数组</param>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.BasisFunctionsDerivatives(System.Int32,System.Int32,System.Int32,System.Double[],System.Double)">
+            <summary>
+            计算非零基函数及其导数
+            NURBS Book第2版第72页
+            Algorithm A2.3
+            </summary>
+            <param name="spanIndex">节点跨度索引</param>
+            <param name="degree">次数</param>
+            <param name="derivative">导数阶数</param>
+            <param name="knotVector">节点向量</param>
+            <param name="paramT">参数t</param>
+            <returns>基函数值及其导数</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.BasisFunctionsFirstOrderDerivative(System.Int32,System.Int32,System.Double[],System.Double,System.Double[0:,0:])">
+            <summary>
+            计算基函数的一阶导数（优化版本）
+            BasisFunctionsDerivatives的特殊情况，仅计算一阶导数
+            </summary>
+            <param name="spanIndex">节点跨度索引</param>
+            <param name="degree">次数</param>
+            <param name="knotVector">节点向量</param>
+            <param name="paramT">参数t</param>
+            <param name="derivatives">输出的导数数组</param>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.OneBasisFunction(System.Int32,System.Int32,System.Double[],System.Double)">
+            <summary>
+            计算单个B样条基函数
+            NURBS Book第2版第74页
+            Algorithm A2.4
+            </summary>
+            <param name="spanIndex">节点跨度索引</param>
+            <param name="degree">次数</param>
+            <param name="knotVector">节点向量</param>
+            <param name="paramT">参数t</param>
+            <returns>单个基函数值</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.OneBasisFunctionDerivative(System.Int32,System.Int32,System.Int32,System.Double[],System.Double)">
+            <summary>
+            计算单个基函数及其导数
+            NURBS Book第2版第76页
+            Algorithm A2.5
+            </summary>
+            <param name="spanIndex">节点跨度索引</param>
+            <param name="degree">次数</param>
+            <param name="derivative">导数阶数</param>
+            <param name="knotVector">节点向量</param>
+            <param name="paramT">参数t</param>
+            <returns>基函数值及其导数</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.AllBasisFunctions(System.Int32,System.Int32,System.Double[],System.Double)">
+            <summary>
+            计算所有次数的基函数（从0到degree）
+            NURBS Book第2版第99页
+            Algorithm A2.2的修改版
+            </summary>
+            <param name="spanIndex">节点跨度索引</param>
+            <param name="degree">次数</param>
+            <param name="knotVector">节点向量</param>
+            <param name="knot">参数</param>
+            <returns>所有次数的基函数值</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.BezierToPowerMatrix(System.Int32)">
+            <summary>
+            计算p次Bezier矩阵
+            NURBS Book第2版第269页
+            Algorithm A6.1
+            </summary>
+            <param name="degree">次数</param>
+            <returns>Bezier矩阵</returns>
+        </member>
+        <member name="M:LNLib.Algorithm.Polynomials.PowerToBezierMatrix(System.Int32,System.Double[0:,0:])">
+            <summary>
+            计算p次Bezier矩阵的逆矩阵
+            NURBS Book第2版第275页
+            Algorithm A6.2
+            </summary>
+            <param name="degree">次数</param>
+            <param name="matrix">原始矩阵</param>
+            <returns>逆矩阵</returns>
+        </member>
+        <member name="T:LNLib.Mathematics.BoundingBox">
+            <summary>
+            表示三维轴向包围盒
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.BoundingBox.#ctor(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            创建包围盒
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.BoundingBox.Min">
+            <summary>
+            最小点
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.BoundingBox.Max">
+            <summary>
+            最大点
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.BoundingBox.Center">
+            <summary>
+            中心点
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.BoundingBox.Diagonal">
+            <summary>
+            对角线向量
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.BoundingBox.IntervalX">
+            <summary>
+            X方向区间
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.BoundingBox.IntervalY">
+            <summary>
+            Y方向区间
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.BoundingBox.IntervalZ">
+            <summary>
+            Z方向区间
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.BoundingBox.IsEmpty">
+            <summary>
+            判断包围盒是否为空
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.BoundingBox.Contains(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            判断点是否在包围盒内
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.BoundingBox.Contains(LNLib.Mathematics.BoundingBox,System.Double)">
+            <summary>
+            判断包围盒是否包含另一个包围盒
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.BoundingBox.Intersects(LNLib.Mathematics.BoundingBox,System.Double)">
+            <summary>
+            判断两个包围盒是否相交
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.BoundingBox.Intersect(LNLib.Mathematics.BoundingBox)">
+            <summary>
+            获取与另一个包围盒的交集
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.BoundingBox.Union(LNLib.Mathematics.BoundingBox)">
+            <summary>
+            获取与另一个包围盒的并集
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.BoundingBox.Extend(LNLib.Mathematics.XYZ)">
+            <summary>
+            扩展包围盒以包含指定点
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.BoundingBox.Inflate(System.Double)">
+            <summary>
+            按指定距离扩展包围盒
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.BoundingBox.Transform(LNLib.Mathematics.Matrix4)">
+            <summary>
+            变换包围盒
+            </summary>
+        </member>
+        <member name="T:LNLib.Mathematics.Constants">
+            <summary>
+            数学常量
+            </summary>
+        </member>
+        <member name="F:LNLib.Mathematics.Constants.DoubleEpsilon">
+            <summary>
+            浮点数精度
+            </summary>
+        </member>
+        <member name="F:LNLib.Mathematics.Constants.DistanceEpsilon">
+            <summary>
+            距离精度
+            </summary>
+        </member>
+        <member name="F:LNLib.Mathematics.Constants.NURBSMaxDegree">
+            <summary>
+            NURBS最大阶数
+            </summary>
+        </member>
+        <member name="F:LNLib.Mathematics.Constants.Pi">
+            <summary>
+            圆周率
+            </summary>
+        </member>
+        <member name="F:LNLib.Mathematics.Constants.TwoPi">
+            <summary>
+            2倍圆周率
+            </summary>
+        </member>
+        <member name="F:LNLib.Mathematics.Constants.HalfPi">
+            <summary>
+            半圆周率
+            </summary>
+        </member>
+        <member name="F:LNLib.Mathematics.Constants.RadToDeg">
+            <summary>
+            弧度到角度的转换系数
+            </summary>
+        </member>
+        <member name="F:LNLib.Mathematics.Constants.DegToRad">
+            <summary>
+            角度到弧度的转换系数
+            </summary>
+        </member>
+        <member name="T:LNLib.Mathematics.Interval">
+            <summary>
+            表示数值区间[min, max]
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Interval.#ctor(System.Double,System.Double)">
+            <summary>
+            创建区间[min, max]
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.Interval.Min">
+            <summary>
+            区间最小值
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.Interval.Max">
+            <summary>
+            区间最大值
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.Interval.Length">
+            <summary>
+            区间长度
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.Interval.Middle">
+            <summary>
+            区间中点
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.Interval.IsEmpty">
+            <summary>
+            判断区间是否为空
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Interval.Contains(System.Double,System.Double)">
+            <summary>
+            判断值是否在区间内
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Interval.Contains(LNLib.Mathematics.Interval,System.Double)">
+            <summary>
+            判断区间是否包含另一个区间
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Interval.Intersects(LNLib.Mathematics.Interval,System.Double)">
+            <summary>
+            判断两个区间是否相交
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Interval.Intersect(LNLib.Mathematics.Interval)">
+            <summary>
+            获取与另一个区间的交集
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Interval.Union(LNLib.Mathematics.Interval)">
+            <summary>
+            获取与另一个区间的并集
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Interval.Extend(System.Double)">
+            <summary>
+            扩展区间
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Interval.Clamp(System.Double)">
+            <summary>
+            将值限制在区间内
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Interval.ParameterAt(System.Double)">
+            <summary>
+            将[0,1]区间映射到当前区间
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Interval.NormalizedParameter(System.Double)">
+            <summary>
+            将值映射到[0,1]区间
+            </summary>
+        </member>
+        <member name="T:LNLib.Mathematics.IWeightable`1">
+            <summary>
+            表示可带权重的对象接口
+            </summary>
+            <typeparam name="T">具体实现类型</typeparam>
+        </member>
+        <member name="M:LNLib.Mathematics.IWeightable`1.Add(`0)">
+            <summary>
+            添加操作
+            </summary>
+            <param name="other">要添加的对象</param>
+            <returns>添加结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.IWeightable`1.Subtract(`0)">
+            <summary>
+            减法操作
+            </summary>
+            <param name="other">要减去的对象</param>
+            <returns>减法结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.IWeightable`1.Multiply(System.Double)">
+            <summary>
+            乘法操作（标量乘法）
+            </summary>
+            <param name="scalar">标量值</param>
+            <returns>乘法结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.IWeightable`1.Divide(System.Double)">
+            <summary>
+            除法操作（标量除法）
+            </summary>
+            <param name="scalar">标量值</param>
+            <returns>除法结果</returns>
+        </member>
+        <member name="T:LNLib.Mathematics.Matrix4">
+            <summary>
+            表示4x4矩阵
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Matrix4.#ctor">
+            <summary>
+            创建单位矩阵
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Matrix4.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            从16个元素创建矩阵
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.Matrix4.Item(System.Int32,System.Int32)">
+            <summary>
+            获取或设置指定位置的元素
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Matrix4.CreateTranslation(LNLib.Mathematics.XYZ)">
+            <summary>
+            创建平移矩阵
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Matrix4.CreateScale(System.Double)">
+            <summary>
+            创建缩放矩阵
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Matrix4.CreateRotationX(System.Double)">
+            <summary>
+            创建绕X轴旋转的矩阵
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Matrix4.CreateRotationY(System.Double)">
+            <summary>
+            创建绕Y轴旋转的矩阵
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Matrix4.CreateRotationZ(System.Double)">
+            <summary>
+            创建绕Z轴旋转的矩阵
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Matrix4.Multiply(LNLib.Mathematics.Matrix4)">
+            <summary>
+            矩阵乘法
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Matrix4.Transpose">
+            <summary>
+            转置矩阵
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Matrix4.TransformPoint(LNLib.Mathematics.XYZ)">
+            <summary>
+            变换点
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.Matrix4.TransformVector(LNLib.Mathematics.XYZ)">
+            <summary>
+            变换向量
+            </summary>
+        </member>
+        <member name="T:LNLib.Mathematics.UV">
+            <summary>
+            表示二维参数点的结构体
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.#ctor(System.Double,System.Double)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="u">U参数</param>
+            <param name="v">V参数</param>
+        </member>
+        <member name="P:LNLib.Mathematics.UV.U">
+            <summary>
+            获取U参数
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.UV.V">
+            <summary>
+            获取V参数
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.op_Addition(LNLib.Mathematics.UV,LNLib.Mathematics.UV)">
+            <summary>
+            加法运算符重载
+            </summary>
+            <param name="uv1">第一个UV点</param>
+            <param name="uv2">第二个UV点</param>
+            <returns>加法结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.op_Subtraction(LNLib.Mathematics.UV,LNLib.Mathematics.UV)">
+            <summary>
+            减法运算符重载
+            </summary>
+            <param name="uv1">第一个UV点</param>
+            <param name="uv2">第二个UV点</param>
+            <returns>减法结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.op_Multiply(System.Double,LNLib.Mathematics.UV)">
+            <summary>
+            乘法运算符重载（标量乘法）
+            </summary>
+            <param name="d">标量</param>
+            <param name="uv">UV点</param>
+            <returns>乘法结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.op_Multiply(LNLib.Mathematics.UV,System.Double)">
+            <summary>
+            乘法运算符重载（标量乘法）
+            </summary>
+            <param name="uv">UV点</param>
+            <param name="d">标量</param>
+            <returns>乘法结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.op_Division(LNLib.Mathematics.UV,System.Double)">
+            <summary>
+            除法运算符重载（标量除法）
+            </summary>
+            <param name="uv">UV点</param>
+            <param name="d">标量</param>
+            <returns>除法结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.op_Equality(LNLib.Mathematics.UV,LNLib.Mathematics.UV)">
+            <summary>
+            判断两个UV点是否相等
+            </summary>
+            <param name="uv1">第一个UV点</param>
+            <param name="uv2">第二个UV点</param>
+            <returns>是否相等</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.op_Inequality(LNLib.Mathematics.UV,LNLib.Mathematics.UV)">
+            <summary>
+            判断两个UV点是否不相等
+            </summary>
+            <param name="uv1">第一个UV点</param>
+            <param name="uv2">第二个UV点</param>
+            <returns>是否不相等</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.Equals(System.Object)">
+            <summary>
+            判断对象是否相等
+            </summary>
+            <param name="obj">比较对象</param>
+            <returns>是否相等</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.GetHashCode">
+            <summary>
+            获取哈希码
+            </summary>
+            <returns>哈希码</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.ToString">
+            <summary>
+            转换为字符串
+            </summary>
+            <returns>字符串表示</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.Distance(LNLib.Mathematics.UV)">
+            <summary>
+            距离计算
+            </summary>
+            <param name="other">另一个UV点</param>
+            <returns>距离</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.DotProduct(LNLib.Mathematics.UV)">
+            <summary>
+            点乘
+            </summary>
+            <param name="other">另一个UV点</param>
+            <returns>点乘结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.Length">
+            <summary>
+            计算长度（二维向量的模）
+            </summary>
+            <returns>长度</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.UV.Normalize">
+            <summary>
+            标准化（使长度为1）
+            </summary>
+            <returns>标准化后的UV</returns>
+        </member>
+        <member name="T:LNLib.Mathematics.ValidationUtils">
+            <summary>
+            验证工具类
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.ValidationUtils.IsValidBezier(System.Int32,System.Int32)">
+            <summary>
+            验证贝塞尔曲线参数
+            </summary>
+            <param name="degree">次数</param>
+            <param name="controlPointsCount">控制点数量</param>
+            <returns>是否有效</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.ValidationUtils.IsValidKnotVector(System.Collections.Generic.IList{System.Double})">
+            <summary>
+            The NURBS Book 2nd Edition Page50
+            验证节点向量是否是非递减实数序列
+            </summary>
+            <param name="knotVector">节点向量</param>
+            <returns>是否有效</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.ValidationUtils.IsValidBspline(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            验证B样条曲线参数
+            </summary>
+            <param name="degree">次数</param>
+            <param name="knotVectorCount">节点向量数量</param>
+            <param name="controlPointsCount">控制点数量</param>
+            <returns>是否有效</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.ValidationUtils.IsValidNurbs(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            验证NURBS曲线参数
+            </summary>
+            <param name="degree">次数</param>
+            <param name="knotVectorCount">节点向量数量</param>
+            <param name="weightedControlPointsCount">带权重控制点数量</param>
+            <returns>是否有效</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.ValidationUtils.IsValidDegreeReduction(System.Int32)">
+            <summary>
+            验证降阶操作是否有效
+            </summary>
+            <param name="degree">次数</param>
+            <returns>是否有效</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.ValidationUtils.ComputeCurveModifyTolerance(System.Collections.Generic.IList{LNLib.Mathematics.XYZW})">
+            <summary>
+            The NURBS Book 2nd Edition Page185
+            TOL = dWmin / (1+abs(Pmax))
+            计算曲线修改容差
+            </summary>
+            <param name="controlPoints">控制点列表</param>
+            <returns>修改容差</returns>
+        </member>
+        <member name="T:LNLib.Mathematics.XYZ">
+            <summary>
+            表示三维位置/向量/偏移
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZ.Negative">
+            <summary>
+            Negative是Negate的别名
+            </summary>
+            <returns>取反后的向量</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZ.DistanceSquared(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算与另一点的平方距离
+            </summary>
+            <param name="another">另一个点</param>
+            <returns>平方距离</returns>
+        </member>
+        <member name="T:LNLib.Mathematics.XYZW">
+            <summary>
+            表示带权重的三维点
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.#ctor(System.Double,System.Double,System.Double,System.Double)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="wx">X坐标乘以权重</param>
+            <param name="wy">Y坐标乘以权重</param>
+            <param name="wz">Z坐标乘以权重</param>
+            <param name="w">权重</param>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.#ctor(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            构造函数
+            </summary>
+            <param name="point">三维点</param>
+            <param name="weight">权重</param>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.#ctor">
+            <summary>
+            默认构造函数
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.XYZW.WX">
+            <summary>
+            获取X坐标乘以权重
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.XYZW.WY">
+            <summary>
+            获取Y坐标乘以权重
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.XYZW.WZ">
+            <summary>
+            获取Z坐标乘以权重
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.XYZW.W">
+            <summary>
+            获取权重
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.XYZW.X">
+            <summary>
+            获取X坐标
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.XYZW.Y">
+            <summary>
+            获取Y坐标
+            </summary>
+        </member>
+        <member name="P:LNLib.Mathematics.XYZW.Z">
+            <summary>
+            获取Z坐标
+            </summary>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.ProjectToXYZ">
+            <summary>
+            将带权重的点投影为三维点
+            </summary>
+            <returns>三维点</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.ToXYZ">
+            <summary>
+            将带权重的点投影为三维点 (ProjectToXYZ的别名)
+            </summary>
+            <returns>三维点</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.ToXYZ(System.Double)">
+            <summary>
+            将带权重的点投影为三维点，并指定是否使用权重
+            </summary>
+            <param name="weight">权重值</param>
+            <returns>三维点</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.Add(LNLib.Mathematics.XYZW)">
+            <summary>
+            加法运算
+            </summary>
+            <param name="other">另一个XYZW</param>
+            <returns>相加后的结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.Subtract(LNLib.Mathematics.XYZW)">
+            <summary>
+            减法运算
+            </summary>
+            <param name="other">另一个XYZW</param>
+            <returns>相减后的结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.Multiply(System.Double)">
+            <summary>
+            乘法运算
+            </summary>
+            <param name="scalar">缩放因子</param>
+            <returns>缩放后的结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.Divide(System.Double)">
+            <summary>
+            除法运算
+            </summary>
+            <param name="scalar">缩放因子</param>
+            <returns>缩放后的结果</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.IsZero">
+            <summary>
+            判断是否接近零
+            </summary>
+            <returns>如果接近零则返回true</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.IsAlmostEqualTo(LNLib.Mathematics.XYZW)">
+            <summary>
+            判断是否几乎相等
+            </summary>
+            <param name="other">另一个XYZW</param>
+            <returns>如果几乎相等则返回true</returns>
+        </member>
+        <member name="M:LNLib.Mathematics.XYZW.ToString">
+            <summary>
+            转换为字符串
+            </summary>
+            <returns>字符串表示</returns>
+        </member>
+        <member name="T:LNLib.Geometry.Curve.BezierCurve">
+            <summary>
+            贝塞尔曲线类
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurve.Check``1(LNLib.Geometry.Curve.BezierCurveData{``0})">
+            <summary>
+            验证贝塞尔曲线参数的有效性
+            </summary>
+            <typeparam name="T">控制点类型</typeparam>
+            <param name="curve">贝塞尔曲线</param>
+            <exception cref="T:System.ArgumentException">参数无效时抛出异常</exception>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurve.GetPointOnCurveByBernstein``1(LNLib.Geometry.Curve.BezierCurveData{``0},System.Double)">
+            <summary>
+            使用伯恩斯坦基函数计算贝塞尔曲线上的点
+            NURBS Book第2版第22页
+            Algorithm A1.4
+            </summary>
+            <typeparam name="T">控制点类型</typeparam>
+            <param name="curve">贝塞尔曲线</param>
+            <param name="paramT">参数t，范围[0,1]</param>
+            <returns>曲线上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurve.GetPointOnCurveByDeCasteljau``1(LNLib.Geometry.Curve.BezierCurveData{``0},System.Double)">
+            <summary>
+            使用de Casteljau算法计算贝塞尔曲线上的点
+            NURBS Book第2版第24页
+            Algorithm A1.5
+            </summary>
+            <typeparam name="T">控制点类型</typeparam>
+            <param name="curve">贝塞尔曲线</param>
+            <param name="paramT">参数t，范围[0,1]</param>
+            <returns>曲线上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurve.GetPointOnQuadraticArc(LNLib.Mathematics.XYZW,LNLib.Mathematics.XYZW,LNLib.Mathematics.XYZW,System.Double)">
+            <summary>
+            计算二次有理贝塞尔弧上的点
+            NURBS Book第2版第291页
+            </summary>
+            <param name="startPoint">起点</param>
+            <param name="middlePoint">中间控制点</param>
+            <param name="endPoint">终点</param>
+            <param name="paramT">参数t，范围[0,1]</param>
+            <returns>弧上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurve.ComputerMiddleControlPointsOnQuadraticCurve(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Collections.Generic.List{LNLib.Mathematics.XYZW}@)">
+            <summary>
+            计算二次有理曲线的中间控制点
+            NURBS Book第2版第392页
+            局部有理二次曲线插值
+            </summary>
+            <param name="startPoint">起点</param>
+            <param name="startTangent">起点切向量</param>
+            <param name="endPoint">终点</param>
+            <param name="endTangent">终点切向量</param>
+            <param name="controlPoints">输出的控制点</param>
+            <returns>是否成功计算</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurve.ComputeWeightForRationalQuadraticInterpolation(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Double@)">
+            <summary>
+            计算二次有理插值的权重
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurve.IntersectRays(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Double@,System.Double@,LNLib.Mathematics.XYZ@)">
+            <summary>
+            计算两条射线的交点
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Curve.CurveCurveIntersectionType">
+            <summary>
+            曲线相交类型
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Curve.CurveCurveIntersectionType.Intersecting">
+            <summary>
+            相交
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Curve.CurveCurveIntersectionType.Parallel">
+            <summary>
+            平行
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Curve.CurveCurveIntersectionType.Coincident">
+            <summary>
+            重合
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Curve.CurveCurveIntersectionType.Skew">
+            <summary>
+            异面
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Curve.BezierCurveData`1">
+            <summary>
+            表示Bezier曲线的数据结构
+            </summary>
+            <typeparam name="T">控制点的类型，必须实现IWeightable接口</typeparam>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveData`1.#ctor(System.Int32,System.Collections.Generic.List{`0})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="degree">次数</param>
+            <param name="controlPoints">控制点列表</param>
+        </member>
+        <member name="P:LNLib.Geometry.Curve.BezierCurveData`1.Degree">
+            <summary>
+            获取次数
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Curve.BezierCurveData`1.Count">
+            <summary>
+            获取控制点数量
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Curve.BezierCurveData`1.Item(System.Int32)">
+            <summary>
+            获取控制点
+            </summary>
+            <param name="index">索引</param>
+            <returns>控制点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveData`1.GetControlPoints">
+            <summary>
+            获取控制点列表
+            </summary>
+            <returns>控制点列表</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveData`1.InsertControlPoint(System.Int32,`0)">
+            <summary>
+            在指定位置插入控制点
+            </summary>
+            <param name="index">插入位置</param>
+            <param name="controlPoint">要插入的控制点</param>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveData`1.AddControlPoint(`0)">
+            <summary>
+            添加控制点到末尾
+            </summary>
+            <param name="controlPoint">要添加的控制点</param>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveData`1.RemoveControlPoint(System.Int32)">
+            <summary>
+            移除指定索引处的控制点
+            </summary>
+            <param name="index">要移除的控制点索引</param>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveData`1.SetControlPoint(System.Int32,`0)">
+            <summary>
+            设置指定索引处的控制点
+            </summary>
+            <param name="index">控制点索引</param>
+            <param name="controlPoint">新的控制点</param>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveData`1.Clear">
+            <summary>
+            清除所有控制点
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Curve.BezierCurveDescriptor">
+            <summary>
+            Bezier曲线描述类
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.#ctor(System.Collections.Generic.IEnumerable{LNLib.Mathematics.XYZ})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="controlPoints">控制点列表</param>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.#ctor(System.Collections.Generic.IEnumerable{LNLib.Mathematics.XYZW})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="controlPoints">带权重的控制点列表</param>
+        </member>
+        <member name="P:LNLib.Geometry.Curve.BezierCurveDescriptor.Degree">
+            <summary>
+            获取曲线的次数
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Curve.BezierCurveDescriptor.ControlPointCount">
+            <summary>
+            获取控制点数量
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.GetControlPoint(System.Int32)">
+            <summary>
+            通过索引获取控制点
+            </summary>
+            <param name="index">控制点索引</param>
+            <returns>指定索引处的控制点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.GetControlPoints">
+            <summary>
+            获取所有控制点
+            </summary>
+            <returns>控制点列表</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.SetControlPoint(System.Int32,LNLib.Mathematics.XYZW)">
+            <summary>
+            设置指定索引处的控制点
+            </summary>
+            <param name="index">索引</param>
+            <param name="point">新的控制点</param>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.SetControlPoint(System.Int32,LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            设置指定索引处的控制点
+            </summary>
+            <param name="index">索引</param>
+            <param name="point">新的控制点</param>
+            <param name="weight">权重</param>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.InsertControlPoint(System.Int32,LNLib.Mathematics.XYZW)">
+            <summary>
+            在指定索引处插入控制点
+            </summary>
+            <param name="index">索引</param>
+            <param name="point">要插入的控制点</param>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.InsertControlPoint(System.Int32,LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            在指定索引处插入控制点
+            </summary>
+            <param name="index">索引</param>
+            <param name="point">要插入的控制点</param>
+            <param name="weight">权重</param>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.RemoveControlPoint(System.Int32)">
+            <summary>
+            移除指定索引处的控制点
+            </summary>
+            <param name="index">要移除的控制点索引</param>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.GetPointOnCurveByBernstein(System.Double)">
+            <summary>
+            使用伯恩斯坦基函数计算曲线上的点
+            </summary>
+            <param name="paramT">参数t，范围[0,1]</param>
+            <returns>曲线上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.GetPointOnCurveByDeCasteljau(System.Double)">
+            <summary>
+            使用de Casteljau算法计算曲线上的点
+            </summary>
+            <param name="paramT">参数t，范围[0,1]</param>
+            <returns>曲线上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.GetPointOnCurve(System.Double)">
+            <summary>
+            获取曲线上的点
+            </summary>
+            <param name="paramT">参数t，范围[0,1]</param>
+            <returns>曲线上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.GetPointsOnCurve(System.Int32)">
+            <summary>
+            获取曲线上的多个点
+            </summary>
+            <param name="pointCount">要计算的点数量</param>
+            <returns>曲线上的点列表</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.Split(System.Double)">
+            <summary>
+            划分曲线为两部分
+            </summary>
+            <param name="paramT">划分参数，范围[0,1]</param>
+            <returns>划分后的两条曲线</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.GetDerivative(System.Double)">
+            <summary>
+            计算曲线上参数t处的导数
+            </summary>
+            <param name="paramT">参数t，范围[0,1]</param>
+            <returns>曲线在该点的导数向量</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.GetCurvature(System.Double)">
+            <summary>
+            计算曲线上参数t处的曲率
+            </summary>
+            <param name="paramT">参数t，范围[0,1]</param>
+            <returns>曲线在该点的曲率</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.CreateLine(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            创建一个表示直线段的Bezier曲线
+            </summary>
+            <param name="startPoint">起点</param>
+            <param name="endPoint">终点</param>
+            <returns>表示直线段的Bezier曲线</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BezierCurveDescriptor.CreateArc(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            创建一个表示圆弧的Bezier曲线
+            </summary>
+            <param name="startPoint">起点</param>
+            <param name="endPoint">终点</param>
+            <param name="bulge">凸度（弧高与弦长之比的一半）</param>
+            <returns>表示圆弧的Bezier曲线</returns>
+        </member>
+        <member name="T:LNLib.Geometry.Curve.BsplineCurveData`1">
+            <summary>
+            B样条曲线数据
+            </summary>
+            <typeparam name="T">控制点类型</typeparam>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BsplineCurveData`1.#ctor(System.Int32,System.Collections.Generic.List{`0},System.Collections.Generic.List{System.Double})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="degree">次数</param>
+            <param name="controlPoints">控制点列表</param>
+            <param name="knotVector">节点向量</param>
+        </member>
+        <member name="P:LNLib.Geometry.Curve.BsplineCurveData`1.Degree">
+            <summary>
+            获取次数
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Curve.BsplineCurveData`1.Count">
+            <summary>
+            获取控制点数量
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Curve.BsplineCurveData`1.Item(System.Int32)">
+            <summary>
+            获取控制点
+            </summary>
+            <param name="index">索引</param>
+            <returns>控制点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BsplineCurveData`1.GetControlPoints">
+            <summary>
+            获取控制点列表
+            </summary>
+            <returns>控制点列表</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BsplineCurveData`1.GetKnotVector">
+            <summary>
+            获取节点向量
+            </summary>
+            <returns>节点向量</returns>
+        </member>
+        <member name="T:LNLib.Geometry.Curve.BsplineCurve">
+            <summary>
+            B样条曲线类
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BsplineCurve.Check``1(LNLib.Geometry.Curve.BsplineCurveData{``0})">
+            <summary>
+            验证B样条曲线参数的有效性
+            </summary>
+            <typeparam name="T">控制点类型</typeparam>
+            <param name="curve">B样条曲线</param>
+            <exception cref="T:System.ArgumentException">参数无效时抛出异常</exception>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BsplineCurve.GetPointOnCurve``1(LNLib.Geometry.Curve.BsplineCurveData{``0},System.Double)">
+            <summary>
+            计算B样条曲线上的点
+            NURBS Book第2版第82页
+            Algorithm A3.1
+            </summary>
+            <typeparam name="T">控制点类型</typeparam>
+            <param name="curve">B样条曲线</param>
+            <param name="paramT">参数t</param>
+            <returns>曲线上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BsplineCurve.ComputeDerivatives``1(LNLib.Geometry.Curve.BsplineCurveData{``0},System.Int32,System.Double)">
+            <summary>
+            计算B样条曲线的导数
+            NURBS Book第2版第93页
+            Algorithm A3.2
+            </summary>
+            <typeparam name="T">控制点类型</typeparam>
+            <param name="curve">B样条曲线</param>
+            <param name="derivative">导数阶数</param>
+            <param name="paramT">参数t</param>
+            <returns>导数值数组</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BsplineCurve.ComputeControlPointsOfDerivatives``1(LNLib.Geometry.Curve.BsplineCurveData{``0},System.Int32,System.Int32,System.Int32)">
+            <summary>
+            计算B样条曲线导数的控制点
+            NURBS Book第2版第98页
+            Algorithm A3.3
+            </summary>
+            <typeparam name="T">控制点类型</typeparam>
+            <param name="curve">B样条曲线</param>
+            <param name="derivative">导数阶数</param>
+            <param name="minSpanIndex">最小跨度索引</param>
+            <param name="maxSpanIndex">最大跨度索引</param>
+            <returns>导数控制点数组</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BsplineCurve.GetArcLength(LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW},System.Double,System.Double,System.Double)">
+            <summary>
+            计算B样条曲线的弧长
+            </summary>
+            <param name="curve">B样条曲线</param>
+            <param name="startParam">起始参数</param>
+            <param name="endParam">结束参数</param>
+            <param name="tolerance">容差</param>
+            <returns>弧长</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.BsplineCurve.ConvertToNurbsCurve``1(LNLib.Geometry.Curve.BsplineCurveData{``0})">
+            <summary>
+            将B样条曲线转换为NurbsCurveData
+            </summary>
+            <typeparam name="T">控制点类型</typeparam>
+            <param name="curve">B样条曲线</param>
+            <returns>NURBS曲线数据</returns>
+        </member>
+        <member name="T:LNLib.Geometry.Curve.NurbsCurve">
+            <summary>
+            NURBS曲线类
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.NurbsCurve.Check(LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW})">
+            <summary>
+            验证NURBS曲线参数的有效性
+            </summary>
+            <param name="curve">NURBS曲线</param>
+            <exception cref="T:System.ArgumentException">参数无效时抛出异常</exception>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.NurbsCurve.GetPointOnCurve(LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW},System.Double)">
+            <summary>
+            计算NURBS曲线上的点
+            NURBS Book第2版第124页
+            Algorithm A4.1
+            </summary>
+            <param name="curve">NURBS曲线</param>
+            <param name="paramT">参数t</param>
+            <returns>曲线上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.NurbsCurve.ComputeRationalCurveDerivatives(LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW},System.Int32,System.Double)">
+            <summary>
+            计算NURBS曲线的有理导数
+            NURBS Book第2版第127页
+            Algorithm A4.2
+            </summary>
+            <param name="curve">NURBS曲线</param>
+            <param name="derivative">导数阶数</param>
+            <param name="paramT">参数t</param>
+            <returns>导数值数组</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.NurbsCurve.CanComputeDerivative(LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW},System.Double)">
+            <summary>
+            判断是否可以计算导数
+            </summary>
+            <param name="curve">NURBS曲线</param>
+            <param name="paramT">参数t</param>
+            <returns>是否可以计算导数</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.NurbsCurve.Curvature(LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW},System.Double)">
+            <summary>
+            计算曲线曲率
+            </summary>
+            <param name="curve">NURBS曲线</param>
+            <param name="paramT">参数t</param>
+            <returns>曲率</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.NurbsCurve.Torsion(LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW},System.Double)">
+            <summary>
+            计算曲线扭率
+            </summary>
+            <param name="curve">NURBS曲线</param>
+            <param name="paramT">参数t</param>
+            <returns>扭率</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.NurbsCurve.InsertKnot(LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW},System.Double,System.Int32,LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW}@)">
+            <summary>
+            插入节点
+            NURBS Book第2版第151页
+            Algorithm A5.1
+            </summary>
+            <param name="curve">NURBS曲线</param>
+            <param name="insertKnot">插入的节点</param>
+            <param name="times">插入次数</param>
+            <param name="result">结果曲线</param>
+            <returns>插入节点的跨度索引</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.NurbsCurve.GetPointOnCurveByCornerCut(LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW},System.Double)">
+            <summary>
+            使用角切法计算NURBS曲线上的点
+            NURBS Book第2版第155页
+            Algorithm A5.2
+            </summary>
+            <param name="curve">NURBS曲线</param>
+            <param name="paramT">参数t</param>
+            <returns>曲线上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.NurbsCurve.EquallyTessellate(LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW},System.Collections.Generic.List{LNLib.Mathematics.XYZ}@,System.Collections.Generic.List{System.Double}@)">
+            <summary>
+            均匀细分NURBS曲线
+            </summary>
+            <param name="curve">NURBS曲线</param>
+            <param name="tessellatedPoints">细分后的点</param>
+            <param name="correspondingKnots">对应的节点</param>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.NurbsCurve.IsClosed(LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW})">
+            <summary>
+            判断曲线是否闭合
+            </summary>
+            <param name="curve">NURBS曲线</param>
+            <returns>是否闭合</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Curve.NurbsCurve.IsLinear(LNLib.Geometry.Curve.BsplineCurveData{LNLib.Mathematics.XYZW})">
+            <summary>
+            判断NURBS曲线是否线性
+            </summary>
+            <param name="curve">NURBS曲线</param>
+            <returns>是否线性</returns>
+        </member>
+        <member name="T:LNLib.Geometry.Primitives.Arc">
+            <summary>
+            表示三维空间中的圆弧
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Arc.#ctor(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Double,System.Double,System.Double)">
+            <summary>
+            通过圆心、法向量、半径、起始角度和终止角度创建圆弧
+            </summary>
+            <param name="center">圆心</param>
+            <param name="normal">法向量</param>
+            <param name="radius">半径</param>
+            <param name="startAngle">起始角度（弧度）</param>
+            <param name="endAngle">终止角度（弧度）</param>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Arc.CreateByThreePoints(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            通过三点创建圆弧
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Arc.Center">
+            <summary>
+            圆心
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Arc.Normal">
+            <summary>
+            单位法向量
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Arc.Radius">
+            <summary>
+            半径
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Arc.XAxis">
+            <summary>
+            圆弧的局部坐标系X轴
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Arc.YAxis">
+            <summary>
+            圆弧的局部坐标系Y轴
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Arc.StartAngle">
+            <summary>
+            起始角度（弧度）
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Arc.EndAngle">
+            <summary>
+            终止角度（弧度）
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Arc.AngleRange">
+            <summary>
+            圆弧的角度范围（弧度）
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Arc.Length">
+            <summary>
+            圆弧长度
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Arc.StartPoint">
+            <summary>
+            起点
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Arc.EndPoint">
+            <summary>
+            终点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Arc.PointAt(System.Double)">
+            <summary>
+            获取参数t对应的点，t在[0,1]区间表示从起点到终点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Arc.TangentAt(System.Double)">
+            <summary>
+            获取参数t对应的切向量，t在[0,1]区间表示从起点到终点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Arc.DistanceTo(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点到圆弧的最短距离
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Arc.Contains(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            判断点是否在圆弧上
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Arc.Transform(LNLib.Mathematics.Matrix4)">
+            <summary>
+            变换圆弧
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Primitives.Box">
+            <summary>
+            表示三维空间中的长方体
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.#ctor(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Double,System.Double,System.Double)">
+            <summary>
+            通过中心点、三个轴向和尺寸创建长方体
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.CreateAligned(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            通过两个对角点创建轴向长方体（轴向与全局坐标系平行）
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.CreateFromBoundingBox(LNLib.Mathematics.BoundingBox)">
+            <summary>
+            通过包围盒创建轴向长方体
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Box.Center">
+            <summary>
+            长方体的中心点
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Box.XAxis">
+            <summary>
+            X轴方向（单位向量）
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Box.YAxis">
+            <summary>
+            Y轴方向（单位向量）
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Box.ZAxis">
+            <summary>
+            Z轴方向（单位向量）
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Box.XLength">
+            <summary>
+            X方向尺寸
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Box.YLength">
+            <summary>
+            Y方向尺寸
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Box.ZLength">
+            <summary>
+            Z方向尺寸
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Box.Volume">
+            <summary>
+            长方体的体积
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Box.SurfaceArea">
+            <summary>
+            长方体的表面积
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.GetCorners">
+            <summary>
+            获取长方体的8个角点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.GetFaces">
+            <summary>
+            获取长方体的6个面
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.GetEdges">
+            <summary>
+            获取长方体的12条边
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.Contains(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            判断点是否在长方体内（包括表面）
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.DistanceTo(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点到长方体的最短距离
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.IntersectWith(LNLib.Geometry.Primitives.Box)">
+            <summary>
+            计算长方体与另一个长方体的交集
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.Transform(LNLib.Mathematics.Matrix4)">
+            <summary>
+            变换长方体
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.PointToLocal(LNLib.Mathematics.XYZ)">
+            <summary>
+            将全局坐标点转换为长方体局部坐标系下的点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.LocalToPoint(LNLib.Mathematics.XYZ)">
+            <summary>
+            将长方体局部坐标系下的点转换为全局坐标点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Box.AreAxesParallel(LNLib.Geometry.Primitives.Box)">
+            <summary>
+            检查两个长方体的轴向是否平行
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Primitives.Circle">
+            <summary>
+            表示三维空间中的圆
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Circle.#ctor(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            通过圆心、法向量和半径创建圆
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Circle.CreateByThreePoints(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            通过三点创建圆
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Circle.Center">
+            <summary>
+            圆心
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Circle.Normal">
+            <summary>
+            单位法向量
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Circle.Radius">
+            <summary>
+            半径
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Circle.XAxis">
+            <summary>
+            圆的局部坐标系X轴
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Circle.YAxis">
+            <summary>
+            圆的局部坐标系Y轴
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Circle.Circumference">
+            <summary>
+            圆的周长
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Circle.Area">
+            <summary>
+            圆的面积
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Circle.PointAt(System.Double)">
+            <summary>
+            获取参数t对应的点，t在[0,1]区间表示一周
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Circle.DistanceTo(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点到圆的最短距离
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Circle.Contains(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            判断点是否在圆上
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Circle.Transform(LNLib.Mathematics.Matrix4)">
+            <summary>
+            变换圆
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Primitives.Cone">
+            <summary>
+            表示三维空间中的圆锥体
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cone.#ctor(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Double,System.Double)">
+            <summary>
+            通过底面圆心、轴向、半径和高度创建圆锥体
+            </summary>
+            <param name="baseCenter">底面圆心</param>
+            <param name="axis">轴向（会被归一化）</param>
+            <param name="radius">底面半径</param>
+            <param name="height">高度</param>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cone.BaseCenter">
+            <summary>
+            底面圆心
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cone.Axis">
+            <summary>
+            轴向（单位向量）
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cone.Radius">
+            <summary>
+            底面半径
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cone.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cone.Apex">
+            <summary>
+            顶点
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cone.Center">
+            <summary>
+            圆锥体中心点（质心位置）
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cone.BaseCircle">
+            <summary>
+            底面圆
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cone.Volume">
+            <summary>
+            圆锥体的体积
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cone.SurfaceArea">
+            <summary>
+            圆锥体的表面积（包括底面）
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cone.SlantHeight">
+            <summary>
+            斜高（从顶点到底面圆周的距离）
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cone.SemiApexAngle">
+            <summary>
+            半顶角（圆锥的张角的一半）
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cone.PointAt(System.Double,System.Double)">
+            <summary>
+            计算圆锥面上的参数点
+            </summary>
+            <param name="u">角度参数，范围[0, 2π]</param>
+            <param name="v">高度参数，范围[0, 1]，其中0表示底面圆周，1表示顶点</param>
+            <returns>圆锥面上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cone.Contains(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            判断点是否在圆锥体内（包括表面）
+            </summary>
+            <param name="point">待检测点</param>
+            <param name="epsilon">容差值</param>
+            <returns>如果点在圆锥体内部或表面上，则返回true</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cone.DistanceTo(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点到圆锥体的最短距离
+            </summary>
+            <param name="point">参考点</param>
+            <returns>点到圆锥体的最短距离。如果点在圆锥体内部，则返回0</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cone.GenerateMeshPoints(System.Int32,System.Int32)">
+            <summary>
+            生成圆锥面的网格点
+            </summary>
+            <param name="uDivisions">圆周方向的分段数</param>
+            <param name="vDivisions">高度方向的分段数</param>
+            <returns>圆锥面上的点集</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cone.GenerateSideFaces(System.Int32,System.Int32)">
+            <summary>
+            生成圆锥面的多边形网格（不包括底面）
+            </summary>
+            <param name="uDivisions">圆周方向的分段数</param>
+            <param name="vDivisions">高度方向的分段数</param>
+            <returns>表示圆锥面的多边形集合</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cone.GenerateMeshFaces(System.Int32,System.Int32)">
+            <summary>
+            生成圆锥体的完整多边形网格（包括侧面和底面）
+            </summary>
+            <param name="uDivisions">圆周方向的分段数</param>
+            <param name="vDivisions">高度方向的分段数</param>
+            <returns>表示完整圆锥体的多边形集合</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cone.Transform(LNLib.Mathematics.Matrix4)">
+            <summary>
+            变换圆锥体
+            </summary>
+            <param name="transform">变换矩阵</param>
+            <returns>变换后的新圆锥体</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cone.CreateLocalCoordinateSystem(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ@,LNLib.Mathematics.XYZ@)">
+            <summary>
+            创建局部坐标系
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Primitives.Cylinder">
+            <summary>
+            表示三维空间中的圆柱体
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cylinder.#ctor(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Double,System.Double)">
+            <summary>
+            通过底面圆心、轴向、半径和高度创建圆柱体
+            </summary>
+            <param name="baseCenter">底面圆心</param>
+            <param name="axis">轴向（会被归一化）</param>
+            <param name="radius">半径</param>
+            <param name="height">高度</param>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cylinder.BaseCenter">
+            <summary>
+            底面圆心
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cylinder.Axis">
+            <summary>
+            轴向（单位向量）
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cylinder.Radius">
+            <summary>
+            半径
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cylinder.Height">
+            <summary>
+            高度
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cylinder.TopCenter">
+            <summary>
+            顶面圆心
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cylinder.Center">
+            <summary>
+            圆柱体中心点
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cylinder.BaseCircle">
+            <summary>
+            底面圆
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cylinder.TopCircle">
+            <summary>
+            顶面圆
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cylinder.Volume">
+            <summary>
+            圆柱体的体积
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Cylinder.SurfaceArea">
+            <summary>
+            圆柱体的表面积
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cylinder.PointAt(System.Double,System.Double)">
+            <summary>
+            计算圆柱面上的参数点
+            </summary>
+            <param name="u">角度参数，范围[0, 2π]</param>
+            <param name="v">高度参数，范围[0, 高度]</param>
+            <returns>圆柱面上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cylinder.Contains(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            判断点是否在圆柱体内（包括表面）
+            </summary>
+            <param name="point">待检测点</param>
+            <param name="epsilon">容差值</param>
+            <returns>如果点在圆柱体内部或表面上，则返回true</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cylinder.DistanceTo(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点到圆柱体的最短距离
+            </summary>
+            <param name="point">参考点</param>
+            <returns>点到圆柱体的最短距离。如果点在圆柱体内部，则返回0</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cylinder.DistanceToCircle(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            计算点到圆的距离
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cylinder.IntersectWithPlane(LNLib.Geometry.Primitives.Plane)">
+            <summary>
+            计算圆柱体与平面的交线
+            </summary>
+            <param name="plane">平面</param>
+            <returns>交线（椭圆或两条平行线或一条直线），如果不相交则返回null</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cylinder.GenerateMeshPoints(System.Int32,System.Int32)">
+            <summary>
+            生成圆柱面的网格点
+            </summary>
+            <param name="uDivisions">圆周方向的分段数</param>
+            <param name="vDivisions">高度方向的分段数</param>
+            <returns>圆柱面上的点集</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cylinder.GenerateSideFaces(System.Int32,System.Int32)">
+            <summary>
+            生成圆柱面的多边形网格（不包括端面）
+            </summary>
+            <param name="uDivisions">圆周方向的分段数</param>
+            <param name="vDivisions">高度方向的分段数</param>
+            <returns>表示圆柱面的多边形集合</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cylinder.GenerateMeshFaces(System.Int32,System.Int32)">
+            <summary>
+            生成圆柱体的完整多边形网格（包括侧面和端面）
+            </summary>
+            <param name="uDivisions">圆周方向的分段数</param>
+            <param name="vDivisions">高度方向的分段数</param>
+            <returns>表示完整圆柱体的多边形集合</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cylinder.Transform(LNLib.Mathematics.Matrix4)">
+            <summary>
+            变换圆柱体
+            </summary>
+            <param name="transform">变换矩阵</param>
+            <returns>变换后的新圆柱体</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Cylinder.CreateLocalCoordinateSystem(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ@,LNLib.Mathematics.XYZ@)">
+            <summary>
+            创建局部坐标系
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Primitives.Ellipse">
+            <summary>
+            表示三维空间中的椭圆
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Ellipse.#ctor(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,System.Double,System.Double)">
+            <summary>
+            通过中心点、法向量、主轴方向、长轴半径和短轴半径创建椭圆
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Ellipse.Center">
+            <summary>
+            椭圆中心点
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Ellipse.Normal">
+            <summary>
+            椭圆所在平面的单位法向量
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Ellipse.MajorAxis">
+            <summary>
+            椭圆长轴的单位方向向量
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Ellipse.MinorAxis">
+            <summary>
+            椭圆短轴的单位方向向量
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Ellipse.MajorRadius">
+            <summary>
+            长轴半径
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Ellipse.MinorRadius">
+            <summary>
+            短轴半径
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Ellipse.Eccentricity">
+            <summary>
+            椭圆的离心率
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Ellipse.Circumference">
+            <summary>
+            椭圆的周长（近似值）
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Ellipse.Area">
+            <summary>
+            椭圆的面积
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Ellipse.PointAt(System.Double)">
+            <summary>
+            获取参数t对应的点，t在[0,1]区间表示一周
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Ellipse.TangentAt(System.Double)">
+            <summary>
+            获取参数t对应的切向量，t在[0,1]区间表示一周
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Ellipse.DistanceTo(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点到椭圆的最短距离（近似值）
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Ellipse.DistanceToEllipse(System.Double,System.Double)">
+            <summary>
+            计算平面上点(x,y)到椭圆的最短距离（迭代求解）
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Ellipse.Contains(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            判断点是否在椭圆上
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Ellipse.Transform(LNLib.Mathematics.Matrix4)">
+            <summary>
+            变换椭圆
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Primitives.Line">
+            <summary>
+            表示三维直线
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.#ctor(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            通过点和方向创建直线
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.CreateByTwoPoints(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            通过两点创建直线
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Line.Origin">
+            <summary>
+            直线上的点
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Line.Direction">
+            <summary>
+            直线的单位方向向量
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.PointAt(System.Double)">
+            <summary>
+            获取直线上参数t对应的点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.DistanceTo(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点到直线的距离
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.ProjectPoint(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点在直线上的投影点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.Contains(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            判断点是否在直线上
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.IsParallelTo(LNLib.Geometry.Primitives.Line,System.Double)">
+            <summary>
+            判断直线是否与另一条直线平行
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.IsPerpendicularTo(LNLib.Geometry.Primitives.Line,System.Double)">
+            <summary>
+            判断直线是否与另一条直线垂直
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.IsParallelTo(LNLib.Geometry.Primitives.Plane,System.Double)">
+            <summary>
+            判断直线是否与平面平行
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.IsPerpendicularTo(LNLib.Geometry.Primitives.Plane,System.Double)">
+            <summary>
+            判断直线是否与平面垂直
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.DistanceTo(LNLib.Geometry.Primitives.Line)">
+            <summary>
+            计算与另一条直线的最短距离
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.IntersectWith(LNLib.Geometry.Primitives.Plane)">
+            <summary>
+            计算与平面的交点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Line.Transform(LNLib.Mathematics.Matrix4)">
+            <summary>
+            变换直线
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Primitives.Plane">
+            <summary>
+            表示三维平面
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Plane.#ctor(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            通过点和法向量创建平面
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Plane.CreateByThreePoints(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            通过三点创建平面
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Plane.Origin">
+            <summary>
+            平面上的点
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Plane.Normal">
+            <summary>
+            平面的单位法向量
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Plane.SignedDistanceTo(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点到平面的有符号距离
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Plane.DistanceTo(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点到平面的距离
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Plane.Contains(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            判断点是否在平面上
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Plane.ProjectPoint(LNLib.Mathematics.XYZ)">
+            <summary>
+            获取点在平面上的投影
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Plane.ProjectVector(LNLib.Mathematics.XYZ)">
+            <summary>
+            获取向量在平面上的投影
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Plane.IsParallelTo(LNLib.Geometry.Primitives.Plane,System.Double)">
+            <summary>
+            判断平面是否与另一个平面平行
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Plane.IsPerpendicularTo(LNLib.Geometry.Primitives.Plane,System.Double)">
+            <summary>
+            判断平面是否与另一个平面垂直
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Plane.IntersectionDirection(LNLib.Geometry.Primitives.Plane)">
+            <summary>
+            获取与另一个平面的交线方向
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Plane.IntersectionPoint(LNLib.Geometry.Primitives.Plane)">
+            <summary>
+            获取与另一个平面的交线上的点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Plane.Transform(LNLib.Mathematics.Matrix4)">
+            <summary>
+            变换平面
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Primitives.Polygon">
+            <summary>
+            表示三维空间中的多边形
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Polygon.#ctor(System.Collections.Generic.IEnumerable{LNLib.Mathematics.XYZ})">
+            <summary>
+            通过顶点集合创建多边形
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Polygon.Vertices">
+            <summary>
+            获取或设置多边形的顶点集合
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Polygon.VertexCount">
+            <summary>
+            获取多边形的顶点数量
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Polygon.Item(System.Int32)">
+            <summary>
+            获取指定索引的顶点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Polygon.AddVertex(LNLib.Mathematics.XYZ)">
+            <summary>
+            添加顶点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Polygon.InsertVertex(System.Int32,LNLib.Mathematics.XYZ)">
+            <summary>
+            插入顶点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Polygon.RemoveVertex(System.Int32)">
+            <summary>
+            移除指定索引的顶点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Polygon.GetNormal">
+            <summary>
+            获取多边形的法向量
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Polygon.Perimeter">
+            <summary>
+            计算多边形的周长
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Polygon.Area">
+            <summary>
+            计算多边形的面积
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Polygon.Centroid">
+            <summary>
+            计算多边形的质心
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Polygon.IsConvex">
+            <summary>
+            判断多边形是否为凸多边形
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Polygon.Contains(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            判断点是否在多边形内（包括边界）
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Polygon.DistanceTo(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点到多边形的最短距离
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Polygon.Triangulate">
+            <summary>
+            将多边形三角剖分为三角形集合
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Polygon.Transform(LNLib.Mathematics.Matrix4)">
+            <summary>
+            变换多边形
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Polygon.CalculateNormal(System.Collections.Generic.List{LNLib.Mathematics.XYZ})">
+            <summary>
+            计算给定顶点集合的法向量
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Polygon.PointOnSegment(LNLib.Mathematics.UV,LNLib.Mathematics.UV,LNLib.Mathematics.UV,System.Double)">
+            <summary>
+            判断点是否在线段上
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Primitives.Sphere">
+            <summary>
+            表示三维空间中的球体
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.#ctor(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            通过中心点和半径创建球体
+            </summary>
+            <param name="center">球心</param>
+            <param name="radius">半径</param>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Sphere.Center">
+            <summary>
+            球心
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Sphere.Radius">
+            <summary>
+            球体半径
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Sphere.Diameter">
+            <summary>
+            球体直径
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Sphere.SurfaceArea">
+            <summary>
+            球体表面积
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Sphere.Volume">
+            <summary>
+            球体体积
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.Contains(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            判断点是否在球体内（包括表面）
+            </summary>
+            <param name="point">待检测点</param>
+            <param name="epsilon">容差值</param>
+            <returns>如果点在球体内部或表面上，则返回true</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.DistanceTo(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点到球体的最短距离
+            </summary>
+            <param name="point">参考点</param>
+            <returns>点到球体的最短距离。如果点在球体内部，则返回0</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.PointAt(System.Double,System.Double)">
+            <summary>
+            计算球体上参数点的坐标
+            </summary>
+            <param name="u">经度参数，范围[0, 2π]</param>
+            <param name="v">纬度参数，范围[0, π]</param>
+            <returns>球面上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.ParameterAt(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点在球面上的参数值
+            </summary>
+            <param name="point">球面上的点</param>
+            <returns>表示(u,v)参数的元组，如果点不在球面上则返回null</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.NormalAt(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算球面上点的法向量
+            </summary>
+            <param name="point">球面上的点</param>
+            <returns>法向量（单位向量）</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.GetTangentPlane(LNLib.Mathematics.XYZ)">
+            <summary>
+            获取切割球体的平面
+            </summary>
+            <param name="point">球面上的点</param>
+            <returns>过该点且与球面相切的平面</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.IntersectWithLine(LNLib.Geometry.Primitives.Line)">
+            <summary>
+            计算球体与直线的交点
+            </summary>
+            <param name="line">直线</param>
+            <returns>交点集合，可能包含0、1或2个点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.IntersectWithRay(LNLib.Geometry.Primitives.Line)">
+            <summary>
+            计算球体与射线的交点
+            </summary>
+            <param name="ray">射线</param>
+            <returns>交点集合，可能包含0、1或2个点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.IntersectWithPlane(LNLib.Geometry.Primitives.Plane)">
+            <summary>
+            计算球体与平面的交线（圆）
+            </summary>
+            <param name="plane">平面</param>
+            <returns>交线圆，如果不相交则返回null</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.IntersectWithSphere(LNLib.Geometry.Primitives.Sphere)">
+            <summary>
+            计算球体与另一个球体的交线（圆）
+            </summary>
+            <param name="other">另一个球体</param>
+            <returns>交线圆，如果不相交则返回null</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.Transform(LNLib.Mathematics.Matrix4)">
+            <summary>
+            变换球体
+            </summary>
+            <param name="transform">变换矩阵</param>
+            <returns>变换后的新球体</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.GenerateMeshPoints(System.Int32,System.Int32)">
+            <summary>
+            生成球面上的网格点
+            </summary>
+            <param name="uDivisions">经度方向的分段数</param>
+            <param name="vDivisions">纬度方向的分段数</param>
+            <returns>球面上的点集</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Sphere.GenerateMeshFaces(System.Int32,System.Int32)">
+            <summary>
+            生成球面的多边形网格
+            </summary>
+            <param name="uDivisions">经度方向的分段数</param>
+            <param name="vDivisions">纬度方向的分段数</param>
+            <returns>表示球面的多边形集合</returns>
+        </member>
+        <member name="T:LNLib.Geometry.Primitives.Triangle">
+            <summary>
+            表示三维空间中的三角形
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Triangle.#ctor(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            通过三个顶点创建三角形
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Triangle.P1">
+            <summary>
+            三角形顶点1
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Triangle.P2">
+            <summary>
+            三角形顶点2
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Triangle.P3">
+            <summary>
+            三角形顶点3
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Triangle.Perimeter">
+            <summary>
+            三角形的周长
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Triangle.Area">
+            <summary>
+            三角形的面积
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Triangle.Normal">
+            <summary>
+            三角形的法向量
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Primitives.Triangle.Centroid">
+            <summary>
+            三角形的质心
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Triangle.PointAt(System.Double,System.Double)">
+            <summary>
+            获取参数(u,v)对应的点，u和v都在[0,1]区间
+            使用重心坐标：P = (1-u-v)*P1 + u*P2 + v*P3
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Triangle.DistanceTo(LNLib.Mathematics.XYZ)">
+            <summary>
+            计算点到三角形的最短距离
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Triangle.Contains(LNLib.Mathematics.XYZ,System.Double)">
+            <summary>
+            判断点是否在三角形上（包括边缘）
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Triangle.IntersectWithLine(LNLib.Geometry.Primitives.Line)">
+            <summary>
+            计算与直线的交点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Triangle.IntersectWithRay(LNLib.Mathematics.XYZ,LNLib.Mathematics.XYZ)">
+            <summary>
+            计算与射线的交点
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Primitives.Triangle.Transform(LNLib.Mathematics.Matrix4)">
+            <summary>
+            变换三角形
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Surface.BsplineSurface">
+            <summary>
+            B样条曲面类
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.BsplineSurface.Check(LNLib.Geometry.Surface.NurbsSurfaceData)">
+            <summary>
+            验证B样条曲面参数的有效性
+            </summary>
+            <param name="surface">B样条曲面</param>
+            <exception cref="T:System.ArgumentException">参数无效时抛出异常</exception>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.BsplineSurface.GetPointOnSurface(LNLib.Geometry.Surface.NurbsSurfaceData,LNLib.Mathematics.UV)">
+            <summary>
+            计算B样条曲面上的点
+            NURBS Book第2版第111页
+            Algorithm A3.5
+            </summary>
+            <param name="surface">B样条曲面</param>
+            <param name="uv">参数点</param>
+            <returns>曲面上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.BsplineSurface.ComputeDerivatives(LNLib.Geometry.Surface.NurbsSurfaceData,System.Int32,LNLib.Mathematics.UV)">
+            <summary>
+            计算B样条曲面的导数
+            NURBS Book第2版第114页
+            Algorithm A3.6
+            </summary>
+            <param name="surface">B样条曲面</param>
+            <param name="derivative">导数阶数</param>
+            <param name="uv">参数点</param>
+            <returns>导数值数组</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.BsplineSurface.ComputeFirstOrderDerivative(LNLib.Geometry.Surface.NurbsSurfaceData,LNLib.Mathematics.UV)">
+            <summary>
+            计算B样条曲面的一阶导数
+            这是ComputeDerivatives方法的优化版本，仅针对一阶导数
+            </summary>
+            <param name="surface">B样条曲面</param>
+            <param name="uv">参数点</param>
+            <returns>一阶导数结果矩阵</returns>
+        </member>
+        <member name="T:LNLib.Geometry.Surface.NurbsSurface">
+            <summary>
+            NURBS曲面类
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.NurbsSurface.Check(LNLib.Geometry.Surface.NurbsSurfaceData)">
+            <summary>
+            验证NURBS曲面参数的有效性
+            </summary>
+            <param name="surface">NURBS曲面</param>
+            <exception cref="T:System.ArgumentException">参数无效时抛出异常</exception>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.NurbsSurface.GetPointOnSurface(LNLib.Geometry.Surface.NurbsSurfaceData,LNLib.Mathematics.UV)">
+            <summary>
+            计算NURBS曲面上的点
+            NURBS Book第2版第134页
+            Algorithm A4.3
+            </summary>
+            <param name="surface">NURBS曲面</param>
+            <param name="uv">参数点</param>
+            <returns>曲面上的点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.NurbsSurface.ComputeRationalSurfaceDerivatives(LNLib.Geometry.Surface.NurbsSurfaceData,System.Int32,LNLib.Mathematics.UV)">
+            <summary>
+            计算NURBS曲面的有理导数
+            NURBS Book第2版第137页
+            Algorithm A4.4
+            </summary>
+            <param name="surface">NURBS曲面</param>
+            <param name="derivative">导数阶数</param>
+            <param name="uv">参数点</param>
+            <returns>导数值数组</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.NurbsSurface.ComputeRationalSurfaceFirstOrderDerivative(LNLib.Geometry.Surface.NurbsSurfaceData,LNLib.Mathematics.UV,LNLib.Mathematics.XYZ@,LNLib.Mathematics.XYZ@,LNLib.Mathematics.XYZ@)">
+            <summary>
+            计算NURBS曲面的一阶有理导数
+            这是ComputeRationalSurfaceDerivatives方法的优化版本，仅针对一阶导数
+            </summary>
+            <param name="surface">NURBS曲面</param>
+            <param name="uv">参数点</param>
+            <param name="S">曲面上的点</param>
+            <param name="Su">U方向导数</param>
+            <param name="Sv">V方向导数</param>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.NurbsSurface.Normal(LNLib.Geometry.Surface.NurbsSurfaceData,LNLib.Mathematics.UV)">
+            <summary>
+            计算曲面法向量
+            </summary>
+            <param name="surface">NURBS曲面</param>
+            <param name="uv">参数点</param>
+            <returns>法向量</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.NurbsSurface.Curvature(LNLib.Geometry.Surface.NurbsSurfaceData,LNLib.Geometry.Surface.SurfaceCurvature,LNLib.Mathematics.UV)">
+            <summary>
+            计算曲面曲率
+            </summary>
+            <param name="surface">NURBS曲面</param>
+            <param name="curvature">曲率类型</param>
+            <param name="uv">参数点</param>
+            <returns>曲率值</returns>
+        </member>
+        <member name="T:LNLib.Geometry.Surface.SurfaceCurvature">
+            <summary>
+            曲面曲率类型
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Surface.SurfaceCurvature.Maximum">
+            <summary>
+            最大主曲率
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Surface.SurfaceCurvature.Minimum">
+            <summary>
+            最小主曲率
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Surface.SurfaceCurvature.Gauss">
+            <summary>
+            高斯曲率
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Surface.SurfaceCurvature.Mean">
+            <summary>
+            平均曲率
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Surface.SurfaceCurvature.Abs">
+            <summary>
+            绝对曲率
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Surface.SurfaceCurvature.Rms">
+            <summary>
+            均方根曲率
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Surface.SurfaceDirection">
+            <summary>
+            曲面方向
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Surface.SurfaceDirection.All">
+            <summary>
+            所有方向
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Surface.SurfaceDirection.UDirection">
+            <summary>
+            U方向
+            </summary>
+        </member>
+        <member name="F:LNLib.Geometry.Surface.SurfaceDirection.VDirection">
+            <summary>
+            V方向
+            </summary>
+        </member>
+        <member name="T:LNLib.Geometry.Surface.NurbsSurfaceData">
+            <summary>
+            NURBS曲面数据类，表示一个NURBS曲面
+            </summary>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.NurbsSurfaceData.#ctor(System.Int32,System.Int32,System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Double},System.Collections.Generic.List{System.Collections.Generic.List{LNLib.Mathematics.XYZW}})">
+            <summary>
+            构造函数
+            </summary>
+            <param name="degreeU">U方向次数</param>
+            <param name="degreeV">V方向次数</param>
+            <param name="knotVectorU">U方向节点向量</param>
+            <param name="knotVectorV">V方向节点向量</param>
+            <param name="controlPoints">控制点矩阵</param>
+        </member>
+        <member name="P:LNLib.Geometry.Surface.NurbsSurfaceData.DegreeU">
+            <summary>
+            获取U方向次数
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Surface.NurbsSurfaceData.DegreeV">
+            <summary>
+            获取V方向次数
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Surface.NurbsSurfaceData.RowCount">
+            <summary>
+            获取控制点行数
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Surface.NurbsSurfaceData.ColumnCount">
+            <summary>
+            获取控制点列数
+            </summary>
+        </member>
+        <member name="P:LNLib.Geometry.Surface.NurbsSurfaceData.Item(System.Int32,System.Int32)">
+            <summary>
+            获取控制点
+            </summary>
+            <param name="row">行索引</param>
+            <param name="column">列索引</param>
+            <returns>控制点</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.NurbsSurfaceData.GetKnotVectorU">
+            <summary>
+            获取U方向节点向量
+            </summary>
+            <returns>U方向节点向量</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.NurbsSurfaceData.GetKnotVectorV">
+            <summary>
+            获取V方向节点向量
+            </summary>
+            <returns>V方向节点向量</returns>
+        </member>
+        <member name="M:LNLib.Geometry.Surface.NurbsSurfaceData.GetControlPoints">
+            <summary>
+            获取控制点矩阵
+            </summary>
+            <returns>控制点矩阵</returns>
+        </member>
+        <member name="T:LNLib.MathUtils">
+            <summary>
+            数学工具类
+            </summary>
+        </member>
+        <member name="M:LNLib.MathUtils.Binomial(System.Int32,System.Int32)">
+            <summary>
+            计算二项式系数 C(n,k)
+            </summary>
+            <param name="n">上标</param>
+            <param name="k">下标</param>
+            <returns>二项式系数</returns>
+        </member>
+        <member name="M:LNLib.MathUtils.IsAlmostEqualTo(System.Double,System.Double,System.Double)">
+            <summary>
+            判断两个浮点数是否近似相等
+            </summary>
+            <param name="a">第一个数</param>
+            <param name="b">第二个数</param>
+            <param name="epsilon">容差，默认为DoubleEpsilon</param>
+            <returns>是否近似相等</returns>
+        </member>
+    </members>
+</doc>

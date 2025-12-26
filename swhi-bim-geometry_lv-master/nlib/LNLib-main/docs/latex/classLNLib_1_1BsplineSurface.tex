@@ -1,0 +1,162 @@
+\doxysection{LNLib\+::Bspline\+Surface类 参考}
+\hypertarget{classLNLib_1_1BsplineSurface}{}\label{classLNLib_1_1BsplineSurface}\index{LNLib::BsplineSurface@{LNLib::BsplineSurface}}
+
+
+{\ttfamily \#include $<$Bspline\+Surface.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\static void \mbox{\hyperlink{classLNLib_1_1BsplineSurface_a1b771c0a8571256759e890ff43eb8947}{Check}} (const \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\+\_\+\+Bspline\+Surface}}$<$ T $>$ \&surface)
+\item 
+{\footnotesize template$<$typename T$>$ }\\static T \mbox{\hyperlink{classLNLib_1_1BsplineSurface_ad65afc7649397a2fec95fdd2a022fb09}{Get\+Point\+On\+Surface}} (const \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\+\_\+\+Bspline\+Surface}}$<$ T $>$ \&surface, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} uv)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page103 Algorithm A3.\+5 Compute surface point. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\static std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{classLNLib_1_1BsplineSurface_a8d71f5d5b0735f6cbbd9860693370397}{Compute\+Derivatives}} (const \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\+\_\+\+Bspline\+Surface}}$<$ T $>$ \&surface, int derivative, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} uv)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page111 Algorithm A3.\+6 Compute surface derivatives. (Usually Use) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\static void \mbox{\hyperlink{classLNLib_1_1BsplineSurface_a0a115c629eeb6a576677e71742553c4d}{Compute\+First\+Order\+Derivative}} (const \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\+\_\+\+Bspline\+Surface}}$<$ T $>$ \&surface, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} uv, T derivatives\mbox{[}2\mbox{]}\mbox{[}2\mbox{]})
+\begin{DoxyCompactList}\small\item\em This is an optimized function of Compute\+Derivatives for order 1 case. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\static std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ T $>$ $>$ $>$ $>$ \mbox{\hyperlink{classLNLib_1_1BsplineSurface_afa45343a64876d26cfb9e804d6332f44}{Compute\+Control\+Points\+Of\+Derivatives}} (const \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\+\_\+\+Bspline\+Surface}}$<$ T $>$ \&surface, int derivative, int min\+Span\+IndexU, int max\+Span\+IndexU, int min\+Span\+IndexV, int max\+Span\+IndexV, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} uv)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page114. Algorithm A3.\+7 Compute control points of derivative surfaces. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T$>$ }\\static std\+::vector$<$ std\+::vector$<$ T $>$ $>$ \mbox{\hyperlink{classLNLib_1_1BsplineSurface_aa033200a0e273cb1bad420a547650ce2}{Compute\+Derivatives\+By\+All\+Basis\+Functions}} (const \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\+\_\+\+Bspline\+Surface}}$<$ T $>$ \&surface, int derivative, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} uv)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page115. Algorithm A3.\+8 Compute surface derivatives. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{BsplineSurface_8h_source}{Bspline\+Surface.\+h}} 第 \mbox{\hyperlink{BsplineSurface_8h_source_l00025}{25}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1BsplineSurface_a1b771c0a8571256759e890ff43eb8947}\index{LNLib::BsplineSurface@{LNLib::BsplineSurface}!Check@{Check}}
+\index{Check@{Check}!LNLib::BsplineSurface@{LNLib::BsplineSurface}}
+\doxysubsubsection{\texorpdfstring{Check()}{Check()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BsplineSurface_a1b771c0a8571256759e890ff43eb8947} 
+template$<$typename T$>$ \\
+static void LNLib\+::\+Bspline\+Surface\+::\+Check (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\+\_\+\+Bspline\+Surface}}$<$ T $>$ \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{BsplineSurface_8h_source}{Bspline\+Surface.\+h}} 第 \mbox{\hyperlink{BsplineSurface_8h_source_l00030}{30}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00028}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Bspline()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1BsplineSurface_afa45343a64876d26cfb9e804d6332f44}\index{LNLib::BsplineSurface@{LNLib::BsplineSurface}!ComputeControlPointsOfDerivatives@{ComputeControlPointsOfDerivatives}}
+\index{ComputeControlPointsOfDerivatives@{ComputeControlPointsOfDerivatives}!LNLib::BsplineSurface@{LNLib::BsplineSurface}}
+\doxysubsubsection{\texorpdfstring{ComputeControlPointsOfDerivatives()}{ComputeControlPointsOfDerivatives()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BsplineSurface_afa45343a64876d26cfb9e804d6332f44} 
+template$<$typename T$>$ \\
+static std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ std\+::vector$<$ T $>$ $>$ $>$ $>$ LNLib\+::\+Bspline\+Surface\+::\+Compute\+Control\+Points\+Of\+Derivatives (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\+\_\+\+Bspline\+Surface}}$<$ T $>$ \&}]{surface}{, }\item[{int}]{derivative}{, }\item[{int}]{min\+Span\+IndexU}{, }\item[{int}]{max\+Span\+IndexU}{, }\item[{int}]{min\+Span\+IndexV}{, }\item[{int}]{max\+Span\+IndexV}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}}}]{uv}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page114. Algorithm A3.\+7 Compute control points of derivative surfaces. 
+
+
+
+在文件 \mbox{\hyperlink{BsplineSurface_8h_source}{Bspline\+Surface.\+h}} 第 \mbox{\hyperlink{BsplineSurface_8h_source_l00197}{197}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{BsplineCurve_8h_source_l00106}{LNLib\+::\+Bspline\+Curve\+::\+Compute\+Control\+Points\+Of\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{UV_8cpp_source_l00037}{LNLib\+::\+UV\+::\+Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{LNLib\+::\+UV\+::\+Get\+V()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BsplineSurface_8h_source_l00273}{Compute\+Derivatives\+By\+All\+Basis\+Functions()}}.
+
+\Hypertarget{classLNLib_1_1BsplineSurface_a8d71f5d5b0735f6cbbd9860693370397}\index{LNLib::BsplineSurface@{LNLib::BsplineSurface}!ComputeDerivatives@{ComputeDerivatives}}
+\index{ComputeDerivatives@{ComputeDerivatives}!LNLib::BsplineSurface@{LNLib::BsplineSurface}}
+\doxysubsubsection{\texorpdfstring{ComputeDerivatives()}{ComputeDerivatives()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BsplineSurface_a8d71f5d5b0735f6cbbd9860693370397} 
+template$<$typename T$>$ \\
+static std\+::vector$<$ std\+::vector$<$ T $>$ $>$ LNLib\+::\+Bspline\+Surface\+::\+Compute\+Derivatives (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\+\_\+\+Bspline\+Surface}}$<$ T $>$ \&}]{surface}{, }\item[{int}]{derivative}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}}}]{uv}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page111 Algorithm A3.\+6 Compute surface derivatives. (Usually Use) 
+
+
+
+在文件 \mbox{\hyperlink{BsplineSurface_8h_source}{Bspline\+Surface.\+h}} 第 \mbox{\hyperlink{BsplineSurface_8h_source_l00094}{94}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00193}{LNLib\+::\+Polynomials\+::\+Basis\+Functions\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{UV_8cpp_source_l00037}{LNLib\+::\+UV\+::\+Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{LNLib\+::\+UV\+::\+Get\+V()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00120}{LNLib\+::\+Nurbs\+Surface\+::\+Compute\+Rational\+Surface\+Derivatives()}}.
+
+\Hypertarget{classLNLib_1_1BsplineSurface_aa033200a0e273cb1bad420a547650ce2}\index{LNLib::BsplineSurface@{LNLib::BsplineSurface}!ComputeDerivativesByAllBasisFunctions@{ComputeDerivativesByAllBasisFunctions}}
+\index{ComputeDerivativesByAllBasisFunctions@{ComputeDerivativesByAllBasisFunctions}!LNLib::BsplineSurface@{LNLib::BsplineSurface}}
+\doxysubsubsection{\texorpdfstring{ComputeDerivativesByAllBasisFunctions()}{ComputeDerivativesByAllBasisFunctions()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BsplineSurface_aa033200a0e273cb1bad420a547650ce2} 
+template$<$typename T$>$ \\
+static std\+::vector$<$ std\+::vector$<$ T $>$ $>$ LNLib\+::\+Bspline\+Surface\+::\+Compute\+Derivatives\+By\+All\+Basis\+Functions (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\+\_\+\+Bspline\+Surface}}$<$ T $>$ \&}]{surface}{, }\item[{int}]{derivative}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}}}]{uv}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page115. Algorithm A3.\+8 Compute surface derivatives. 
+
+
+
+在文件 \mbox{\hyperlink{BsplineSurface_8h_source}{Bspline\+Surface.\+h}} 第 \mbox{\hyperlink{BsplineSurface_8h_source_l00273}{273}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00544}{LNLib\+::\+Polynomials\+::\+All\+Basis\+Functions()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00197}{Compute\+Control\+Points\+Of\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{UV_8cpp_source_l00037}{LNLib\+::\+UV\+::\+Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{LNLib\+::\+UV\+::\+Get\+V()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1BsplineSurface_a0a115c629eeb6a576677e71742553c4d}\index{LNLib::BsplineSurface@{LNLib::BsplineSurface}!ComputeFirstOrderDerivative@{ComputeFirstOrderDerivative}}
+\index{ComputeFirstOrderDerivative@{ComputeFirstOrderDerivative}!LNLib::BsplineSurface@{LNLib::BsplineSurface}}
+\doxysubsubsection{\texorpdfstring{ComputeFirstOrderDerivative()}{ComputeFirstOrderDerivative()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BsplineSurface_a0a115c629eeb6a576677e71742553c4d} 
+template$<$typename T$>$ \\
+static void LNLib\+::\+Bspline\+Surface\+::\+Compute\+First\+Order\+Derivative (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\+\_\+\+Bspline\+Surface}}$<$ T $>$ \&}]{surface}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}}}]{uv}{, }\item[{T}]{derivatives}{\mbox{[}2\mbox{]}\mbox{[}2\mbox{]}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+This is an optimized function of Compute\+Derivatives for order 1 case. 
+
+
+
+在文件 \mbox{\hyperlink{BsplineSurface_8h_source}{Bspline\+Surface.\+h}} 第 \mbox{\hyperlink{BsplineSurface_8h_source_l00145}{145}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00298}{LNLib\+::\+Polynomials\+::\+Basis\+Functions\+First\+Order\+Derivative()}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{UV_8cpp_source_l00037}{LNLib\+::\+UV\+::\+Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{LNLib\+::\+UV\+::\+Get\+V()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{Constants_8h_source_l00028}{LNLib\+::\+Constants\+::\+NURBSMax\+Degree}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00167}{LNLib\+::\+Nurbs\+Surface\+::\+Compute\+Rational\+Surface\+First\+Order\+Derivative()}}.
+
+\Hypertarget{classLNLib_1_1BsplineSurface_ad65afc7649397a2fec95fdd2a022fb09}\index{LNLib::BsplineSurface@{LNLib::BsplineSurface}!GetPointOnSurface@{GetPointOnSurface}}
+\index{GetPointOnSurface@{GetPointOnSurface}!LNLib::BsplineSurface@{LNLib::BsplineSurface}}
+\doxysubsubsection{\texorpdfstring{GetPointOnSurface()}{GetPointOnSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BsplineSurface_ad65afc7649397a2fec95fdd2a022fb09} 
+template$<$typename T$>$ \\
+static T LNLib\+::\+Bspline\+Surface\+::\+Get\+Point\+On\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BsplineSurface}{LN\+\_\+\+Bspline\+Surface}}$<$ T $>$ \&}]{surface}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}}}]{uv}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page103 Algorithm A3.\+5 Compute surface point. 
+
+
+
+在文件 \mbox{\hyperlink{BsplineSurface_8h_source}{Bspline\+Surface.\+h}} 第 \mbox{\hyperlink{BsplineSurface_8h_source_l00055}{55}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Polynomials_8cpp_source_l00162}{LNLib\+::\+Polynomials\+::\+Basis\+Functions()}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{UV_8cpp_source_l00037}{LNLib\+::\+UV\+::\+Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{LNLib\+::\+UV\+::\+Get\+V()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{Constants_8h_source_l00028}{LNLib\+::\+Constants\+::\+NURBSMax\+Degree}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00114}{LNLib\+::\+Nurbs\+Surface\+::\+Get\+Point\+On\+Surface()}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{BsplineSurface_8h}{Bspline\+Surface.\+h}}\end{DoxyCompactItemize}

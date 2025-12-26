@@ -1,0 +1,813 @@
+\doxysection{LNLib\+::Nurbs\+Surface类 参考}
+\hypertarget{classLNLib_1_1NurbsSurface}{}\label{classLNLib_1_1NurbsSurface}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+
+
+{\ttfamily \#include $<$Nurbs\+Surface.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_ad81e6c99fb7bc4b53a4160405ad281ec}{Check}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\item 
+static \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1NurbsSurface_ab192b8d5e2fb7aa7d7419496d3318d6e}{Get\+Point\+On\+Surface}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} uv)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page134 Algorithm A4.\+3 Compute point on rational B-\/spline surface. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ $>$ \mbox{\hyperlink{classLNLib_1_1NurbsSurface_aa37adfdff9e3b2a123771110891524e2}{Compute\+Rational\+Surface\+Derivatives}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, int derivative, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} uv)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page137 Algorithm A4.\+4 Compute S(param\+U,param\+V) derivatives. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_af8c05aaf72af51f5b0438a7daa4499ba}{Compute\+Rational\+Surface\+First\+Order\+Derivative}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} uv, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&S, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&Su, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&Sv)
+\begin{DoxyCompactList}\small\item\em This is an optimized function of Compute\+Rational\+Surface\+Derivatives, for order 1 case. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a60b134f31fa91410c1e0facb9c82940e}{Curvature}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, \mbox{\hyperlink{namespaceLNLib_aee198db970e5fbb25bb1121b84853a34}{Surface\+Curvature}} curvature, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} uv)
+\item 
+static \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a0fd2b94f65d58371b66c889d78da169e}{Normal}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} uv)
+\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_ad5749714f0c77809be3fff7ab3e267fc}{Swap}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&result)
+\begin{DoxyCompactList}\small\item\em Swap surface \doxylink{classLNLib_1_1UV}{UV}. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a047b59e319853e8eed24612816276cb4}{Reverse}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, \mbox{\hyperlink{namespaceLNLib_a53cdce096e0efb00504500dc7bc36bb8}{Surface\+Direction}} direction, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&result)
+\begin{DoxyCompactList}\small\item\em Reverse surface U or V direction. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_ae4c0cc4c62f62d0d36d8dcb2589a7ebe}{Insert\+Knot}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, double insert\+Knot, int times, bool is\+UDirection, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page137 Algorithm A5.\+3 Surface knot insertion along U or V direction. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a5c4ffae2f300a6bbe80b1476f888d1a1}{Refine\+Knot\+Vector}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, const std\+::vector$<$ double $>$ \&insert\+Knot\+Elements, bool is\+UDirection, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page167 Algorithm A5.\+5 Refine surface knot vector. \end{DoxyCompactList}\item 
+static std\+::vector$<$ \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} $>$ \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a9538e6d1f4259be6726c4c7eeaf51abf}{Decompose\+To\+Beziers}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page177 Algorithm A5.\+7 Decompose surface into Bezier patches. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_aea92ce33c35e7dfe55aff7983779eb7b}{Remove\+Knot}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, double remove\+Knot, int times, bool is\+UDirection, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page186 Surface knot removal. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a2ec502e7eaff5b249db591604d5118d0}{Elevate\+Degree}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, int times, bool is\+UDirection, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page209 Algorithm A5.\+10 Degree elevate a surface t times. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a7a9e7a726f52d682af231145e2d8ab0d}{Reduce\+Degree}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, bool is\+UDirection, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&result)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page227 Degree reduce U or V Direction Bezier-\/shape nurbs curve from degree to degree -\/ 1. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a51bbcea2054a45b98c8dfe7215ac96ee}{Equally\+Tessellate}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&tessellated\+Points, std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1UV}{UV}} $>$ \&corresponding\+Knots)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page232 Equally spaced parameter values on each candidate span. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsSurface_ae7d02f0bb46ff33f81934990f3058c61}{Is\+Closed}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, bool is\+UDirection)
+\item 
+static \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \mbox{\hyperlink{classLNLib_1_1NurbsSurface_abc683835adbabab7318ef892bf8f7b81}{Get\+Param\+On\+Surface}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&given\+Point)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page232 Point inversion\+:finding the corresponding parameter make S(u,v) = P. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a3e4433db0a80d09ac79cb07cc20e1be6}{Reparametrize}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, double minU, double maxU, double minV, double maxV, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&result)
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsSurface_ae95bdd5823234071f597231831532066}{Get\+UVTangent}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, const \mbox{\hyperlink{classLNLib_1_1UV}{UV}} param, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&tangent, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&uv\+Tangent)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page235 Surface Tangent Vector Inversion\+: finding the corresponding \doxylink{classLNLib_1_1UV}{UV} tangent \mbox{[}du dv\mbox{]} make T = Su\texorpdfstring{$\ast$}{*}du+\+Sv\texorpdfstring{$\ast$}{*}dv. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a65d535002dd793273e450928bb94ce00}{Create\+Bilinear\+Surface}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&top\+Left\+Point, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&top\+Right\+Point, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&bottom\+Left\+Point, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&bottom\+Right\+Point, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page334 Create a bilinear surface. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a01bbe0bfb3594278f891d6d621b11ede}{Create\+Cylindrical\+Surface}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&origin, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&x\+Axis, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&y\+Axis, double start\+Rad, double end\+Rad, double radius, double height, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page336 Create a right cirular cylinder. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a87c586fefc6c753b147208266a1564b3}{Create\+Ruled\+Surface}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve0, const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&curve1, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page337 Create a ruled surface. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsSurface_abbf498aa29b2dcd184125494cf2e043f}{Create\+Revolved\+Surface}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&origin, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&axis, double rad, const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&profile, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page346 Algorithm A8.\+1 Create a revolved surface. \end{DoxyCompactList}\item 
+static std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} $>$ $>$ \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a072d0d647cb3a269d028a3e1854f86e0}{Non\+Uniform\+Scaling}} (const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} $>$ $>$ \&control\+Points, double x\+Factor, double y\+Factor, double z\+Factor, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&reference\+Point)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page348 Nonuniform scaling of surface. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a4ced86f8e12a782303ac840d7845ff68}{Make\+Corner\+Fillet\+Surface}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&arc, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page359 Algorithm A8.\+2 Create NURBS corner fillet surface. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a8ac0276375f7207c5ac2468f98a47d42}{Global\+Interpolation}} (const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ $>$ \&through\+Points, int degreeU, int degreeV, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page380 Algorithm A9.\+4 Global surface interpolation. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a61e57fffc394f2507cd9a2324bce1137}{Bicubic\+Local\+Interpolation}} (const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ $>$ \&through\+Points, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page404 Algorithm A9.\+5 Local surface interpolation through (n+1)\texorpdfstring{$\ast$}{*}(m+1) points. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a5c11cb23e377b932073ce8b6c16cea5e}{Global\+Approximation}} (const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ $>$ \&through\+Points, int degreeU, int degreeV, int control\+Points\+Rows, int control\+Points\+Columns, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page422 Algorithm A9.\+7 Global surface approximation with fixed number of control points. \end{DoxyCompactList}\item 
+static bool \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a7984000a154886e953d6505c05325e72}{Create\+Swung\+Surface}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&profile, const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&trajectory, double scale, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page456 Create swung surface. The profile curve lie on the xz-\/plane and trajectory curve along its y-\/axis. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a3996cad85d912303f34eb47b54bacc62}{Create\+Loft\+Surface}} (const std\+::vector$<$ \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} $>$ \&sections, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, int custom\+Trajectory\+Degree=0, const std\+::vector$<$ double $>$ \&custom\+Trajectory\+Knot\+Vector=\{\})
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page457 Create loft surface (called Skinned Surface in The NURBS Book). \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a1f234c2b23b9765cee3781be4abf6a59}{Create\+Generalized\+Translational\+Sweep\+Surface}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&profile, const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&trajectory, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page472 Create generalized translational sweep surface. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_adc43cbf4ffc4dff33abf030563781261}{Create\+Sweep\+Surface}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&profile, const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&trajectory, int minimum\+Profiles, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page475 Algorithm A10.\+1 Create sweep surface by trajectory interpolated. Profile must lie on XOY plane. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a49035b1fc4a687c17ea9f52cc8a21cdd}{Create\+Sweep\+Surface}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&profile, const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&trajectory, int minimum\+Profiles, int custom\+Trajectory\+Degree, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page477 Algorithm A10.\+2 Create sweep surface by trajectory not interpolated. Profile must lie on XOY plane. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a256c92dc134f7bee6351598e8206cbb3}{Create\+Gordon\+Surface}} (const std\+::vector$<$ \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} $>$ \&u\+Curves, const std\+::vector$<$ \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} $>$ \&v\+Curves, const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ $>$ \&intersection\+Points, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page494 Algorithm A10.\+3 Create Gordon surface. Gordon surface has a number of restrictions\+: \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classLNLib_1_1NurbsSurface_ae1f0a256530442e4e181203c2e7dbff7}{Create\+Coons\+Surface}} (const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&left\+Curve, const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&bottom\+Curve, const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&right\+Curve, const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&top\+Curve, \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page502 Algorithm A10.\+4 Create Coons surface. The difference between Coons and Gordon is that Coons surface is created by 4 anti-\/clock curves. The Coons surface is the special case of Gordon Surface. \end{DoxyCompactList}\item 
+static double \mbox{\hyperlink{classLNLib_1_1NurbsSurface_ad1a73c5d67a96c2012063438bd7eb2eb}{Approximate\+Area}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface, \mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40}{Integrator\+Type}} type=\mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0}{Integrator\+Type\+::\+Gauss\+Legendre}})
+\begin{DoxyCompactList}\small\item\em Calculate surface area. \end{DoxyCompactList}\item 
+static \mbox{\hyperlink{structLNLib_1_1LN__Mesh}{LN\+\_\+\+Mesh}} \mbox{\hyperlink{classLNLib_1_1NurbsSurface_a67b959e219cb28d3fe619ae1bd912245}{Triangulate}} (const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&surface)
+\begin{DoxyCompactList}\small\item\em Triangulate nurbs surface. According to \href{https://github.com/nortikin/sverchok/blob/master/utils/adaptive_surface.py}{\texttt{ https\+://github.\+com/nortikin/sverchok/blob/master/utils/adaptive\+\_\+surface.\+py}} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8h_source}{Nurbs\+Surface.\+h}} 第 \mbox{\hyperlink{NurbsSurface_8h_source_l00022}{22}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1NurbsSurface_ad1a73c5d67a96c2012063438bd7eb2eb}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!ApproximateArea@{ApproximateArea}}
+\index{ApproximateArea@{ApproximateArea}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{ApproximateArea()}{ApproximateArea()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_ad1a73c5d67a96c2012063438bd7eb2eb} 
+double LNLib\+::\+Nurbs\+Surface\+::\+Approximate\+Area (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{\mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40}{Integrator\+Type}}}]{type}{ = {\ttfamily \mbox{\hyperlink{namespaceLNLib_aa7a89821d2b610adc6c8f6c196422f40aab501f46a8e717acf806f6fc206005b0}{Integrator\+Type\+::\+Gauss\+Legendre}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Calculate surface area. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02979}{2979}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNEnums_8h_source_l00057}{LNLib\+::\+Chebyshev}}, \mbox{\hyperlink{Integrator_8cpp_source_l00121}{LNLib\+::\+Integrator\+::\+Chebyshev\+Series()}}, \mbox{\hyperlink{Integrator_8cpp_source_l00223}{LNLib\+::\+Integrator\+::\+Clenshaw\+Curtis\+Quadrature2()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00167}{Compute\+Rational\+Surface\+First\+Order\+Derivative()}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00041}{LNLib\+::\+Area\+Data\+::\+Current\+KnotU}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00043}{LNLib\+::\+Area\+Data\+::\+Current\+KnotV}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00580}{Decompose\+To\+Beziers()}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{Constants_8h_source_l00024}{LNLib\+::\+Constants\+::\+Distance\+Epsilon}}, \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}, \mbox{\hyperlink{LNEnums_8h_source_l00056}{LNLib\+::\+Gauss\+Legendre}}, \mbox{\hyperlink{Integrator_8h_source_l00041}{LNLib\+::\+Integrator\+::\+Gauss\+Legendre\+Abscissae}}, \mbox{\hyperlink{Integrator_8h_source_l00042}{LNLib\+::\+Integrator\+::\+Gauss\+Legendre\+Weights}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00042}{LNLib\+::\+Area\+Data\+::\+Next\+KnotU}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00044}{LNLib\+::\+Area\+Data\+::\+Next\+KnotV}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01270}{Reparametrize()}}, \mbox{\hyperlink{Integrator_8cpp_source_l00019}{LNLib\+::\+Integrator\+::\+Simpson()}} , 以及 \mbox{\hyperlink{LNEnums_8h_source_l00055}{LNLib\+::\+Simpson}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a61e57fffc394f2507cd9a2324bce1137}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!BicubicLocalInterpolation@{BicubicLocalInterpolation}}
+\index{BicubicLocalInterpolation@{BicubicLocalInterpolation}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{BicubicLocalInterpolation()}{BicubicLocalInterpolation()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a61e57fffc394f2507cd9a2324bce1137} 
+bool LNLib\+::\+Nurbs\+Surface\+::\+Bicubic\+Local\+Interpolation (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ $>$ \&}]{through\+Points}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page404 Algorithm A9.\+5 Local surface interpolation through (n+1)\texorpdfstring{$\ast$}{*}(m+1) points. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01833}{1833}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Interpolation_8cpp_source_l00316}{LNLib\+::\+Interpolation\+::\+Compute\+Tangent()}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{MathUtils_8h_source_l00076}{LNLib\+::\+Math\+Utils\+::\+Get\+Column()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00077}{LNLib\+::\+Get\+Index()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00039}{LNLib\+::\+Interpolation\+::\+Get\+Total\+Chord\+Length()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{ControlPointsUtils_8cpp_source_l00045}{LNLib\+::\+Control\+Points\+Utils\+::\+To\+XYZW()}}, \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_ad81e6c99fb7bc4b53a4160405ad281ec}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!Check@{Check}}
+\index{Check@{Check}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{Check()}{Check()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_ad81e6c99fb7bc4b53a4160405ad281ec} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Check (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00095}{95}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00023}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Knot\+Vector()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00033}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Nurbs()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_aa37adfdff9e3b2a123771110891524e2}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!ComputeRationalSurfaceDerivatives@{ComputeRationalSurfaceDerivatives}}
+\index{ComputeRationalSurfaceDerivatives@{ComputeRationalSurfaceDerivatives}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{ComputeRationalSurfaceDerivatives()}{ComputeRationalSurfaceDerivatives()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_aa37adfdff9e3b2a123771110891524e2} 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib\+::\+XYZ}} $>$ $>$ LNLib\+::\+Nurbs\+Surface\+::\+Compute\+Rational\+Surface\+Derivatives (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{int}]{derivative}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}}}]{uv}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page137 Algorithm A4.\+4 Compute S(param\+U,param\+V) derivatives. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00120}{120}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00093}{LNLib\+::\+Math\+Utils\+::\+Binomial()}}, \mbox{\hyperlink{BsplineSurface_8h_source_l00094}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+Derivatives()}}, \mbox{\hyperlink{UV_8cpp_source_l00037}{LNLib\+::\+UV\+::\+Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{LNLib\+::\+UV\+::\+Get\+V()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00199}{Curvature()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01078}{Get\+Param\+On\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01290}{Get\+UVTangent()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00265}{Normal()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_af8c05aaf72af51f5b0438a7daa4499ba}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!ComputeRationalSurfaceFirstOrderDerivative@{ComputeRationalSurfaceFirstOrderDerivative}}
+\index{ComputeRationalSurfaceFirstOrderDerivative@{ComputeRationalSurfaceFirstOrderDerivative}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{ComputeRationalSurfaceFirstOrderDerivative()}{ComputeRationalSurfaceFirstOrderDerivative()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_af8c05aaf72af51f5b0438a7daa4499ba} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Compute\+Rational\+Surface\+First\+Order\+Derivative (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}}}]{uv}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{S}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{Su}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{Sv}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+This is an optimized function of Compute\+Rational\+Surface\+Derivatives, for order 1 case. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00167}{167}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{BsplineSurface_8h_source_l00145}{LNLib\+::\+Bspline\+Surface\+::\+Compute\+First\+Order\+Derivative()}}, \mbox{\hyperlink{UV_8cpp_source_l00037}{LNLib\+::\+UV\+::\+Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{LNLib\+::\+UV\+::\+Get\+V()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00055}{LNLib\+::\+XYZW\+::\+Get\+W()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{XYZW_8cpp_source_l00097}{LNLib\+::\+XYZW\+::\+To\+XYZ()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02979}{Approximate\+Area()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a65d535002dd793273e450928bb94ce00}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!CreateBilinearSurface@{CreateBilinearSurface}}
+\index{CreateBilinearSurface@{CreateBilinearSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{CreateBilinearSurface()}{CreateBilinearSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a65d535002dd793273e450928bb94ce00} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Create\+Bilinear\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{top\+Left\+Point}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{top\+Right\+Point}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{bottom\+Left\+Point}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{bottom\+Right\+Point}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page334 Create a bilinear surface. 
+
+-\/-\/-\/-\/--- v direction \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|} u direction 
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01323}{1323}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{Create\+Coons\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_ae1f0a256530442e4e181203c2e7dbff7}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!CreateCoonsSurface@{CreateCoonsSurface}}
+\index{CreateCoonsSurface@{CreateCoonsSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{CreateCoonsSurface()}{CreateCoonsSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_ae1f0a256530442e4e181203c2e7dbff7} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Create\+Coons\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{left\+Curve}{, }\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{bottom\+Curve}{, }\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{right\+Curve}{, }\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{top\+Curve}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page502 Algorithm A10.\+4 Create Coons surface. The difference between Coons and Gordon is that Coons surface is created by 4 anti-\/clock curves. The Coons surface is the special case of Gordon Surface. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{2708}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01323}{Create\+Bilinear\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01396}{Create\+Ruled\+Surface()}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00902}{LNLib\+::\+Nurbs\+Curve\+::\+Elevate\+Degree()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00847}{Elevate\+Degree()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00072}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Inserted\+Knot\+Element()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00188}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Inserted\+Knot\+Elements()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00592}{LNLib\+::\+Nurbs\+Curve\+::\+Refine\+Knot\+Vector()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00522}{Refine\+Knot\+Vector()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01425}{LNLib\+::\+Nurbs\+Curve\+::\+Reparametrize()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01440}{LNLib\+::\+Nurbs\+Curve\+::\+Reverse()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00280}{Swap()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a01bbe0bfb3594278f891d6d621b11ede}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!CreateCylindricalSurface@{CreateCylindricalSurface}}
+\index{CreateCylindricalSurface@{CreateCylindricalSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{CreateCylindricalSurface()}{CreateCylindricalSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a01bbe0bfb3594278f891d6d621b11ede} 
+bool LNLib\+::\+Nurbs\+Surface\+::\+Create\+Cylindrical\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{origin}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{x\+Axis}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{y\+Axis}{, }\item[{double}]{start\+Rad}{, }\item[{double}]{end\+Rad}{, }\item[{double}]{radius}{, }\item[{double}]{height}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page336 Create a right cirular cylinder. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01357}{1357}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01737}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Arc()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{LNLib\+::\+XYZ\+::\+Cross\+Product()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00085}{LNLib\+::\+XYZ\+::\+Is\+Zero()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a1f234c2b23b9765cee3781be4abf6a59}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!CreateGeneralizedTranslationalSweepSurface@{CreateGeneralizedTranslationalSweepSurface}}
+\index{CreateGeneralizedTranslationalSweepSurface@{CreateGeneralizedTranslationalSweepSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{CreateGeneralizedTranslationalSweepSurface()}{CreateGeneralizedTranslationalSweepSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a1f234c2b23b9765cee3781be4abf6a59} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Create\+Generalized\+Translational\+Sweep\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{profile}{, }\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{trajectory}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page472 Create generalized translational sweep surface. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02295}{2295}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a256c92dc134f7bee6351598e8206cbb3}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!CreateGordonSurface@{CreateGordonSurface}}
+\index{CreateGordonSurface@{CreateGordonSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{CreateGordonSurface()}{CreateGordonSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a256c92dc134f7bee6351598e8206cbb3} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Create\+Gordon\+Surface (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} $>$ \&}]{u\+Curves}{, }\item[{const std\+::vector$<$ \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} $>$ \&}]{v\+Curves}{, }\item[{const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ $>$ \&}]{intersection\+Points}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page494 Algorithm A10.\+3 Create Gordon surface. Gordon surface has a number of restrictions\+: 
+
+
+\begin{DoxyEnumerate}
+\item All input curves must be NURBS or NURBS-\/like. Only non-\/rational curves are supported -\/ i.\+e., without weights (or all weights equal).
+\item All U-\/curves must be have “the same” direction; all V-\/curves must be also have “the same” direction.
+\item There must be N curves along one direction, and M curves along another direction, which must be exactly intersect at N x M points.
+\item \doxylink{classLNLib_1_1Intersection}{Intersection} points must be located evenly in parameter spaces of curves.
+\item U-\/curves must be ordered along direction of V-\/curves, and vice versa. 
+\end{DoxyEnumerate}
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02459}{2459}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02194}{Create\+Loft\+Surface()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00902}{LNLib\+::\+Nurbs\+Curve\+::\+Elevate\+Degree()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00847}{Elevate\+Degree()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00188}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Inserted\+Knot\+Elements()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01778}{Global\+Interpolation()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00592}{LNLib\+::\+Nurbs\+Curve\+::\+Refine\+Knot\+Vector()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00522}{Refine\+Knot\+Vector()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01425}{LNLib\+::\+Nurbs\+Curve\+::\+Reparametrize()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00280}{Swap()}} , 以及 \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a3996cad85d912303f34eb47b54bacc62}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!CreateLoftSurface@{CreateLoftSurface}}
+\index{CreateLoftSurface@{CreateLoftSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{CreateLoftSurface()}{CreateLoftSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a3996cad85d912303f34eb47b54bacc62} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Create\+Loft\+Surface (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} $>$ \&}]{sections}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{int}]{custom\+Trajectory\+Degree}{ = {\ttfamily 0}, }\item[{const std\+::vector$<$ double $>$ \&}]{custom\+Trajectory\+Knot\+Vector}{ = {\ttfamily \{\}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page457 Create loft surface (called Skinned Surface in The NURBS Book). 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02194}{2194}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Interpolation_8cpp_source_l00095}{LNLib\+::\+Interpolation\+::\+Average\+Knot\+Vector()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00902}{LNLib\+::\+Nurbs\+Curve\+::\+Elevate\+Degree()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00039}{LNLib\+::\+Interpolation\+::\+Get\+Total\+Chord\+Length()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00055}{LNLib\+::\+XYZW\+::\+Get\+W()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00043}{LNLib\+::\+XYZW\+::\+Get\+WX()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00045}{LNLib\+::\+XYZW\+::\+Get\+WY()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00047}{LNLib\+::\+XYZW\+::\+Get\+WZ()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01996}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02459}{Create\+Gordon\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02409}{Create\+Sweep\+Surface()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02325}{Create\+Sweep\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_abbf498aa29b2dcd184125494cf2e043f}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!CreateRevolvedSurface@{CreateRevolvedSurface}}
+\index{CreateRevolvedSurface@{CreateRevolvedSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{CreateRevolvedSurface()}{CreateRevolvedSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_abbf498aa29b2dcd184125494cf2e043f} 
+bool LNLib\+::\+Nurbs\+Surface\+::\+Create\+Revolved\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{origin}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{axis}{, }\item[{double}]{rad}{, }\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{profile}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page346 Algorithm A8.\+1 Create a revolved surface. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01479}{1479}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{LNLib\+::\+XYZ\+::\+Cross\+Product()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{LNEnums_8h_source_l00017}{LNLib\+::\+Intersecting}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than\+Or\+Equal()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00085}{LNLib\+::\+XYZ\+::\+Is\+Zero()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}}, \mbox{\hyperlink{Constants_8h_source_l00027}{LNLib\+::\+Constants\+::\+Pi}}, \mbox{\hyperlink{Projection_8cpp_source_l00015}{LNLib\+::\+Projection\+::\+Point\+To\+Ray()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00097}{LNLib\+::\+XYZW\+::\+To\+XYZ()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a87c586fefc6c753b147208266a1564b3}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!CreateRuledSurface@{CreateRuledSurface}}
+\index{CreateRuledSurface@{CreateRuledSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{CreateRuledSurface()}{CreateRuledSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a87c586fefc6c753b147208266a1564b3} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Create\+Ruled\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve0}{, }\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{curve1}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page337 Create a ruled surface. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01396}{1396}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00902}{LNLib\+::\+Nurbs\+Curve\+::\+Elevate\+Degree()}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00072}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Inserted\+Knot\+Element()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00592}{LNLib\+::\+Nurbs\+Curve\+::\+Refine\+Knot\+Vector()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{Create\+Coons\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a49035b1fc4a687c17ea9f52cc8a21cdd}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!CreateSweepSurface@{CreateSweepSurface}}
+\index{CreateSweepSurface@{CreateSweepSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{CreateSweepSurface()}{CreateSweepSurface()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a49035b1fc4a687c17ea9f52cc8a21cdd} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{profile}{, }\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{trajectory}{, }\item[{int}]{minimum\+Profiles}{, }\item[{int}]{custom\+Trajectory\+Degree}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page477 Algorithm A10.\+2 Create sweep surface by trajectory not interpolated. Profile must lie on XOY plane. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02409}{2409}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{LNLib\+::\+Nurbs\+Curve\+::\+Approximate\+Length()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{LNLib\+::\+Nurbs\+Curve\+::\+Compute\+Rational\+Curve\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02194}{Create\+Loft\+Surface()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{LNLib\+::\+XYZ\+::\+Cross\+Product()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03844}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Params\+On\+Curve()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00055}{LNLib\+::\+XYZW\+::\+Get\+W()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00261}{LNLib\+::\+Matrix4d\+::\+Of\+Point()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00388}{LNLib\+::\+Nurbs\+Curve\+::\+Project\+Normal()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01425}{LNLib\+::\+Nurbs\+Curve\+::\+Reparametrize()}} , 以及 \mbox{\hyperlink{XYZW_8cpp_source_l00097}{LNLib\+::\+XYZW\+::\+To\+XYZ()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_adc43cbf4ffc4dff33abf030563781261}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!CreateSweepSurface@{CreateSweepSurface}}
+\index{CreateSweepSurface@{CreateSweepSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{CreateSweepSurface()}{CreateSweepSurface()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_adc43cbf4ffc4dff33abf030563781261} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{profile}{, }\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{trajectory}{, }\item[{int}]{minimum\+Profiles}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page475 Algorithm A10.\+1 Create sweep surface by trajectory interpolated. Profile must lie on XOY plane. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02325}{2325}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{LNLib\+::\+Nurbs\+Curve\+::\+Compute\+Rational\+Curve\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02194}{Create\+Loft\+Surface()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{LNLib\+::\+XYZ\+::\+Cross\+Product()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00188}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Get\+Inserted\+Knot\+Elements()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00055}{LNLib\+::\+XYZW\+::\+Get\+W()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00261}{LNLib\+::\+Matrix4d\+::\+Of\+Point()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00388}{LNLib\+::\+Nurbs\+Curve\+::\+Project\+Normal()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00592}{LNLib\+::\+Nurbs\+Curve\+::\+Refine\+Knot\+Vector()}} , 以及 \mbox{\hyperlink{XYZW_8cpp_source_l00097}{LNLib\+::\+XYZW\+::\+To\+XYZ()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a7984000a154886e953d6505c05325e72}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!CreateSwungSurface@{CreateSwungSurface}}
+\index{CreateSwungSurface@{CreateSwungSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{CreateSwungSurface()}{CreateSwungSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a7984000a154886e953d6505c05325e72} 
+bool LNLib\+::\+Nurbs\+Surface\+::\+Create\+Swung\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{profile}{, }\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{trajectory}{, }\item[{double}]{scale}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page456 Create swung surface. The profile curve lie on the xz-\/plane and trajectory curve along its y-\/axis. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02094}{2094}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00287}{LNLib\+::\+Nurbs\+Curve\+::\+Compute\+Rational\+Curve\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00158}{LNLib\+::\+Matrix4d\+::\+Create\+Translation()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{LNLib\+::\+XYZ\+::\+Cross\+Product()}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01996}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00234}{LNLib\+::\+Matrix4d\+::\+Multiply()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00272}{LNLib\+::\+Matrix4d\+::\+Of\+Weighted\+Point()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a60b134f31fa91410c1e0facb9c82940e}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!Curvature@{Curvature}}
+\index{Curvature@{Curvature}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{Curvature()}{Curvature()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a60b134f31fa91410c1e0facb9c82940e} 
+double LNLib\+::\+Nurbs\+Surface\+::\+Curvature (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{\mbox{\hyperlink{namespaceLNLib_aee198db970e5fbb25bb1121b84853a34}{Surface\+Curvature}}}]{curvature}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}}}]{uv}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00199}{199}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNEnums_8h_source_l00049}{LNLib\+::\+Abs}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00120}{Compute\+Rational\+Surface\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}, \mbox{\hyperlink{LNEnums_8h_source_l00047}{LNLib\+::\+Gauss}}, \mbox{\hyperlink{UV_8cpp_source_l00037}{LNLib\+::\+UV\+::\+Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{LNLib\+::\+UV\+::\+Get\+V()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{LNEnums_8h_source_l00045}{LNLib\+::\+Maximum}}, \mbox{\hyperlink{LNEnums_8h_source_l00048}{LNLib\+::\+Mean}}, \mbox{\hyperlink{LNEnums_8h_source_l00046}{LNLib\+::\+Minimum}}, \mbox{\hyperlink{LNEnums_8h_source_l00032}{LNLib\+::\+Normal}}, \mbox{\hyperlink{LNEnums_8h_source_l00050}{LNLib\+::\+Rms}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l03149}{Triangulate()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a9538e6d1f4259be6726c4c7eeaf51abf}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!DecomposeToBeziers@{DecomposeToBeziers}}
+\index{DecomposeToBeziers@{DecomposeToBeziers}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{DecomposeToBeziers()}{DecomposeToBeziers()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a9538e6d1f4259be6726c4c7eeaf51abf} 
+std\+::vector$<$ \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LNLib\+::\+LN\+\_\+\+Nurbs\+Surface}} $>$ LNLib\+::\+Nurbs\+Surface\+::\+Decompose\+To\+Beziers (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page177 Algorithm A5.\+7 Decompose surface into Bezier patches. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00580}{580}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00056}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than\+Or\+Equal()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02979}{Approximate\+Area()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a2ec502e7eaff5b249db591604d5118d0}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!ElevateDegree@{ElevateDegree}}
+\index{ElevateDegree@{ElevateDegree}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{ElevateDegree()}{ElevateDegree()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a2ec502e7eaff5b249db591604d5118d0} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Elevate\+Degree (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{int}]{times}{, }\item[{bool}]{is\+UDirection}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page209 Algorithm A5.\+10 Degree elevate a surface t times. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00847}{847}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00902}{LNLib\+::\+Nurbs\+Curve\+::\+Elevate\+Degree()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{Create\+Coons\+Surface()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02459}{Create\+Gordon\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a51bbcea2054a45b98c8dfe7215ac96ee}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!EquallyTessellate@{EquallyTessellate}}
+\index{EquallyTessellate@{EquallyTessellate}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{EquallyTessellate()}{EquallyTessellate()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a51bbcea2054a45b98c8dfe7215ac96ee} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Equally\+Tessellate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ \&}]{tessellated\+Points}{, }\item[{std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1UV}{UV}} $>$ \&}]{corresponding\+Knots}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page232 Equally spaced parameter values on each candidate span. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00979}{979}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00114}{Get\+Point\+On\+Surface()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}} , 以及 \mbox{\hyperlink{XYZW_8cpp_source_l00097}{LNLib\+::\+XYZW\+::\+To\+XYZ()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01078}{Get\+Param\+On\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_abc683835adbabab7318ef892bf8f7b81}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!GetParamOnSurface@{GetParamOnSurface}}
+\index{GetParamOnSurface@{GetParamOnSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{GetParamOnSurface()}{GetParamOnSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_abc683835adbabab7318ef892bf8f7b81} 
+\mbox{\hyperlink{classLNLib_1_1UV}{LNLib\+::\+UV}} LNLib\+::\+Nurbs\+Surface\+::\+Get\+Param\+On\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{given\+Point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page232 Point inversion\+:finding the corresponding parameter make S(u,v) = P. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01078}{1078}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00120}{Compute\+Rational\+Surface\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{Constants_8h_source_l00024}{LNLib\+::\+Constants\+::\+Distance\+Epsilon}}, \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}, \mbox{\hyperlink{Constants_8h_source_l00023}{LNLib\+::\+Constants\+::\+Double\+Epsilon}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00979}{Equally\+Tessellate()}}, \mbox{\hyperlink{UV_8cpp_source_l00037}{LNLib\+::\+UV\+::\+Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{LNLib\+::\+UV\+::\+Get\+V()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01035}{Is\+Closed()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{XYZ_8cpp_source_l00102}{LNLib\+::\+XYZ\+::\+Length()}}, \mbox{\hyperlink{Constants_8h_source_l00026}{LNLib\+::\+Constants\+::\+Max\+Distance}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00127}{LNLib\+::\+XYZ\+::\+Normalize()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_ab192b8d5e2fb7aa7d7419496d3318d6e}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!GetPointOnSurface@{GetPointOnSurface}}
+\index{GetPointOnSurface@{GetPointOnSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{GetPointOnSurface()}{GetPointOnSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_ab192b8d5e2fb7aa7d7419496d3318d6e} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib\+::\+XYZ}} LNLib\+::\+Nurbs\+Surface\+::\+Get\+Point\+On\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}}}]{uv}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page134 Algorithm A4.\+3 Compute point on rational B-\/spline surface. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00114}{114}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{BsplineSurface_8h_source_l00055}{LNLib\+::\+Bspline\+Surface\+::\+Get\+Point\+On\+Surface()}} , 以及 \mbox{\hyperlink{XYZW_8cpp_source_l00097}{LNLib\+::\+XYZW\+::\+To\+XYZ()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00979}{Equally\+Tessellate()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l03149}{Triangulate()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_ae95bdd5823234071f597231831532066}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!GetUVTangent@{GetUVTangent}}
+\index{GetUVTangent@{GetUVTangent}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{GetUVTangent()}{GetUVTangent()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_ae95bdd5823234071f597231831532066} 
+bool LNLib\+::\+Nurbs\+Surface\+::\+Get\+UVTangent (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1UV}{UV}}}]{param}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{tangent}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}} \&}]{uv\+Tangent}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page235 Surface Tangent Vector Inversion\+: finding the corresponding \doxylink{classLNLib_1_1UV}{UV} tangent \mbox{[}du dv\mbox{]} make T = Su\texorpdfstring{$\ast$}{*}du+\+Sv\texorpdfstring{$\ast$}{*}dv. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01290}{1290}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00120}{Compute\+Rational\+Surface\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a5c11cb23e377b932073ce8b6c16cea5e}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!GlobalApproximation@{GlobalApproximation}}
+\index{GlobalApproximation@{GlobalApproximation}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{GlobalApproximation()}{GlobalApproximation()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a5c11cb23e377b932073ce8b6c16cea5e} 
+bool LNLib\+::\+Nurbs\+Surface\+::\+Global\+Approximation (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ $>$ \&}]{through\+Points}{, }\item[{int}]{degreeU}{, }\item[{int}]{degreeV}{, }\item[{int}]{control\+Points\+Rows}{, }\item[{int}]{control\+Points\+Columns}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page422 Algorithm A9.\+7 Global surface approximation with fixed number of control points. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02044}{2044}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{MathUtils_8h_source_l00076}{LNLib\+::\+Math\+Utils\+::\+Get\+Column()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02246}{LNLib\+::\+Nurbs\+Curve\+::\+Least\+Squares\+Approximation()}}, \mbox{\hyperlink{ControlPointsUtils_8cpp_source_l00019}{LNLib\+::\+Control\+Points\+Utils\+::\+To\+XYZ()}}, \mbox{\hyperlink{ControlPointsUtils_8cpp_source_l00045}{LNLib\+::\+Control\+Points\+Utils\+::\+To\+XYZW()}}, \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a8ac0276375f7207c5ac2468f98a47d42}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!GlobalInterpolation@{GlobalInterpolation}}
+\index{GlobalInterpolation@{GlobalInterpolation}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{GlobalInterpolation()}{GlobalInterpolation()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a8ac0276375f7207c5ac2468f98a47d42} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Global\+Interpolation (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} $>$ $>$ \&}]{through\+Points}{, }\item[{int}]{degreeU}{, }\item[{int}]{degreeV}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page380 Algorithm A9.\+4 Global surface interpolation. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01778}{1778}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Interpolation_8cpp_source_l00095}{LNLib\+::\+Interpolation\+::\+Average\+Knot\+Vector()}}, \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00203}{LNLib\+::\+Interpolation\+::\+Get\+Surface\+Mesh\+Parameterization()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01996}{LNLib\+::\+Nurbs\+Curve\+::\+Global\+Interpolation()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02459}{Create\+Gordon\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_ae4c0cc4c62f62d0d36d8dcb2589a7ebe}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!InsertKnot@{InsertKnot}}
+\index{InsertKnot@{InsertKnot}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{InsertKnot()}{InsertKnot()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_ae4c0cc4c62f62d0d36d8dcb2589a7ebe} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Insert\+Knot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{double}]{insert\+Knot}{, }\item[{int}]{times}{, }\item[{bool}]{is\+UDirection}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page137 Algorithm A5.\+3 Surface knot insertion along U or V direction. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00371}{371}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00105}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Multiplicity()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00125}{LNLib\+::\+Polynomials\+::\+Get\+Knot\+Span\+Index()}}, \mbox{\hyperlink{ValidationUtils_8cpp_source_l00033}{LNLib\+::\+Validation\+Utils\+::\+Is\+Valid\+Nurbs()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_ae7d02f0bb46ff33f81934990f3058c61}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!IsClosed@{IsClosed}}
+\index{IsClosed@{IsClosed}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{IsClosed()}{IsClosed()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_ae7d02f0bb46ff33f81934990f3058c61} 
+bool LNLib\+::\+Nurbs\+Surface\+::\+Is\+Closed (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{bool}]{is\+UDirection}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{[}0\mbox{]}\mbox{[}0\mbox{]} \mbox{[}0\mbox{]}\mbox{[}1\mbox{]} ... ... \mbox{[}0\mbox{]}\mbox{[}m\mbox{]} -\/-\/-\/-\/--- v direction \mbox{[}1\mbox{]}\mbox{[}0\mbox{]} \mbox{[}1\mbox{]}\mbox{[}1\mbox{]} ... ... \mbox{[}1\mbox{]}\mbox{[}m\mbox{]} \texorpdfstring{$\vert$}{|} . \texorpdfstring{$\vert$}{|} . u direction~\newline
+ \mbox{[}n\mbox{]}\mbox{[}0\mbox{]} \mbox{[}n\mbox{]}\mbox{[}1\mbox{]} ... ... \mbox{[}n\mbox{]}\mbox{[}m\mbox{]} 
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01035}{1035}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01217}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Closed()}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}} , 以及 \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01078}{Get\+Param\+On\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a4ced86f8e12a782303ac840d7845ff68}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!MakeCornerFilletSurface@{MakeCornerFilletSurface}}
+\index{MakeCornerFilletSurface@{MakeCornerFilletSurface}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{MakeCornerFilletSurface()}{MakeCornerFilletSurface()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a4ced86f8e12a782303ac840d7845ff68} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Make\+Corner\+Fillet\+Surface (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_ad7a697da398104134afc92856e20a140}{LN\+\_\+\+Nurbs\+Curve}} \&}]{arc}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page359 Algorithm A8.\+2 Create NURBS corner fillet surface. 
+
+Curve1,2,3 are three boundary arcs and could arbitrarily positioned and oriented in space but joined at their endpoints. The parameter \textquotesingle{}arc\textquotesingle{} represents curve2; 
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01656}{1656}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00112}{LNLib\+::\+XYZ\+::\+Angle\+To()}}, \mbox{\hyperlink{Polynomials_8cpp_source_l00565}{LNLib\+::\+Polynomials\+::\+Bezier\+To\+Power\+Matrix()}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{LNLib\+::\+XYZ\+::\+Distance()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00281}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Point\+On\+Curve()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00055}{LNLib\+::\+XYZW\+::\+Get\+W()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00043}{LNLib\+::\+XYZW\+::\+Get\+WX()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00045}{LNLib\+::\+XYZW\+::\+Get\+WY()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00038}{LNLib\+::\+XYZ\+::\+Get\+X()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00046}{LNLib\+::\+XYZ\+::\+Get\+Y()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00173}{LNLib\+::\+Math\+Utils\+::\+Make\+Inverse()}}, \mbox{\hyperlink{ControlPointsUtils_8cpp_source_l00061}{LNLib\+::\+Control\+Points\+Utils\+::\+Multiply()}}, \mbox{\hyperlink{Projection_8cpp_source_l00022}{LNLib\+::\+Projection\+::\+Point\+To\+Line()}}, \mbox{\hyperlink{Projection_8cpp_source_l00039}{LNLib\+::\+Projection\+::\+Stereographic()}} , 以及 \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a072d0d647cb3a269d028a3e1854f86e0}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!NonUniformScaling@{NonUniformScaling}}
+\index{NonUniformScaling@{NonUniformScaling}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{NonUniformScaling()}{NonUniformScaling()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a072d0d647cb3a269d028a3e1854f86e0} 
+std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZW}{LNLib\+::\+XYZW}} $>$ $>$ LNLib\+::\+Nurbs\+Surface\+::\+Non\+Uniform\+Scaling (\begin{DoxyParamCaption}\item[{const std\+::vector$<$ std\+::vector$<$ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} $>$ $>$ \&}]{control\+Points}{, }\item[{double}]{x\+Factor}{, }\item[{double}]{y\+Factor}{, }\item[{double}]{z\+Factor}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{reference\+Point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page348 Nonuniform scaling of surface. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01607}{1607}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZW_8cpp_source_l00055}{LNLib\+::\+XYZW\+::\+Get\+W()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00043}{LNLib\+::\+XYZW\+::\+Get\+WX()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00045}{LNLib\+::\+XYZW\+::\+Get\+WY()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00047}{LNLib\+::\+XYZW\+::\+Get\+WZ()}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00095}{LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a0fd2b94f65d58371b66c889d78da169e}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!Normal@{Normal}}
+\index{Normal@{Normal}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{Normal()}{Normal()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a0fd2b94f65d58371b66c889d78da169e} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib\+::\+XYZ}} LNLib\+::\+Nurbs\+Surface\+::\+Normal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}}}]{uv}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00265}{265}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00120}{Compute\+Rational\+Surface\+Derivatives()}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{UV_8cpp_source_l00037}{LNLib\+::\+UV\+::\+Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{LNLib\+::\+UV\+::\+Get\+V()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a7a9e7a726f52d682af231145e2d8ab0d}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!ReduceDegree@{ReduceDegree}}
+\index{ReduceDegree@{ReduceDegree}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{ReduceDegree()}{ReduceDegree()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a7a9e7a726f52d682af231145e2d8ab0d} 
+bool LNLib\+::\+Nurbs\+Surface\+::\+Reduce\+Degree (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{bool}]{is\+UDirection}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page227 Degree reduce U or V Direction Bezier-\/shape nurbs curve from degree to degree -\/ 1. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00909}{909}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01119}{LNLib\+::\+Nurbs\+Curve\+::\+Reduce\+Degree()}} , 以及 \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a5c4ffae2f300a6bbe80b1476f888d1a1}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!RefineKnotVector@{RefineKnotVector}}
+\index{RefineKnotVector@{RefineKnotVector}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{RefineKnotVector()}{RefineKnotVector()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a5c4ffae2f300a6bbe80b1476f888d1a1} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Refine\+Knot\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{const std\+::vector$<$ double $>$ \&}]{insert\+Knot\+Elements}{, }\item[{bool}]{is\+UDirection}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page167 Algorithm A5.\+5 Refine surface knot vector. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00522}{522}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00592}{LNLib\+::\+Nurbs\+Curve\+::\+Refine\+Knot\+Vector()}}, \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{Create\+Coons\+Surface()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02459}{Create\+Gordon\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_aea92ce33c35e7dfe55aff7983779eb7b}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!RemoveKnot@{RemoveKnot}}
+\index{RemoveKnot@{RemoveKnot}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{RemoveKnot()}{RemoveKnot()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_aea92ce33c35e7dfe55aff7983779eb7b} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Remove\+Knot (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{double}]{remove\+Knot}{, }\item[{int}]{times}{, }\item[{bool}]{is\+UDirection}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page186 Surface knot removal. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00780}{780}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00040}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00038}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{LNObject_8h_source_l00039}{LNLib\+::\+LN\+\_\+\+Bspline\+Curve$<$ T $>$\+::\+Knot\+Vector}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00749}{LNLib\+::\+Nurbs\+Curve\+::\+Remove\+Knot()}}, \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}}, \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a3e4433db0a80d09ac79cb07cc20e1be6}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!Reparametrize@{Reparametrize}}
+\index{Reparametrize@{Reparametrize}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{Reparametrize()}{Reparametrize()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a3e4433db0a80d09ac79cb07cc20e1be6} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Reparametrize (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{double}]{minU}{, }\item[{double}]{maxU}{, }\item[{double}]{minV}{, }\item[{double}]{maxV}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01270}{1270}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}} , 以及 \mbox{\hyperlink{KnotVectorUtils_8cpp_source_l00057}{LNLib\+::\+Knot\+Vector\+Utils\+::\+Rescale()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02979}{Approximate\+Area()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a047b59e319853e8eed24612816276cb4}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!Reverse@{Reverse}}
+\index{Reverse@{Reverse}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{Reverse()}{Reverse()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a047b59e319853e8eed24612816276cb4} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Reverse (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a53cdce096e0efb00504500dc7bc36bb8}{Surface\+Direction}}}]{direction}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Reverse surface U or V direction. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00297}{297}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNEnums_8h_source_l00038}{LNLib\+::\+All}}, \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{LNEnums_8h_source_l00039}{LNLib\+::\+UDirection}} , 以及 \mbox{\hyperlink{LNEnums_8h_source_l00040}{LNLib\+::\+VDirection}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_ad5749714f0c77809be3fff7ab3e267fc}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!Swap@{Swap}}
+\index{Swap@{Swap}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{Swap()}{Swap()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_ad5749714f0c77809be3fff7ab3e267fc} 
+void LNLib\+::\+Nurbs\+Surface\+::\+Swap (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{, }\item[{\mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{result}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Swap surface \doxylink{classLNLib_1_1UV}{UV}. 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l00280}{280}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}} , 以及 \mbox{\hyperlink{MathUtils_8h_source_l00060}{LNLib\+::\+Math\+Utils\+::\+Transpose()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{Create\+Coons\+Surface()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02459}{Create\+Gordon\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1NurbsSurface_a67b959e219cb28d3fe619ae1bd912245}\index{LNLib::NurbsSurface@{LNLib::NurbsSurface}!Triangulate@{Triangulate}}
+\index{Triangulate@{Triangulate}!LNLib::NurbsSurface@{LNLib::NurbsSurface}}
+\doxysubsubsection{\texorpdfstring{Triangulate()}{Triangulate()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1NurbsSurface_a67b959e219cb28d3fe619ae1bd912245} 
+\mbox{\hyperlink{structLNLib_1_1LN__Mesh}{LNLib\+::\+LN\+\_\+\+Mesh}} LNLib\+::\+Nurbs\+Surface\+::\+Triangulate (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{namespaceLNLib_a5b230458dcc27e09eca3bc2771d94fe3}{LN\+\_\+\+Nurbs\+Surface}} \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Triangulate nurbs surface. According to \href{https://github.com/nortikin/sverchok/blob/master/utils/adaptive_surface.py}{\texttt{ https\+://github.\+com/nortikin/sverchok/blob/master/utils/adaptive\+\_\+surface.\+py}} 
+
+
+
+在文件 \mbox{\hyperlink{NurbsSurface_8cpp_source}{Nurbs\+Surface.\+cpp}} 第 \mbox{\hyperlink{NurbsSurface_8cpp_source_l03149}{3149}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00052}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00199}{Curvature()}}, \mbox{\hyperlink{LNObject_8h_source_l00048}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00049}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{Constants_8h_source_l00024}{LNLib\+::\+Constants\+::\+Distance\+Epsilon}}, \mbox{\hyperlink{LNObject_8h_source_l00060}{LNLib\+::\+LN\+\_\+\+Mesh\+::\+Faces}}, \mbox{\hyperlink{LNEnums_8h_source_l00047}{LNLib\+::\+Gauss}}, \mbox{\hyperlink{Voronoi_8cpp_source_l00114}{LNLib\+::\+Voronoi\+Diagram\+Generator\+::generate\+Voronoi()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00114}{Get\+Point\+On\+Surface()}}, \mbox{\hyperlink{Voronoi_8cpp_source_l00099}{LNLib\+::\+Voronoi\+Diagram\+Generator\+::get\+Triangles()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{LNObject_8h_source_l00050}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorU}}, \mbox{\hyperlink{LNObject_8h_source_l00051}{LNLib\+::\+LN\+\_\+\+Bspline\+Surface$<$ T $>$\+::\+Knot\+VectorV}}, \mbox{\hyperlink{Voronoi_8cpp_source_l00104}{LNLib\+::\+Voronoi\+Diagram\+Generator\+::set\+Generate\+Delaunay()}}, \mbox{\hyperlink{Voronoi_8cpp_source_l00109}{LNLib\+::\+Voronoi\+Diagram\+Generator\+::set\+Generate\+Voronoi()}} , 以及 \mbox{\hyperlink{LNObject_8h_source_l00059}{LNLib\+::\+LN\+\_\+\+Mesh\+::\+Vertices}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{NurbsSurface_8h}{Nurbs\+Surface.\+h}}\item 
+src/\+LNLib/\+Geometry/\+Surface/\mbox{\hyperlink{NurbsSurface_8cpp}{Nurbs\+Surface.\+cpp}}\end{DoxyCompactItemize}

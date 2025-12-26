@@ -1,0 +1,81 @@
+clear;
+clc;
+close all;
+%% 仅用牛顿法（步长为1）
+format;
+x0=[0 0 0];   % 迭代初始值
+eps = 0.000001;  % 定位精度要求
+for i = 1:100
+    f = double(subs(fun(x0),{'x1' 'x2' 'x3'},{x0(1) x0(2) x0(3)}));
+    df = double(subs(dfun(x0),{'x1' 'x2' 'x3'},{x0(1) x0(2) x0(3)}));  % 得到雅克比矩阵
+    x = (x0 - f/df); % 得到的 x 为牛顿方向，牛顿法步长为 1 ，有效的迭代需要引入步长选择算法。
+    if(abs(x-x0) < eps)
+        break;
+    end
+    x0 = x; % 更新迭代结果
+end
+disp('----牛顿法----');
+disp('定位坐标：');
+x
+disp('迭代次数：');
+i
+if i ==100
+    disp('仅用牛顿法：迭代100次仍然无法达到0.000001的精度')
+end
+
+%% 牛顿法 加 Armijo's rule
+
+syms x1 x2 x3
+f1 = 6*atan(x1-10)-2*exp(-x2)-2*exp(-x3)+2*x2+2*x3-9 ;
+f2 = 2*atan(x1-10)-4*exp(-x2)-1*exp(-x3)+7*x2-2*x3-3 ;
+f3 = 2*atan(x1-10)-1*exp(-x2)-3*exp(-x3)-1*x2+5*x3-3 ;
+f=[f1 f2 f3];
+df1 = gradient(f1);
+df2 = gradient(f2);
+df3 = gradient(f3);
+j = 1;
+alpha = 1;
+gamma = 0.4;
+sigma = 0.5;
+x0=[3 5 8];   % 迭代初始值
+eps = 0.000001;  % 定位精度要求
+X = [x1 x2 x3];
+for i = 1:100
+    f = double(subs(fun(x0),{'x1' 'x2' 'x3'},{x0(1) x0(2) x0(3)}));
+    df = double(subs(dfun(x0),{'x1' 'x2' 'x3'},{x0(1) x0(2) x0(3)}));  % 得到雅克比矩阵
+    x = x0 - f/df; % 得到的 x 为牛顿方向，牛顿法步长为 1 ，有效的迭代需要引入步长选择算法。
+    while (j>0)
+        x_new = x0+alpha.*x;        
+        if double(subs(f1,X,x_new)) <= double(subs(f1,X,x0))+gamma.*alpha.*double(subs(df1,X,x0))'*x'  &&  double(subs(f2,X,x_new)) <= double(subs(f2,X,x0))+gamma.*alpha.*double(subs(df2,X,x0))'*x' && double(subs(f3,X,x_new)) <= double(subs(f3,X,x0))+gamma.*alpha.*double(subs(df3,X,x0))'*x'
+           j = 0;
+           alpha_armijo = alpha;
+        else
+            alpha = alpha*sigma;   
+        end
+    end
+    x = alpha_armijo.*(x0 - f/df);
+    if(abs(x-x0) < eps)
+        break;
+    end
+    x0 = x; % 更新迭代结果
+end
+disp('----牛顿法 + Armijo----');
+disp('定位坐标：');
+x
+disp('迭代次数：');
+i
+disp('加入Armijo法则后，迭代2次即可得到结果')
+
+%% 定义函数
+function df=dfun(x)
+f=fun(x);
+df=[diff(f,'x1');diff(f,'x2');diff(f,'x3')]; %雅克比矩阵
+end
+
+function f = fun(~)
+syms x1 x2 x3
+f1 = 6*atan(x1-10)-2*exp(-x2)-2*exp(-x3)+2*x2+2*x3-9 ;
+f2 = 2*atan(x1-10)-4*exp(-x2)-1*exp(-x3)+7*x2-2*x3-3 ;
+f3 = 2*atan(x1-10)-1*exp(-x2)-3*exp(-x3)-1*x2+5*x3-3 ;
+f=[f1 f2 f3];
+end

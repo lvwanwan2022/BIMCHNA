@@ -1,0 +1,243 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: src/LNLib/include/MathUtils.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('MathUtils_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">MathUtils.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="MathUtils_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Author:</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * 2023/06/08 - Yuqing Liang (BIMCoder Liang)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * bim.frankliang@foxmail.com</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * Use of this source code is governed by a GPL-3.0 license that can be found in</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * the LICENSE file.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="LNLibDefinitions_8h.html">LNLibDefinitions.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="Constants_8h.html">Constants.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceLNLib.html">LNLib</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="classLNLib_1_1MathUtils.html">   19</a></span>    <span class="keyword">class </span><a class="code hl_define" href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a> <a class="code hl_class" href="classLNLib_1_1MathUtils.html">MathUtils</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a0a073b900ff796c8a2def044010dcf2d">IsAlmostEqualTo</a>(<span class="keywordtype">double</span> value1, <span class="keywordtype">double</span> value2, <span class="keywordtype">double</span> tolerance = <a class="code hl_variable" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a995f6f889c781f69e0736108dd8c59bf">IsGreaterThan</a>(<span class="keywordtype">double</span> value1, <span class="keywordtype">double</span> value2, <span class="keywordtype">double</span> tolerance = <a class="code hl_variable" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a244ba0f7bea0ef572b6f2b53b9285fa6">IsGreaterThanOrEqual</a>(<span class="keywordtype">double</span> value1, <span class="keywordtype">double</span> value2, <span class="keywordtype">double</span> tolerance = <a class="code hl_variable" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#abafb9abeffe5d756a37dac392191afdf">IsLessThan</a>(<span class="keywordtype">double</span> value1, <span class="keywordtype">double</span> value2, <span class="keywordtype">double</span> tolerance = <a class="code hl_variable" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a0df1a9322a47b39c1e914c5fa82d9d2a">IsLessThanOrEqual</a>(<span class="keywordtype">double</span> value1, <span class="keywordtype">double</span> value2, <span class="keywordtype">double</span> tolerance = <a class="code hl_variable" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a9172817955251a6a5d326e565aab5ba6">IsInfinite</a>(<span class="keywordtype">double</span> value);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#ab066094974b61485bb10eafaf07ee37b">IsNaN</a>(<span class="keywordtype">double</span> value);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a9f644ec075156b25b5dc1de610fd0448">RadiansToAngle</a>(<span class="keywordtype">double</span> radians);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a5c749ef53dd7c491738acdc5081f3ac9">AngleToRadians</a>(<span class="keywordtype">double</span> angle);</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a47c11b20bc48752634b8f029c5eae62a">Factorial</a>(<span class="keywordtype">int</span> number);</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a15124b0543679f43aaa79b0360672150">Binomial</a>(<span class="keywordtype">int</span> number, <span class="keywordtype">int</span> i);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keyword">static</span> <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#addc3c246ded61a3e57be4aab45b4b61e">ComputerCubicEquationsWithOneVariable</a>(<span class="keywordtype">double</span> cubic, <span class="keywordtype">double</span> quadratic, <span class="keywordtype">double</span> linear, <span class="keywordtype">double</span> constant);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="}">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classLNLib_1_1MathUtils.html#a06a410855387fd4bc2a85d081b9e669e">   60</a></span>        <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="classLNLib_1_1MathUtils.html#a06a410855387fd4bc2a85d081b9e669e">Transpose</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;T&gt;&gt;&amp; matrix, std::vector&lt;std::vector&lt;T&gt;&gt;&amp; transposed)</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>            std::vector&lt;T&gt; temp;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; matrix[0].size(); i++)</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            {</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; matrix.size(); j++)</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>                {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                    temp.emplace_back(matrix[j][i]);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                }</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>                transposed.emplace_back(temp);</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>                temp.erase(temp.begin(), temp.end());</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            }</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        }</div>
+</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00076" data-start="{" data-end="}">
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="classLNLib_1_1MathUtils.html#aca8583dc182f52aabc45990e704abe50">   76</a></span>        <span class="keyword">static</span> std::vector&lt;T&gt; <a class="code hl_function" href="classLNLib_1_1MathUtils.html#aca8583dc182f52aabc45990e704abe50">GetColumn</a>(<span class="keyword">const</span> std::vector&lt;std::vector&lt;T&gt;&gt;&amp; matrix, <span class="keywordtype">int</span> columnIndex)</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        {</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>            <span class="keywordtype">int</span> size = matrix.size();</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>            std::vector&lt;T&gt; result(size);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; size; i++)</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>            {</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                result[i] = matrix[i][columnIndex];</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>            }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>            <span class="keywordflow">return</span> result;</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>        }</div>
+</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>        <span class="keyword">static</span> std::vector&lt;std::vector&lt;double&gt;&gt; MatrixMultiply(<span class="keyword">const</span> std::vector&lt;std::vector&lt;double&gt;&gt;&amp; left, <span class="keyword">const</span> std::vector&lt;std::vector&lt;double&gt;&gt;&amp; right);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>        <span class="keyword">static</span> std::vector&lt;std::vector&lt;double&gt;&gt; MakeDiagonal(<span class="keywordtype">int</span> size);</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>        </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>        <span class="keyword">static</span> std::vector&lt;std::vector&lt;double&gt;&gt; CreateMatrix(<span class="keywordtype">int</span> row, <span class="keywordtype">int</span> column);</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <span class="keyword">static</span> <span class="keywordtype">double</span> GetDeterminant(<span class="keyword">const</span> std::vector&lt;std::vector&lt;double&gt;&gt;&amp; matrix);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        <span class="keyword">static</span> <span class="keywordtype">bool</span> MakeInverse(<span class="keyword">const</span> std::vector&lt;std::vector&lt;double&gt;&gt;&amp; matrix, std::vector&lt;std::vector&lt;double&gt;&gt;&amp; inverse);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>        <span class="keyword">static</span> std::vector&lt;std::vector&lt;double&gt;&gt; SolveLinearSystem(<span class="keyword">const</span> std::vector&lt;std::vector&lt;double&gt;&gt;&amp; matrix, <span class="keyword">const</span> std::vector&lt;std::vector&lt;double&gt;&gt;&amp; right);</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    };</div>
+</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>}</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="ttc" id="aConstants_8h_html"><div class="ttname"><a href="Constants_8h.html">Constants.h</a></div></div>
+<div class="ttc" id="aLNLibDefinitions_8h_html"><div class="ttname"><a href="LNLibDefinitions_8h.html">LNLibDefinitions.h</a></div></div>
+<div class="ttc" id="aLNLibDefinitions_8h_html_ae9d1336b32fdad9d4d368c029c9597af"><div class="ttname"><a href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a></div><div class="ttdeci">#define LNLIB_EXPORT</div><div class="ttdef"><b>定义</b> <a href="LNLibDefinitions_8h_source.html#l00023">LNLibDefinitions.h:23</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1Constants_html_abc53c92777511c041cb18abcff65f3be"><div class="ttname"><a href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">LNLib::Constants::DoubleEpsilon</a></div><div class="ttdeci">static const double DoubleEpsilon</div><div class="ttdef"><b>定义</b> <a href="Constants_8h_source.html#l00023">Constants.h:23</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html"><div class="ttname"><a href="classLNLib_1_1MathUtils.html">LNLib::MathUtils</a></div><div class="ttdef"><b>定义</b> <a href="#l00019">MathUtils.h:20</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_a06a410855387fd4bc2a85d081b9e669e"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#a06a410855387fd4bc2a85d081b9e669e">LNLib::MathUtils::Transpose</a></div><div class="ttdeci">static void Transpose(const std::vector&lt; std::vector&lt; T &gt; &gt; &amp;matrix, std::vector&lt; std::vector&lt; T &gt; &gt; &amp;transposed)</div><div class="ttdef"><b>定义</b> <a href="#l00060">MathUtils.h:60</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_a0a073b900ff796c8a2def044010dcf2d"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#a0a073b900ff796c8a2def044010dcf2d">LNLib::MathUtils::IsAlmostEqualTo</a></div><div class="ttdeci">static bool IsAlmostEqualTo(double value1, double value2, double tolerance=Constants::DoubleEpsilon)</div><div class="ttdoc">According to https://referencesource.microsoft.com/#windowsbase/Shared/MS/Internal/DoubleUtil....</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00026">MathUtils.cpp:26</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_a0df1a9322a47b39c1e914c5fa82d9d2a"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#a0df1a9322a47b39c1e914c5fa82d9d2a">LNLib::MathUtils::IsLessThanOrEqual</a></div><div class="ttdeci">static bool IsLessThanOrEqual(double value1, double value2, double tolerance=Constants::DoubleEpsilon)</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00056">MathUtils.cpp:56</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_a15124b0543679f43aaa79b0360672150"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#a15124b0543679f43aaa79b0360672150">LNLib::MathUtils::Binomial</a></div><div class="ttdeci">static double Binomial(int number, int i)</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00093">MathUtils.cpp:93</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_a244ba0f7bea0ef572b6f2b53b9285fa6"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#a244ba0f7bea0ef572b6f2b53b9285fa6">LNLib::MathUtils::IsGreaterThanOrEqual</a></div><div class="ttdeci">static bool IsGreaterThanOrEqual(double value1, double value2, double tolerance=Constants::DoubleEpsilon)</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00042">MathUtils.cpp:42</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_a47c11b20bc48752634b8f029c5eae62a"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#a47c11b20bc48752634b8f029c5eae62a">LNLib::MathUtils::Factorial</a></div><div class="ttdeci">static int Factorial(int number)</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00085">MathUtils.cpp:85</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_a5c749ef53dd7c491738acdc5081f3ac9"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#a5c749ef53dd7c491738acdc5081f3ac9">LNLib::MathUtils::AngleToRadians</a></div><div class="ttdeci">static double AngleToRadians(double angle)</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00080">MathUtils.cpp:80</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_a9172817955251a6a5d326e565aab5ba6"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#a9172817955251a6a5d326e565aab5ba6">LNLib::MathUtils::IsInfinite</a></div><div class="ttdeci">static bool IsInfinite(double value)</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00063">MathUtils.cpp:63</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_a995f6f889c781f69e0736108dd8c59bf"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#a995f6f889c781f69e0736108dd8c59bf">LNLib::MathUtils::IsGreaterThan</a></div><div class="ttdeci">static bool IsGreaterThan(double value1, double value2, double tolerance=Constants::DoubleEpsilon)</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00035">MathUtils.cpp:35</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_a9f644ec075156b25b5dc1de610fd0448"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#a9f644ec075156b25b5dc1de610fd0448">LNLib::MathUtils::RadiansToAngle</a></div><div class="ttdeci">static double RadiansToAngle(double radians)</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00075">MathUtils.cpp:75</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_ab066094974b61485bb10eafaf07ee37b"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#ab066094974b61485bb10eafaf07ee37b">LNLib::MathUtils::IsNaN</a></div><div class="ttdeci">static bool IsNaN(double value)</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00070">MathUtils.cpp:70</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_abafb9abeffe5d756a37dac392191afdf"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#abafb9abeffe5d756a37dac392191afdf">LNLib::MathUtils::IsLessThan</a></div><div class="ttdeci">static bool IsLessThan(double value1, double value2, double tolerance=Constants::DoubleEpsilon)</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00049">MathUtils.cpp:49</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_aca8583dc182f52aabc45990e704abe50"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#aca8583dc182f52aabc45990e704abe50">LNLib::MathUtils::GetColumn</a></div><div class="ttdeci">static std::vector&lt; T &gt; GetColumn(const std::vector&lt; std::vector&lt; T &gt; &gt; &amp;matrix, int columnIndex)</div><div class="ttdef"><b>定义</b> <a href="#l00076">MathUtils.h:76</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1MathUtils_html_addc3c246ded61a3e57be4aab45b4b61e"><div class="ttname"><a href="classLNLib_1_1MathUtils.html#addc3c246ded61a3e57be4aab45b4b61e">LNLib::MathUtils::ComputerCubicEquationsWithOneVariable</a></div><div class="ttdeci">static double ComputerCubicEquationsWithOneVariable(double cubic, double quadratic, double linear, double constant)</div><div class="ttdoc">The NURBS Book 2nd Edition Page445 Equation 9.102.</div><div class="ttdef"><b>定义</b> <a href="MathUtils_8cpp_source.html#l00098">MathUtils.cpp:98</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html"><div class="ttname"><a href="namespaceLNLib.html">LNLib</a></div><div class="ttdef"><b>定义</b> <a href="Integrator_8cpp_source.html#l00017">Integrator.cpp:18</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_16b010a3eb20297cce52e62ed2fbdb73.html">LNLib</a></li><li class="navelem"><a class="el" href="dir_d94eecf3a687f27b8738855f648c5010.html">include</a></li><li class="navelem"><a class="el" href="MathUtils_8h.html">MathUtils.h</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

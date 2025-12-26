@@ -1,0 +1,105 @@
+\doxysection{Control\+Points\+Utils.\+cpp}
+\hypertarget{ControlPointsUtils_8cpp_source}{}\label{ControlPointsUtils_8cpp_source}\index{src/LNLib/Algorithm/ControlPointsUtils.cpp@{src/LNLib/Algorithm/ControlPointsUtils.cpp}}
+\mbox{\hyperlink{ControlPointsUtils_8cpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/10/28\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{ControlPointsUtils_8h}{ControlPointsUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{XYZ_8h}{XYZ.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{XYZW_8h}{XYZW.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00014}00014\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{LNLibExceptions_8h}{LNLibExceptions.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00015}00015\ \textcolor{preprocessor}{\#include\ <algorithm>}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00016}00016\ }
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00017}00017\ \textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespaceLNLib}{LNLib}};}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00018}00018\ }
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00019}\mbox{\hyperlink{classLNLib_1_1ControlPointsUtils_a075cd17bab99b7781fc5e5d03dd87bbc}{00019}}\ std::vector<XYZ>\ \mbox{\hyperlink{classLNLib_1_1ControlPointsUtils_a075cd17bab99b7781fc5e5d03dd87bbc}{LNLib::ControlPointsUtils::ToXYZ}}(\textcolor{keyword}{const}\ std::vector<XYZW>\&\ weightedControlPoints)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00020}00020\ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00021}00021\ \ \ \ \ std::vector<XYZ>\ result;}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00022}00022\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ weightedControlPoints.size();\ i++)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00023}00023\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ result.emplace\_back(\textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}\&\textcolor{keyword}{>}(weightedControlPoints[i]).\mbox{\hyperlink{classLNLib_1_1ControlPointsUtils_a075cd17bab99b7781fc5e5d03dd87bbc}{ToXYZ}}(\textcolor{keyword}{true}));}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00025}00025\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00026}00026\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00027}00027\ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00028}00028\ }
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00029}\mbox{\hyperlink{classLNLib_1_1ControlPointsUtils_ac48d06739bf81f9fc070458fe93f4bc5}{00029}}\ std::vector<std::vector<XYZ>>\ \mbox{\hyperlink{classLNLib_1_1ControlPointsUtils_a075cd17bab99b7781fc5e5d03dd87bbc}{LNLib::ControlPointsUtils::ToXYZ}}(\textcolor{keyword}{const}\ std::vector<std::vector<XYZW>>\&\ points)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00030}00030\ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00031}00031\ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ points.size();}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00032}00032\ \ \ \ \ \textcolor{keywordtype}{int}\ column\ =\ points[0].size();}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00033}00033\ }
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00034}00034\ \ \ \ \ std::vector<std::vector<XYZ>>\ result(row,\ std::vector<XYZ>(column));}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00035}00035\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ row;\ i++)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00036}00036\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ column;\ j++)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \ \ \ \ result[i][j]\ =\ \textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}\&\textcolor{keyword}{>}(points[i][j]).\mbox{\hyperlink{classLNLib_1_1ControlPointsUtils_a075cd17bab99b7781fc5e5d03dd87bbc}{ToXYZ}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00041}00041\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00043}00043\ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00045}\mbox{\hyperlink{classLNLib_1_1ControlPointsUtils_a26c375d3e1c7c70fd63062dc50cabb5e}{00045}}\ std::vector<std::vector<XYZW>>\ \mbox{\hyperlink{classLNLib_1_1ControlPointsUtils_a26c375d3e1c7c70fd63062dc50cabb5e}{LNLib::ControlPointsUtils::ToXYZW}}(\textcolor{keyword}{const}\ std::vector<std::vector<XYZ>>\&\ points)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00046}00046\ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{int}\ row\ =\ points.size();}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00048}00048\ \ \ \ \ \textcolor{keywordtype}{int}\ column\ =\ points[0].size();}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00049}00049\ }
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00050}00050\ \ \ \ \ std::vector<std::vector<XYZW>>\ result(row,\ std::vector<XYZW>(column));;}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00051}00051\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ row;\ i++)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00052}00052\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ column;\ j++)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ result[i][j]\ =\ \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}}(\textcolor{keyword}{const\_cast<}\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\textcolor{keyword}{>}(points[i][j]),\ 1);}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00057}00057\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00058}00058\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00059}00059\ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00060}00060\ }
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00061}\mbox{\hyperlink{classLNLib_1_1ControlPointsUtils_a0d955391da95af0a76186ced5ce3c49f}{00061}}\ std::vector<std::vector<XYZW>>\ \mbox{\hyperlink{classLNLib_1_1ControlPointsUtils_a0d955391da95af0a76186ced5ce3c49f}{LNLib::ControlPointsUtils::Multiply}}(\textcolor{keyword}{const}\ std::vector<std::vector<XYZW>>\&\ points,\ \textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ coefficient)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00062}00062\ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00063}00063\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ points.size();}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00064}00064\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ points[0].size();}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00065}00065\ \ \ \ \ \textcolor{keywordtype}{int}\ p\ =\ coefficient[0].size();}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00066}00066\ }
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00067}00067\ \ \ \ \ std::vector<std::vector<XYZW>>\ result(m,\ std::vector<XYZW>(p));}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00068}00068\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ m;\ i++)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00069}00069\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00070}00070\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ p;\ j++)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ n;\ k++)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[i][j]\ +=\ points[i][k]\ *\ coefficient[k][j];}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00077}00077\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00078}00078\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00079}00079\ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00080}00080\ }
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00081}\mbox{\hyperlink{classLNLib_1_1ControlPointsUtils_a9d636c0ac7199c2ad62bcc05495fb373}{00081}}\ std::vector<std::vector<XYZW>>\ \mbox{\hyperlink{classLNLib_1_1ControlPointsUtils_a0d955391da95af0a76186ced5ce3c49f}{LNLib::ControlPointsUtils::Multiply}}(\textcolor{keyword}{const}\ std::vector<std::vector<double>>\&\ coefficient,\ \textcolor{keyword}{const}\ std::vector<std::vector<XYZW>>\&\ points)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00082}00082\ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00083}00083\ \ \ \ \ \textcolor{keywordtype}{int}\ m\ =\ coefficient.size();}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00084}00084\ \ \ \ \ \textcolor{keywordtype}{int}\ n\ =\ coefficient[0].size();}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordtype}{int}\ p\ =\ points[0].size();}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00086}00086\ }
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00087}00087\ \ \ \ \ std::vector<std::vector<XYZW>>\ result(m,\ std::vector<XYZW>(p));}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ m;\ i++)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00089}00089\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ j\ =\ 0;\ j\ <\ p;\ j++)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ k\ =\ 0;\ k\ <\ n;\ k++)}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ result[i][j]\ +=\ coefficient[i][k]\ *\ points[k][j];}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00097}00097\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00098}00098\ \ \ \ \ \textcolor{keywordflow}{return}\ result;}
+\DoxyCodeLine{\Hypertarget{ControlPointsUtils_8cpp_source_l00099}00099\ \}}
+
+\end{DoxyCode}

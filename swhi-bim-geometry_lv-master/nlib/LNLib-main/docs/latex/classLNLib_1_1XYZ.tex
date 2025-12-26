@@ -1,0 +1,648 @@
+\doxysection{LNLib\+::XYZ类 参考}
+\hypertarget{classLNLib_1_1XYZ}{}\label{classLNLib_1_1XYZ}\index{LNLib::XYZ@{LNLib::XYZ}}
+
+
+Represents three-\/dimension location/vector/offset  
+
+
+
+
+{\ttfamily \#include $<$XYZ.\+h$>$}
+
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ_afa55cea1b74cbc9ca9615432f8d744db}{XYZ}} ()
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ_a04ba0b5c68bc0bd6fc1fab38c4c065d3}{XYZ}} (double x, double y, double z)
+\item 
+void \mbox{\hyperlink{classLNLib_1_1XYZ_a007a32676629037b9c443248fa28ed95}{SetX}} (const double x)
+\item 
+double \mbox{\hyperlink{classLNLib_1_1XYZ_ad89d7629d1a625493cd1114a6ebbe004}{GetX}} () const
+\item 
+void \mbox{\hyperlink{classLNLib_1_1XYZ_a8053f323903089bd9e1fb43a7bc0a404}{SetY}} (const double y)
+\item 
+double \mbox{\hyperlink{classLNLib_1_1XYZ_ac7a68aaac00bbaeecb51d8aa03ee8322}{GetY}} () const
+\item 
+void \mbox{\hyperlink{classLNLib_1_1XYZ_af97cf5a4b6fe5f26b9899e2355f453b3}{SetZ}} (const double z)
+\item 
+double \mbox{\hyperlink{classLNLib_1_1XYZ_ac1dd1ddfa09fb299ddc4672d116c7efb}{GetZ}} () const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1XYZ_a06858f179cea40342851ea985f861e74}{X}} () const
+\item 
+double \& \mbox{\hyperlink{classLNLib_1_1XYZ_aa129731bda1a807b75b8cd4403c72402}{X}} ()
+\item 
+double \mbox{\hyperlink{classLNLib_1_1XYZ_a8d6988a56b4c78faff46690da3e3a931}{Y}} () const
+\item 
+double \& \mbox{\hyperlink{classLNLib_1_1XYZ_a945f6efc2214a02e2dff6533157c7481}{Y}} ()
+\item 
+double \mbox{\hyperlink{classLNLib_1_1XYZ_ac5d5926aa9258b951acc09534636b05d}{Z}} () const
+\item 
+double \& \mbox{\hyperlink{classLNLib_1_1XYZ_af6a8d9596c30fc1d91fb051f7a4f17f1}{Z}} ()
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1XYZ_abd9e6f3e06a7efe439c2639913fc310f}{Is\+Zero}} (const double epsilon=\mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}) const
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1XYZ_a364bff0eea9a2f39bd2d20e08bb683f3}{Is\+Unit}} (const double epsilon=\mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}) const
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2}{Is\+Almost\+Equal\+To}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&another) const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}{Length}} () const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1XYZ_afa9e0f5966aaaf4e55f1a128b0ef1759}{Sqr\+Length}} () const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1XYZ_a1f6974cca4e5c8cf539eb5ee9cf72c18}{Angle\+To}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&another) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961}{Normalize}} ()
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1XYZ_ac9a0c80c7c1d6f358462dd7656f634ce}{Add}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&another) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1XYZ_af77aadb54489544ba8d912ef7a3efcf9}{Substract}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&another) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1XYZ_aff06ca55967bee6978ab4c15ceef3c0d}{Negative}} () const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1XYZ_aa634eee7815b0227c7b4ccd4b87609c0}{Dot\+Product}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&another) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1XYZ_a0f4c2a266c4ff4956ae6d4f46915354d}{Cross\+Product}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&another) const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1XYZ_a6bbe2197a3621446dc100d8b385b7aac}{Distance}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&another) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \& \mbox{\hyperlink{classLNLib_1_1XYZ_ae35201de40fff3de177e1bbf7d9b1665}{operator=}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&xyz)
+\item 
+double \& \mbox{\hyperlink{classLNLib_1_1XYZ_a8ad6d9faa36994bcc283ea5b70643e14}{operator\mbox{[}$\,$\mbox{]}}} (int index)
+\item 
+const double \& \mbox{\hyperlink{classLNLib_1_1XYZ_a760476be0142b7a57adf5da3a90c40f7}{operator\mbox{[}$\,$\mbox{]}}} (int index) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1XYZ_afef4cf0a73277fc72edb25326e758ea7}{operator+}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&xyz) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1XYZ_ae06ec765f25cbb401ce909619e967342}{operator-\/}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&xyz) const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1XYZ_a378d52a18fc2dfd0f299b8507152c87f}{operator\texorpdfstring{$\ast$}{*}}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&xyz) const
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \& \mbox{\hyperlink{classLNLib_1_1XYZ_a1e6705b80036b0d76594555b6233cceb}{operator\texorpdfstring{$\ast$}{*}=}} (const double \&d)
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \& \mbox{\hyperlink{classLNLib_1_1XYZ_a4391296eb4ab08cf8406580123db42eb}{operator/=}} (const double \&d)
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \& \mbox{\hyperlink{classLNLib_1_1XYZ_ac84697efe8a1464ec33fd58738d65fd9}{operator+=}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&xyz)
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \& \mbox{\hyperlink{classLNLib_1_1XYZ_a3cde09c4d41a9e3d45110fdcb6994e67}{operator-\/=}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&xyz)
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1XYZ_a381ab99c4e43c2de72020a98798b8348}{operator-\/}} () const
+\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1XYZ_a94878ed6f22683432a7d944ccf697833}{Create\+Random\+Orthogonal}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&xyz)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+Represents three-\/dimension location/vector/offset 
+
+在文件 \mbox{\hyperlink{XYZ_8h_source}{XYZ.\+h}} 第 \mbox{\hyperlink{XYZ_8h_source_l00020}{20}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classLNLib_1_1XYZ_afa55cea1b74cbc9ca9615432f8d744db}\index{LNLib::XYZ@{LNLib::XYZ}!XYZ@{XYZ}}
+\index{XYZ@{XYZ}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{XYZ()}{XYZ()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_afa55cea1b74cbc9ca9615432f8d744db} 
+XYZ\+::\+XYZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{19}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{XYZ_8cpp_source_l00141}{Add()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00112}{Angle\+To()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00174}{Create\+Random\+Orthogonal()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00161}{Cross\+Product()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{Distance()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00156}{Dot\+Product()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00095}{Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00151}{Negative()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00127}{Normalize()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00216}{operator\texorpdfstring{$\ast$}{*}()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00221}{operator\texorpdfstring{$\ast$}{*}=()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00206}{operator+()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00237}{operator+=()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00253}{operator-\/()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00211}{operator-\/()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00245}{operator-\/=()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00229}{operator/=()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00188}{operator=()}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00146}{Substract()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a04ba0b5c68bc0bd6fc1fab38c4c065d3}\index{LNLib::XYZ@{LNLib::XYZ}!XYZ@{XYZ}}
+\index{XYZ@{XYZ}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{XYZ()}{XYZ()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a04ba0b5c68bc0bd6fc1fab38c4c065d3} 
+XYZ\+::\+XYZ (\begin{DoxyParamCaption}\item[{double}]{x}{, }\item[{double}]{y}{, }\item[{double}]{z}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00026}{26}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1XYZ_ac9a0c80c7c1d6f358462dd7656f634ce}\index{LNLib::XYZ@{LNLib::XYZ}!Add@{Add}}
+\index{Add@{Add}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{Add()}{Add()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_ac9a0c80c7c1d6f358462dd7656f634ce} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} XYZ\+::\+Add (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00141}{141}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a1f6974cca4e5c8cf539eb5ee9cf72c18}\index{LNLib::XYZ@{LNLib::XYZ}!AngleTo@{AngleTo}}
+\index{AngleTo@{AngleTo}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{AngleTo()}{AngleTo()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a1f6974cca4e5c8cf539eb5ee9cf72c18} 
+double LNLib\+::\+XYZ\+::\+Angle\+To (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00112}{112}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00156}{Dot\+Product()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00085}{Is\+Zero()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00127}{Normalize()}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Intersection_8cpp_source_l00064}{LNLib\+::\+Intersection\+::\+Compute\+Line\+And\+Plane()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01886}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Open\+Conic()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01656}{LNLib\+::\+Nurbs\+Surface\+::\+Make\+Corner\+Fillet\+Surface()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00107}{LNLib\+::\+Tessellate\+Core()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a94878ed6f22683432a7d944ccf697833}\index{LNLib::XYZ@{LNLib::XYZ}!CreateRandomOrthogonal@{CreateRandomOrthogonal}}
+\index{CreateRandomOrthogonal@{CreateRandomOrthogonal}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{CreateRandomOrthogonal()}{CreateRandomOrthogonal()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a94878ed6f22683432a7d944ccf697833} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} LNLib\+::\+XYZ\+::\+Create\+Random\+Orthogonal (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{xyz}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00174}{174}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00161}{Cross\+Product()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00038}{Get\+X()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00046}{Get\+Y()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00053}{Get\+Z()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00127}{Normalize()}}, \mbox{\hyperlink{Constants_8h_source_l00027}{LNLib\+::\+Constants\+::\+Pi}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00388}{LNLib\+::\+Nurbs\+Curve\+::\+Project\+Normal()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a0f4c2a266c4ff4956ae6d4f46915354d}\index{LNLib::XYZ@{LNLib::XYZ}!CrossProduct@{CrossProduct}}
+\index{CrossProduct@{CrossProduct}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{CrossProduct()}{CrossProduct()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a0f4c2a266c4ff4956ae6d4f46915354d} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} XYZ\+::\+Cross\+Product (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00161}{161}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01357}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Cylindrical\+Surface()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00174}{Create\+Random\+Orthogonal()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01479}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Revolved\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02409}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02325}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02094}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Swung\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00331}{LNLib\+::\+Nurbs\+Curve\+::\+Curvature()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00027}{LNLib\+::\+Getak()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00351}{LNLib\+::\+Nurbs\+Curve\+::\+Normal()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00265}{LNLib\+::operator\texorpdfstring{$^\wedge$}{\string^}()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00388}{LNLib\+::\+Nurbs\+Curve\+::\+Project\+Normal()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00448}{LNLib\+::\+Nurbs\+Curve\+::\+Torsion()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03257}{LNLib\+::\+Nurbs\+Curve\+::\+Warping()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a6bbe2197a3621446dc100d8b385b7aac}\index{LNLib::XYZ@{LNLib::XYZ}!Distance@{Distance}}
+\index{Distance@{Distance}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{Distance()}{Distance()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a6bbe2197a3621446dc100d8b385b7aac} 
+double LNLib\+::\+XYZ\+::\+Distance (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00168}{168}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00038}{Get\+X()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00046}{Get\+Y()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00053}{Get\+Z()}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03732}{LNLib\+::\+Nurbs\+Curve\+::\+Approximate\+Length()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03334}{LNLib\+::\+Nurbs\+Curve\+::\+Bending()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02857}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Conic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03289}{LNLib\+::\+Nurbs\+Curve\+::\+Flattening()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03683}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Arc()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01217}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Closed()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01656}{LNLib\+::\+Nurbs\+Surface\+::\+Make\+Corner\+Fillet\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03178}{LNLib\+::\+Nurbs\+Curve\+::\+Neighbor\+Weights\+Modification()}}, \mbox{\hyperlink{Projection_8cpp_source_l00022}{LNLib\+::\+Projection\+::\+Point\+To\+Line()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00107}{LNLib\+::\+Tessellate\+Core()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03152}{LNLib\+::\+Nurbs\+Curve\+::\+Weight\+Modification()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_aa634eee7815b0227c7b4ccd4b87609c0}\index{LNLib::XYZ@{LNLib::XYZ}!DotProduct@{DotProduct}}
+\index{DotProduct@{DotProduct}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{DotProduct()}{DotProduct()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_aa634eee7815b0227c7b4ccd4b87609c0} 
+double XYZ\+::\+Dot\+Product (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00156}{156}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{XYZ_8cpp_source_l00112}{Angle\+To()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02979}{LNLib\+::\+Nurbs\+Surface\+::\+Approximate\+Area()}}, \mbox{\hyperlink{Intersection_8cpp_source_l00064}{LNLib\+::\+Intersection\+::\+Compute\+Line\+And\+Plane()}}, \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{BezierCurve_8cpp_source_l00039}{LNLib\+::\+Bezier\+Curve\+::\+Computer\+Middle\+Control\+Points\+On\+Quadratic\+Curve()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00149}{LNLib\+::\+Interpolation\+::\+Computer\+Weight\+For\+Rational\+Quadratic\+Interpolation()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l00199}{LNLib\+::\+Nurbs\+Surface\+::\+Curvature()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01261}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Param\+On\+Curve()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01078}{LNLib\+::\+Nurbs\+Surface\+::\+Get\+Param\+On\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01290}{LNLib\+::\+Nurbs\+Surface\+::\+Get\+UVTangent()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00378}{LNLib\+::\+Matrix4d\+::\+Has\+Reflection()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03683}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Arc()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00216}{operator\texorpdfstring{$\ast$}{*}()}}, \mbox{\hyperlink{Projection_8cpp_source_l00015}{LNLib\+::\+Projection\+::\+Point\+To\+Ray()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00448}{LNLib\+::\+Nurbs\+Curve\+::\+Torsion()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_ad89d7629d1a625493cd1114a6ebbe004}\index{LNLib::XYZ@{LNLib::XYZ}!GetX@{GetX}}
+\index{GetX@{GetX}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{GetX()}{GetX()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_ad89d7629d1a625493cd1114a6ebbe004} 
+double XYZ\+::\+GetX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00038}{38}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{XYZ_8cpp_source_l00174}{Create\+Random\+Orthogonal()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00112}{LNLib\+::\+Matrix4d\+::\+Create\+Rotation()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{Distance()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01656}{LNLib\+::\+Nurbs\+Surface\+::\+Make\+Corner\+Fillet\+Surface()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00261}{LNLib\+::operator\texorpdfstring{$\ast$}{*}()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00257}{LNLib\+::operator\texorpdfstring{$\ast$}{*}()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00269}{LNLib\+::operator/()}}, \mbox{\hyperlink{Projection_8cpp_source_l00039}{LNLib\+::\+Projection\+::\+Stereographic()}} , 以及 \mbox{\hyperlink{XYZW_8cpp_source_l00027}{LNLib\+::\+XYZW\+::\+XYZW()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_ac7a68aaac00bbaeecb51d8aa03ee8322}\index{LNLib::XYZ@{LNLib::XYZ}!GetY@{GetY}}
+\index{GetY@{GetY}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{GetY()}{GetY()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_ac7a68aaac00bbaeecb51d8aa03ee8322} 
+double XYZ\+::\+GetY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00046}{46}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{XYZ_8cpp_source_l00174}{Create\+Random\+Orthogonal()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00112}{LNLib\+::\+Matrix4d\+::\+Create\+Rotation()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{Distance()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01656}{LNLib\+::\+Nurbs\+Surface\+::\+Make\+Corner\+Fillet\+Surface()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00261}{LNLib\+::operator\texorpdfstring{$\ast$}{*}()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00257}{LNLib\+::operator\texorpdfstring{$\ast$}{*}()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00269}{LNLib\+::operator/()}}, \mbox{\hyperlink{Projection_8cpp_source_l00039}{LNLib\+::\+Projection\+::\+Stereographic()}} , 以及 \mbox{\hyperlink{XYZW_8cpp_source_l00027}{LNLib\+::\+XYZW\+::\+XYZW()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_ac1dd1ddfa09fb299ddc4672d116c7efb}\index{LNLib::XYZ@{LNLib::XYZ}!GetZ@{GetZ}}
+\index{GetZ@{GetZ}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{GetZ()}{GetZ()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_ac1dd1ddfa09fb299ddc4672d116c7efb} 
+double XYZ\+::\+GetZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00053}{53}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{XYZ_8cpp_source_l00174}{Create\+Random\+Orthogonal()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00112}{LNLib\+::\+Matrix4d\+::\+Create\+Rotation()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00168}{Distance()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00261}{LNLib\+::operator\texorpdfstring{$\ast$}{*}()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00257}{LNLib\+::operator\texorpdfstring{$\ast$}{*}()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00269}{LNLib\+::operator/()}}, \mbox{\hyperlink{Projection_8cpp_source_l00039}{LNLib\+::\+Projection\+::\+Stereographic()}} , 以及 \mbox{\hyperlink{XYZW_8cpp_source_l00027}{LNLib\+::\+XYZW\+::\+XYZW()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2}\index{LNLib::XYZ@{LNLib::XYZ}!IsAlmostEqualTo@{IsAlmostEqualTo}}
+\index{IsAlmostEqualTo@{IsAlmostEqualTo}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{IsAlmostEqualTo()}{IsAlmostEqualTo()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_afa69d0f95034851b7d8f84c24d1140c2} 
+bool LNLib\+::\+XYZ\+::\+Is\+Almost\+Equal\+To (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00095}{95}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00315}{LNLib\+::\+Nurbs\+Curve\+::\+Can\+Computer\+Derivative()}}, \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{BezierCurve_8cpp_source_l00039}{LNLib\+::\+Bezier\+Curve\+::\+Computer\+Middle\+Control\+Points\+On\+Quadratic\+Curve()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00149}{LNLib\+::\+Interpolation\+::\+Computer\+Weight\+For\+Rational\+Quadratic\+Interpolation()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02708}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Coons\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01680}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Cubic\+Hermite()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01663}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Line()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03289}{LNLib\+::\+Nurbs\+Curve\+::\+Flattening()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00117}{LNLib\+::\+XYZW\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01217}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Closed()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03643}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Linear()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03523}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Periodic()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01607}{LNLib\+::\+Nurbs\+Surface\+::\+Non\+Uniform\+Scaling()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a364bff0eea9a2f39bd2d20e08bb683f3}\index{LNLib::XYZ@{LNLib::XYZ}!IsUnit@{IsUnit}}
+\index{IsUnit@{IsUnit}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{IsUnit()}{IsUnit()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a364bff0eea9a2f39bd2d20e08bb683f3} 
+bool LNLib\+::\+XYZ\+::\+Is\+Unit (\begin{DoxyParamCaption}\item[{const double}]{epsilon}{ = {\ttfamily \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}}}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00090}{90}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00107}{Sqr\+Length()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_abd9e6f3e06a7efe439c2639913fc310f}\index{LNLib::XYZ@{LNLib::XYZ}!IsZero@{IsZero}}
+\index{IsZero@{IsZero}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{IsZero()}{IsZero()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_abd9e6f3e06a7efe439c2639913fc310f} 
+bool LNLib\+::\+XYZ\+::\+Is\+Zero (\begin{DoxyParamCaption}\item[{const double}]{epsilon}{ = {\ttfamily \mbox{\hyperlink{classLNLib_1_1Constants_abc53c92777511c041cb18abcff65f3be}{Constants\+::\+Double\+Epsilon}}}}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00085}{85}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00107}{Sqr\+Length()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{XYZ_8cpp_source_l00112}{Angle\+To()}}, \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03121}{LNLib\+::\+Nurbs\+Curve\+::\+Control\+Point\+Reposition()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01737}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Arc()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01357}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Cylindrical\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01834}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+One\+Conic\+Arc()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01886}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Open\+Conic()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01479}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Revolved\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02857}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Conic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00388}{LNLib\+::\+Nurbs\+Curve\+::\+Project\+Normal()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03257}{LNLib\+::\+Nurbs\+Curve\+::\+Warping()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82}\index{LNLib::XYZ@{LNLib::XYZ}!Length@{Length}}
+\index{Length@{Length}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{Length()}{Length()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a39a9aba82641a0c1fd903a5dc2a4ef82} 
+double XYZ\+::\+Length (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00102}{102}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{ValidationUtils_8cpp_source_l00043}{LNLib\+::\+Validation\+Utils\+::\+Compute\+Curve\+Modify\+Tolerance()}}, \mbox{\hyperlink{Intersection_8cpp_source_l00018}{LNLib\+::\+Intersection\+::\+Compute\+Rays()}}, \mbox{\hyperlink{BezierCurve_8cpp_source_l00039}{LNLib\+::\+Bezier\+Curve\+::\+Computer\+Middle\+Control\+Points\+On\+Quadratic\+Curve()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00149}{LNLib\+::\+Interpolation\+::\+Computer\+Weight\+For\+Rational\+Quadratic\+Interpolation()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03121}{LNLib\+::\+Nurbs\+Curve\+::\+Control\+Point\+Reposition()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01479}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Revolved\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00331}{LNLib\+::\+Nurbs\+Curve\+::\+Curvature()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l02935}{LNLib\+::\+Nurbs\+Curve\+::\+Fit\+With\+Cubic()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00027}{LNLib\+::\+Getak()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01261}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Param\+On\+Curve()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01078}{LNLib\+::\+Nurbs\+Surface\+::\+Get\+Param\+On\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03523}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Periodic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00351}{LNLib\+::\+Nurbs\+Curve\+::\+Normal()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00127}{Normalize()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00216}{LNLib\+::\+Offset\+By\+Piegl\+And\+Tiller()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l00448}{LNLib\+::\+Nurbs\+Curve\+::\+Torsion()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_aff06ca55967bee6978ab4c15ceef3c0d}\index{LNLib::XYZ@{LNLib::XYZ}!Negative@{Negative}}
+\index{Negative@{Negative}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{Negative()}{Negative()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_aff06ca55967bee6978ab4c15ceef3c0d} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} XYZ\+::\+Negative (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00151}{151}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{BezierCurve_8cpp_source_l00039}{LNLib\+::\+Bezier\+Curve\+::\+Computer\+Middle\+Control\+Points\+On\+Quadratic\+Curve()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00149}{LNLib\+::\+Interpolation\+::\+Computer\+Weight\+For\+Rational\+Quadratic\+Interpolation()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03643}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Linear()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961}\index{LNLib::XYZ@{LNLib::XYZ}!Normalize@{Normalize}}
+\index{Normalize@{Normalize}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{Normalize()}{Normalize()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a00c64e01eb6e5a00239535969e9e1961} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} XYZ\+::\+Normalize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00127}{127}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00102}{Length()}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{XYZ_8cpp_source_l00112}{Angle\+To()}}, \mbox{\hyperlink{Intersection_8cpp_source_l00064}{LNLib\+::\+Intersection\+::\+Compute\+Line\+And\+Plane()}}, \mbox{\hyperlink{BezierCurve_8cpp_source_l00039}{LNLib\+::\+Bezier\+Curve\+::\+Computer\+Middle\+Control\+Points\+On\+Quadratic\+Curve()}}, \mbox{\hyperlink{Interpolation_8cpp_source_l00149}{LNLib\+::\+Interpolation\+::\+Computer\+Weight\+For\+Rational\+Quadratic\+Interpolation()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00174}{Create\+Random\+Orthogonal()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01479}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Revolved\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02409}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02325}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02094}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Swung\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l01261}{LNLib\+::\+Nurbs\+Curve\+::\+Get\+Param\+On\+Curve()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l01078}{LNLib\+::\+Nurbs\+Surface\+::\+Get\+Param\+On\+Surface()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l03523}{LNLib\+::\+Nurbs\+Curve\+::\+Is\+Periodic()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00351}{LNLib\+::\+Nurbs\+Curve\+::\+Normal()}}, \mbox{\hyperlink{NurbsCurve_8cpp_source_l00388}{LNLib\+::\+Nurbs\+Curve\+::\+Project\+Normal()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03257}{LNLib\+::\+Nurbs\+Curve\+::\+Warping()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a378d52a18fc2dfd0f299b8507152c87f}\index{LNLib::XYZ@{LNLib::XYZ}!operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}}
+\index{operator\texorpdfstring{$\ast$}{*}@{operator\texorpdfstring{$\ast$}{*}}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}()}{operator*()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a378d52a18fc2dfd0f299b8507152c87f} 
+double XYZ\+::operator\texorpdfstring{$\ast$}{*} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{xyz}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00216}{216}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00156}{Dot\+Product()}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a1e6705b80036b0d76594555b6233cceb}\index{LNLib::XYZ@{LNLib::XYZ}!operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}}
+\index{operator\texorpdfstring{$\ast$}{*}=@{operator\texorpdfstring{$\ast$}{*}=}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{operator\texorpdfstring{$\ast$}{*}=()}{operator*=()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a1e6705b80036b0d76594555b6233cceb} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \& XYZ\+::operator\texorpdfstring{$\ast$}{*}= (\begin{DoxyParamCaption}\item[{const double \&}]{d}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00221}{221}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_afef4cf0a73277fc72edb25326e758ea7}\index{LNLib::XYZ@{LNLib::XYZ}!operator+@{operator+}}
+\index{operator+@{operator+}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{operator+()}{operator+()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_afef4cf0a73277fc72edb25326e758ea7} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} XYZ\+::operator+ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{xyz}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00206}{206}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_ac84697efe8a1464ec33fd58738d65fd9}\index{LNLib::XYZ@{LNLib::XYZ}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{operator+=()}{operator+=()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_ac84697efe8a1464ec33fd58738d65fd9} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \& XYZ\+::operator+= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{xyz}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00237}{237}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a381ab99c4e43c2de72020a98798b8348}\index{LNLib::XYZ@{LNLib::XYZ}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a381ab99c4e43c2de72020a98798b8348} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} XYZ\+::operator-\/ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00253}{253}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_ae06ec765f25cbb401ce909619e967342}\index{LNLib::XYZ@{LNLib::XYZ}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{operator-\/()}{operator-()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_ae06ec765f25cbb401ce909619e967342} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} XYZ\+::operator-\/ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{xyz}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00211}{211}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a3cde09c4d41a9e3d45110fdcb6994e67}\index{LNLib::XYZ@{LNLib::XYZ}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{operator-\/=()}{operator-=()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a3cde09c4d41a9e3d45110fdcb6994e67} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \& XYZ\+::operator-\/= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{xyz}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00245}{245}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a4391296eb4ab08cf8406580123db42eb}\index{LNLib::XYZ@{LNLib::XYZ}!operator/=@{operator/=}}
+\index{operator/=@{operator/=}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{operator/=()}{operator/=()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a4391296eb4ab08cf8406580123db42eb} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \& XYZ\+::operator/= (\begin{DoxyParamCaption}\item[{const double \&}]{d}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00229}{229}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_ae35201de40fff3de177e1bbf7d9b1665}\index{LNLib::XYZ@{LNLib::XYZ}!operator=@{operator=}}
+\index{operator=@{operator=}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_ae35201de40fff3de177e1bbf7d9b1665} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \& XYZ\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{xyz}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00188}{188}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_a8ad6d9faa36994bcc283ea5b70643e14}\index{LNLib::XYZ@{LNLib::XYZ}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a8ad6d9faa36994bcc283ea5b70643e14} 
+double \& XYZ\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00196}{196}} 行定义.
+
+\Hypertarget{classLNLib_1_1XYZ_a760476be0142b7a57adf5da3a90c40f7}\index{LNLib::XYZ@{LNLib::XYZ}!operator\mbox{[}\mbox{]}@{operator[]}}
+\index{operator\mbox{[}\mbox{]}@{operator[]}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{operator[]()}{operator[]()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a760476be0142b7a57adf5da3a90c40f7} 
+const double \& XYZ\+::operator\mbox{[}$\,$\mbox{]} (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00201}{201}} 行定义.
+
+\Hypertarget{classLNLib_1_1XYZ_a007a32676629037b9c443248fa28ed95}\index{LNLib::XYZ@{LNLib::XYZ}!SetX@{SetX}}
+\index{SetX@{SetX}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{SetX()}{SetX()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a007a32676629037b9c443248fa28ed95} 
+void XYZ\+::\+SetX (\begin{DoxyParamCaption}\item[{const double}]{x}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00033}{33}} 行定义.
+
+\Hypertarget{classLNLib_1_1XYZ_a8053f323903089bd9e1fb43a7bc0a404}\index{LNLib::XYZ@{LNLib::XYZ}!SetY@{SetY}}
+\index{SetY@{SetY}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{SetY()}{SetY()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a8053f323903089bd9e1fb43a7bc0a404} 
+void XYZ\+::\+SetY (\begin{DoxyParamCaption}\item[{const double}]{y}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00040}{40}} 行定义.
+
+\Hypertarget{classLNLib_1_1XYZ_af97cf5a4b6fe5f26b9899e2355f453b3}\index{LNLib::XYZ@{LNLib::XYZ}!SetZ@{SetZ}}
+\index{SetZ@{SetZ}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{SetZ()}{SetZ()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_af97cf5a4b6fe5f26b9899e2355f453b3} 
+void XYZ\+::\+SetZ (\begin{DoxyParamCaption}\item[{const double}]{z}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00048}{48}} 行定义.
+
+\Hypertarget{classLNLib_1_1XYZ_afa9e0f5966aaaf4e55f1a128b0ef1759}\index{LNLib::XYZ@{LNLib::XYZ}!SqrLength@{SqrLength}}
+\index{SqrLength@{SqrLength}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{SqrLength()}{SqrLength()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_afa9e0f5966aaaf4e55f1a128b0ef1759} 
+double XYZ\+::\+Sqr\+Length (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00107}{107}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{XYZ_8cpp_source_l00090}{Is\+Unit()}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00085}{Is\+Zero()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_af77aadb54489544ba8d912ef7a3efcf9}\index{LNLib::XYZ@{LNLib::XYZ}!Substract@{Substract}}
+\index{Substract@{Substract}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{Substract()}{Substract()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_af77aadb54489544ba8d912ef7a3efcf9} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} XYZ\+::\+Substract (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{another}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00146}{146}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00019}{XYZ()}}.
+
+\Hypertarget{classLNLib_1_1XYZ_aa129731bda1a807b75b8cd4403c72402}\index{LNLib::XYZ@{LNLib::XYZ}!X@{X}}
+\index{X@{X}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{X()}{X()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_aa129731bda1a807b75b8cd4403c72402} 
+double \& XYZ\+::X (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00060}{60}} 行定义.
+
+\Hypertarget{classLNLib_1_1XYZ_a06858f179cea40342851ea985f861e74}\index{LNLib::XYZ@{LNLib::XYZ}!X@{X}}
+\index{X@{X}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{X()}{X()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a06858f179cea40342851ea985f861e74} 
+double XYZ\+::X (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00055}{55}} 行定义.
+
+\Hypertarget{classLNLib_1_1XYZ_a945f6efc2214a02e2dff6533157c7481}\index{LNLib::XYZ@{LNLib::XYZ}!Y@{Y}}
+\index{Y@{Y}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{Y()}{Y()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a945f6efc2214a02e2dff6533157c7481} 
+double \& XYZ\+::Y (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00070}{70}} 行定义.
+
+\Hypertarget{classLNLib_1_1XYZ_a8d6988a56b4c78faff46690da3e3a931}\index{LNLib::XYZ@{LNLib::XYZ}!Y@{Y}}
+\index{Y@{Y}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{Y()}{Y()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_a8d6988a56b4c78faff46690da3e3a931} 
+double XYZ\+::Y (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00065}{65}} 行定义.
+
+\Hypertarget{classLNLib_1_1XYZ_af6a8d9596c30fc1d91fb051f7a4f17f1}\index{LNLib::XYZ@{LNLib::XYZ}!Z@{Z}}
+\index{Z@{Z}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{Z()}{Z()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_af6a8d9596c30fc1d91fb051f7a4f17f1} 
+double \& XYZ\+::Z (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00080}{80}} 行定义.
+
+\Hypertarget{classLNLib_1_1XYZ_ac5d5926aa9258b951acc09534636b05d}\index{LNLib::XYZ@{LNLib::XYZ}!Z@{Z}}
+\index{Z@{Z}!LNLib::XYZ@{LNLib::XYZ}}
+\doxysubsubsection{\texorpdfstring{Z()}{Z()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1XYZ_ac5d5926aa9258b951acc09534636b05d} 
+double XYZ\+::Z (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{XYZ_8cpp_source}{XYZ.\+cpp}} 第 \mbox{\hyperlink{XYZ_8cpp_source_l00075}{75}} 行定义.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{XYZ_8h}{XYZ.\+h}}\item 
+src/\+LNLib/\+Mathematics/\+Math/\mbox{\hyperlink{XYZ_8cpp}{XYZ.\+cpp}}\end{DoxyCompactItemize}

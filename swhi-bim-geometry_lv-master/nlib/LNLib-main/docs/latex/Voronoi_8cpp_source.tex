@@ -1,0 +1,1510 @@
+\doxysection{Voronoi.\+cpp}
+\hypertarget{Voronoi_8cpp_source}{}\label{Voronoi_8cpp_source}\index{src/LNLib/Algorithm/Voronoi.cpp@{src/LNLib/Algorithm/Voronoi.cpp}}
+\mbox{\hyperlink{Voronoi_8cpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00002}00002\ \textcolor{comment}{MapManager\ library\ for\ the\ conversion,\ manipulation\ and\ analysis}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00003}00003\ \textcolor{comment}{of\ maps\ used\ in\ Mobile\ Robotics\ research.}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00004}00004\ \textcolor{comment}{Copyright\ (C)\ 2005\ Shane\ O'Sullivan}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00005}00005\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00006}00006\ \textcolor{comment}{This\ library\ is\ free\ software;\ you\ can\ redistribute\ it\ and/or}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00007}00007\ \textcolor{comment}{modify\ it\ under\ the\ terms\ of\ the\ GNU\ Lesser\ General\ Public}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00008}00008\ \textcolor{comment}{License\ as\ published\ by\ the\ Free\ Software\ Foundation;\ either}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00009}00009\ \textcolor{comment}{version\ 2.1\ of\ the\ License,\ or\ (at\ your\ option)\ any\ later\ version.}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00010}00010\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00011}00011\ \textcolor{comment}{This\ library\ is\ distributed\ in\ the\ hope\ that\ it\ will\ be\ useful,}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00012}00012\ \textcolor{comment}{but\ WITHOUT\ ANY\ WARRANTY;\ without\ even\ the\ implied\ warranty\ of}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00013}00013\ \textcolor{comment}{MERCHANTABILITY\ or\ FITNESS\ FOR\ A\ PARTICULAR\ PURPOSE.\ \ See\ the\ GNU}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00014}00014\ \textcolor{comment}{Lesser\ General\ Public\ License\ for\ more\ details.}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00015}00015\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00016}00016\ \textcolor{comment}{You\ should\ have\ received\ a\ copy\ of\ the\ GNU\ Lesser\ General\ Public}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00017}00017\ \textcolor{comment}{License\ along\ with\ this\ library;\ if\ not,\ write\ to\ the\ Free\ Software}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00018}00018\ \textcolor{comment}{Foundation,\ Inc.,\ 59\ Temple\ Place,\ Suite\ 330,\ Boston,\ MA\ \ 02111-\/1307\ \ USA}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00019}00019\ \textcolor{comment}{}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00020}00020\ \textcolor{comment}{email:\ shaneosullivan1@gmail.com}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00021}00021\ \textcolor{comment}{*/}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00022}00022\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00023}00023\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00024}00024\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00025}00025\ \textcolor{comment}{\ *\ 2024/04/06\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00026}00026\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00027}00027\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00028}00028\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00029}00029\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00030}00030\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00031}00031\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00032}00032\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00033}00033\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Voronoi_8h}{Voronoi.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00034}00034\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00035}00035\ \textcolor{preprocessor}{\#include\ <cmath>}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00036}00036\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00037}\mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a8b0f9314aaf6186d25734adf8be0d86f}{00037}}\ \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a8b0f9314aaf6186d25734adf8be0d86f}{LNLib::VoronoiDiagramGenerator::VoronoiDiagramGenerator}}()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00038}00038\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00039}00039\ \ \ \ \ siteidx\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00040}00040\ \ \ \ \ sites\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00041}00041\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00042}00042\ \ \ \ \ allMemoryList\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structLNLib_1_1FreeNodeArrayList}{LNLib::FreeNodeArrayList}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00043}00043\ \ \ \ \ allMemoryList-\/>\mbox{\hyperlink{structLNLib_1_1FreeNodeArrayList_af4b7ac6caa552b68359a4c235f31a099}{memory}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00044}00044\ \ \ \ \ allMemoryList-\/>next\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00045}00045\ \ \ \ \ currentMemoryBlock\ =\ allMemoryList;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00046}00046\ \ \ \ \ allEdges\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00047}00047\ \ \ \ \ iteratorEdges\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00048}00048\ \ \ \ \ sites\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00049}00049\ \ \ \ \ ELhash\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00050}00050\ \ \ \ \ PQhash\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00051}00051\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00052}00052\ \ \ \ \ minDistanceBetweenSites\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00053}00053\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00054}00054\ \ \ \ \ vertexLinks\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00055}00055\ \ \ \ \ vertices\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00056}00056\ \ \ \ \ finalVertexLinks\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00057}00057\ \ \ \ \ finalVertices\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00058}00058\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00059}00059\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a5a4260c45f7d422a747398158473ab15}{setGenerateVoronoi}}(\textcolor{keyword}{true});}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00060}00060\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_adc728eeb2c8731d90afeabd2b666fc8c}{setGenerateDelaunay}}(\textcolor{keyword}{false});}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00061}00061\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00062}00062\ \ \ \ \ delaunayEdges\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00063}00063\ \ \ \ \ iteratorDelaunayEdges\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00064}00064\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00065}00065\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00066}\mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_aaec24df4cdb4366284acfb251146f28f}{00066}}\ \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_aaec24df4cdb4366284acfb251146f28f}{LNLib::VoronoiDiagramGenerator::\string~VoronoiDiagramGenerator}}()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00067}00067\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00068}00068\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_ad91fbd215845b9c793f369ffc2bf54f6}{reset}}();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00069}00069\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00071}\mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_ad91fbd215845b9c793f369ffc2bf54f6}{00071}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_ad91fbd215845b9c793f369ffc2bf54f6}{LNLib::VoronoiDiagramGenerator::reset}}()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00072}00072\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00073}00073\ \ \ \ \ cleanup();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00074}00074\ \ \ \ \ cleanupEdges();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00075}00075\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00076}00076\ \ \ \ \ \textcolor{keywordflow}{if}\ (allMemoryList\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ allMemoryList;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00078}00078\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00079}00079\ \ \ \ \ \textcolor{keywordflow}{if}\ (finalVertices\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ free(finalVertices);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00081}00081\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00082}00082\ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ free(vertexLinks);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00084}00084\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00085}00085\ \ \ \ \ \textcolor{keywordflow}{if}\ (vertices\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ free(vertices);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00087}00087\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00088}00088\ \ \ \ \ \textcolor{keywordflow}{if}\ (finalVertexLinks\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ free(finalVertexLinks);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00090}00090\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00091}00091\ \ \ \ \ allMemoryList\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00092}00092\ \ \ \ \ finalVertices\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00093}00093\ \ \ \ \ vertexLinks\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00094}00094\ \ \ \ \ vertices\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00095}00095\ \ \ \ \ finalVertexLinks\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00096}00096\ \ \ \ \ triangles.clear();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00097}00097\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00098}00098\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00099}\mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a357b00cec994c1302513c2dc9b9b91a3}{00099}}\ std::vector<std::vector<int>>\ \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a357b00cec994c1302513c2dc9b9b91a3}{LNLib::VoronoiDiagramGenerator::getTriangles}}()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00100}00100\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00101}00101\ \ \ \ \ \textcolor{keywordflow}{return}\ triangles;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00102}00102\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00104}\mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_adc728eeb2c8731d90afeabd2b666fc8c}{00104}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_adc728eeb2c8731d90afeabd2b666fc8c}{LNLib::VoronoiDiagramGenerator::setGenerateDelaunay}}(\textcolor{keywordtype}{bool}\ genDel)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00105}00105\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00106}00106\ \ \ \ \ genDelaunay\ =\ genDel;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00107}00107\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00108}00108\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00109}\mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a5a4260c45f7d422a747398158473ab15}{00109}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a5a4260c45f7d422a747398158473ab15}{LNLib::VoronoiDiagramGenerator::setGenerateVoronoi}}(\textcolor{keywordtype}{bool}\ genVor)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00110}00110\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00111}00111\ \ \ \ \ genVoronoi\ =\ genVor;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00112}00112\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00113}00113\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00114}\mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a0e9c9012d8f75f4aef404c4cd8b90775}{00114}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_a0e9c9012d8f75f4aef404c4cd8b90775}{LNLib::VoronoiDiagramGenerator::generateVoronoi}}(\textcolor{keywordtype}{float}*\ xValues,\ \textcolor{keywordtype}{float}*\ yValues,\ \textcolor{keywordtype}{int}\ numPoints,\ \textcolor{keywordtype}{float}\ minX,}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00115}00115\ \ \ \ \ \textcolor{keywordtype}{float}\ maxX,\ \textcolor{keywordtype}{float}\ minY,\ \textcolor{keywordtype}{float}\ maxY,\ \textcolor{keywordtype}{float}\ minDist,\ \textcolor{keywordtype}{bool}\ genVertexInfo)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00116}00116\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00117}00117\ \ \ \ \ cleanup();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00118}00118\ \ \ \ \ cleanupEdges();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00119}00119\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00120}00120\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00121}00121\ \ \ \ \ minDistanceBetweenSites\ =\ minDist;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00122}00122\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00123}00123\ \ \ \ \ nsites\ =\ numPoints;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00124}00124\ \ \ \ \ plot\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00125}00125\ \ \ \ \ triangulate\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00126}00126\ \ \ \ \ debug\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00127}00127\ \ \ \ \ sorted\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00128}00128\ \ \ \ \ \textcolor{keywordflow}{if}\ (sites\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ free(sites);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00130}00130\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00131}00131\ \ \ \ \ freeinit(\&sfl,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structLNLib_1_1Site}{LNLib::Site}}));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00132}00132\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00133}00133\ \ \ \ \ sites\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)myalloc(nsites\ *\ \textcolor{keyword}{sizeof}(*sites));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00134}00134\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00135}00135\ \ \ \ \ \textcolor{keywordflow}{if}\ (finalVertices\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ free(finalVertices);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00137}00137\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00138}00138\ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ free(vertexLinks);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00140}00140\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00141}00141\ \ \ \ \ \textcolor{keywordflow}{if}\ (vertices\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ free(vertices);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00143}00143\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00144}00144\ \ \ \ \ \textcolor{keywordflow}{if}\ (finalVertexLinks\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ free(finalVertexLinks);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00146}00146\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00147}00147\ \ \ \ \ vertexLinks\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00148}00148\ \ \ \ \ vertices\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00149}00149\ \ \ \ \ finalVertexLinks\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00150}00150\ \ \ \ \ finalVertices\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00151}00151\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00152}00152\ \ \ \ \ sizeOfVertices\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00153}00153\ \ \ \ \ sizeOfVertexLinks\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00154}00154\ \ \ \ \ sizeOfFinalVertices\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00155}00155\ \ \ \ \ sizeOfFinalVertexLinks\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00156}00156\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00157}00157\ \ \ \ \ \textcolor{keywordflow}{if}\ (sites\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00158}00158\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00160}00160\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00161}00161\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00162}00162\ \ \ \ \ xmin\ =\ xValues[0];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00163}00163\ \ \ \ \ ymin\ =\ yValues[0];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00164}00164\ \ \ \ \ xmax\ =\ xValues[0];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00165}00165\ \ \ \ \ ymax\ =\ yValues[0];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00166}00166\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00167}00167\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ nsites;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00168}00168\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ sites[i].coord.x\ =\ xValues[i];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ sites[i].coord.y\ =\ yValues[i];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ sites[i].sitenbr\ =\ i;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ sites[i].refcnt\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00173}00173\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (xValues[i]\ <\ xmin)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ xmin\ =\ xValues[i];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (xValues[i]\ >\ xmax)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ xmax\ =\ xValues[i];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00178}00178\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (yValues[i]\ <\ ymin)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ ymin\ =\ yValues[i];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (yValues[i]\ >\ ymax)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ ymax\ =\ yValues[i];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00183}00183\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00184}00184\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00185}00185\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00186}00186\ \ \ \ \ qsort(sites,\ nsites,\ \textcolor{keyword}{sizeof}(*sites),\ \mbox{\hyperlink{namespaceLNLib_a88a5540f8094b6b3ff5c084f8fd9911f}{scomp}});\ \textcolor{comment}{//undo}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00187}00187\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00188}00188\ \ \ \ \ siteidx\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00189}00189\ \ \ \ \ geominit();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00190}00190\ \ \ \ \ \textcolor{keywordtype}{float}\ temp\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00191}00191\ \ \ \ \ \textcolor{keywordflow}{if}\ (minX\ >\ maxX)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00192}00192\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ temp\ =\ minX;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ minX\ =\ maxX;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ maxX\ =\ temp;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00196}00196\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00197}00197\ \ \ \ \ \textcolor{keywordflow}{if}\ (minY\ >\ maxY)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00198}00198\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ temp\ =\ minY;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ minY\ =\ maxY;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ maxY\ =\ temp;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00202}00202\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00203}00203\ \ \ \ \ borderMinX\ =\ minX;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00204}00204\ \ \ \ \ borderMinY\ =\ minY;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00205}00205\ \ \ \ \ borderMaxX\ =\ maxX;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00206}00206\ \ \ \ \ borderMaxY\ =\ maxY;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00207}00207\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00208}00208\ \ \ \ \ siteidx\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00209}00209\ \ \ \ \ voronoi(genVertexInfo);\ \textcolor{comment}{//uncomment}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00210}00210\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00211}00211\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00212}00212\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00213}00213\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00214}00214\ \textcolor{keywordtype}{bool}\ LNLib::VoronoiDiagramGenerator::ELinitialize()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00215}00215\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00216}00216\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00217}00217\ \ \ \ \ freeinit(\&hfl,\ \textcolor{keyword}{sizeof}\ *\ *ELhash);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00218}00218\ \ \ \ \ ELhashsize\ =\ 2\ *\ sqrt\_nsites;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00219}00219\ \ \ \ \ ELhash\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}**)myalloc(\textcolor{keyword}{sizeof}\ *\ ELhash\ *\ ELhashsize);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00220}00220\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00221}00221\ \ \ \ \ \textcolor{keywordflow}{if}\ (ELhash\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00223}00223\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00224}00224\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ ELhashsize;\ i\ +=\ 1)\ ELhash[i]\ =\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00225}00225\ \ \ \ \ ELleftend\ =\ HEcreate((\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ 0);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00226}00226\ \ \ \ \ ELrightend\ =\ HEcreate((\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}},\ 0);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00227}00227\ \ \ \ \ ELleftend-\/>ELleft\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00228}00228\ \ \ \ \ ELleftend-\/>ELright\ =\ ELrightend;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00229}00229\ \ \ \ \ ELrightend-\/>ELleft\ =\ ELleftend;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00230}00230\ \ \ \ \ ELrightend-\/>ELright\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00231}00231\ \ \ \ \ ELhash[0]\ =\ ELleftend;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00232}00232\ \ \ \ \ ELhash[ELhashsize\ -\/\ 1]\ =\ ELrightend;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00233}00233\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00234}00234\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00235}00235\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00236}00236\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00237}00237\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00238}00238\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{LNLib::Halfedge}}*\ LNLib::VoronoiDiagramGenerator::HEcreate(\textcolor{keyword}{struct}\ Edge*\ e,\ \textcolor{keywordtype}{int}\ pm)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00239}00239\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00240}00240\ \ \ \ \ \textcolor{keyword}{struct\ }Halfedge*\ answer;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00241}00241\ \ \ \ \ answer\ =\ (\textcolor{keyword}{struct\ }Halfedge*)getfree(\&hfl);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00242}00242\ \ \ \ \ answer-\/>\mbox{\hyperlink{structLNLib_1_1Halfedge_aad9e971cab113ee6aef6970372f938e3}{ELedge}}\ =\ e;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00243}00243\ \ \ \ \ answer-\/>ELpm\ =\ pm;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00244}00244\ \ \ \ \ answer-\/>PQnext\ =\ (\textcolor{keyword}{struct\ }Halfedge*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00245}00245\ \ \ \ \ answer-\/>vertex\ =\ (\textcolor{keyword}{struct\ }Site*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00246}00246\ \ \ \ \ answer-\/>ELrefcnt\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00247}00247\ \ \ \ \ \textcolor{keywordflow}{return}(answer);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00248}00248\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00249}00249\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00250}00250\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::ELinsert(\textcolor{keyword}{struct}\ \ \ \ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ lb,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ newHe)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00251}00251\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00252}00252\ \ \ \ \ newHe-\/>ELleft\ =\ lb;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00253}00253\ \ \ \ \ newHe-\/>ELright\ =\ lb-\/>ELright;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00254}00254\ \ \ \ \ (lb-\/>ELright)-\/>ELleft\ =\ newHe;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00255}00255\ \ \ \ \ lb-\/>ELright\ =\ newHe;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00256}00256\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00257}00257\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00258}00258\ \textcolor{comment}{/*\ Get\ entry\ from\ hash\ table,\ pruning\ any\ deleted\ nodes\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00259}00259\ \textcolor{keyword}{struct\ }LNLib::Halfedge*\ LNLib::VoronoiDiagramGenerator::ELgethash(\textcolor{keywordtype}{int}\ b)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00260}00260\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00261}00261\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ he;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00262}00262\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00263}00263\ \ \ \ \ \textcolor{keywordflow}{if}\ (b\ <\ 0\ ||\ b\ >=\ ELhashsize)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}((\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00265}00265\ \ \ \ \ he\ =\ ELhash[b];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00266}00266\ \ \ \ \ \textcolor{keywordflow}{if}\ (he\ ==\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\ ||\ he-\/>ELedge\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*)\mbox{\hyperlink{Voronoi_8h_ab792dfd97ab00abb6a5fc20191a9e952}{DELETED}})}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (he);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00268}00268\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00269}00269\ \ \ \ \ \textcolor{comment}{/*\ Hash\ table\ points\ to\ deleted\ half\ edge.\ \ Patch\ as\ necessary.\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00270}00270\ \ \ \ \ ELhash[b]\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00271}00271\ \ \ \ \ \textcolor{keywordflow}{if}\ ((he-\/>ELrefcnt\ -\/=\ 1)\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ makefree((\mbox{\hyperlink{structLNLib_1_1Freenode}{Freenode}}*)he,\ \&hfl);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00273}00273\ \ \ \ \ \textcolor{keywordflow}{return}\ ((\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00274}00274\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00275}00275\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00276}00276\ \textcolor{keyword}{struct\ }LNLib::Halfedge*\ LNLib::VoronoiDiagramGenerator::ELleftbnd(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1PointVDG}{PointVDG}}*\ p)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00277}00277\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00278}00278\ \ \ \ \ \textcolor{keywordtype}{int}\ i,\ bucket;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00279}00279\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ he;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00280}00280\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00281}00281\ \ \ \ \ \textcolor{comment}{/*\ Use\ hash\ table\ to\ get\ close\ to\ desired\ halfedge\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00282}00282\ \ \ \ \ bucket\ =\ (int)((p-\/>x\ -\/\ xmin)\ /\ deltax\ *\ ELhashsize);\ \ \ \ \textcolor{comment}{//use\ the\ hash\ function\ to\ find\ the\ place\ in\ the\ hash\ map\ that\ this\ HalfEdge\ should\ be}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00283}00283\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00284}00284\ \ \ \ \ \textcolor{keywordflow}{if}\ (bucket\ <\ 0)\ bucket\ =\ 0;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//make\ sure\ that\ the\ bucket\ position\ in\ within\ the\ range\ of\ the\ hash\ array}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00285}00285\ \ \ \ \ \textcolor{keywordflow}{if}\ (bucket\ >=\ ELhashsize)\ bucket\ =\ ELhashsize\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00286}00286\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00287}00287\ \ \ \ \ he\ =\ ELgethash(bucket);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00288}00288\ \ \ \ \ \textcolor{keywordflow}{if}\ (he\ ==\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ the\ HE\ isn't\ found,\ search\ backwards\ and\ forwards\ in\ the\ hash\ map\ for\ the\ first\ non-\/null\ entry}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00289}00289\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 1;\ 1;\ i\ +=\ 1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((he\ =\ ELgethash(bucket\ -\/\ i))\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((he\ =\ ELgethash(bucket\ +\ i))\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ totalsearch\ +=\ i;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00298}00298\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00299}00299\ \ \ \ \ ntry\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00300}00300\ \ \ \ \ \textcolor{comment}{/*\ Now\ search\ linear\ list\ of\ halfedges\ for\ the\ correct\ one\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00301}00301\ \ \ \ \ \textcolor{keywordflow}{if}\ (he\ ==\ ELleftend\ ||\ (he\ !=\ ELrightend\ \&\&\ right\_of(he,\ p)))}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00302}00302\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ he\ =\ he-\/>ELright;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (he\ !=\ ELrightend\ \&\&\ right\_of(he,\ p));\ \ \textcolor{comment}{//keep\ going\ right\ on\ the\ list\ until\ either\ the\ end\ is\ reached,\ or\ you\ find\ the\ 1st\ edge\ which\ the\ point}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ he\ =\ he-\/>ELleft;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//isn't\ to\ the\ right\ of}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00308}00308\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00309}00309\ \ \ \ \ \textcolor{keywordflow}{else}\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ the\ point\ is\ to\ the\ left\ of\ the\ HalfEdge,\ then\ search\ left\ for\ the\ HE\ just\ to\ the\ left\ of\ the\ point}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ he\ =\ he-\/>ELleft;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ \}\ \textcolor{keywordflow}{while}\ (he\ !=\ ELleftend\ \&\&\ !right\_of(he,\ p));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00314}00314\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ \textcolor{comment}{/*\ Update\ hash\ table\ and\ reference\ counts\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bucket\ >\ 0\ \&\&\ bucket\ <\ ELhashsize\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (ELhash[bucket]\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ ELhash[bucket]-\/>ELrefcnt\ -\/=\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ ELhash[bucket]\ =\ he;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ ELhash[bucket]-\/>ELrefcnt\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ (he);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00326}00326\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00327}00327\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00328}00328\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00329}00329\ \textcolor{comment}{/*\ This\ delete\ routine\ can't\ reclaim\ node,\ since\ pointers\ from\ hash}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00330}00330\ \textcolor{comment}{table\ may\ be\ present.\ \ \ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00331}00331\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::ELdelete(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ he)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00332}00332\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00333}00333\ \ \ \ \ (he-\/>ELleft)-\/>ELright\ =\ he-\/>ELright;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00334}00334\ \ \ \ \ (he-\/>ELright)-\/>ELleft\ =\ he-\/>ELleft;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00335}00335\ \ \ \ \ he-\/>ELedge\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*)\mbox{\hyperlink{Voronoi_8h_ab792dfd97ab00abb6a5fc20191a9e952}{DELETED}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00336}00336\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00337}00337\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00338}00338\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00339}00339\ \textcolor{keyword}{struct\ }LNLib::Halfedge*\ LNLib::VoronoiDiagramGenerator::ELright(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ he)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00340}00340\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00341}00341\ \ \ \ \ \textcolor{keywordflow}{return}\ (he-\/>ELright);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00342}00342\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00343}00343\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00344}00344\ \textcolor{keyword}{struct\ }LNLib::Halfedge*\ LNLib::VoronoiDiagramGenerator::ELleft(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ he)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00345}00345\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00346}00346\ \ \ \ \ \textcolor{keywordflow}{return}\ (he-\/>ELleft);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00347}00347\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00348}00348\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00349}00349\ \textcolor{keyword}{struct\ }LNLib::Site*\ LNLib::VoronoiDiagramGenerator::leftreg(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ he)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00350}00350\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00351}00351\ \ \ \ \ \textcolor{keywordflow}{if}\ (he-\/>ELedge\ ==\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(bottomsite);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00353}00353\ \ \ \ \ \textcolor{keywordflow}{return}(he-\/>ELpm\ ==\ \mbox{\hyperlink{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9}{le}}\ ?}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00354}00354\ \ \ \ \ \ \ \ \ he-\/>ELedge-\/>reg[\mbox{\hyperlink{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9}{le}}]\ :\ he-\/>ELedge-\/>reg[\mbox{\hyperlink{Voronoi_8h_a51f63d24f02be00251e895721eae51b0}{re}}]);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00355}00355\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00356}00356\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00357}00357\ \textcolor{keyword}{struct\ }LNLib::Site*\ LNLib::VoronoiDiagramGenerator::rightreg(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ he)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00358}00358\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00359}00359\ \ \ \ \ \textcolor{keywordflow}{if}\ (he-\/>ELedge\ ==\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \textcolor{comment}{//if\ this\ halfedge\ has\ no\ edge,\ return\ the\ bottom\ site\ (whatever\ that\ is)}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00360}00360\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(bottomsite);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00361}00361\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00362}00362\ \ \ \ \ \textcolor{comment}{//if\ the\ ELpm\ field\ is\ zero,\ return\ the\ site\ 0\ that\ this\ edge\ bisects,\ otherwise\ return\ site\ number\ 1}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00363}00363\ \ \ \ \ \textcolor{keywordflow}{return}(he-\/>ELpm\ ==\ \mbox{\hyperlink{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9}{le}}\ ?\ he-\/>ELedge-\/>reg[\mbox{\hyperlink{Voronoi_8h_a51f63d24f02be00251e895721eae51b0}{re}}]\ :\ he-\/>ELedge-\/>reg[\mbox{\hyperlink{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9}{le}}]);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00364}00364\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00365}00365\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00366}00366\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::geominit()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00367}00367\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00368}00368\ \ \ \ \ \textcolor{keywordtype}{float}\ sn;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00369}00369\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00370}00370\ \ \ \ \ freeinit(\&efl,\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00371}00371\ \ \ \ \ nvertices\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00372}00372\ \ \ \ \ nedges\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00373}00373\ \ \ \ \ sn\ =\ (float)nsites\ +\ 4;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00374}00374\ \ \ \ \ sqrt\_nsites\ =\ (int)sqrt(sn);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00375}00375\ \ \ \ \ deltay\ =\ ymax\ -\/\ ymin;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00376}00376\ \ \ \ \ deltax\ =\ xmax\ -\/\ xmin;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00377}00377\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00378}00378\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00379}00379\ \textcolor{keyword}{struct\ }LNLib::Edge*\ LNLib::VoronoiDiagramGenerator::bisect(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ s1,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ s2)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00380}00380\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00381}00381\ \ \ \ \ \textcolor{keywordtype}{float}\ dx,\ dy,\ adx,\ ady;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00382}00382\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*\ newedge;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00383}00383\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00384}00384\ \ \ \ \ newedge\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*)getfree(\&efl);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00385}00385\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00386}00386\ \ \ \ \ newedge-\/>\mbox{\hyperlink{structLNLib_1_1Edge_a92064772ff94ec6bbe00a150903f9026}{reg}}[0]\ =\ s1;\ \textcolor{comment}{//store\ the\ sites\ that\ this\ edge\ is\ bisecting}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00387}00387\ \ \ \ \ newedge-\/>reg[1]\ =\ s2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00388}00388\ \ \ \ \ ref(s1);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00389}00389\ \ \ \ \ ref(s2);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00390}00390\ \ \ \ \ newedge-\/>ep[0]\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};\ \textcolor{comment}{//to\ begin\ with,\ there\ are\ no\ endpoints\ on\ the\ bisector\ -\/\ it\ goes\ to\ infinity}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00391}00391\ \ \ \ \ newedge-\/>ep[1]\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00392}00392\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00393}00393\ \ \ \ \ dx\ =\ s2-\/>coord.x\ -\/\ s1-\/>coord.x;\ \ \ \ \ \ \ \ \ \textcolor{comment}{//get\ the\ difference\ in\ x\ dist\ between\ the\ sites}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00394}00394\ \ \ \ \ dy\ =\ s2-\/>coord.y\ -\/\ s1-\/>coord.y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00395}00395\ \ \ \ \ adx\ =\ dx\ >\ 0\ ?\ dx\ :\ -\/dx;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//make\ sure\ that\ the\ difference\ in\ positive}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00396}00396\ \ \ \ \ ady\ =\ dy\ >\ 0\ ?\ dy\ :\ -\/dy;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00397}00397\ \ \ \ \ newedge-\/>c\ =\ (float)(s1-\/>coord.x\ *\ dx\ +\ s1-\/>coord.y\ *\ dy\ +\ (dx\ *\ dx\ +\ dy\ *\ dy)\ *\ 0.5);\textcolor{comment}{//get\ the\ slope\ of\ the\ line}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00398}00398\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00399}00399\ \ \ \ \ \textcolor{keywordflow}{if}\ (adx\ >\ ady)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00400}00400\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ newedge-\/>a\ =\ 1.0;\ newedge-\/>b\ =\ dy\ /\ dx;\ newedge-\/>c\ /=\ dx;\textcolor{comment}{//set\ formula\ of\ line,\ with\ x\ fixed\ to\ 1}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00402}00402\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00403}00403\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00404}00404\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00405}00405\ \ \ \ \ \ \ \ \ newedge-\/>b\ =\ 1.0;\ newedge-\/>a\ =\ dx\ /\ dy;\ newedge-\/>c\ /=\ dy;\textcolor{comment}{//set\ formula\ of\ line,\ with\ y\ fixed\ to\ 1}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00406}00406\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00407}00407\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00408}00408\ \ \ \ \ newedge-\/>edgenbr\ =\ nedges;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00409}00409\ \ \ \ \ out\_bisector(newedge);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00410}00410\ \ \ \ \ nedges\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00411}00411\ \ \ \ \ \textcolor{keywordflow}{return}(newedge);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00412}00412\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00413}00413\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00414}00414\ \textcolor{comment}{//create\ a\ new\ site\ where\ the\ HalfEdges\ el1\ and\ el2\ intersect\ -\/\ note\ that\ the\ PointVDG\ in\ the\ argument\ list\ is\ not\ used,\ don't\ know\ why\ it's\ there}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00415}00415\ \textcolor{keyword}{struct\ }LNLib::Site*\ LNLib::VoronoiDiagramGenerator::intersect(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ el1,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ el2,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1PointVDG}{PointVDG}}*\ p)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00416}00416\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00417}00417\ \ \ \ \ \textcolor{keyword}{struct\ \ }\mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*\ e1,\ *\ e2,\ *\ e;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00418}00418\ \ \ \ \ \textcolor{keyword}{struct\ \ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ el;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00419}00419\ \ \ \ \ \textcolor{keywordtype}{float}\ d,\ xint,\ yint;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00420}00420\ \ \ \ \ \textcolor{keywordtype}{int}\ right\_of\_site;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00421}00421\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ v;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00422}00422\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00423}00423\ \ \ \ \ e1\ =\ el1-\/>ELedge;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00424}00424\ \ \ \ \ e2\ =\ el2-\/>ELedge;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00425}00425\ \ \ \ \ \textcolor{keywordflow}{if}\ (e1\ ==\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\ ||\ e2\ ==\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00426}00426\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00427}00427\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00428}00428\ \ \ \ \ \textcolor{comment}{//if\ the\ two\ edges\ bisect\ the\ same\ parent,\ return\ null}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00429}00429\ \ \ \ \ \textcolor{keywordflow}{if}\ (e1-\/>reg[1]\ ==\ e2-\/>reg[1])}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00430}00430\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00431}00431\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00432}00432\ \ \ \ \ d\ =\ e1-\/>a\ *\ e2-\/>b\ -\/\ e1-\/>b\ *\ e2-\/>a;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00433}00433\ \ \ \ \ \textcolor{keywordflow}{if}\ (-\/1.0e-\/10\ <\ d\ \&\&\ d\ <\ 1.0e-\/10)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00434}00434\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00435}00435\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00436}00436\ \ \ \ \ xint\ =\ (e1-\/>c\ *\ e2-\/>b\ -\/\ e2-\/>c\ *\ e1-\/>b)\ /\ d;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00437}00437\ \ \ \ \ yint\ =\ (e2-\/>c\ *\ e1-\/>a\ -\/\ e1-\/>c\ *\ e2-\/>a)\ /\ d;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00438}00438\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00439}00439\ \ \ \ \ \textcolor{keywordflow}{if}\ ((e1-\/>reg[1]-\/>coord.y\ <\ e2-\/>reg[1]-\/>coord.y)\ ||}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00440}00440\ \ \ \ \ \ \ \ \ (e1-\/>reg[1]-\/>coord.y\ ==\ e2-\/>reg[1]-\/>coord.y\ \&\&}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00441}00441\ \ \ \ \ \ \ \ \ \ \ \ \ e1-\/>reg[1]-\/>coord.x\ <\ e2-\/>reg[1]-\/>coord.x))}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00442}00442\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00443}00443\ \ \ \ \ \ \ \ \ el\ =\ el1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00444}00444\ \ \ \ \ \ \ \ \ e\ =\ e1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00445}00445\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00446}00446\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00447}00447\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00448}00448\ \ \ \ \ \ \ \ \ el\ =\ el2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00449}00449\ \ \ \ \ \ \ \ \ e\ =\ e2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00450}00450\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00451}00451\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00452}00452\ \ \ \ \ right\_of\_site\ =\ xint\ >=\ e-\/>reg[1]-\/>\mbox{\hyperlink{structLNLib_1_1Site_a2cb3b751fe3a78fd9f6b6c7a9a11ee51}{coord}}.\mbox{\hyperlink{structLNLib_1_1PointVDG_ace2a50c3ae563c01303d93807123a61c}{x}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00453}00453\ \ \ \ \ \textcolor{keywordflow}{if}\ ((right\_of\_site\ \&\&\ el-\/>ELpm\ ==\ \mbox{\hyperlink{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9}{le}})\ ||\ (!right\_of\_site\ \&\&\ el-\/>ELpm\ ==\ \mbox{\hyperlink{Voronoi_8h_a51f63d24f02be00251e895721eae51b0}{re}}))}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00454}00454\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ ((\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00455}00455\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00456}00456\ \ \ \ \ \textcolor{comment}{//create\ a\ new\ site\ at\ the\ point\ of\ intersection\ -\/\ this\ is\ a\ new\ vector\ event\ waiting\ to\ happen}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00457}00457\ \ \ \ \ v\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)getfree(\&sfl);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00458}00458\ \ \ \ \ v-\/>refcnt\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00459}00459\ \ \ \ \ v-\/>coord.x\ =\ xint;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00460}00460\ \ \ \ \ v-\/>coord.y\ =\ yint;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00461}00461\ \ \ \ \ \textcolor{keywordflow}{return}(v);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00462}00462\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00463}00463\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00464}00464\ \textcolor{comment}{/*\ returns\ 1\ if\ p\ is\ to\ right\ of\ halfedge\ e\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00465}00465\ \textcolor{keywordtype}{int}\ LNLib::VoronoiDiagramGenerator::right\_of(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ el,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1PointVDG}{PointVDG}}*\ p)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00466}00466\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00467}00467\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*\ e;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00468}00468\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ topsite;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00469}00469\ \ \ \ \ \textcolor{keywordtype}{int}\ right\_of\_site,\ above,\ fast;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00470}00470\ \ \ \ \ \textcolor{keywordtype}{float}\ dxp,\ dyp,\ dxs,\ t1,\ t2,\ t3,\ yl;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00471}00471\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00472}00472\ \ \ \ \ e\ =\ el-\/>ELedge;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00473}00473\ \ \ \ \ topsite\ =\ e-\/>reg[1];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00474}00474\ \ \ \ \ right\_of\_site\ =\ p-\/>x\ >\ topsite-\/>\mbox{\hyperlink{structLNLib_1_1Site_a2cb3b751fe3a78fd9f6b6c7a9a11ee51}{coord}}.\mbox{\hyperlink{structLNLib_1_1PointVDG_ace2a50c3ae563c01303d93807123a61c}{x}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00475}00475\ \ \ \ \ \textcolor{keywordflow}{if}\ (right\_of\_site\ \&\&\ el-\/>ELpm\ ==\ \mbox{\hyperlink{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9}{le}})\ \textcolor{keywordflow}{return}(1);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00476}00476\ \ \ \ \ \textcolor{keywordflow}{if}\ (!right\_of\_site\ \&\&\ el-\/>ELpm\ ==\ \mbox{\hyperlink{Voronoi_8h_a51f63d24f02be00251e895721eae51b0}{re}})\ \textcolor{keywordflow}{return}\ (0);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00477}00477\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00478}00478\ \ \ \ \ \textcolor{keywordflow}{if}\ (e-\/>a\ ==\ 1.0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00479}00479\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00480}00480\ \ \ \ \ \ \ \ \ dyp\ =\ p-\/>y\ -\/\ topsite-\/>coord.y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00481}00481\ \ \ \ \ \ \ \ \ dxp\ =\ p-\/>x\ -\/\ topsite-\/>coord.x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00482}00482\ \ \ \ \ \ \ \ \ fast\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00483}00483\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((!right\_of\_site\ \&\ (e-\/>b\ <\ 0.0))\ |\ (right\_of\_site\ \&\ (e-\/>b\ >=\ 0.0)))}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00484}00484\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00485}00485\ \ \ \ \ \ \ \ \ \ \ \ \ above\ =\ dyp\ >=\ e-\/>b\ *\ dxp;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00486}00486\ \ \ \ \ \ \ \ \ \ \ \ \ fast\ =\ above;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00487}00487\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00488}00488\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00489}00489\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00490}00490\ \ \ \ \ \ \ \ \ \ \ \ \ above\ =\ p-\/>x\ +\ p-\/>y\ *\ e-\/>b\ >\ e-\/>c;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00491}00491\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e-\/>b\ <\ 0.0)\ above\ =\ !above;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00492}00492\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!above)\ fast\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00493}00493\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00494}00494\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!fast)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00495}00495\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00496}00496\ \ \ \ \ \ \ \ \ \ \ \ \ dxs\ =\ topsite-\/>coord.x\ -\/\ (e-\/>reg[0])-\/>coord.x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00497}00497\ \ \ \ \ \ \ \ \ \ \ \ \ above\ =\ e-\/>b\ *\ (dxp\ *\ dxp\ -\/\ dyp\ *\ dyp)\ <}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00498}00498\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ dxs\ *\ dyp\ *\ (1.0\ +\ 2.0\ *\ dxp\ /\ dxs\ +\ e-\/>b\ *\ e-\/>b);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00499}00499\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (e-\/>b\ <\ 0.0)\ above\ =\ !above;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00500}00500\ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00501}00501\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00502}00502\ \ \ \ \ \textcolor{keywordflow}{else}\ \ \textcolor{comment}{/*e-\/>b==1.0\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00503}00503\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00504}00504\ \ \ \ \ \ \ \ \ yl\ =\ e-\/>c\ -\/\ e-\/>a\ *\ p-\/>x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00505}00505\ \ \ \ \ \ \ \ \ t1\ =\ p-\/>y\ -\/\ yl;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00506}00506\ \ \ \ \ \ \ \ \ t2\ =\ p-\/>x\ -\/\ topsite-\/>coord.x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00507}00507\ \ \ \ \ \ \ \ \ t3\ =\ yl\ -\/\ topsite-\/>coord.y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00508}00508\ \ \ \ \ \ \ \ \ above\ =\ t1\ *\ t1\ >\ t2\ *\ t2\ +\ t3\ *\ t3;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00509}00509\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00510}00510\ \ \ \ \ \textcolor{keywordflow}{return}\ (el-\/>ELpm\ ==\ \mbox{\hyperlink{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9}{le}}\ ?\ above\ :\ !above);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00511}00511\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00512}00512\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00513}00513\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::endpoint(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*\ e,\ \textcolor{keywordtype}{int}\ lr,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ s)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00514}00514\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00515}00515\ \ \ \ \ e-\/>ep[lr]\ =\ s;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00516}00516\ \ \ \ \ ref(s);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00517}00517\ \ \ \ \ \textcolor{keywordflow}{if}\ (e-\/>ep[\mbox{\hyperlink{Voronoi_8h_a51f63d24f02be00251e895721eae51b0}{re}}\ -\/\ lr]\ ==\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00518}00518\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00519}00519\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00520}00520\ \ \ \ \ clip\_line(e);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00521}00521\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00522}00522\ \ \ \ \ deref(e-\/>reg[\mbox{\hyperlink{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9}{le}}]);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00523}00523\ \ \ \ \ deref(e-\/>reg[\mbox{\hyperlink{Voronoi_8h_a51f63d24f02be00251e895721eae51b0}{re}}]);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00524}00524\ \ \ \ \ makefree((\mbox{\hyperlink{structLNLib_1_1Freenode}{Freenode}}*)e,\ \&efl);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00525}00525\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00526}00526\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00527}00527\ \textcolor{keywordtype}{float}\ LNLib::VoronoiDiagramGenerator::dist(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ s,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ t)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00528}00528\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00529}00529\ \ \ \ \ \textcolor{keywordtype}{float}\ dx,\ dy;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00530}00530\ \ \ \ \ dx\ =\ s-\/>coord.x\ -\/\ t-\/>coord.x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00531}00531\ \ \ \ \ dy\ =\ s-\/>coord.y\ -\/\ t-\/>coord.y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00532}00532\ \ \ \ \ \textcolor{keywordflow}{return}\ (\textcolor{keywordtype}{float})(sqrt(dx\ *\ dx\ +\ dy\ *\ dy));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00533}00533\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00534}00534\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00535}00535\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::makevertex(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ v)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00536}00536\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00537}00537\ \ \ \ \ v-\/>sitenbr\ =\ nvertices;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00538}00538\ \ \ \ \ insertVertexAddress(nvertices,\ v);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00539}00539\ \ \ \ \ nvertices\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00540}00540\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00541}00541\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00542}00542\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::out\_triple(\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ s1,\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ s2,\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ s3)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00543}00543\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00544}00544\ \ \ \ \ std::vector<int>\ v(3);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00545}00545\ \ \ \ \ v[0]\ =\ s1-\/>sitenbr;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00546}00546\ \ \ \ \ v[1]\ =\ s2-\/>sitenbr;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00547}00547\ \ \ \ \ v[2]\ =\ s3-\/>sitenbr;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00548}00548\ \ \ \ \ triangles.emplace\_back(v);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00549}00549\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00550}00550\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00551}00551\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::deref(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ v)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00552}00552\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00553}00553\ \ \ \ \ v-\/>refcnt\ -\/=\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00554}00554\ \ \ \ \ \textcolor{keywordflow}{if}\ (v-\/>refcnt\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00555}00555\ \ \ \ \ \ \ \ \ makefree((\mbox{\hyperlink{structLNLib_1_1Freenode}{Freenode}}*)v,\ \&sfl);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00556}00556\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00557}00557\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00558}00558\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::ref(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ v)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00559}00559\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00560}00560\ \ \ \ \ v-\/>refcnt\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00561}00561\ \ \ \ \ v-\/>overallRefcnt\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00562}00562\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00563}00563\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00564}00564\ \textcolor{comment}{//push\ the\ HalfEdge\ into\ the\ ordered\ linked\ list\ of\ vertices}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00565}00565\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::PQinsert(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ he,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ v,\ \textcolor{keywordtype}{float}\ offset)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00566}00566\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00567}00567\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ last,\ *\ next;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00568}00568\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00569}00569\ \ \ \ \ he-\/>\mbox{\hyperlink{structLNLib_1_1Halfedge_a8ef6d20933b262566357b4473e40b48c}{vertex}}\ =\ v;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00570}00570\ \ \ \ \ ref(v);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00571}00571\ \ \ \ \ he-\/>ystar\ =\ (float)(v-\/>coord.y\ +\ offset);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00572}00572\ \ \ \ \ last\ =\ \&PQhash[PQbucket(he)];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00573}00573\ \ \ \ \ \textcolor{keywordflow}{while}\ ((next\ =\ last-\/>PQnext)\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\ \&\&}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00574}00574\ \ \ \ \ \ \ \ \ (he-\/>ystar\ >\ next-\/>ystar\ ||}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00575}00575\ \ \ \ \ \ \ \ \ \ \ \ \ (he-\/>ystar\ ==\ next-\/>ystar\ \&\&\ v-\/>coord.x\ >\ next-\/>vertex-\/>coord.x)))}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00576}00576\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00577}00577\ \ \ \ \ \ \ \ \ last\ =\ next;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00578}00578\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00579}00579\ \ \ \ \ he-\/>PQnext\ =\ last-\/>PQnext;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00580}00580\ \ \ \ \ last-\/>PQnext\ =\ he;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00581}00581\ \ \ \ \ PQcount\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00582}00582\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00583}00583\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00584}00584\ \textcolor{comment}{//remove\ the\ HalfEdge\ from\ the\ list\ of\ vertices\ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00585}00585\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::PQdelete(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ he)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00586}00586\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00587}00587\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ last;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00588}00588\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00589}00589\ \ \ \ \ \textcolor{keywordflow}{if}\ (he-\/>vertex\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00590}00590\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00591}00591\ \ \ \ \ \ \ \ \ last\ =\ \&PQhash[PQbucket(he)];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00592}00592\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (last-\/>PQnext\ !=\ he)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00593}00593\ \ \ \ \ \ \ \ \ \ \ \ \ last\ =\ last-\/>PQnext;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00594}00594\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00595}00595\ \ \ \ \ \ \ \ \ last-\/>PQnext\ =\ he-\/>PQnext;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00596}00596\ \ \ \ \ \ \ \ \ PQcount\ -\/=\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00597}00597\ \ \ \ \ \ \ \ \ deref(he-\/>vertex);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00598}00598\ \ \ \ \ \ \ \ \ he-\/>vertex\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00599}00599\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00600}00600\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00601}00601\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00602}00602\ \textcolor{keywordtype}{int}\ LNLib::VoronoiDiagramGenerator::PQbucket(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ he)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00603}00603\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00604}00604\ \ \ \ \ \textcolor{keywordtype}{int}\ bucket;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00605}00605\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00606}00606\ \ \ \ \ bucket\ =\ (int)((he-\/>ystar\ -\/\ ymin)\ /\ deltay\ *\ PQhashsize);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00607}00607\ \ \ \ \ \textcolor{keywordflow}{if}\ (bucket\ <\ 0)\ bucket\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00608}00608\ \ \ \ \ \textcolor{keywordflow}{if}\ (bucket\ >=\ PQhashsize)\ bucket\ =\ PQhashsize\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00609}00609\ \ \ \ \ \textcolor{keywordflow}{if}\ (bucket\ <\ PQmin)\ PQmin\ =\ bucket;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00610}00610\ \ \ \ \ \textcolor{keywordflow}{return}(bucket);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00611}00611\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00612}00612\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00613}00613\ \textcolor{keywordtype}{int}\ LNLib::VoronoiDiagramGenerator::PQempty()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00614}00614\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00615}00615\ \ \ \ \ \textcolor{keywordflow}{return}(PQcount\ ==\ 0);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00616}00616\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00617}00617\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00618}00618\ \textcolor{keyword}{struct\ }LNLib::PointVDG\ LNLib::VoronoiDiagramGenerator::PQ\_min()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00619}00619\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00620}00620\ \ \ \ \ \textcolor{keyword}{struct\ }PointVDG\ answer;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00621}00621\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00622}00622\ \ \ \ \ \textcolor{keywordflow}{while}\ (PQhash[PQmin].PQnext\ ==\ (\textcolor{keyword}{struct}\ Halfedge*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \{\ PQmin\ +=\ 1;\ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00623}00623\ \ \ \ \ answer.x\ =\ PQhash[PQmin].PQnext-\/>vertex-\/>coord.x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00624}00624\ \ \ \ \ answer.y\ =\ PQhash[PQmin].PQnext-\/>ystar;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00625}00625\ \ \ \ \ \textcolor{keywordflow}{return}\ (answer);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00626}00626\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00627}00627\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00628}00628\ \textcolor{keyword}{struct\ }LNLib::Halfedge*\ LNLib::VoronoiDiagramGenerator::PQextractmin()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00629}00629\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00630}00630\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ curr;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00631}00631\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00632}00632\ \ \ \ \ curr\ =\ PQhash[PQmin].\mbox{\hyperlink{structLNLib_1_1Halfedge_abf445e6720b57336b906fd2f150ab8b8}{PQnext}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00633}00633\ \ \ \ \ PQhash[PQmin].\mbox{\hyperlink{structLNLib_1_1Halfedge_abf445e6720b57336b906fd2f150ab8b8}{PQnext}}\ =\ curr-\/>\mbox{\hyperlink{structLNLib_1_1Halfedge_abf445e6720b57336b906fd2f150ab8b8}{PQnext}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00634}00634\ \ \ \ \ PQcount\ -\/=\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00635}00635\ \ \ \ \ \textcolor{keywordflow}{return}(curr);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00636}00636\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00637}00637\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00638}00638\ \textcolor{keywordtype}{bool}\ LNLib::VoronoiDiagramGenerator::PQinitialize()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00639}00639\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00640}00640\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00641}00641\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00642}00642\ \ \ \ \ PQcount\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00643}00643\ \ \ \ \ PQmin\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00644}00644\ \ \ \ \ PQhashsize\ =\ 4\ *\ sqrt\_nsites;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00645}00645\ \ \ \ \ PQhash\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)myalloc(PQhashsize\ *\ \textcolor{keyword}{sizeof}\ *\ PQhash);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00646}00646\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00647}00647\ \ \ \ \ \textcolor{keywordflow}{if}\ (PQhash\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00648}00648\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00649}00649\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00650}00650\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ PQhashsize;\ i\ +=\ 1)\ PQhash[i].PQnext\ =\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00651}00651\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00652}00652\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00653}00653\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00654}00654\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00655}00655\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::freeinit(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Freelist}{Freelist}}*\ fl,\ \textcolor{keywordtype}{int}\ size)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00656}00656\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00657}00657\ \ \ \ \ fl-\/>head\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Freenode}{Freenode}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00658}00658\ \ \ \ \ fl-\/>nodesize\ =\ size;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00659}00659\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00660}00660\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00661}00661\ \textcolor{keywordtype}{char}*\ LNLib::VoronoiDiagramGenerator::getfree(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Freelist}{Freelist}}*\ fl)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00662}00662\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00663}00663\ \ \ \ \ \textcolor{keywordtype}{int}\ i;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00664}00664\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Freenode}{Freenode}}*\ t;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00665}00665\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00666}00666\ \ \ \ \ \textcolor{keywordflow}{if}\ (fl-\/>head\ ==\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Freenode}{Freenode}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00667}00667\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00668}00668\ \ \ \ \ \ \ \ \ t\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Freenode}{Freenode}}*)myalloc(sqrt\_nsites\ *\ fl-\/>nodesize);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00669}00669\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00670}00670\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (t\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00671}00671\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00672}00672\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00673}00673\ \ \ \ \ \ \ \ \ currentMemoryBlock-\/>next\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structLNLib_1_1FreeNodeArrayList}{FreeNodeArrayList}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00674}00674\ \ \ \ \ \ \ \ \ currentMemoryBlock\ =\ currentMemoryBlock-\/>\mbox{\hyperlink{structLNLib_1_1FreeNodeArrayList_a22e731a1f2b94718415dd19f4095792e}{next}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00675}00675\ \ \ \ \ \ \ \ \ currentMemoryBlock-\/>\mbox{\hyperlink{structLNLib_1_1FreeNodeArrayList_af4b7ac6caa552b68359a4c235f31a099}{memory}}\ =\ t;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00676}00676\ \ \ \ \ \ \ \ \ currentMemoryBlock-\/>next\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00677}00677\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00678}00678\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ sqrt\_nsites;\ i\ +=\ 1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00679}00679\ \ \ \ \ \ \ \ \ \ \ \ \ makefree((\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Freenode}{Freenode}}*)((\textcolor{keywordtype}{char}*)t\ +\ i\ *\ fl-\/>nodesize),\ fl);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00680}00680\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00681}00681\ \ \ \ \ t\ =\ fl-\/>head;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00682}00682\ \ \ \ \ fl-\/>head\ =\ (fl-\/>head)-\/>nextfree;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00683}00683\ \ \ \ \ \textcolor{keywordflow}{return}((\textcolor{keywordtype}{char}*)t);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00684}00684\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00685}00685\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00686}00686\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::makefree(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Freenode}{Freenode}}*\ curr,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Freelist}{Freelist}}*\ fl)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00687}00687\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00688}00688\ \ \ \ \ curr-\/>nextfree\ =\ fl-\/>head;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00689}00689\ \ \ \ \ fl-\/>head\ =\ curr;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00690}00690\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00691}00691\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00692}00692\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::cleanup()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00693}00693\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00694}00694\ \ \ \ \ \textcolor{keywordflow}{if}\ (sites\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00695}00695\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00696}00696\ \ \ \ \ \ \ \ \ free(sites);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00697}00697\ \ \ \ \ \ \ \ \ sites\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00698}00698\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00699}00699\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00700}00700\ \ \ \ \ \mbox{\hyperlink{structLNLib_1_1FreeNodeArrayList}{FreeNodeArrayList}}*\ current\ =\ 0,\ *\ prev\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00701}00701\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00702}00702\ \ \ \ \ current\ =\ prev\ =\ allMemoryList;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00703}00703\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00704}00704\ \ \ \ \ \textcolor{keywordflow}{if}\ (current\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00705}00705\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00706}00706\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (current-\/>next\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00707}00707\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00708}00708\ \ \ \ \ \ \ \ \ \ \ \ \ prev\ =\ current;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00709}00709\ \ \ \ \ \ \ \ \ \ \ \ \ current\ =\ current-\/>next;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00710}00710\ \ \ \ \ \ \ \ \ \ \ \ \ free(prev-\/>memory);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00711}00711\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ prev;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00712}00712\ \ \ \ \ \ \ \ \ \ \ \ \ prev\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00713}00713\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00714}00714\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00715}00715\ \ \ \ \ allMemoryList\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00716}00716\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00717}00717\ \ \ \ \ \textcolor{keywordflow}{if}\ (current\ !=\ 0\ \&\&\ current-\/>memory\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00718}00718\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00719}00719\ \ \ \ \ \ \ \ \ free(current-\/>memory);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00720}00720\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ current;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00721}00721\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00722}00722\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00723}00723\ \ \ \ \ allMemoryList\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structLNLib_1_1FreeNodeArrayList}{FreeNodeArrayList}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00724}00724\ \ \ \ \ allMemoryList-\/>\mbox{\hyperlink{structLNLib_1_1FreeNodeArrayList_a22e731a1f2b94718415dd19f4095792e}{next}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00725}00725\ \ \ \ \ allMemoryList-\/>\mbox{\hyperlink{structLNLib_1_1FreeNodeArrayList_af4b7ac6caa552b68359a4c235f31a099}{memory}}\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00726}00726\ \ \ \ \ currentMemoryBlock\ =\ allMemoryList;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00727}00727\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00728}00728\ \ \ \ \ \textcolor{keywordflow}{if}\ (ELhash\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00729}00729\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00730}00730\ \ \ \ \ \ \ \ \ free(ELhash);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00731}00731\ \ \ \ \ \ \ \ \ ELhash\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00732}00732\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00733}00733\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00734}00734\ \ \ \ \ \textcolor{keywordflow}{if}\ (PQhash\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00735}00735\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00736}00736\ \ \ \ \ \ \ \ \ free(PQhash);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00737}00737\ \ \ \ \ \ \ \ \ PQhash\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00738}00738\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00739}00739\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00740}00740\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00741}00741\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::cleanupEdges()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00742}00742\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00743}00743\ \ \ \ \ \mbox{\hyperlink{structLNLib_1_1GraphEdge}{GraphEdge}}*\ geCurrent\ =\ 0,\ *\ gePrev\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00744}00744\ \ \ \ \ geCurrent\ =\ gePrev\ =\ allEdges;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00745}00745\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00746}00746\ \ \ \ \ \textcolor{keywordflow}{while}\ (geCurrent\ !=\ 0\ \&\&\ geCurrent-\/>next\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00747}00747\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00748}00748\ \ \ \ \ \ \ \ \ gePrev\ =\ geCurrent;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00749}00749\ \ \ \ \ \ \ \ \ geCurrent\ =\ geCurrent-\/>next;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00750}00750\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ gePrev;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00751}00751\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00752}00752\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00753}00753\ \ \ \ \ allEdges\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00754}00754\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00755}00755\ \ \ \ \ geCurrent\ =\ gePrev\ =\ delaunayEdges;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00756}00756\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00757}00757\ \ \ \ \ \textcolor{keywordflow}{while}\ (geCurrent\ !=\ 0\ \&\&\ geCurrent-\/>next\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00758}00758\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00759}00759\ \ \ \ \ \ \ \ \ gePrev\ =\ geCurrent;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00760}00760\ \ \ \ \ \ \ \ \ geCurrent\ =\ geCurrent-\/>next;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00761}00761\ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}\ gePrev;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00762}00762\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00763}00763\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00764}00764\ \ \ \ \ delaunayEdges\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00765}00765\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00766}00766\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00767}00767\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::pushGraphEdge(\textcolor{keywordtype}{float}\ x1,\ \textcolor{keywordtype}{float}\ y1,\ \textcolor{keywordtype}{float}\ x2,\ \textcolor{keywordtype}{float}\ y2)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00768}00768\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00769}00769\ \ \ \ \ \textcolor{keywordflow}{if}\ (genVoronoi)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00770}00770\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00771}00771\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{structLNLib_1_1GraphEdge}{GraphEdge}}*\ newEdge\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structLNLib_1_1GraphEdge}{GraphEdge}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00772}00772\ \ \ \ \ \ \ \ \ newEdge-\/>\mbox{\hyperlink{structLNLib_1_1GraphEdge_a5a2fa7ace321ad82242bcf55e733a265}{next}}\ =\ allEdges;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00773}00773\ \ \ \ \ \ \ \ \ allEdges\ =\ newEdge;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00774}00774\ \ \ \ \ \ \ \ \ newEdge-\/>\mbox{\hyperlink{structLNLib_1_1GraphEdge_a2a14bf601993bcf4c38e878cdd5c9703}{x1}}\ =\ x1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00775}00775\ \ \ \ \ \ \ \ \ newEdge-\/>y1\ =\ y1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00776}00776\ \ \ \ \ \ \ \ \ newEdge-\/>x2\ =\ x2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00777}00777\ \ \ \ \ \ \ \ \ newEdge-\/>y2\ =\ y2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00778}00778\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00779}00779\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00780}00780\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00781}00781\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::pushDelaunayGraphEdge(\textcolor{keywordtype}{float}\ x1,\ \textcolor{keywordtype}{float}\ y1,\ \textcolor{keywordtype}{float}\ x2,\ \textcolor{keywordtype}{float}\ y2)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00782}00782\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00783}00783\ \ \ \ \ \textcolor{keywordflow}{if}\ (std::sqrt(((x2\ -\/\ x1)\ *\ (x2\ -\/\ x1))\ +\ ((y2\ -\/\ y1)\ *\ (y2\ -\/\ y1)))\ <\ minDistanceBetweenSites)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00784}00784\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00785}00785\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00786}00786\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00787}00787\ \ \ \ \ \mbox{\hyperlink{structLNLib_1_1GraphEdge}{GraphEdge}}*\ newEdge\ =\ \textcolor{keyword}{new}\ \mbox{\hyperlink{structLNLib_1_1GraphEdge}{GraphEdge}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00788}00788\ \ \ \ \ newEdge-\/>\mbox{\hyperlink{structLNLib_1_1GraphEdge_a5a2fa7ace321ad82242bcf55e733a265}{next}}\ =\ delaunayEdges;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00789}00789\ \ \ \ \ delaunayEdges\ =\ newEdge;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00790}00790\ \ \ \ \ newEdge-\/>\mbox{\hyperlink{structLNLib_1_1GraphEdge_a2a14bf601993bcf4c38e878cdd5c9703}{x1}}\ =\ x1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00791}00791\ \ \ \ \ newEdge-\/>y1\ =\ y1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00792}00792\ \ \ \ \ newEdge-\/>x2\ =\ x2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00793}00793\ \ \ \ \ newEdge-\/>y2\ =\ y2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00794}00794\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00795}00795\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00796}00796\ \textcolor{keywordtype}{char}*\ LNLib::VoronoiDiagramGenerator::myalloc(\textcolor{keywordtype}{unsigned}\ n)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00797}00797\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00798}00798\ \ \ \ \ \textcolor{keywordtype}{char}*\ t\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00799}00799\ \ \ \ \ t\ =\ (\textcolor{keywordtype}{char}*)malloc(n);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00800}00800\ \ \ \ \ total\_alloc\ +=\ n;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00801}00801\ \ \ \ \ \textcolor{keywordflow}{return}(t);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00802}00802\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00803}00803\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00804}00804\ \textcolor{comment}{/*\ for\ those\ who\ don't\ have\ Cherry's\ plot\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00805}00805\ \textcolor{comment}{/*\ \#include\ <plot.h>\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00806}00806\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::line(\textcolor{keywordtype}{float}\ x1,\ \textcolor{keywordtype}{float}\ y1,\ \textcolor{keywordtype}{float}\ x2,\ \textcolor{keywordtype}{float}\ y2)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00807}00807\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00808}00808\ \ \ \ \ pushGraphEdge(x1,\ y1,\ x2,\ y2);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00809}00809\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00810}00810\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00811}00811\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::circle(\textcolor{keywordtype}{float}\ x,\ \textcolor{keywordtype}{float}\ y,\ \textcolor{keywordtype}{float}\ radius)\ \{\}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00812}00812\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00813}00813\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::range(\textcolor{keywordtype}{float}\ minX,\ \textcolor{keywordtype}{float}\ minY,\ \textcolor{keywordtype}{float}\ maxX,\ \textcolor{keywordtype}{float}\ maxY)\ \{\}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00814}00814\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00815}00815\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::out\_bisector(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*\ e)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00816}00816\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00817}00817\ \ \ \ \ \textcolor{keywordflow}{if}\ (genDelaunay)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00818}00818\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00819}00819\ \ \ \ \ \ \ \ \ pushDelaunayGraphEdge(e-\/>reg[0]-\/>coord.x,\ e-\/>reg[0]-\/>coord.y,}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00820}00820\ \ \ \ \ \ \ \ \ \ \ \ \ e-\/>reg[1]-\/>coord.x,\ e-\/>reg[1]-\/>coord.y);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00821}00821\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00822}00822\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00823}00823\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00824}00824\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::plotinit()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00825}00825\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00826}00826\ \ \ \ \ \textcolor{keywordtype}{float}\ dx,\ dy,\ d;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00827}00827\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00828}00828\ \ \ \ \ dy\ =\ ymax\ -\/\ ymin;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00829}00829\ \ \ \ \ dx\ =\ xmax\ -\/\ xmin;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00830}00830\ \ \ \ \ d\ =\ (float)((dx\ >\ dy\ ?\ dx\ :\ dy)\ *\ 1.1);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00831}00831\ \ \ \ \ pxmin\ =\ (float)(xmin\ -\/\ (d\ -\/\ dx)\ /\ 2.0);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00832}00832\ \ \ \ \ pxmax\ =\ (float)(xmax\ +\ (d\ -\/\ dx)\ /\ 2.0);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00833}00833\ \ \ \ \ pymin\ =\ (float)(ymin\ -\/\ (d\ -\/\ dy)\ /\ 2.0);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00834}00834\ \ \ \ \ pymax\ =\ (float)(ymax\ +\ (d\ -\/\ dy)\ /\ 2.0);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00835}00835\ \ \ \ \ cradius\ =\ (float)((pxmax\ -\/\ pxmin)\ /\ 350.0);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00836}00836\ \ \ \ \ range(pxmin,\ pymin,\ pxmax,\ pymax);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00837}00837\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00838}00838\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00839}00839\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::clip\_line(\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*\ e)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00840}00840\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00841}00841\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ s1,\ *\ s2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00842}00842\ \ \ \ \ \textcolor{keywordtype}{float}\ x1\ =\ 0,\ x2\ =\ 0,\ y1\ =\ 0,\ y2\ =\ 0,\ temp\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00843}00843\ \ \ \ \ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ v1\ =\ 0,\ *\ v2\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00844}00844\ \ \ \ \ \textcolor{keywordtype}{bool}\ needNewVertex1\ =\ \textcolor{keyword}{false},\ needNewVertex2\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00845}00845\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00846}00846\ \ \ \ \ x1\ =\ e-\/>reg[0]-\/>\mbox{\hyperlink{structLNLib_1_1Site_a2cb3b751fe3a78fd9f6b6c7a9a11ee51}{coord}}.\mbox{\hyperlink{structLNLib_1_1PointVDG_ace2a50c3ae563c01303d93807123a61c}{x}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00847}00847\ \ \ \ \ x2\ =\ e-\/>reg[1]-\/>coord.x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00848}00848\ \ \ \ \ y1\ =\ e-\/>reg[0]-\/>coord.y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00849}00849\ \ \ \ \ y2\ =\ e-\/>reg[1]-\/>coord.y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00850}00850\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00851}00851\ \ \ \ \ \textcolor{comment}{//if\ the\ distance\ between\ the\ two\ points\ this\ line\ was\ created\ from\ is\ less\ than\ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00852}00852\ \ \ \ \ \textcolor{comment}{//the\ square\ root\ of\ 2,\ then\ ignore\ it}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00853}00853\ \ \ \ \ \textcolor{keywordflow}{if}\ (std::sqrt(((x2\ -\/\ x1)\ *\ (x2\ -\/\ x1))\ +\ ((y2\ -\/\ y1)\ *\ (y2\ -\/\ y1)))\ <\ minDistanceBetweenSites)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00854}00854\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00855}00855\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00856}00856\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00857}00857\ \ \ \ \ pxmin\ =\ borderMinX;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00858}00858\ \ \ \ \ pxmax\ =\ borderMaxX;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00859}00859\ \ \ \ \ pymin\ =\ borderMinY;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00860}00860\ \ \ \ \ pymax\ =\ borderMaxY;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00861}00861\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00862}00862\ \ \ \ \ \textcolor{comment}{//\ \ printf("{}\(\backslash\)nEdge\ (\%d),\ minX\ =\ \%f,\ maxX\ =\ \%f,\ minY\ =\ \%f,\ maxY\ =\ \%f"{},e-\/>edgenbr,pxmin,\ pxmax,\ pymin,pymax);}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00863}00863\ \ \ \ \ \textcolor{keywordflow}{if}\ (e-\/>a\ ==\ 1.0\ \&\&\ e-\/>b\ >=\ 0.0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00864}00864\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00865}00865\ \ \ \ \ \ \ \ \ s1\ =\ e-\/>ep[1];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00866}00866\ \ \ \ \ \ \ \ \ s2\ =\ e-\/>ep[0];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00867}00867\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00868}00868\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00869}00869\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00870}00870\ \ \ \ \ \ \ \ \ s1\ =\ e-\/>ep[0];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00871}00871\ \ \ \ \ \ \ \ \ s2\ =\ e-\/>ep[1];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00872}00872\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00873}00873\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00874}00874\ \ \ \ \ v1\ =\ s1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00875}00875\ \ \ \ \ v2\ =\ s2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00876}00876\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00877}00877\ \ \ \ \ \textcolor{keywordflow}{if}\ (e-\/>a\ ==\ 1.0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00878}00878\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00879}00879\ \ \ \ \ \ \ \ \ y1\ =\ pymin;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00880}00880\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s1\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\ \&\&\ s1-\/>coord.y\ >\ pymin)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00881}00881\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00882}00882\ \ \ \ \ \ \ \ \ \ \ \ \ y1\ =\ s1-\/>coord.y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00883}00883\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00884}00884\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00885}00885\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00886}00886\ \ \ \ \ \ \ \ \ \ \ \ \ needNewVertex1\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00887}00887\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00888}00888\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00889}00889\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y1\ >\ pymax)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00890}00890\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00891}00891\ \ \ \ \ \ \ \ \ \ \ \ \ y1\ =\ pymax;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00892}00892\ \ \ \ \ \ \ \ \ \ \ \ \ needNewVertex1\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00893}00893\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00894}00894\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00895}00895\ \ \ \ \ \ \ \ \ x1\ =\ e-\/>c\ -\/\ e-\/>b\ *\ y1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00896}00896\ \ \ \ \ \ \ \ \ y2\ =\ pymax;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00897}00897\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s2\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\ \&\&\ s2-\/>coord.y\ <\ pymax)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00898}00898\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00899}00899\ \ \ \ \ \ \ \ \ \ \ \ \ y2\ =\ s2-\/>coord.y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00900}00900\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00901}00901\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00902}00902\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00903}00903\ \ \ \ \ \ \ \ \ \ \ \ \ needNewVertex2\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00904}00904\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00905}00905\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00906}00906\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00907}00907\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y2\ <\ pymin)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00908}00908\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00909}00909\ \ \ \ \ \ \ \ \ \ \ \ \ y2\ =\ pymin;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00910}00910\ \ \ \ \ \ \ \ \ \ \ \ \ needNewVertex2\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00911}00911\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00912}00912\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00913}00913\ \ \ \ \ \ \ \ \ x2\ =\ (e-\/>c)\ -\/\ (e-\/>b)\ *\ y2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00914}00914\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((x1\ >\ pxmax)\ \&\ (x2\ >\ pxmax))\ |\ ((x1\ <\ pxmin)\ \&\ (x2\ <\ pxmin)))}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00915}00915\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00916}00916\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00917}00917\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00918}00918\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x1\ >\ pxmax)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00919}00919\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00920}00920\ \ \ \ \ \ \ \ \ \ \ \ \ x1\ =\ pxmax;\ y1\ =\ (e-\/>c\ -\/\ x1)\ /\ e-\/>b;\ needNewVertex1\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00921}00921\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00922}00922\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x1\ <\ pxmin)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00923}00923\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00924}00924\ \ \ \ \ \ \ \ \ \ \ \ \ x1\ =\ pxmin;\ y1\ =\ (e-\/>c\ -\/\ x1)\ /\ e-\/>b;\ needNewVertex1\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00925}00925\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00926}00926\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x2\ >\ pxmax)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00927}00927\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00928}00928\ \ \ \ \ \ \ \ \ \ \ \ \ x2\ =\ pxmax;\ y2\ =\ (e-\/>c\ -\/\ x2)\ /\ e-\/>b;\ needNewVertex2\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00929}00929\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00930}00930\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x2\ <\ pxmin)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00931}00931\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00932}00932\ \ \ \ \ \ \ \ \ \ \ \ \ x2\ =\ pxmin;\ y2\ =\ (e-\/>c\ -\/\ x2)\ /\ e-\/>b;\ needNewVertex2\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00933}00933\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00934}00934\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00935}00935\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00936}00936\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00937}00937\ \ \ \ \ \ \ \ \ x1\ =\ pxmin;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00938}00938\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s1\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\ \&\&\ s1-\/>coord.x\ >\ pxmin)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00939}00939\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00940}00940\ \ \ \ \ \ \ \ \ \ \ \ \ x1\ =\ s1-\/>coord.x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00941}00941\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00942}00942\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00943}00943\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00944}00944\ \ \ \ \ \ \ \ \ \ \ \ \ needNewVertex1\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00945}00945\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00946}00946\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00947}00947\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x1\ >\ pxmax)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00948}00948\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00949}00949\ \ \ \ \ \ \ \ \ \ \ \ \ x1\ =\ pxmax;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00950}00950\ \ \ \ \ \ \ \ \ \ \ \ \ needNewVertex1\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00951}00951\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00952}00952\ \ \ \ \ \ \ \ \ y1\ =\ e-\/>c\ -\/\ e-\/>a\ *\ x1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00953}00953\ \ \ \ \ \ \ \ \ x2\ =\ pxmax;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00954}00954\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (s2\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\ \&\&\ s2-\/>coord.x\ <\ pxmax)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00955}00955\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00956}00956\ \ \ \ \ \ \ \ \ \ \ \ \ x2\ =\ s2-\/>coord.x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00957}00957\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00958}00958\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00959}00959\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00960}00960\ \ \ \ \ \ \ \ \ \ \ \ \ needNewVertex2\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00961}00961\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00962}00962\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00963}00963\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (x2\ <\ pxmin)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00964}00964\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00965}00965\ \ \ \ \ \ \ \ \ \ \ \ \ x2\ =\ pxmin;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00966}00966\ \ \ \ \ \ \ \ \ \ \ \ \ needNewVertex2\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00967}00967\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00968}00968\ \ \ \ \ \ \ \ \ y2\ =\ e-\/>c\ -\/\ e-\/>a\ *\ x2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00969}00969\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (((y1\ >\ pymax)\ \&\ (y2\ >\ pymax))\ |\ ((y1\ <\ pymin)\ \&\ (y2\ <\ pymin)))}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00970}00970\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00971}00971\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00972}00972\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00973}00973\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y1\ >\ pymax)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00974}00974\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00975}00975\ \ \ \ \ \ \ \ \ \ \ \ \ y1\ =\ pymax;\ x1\ =\ (e-\/>c\ -\/\ y1)\ /\ e-\/>a;\ needNewVertex1\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00976}00976\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00977}00977\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y1\ <\ pymin)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00978}00978\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00979}00979\ \ \ \ \ \ \ \ \ \ \ \ \ y1\ =\ pymin;\ x1\ =\ (e-\/>c\ -\/\ y1)\ /\ e-\/>a;\ needNewVertex1\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00980}00980\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00981}00981\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y2\ >\ pymax)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00982}00982\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00983}00983\ \ \ \ \ \ \ \ \ \ \ \ \ y2\ =\ pymax;\ x2\ =\ (e-\/>c\ -\/\ y2)\ /\ e-\/>a;\ needNewVertex2\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00984}00984\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00985}00985\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (y2\ <\ pymin)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00986}00986\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00987}00987\ \ \ \ \ \ \ \ \ \ \ \ \ y2\ =\ pymin;\ x2\ =\ (e-\/>c\ -\/\ y2)\ /\ e-\/>a;\ needNewVertex2\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00988}00988\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00989}00989\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00990}00990\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00991}00991\ \ \ \ \ \textcolor{keywordflow}{if}\ (!((x1\ ==\ x2\ \&\&\ x2\ ==\ pxmin)\ ||\ (x1\ ==\ x2\ \&\&\ x2\ ==\ pxmax)\ ||}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00992}00992\ \ \ \ \ \ \ \ \ (y1\ ==\ y2\ \&\&\ y2\ ==\ pymin)\ ||\ (y1\ ==\ y2\ \&\&\ y2\ ==\ pymax)))}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00993}00993\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00994}00994\ \ \ \ \ \ \ \ \ pushGraphEdge(x1,\ y1,\ x2,\ y2);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00995}00995\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (needNewVertex1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00996}00996\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00997}00997\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//printf("{}\(\backslash\)nCreate\ new\ vertex\ 1\ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00998}00998\ \ \ \ \ \ \ \ \ \ \ \ \ v1\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)getfree(\&sfl);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l00999}00999\ \ \ \ \ \ \ \ \ \ \ \ \ v1-\/>refcnt\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01000}01000\ \ \ \ \ \ \ \ \ \ \ \ \ v1-\/>coord.x\ =\ x1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01001}01001\ \ \ \ \ \ \ \ \ \ \ \ \ v1-\/>coord.y\ =\ y1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01002}01002\ \ \ \ \ \ \ \ \ \ \ \ \ makevertex(v1);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01003}01003\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01004}01004\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01005}01005\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01006}01006\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (needNewVertex2)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01007}01007\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01008}01008\ \ \ \ \ \ \ \ \ \ \ \ \ v2\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)getfree(\&sfl);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01009}01009\ \ \ \ \ \ \ \ \ \ \ \ \ v2-\/>refcnt\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01010}01010\ \ \ \ \ \ \ \ \ \ \ \ \ v2-\/>coord.x\ =\ x2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01011}01011\ \ \ \ \ \ \ \ \ \ \ \ \ v2-\/>coord.y\ =\ y2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01012}01012\ \ \ \ \ \ \ \ \ \ \ \ \ makevertex(v2);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01013}01013\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01014}01014\ \ \ \ \ \ \ \ \ insertVertexLink(v1-\/>sitenbr,\ v2-\/>sitenbr);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01015}01015\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01016}01016\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01017}01017\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01018}01018\ \textcolor{comment}{/*\ implicit\ parameters:\ nsites,\ sqrt\_nsites,\ xmin,\ xmax,\ ymin,\ ymax,}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01019}01019\ \textcolor{comment}{deltax,\ deltay\ (can\ all\ be\ estimates).}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01020}01020\ \textcolor{comment}{Performance\ suffers\ if\ they\ are\ wrong;\ better\ to\ make\ nsites,}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01021}01021\ \textcolor{comment}{deltax,\ and\ deltay\ too\ big\ than\ too\ small.\ \ (?)\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01022}01022\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01023}01023\ \textcolor{keywordtype}{bool}\ LNLib::VoronoiDiagramGenerator::voronoi(\textcolor{keywordtype}{bool}\ genVertexInfo)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01024}01024\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01025}01025\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ newsite,\ *\ bot,\ *\ top,\ *\ temp,\ *\ p;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01026}01026\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ v;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01027}01027\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1PointVDG}{PointVDG}}\ newintstar;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01028}01028\ \ \ \ \ \textcolor{keywordtype}{int}\ pm;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01029}01029\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}*\ lbnd,\ *\ rbnd,\ *\ llbnd,\ *\ rrbnd,\ *\ bisector;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01030}01030\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}*\ e;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01031}01031\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01032}01032\ \ \ \ \ PQinitialize();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01033}01033\ \ \ \ \ bottomsite\ =\ nextone();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01034}01034\ \ \ \ \ \textcolor{keywordtype}{bool}\ retval\ =\ ELinitialize();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01035}01035\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01036}01036\ \ \ \ \ \textcolor{keywordflow}{if}\ (!retval)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01037}01037\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01038}01038\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01039}01039\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01040}01040\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01041}01041\ \ \ \ \ newsite\ =\ nextone();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01042}01042\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01043}01043\ \ \ \ \ \textcolor{keywordtype}{long}\ counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01044}01044\ \ \ \ \ \textcolor{keywordflow}{while}\ (1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01045}01045\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01046}01046\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (!PQempty())}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01047}01047\ \ \ \ \ \ \ \ \ \ \ \ \ newintstar\ =\ PQ\_min();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01048}01048\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01049}01049\ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ the\ lowest\ site\ has\ a\ smaller\ y\ value\ than\ the\ lowest\ vector\ intersection,\ process\ the\ site}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01050}01050\ \ \ \ \ \ \ \ \ \textcolor{comment}{//otherwise\ process\ the\ vector\ intersection\ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01051}01051\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01052}01052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (newsite\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}\ \&\&\ (PQempty()\ ||\ newsite-\/>coord.y\ <\ newintstar.y}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01053}01053\ \ \ \ \ \ \ \ \ \ \ \ \ ||\ (newsite-\/>coord.y\ ==\ newintstar.y\ \&\&\ newsite-\/>coord.x\ <\ newintstar.x)))}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01054}01054\ \ \ \ \ \ \ \ \ \{\textcolor{comment}{/*\ new\ site\ is\ smallest\ -\/\ this\ is\ a\ site\ event*/}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01055}01055\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ out\_site(newsite);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ //output\ the\ site}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01056}01056\ \ \ \ \ \ \ \ \ \ \ \ \ lbnd\ =\ ELleftbnd(\&(newsite-\/>coord));\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//get\ the\ first\ HalfEdge\ to\ the\ LEFT\ of\ the\ new\ site}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01057}01057\ \ \ \ \ \ \ \ \ \ \ \ \ rbnd\ =\ ELright(lbnd);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//get\ the\ first\ HalfEdge\ to\ the\ RIGHT\ of\ the\ new\ site}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01058}01058\ \ \ \ \ \ \ \ \ \ \ \ \ bot\ =\ rightreg(lbnd);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ this\ halfedge\ has\ no\ edge,\ ,\ bot\ =\ bottom\ site\ (whatever\ that\ is)}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01059}01059\ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ bisect(bot,\ newsite);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//create\ a\ new\ edge\ that\ bisects\ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01060}01060\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01061}01061\ \ \ \ \ \ \ \ \ \ \ \ \ bisector\ =\ HEcreate(e,\ \mbox{\hyperlink{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9}{le}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//create\ a\ new\ HalfEdge,\ setting\ its\ ELpm\ field\ to\ 0\ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01062}01062\ \ \ \ \ \ \ \ \ \ \ \ \ ELinsert(lbnd,\ bisector);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//insert\ this\ new\ bisector\ edge\ between\ the\ left\ and\ right\ vectors\ in\ a\ linked\ list\ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01063}01063\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01064}01064\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((p\ =\ intersect(lbnd,\ bisector))\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \ \textcolor{comment}{//if\ the\ new\ bisector\ intersects\ with\ the\ left\ edge,\ remove\ the\ left\ edge's\ vertex,\ and\ put\ in\ the\ new\ one}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01065}01065\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01066}01066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PQdelete(lbnd);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01067}01067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PQinsert(lbnd,\ p,\ dist(p,\ newsite));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01068}01068\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01069}01069\ \ \ \ \ \ \ \ \ \ \ \ \ lbnd\ =\ bisector;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01070}01070\ \ \ \ \ \ \ \ \ \ \ \ \ bisector\ =\ HEcreate(e,\ \mbox{\hyperlink{Voronoi_8h_a51f63d24f02be00251e895721eae51b0}{re}});\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//create\ a\ new\ HalfEdge,\ setting\ its\ ELpm\ field\ to\ 1}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01071}01071\ \ \ \ \ \ \ \ \ \ \ \ \ ELinsert(lbnd,\ bisector);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//insert\ the\ new\ HE\ to\ the\ right\ of\ the\ original\ bisector\ earlier\ in\ the\ IF\ stmt}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01072}01072\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01073}01073\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((p\ =\ intersect(bisector,\ rbnd))\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})\ \ \textcolor{comment}{//if\ this\ new\ bisector\ intersects\ with\ the}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01074}01074\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01075}01075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PQinsert(bisector,\ p,\ dist(p,\ newsite));\ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//push\ the\ HE\ into\ the\ ordered\ linked\ list\ of\ vertices}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01076}01076\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01077}01077\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01078}01078\ \ \ \ \ \ \ \ \ \ \ \ \ newsite\ =\ nextone();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01079}01079\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01080}01080\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (!PQempty())\ \textcolor{comment}{/*\ intersection\ is\ smallest\ -\/\ this\ is\ a\ vector\ event\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01081}01081\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01082}01082\ \ \ \ \ \ \ \ \ \ \ \ \ lbnd\ =\ PQextractmin();\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//pop\ the\ HalfEdge\ with\ the\ lowest\ vector\ off\ the\ ordered\ list\ of\ vectors\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01083}01083\ \ \ \ \ \ \ \ \ \ \ \ \ llbnd\ =\ ELleft(lbnd);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//get\ the\ HalfEdge\ to\ the\ left\ of\ the\ above\ HE}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01084}01084\ \ \ \ \ \ \ \ \ \ \ \ \ rbnd\ =\ ELright(lbnd);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//get\ the\ HalfEdge\ to\ the\ right\ of\ the\ above\ HE}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01085}01085\ \ \ \ \ \ \ \ \ \ \ \ \ rrbnd\ =\ ELright(rbnd);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//get\ the\ HalfEdge\ to\ the\ right\ of\ the\ HE\ to\ the\ right\ of\ the\ lowest\ HE\ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01086}01086\ \ \ \ \ \ \ \ \ \ \ \ \ bot\ =\ leftreg(lbnd);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//get\ the\ Site\ to\ the\ left\ of\ the\ left\ HE\ which\ it\ bisects}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01087}01087\ \ \ \ \ \ \ \ \ \ \ \ \ top\ =\ rightreg(rbnd);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//get\ the\ Site\ to\ the\ right\ of\ the\ right\ HE\ which\ it\ bisects}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01088}01088\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01089}01089\ \ \ \ \ \ \ \ \ \ \ \ \ out\_triple(bot,\ top,\ rightreg(lbnd));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01090}01090\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01091}01091\ \ \ \ \ \ \ \ \ \ \ \ \ v\ =\ lbnd-\/>vertex;\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//get\ the\ vertex\ that\ caused\ this\ event}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01092}01092\ \ \ \ \ \ \ \ \ \ \ \ \ makevertex(v);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//set\ the\ vertex\ number\ -\/\ couldn't\ do\ this\ earlier\ since\ we\ didn't\ know\ when\ it\ would\ be\ processed}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01093}01093\ \ \ \ \ \ \ \ \ \ \ \ \ endpoint(lbnd-\/>ELedge,\ lbnd-\/>ELpm,\ v);\ \ \textcolor{comment}{//set\ the\ endpoint\ of\ the\ left\ HalfEdge\ to\ be\ this\ vector}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01094}01094\ \ \ \ \ \ \ \ \ \ \ \ \ endpoint(rbnd-\/>ELedge,\ rbnd-\/>ELpm,\ v);\ \ \textcolor{comment}{//set\ the\ endpoint\ of\ the\ right\ HalfEdge\ to\ be\ this\ vector}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01095}01095\ \ \ \ \ \ \ \ \ \ \ \ \ ELdelete(lbnd);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//mark\ the\ lowest\ HE\ for\ deletion\ -\/\ can't\ delete\ yet\ because\ there\ might\ be\ pointers\ to\ it\ in\ Hash\ Map\ \ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01096}01096\ \ \ \ \ \ \ \ \ \ \ \ \ PQdelete(rbnd);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//remove\ all\ vertex\ events\ to\ do\ with\ the\ \ right\ HE}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01097}01097\ \ \ \ \ \ \ \ \ \ \ \ \ ELdelete(rbnd);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//mark\ the\ right\ HE\ for\ deletion\ -\/\ can't\ delete\ yet\ because\ there\ might\ be\ pointers\ to\ it\ in\ Hash\ Map\ \ \ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01098}01098\ \ \ \ \ \ \ \ \ \ \ \ \ pm\ =\ \mbox{\hyperlink{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9}{le}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//set\ the\ pm\ variable\ to\ zero}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01099}01099\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01100}01100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (bot-\/>coord.y\ >\ top-\/>coord.y)\ \ \ \ \ \ \ \ \textcolor{comment}{//if\ the\ site\ to\ the\ left\ of\ the\ event\ is\ higher\ than\ the\ Site}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01101}01101\ \ \ \ \ \ \ \ \ \ \ \ \ \{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//to\ the\ right\ of\ it,\ then\ swap\ them\ and\ set\ the\ 'pm'\ variable\ to\ 1}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01102}01102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ temp\ =\ bot;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01103}01103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ bot\ =\ top;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01104}01104\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ top\ =\ temp;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01105}01105\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ pm\ =\ \mbox{\hyperlink{Voronoi_8h_a51f63d24f02be00251e895721eae51b0}{re}};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01106}01106\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01107}01107\ \ \ \ \ \ \ \ \ \ \ \ \ e\ =\ bisect(bot,\ top);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//create\ an\ Edge\ (or\ line)\ that\ is\ between\ the\ two\ Sites.\ This\ creates}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01108}01108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//the\ formula\ of\ the\ line,\ and\ assigns\ a\ line\ number\ to\ it}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01109}01109\ \ \ \ \ \ \ \ \ \ \ \ \ bisector\ =\ HEcreate(e,\ pm);\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//create\ a\ HE\ from\ the\ Edge\ 'e',\ and\ make\ it\ point\ to\ that\ edge\ with\ its\ ELedge\ field}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01110}01110\ \ \ \ \ \ \ \ \ \ \ \ \ ELinsert(llbnd,\ bisector);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//insert\ the\ new\ bisector\ to\ the\ right\ of\ the\ left\ HE}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01111}01111\ \ \ \ \ \ \ \ \ \ \ \ \ endpoint(e,\ \mbox{\hyperlink{Voronoi_8h_a51f63d24f02be00251e895721eae51b0}{re}}\ -\/\ pm,\ v);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//set\ one\ endpoint\ to\ the\ new\ edge\ to\ be\ the\ vector\ point\ 'v'.}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01112}01112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//If\ the\ site\ to\ the\ left\ of\ this\ bisector\ is\ higher\ than\ the\ right}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01113}01113\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//Site,\ then\ this\ endpoint\ is\ put\ in\ position\ 0;\ otherwise\ in\ pos\ 1}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01114}01114\ \ \ \ \ \ \ \ \ \ \ \ \ deref(v);\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//delete\ the\ vector\ 'v'}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01115}01115\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01116}01116\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ left\ HE\ and\ the\ new\ bisector\ don't\ intersect,\ then\ delete\ the\ left\ HE,\ and\ reinsert\ it\ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01117}01117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((p\ =\ intersect(llbnd,\ bisector))\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01118}01118\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01119}01119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PQdelete(llbnd);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01120}01120\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PQinsert(llbnd,\ p,\ dist(p,\ bot));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01121}01121\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01122}01122\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01123}01123\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{comment}{//if\ right\ HE\ and\ the\ new\ bisector\ don't\ intersect,\ then\ reinsert\ it\ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01124}01124\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ ((p\ =\ intersect(bisector,\ rrbnd))\ !=\ (\textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}})}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01125}01125\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01126}01126\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ PQinsert(bisector,\ p,\ dist(p,\ bot));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01127}01127\ \ \ \ \ \ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01128}01128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01129}01129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01130}01130\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01131}01131\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01132}01132\ \ \ \ \ \textcolor{keywordflow}{for}\ (lbnd\ =\ ELright(ELleftend);\ lbnd\ !=\ ELrightend;\ lbnd\ =\ ELright(lbnd))}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01133}01133\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01134}01134\ \ \ \ \ \ \ \ \ e\ =\ lbnd-\/>ELedge;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01135}01135\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01136}01136\ \ \ \ \ \ \ \ \ clip\_line(e);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01137}01137\ \ \ \ \ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01138}01138\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01139}01139\ \ \ \ \ \textcolor{comment}{//count\ the\ total\ number\ of\ }}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01140}01140\ \ \ \ \ \textcolor{keywordtype}{long}\ i\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01141}01141\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01142}01142\ \ \ \ \ \textcolor{keywordflow}{if}\ (genVertexInfo)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01143}01143\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01144}01144\ \ \ \ \ \ \ \ \ counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01145}01145\ \ \ \ \ \ \ \ \ sizeOfFinalVertices\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01146}01146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ sizeOfVertexLinks;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01147}01147\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01148}01148\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[i].count\ ==\ 1\ ||\ vertexLinks[i].count\ ==\ 3)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01149}01149\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01150}01150\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sizeOfFinalVertices++;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01151}01151\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01152}01152\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01153}01153\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01154}01154\ \ \ \ \ \ \ \ \ finalVertices\ =\ (\mbox{\hyperlink{structLNLib_1_1PointVDG}{PointVDG}}*)myalloc(sizeOfFinalVertices\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structLNLib_1_1PointVDG}{PointVDG}}));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01155}01155\ \ \ \ \ \ \ \ \ counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01156}01156\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ sizeOfVertexLinks;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01157}01157\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01158}01158\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[i].count\ ==\ 1\ ||\ vertexLinks[i].count\ ==\ 3\ \&\&\ vertices[i]\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01159}01159\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01160}01160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ finalVertices[counter]\ =\ vertices[i]-\/>coord;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01161}01161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ counter++;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01162}01162\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01163}01163\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01164}01164\ \ \ \ \ \ \ \ \ generateVertexLinks();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01165}01165\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01166}01166\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01167}01167\ \ \ \ \ cleanup();}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01168}01168\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01169}01169\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01170}01170\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01171}01171\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::insertVertexAddress(\textcolor{keywordtype}{long}\ vertexNum,\ \textcolor{keyword}{struct}\ \mbox{\hyperlink{structLNLib_1_1Site}{Site}}*\ address)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01172}01172\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01173}01173\ \ \ \ \ \textcolor{keywordflow}{if}\ (vertices\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01174}01174\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01175}01175\ \ \ \ \ \ \ \ \ vertices\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{Site}}**)myalloc(4000\ *\ \textcolor{keyword}{sizeof}(*vertices));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01176}01176\ \ \ \ \ \ \ \ \ sizeOfVertices\ =\ 4000;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01177}01177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ sizeOfVertices\ -\/\ 4000;\ i\ <\ sizeOfVertices;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01178}01178\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01179}01179\ \ \ \ \ \ \ \ \ \ \ \ \ vertices[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01180}01180\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01181}01181\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01182}01182\ \ \ \ \ \textcolor{comment}{//if\ the\ site\ address\ being\ entered\ is\ past\ the\ end\ of\ the\ array,\ then\ grow\ the\ array}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01183}01183\ \ \ \ \ \textcolor{keywordflow}{while}\ (vertexNum\ >\ sizeOfVertices\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01184}01184\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01185}01185\ \ \ \ \ \ \ \ \ vertices\ =\ (\mbox{\hyperlink{structLNLib_1_1Site}{Site}}**)realloc(vertices,\ (sizeOfVertices\ +\ 4000)\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structLNLib_1_1Site}{Site}}*));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01186}01186\ \ \ \ \ \ \ \ \ sizeOfVertices\ +=\ 4000;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01187}01187\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01188}01188\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ sizeOfVertices\ -\/\ 4000;\ i\ <\ sizeOfVertices;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01189}01189\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01190}01190\ \ \ \ \ \ \ \ \ \ \ \ \ vertices[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01191}01191\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01192}01192\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01193}01193\ \ \ \ \ vertices[vertexNum]\ =\ address;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01194}01194\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01195}01195\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01196}01196\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::insertVertexLink(\textcolor{keywordtype}{long}\ vertexNum,\ \textcolor{keywordtype}{long}\ vertexLinkedTo)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01197}01197\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01198}01198\ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01199}01199\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01200}01200\ \ \ \ \ \ \ \ \ vertexLinks\ =\ (\textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Point3}{Point3}}*)myalloc(4000\ *\ \textcolor{keyword}{sizeof}(*vertexLinks));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01201}01201\ \ \ \ \ \ \ \ \ sizeOfVertexLinks\ =\ 4000;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01202}01202\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ 0;\ i\ <\ sizeOfVertexLinks;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01203}01203\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01204}01204\ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[i].x\ =\ vertexLinks[i].y\ =\ vertexLinks[i].z\ =\ -\/1;\ \textcolor{comment}{//initialise\ all\ elements\ in\ the\ array\ to\ -\/1}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01205}01205\ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[i].count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01206}01206\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01207}01207\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01208}01208\ \ \ \ \ \textcolor{comment}{//if\ the\ site\ address\ being\ entered\ is\ past\ the\ end\ of\ the\ array,\ then\ grow\ the\ array}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01209}01209\ \ \ \ \ \textcolor{keywordflow}{while}\ (vertexNum\ >\ sizeOfVertexLinks\ -\/\ 1\ ||\ vertexLinkedTo\ >\ sizeOfVertexLinks\ -\/\ 1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01210}01210\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01211}01211\ \ \ \ \ \ \ \ \ vertexLinks\ =\ (\mbox{\hyperlink{structLNLib_1_1Point3}{Point3}}*)realloc(vertexLinks,\ (sizeOfVertexLinks\ +\ 4000)\ *\ \textcolor{keyword}{sizeof}(\mbox{\hyperlink{structLNLib_1_1Point3}{Point3}}));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01212}01212\ \ \ \ \ \ \ \ \ sizeOfVertexLinks\ +=\ 4000;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01213}01213\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01214}01214\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ i\ =\ sizeOfVertexLinks\ -\/\ 4000;\ i\ <\ sizeOfVertexLinks;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01215}01215\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01216}01216\ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[i].x\ =\ vertexLinks[i].y\ =\ vertexLinks[i].z\ =\ -\/1;\ \textcolor{comment}{//initialise\ all\ elements\ in\ the\ array\ to\ -\/1}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01217}01217\ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[i].count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01218}01218\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01219}01219\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01220}01220\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01221}01221\ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[vertexNum].x\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01222}01222\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01223}01223\ \ \ \ \ \ \ \ \ vertexLinks[vertexNum].x\ =\ (float)vertexLinkedTo;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01224}01224\ \ \ \ \ \ \ \ \ vertexLinks[vertexNum].count\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01225}01225\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01226}01226\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vertexLinks[vertexNum].y\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01227}01227\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01228}01228\ \ \ \ \ \ \ \ \ vertexLinks[vertexNum].y\ =\ (float)vertexLinkedTo;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01229}01229\ \ \ \ \ \ \ \ \ vertexLinks[vertexNum].count\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01230}01230\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01231}01231\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vertexLinks[vertexNum].z\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01232}01232\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01233}01233\ \ \ \ \ \ \ \ \ vertexLinks[vertexNum].z\ =\ (float)vertexLinkedTo;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01234}01234\ \ \ \ \ \ \ \ \ vertexLinks[vertexNum].count\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01235}01235\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01236}01236\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01237}01237\ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[vertexLinkedTo].x\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01238}01238\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01239}01239\ \ \ \ \ \ \ \ \ vertexLinks[vertexLinkedTo].x\ =\ (float)vertexNum;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01240}01240\ \ \ \ \ \ \ \ \ vertexLinks[vertexLinkedTo].count\ =\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01241}01241\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01242}01242\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vertexLinks[vertexLinkedTo].y\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01243}01243\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01244}01244\ \ \ \ \ \ \ \ \ vertexLinks[vertexLinkedTo].y\ =\ (float)vertexNum;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01245}01245\ \ \ \ \ \ \ \ \ vertexLinks[vertexLinkedTo].count\ =\ 2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01246}01246\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01247}01247\ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vertexLinks[vertexLinkedTo].z\ ==\ -\/1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01248}01248\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01249}01249\ \ \ \ \ \ \ \ \ vertexLinks[vertexLinkedTo].z\ =\ (float)vertexNum;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01250}01250\ \ \ \ \ \ \ \ \ vertexLinks[vertexLinkedTo].count\ =\ 3;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01251}01251\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01252}01252\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01253}01253\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01254}01254\ \textcolor{keywordtype}{void}\ LNLib::VoronoiDiagramGenerator::generateVertexLinks()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01255}01255\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01256}01256\ \ \ \ \ \textcolor{keywordtype}{long}\ i\ =\ 0,\ j\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01257}01257\ \ \ \ \ \textcolor{keywordflow}{if}\ (finalVertexLinks\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01258}01258\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01259}01259\ \ \ \ \ \ \ \ \ free(finalVertexLinks);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01260}01260\ \ \ \ \ \ \ \ \ finalVertexLinks\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01261}01261\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01262}01262\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01263}01263\ \ \ \ \ \textcolor{keywordflow}{if}\ (vertices\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01264}01264\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01265}01265\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01266}01266\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01267}01267\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01268}01268\ \ \ \ \ sizeOfFinalVertexLinks\ =\ (sizeOfVertices\ >\ sizeOfVertexLinks)\ ?\ sizeOfVertices\ :\ sizeOfVertexLinks;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01269}01269\ \ \ \ \ finalVertexLinks\ =\ (\textcolor{keyword}{struct\ }LNLib::VertexLink*)myalloc(sizeOfFinalVertexLinks\ *\ \textcolor{keyword}{sizeof}(LNLib::VertexLink));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01270}01270\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01271}01271\ \ \ \ \ \textcolor{keywordflow}{if}\ (finalVertexLinks\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01272}01272\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01273}01273\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ sizeOfFinalVertexLinks;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01274}01274\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01275}01275\ \ \ \ \ \ \ \ \ finalVertexLinks[i].count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01276}01276\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01277}01277\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01278}01278\ \ \ \ \ \textcolor{keywordtype}{long}*\ count1vertices\ =\ (\textcolor{keywordtype}{long}*)myalloc(sizeOfFinalVertexLinks\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{long}));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01279}01279\ \ \ \ \ \textcolor{keywordtype}{long}*\ count3vertices\ =\ (\textcolor{keywordtype}{long}*)myalloc(sizeOfFinalVertexLinks\ *\ \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{long}));}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01280}01280\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01281}01281\ \ \ \ \ \textcolor{comment}{//if\ we\ couldn't\ get\ the\ memory\ we\ need,\ return}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01282}01282\ \ \ \ \ \textcolor{keywordflow}{if}\ (count1vertices\ ==\ 0\ ||\ count3vertices\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01283}01283\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01284}01284\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count3vertices\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01285}01285\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01286}01286\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ count3vertices;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01287}01287\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01288}01288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count1vertices\ !=\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01289}01289\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01290}01290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{delete}[]\ count1vertices;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01291}01291\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01292}01292\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01293}01293\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01294}01294\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01295}01295\ \ \ \ \ \textcolor{comment}{//initialise\ the\ two\ arrays}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01296}01296\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ sizeOfFinalVertexLinks;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01297}01297\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01298}01298\ \ \ \ \ \ \ \ \ count1vertices[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01299}01299\ \ \ \ \ \ \ \ \ count3vertices[i]\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01300}01300\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01301}01301\ \ \ \ \ \textcolor{keywordtype}{long}\ count1counter\ =\ 0,\ count3counter\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01302}01302\ \ \ \ \ \textcolor{keywordtype}{long}\ count3links[3]\ =\ \{\ -\/1\ \};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01303}01303\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ sizeOfVertices;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01304}01304\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01305}01305\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertices[i]\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01306}01306\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01307}01307\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01308}01308\ \ \ \ \ \ \ \ \ finalVertexLinks[i].coord\ =\ vertices[i]-\/>coord;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01309}01309\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01310}01310\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01311}01311\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ sizeOfVertexLinks;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01312}01312\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01313}01313\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{switch}\ (vertexLinks[i].count)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01314}01314\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01315}01315\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 1:count1vertices[count1counter]\ =\ i;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01316}01316\ \ \ \ \ \ \ \ \ \ \ \ \ count1counter++;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01317}01317\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01318}01318\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{case}\ 3:count3vertices[count3counter]\ =\ i;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01319}01319\ \ \ \ \ \ \ \ \ \ \ \ \ count3counter++;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01320}01320\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01321}01321\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01322}01322\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01323}01323\ \ \ \ \ \textcolor{comment}{//first,\ we\ go\ from\ all\ leaf\ nodes,\ those\ with\ just\ one\ edge,\ to\ either\ the\ next\ leaf\ or\ the}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01324}01324\ \ \ \ \ \textcolor{comment}{//next\ node\ with\ 3\ edges}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01325}01325\ \ \ \ \ \textcolor{keywordtype}{long}\ currentVertex\ =\ 0,\ prevVertex\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01326}01326\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01327}01327\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ count1counter;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01328}01328\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01329}01329\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[count1vertices[i]].count\ !=\ 1)\textcolor{comment}{//if\ we've\ already\ been\ here,\ ignore\ this\ vertex}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01330}01330\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01331}01331\ \ \ \ \ \ \ \ \ \textcolor{comment}{//\ \ LOG<<i;}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01332}01332\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01333}01333\ \ \ \ \ \ \ \ \ currentVertex\ =\ (long)vertexLinks[count1vertices[i]].x;\textcolor{comment}{//use\ the\ x\ variable,\ since\ it\ should\ be\ the\ only\ one\ set}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01334}01334\ \ \ \ \ \ \ \ \ prevVertex\ =\ count1vertices[i];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01335}01335\ \ \ \ \ \ \ \ \ vertexLinks[count1vertices[i]].count-\/-\/;\ \textcolor{comment}{//don't\ revisit\ this\ site}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01336}01336\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01337}01337\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (currentVertex\ !=\ -\/1\ \&\&\ currentVertex\ <\ sizeOfVertexLinks\ \&\&}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01338}01338\ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].count\ !=\ 1\ \&\&\ vertexLinks[currentVertex].count\ !=\ 3)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01339}01339\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01340}01340\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].count\ ==\ 2)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01341}01341\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01342}01342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].x\ ==\ prevVertex)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01343}01343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01344}01344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].x\ =\ vertexLinks[currentVertex].y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01345}01345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].y\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01346}01346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].count-\/-\/;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01347}01347\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01348}01348\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].y\ ==\ prevVertex)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01349}01349\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01350}01350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].y\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01351}01351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].count-\/-\/;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01352}01352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01353}01353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prevVertex\ =\ currentVertex;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01354}01354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ currentVertex\ =\ (long)vertexLinks[currentVertex].x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01355}01355\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01356}01356\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01357}01357\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01358}01358\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\textcolor{comment}{//this\ is\ an\ error,\ and\ shouldn't\ happen}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01359}01359\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01360}01360\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01361}01361\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01362}01362\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentVertex\ ==\ -\/1\ ||\ currentVertex\ >=\ sizeOfVertexLinks)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01363}01363\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//this\ is\ an\ error}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01364}01364\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01365}01365\ \ \ \ \ \ \ \ \ finalVertexLinks[count1vertices[i]].v[finalVertexLinks[count1vertices[i]].count]\ =\ vertices[currentVertex]-\/>coord;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01366}01366\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01367}01367\ \ \ \ \ \ \ \ \ finalVertexLinks[count1vertices[i]].count++;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01368}01368\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01369}01369\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].count\ ==\ 1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01370}01370\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01371}01371\ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01372}01372\ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].x\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01373}01373\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01374}01374\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].count\ ==\ 3)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01375}01375\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01376}01376\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].x\ ==\ prevVertex)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01377}01377\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01378}01378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].x\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01379}01379\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01380}01380\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].y\ ==\ prevVertex)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01381}01381\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01382}01382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].y\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01383}01383\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01384}01384\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].z\ ==\ prevVertex)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01385}01385\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01386}01386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].z\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01387}01387\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01388}01388\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01389}01389\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01390}01390\ \ \ \ \ \textcolor{comment}{//at\ this\ stage,\ all\ the\ edges\ that\ end\ in\ leaf\ nodes\ are\ processed,\ now\ just\ do\ the\ edges\ between\ vertices\ with\ 3\ connections}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01391}01391\ \ \ \ \ \textcolor{keywordflow}{for}\ (i\ =\ 0;\ i\ <\ count3counter;\ i++)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01392}01392\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01393}01393\ \ \ \ \ \ \ \ \ \textcolor{comment}{//get\ the\ (possible)\ three\ vertices\ that\ the\ vertex\ at\ pos\ count3vertices[i]\ of\ vertexLinks\ is\ linked\ to}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01394}01394\ \ \ \ \ \ \ \ \ count3links[0]\ =\ (long)vertexLinks[count3vertices[i]].x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01395}01395\ \ \ \ \ \ \ \ \ count3links[1]\ =\ (long)vertexLinks[count3vertices[i]].y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01396}01396\ \ \ \ \ \ \ \ \ count3links[2]\ =\ (long)vertexLinks[count3vertices[i]].z;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01397}01397\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01398}01398\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (j\ =\ 0;\ j\ <\ 3;\ j++)\textcolor{comment}{//process\ each\ of\ the\ vertices\ that\ the\ current\ one\ is\ linked\ to}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01399}01399\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01400}01400\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (count3links[j]\ ==\ -\/1)\ \textcolor{comment}{//all\ links\ to\ leaf\ nodes\ are\ marked\ with\ -\/1}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01401}01401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01402}01402\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01403}01403\ \ \ \ \ \ \ \ \ \ \ \ \ currentVertex\ =\ count3links[j];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01404}01404\ \ \ \ \ \ \ \ \ \ \ \ \ prevVertex\ =\ count3vertices[i];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01405}01405\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}\ (currentVertex\ >=\ 0\ \&\&\ currentVertex\ <\ sizeOfVertexLinks\ \&\&\ vertexLinks[currentVertex].count\ !=\ 3)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01406}01406\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01407}01407\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].count\ ==\ 2)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01408}01408\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01409}01409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].x\ ==\ prevVertex)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01410}01410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01411}01411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].x\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01412}01412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prevVertex\ =\ currentVertex;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01413}01413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ currentVertex\ =\ (long)vertexLinks[currentVertex].y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01414}01414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01415}01415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].y\ ==\ prevVertex)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01416}01416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01417}01417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].y\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01418}01418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ prevVertex\ =\ currentVertex;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01419}01419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ currentVertex\ =\ (long)vertexLinks[currentVertex].x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01420}01420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01421}01421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01422}01422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01423}01423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{break};\textcolor{comment}{//this\ is\ an\ error,\ prevents\ infinite\ recursion\ in\ case\ I\ make\ a\ mistake}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01424}01424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01425}01425\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01426}01426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01427}01427\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01428}01428\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (currentVertex\ <\ 0\ ||\ currentVertex\ >=\ sizeOfVertexLinks)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01429}01429\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01430}01430\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};\ \textcolor{comment}{//this\ is\ an\ error,\ and\ shouldn't\ happen}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01431}01431\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01432}01432\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01433}01433\ \ \ \ \ \ \ \ \ \ \ \ \ finalVertexLinks[count3vertices[i]].v[finalVertexLinks[count3vertices[i]].count]\ =}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01434}01434\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertices[currentVertex]-\/>coord;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01435}01435\ \ \ \ \ \ \ \ \ \ \ \ \ finalVertexLinks[count3vertices[i]].count++;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01436}01436\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01437}01437\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].count\ ==\ 3)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01438}01438\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01439}01439\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].x\ ==\ prevVertex)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01440}01440\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01441}01441\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].x\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01442}01442\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01443}01443\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].y\ ==\ prevVertex)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01444}01444\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01445}01445\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].y\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01446}01446\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01447}01447\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (vertexLinks[currentVertex].z\ ==\ prevVertex)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01448}01448\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01449}01449\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ vertexLinks[currentVertex].z\ =\ -\/1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01450}01450\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01451}01451\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01452}01452\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01453}01453\ \ \ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01454}01454\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{continue};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01455}01455\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01456}01456\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01457}01457\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01458}01458\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01459}01459\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01460}\mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_ad45f158fe06a7129a6c43e6b2f6e8a2b}{01460}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator_ad45f158fe06a7129a6c43e6b2f6e8a2b}{LNLib::VoronoiDiagramGenerator::getNextVertexPair}}(\textcolor{keywordtype}{float}\&\ x1,\ \textcolor{keywordtype}{float}\&\ y1,\ \textcolor{keywordtype}{float}\&\ x2,\ \textcolor{keywordtype}{float}\&\ y2)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01461}01461\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01462}01462\ \ \ \ \ \textcolor{keywordflow}{if}\ (finalVertexLinks\ ==\ 0)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01463}01463\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01464}01464\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01465}01465\ \ \ \ \ \textcolor{keywordflow}{while}\ (currentVertexLink\ <\ sizeOfFinalVertexLinks\ \&\&\ finalVertexLinks[currentVertexLink].count\ <\ 1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01466}01466\ \ \ \ \ \ \ \ \ currentVertexLink++;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01467}01467\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01468}01468\ \ \ \ \ \textcolor{keywordflow}{if}\ (currentVertexLink\ >=\ sizeOfFinalVertexLinks\ ||\ finalVertexLinks[currentVertexLink].count\ <\ 1)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01469}01469\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01470}01470\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01471}01471\ \ \ \ \ \textcolor{keywordtype}{int}\ num\ =\ finalVertexLinks[currentVertexLink].count\ -\/\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01472}01472\ \ \ \ \ finalVertexLinks[currentVertexLink].count-\/-\/;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01473}01473\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01474}01474\ \ \ \ \ x1\ =\ finalVertexLinks[currentVertexLink].v[num].x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01475}01475\ \ \ \ \ y1\ =\ finalVertexLinks[currentVertexLink].v[num].y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01476}01476\ \ \ \ \ x2\ =\ finalVertexLinks[currentVertexLink].coord.x;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01477}01477\ \ \ \ \ y2\ =\ finalVertexLinks[currentVertexLink].coord.y;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01478}01478\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01479}01479\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01480}01480\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01481}01481\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01482}\mbox{\hyperlink{namespaceLNLib_a88a5540f8094b6b3ff5c084f8fd9911f}{01482}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{namespaceLNLib_a88a5540f8094b6b3ff5c084f8fd9911f}{LNLib::scomp}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ p1,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{void}*\ p2)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01483}01483\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01484}01484\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1PointVDG}{PointVDG}}*\ s1\ =\ (\mbox{\hyperlink{structLNLib_1_1PointVDG}{PointVDG}}*)p1,\ *\ s2\ =\ (\mbox{\hyperlink{structLNLib_1_1PointVDG}{PointVDG}}*)p2;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01485}01485\ \ \ \ \ \textcolor{keywordflow}{if}\ (s1-\/>\mbox{\hyperlink{structLNLib_1_1PointVDG_aac6c5c070e8dad63b9190f4ffcc02e60}{y}}\ <\ s2-\/>y)\ \textcolor{keywordflow}{return}(-\/1);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01486}01486\ \ \ \ \ \textcolor{keywordflow}{if}\ (s1-\/>\mbox{\hyperlink{structLNLib_1_1PointVDG_aac6c5c070e8dad63b9190f4ffcc02e60}{y}}\ >\ s2-\/>y)\ \textcolor{keywordflow}{return}(1);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01487}01487\ \ \ \ \ \textcolor{keywordflow}{if}\ (s1-\/>\mbox{\hyperlink{structLNLib_1_1PointVDG_ace2a50c3ae563c01303d93807123a61c}{x}}\ <\ s2-\/>x)\ \textcolor{keywordflow}{return}(-\/1);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01488}01488\ \ \ \ \ \textcolor{keywordflow}{if}\ (s1-\/>\mbox{\hyperlink{structLNLib_1_1PointVDG_ace2a50c3ae563c01303d93807123a61c}{x}}\ >\ s2-\/>x)\ \textcolor{keywordflow}{return}(1);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01489}01489\ \ \ \ \ \textcolor{keywordflow}{return}(0);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01490}01490\ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01491}01491\ }
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01492}01492\ \textcolor{comment}{/*\ return\ a\ single\ in-\/storage\ site\ */}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01493}01493\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{LNLib::Site}}*\ LNLib::VoronoiDiagramGenerator::nextone()}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01494}01494\ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01495}01495\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structLNLib_1_1Site}{LNLib::Site}}*\ s;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01496}01496\ \ \ \ \ \textcolor{keywordflow}{if}\ (siteidx\ <\ nsites)}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01497}01497\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01498}01498\ \ \ \ \ \ \ \ \ s\ =\ \&sites[siteidx];}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01499}01499\ \ \ \ \ \ \ \ \ siteidx\ +=\ 1;}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01500}01500\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}(s);}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01501}01501\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01502}01502\ \ \ \ \ \textcolor{keywordflow}{else}}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01503}01503\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}((\textcolor{keyword}{struct}\ LNLib::Site*)\mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}});}
+\DoxyCodeLine{\Hypertarget{Voronoi_8cpp_source_l01504}01504\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,524 @@
+\doxysection{LNLib\+::Matrix4d类 参考}
+\hypertarget{classLNLib_1_1Matrix4d}{}\label{classLNLib_1_1Matrix4d}\index{LNLib::Matrix4d@{LNLib::Matrix4d}}
+
+
+4 \texorpdfstring{$\ast$}{*} 4 Matrix for model transformation, such as T(x) = M \texorpdfstring{$\ast$}{*} x \doxylink{classLNLib_1_1Matrix4d}{Matrix4d} \+: \mbox{[}x y z w\mbox{]}  
+
+
+
+
+{\ttfamily \#include $<$Matrix4d.\+h$>$}
+
+\doxysubsubsection*{Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}{Matrix4d}} ()
+\item 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d_aa535127083da70138a8c0a93fd7d51d7}{Matrix4d}} (\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} basisX, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} basisY, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} basisZ, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} origin)
+\item 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d_a30a293ad3931ecf4b27d9b17da25e05a}{Matrix4d}} (double a00, double a01, double a02, double a03, double a10, double a11, double a12, double a13, double a20, double a21, double a22, double a23, double a30, double a31, double a32, double a33)
+\item 
+void \mbox{\hyperlink{classLNLib_1_1Matrix4d_ab87da1d4eebc2f88e41ce4d5b3dcb82d}{Set\+BasisX}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&basisX)
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_a06ff3a1b139e6d3dc142a197ff478c7c}{Get\+BasisX}} () const
+\item 
+void \mbox{\hyperlink{classLNLib_1_1Matrix4d_a4e36878ad9cb0395b552fac317207331}{Set\+BasisY}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&basisY)
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_a05dde2bda4c62f2f1e98f9f0fad4c7a3}{Get\+BasisY}} () const
+\item 
+void \mbox{\hyperlink{classLNLib_1_1Matrix4d_aef2e62487b802b9e2716086f37752131}{Set\+BasisZ}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&basisZ)
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_a3c7efa25b2917f3b702606ef55d9c4dc}{Get\+BasisZ}} () const
+\item 
+void \mbox{\hyperlink{classLNLib_1_1Matrix4d_adf74a5d6c767d5ed55d0f7d213bda031}{Set\+BasisW}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&basisW)
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_a6ae0fe42885d852a35053b094039e2fe}{Get\+BasisW}} () const
+\item 
+double \mbox{\hyperlink{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}{Get\+Element}} (int row, int column) const
+\item 
+void \mbox{\hyperlink{classLNLib_1_1Matrix4d_a877a73e886e43e9f49a8ad15375c109b}{Set\+Element}} (int row, int column, double value)
+\item 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_a3ece9d63d5fcf5c872b71388cbfae7d5}{Multiply}} (const \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \&right)
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_a449c235091c1224629880bdbb9a09611}{Of\+Point}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&point)
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_a5f40619b168c7d3fbea582a6dcabec2d}{Of\+Weighted\+Point}} (const \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} \&point)
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_aa0b561eef2b723d90a9d183905afc266}{Of\+Vector}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&vector)
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1Matrix4d_ab85022bd327fb520e0a0415d89b33da8}{Get\+Inverse}} (\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \&inverse)
+\item 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_ab59b6aa7968b3d8b45602dc34122de0e}{Get\+Transpose}} ()
+\item 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_ae67249ece33a1327a20585cbe5ebc3f1}{Get\+Scale}} ()
+\item 
+double \mbox{\hyperlink{classLNLib_1_1Matrix4d_ae83792069671b80356dba1331e5e47bf}{Get\+Determinant}} ()
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1Matrix4d_a8c6efbed2e48443c17833d87ebadfa57}{Is\+Identity}} ()
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1Matrix4d_aa4076fa7b77162fd45bd1b43faa56d2c}{Has\+Reflection}} ()
+\item 
+bool \mbox{\hyperlink{classLNLib_1_1Matrix4d_ab0c583f35c3bab380661d928b4fe2056}{Is\+Translation}} ()
+\item 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \& \mbox{\hyperlink{classLNLib_1_1Matrix4d_a3bfbe43c11382486d9d167ded0a1a50d}{operator=}} (const \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \&another)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_a3d6130261195f89cca26cacbd4be2983}{Create\+Reflection}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&normal, double distance\+From\+Origin)
+\item 
+static \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_aad65bd94822048625a04b08d635ca2f6}{Create\+Reflection}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&normal)
+\item 
+static \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_aa2c9413b9b3dc2483704b12664183c43}{Create\+Rotation}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&axis, double rad)
+\item 
+static \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_a8ebfb28eb80ab0c8d920fbc817a569d6}{Create\+Rotation\+At\+Point}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&origin, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&axis, double rad)
+\item 
+static \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_a52f02cf0096ed7fe9a9a3646c1cac57a}{Create\+Translation}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&vector)
+\item 
+static \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \mbox{\hyperlink{classLNLib_1_1Matrix4d_aa1cb06fa4057733901860b50ad9dffac}{Create\+Scale}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&scale)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+4 \texorpdfstring{$\ast$}{*} 4 Matrix for model transformation, such as T(x) = M \texorpdfstring{$\ast$}{*} x \doxylink{classLNLib_1_1Matrix4d}{Matrix4d} \+: \mbox{[}x y z w\mbox{]} 
+
+在文件 \mbox{\hyperlink{Matrix4d_8h_source}{Matrix4d.\+h}} 第 \mbox{\hyperlink{Matrix4d_8h_source_l00022}{22}} 行定义.
+
+
+
+\doxysubsection{构造及析构函数说明}
+\Hypertarget{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!Matrix4d@{Matrix4d}}
+\index{Matrix4d@{Matrix4d}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{Matrix4d()}{Matrix4d()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a01a5f70fe1c1db58d10ce6b6696894b1} 
+LNLib\+::\+Matrix4d\+::\+Matrix4d (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00021}{21}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Matrix4d_8cpp_source_l00107}{Create\+Reflection()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00076}{Create\+Reflection()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00112}{Create\+Rotation()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00146}{Create\+Rotation\+At\+Point()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00167}{Create\+Scale()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00158}{Create\+Translation()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00295}{Get\+Inverse()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00322}{Get\+Transpose()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00234}{Multiply()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00401}{operator=()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_aa535127083da70138a8c0a93fd7d51d7}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!Matrix4d@{Matrix4d}}
+\index{Matrix4d@{Matrix4d}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{Matrix4d()}{Matrix4d()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_aa535127083da70138a8c0a93fd7d51d7} 
+LNLib\+::\+Matrix4d\+::\+Matrix4d (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}}]{basisX}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}}]{basisY}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}}]{basisZ}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}}]{origin}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00030}{30}} 行定义.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a30a293ad3931ecf4b27d9b17da25e05a}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!Matrix4d@{Matrix4d}}
+\index{Matrix4d@{Matrix4d}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{Matrix4d()}{Matrix4d()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a30a293ad3931ecf4b27d9b17da25e05a} 
+LNLib\+::\+Matrix4d\+::\+Matrix4d (\begin{DoxyParamCaption}\item[{double}]{a00}{, }\item[{double}]{a01}{, }\item[{double}]{a02}{, }\item[{double}]{a03}{, }\item[{double}]{a10}{, }\item[{double}]{a11}{, }\item[{double}]{a12}{, }\item[{double}]{a13}{, }\item[{double}]{a20}{, }\item[{double}]{a21}{, }\item[{double}]{a22}{, }\item[{double}]{a23}{, }\item[{double}]{a30}{, }\item[{double}]{a31}{, }\item[{double}]{a32}{, }\item[{double}]{a33}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00053}{53}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1Matrix4d_aad65bd94822048625a04b08d635ca2f6}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!CreateReflection@{CreateReflection}}
+\index{CreateReflection@{CreateReflection}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{CreateReflection()}{CreateReflection()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_aad65bd94822048625a04b08d635ca2f6} 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} LNLib\+::\+Matrix4d\+::\+Create\+Reflection (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{normal}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00107}{107}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Matrix4d_8cpp_source_l00076}{Create\+Reflection()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00021}{Matrix4d()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a3d6130261195f89cca26cacbd4be2983}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!CreateReflection@{CreateReflection}}
+\index{CreateReflection@{CreateReflection}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{CreateReflection()}{CreateReflection()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a3d6130261195f89cca26cacbd4be2983} 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} LNLib\+::\+Matrix4d\+::\+Create\+Reflection (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{normal}{, }\item[{double}]{distance\+From\+Origin}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00076}{76}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Matrix4d_8cpp_source_l00021}{Matrix4d()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Matrix4d_8cpp_source_l00107}{Create\+Reflection()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_aa2c9413b9b3dc2483704b12664183c43}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!CreateRotation@{CreateRotation}}
+\index{CreateRotation@{CreateRotation}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{CreateRotation()}{CreateRotation()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_aa2c9413b9b3dc2483704b12664183c43} 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} LNLib\+::\+Matrix4d\+::\+Create\+Rotation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{axis}{, }\item[{double}]{rad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00112}{112}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00038}{LNLib\+::\+XYZ\+::\+Get\+X()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00046}{LNLib\+::\+XYZ\+::\+Get\+Y()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00053}{LNLib\+::\+XYZ\+::\+Get\+Z()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00021}{Matrix4d()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Matrix4d_8cpp_source_l00146}{Create\+Rotation\+At\+Point()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a8ebfb28eb80ab0c8d920fbc817a569d6}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!CreateRotationAtPoint@{CreateRotationAtPoint}}
+\index{CreateRotationAtPoint@{CreateRotationAtPoint}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{CreateRotationAtPoint()}{CreateRotationAtPoint()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a8ebfb28eb80ab0c8d920fbc817a569d6} 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} LNLib\+::\+Matrix4d\+::\+Create\+Rotation\+At\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{origin}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{axis}{, }\item[{double}]{rad}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00146}{146}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Matrix4d_8cpp_source_l00112}{Create\+Rotation()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00224}{Get\+Element()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00021}{Matrix4d()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00212}{Set\+Basis\+W()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_aa1cb06fa4057733901860b50ad9dffac}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!CreateScale@{CreateScale}}
+\index{CreateScale@{CreateScale}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{CreateScale()}{CreateScale()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_aa1cb06fa4057733901860b50ad9dffac} 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} LNLib\+::\+Matrix4d\+::\+Create\+Scale (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{scale}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00167}{167}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Matrix4d_8cpp_source_l00021}{Matrix4d()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a52f02cf0096ed7fe9a9a3646c1cac57a}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!CreateTranslation@{CreateTranslation}}
+\index{CreateTranslation@{CreateTranslation}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{CreateTranslation()}{CreateTranslation()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a52f02cf0096ed7fe9a9a3646c1cac57a} 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} LNLib\+::\+Matrix4d\+::\+Create\+Translation (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{vector}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00158}{158}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Matrix4d_8cpp_source_l00021}{Matrix4d()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02094}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Swung\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a6ae0fe42885d852a35053b094039e2fe}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!GetBasisW@{GetBasisW}}
+\index{GetBasisW@{GetBasisW}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{GetBasisW()}{GetBasisW()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a6ae0fe42885d852a35053b094039e2fe} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} LNLib\+::\+Matrix4d\+::\+Get\+BasisW (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00219}{219}} 行定义.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a06ff3a1b139e6d3dc142a197ff478c7c}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!GetBasisX@{GetBasisX}}
+\index{GetBasisX@{GetBasisX}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{GetBasisX()}{GetBasisX()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a06ff3a1b139e6d3dc142a197ff478c7c} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} LNLib\+::\+Matrix4d\+::\+Get\+BasisX (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00183}{183}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Matrix4d_8cpp_source_l00330}{Get\+Scale()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00378}{Has\+Reflection()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a05dde2bda4c62f2f1e98f9f0fad4c7a3}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!GetBasisY@{GetBasisY}}
+\index{GetBasisY@{GetBasisY}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{GetBasisY()}{GetBasisY()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a05dde2bda4c62f2f1e98f9f0fad4c7a3} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} LNLib\+::\+Matrix4d\+::\+Get\+BasisY (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00195}{195}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Matrix4d_8cpp_source_l00330}{Get\+Scale()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00378}{Has\+Reflection()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a3c7efa25b2917f3b702606ef55d9c4dc}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!GetBasisZ@{GetBasisZ}}
+\index{GetBasisZ@{GetBasisZ}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{GetBasisZ()}{GetBasisZ()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a3c7efa25b2917f3b702606ef55d9c4dc} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} LNLib\+::\+Matrix4d\+::\+Get\+BasisZ (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00207}{207}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Matrix4d_8cpp_source_l00330}{Get\+Scale()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00378}{Has\+Reflection()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_ae83792069671b80356dba1331e5e47bf}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!GetDeterminant@{GetDeterminant}}
+\index{GetDeterminant@{GetDeterminant}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{GetDeterminant()}{GetDeterminant()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_ae83792069671b80356dba1331e5e47bf} 
+double LNLib\+::\+Matrix4d\+::\+Get\+Determinant (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00335}{335}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00163}{LNLib\+::\+Math\+Utils\+::\+Get\+Determinant()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!GetElement@{GetElement}}
+\index{GetElement@{GetElement}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{GetElement()}{GetElement()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_aa880c799088794654cd8b00a71e2322c} 
+double LNLib\+::\+Matrix4d\+::\+Get\+Element (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{column}{}\end{DoxyParamCaption}) const}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00224}{224}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Matrix4d_8cpp_source_l00146}{Create\+Rotation\+At\+Point()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00414}{LNLib\+::operator+()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00427}{LNLib\+::operator-\/()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_ab85022bd327fb520e0a0415d89b33da8}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!GetInverse@{GetInverse}}
+\index{GetInverse@{GetInverse}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{GetInverse()}{GetInverse()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_ab85022bd327fb520e0a0415d89b33da8} 
+bool LNLib\+::\+Matrix4d\+::\+Get\+Inverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \&}]{inverse}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00295}{295}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00173}{LNLib\+::\+Math\+Utils\+::\+Make\+Inverse()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00021}{Matrix4d()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_ae67249ece33a1327a20585cbe5ebc3f1}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!GetScale@{GetScale}}
+\index{GetScale@{GetScale}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{GetScale()}{GetScale()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_ae67249ece33a1327a20585cbe5ebc3f1} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} LNLib\+::\+Matrix4d\+::\+Get\+Scale (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00330}{330}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Matrix4d_8cpp_source_l00183}{Get\+Basis\+X()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00195}{Get\+Basis\+Y()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00207}{Get\+Basis\+Z()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_ab59b6aa7968b3d8b45602dc34122de0e}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!GetTranspose@{GetTranspose}}
+\index{GetTranspose@{GetTranspose}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{GetTranspose()}{GetTranspose()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_ab59b6aa7968b3d8b45602dc34122de0e} 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} LNLib\+::\+Matrix4d\+::\+Get\+Transpose (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00322}{322}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Matrix4d_8cpp_source_l00021}{Matrix4d()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_aa4076fa7b77162fd45bd1b43faa56d2c}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!HasReflection@{HasReflection}}
+\index{HasReflection@{HasReflection}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{HasReflection()}{HasReflection()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_aa4076fa7b77162fd45bd1b43faa56d2c} 
+bool LNLib\+::\+Matrix4d\+::\+Has\+Reflection (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00378}{378}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00183}{Get\+Basis\+X()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00195}{Get\+Basis\+Y()}}, \mbox{\hyperlink{Matrix4d_8cpp_source_l00207}{Get\+Basis\+Z()}} , 以及 \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a8c6efbed2e48443c17833d87ebadfa57}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!IsIdentity@{IsIdentity}}
+\index{IsIdentity@{IsIdentity}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{IsIdentity()}{IsIdentity()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a8c6efbed2e48443c17833d87ebadfa57} 
+bool LNLib\+::\+Matrix4d\+::\+Is\+Identity (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00348}{348}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_ab0c583f35c3bab380661d928b4fe2056}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!IsTranslation@{IsTranslation}}
+\index{IsTranslation@{IsTranslation}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{IsTranslation()}{IsTranslation()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_ab0c583f35c3bab380661d928b4fe2056} 
+bool LNLib\+::\+Matrix4d\+::\+Is\+Translation (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00385}{385}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a3ece9d63d5fcf5c872b71388cbfae7d5}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!Multiply@{Multiply}}
+\index{Multiply@{Multiply}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{Multiply()}{Multiply()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a3ece9d63d5fcf5c872b71388cbfae7d5} 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} LNLib\+::\+Matrix4d\+::\+Multiply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \&}]{right}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00234}{234}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Matrix4d_8cpp_source_l00021}{Matrix4d()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02094}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Swung\+Surface()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00407}{LNLib\+::operator\texorpdfstring{$\ast$}{*}()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a449c235091c1224629880bdbb9a09611}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!OfPoint@{OfPoint}}
+\index{OfPoint@{OfPoint}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{OfPoint()}{OfPoint()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a449c235091c1224629880bdbb9a09611} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} LNLib\+::\+Matrix4d\+::\+Of\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{point}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00261}{261}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02409}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}}, \mbox{\hyperlink{NurbsSurface_8cpp_source_l02325}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Sweep\+Surface()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00272}{Of\+Weighted\+Point()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_aa0b561eef2b723d90a9d183905afc266}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!OfVector@{OfVector}}
+\index{OfVector@{OfVector}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{OfVector()}{OfVector()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_aa0b561eef2b723d90a9d183905afc266} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} LNLib\+::\+Matrix4d\+::\+Of\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{vector}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00286}{286}} 行定义.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a5f40619b168c7d3fbea582a6dcabec2d}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!OfWeightedPoint@{OfWeightedPoint}}
+\index{OfWeightedPoint@{OfWeightedPoint}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{OfWeightedPoint()}{OfWeightedPoint()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a5f40619b168c7d3fbea582a6dcabec2d} 
+\mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} LNLib\+::\+Matrix4d\+::\+Of\+Weighted\+Point (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZW}{XYZW}} \&}]{point}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00272}{272}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZW_8cpp_source_l00055}{LNLib\+::\+XYZW\+::\+Get\+W()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00043}{LNLib\+::\+XYZW\+::\+Get\+WX()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00045}{LNLib\+::\+XYZW\+::\+Get\+WY()}}, \mbox{\hyperlink{XYZW_8cpp_source_l00047}{LNLib\+::\+XYZW\+::\+Get\+WZ()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00261}{Of\+Point()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l02094}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Swung\+Surface()}} , 以及 \mbox{\hyperlink{NurbsCurve_8cpp_source_l01374}{LNLib\+::\+Nurbs\+Curve\+::\+Create\+Transformed()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a3bfbe43c11382486d9d167ded0a1a50d}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!operator=@{operator=}}
+\index{operator=@{operator=}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a3bfbe43c11382486d9d167ded0a1a50d} 
+\mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \& LNLib\+::\+Matrix4d\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1Matrix4d}{Matrix4d}} \&}]{another}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00401}{401}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{Matrix4d_8cpp_source_l00021}{Matrix4d()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_adf74a5d6c767d5ed55d0f7d213bda031}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!SetBasisW@{SetBasisW}}
+\index{SetBasisW@{SetBasisW}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{SetBasisW()}{SetBasisW()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_adf74a5d6c767d5ed55d0f7d213bda031} 
+void LNLib\+::\+Matrix4d\+::\+Set\+BasisW (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{basisW}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00212}{212}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Matrix4d_8cpp_source_l00146}{Create\+Rotation\+At\+Point()}}.
+
+\Hypertarget{classLNLib_1_1Matrix4d_ab87da1d4eebc2f88e41ce4d5b3dcb82d}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!SetBasisX@{SetBasisX}}
+\index{SetBasisX@{SetBasisX}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{SetBasisX()}{SetBasisX()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_ab87da1d4eebc2f88e41ce4d5b3dcb82d} 
+void LNLib\+::\+Matrix4d\+::\+Set\+BasisX (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{basisX}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00176}{176}} 行定义.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a4e36878ad9cb0395b552fac317207331}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!SetBasisY@{SetBasisY}}
+\index{SetBasisY@{SetBasisY}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{SetBasisY()}{SetBasisY()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a4e36878ad9cb0395b552fac317207331} 
+void LNLib\+::\+Matrix4d\+::\+Set\+BasisY (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{basisY}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00188}{188}} 行定义.
+
+\Hypertarget{classLNLib_1_1Matrix4d_aef2e62487b802b9e2716086f37752131}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!SetBasisZ@{SetBasisZ}}
+\index{SetBasisZ@{SetBasisZ}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{SetBasisZ()}{SetBasisZ()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_aef2e62487b802b9e2716086f37752131} 
+void LNLib\+::\+Matrix4d\+::\+Set\+BasisZ (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{basisZ}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00200}{200}} 行定义.
+
+\Hypertarget{classLNLib_1_1Matrix4d_a877a73e886e43e9f49a8ad15375c109b}\index{LNLib::Matrix4d@{LNLib::Matrix4d}!SetElement@{SetElement}}
+\index{SetElement@{SetElement}!LNLib::Matrix4d@{LNLib::Matrix4d}}
+\doxysubsubsection{\texorpdfstring{SetElement()}{SetElement()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Matrix4d_a877a73e886e43e9f49a8ad15375c109b} 
+void LNLib\+::\+Matrix4d\+::\+Set\+Element (\begin{DoxyParamCaption}\item[{int}]{row}{, }\item[{int}]{column}{, }\item[{double}]{value}{}\end{DoxyParamCaption})}
+
+
+
+在文件 \mbox{\hyperlink{Matrix4d_8cpp_source}{Matrix4d.\+cpp}} 第 \mbox{\hyperlink{Matrix4d_8cpp_source_l00229}{229}} 行定义.
+
+
+
+被这些函数引用 \mbox{\hyperlink{Matrix4d_8cpp_source_l00414}{LNLib\+::operator+()}} , 以及 \mbox{\hyperlink{Matrix4d_8cpp_source_l00427}{LNLib\+::operator-\/()}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{Matrix4d_8h}{Matrix4d.\+h}}\item 
+src/\+LNLib/\+Mathematics/\+Math/\mbox{\hyperlink{Matrix4d_8cpp}{Matrix4d.\+cpp}}\end{DoxyCompactItemize}

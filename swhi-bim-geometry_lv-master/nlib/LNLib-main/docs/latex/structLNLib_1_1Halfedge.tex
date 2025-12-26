@@ -1,0 +1,124 @@
+\doxysection{LNLib\+::Halfedge结构体 参考}
+\hypertarget{structLNLib_1_1Halfedge}{}\label{structLNLib_1_1Halfedge}\index{LNLib::Halfedge@{LNLib::Halfedge}}
+
+
+{\ttfamily \#include $<$Voronoi.\+h$>$}
+
+
+
+LNLib\+::Halfedge 的协作图\+:
+% FIG 0
+\doxysubsubsection*{Public 属性}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structLNLib_1_1Halfedge_a2d62fba2267cf7cefc5e2366d21621de}{ELleft}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structLNLib_1_1Halfedge_ae1274d0d8fe649736d1ca90392dd9c83}{ELright}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1Edge}{Edge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structLNLib_1_1Halfedge_aad9e971cab113ee6aef6970372f938e3}{ELedge}}
+\item 
+int \mbox{\hyperlink{structLNLib_1_1Halfedge_ac3313a055c0f3c319144449506a961eb}{ELrefcnt}}
+\item 
+char \mbox{\hyperlink{structLNLib_1_1Halfedge_afec809d5afcbad93f997a681e25bdd8d}{ELpm}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1Site}{Site}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structLNLib_1_1Halfedge_a8ef6d20933b262566357b4473e40b48c}{vertex}}
+\item 
+float \mbox{\hyperlink{structLNLib_1_1Halfedge_ae716d20feb460d0c53c8ed138799eced}{ystar}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structLNLib_1_1Halfedge_abf445e6720b57336b906fd2f150ab8b8}{PQnext}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00109}{109}} 行定义.
+
+
+
+\doxysubsection{类成员变量说明}
+\Hypertarget{structLNLib_1_1Halfedge_aad9e971cab113ee6aef6970372f938e3}\index{LNLib::Halfedge@{LNLib::Halfedge}!ELedge@{ELedge}}
+\index{ELedge@{ELedge}!LNLib::Halfedge@{LNLib::Halfedge}}
+\doxysubsubsection{\texorpdfstring{ELedge}{ELedge}}
+{\footnotesize\ttfamily \label{structLNLib_1_1Halfedge_aad9e971cab113ee6aef6970372f938e3} 
+struct \mbox{\hyperlink{structLNLib_1_1Edge}{Edge}}\texorpdfstring{$\ast$}{*} LNLib\+::\+Halfedge\+::\+ELedge}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00112}{112}} 行定义.
+
+\Hypertarget{structLNLib_1_1Halfedge_a2d62fba2267cf7cefc5e2366d21621de}\index{LNLib::Halfedge@{LNLib::Halfedge}!ELleft@{ELleft}}
+\index{ELleft@{ELleft}!LNLib::Halfedge@{LNLib::Halfedge}}
+\doxysubsubsection{\texorpdfstring{ELleft}{ELleft}}
+{\footnotesize\ttfamily \label{structLNLib_1_1Halfedge_a2d62fba2267cf7cefc5e2366d21621de} 
+struct \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}\texorpdfstring{$\ast$}{*} LNLib\+::\+Halfedge\+::\+ELleft}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00111}{111}} 行定义.
+
+\Hypertarget{structLNLib_1_1Halfedge_afec809d5afcbad93f997a681e25bdd8d}\index{LNLib::Halfedge@{LNLib::Halfedge}!ELpm@{ELpm}}
+\index{ELpm@{ELpm}!LNLib::Halfedge@{LNLib::Halfedge}}
+\doxysubsubsection{\texorpdfstring{ELpm}{ELpm}}
+{\footnotesize\ttfamily \label{structLNLib_1_1Halfedge_afec809d5afcbad93f997a681e25bdd8d} 
+char LNLib\+::\+Halfedge\+::\+ELpm}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00114}{114}} 行定义.
+
+\Hypertarget{structLNLib_1_1Halfedge_ac3313a055c0f3c319144449506a961eb}\index{LNLib::Halfedge@{LNLib::Halfedge}!ELrefcnt@{ELrefcnt}}
+\index{ELrefcnt@{ELrefcnt}!LNLib::Halfedge@{LNLib::Halfedge}}
+\doxysubsubsection{\texorpdfstring{ELrefcnt}{ELrefcnt}}
+{\footnotesize\ttfamily \label{structLNLib_1_1Halfedge_ac3313a055c0f3c319144449506a961eb} 
+int LNLib\+::\+Halfedge\+::\+ELrefcnt}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00113}{113}} 行定义.
+
+\Hypertarget{structLNLib_1_1Halfedge_ae1274d0d8fe649736d1ca90392dd9c83}\index{LNLib::Halfedge@{LNLib::Halfedge}!ELright@{ELright}}
+\index{ELright@{ELright}!LNLib::Halfedge@{LNLib::Halfedge}}
+\doxysubsubsection{\texorpdfstring{ELright}{ELright}}
+{\footnotesize\ttfamily \label{structLNLib_1_1Halfedge_ae1274d0d8fe649736d1ca90392dd9c83} 
+struct \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}} \texorpdfstring{$\ast$}{*} LNLib\+::\+Halfedge\+::\+ELright}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00111}{111}} 行定义.
+
+\Hypertarget{structLNLib_1_1Halfedge_abf445e6720b57336b906fd2f150ab8b8}\index{LNLib::Halfedge@{LNLib::Halfedge}!PQnext@{PQnext}}
+\index{PQnext@{PQnext}!LNLib::Halfedge@{LNLib::Halfedge}}
+\doxysubsubsection{\texorpdfstring{PQnext}{PQnext}}
+{\footnotesize\ttfamily \label{structLNLib_1_1Halfedge_abf445e6720b57336b906fd2f150ab8b8} 
+struct \mbox{\hyperlink{structLNLib_1_1Halfedge}{Halfedge}}\texorpdfstring{$\ast$}{*} LNLib\+::\+Halfedge\+::\+PQnext}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00117}{117}} 行定义.
+
+\Hypertarget{structLNLib_1_1Halfedge_a8ef6d20933b262566357b4473e40b48c}\index{LNLib::Halfedge@{LNLib::Halfedge}!vertex@{vertex}}
+\index{vertex@{vertex}!LNLib::Halfedge@{LNLib::Halfedge}}
+\doxysubsubsection{\texorpdfstring{vertex}{vertex}}
+{\footnotesize\ttfamily \label{structLNLib_1_1Halfedge_a8ef6d20933b262566357b4473e40b48c} 
+struct \mbox{\hyperlink{structLNLib_1_1Site}{Site}}\texorpdfstring{$\ast$}{*} LNLib\+::\+Halfedge\+::vertex}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00115}{115}} 行定义.
+
+\Hypertarget{structLNLib_1_1Halfedge_ae716d20feb460d0c53c8ed138799eced}\index{LNLib::Halfedge@{LNLib::Halfedge}!ystar@{ystar}}
+\index{ystar@{ystar}!LNLib::Halfedge@{LNLib::Halfedge}}
+\doxysubsubsection{\texorpdfstring{ystar}{ystar}}
+{\footnotesize\ttfamily \label{structLNLib_1_1Halfedge_ae716d20feb460d0c53c8ed138799eced} 
+float LNLib\+::\+Halfedge\+::ystar}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00116}{116}} 行定义.
+
+
+
+该结构体的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{Voronoi_8h}{Voronoi.\+h}}\end{DoxyCompactItemize}

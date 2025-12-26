@@ -1,0 +1,68 @@
+\doxysection{LNLib\+::Bezier\+Surface类 参考}
+\hypertarget{classLNLib_1_1BezierSurface}{}\label{classLNLib_1_1BezierSurface}\index{LNLib::BezierSurface@{LNLib::BezierSurface}}
+
+
+{\ttfamily \#include $<$Bezier\+Surface.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T$>$ }\\static void \mbox{\hyperlink{classLNLib_1_1BezierSurface_ae632936c78f0610c3bc45c78a7c31c7e}{Check}} (const \mbox{\hyperlink{structLNLib_1_1LN__BezierSurface}{LN\+\_\+\+Bezier\+Surface}}$<$ T $>$ \&surface)
+\item 
+{\footnotesize template$<$typename T$>$ }\\static T \mbox{\hyperlink{classLNLib_1_1BezierSurface_a36ec809c5ba5b2969dc343dd2adeecf2}{Get\+Point\+On\+Surface\+By\+De\+Casteljau}} (const \mbox{\hyperlink{structLNLib_1_1LN__BezierSurface}{LN\+\_\+\+Bezier\+Surface}}$<$ T $>$ \&surface, \mbox{\hyperlink{classLNLib_1_1UV}{UV}} uv)
+\begin{DoxyCompactList}\small\item\em The NURBS Book 2nd Edition Page39 Algorithm A1.\+7 Compute a point on a Bezier surface by the de\+Casteljau. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{BezierSurface_8h_source}{Bezier\+Surface.\+h}} 第 \mbox{\hyperlink{BezierSurface_8h_source_l00024}{24}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1BezierSurface_ae632936c78f0610c3bc45c78a7c31c7e}\index{LNLib::BezierSurface@{LNLib::BezierSurface}!Check@{Check}}
+\index{Check@{Check}!LNLib::BezierSurface@{LNLib::BezierSurface}}
+\doxysubsubsection{\texorpdfstring{Check()}{Check()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BezierSurface_ae632936c78f0610c3bc45c78a7c31c7e} 
+template$<$typename T$>$ \\
+static void LNLib\+::\+Bezier\+Surface\+::\+Check (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BezierSurface}{LN\+\_\+\+Bezier\+Surface}}$<$ T $>$ \&}]{surface}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{BezierSurface_8h_source}{Bezier\+Surface.\+h}} 第 \mbox{\hyperlink{BezierSurface_8h_source_l00029}{29}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00032}{LNLib\+::\+LN\+\_\+\+Bezier\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00030}{LNLib\+::\+LN\+\_\+\+Bezier\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00031}{LNLib\+::\+LN\+\_\+\+Bezier\+Surface$<$ T $>$\+::\+DegreeV}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00016}{VALIDATE\+\_\+\+ARGUMENT}}.
+
+\Hypertarget{classLNLib_1_1BezierSurface_a36ec809c5ba5b2969dc343dd2adeecf2}\index{LNLib::BezierSurface@{LNLib::BezierSurface}!GetPointOnSurfaceByDeCasteljau@{GetPointOnSurfaceByDeCasteljau}}
+\index{GetPointOnSurfaceByDeCasteljau@{GetPointOnSurfaceByDeCasteljau}!LNLib::BezierSurface@{LNLib::BezierSurface}}
+\doxysubsubsection{\texorpdfstring{GetPointOnSurfaceByDeCasteljau()}{GetPointOnSurfaceByDeCasteljau()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1BezierSurface_a36ec809c5ba5b2969dc343dd2adeecf2} 
+template$<$typename T$>$ \\
+static T LNLib\+::\+Bezier\+Surface\+::\+Get\+Point\+On\+Surface\+By\+De\+Casteljau (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structLNLib_1_1LN__BezierSurface}{LN\+\_\+\+Bezier\+Surface}}$<$ T $>$ \&}]{surface}{, }\item[{\mbox{\hyperlink{classLNLib_1_1UV}{UV}}}]{uv}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+The NURBS Book 2nd Edition Page39 Algorithm A1.\+7 Compute a point on a Bezier surface by the de\+Casteljau. 
+
+Controlpoints with (n+1) rows \texorpdfstring{$\ast$}{*} (m+1) columns
+
+\mbox{[}0\mbox{]}\mbox{[}0\mbox{]} \mbox{[}0\mbox{]}\mbox{[}1\mbox{]} ... ... \mbox{[}0\mbox{]}\mbox{[}m\mbox{]} -\/-\/-\/-\/--- v direction \mbox{[}1\mbox{]}\mbox{[}0\mbox{]} \mbox{[}1\mbox{]}\mbox{[}1\mbox{]} ... ... \mbox{[}1\mbox{]}\mbox{[}m\mbox{]} \texorpdfstring{$\vert$}{|} . \texorpdfstring{$\vert$}{|} . u direction~\newline
+ \mbox{[}n\mbox{]}\mbox{[}0\mbox{]} \mbox{[}n\mbox{]}\mbox{[}1\mbox{]} ... ... \mbox{[}n\mbox{]}\mbox{[}m\mbox{]} ~\newline
+
+
+Rational Bezier Surface\+:Use \doxylink{classLNLib_1_1XYZW}{XYZW} 
+
+在文件 \mbox{\hyperlink{BezierSurface_8h_source}{Bezier\+Surface.\+h}} 第 \mbox{\hyperlink{BezierSurface_8h_source_l00059}{59}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{LNObject_8h_source_l00024}{LNLib\+::\+LN\+\_\+\+Bezier\+Curve$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00032}{LNLib\+::\+LN\+\_\+\+Bezier\+Surface$<$ T $>$\+::\+Control\+Points}}, \mbox{\hyperlink{LNObject_8h_source_l00023}{LNLib\+::\+LN\+\_\+\+Bezier\+Curve$<$ T $>$\+::\+Degree}}, \mbox{\hyperlink{LNObject_8h_source_l00030}{LNLib\+::\+LN\+\_\+\+Bezier\+Surface$<$ T $>$\+::\+DegreeU}}, \mbox{\hyperlink{LNObject_8h_source_l00031}{LNLib\+::\+LN\+\_\+\+Bezier\+Surface$<$ T $>$\+::\+DegreeV}}, \mbox{\hyperlink{BezierCurve_8h_source_l00071}{LNLib\+::\+Bezier\+Curve\+::\+Get\+Point\+On\+Curve\+By\+De\+Casteljau()}}, \mbox{\hyperlink{UV_8cpp_source_l00037}{LNLib\+::\+UV\+::\+Get\+U()}}, \mbox{\hyperlink{UV_8cpp_source_l00045}{LNLib\+::\+UV\+::\+Get\+V()}} , 以及 \mbox{\hyperlink{LNLibExceptions_8h_source_l00021}{VALIDATE\+\_\+\+ARGUMENT\+\_\+\+RANGE}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{BezierSurface_8h}{Bezier\+Surface.\+h}}\end{DoxyCompactItemize}

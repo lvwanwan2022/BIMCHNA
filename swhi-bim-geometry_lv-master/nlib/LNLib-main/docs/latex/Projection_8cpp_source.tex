@@ -1,0 +1,56 @@
+\doxysection{Projection.\+cpp}
+\hypertarget{Projection_8cpp_source}{}\label{Projection_8cpp_source}\index{src/LNLib/Algorithm/Projection.cpp@{src/LNLib/Algorithm/Projection.cpp}}
+\mbox{\hyperlink{Projection_8cpp}{浏览该文件的文档.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00001}00001\ \textcolor{comment}{/*}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00002}00002\ \textcolor{comment}{\ *\ Author:}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00003}00003\ \textcolor{comment}{\ *\ 2023/06/29\ -\/\ Yuqing\ Liang\ (BIMCoder\ Liang)}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00004}00004\ \textcolor{comment}{\ *\ bim.frankliang@foxmail.com}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00005}00005\ \textcolor{comment}{\ *\ }}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00006}00006\ \textcolor{comment}{\ *}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00007}00007\ \textcolor{comment}{\ *\ Use\ of\ this\ source\ code\ is\ governed\ by\ a\ GPL-\/3.0\ license\ that\ can\ be\ found\ in}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00008}00008\ \textcolor{comment}{\ *\ the\ LICENSE\ file.}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00009}00009\ \textcolor{comment}{\ */}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00010}00010\ }
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00011}00011\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{Projection_8h}{Projection.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00012}00012\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{XYZ_8h}{XYZ.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00013}00013\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{MathUtils_8h}{MathUtils.h}}"{}}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00014}00014\ }
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00015}\mbox{\hyperlink{classLNLib_1_1Projection_a41228b449fb553d072d009ee8121e9c6}{00015}}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib::XYZ}}\ \mbox{\hyperlink{classLNLib_1_1Projection_a41228b449fb553d072d009ee8121e9c6}{LNLib::Projection::PointToRay}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ origin,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ vector,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ Point)}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00016}00016\ \{}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00017}00017\ \ \ \ \ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\ pt\ =\ Point\ -\/\ origin;}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordtype}{double}\ param\ =\ pt.\mbox{\hyperlink{classLNLib_1_1XYZ_aa634eee7815b0227c7b4ccd4b87609c0}{DotProduct}}(vector);}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00019}00019\ \ \ \ \ \textcolor{keywordflow}{return}\ origin\ +\ param\ *\ vector;}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00020}00020\ \}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00021}00021\ }
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00022}\mbox{\hyperlink{classLNLib_1_1Projection_aef91714bd808f67fb0168b6b78837699}{00022}}\ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{classLNLib_1_1Projection_aef91714bd808f67fb0168b6b78837699}{LNLib::Projection::PointToLine}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ start,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ end,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ point,\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ projectPoint)}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00023}00023\ \{}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00024}00024\ \ \ \ \ \textcolor{keywordtype}{double}\ length\ =\ start.\mbox{\hyperlink{classLNLib_1_1XYZ_a6bbe2197a3621446dc100d8b385b7aac}{Distance}}(end);}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00025}00025\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_a0a073b900ff796c8a2def044010dcf2d}{MathUtils::IsAlmostEqualTo}}(length,\ 0.0))}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00026}00026\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00028}00028\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00029}00029\ \ \ \ \ \textcolor{keywordtype}{double}\ param\ =\ (point\ -\/\ start).DotProduct(end\ -\/\ start)\ /\ (length\ *\ length);}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00030}00030\ \ \ \ \ \textcolor{keywordflow}{if}\ (\mbox{\hyperlink{classLNLib_1_1MathUtils_a995f6f889c781f69e0736108dd8c59bf}{MathUtils::IsGreaterThan}}(param,\ 1.0)\ ||\ \mbox{\hyperlink{classLNLib_1_1MathUtils_abafb9abeffe5d756a37dac392191afdf}{MathUtils::IsLessThan}}(param,0.0))}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00031}00031\ \ \ \ \ \{}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{false};}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00033}00033\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00034}00034\ \ \ \ \ param\ =\ std::max(0.0,\ std::min(1.0,\ param));}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00035}00035\ \ \ \ \ projectPoint\ =\ start\ +\ param\ *\ (end\ -\/\ start);}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00036}00036\ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{true};}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00037}00037\ \}}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00038}00038\ }
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00039}\mbox{\hyperlink{classLNLib_1_1Projection_a9557a73cd9776788902ca508b4f26d89}{00039}}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib::XYZ}}\ \mbox{\hyperlink{classLNLib_1_1Projection_a9557a73cd9776788902ca508b4f26d89}{LNLib::Projection::Stereographic}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}\&\ pointOnSphere,\ \textcolor{keywordtype}{double}\ radius)}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00040}00040\ \{}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00041}00041\ \ \ \ \ \textcolor{keywordtype}{double}\ x\ =\ pointOnSphere.\mbox{\hyperlink{classLNLib_1_1XYZ_ad89d7629d1a625493cd1114a6ebbe004}{GetX}}();}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00042}00042\ \ \ \ \ \textcolor{keywordtype}{double}\ y\ =\ pointOnSphere.\mbox{\hyperlink{classLNLib_1_1XYZ_ac7a68aaac00bbaeecb51d8aa03ee8322}{GetY}}();}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00043}00043\ \ \ \ \ \textcolor{keywordtype}{double}\ z\ =\ pointOnSphere.\mbox{\hyperlink{classLNLib_1_1XYZ_ac1dd1ddfa09fb299ddc4672d116c7efb}{GetZ}}();}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00044}00044\ }
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00045}00045\ \ \ \ \ \textcolor{keywordtype}{double}\ alpha\ =\ -\/2\ *\ radius\ /\ (z\ -\/\ 2\ *\ radius);}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00046}00046\ \ \ \ \ \textcolor{keywordtype}{double}\ u\ =\ alpha\ *\ x;}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00047}00047\ \ \ \ \ \textcolor{keywordtype}{double}\ v\ =\ alpha\ *\ y;}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00048}00048\ }
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00049}00049\ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}}(u,\ v,\ 0);}
+\DoxyCodeLine{\Hypertarget{Projection_8cpp_source_l00050}00050\ \}}
+
+\end{DoxyCode}

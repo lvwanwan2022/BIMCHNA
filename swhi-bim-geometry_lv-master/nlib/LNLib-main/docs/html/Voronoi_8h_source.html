@@ -1,0 +1,551 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: src/LNLib/include/Voronoi.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('Voronoi_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">Voronoi.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="Voronoi_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">MapManager library for the conversion, manipulation and analysis</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment">of maps used in Mobile Robotics research.</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment">Copyright (C) 2005 Shane O&#39;Sullivan</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"></span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">This library is free software; you can redistribute it and/or</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment">modify it under the terms of the GNU Lesser General Public</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">License as published by the Free Software Foundation; either</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment">version 2.1 of the License, or (at your option) any later version.</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"></span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">This library is distributed in the hope that it will be useful,</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">Lesser General Public License for more details.</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment"></span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment">You should have received a copy of the GNU Lesser General Public</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="comment">License along with this library; if not, write to the Free Software</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="comment">Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">email: shaneosullivan1@gmail.com</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"> * Author:</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment"> * 2024/04/06 - Yuqing Liang (BIMCoder Liang)</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"> * bim.frankliang@foxmail.com</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment"> * Use of this source code is governed by a GPL-3.0 license that can be found in</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment"> * the LICENSE file.</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &lt;cmath&gt;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;<a class="code" href="LNLibDefinitions_8h.html">LNLibDefinitions.h</a>&quot;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#ifndef NULL</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="Voronoi_8h.html#a070d2ce7b6bb7e5c05602aa8c308d0c4">   40</a></span><span class="preprocessor">#define NULL 0</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="Voronoi_8h.html#ab792dfd97ab00abb6a5fc20191a9e952">   42</a></span><span class="preprocessor">#define DELETED -2</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="Voronoi_8h.html#a3548ca9d636286bea86afc96a7a947d9">   44</a></span><span class="preprocessor">#define le 0</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="Voronoi_8h.html#a51f63d24f02be00251e895721eae51b0">   45</a></span><span class="preprocessor">#define re 1</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceLNLib.html">LNLib</a></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>{</div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="};">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="structLNLib_1_1Freenode.html">   49</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Freenode.html">Freenode</a></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    {</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structLNLib_1_1Freenode.html#a8c11b7d89ffe2165c21fe3f311676760">   51</a></span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Freenode.html">Freenode</a>* <a class="code hl_variable" href="structLNLib_1_1Freenode.html#a8c11b7d89ffe2165c21fe3f311676760">nextfree</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    };</div>
+</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
+<div class="foldopen" id="foldopen00054" data-start="{" data-end="};">
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="structLNLib_1_1FreeNodeArrayList.html">   54</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1FreeNodeArrayList.html">FreeNodeArrayList</a></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno"><a class="line" href="structLNLib_1_1FreeNodeArrayList.html#af4b7ac6caa552b68359a4c235f31a099">   56</a></span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Freenode.html">Freenode</a>* <a class="code hl_variable" href="structLNLib_1_1FreeNodeArrayList.html#af4b7ac6caa552b68359a4c235f31a099">memory</a>;</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="structLNLib_1_1FreeNodeArrayList.html#a22e731a1f2b94718415dd19f4095792e">   57</a></span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1FreeNodeArrayList.html">FreeNodeArrayList</a>* <a class="code hl_variable" href="structLNLib_1_1FreeNodeArrayList.html#a22e731a1f2b94718415dd19f4095792e">next</a>;</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    };</div>
+</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span> </div>
+<div class="foldopen" id="foldopen00060" data-start="{" data-end="};">
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="structLNLib_1_1Freelist.html">   60</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Freelist.html">Freelist</a></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="structLNLib_1_1Freelist.html#a85679aa324a961f1170337e0afdbc2da">   62</a></span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Freenode.html">Freenode</a>* <a class="code hl_variable" href="structLNLib_1_1Freelist.html#a85679aa324a961f1170337e0afdbc2da">head</a>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="structLNLib_1_1Freelist.html#acd4250401ee24a8b9a6e39142d4d6fde">   63</a></span>        <span class="keywordtype">int</span>     <a class="code hl_variable" href="structLNLib_1_1Freelist.html#acd4250401ee24a8b9a6e39142d4d6fde">nodesize</a>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    };</div>
+</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="};">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="structLNLib_1_1PointVDG.html">   66</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1PointVDG.html">PointVDG</a></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="structLNLib_1_1PointVDG.html#ace2a50c3ae563c01303d93807123a61c">   68</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="structLNLib_1_1PointVDG.html#ace2a50c3ae563c01303d93807123a61c">x</a>, <a class="code hl_variable" href="structLNLib_1_1PointVDG.html#aac6c5c070e8dad63b9190f4ffcc02e60">y</a>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    };</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="foldopen" id="foldopen00071" data-start="{" data-end="};">
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="structLNLib_1_1Point3.html">   71</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Point3.html">Point3</a></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    {</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="structLNLib_1_1Point3.html#ad41bf04df2c2a9cac1dc40cd06a34f26">   73</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="structLNLib_1_1Point3.html#ad41bf04df2c2a9cac1dc40cd06a34f26">x</a>, <a class="code hl_variable" href="structLNLib_1_1Point3.html#a868bbdca2f2df6d123c4ec8ce433b2c2">y</a>, <a class="code hl_variable" href="structLNLib_1_1Point3.html#aaf86699107e1b2ea2e6946284835ef25">z</a>;</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="structLNLib_1_1Point3.html#acf1423ac5da213937fe2cfe9b314844f">   74</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structLNLib_1_1Point3.html#acf1423ac5da213937fe2cfe9b314844f">count</a>;</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    };</div>
+</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="foldopen" id="foldopen00077" data-start="{" data-end="};">
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="structLNLib_1_1VertexLink.html">   77</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1VertexLink.html">VertexLink</a></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    {</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="structLNLib_1_1VertexLink.html#acd3d55c8ebdd041dbe196cb1d3e0aefc">   79</a></span>        <a class="code hl_struct" href="structLNLib_1_1PointVDG.html">PointVDG</a> <a class="code hl_variable" href="structLNLib_1_1VertexLink.html#acd3d55c8ebdd041dbe196cb1d3e0aefc">coord</a>;</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="structLNLib_1_1VertexLink.html#a06369670618e33b9e9ed08473b45cbed">   80</a></span>        <a class="code hl_struct" href="structLNLib_1_1PointVDG.html">PointVDG</a> <a class="code hl_variable" href="structLNLib_1_1VertexLink.html#a06369670618e33b9e9ed08473b45cbed">v</a>[3];</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="structLNLib_1_1VertexLink.html#af94281876a7ae30bd2f3c5baec0810b7">   81</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="structLNLib_1_1VertexLink.html#af94281876a7ae30bd2f3c5baec0810b7">count</a>;</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    };</div>
+</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    <span class="comment">// structure used both for sites and for vertices </span></div>
+<div class="foldopen" id="foldopen00085" data-start="{" data-end="};">
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="structLNLib_1_1Site.html">   85</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    {</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="structLNLib_1_1Site.html#a2cb3b751fe3a78fd9f6b6c7a9a11ee51">   87</a></span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1PointVDG.html">PointVDG</a>    <a class="code hl_variable" href="structLNLib_1_1Site.html#a2cb3b751fe3a78fd9f6b6c7a9a11ee51">coord</a>;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="structLNLib_1_1Site.html#a36e27d6b22fd0380648286b3d078b6c0">   88</a></span>        <span class="keywordtype">int</span>     <a class="code hl_variable" href="structLNLib_1_1Site.html#a36e27d6b22fd0380648286b3d078b6c0">sitenbr</a>;</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="structLNLib_1_1Site.html#a65469e66fb3168d06eabcb4dc13db0e1">   89</a></span>        <span class="keywordtype">int</span>     <a class="code hl_variable" href="structLNLib_1_1Site.html#a65469e66fb3168d06eabcb4dc13db0e1">refcnt</a>;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="structLNLib_1_1Site.html#aaa1f837b78258aae13abd16a69dbb061">   90</a></span>        <span class="keywordtype">int</span>     <a class="code hl_variable" href="structLNLib_1_1Site.html#aaa1f837b78258aae13abd16a69dbb061">overallRefcnt</a>;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    };</div>
+</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
+<div class="foldopen" id="foldopen00093" data-start="{" data-end="};">
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="structLNLib_1_1Edge.html">   93</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Edge.html">Edge</a></div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    {</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="structLNLib_1_1Edge.html#a14dbd7a852d1d9fdc70eafeff3a77a56">   95</a></span>        <span class="keywordtype">float</span>   <a class="code hl_variable" href="structLNLib_1_1Edge.html#a14dbd7a852d1d9fdc70eafeff3a77a56">a</a>, <a class="code hl_variable" href="structLNLib_1_1Edge.html#abf74f8621f19b77f0f4f63d726628443">b</a>, <a class="code hl_variable" href="structLNLib_1_1Edge.html#a804b82294d3b8e97d1d970534037f9b6">c</a>;</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="structLNLib_1_1Edge.html#a36e943fea0009a0141cd7d79219c759d">   96</a></span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* <a class="code hl_variable" href="structLNLib_1_1Edge.html#a36e943fea0009a0141cd7d79219c759d">ep</a>[2];</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="structLNLib_1_1Edge.html#a92064772ff94ec6bbe00a150903f9026">   97</a></span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* <a class="code hl_variable" href="structLNLib_1_1Edge.html#a92064772ff94ec6bbe00a150903f9026">reg</a>[2];</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="structLNLib_1_1Edge.html#a009c4d321baab988e00e8e85a7413fee">   98</a></span>        <span class="keywordtype">int</span>     <a class="code hl_variable" href="structLNLib_1_1Edge.html#a009c4d321baab988e00e8e85a7413fee">edgenbr</a>;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    };</div>
+</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
+<div class="foldopen" id="foldopen00102" data-start="{" data-end="};">
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno"><a class="line" href="structLNLib_1_1GraphEdge.html">  102</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1GraphEdge.html">GraphEdge</a></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>    {</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="structLNLib_1_1GraphEdge.html#a2a14bf601993bcf4c38e878cdd5c9703">  104</a></span>        <span class="keywordtype">float</span> <a class="code hl_variable" href="structLNLib_1_1GraphEdge.html#a2a14bf601993bcf4c38e878cdd5c9703">x1</a>, <a class="code hl_variable" href="structLNLib_1_1GraphEdge.html#a60aec42b6e4ad6cc725e65fd16bfaa64">y1</a>, <a class="code hl_variable" href="structLNLib_1_1GraphEdge.html#a1b214deaae590bfb374d96750a384287">x2</a>, <a class="code hl_variable" href="structLNLib_1_1GraphEdge.html#ad954920b1f3e737527617d98eab58ce5">y2</a>;</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>        <span class="comment">//  long v1,v2; //vertices that this was created from</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno"><a class="line" href="structLNLib_1_1GraphEdge.html#a5a2fa7ace321ad82242bcf55e733a265">  106</a></span>        <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1GraphEdge.html">GraphEdge</a>* <a class="code hl_variable" href="structLNLib_1_1GraphEdge.html#a5a2fa7ace321ad82242bcf55e733a265">next</a>;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    };</div>
+</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="foldopen" id="foldopen00109" data-start="{" data-end="};">
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno"><a class="line" href="structLNLib_1_1Halfedge.html">  109</a></span>    <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    {</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="structLNLib_1_1Halfedge.html#a2d62fba2267cf7cefc5e2366d21621de">  111</a></span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* <a class="code hl_variable" href="structLNLib_1_1Halfedge.html#a2d62fba2267cf7cefc5e2366d21621de">ELleft</a>, * <a class="code hl_variable" href="structLNLib_1_1Halfedge.html#ae1274d0d8fe649736d1ca90392dd9c83">ELright</a>;</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="structLNLib_1_1Halfedge.html#aad9e971cab113ee6aef6970372f938e3">  112</a></span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Edge.html">Edge</a>* <a class="code hl_variable" href="structLNLib_1_1Halfedge.html#aad9e971cab113ee6aef6970372f938e3">ELedge</a>;</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="structLNLib_1_1Halfedge.html#ac3313a055c0f3c319144449506a961eb">  113</a></span>        <span class="keywordtype">int</span>     <a class="code hl_variable" href="structLNLib_1_1Halfedge.html#ac3313a055c0f3c319144449506a961eb">ELrefcnt</a>;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="structLNLib_1_1Halfedge.html#afec809d5afcbad93f997a681e25bdd8d">  114</a></span>        <span class="keywordtype">char</span>    <a class="code hl_variable" href="structLNLib_1_1Halfedge.html#afec809d5afcbad93f997a681e25bdd8d">ELpm</a>;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="structLNLib_1_1Halfedge.html#a8ef6d20933b262566357b4473e40b48c">  115</a></span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* <a class="code hl_variable" href="structLNLib_1_1Halfedge.html#a8ef6d20933b262566357b4473e40b48c">vertex</a>;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno"><a class="line" href="structLNLib_1_1Halfedge.html#ae716d20feb460d0c53c8ed138799eced">  116</a></span>        <span class="keywordtype">float</span>   <a class="code hl_variable" href="structLNLib_1_1Halfedge.html#ae716d20feb460d0c53c8ed138799eced">ystar</a>;</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="structLNLib_1_1Halfedge.html#abf445e6720b57336b906fd2f150ab8b8">  117</a></span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* <a class="code hl_variable" href="structLNLib_1_1Halfedge.html#abf445e6720b57336b906fd2f150ab8b8">PQnext</a>;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    };</div>
+</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
+<div class="foldopen" id="foldopen00120" data-start="{" data-end="};">
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno"><a class="line" href="classLNLib_1_1VoronoiDiagramGenerator.html">  120</a></span>    <span class="keyword">class </span><a class="code hl_define" href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a> <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#a8b0f9314aaf6186d25734adf8be0d86f">VoronoiDiagramGenerator</a></div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    {</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#a8b0f9314aaf6186d25734adf8be0d86f">VoronoiDiagramGenerator</a>();</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#a8b0f9314aaf6186d25734adf8be0d86f">~VoronoiDiagramGenerator</a>();</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#a0e9c9012d8f75f4aef404c4cd8b90775">generateVoronoi</a>(<span class="keywordtype">float</span>* xValues, <span class="keywordtype">float</span>* yValues, <span class="keywordtype">int</span> numPoints,</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>            <span class="keywordtype">float</span> minX, <span class="keywordtype">float</span> maxX, <span class="keywordtype">float</span> minY, <span class="keywordtype">float</span> maxY, <span class="keywordtype">float</span> minDist, <span class="keywordtype">bool</span> genVectorInfo = <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>        <span class="comment">//By default, the delaunay triangulation is NOT generated</span></div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#adc728eeb2c8731d90afeabd2b666fc8c">setGenerateDelaunay</a>(<span class="keywordtype">bool</span> genDel);</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>        <span class="comment">//By default, the voronoi diagram IS generated</span></div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#a5a4260c45f7d422a747398158473ab15">setGenerateVoronoi</a>(<span class="keywordtype">bool</span> genVor);</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="foldopen" id="foldopen00135" data-start="{" data-end="}">
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno"><a class="line" href="classLNLib_1_1VoronoiDiagramGenerator.html#a579c5c2307ffc625c4674037b5ae55fd">  135</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#a579c5c2307ffc625c4674037b5ae55fd">resetIterator</a>()</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        {</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>            iteratorEdges = allEdges;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>        }</div>
+</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span> </div>
+<div class="foldopen" id="foldopen00140" data-start="{" data-end="}">
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classLNLib_1_1VoronoiDiagramGenerator.html#a8f5a84a51e4fa021811d0f5df3358501">  140</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#a8f5a84a51e4fa021811d0f5df3358501">getNext</a>(<span class="keywordtype">float</span>&amp; x1, <span class="keywordtype">float</span>&amp; y1, <span class="keywordtype">float</span>&amp; x2, <span class="keywordtype">float</span>&amp; y2)</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        {</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>            <span class="keywordflow">if</span> (iteratorEdges == 0)</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            x1 = iteratorEdges-&gt;x1;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>            x2 = iteratorEdges-&gt;x2;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>            y1 = iteratorEdges-&gt;y1;</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>            y2 = iteratorEdges-&gt;y2;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span> </div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>            iteratorEdges = iteratorEdges-&gt;next;</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        }</div>
+</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="foldopen" id="foldopen00155" data-start="{" data-end="}">
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno"><a class="line" href="classLNLib_1_1VoronoiDiagramGenerator.html#a9deb8c2ccdc798edbddc80c254e12847">  155</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#a9deb8c2ccdc798edbddc80c254e12847">resetDelaunayEdgesIterator</a>()</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        {</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>            iteratorDelaunayEdges = delaunayEdges;</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>        }</div>
+</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="foldopen" id="foldopen00160" data-start="{" data-end="}">
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="classLNLib_1_1VoronoiDiagramGenerator.html#a88f7919f533bda3a2cd49a5bcfca0b4a">  160</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#a88f7919f533bda3a2cd49a5bcfca0b4a">getNextDelaunay</a>(<span class="keywordtype">float</span>&amp; x1, <span class="keywordtype">float</span>&amp; y1, <span class="keywordtype">float</span>&amp; x2, <span class="keywordtype">float</span>&amp; y2)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            <span class="keywordflow">if</span> (iteratorDelaunayEdges == 0)</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            {</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            }</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>            x1 = iteratorDelaunayEdges-&gt;x1;</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>            x2 = iteratorDelaunayEdges-&gt;x2;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>            y1 = iteratorDelaunayEdges-&gt;y1;</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>            y2 = iteratorDelaunayEdges-&gt;y2;</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            iteratorDelaunayEdges = iteratorDelaunayEdges-&gt;next;</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        }</div>
+</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
+<div class="foldopen" id="foldopen00175" data-start="{" data-end="}">
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="classLNLib_1_1VoronoiDiagramGenerator.html#ac550e75277b8eccf769b7fcb1efa67ca">  175</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#ac550e75277b8eccf769b7fcb1efa67ca">resetVertexPairIterator</a>()</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        {</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            currentVertexLink = 0;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>        }</div>
+</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>        <span class="keywordtype">bool</span> getNextVertexPair(<span class="keywordtype">float</span>&amp; x1, <span class="keywordtype">float</span>&amp; y1, <span class="keywordtype">float</span>&amp; x2, <span class="keywordtype">float</span>&amp; y2);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="foldopen" id="foldopen00182" data-start="{" data-end="}">
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno"><a class="line" href="classLNLib_1_1VoronoiDiagramGenerator.html#a4c940f25a34b2a5d0ff867c39b49c44b">  182</a></span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#a4c940f25a34b2a5d0ff867c39b49c44b">resetVerticesIterator</a>()</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>        {</div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>            currentVertex = 0;</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        }</div>
+</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
+<div class="foldopen" id="foldopen00187" data-start="{" data-end="}">
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="classLNLib_1_1VoronoiDiagramGenerator.html#a06e9091845f6b4bc969f1cdd76d0f10a">  187</a></span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1VoronoiDiagramGenerator.html#a06e9091845f6b4bc969f1cdd76d0f10a">getNextVertex</a>(<span class="keywordtype">float</span>&amp; x, <span class="keywordtype">float</span>&amp; y)</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        {</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>            <span class="keywordflow">if</span> (finalVertices == 0)</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>            <span class="keywordflow">if</span> (currentVertex &gt;= sizeOfFinalVertices) <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>            x = finalVertices[currentVertex].x;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>            y = finalVertices[currentVertex].y;</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>            currentVertex++;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>            <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>        }</div>
+</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>        <span class="keywordtype">void</span> reset();</div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        std::vector&lt;std::vector&lt;int&gt;&gt; getTriangles();</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span> </div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        std::vector&lt;std::vector&lt;int&gt;&gt; triangles;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>        <span class="keywordtype">void</span> cleanup();</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>        <span class="keywordtype">void</span> cleanupEdges();</div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>        <span class="keywordtype">char</span>* getfree(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Freelist.html">Freelist</a>* fl);</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* PQfind();</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>        <span class="keywordtype">int</span> PQempty();</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>** ELhash;</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>*  HEcreate();</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>** ELleft();</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>** ELright();</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>** ELleftbnd();</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keyword">struct  </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>*  HEcreate(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Edge.html">Edge</a>* e, <span class="keywordtype">int</span> pm);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1PointVDG.html">PointVDG</a> PQ_min();</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* PQextractmin();</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>        <span class="keywordtype">void</span> freeinit(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Freelist.html">Freelist</a>* fl, <span class="keywordtype">int</span> size);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keywordtype">void</span> makefree(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Freenode.html">Freenode</a>* curr, <span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Freelist.html">Freelist</a>* fl);</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>        <span class="keywordtype">void</span> geominit();</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>        <span class="keywordtype">void</span> plotinit();</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>        <span class="keywordtype">bool</span> voronoi(<span class="keywordtype">bool</span> genVectorInfo);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>        <span class="keywordtype">void</span> ref(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* v);</div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>        <span class="keywordtype">void</span> deref(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* v);</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>        <span class="keywordtype">void</span> endpoint(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Edge.html">Edge</a>* e, <span class="keywordtype">int</span> lr, <span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* s);</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        <span class="keywordtype">void</span> ELdelete(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* he);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* ELleftbnd(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1PointVDG.html">PointVDG</a>* p);</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* ELright(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* he);</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>        <span class="keywordtype">void</span> makevertex(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* v);</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        <span class="keywordtype">void</span> out_triple(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* s1, <span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* s2, <span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* s3);</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        <span class="keywordtype">void</span>        PQinsert(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* he, <span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* v, <span class="keywordtype">float</span> offset);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>        <span class="keywordtype">void</span>        PQdelete(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* he);</div>
+<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        <span class="keywordtype">bool</span>        ELinitialize();</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>        <span class="keywordtype">void</span>        ELinsert(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* lb, <span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* newHe);</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* ELgethash(<span class="keywordtype">int</span> b);</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* ELleft(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* he);</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* leftreg(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* he);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        <span class="keywordtype">bool</span>        PQinitialize();</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>        <span class="keywordtype">int</span>         PQbucket(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* he);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        <span class="keywordtype">void</span>        clip_line(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Edge.html">Edge</a>* e);</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <span class="keywordtype">char</span>* myalloc(<span class="keywordtype">unsigned</span> n);</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        <span class="keywordtype">int</span>         right_of(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* el, <span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1PointVDG.html">PointVDG</a>* p);</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* rightreg(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* he);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Edge.html">Edge</a>* bisect(<span class="keyword">struct</span>  <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* s1, <span class="keyword">struct</span>    <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* s2);</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        <span class="keywordtype">float</span> dist(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* s, <span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* t);</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* intersect(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* el1, <span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* el2, <span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1PointVDG.html">PointVDG</a>* p = 0);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span> </div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>        <span class="keywordtype">void</span>        out_bisector(<span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Edge.html">Edge</a>* e);</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>        <span class="keyword">struct </span><a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* nextone();</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>        <span class="keywordtype">void</span>        pushGraphEdge(<span class="keywordtype">float</span> x1, <span class="keywordtype">float</span> y1, <span class="keywordtype">float</span> x2, <span class="keywordtype">float</span> y2);</div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>        <span class="keywordtype">void</span>        pushDelaunayGraphEdge(<span class="keywordtype">float</span> x1, <span class="keywordtype">float</span> y1, <span class="keywordtype">float</span> x2, <span class="keywordtype">float</span> y2);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span> </div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span>        <span class="keywordtype">void</span>        line(<span class="keywordtype">float</span> x1, <span class="keywordtype">float</span> y1, <span class="keywordtype">float</span> x2, <span class="keywordtype">float</span> y2);</div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>        <span class="keywordtype">void</span>        circle(<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> radius);</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordtype">void</span>        range(<span class="keywordtype">float</span> minX, <span class="keywordtype">float</span> minY, <span class="keywordtype">float</span> maxX, <span class="keywordtype">float</span> maxY);</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span> </div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>        <span class="keywordtype">void</span>        insertVertexAddress(<span class="keywordtype">long</span> vertexNum, <span class="keyword">struct</span> <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* address);</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        <span class="keywordtype">void</span>        insertVertexLink(<span class="keywordtype">long</span> vertexNum, <span class="keywordtype">long</span> vertexLinkedTo);</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <span class="keywordtype">void</span>        generateVertexLinks();</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span>        <span class="keywordtype">bool</span>        genDelaunay;</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>        <span class="keywordtype">bool</span>        genVoronoi;</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span> </div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>        <span class="keyword">struct      </span><a class="code hl_struct" href="structLNLib_1_1Freelist.html">Freelist</a>    hfl;</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        <span class="keyword">struct      </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* ELleftend, * ELrightend;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>        <span class="keywordtype">int</span>         ELhashsize;</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <span class="keywordtype">int</span>         triangulate, sorted, plot, debug;</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        <span class="keywordtype">float</span>       xmin, xmax, ymin, ymax, deltax, deltay;</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span> </div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        <span class="keyword">struct      </span><a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* sites;</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keywordtype">int</span>         nsites;</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="keywordtype">int</span>         siteidx;</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        <span class="keywordtype">int</span>         sqrt_nsites;</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        <span class="keywordtype">int</span>         nvertices;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>        <span class="keyword">struct      </span><a class="code hl_struct" href="structLNLib_1_1Freelist.html">Freelist</a> sfl;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>        <span class="keyword">struct      </span><a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>* bottomsite;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span> </div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        <span class="keywordtype">int</span>         nedges;</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>        <span class="keyword">struct      </span><a class="code hl_struct" href="structLNLib_1_1Freelist.html">Freelist</a> efl;</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        <span class="keywordtype">int</span>         PQhashsize;</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>        <span class="keyword">struct      </span><a class="code hl_struct" href="structLNLib_1_1Halfedge.html">Halfedge</a>* PQhash;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>        <span class="keywordtype">int</span>         PQcount;</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>        <span class="keywordtype">int</span>         PQmin;</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>        <span class="keywordtype">int</span>         ntry, totalsearch;</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>        <span class="keywordtype">float</span>       pxmin, pxmax, pymin, pymax, cradius;</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>        <span class="keywordtype">int</span>         total_alloc;</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span> </div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>        <span class="keywordtype">float</span>       borderMinX, borderMaxX, borderMinY, borderMaxY;</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span> </div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>        <a class="code hl_struct" href="structLNLib_1_1FreeNodeArrayList.html">FreeNodeArrayList</a>* allMemoryList;</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>        <a class="code hl_struct" href="structLNLib_1_1FreeNodeArrayList.html">FreeNodeArrayList</a>* currentMemoryBlock;</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span> </div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>        <a class="code hl_struct" href="structLNLib_1_1GraphEdge.html">GraphEdge</a>* allEdges;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>        <a class="code hl_struct" href="structLNLib_1_1GraphEdge.html">GraphEdge</a>* iteratorEdges;</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        <a class="code hl_struct" href="structLNLib_1_1GraphEdge.html">GraphEdge</a>* delaunayEdges;</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        <a class="code hl_struct" href="structLNLib_1_1GraphEdge.html">GraphEdge</a>* iteratorDelaunayEdges;</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span> </div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <a class="code hl_struct" href="structLNLib_1_1Point3.html">Point3</a>* vertexLinks; <span class="comment">//lists all the vectors that each vector is directly connected to    </span></div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="keywordtype">long</span>        sizeOfVertexLinks;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>        <a class="code hl_struct" href="structLNLib_1_1Site.html">Site</a>** vertices;</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        <span class="keywordtype">long</span>        sizeOfVertices;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span> </div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>        <a class="code hl_struct" href="structLNLib_1_1VertexLink.html">VertexLink</a>* finalVertexLinks;</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>        <span class="keywordtype">long</span>        sizeOfFinalVertexLinks;</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>        <span class="keywordtype">long</span>        currentVertexLink;</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span> </div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>        <a class="code hl_struct" href="structLNLib_1_1PointVDG.html">PointVDG</a>* finalVertices;</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>        <span class="keywordtype">long</span>        sizeOfFinalVertices;</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>        <span class="keywordtype">long</span>        currentVertex;</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>        <span class="keywordtype">float</span>       minDistanceBetweenSites;</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    };</div>
+</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span> </div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="namespaceLNLib.html#a88a5540f8094b6b3ff5c084f8fd9911f">scomp</a>(<span class="keyword">const</span> <span class="keywordtype">void</span>* p1, <span class="keyword">const</span> <span class="keywordtype">void</span>* p2);</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>}</div>
+<div class="ttc" id="aLNLibDefinitions_8h_html"><div class="ttname"><a href="LNLibDefinitions_8h.html">LNLibDefinitions.h</a></div></div>
+<div class="ttc" id="aLNLibDefinitions_8h_html_ae9d1336b32fdad9d4d368c029c9597af"><div class="ttname"><a href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a></div><div class="ttdeci">#define LNLIB_EXPORT</div><div class="ttdef"><b>定义</b> <a href="LNLibDefinitions_8h_source.html#l00023">LNLibDefinitions.h:23</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1VoronoiDiagramGenerator_html_a06e9091845f6b4bc969f1cdd76d0f10a"><div class="ttname"><a href="classLNLib_1_1VoronoiDiagramGenerator.html#a06e9091845f6b4bc969f1cdd76d0f10a">LNLib::VoronoiDiagramGenerator::getNextVertex</a></div><div class="ttdeci">bool getNextVertex(float &amp;x, float &amp;y)</div><div class="ttdef"><b>定义</b> <a href="#l00187">Voronoi.h:187</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1VoronoiDiagramGenerator_html_a0e9c9012d8f75f4aef404c4cd8b90775"><div class="ttname"><a href="classLNLib_1_1VoronoiDiagramGenerator.html#a0e9c9012d8f75f4aef404c4cd8b90775">LNLib::VoronoiDiagramGenerator::generateVoronoi</a></div><div class="ttdeci">bool generateVoronoi(float *xValues, float *yValues, int numPoints, float minX, float maxX, float minY, float maxY, float minDist, bool genVectorInfo=true)</div><div class="ttdef"><b>定义</b> <a href="Voronoi_8cpp_source.html#l00114">Voronoi.cpp:114</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1VoronoiDiagramGenerator_html_a4c940f25a34b2a5d0ff867c39b49c44b"><div class="ttname"><a href="classLNLib_1_1VoronoiDiagramGenerator.html#a4c940f25a34b2a5d0ff867c39b49c44b">LNLib::VoronoiDiagramGenerator::resetVerticesIterator</a></div><div class="ttdeci">void resetVerticesIterator()</div><div class="ttdef"><b>定义</b> <a href="#l00182">Voronoi.h:182</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1VoronoiDiagramGenerator_html_a579c5c2307ffc625c4674037b5ae55fd"><div class="ttname"><a href="classLNLib_1_1VoronoiDiagramGenerator.html#a579c5c2307ffc625c4674037b5ae55fd">LNLib::VoronoiDiagramGenerator::resetIterator</a></div><div class="ttdeci">void resetIterator()</div><div class="ttdef"><b>定义</b> <a href="#l00135">Voronoi.h:135</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1VoronoiDiagramGenerator_html_a5a4260c45f7d422a747398158473ab15"><div class="ttname"><a href="classLNLib_1_1VoronoiDiagramGenerator.html#a5a4260c45f7d422a747398158473ab15">LNLib::VoronoiDiagramGenerator::setGenerateVoronoi</a></div><div class="ttdeci">void setGenerateVoronoi(bool genVor)</div><div class="ttdef"><b>定义</b> <a href="Voronoi_8cpp_source.html#l00109">Voronoi.cpp:109</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1VoronoiDiagramGenerator_html_a88f7919f533bda3a2cd49a5bcfca0b4a"><div class="ttname"><a href="classLNLib_1_1VoronoiDiagramGenerator.html#a88f7919f533bda3a2cd49a5bcfca0b4a">LNLib::VoronoiDiagramGenerator::getNextDelaunay</a></div><div class="ttdeci">bool getNextDelaunay(float &amp;x1, float &amp;y1, float &amp;x2, float &amp;y2)</div><div class="ttdef"><b>定义</b> <a href="#l00160">Voronoi.h:160</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1VoronoiDiagramGenerator_html_a8b0f9314aaf6186d25734adf8be0d86f"><div class="ttname"><a href="classLNLib_1_1VoronoiDiagramGenerator.html#a8b0f9314aaf6186d25734adf8be0d86f">LNLib::VoronoiDiagramGenerator::VoronoiDiagramGenerator</a></div><div class="ttdeci">VoronoiDiagramGenerator()</div><div class="ttdef"><b>定义</b> <a href="Voronoi_8cpp_source.html#l00037">Voronoi.cpp:37</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1VoronoiDiagramGenerator_html_a8f5a84a51e4fa021811d0f5df3358501"><div class="ttname"><a href="classLNLib_1_1VoronoiDiagramGenerator.html#a8f5a84a51e4fa021811d0f5df3358501">LNLib::VoronoiDiagramGenerator::getNext</a></div><div class="ttdeci">bool getNext(float &amp;x1, float &amp;y1, float &amp;x2, float &amp;y2)</div><div class="ttdef"><b>定义</b> <a href="#l00140">Voronoi.h:140</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1VoronoiDiagramGenerator_html_a9deb8c2ccdc798edbddc80c254e12847"><div class="ttname"><a href="classLNLib_1_1VoronoiDiagramGenerator.html#a9deb8c2ccdc798edbddc80c254e12847">LNLib::VoronoiDiagramGenerator::resetDelaunayEdgesIterator</a></div><div class="ttdeci">void resetDelaunayEdgesIterator()</div><div class="ttdef"><b>定义</b> <a href="#l00155">Voronoi.h:155</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1VoronoiDiagramGenerator_html_ac550e75277b8eccf769b7fcb1efa67ca"><div class="ttname"><a href="classLNLib_1_1VoronoiDiagramGenerator.html#ac550e75277b8eccf769b7fcb1efa67ca">LNLib::VoronoiDiagramGenerator::resetVertexPairIterator</a></div><div class="ttdeci">void resetVertexPairIterator()</div><div class="ttdef"><b>定义</b> <a href="#l00175">Voronoi.h:175</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1VoronoiDiagramGenerator_html_adc728eeb2c8731d90afeabd2b666fc8c"><div class="ttname"><a href="classLNLib_1_1VoronoiDiagramGenerator.html#adc728eeb2c8731d90afeabd2b666fc8c">LNLib::VoronoiDiagramGenerator::setGenerateDelaunay</a></div><div class="ttdeci">void setGenerateDelaunay(bool genDel)</div><div class="ttdef"><b>定义</b> <a href="Voronoi_8cpp_source.html#l00104">Voronoi.cpp:104</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html"><div class="ttname"><a href="namespaceLNLib.html">LNLib</a></div><div class="ttdef"><b>定义</b> <a href="Integrator_8cpp_source.html#l00017">Integrator.cpp:18</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a88a5540f8094b6b3ff5c084f8fd9911f"><div class="ttname"><a href="namespaceLNLib.html#a88a5540f8094b6b3ff5c084f8fd9911f">LNLib::scomp</a></div><div class="ttdeci">int scomp(const void *p1, const void *p2)</div><div class="ttdef"><b>定义</b> <a href="Voronoi_8cpp_source.html#l01482">Voronoi.cpp:1482</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Edge_html"><div class="ttname"><a href="structLNLib_1_1Edge.html">LNLib::Edge</a></div><div class="ttdef"><b>定义</b> <a href="#l00093">Voronoi.h:94</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Edge_html_a009c4d321baab988e00e8e85a7413fee"><div class="ttname"><a href="structLNLib_1_1Edge.html#a009c4d321baab988e00e8e85a7413fee">LNLib::Edge::edgenbr</a></div><div class="ttdeci">int edgenbr</div><div class="ttdef"><b>定义</b> <a href="#l00098">Voronoi.h:98</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Edge_html_a14dbd7a852d1d9fdc70eafeff3a77a56"><div class="ttname"><a href="structLNLib_1_1Edge.html#a14dbd7a852d1d9fdc70eafeff3a77a56">LNLib::Edge::a</a></div><div class="ttdeci">float a</div><div class="ttdef"><b>定义</b> <a href="#l00095">Voronoi.h:95</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Edge_html_a36e943fea0009a0141cd7d79219c759d"><div class="ttname"><a href="structLNLib_1_1Edge.html#a36e943fea0009a0141cd7d79219c759d">LNLib::Edge::ep</a></div><div class="ttdeci">struct Site * ep[2]</div><div class="ttdef"><b>定义</b> <a href="#l00096">Voronoi.h:96</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Edge_html_a804b82294d3b8e97d1d970534037f9b6"><div class="ttname"><a href="structLNLib_1_1Edge.html#a804b82294d3b8e97d1d970534037f9b6">LNLib::Edge::c</a></div><div class="ttdeci">float c</div><div class="ttdef"><b>定义</b> <a href="#l00095">Voronoi.h:95</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Edge_html_a92064772ff94ec6bbe00a150903f9026"><div class="ttname"><a href="structLNLib_1_1Edge.html#a92064772ff94ec6bbe00a150903f9026">LNLib::Edge::reg</a></div><div class="ttdeci">struct Site * reg[2]</div><div class="ttdef"><b>定义</b> <a href="#l00097">Voronoi.h:97</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Edge_html_abf74f8621f19b77f0f4f63d726628443"><div class="ttname"><a href="structLNLib_1_1Edge.html#abf74f8621f19b77f0f4f63d726628443">LNLib::Edge::b</a></div><div class="ttdeci">float b</div><div class="ttdef"><b>定义</b> <a href="#l00095">Voronoi.h:95</a></div></div>
+<div class="ttc" id="astructLNLib_1_1FreeNodeArrayList_html"><div class="ttname"><a href="structLNLib_1_1FreeNodeArrayList.html">LNLib::FreeNodeArrayList</a></div><div class="ttdef"><b>定义</b> <a href="#l00054">Voronoi.h:55</a></div></div>
+<div class="ttc" id="astructLNLib_1_1FreeNodeArrayList_html_a22e731a1f2b94718415dd19f4095792e"><div class="ttname"><a href="structLNLib_1_1FreeNodeArrayList.html#a22e731a1f2b94718415dd19f4095792e">LNLib::FreeNodeArrayList::next</a></div><div class="ttdeci">struct FreeNodeArrayList * next</div><div class="ttdef"><b>定义</b> <a href="#l00057">Voronoi.h:57</a></div></div>
+<div class="ttc" id="astructLNLib_1_1FreeNodeArrayList_html_af4b7ac6caa552b68359a4c235f31a099"><div class="ttname"><a href="structLNLib_1_1FreeNodeArrayList.html#af4b7ac6caa552b68359a4c235f31a099">LNLib::FreeNodeArrayList::memory</a></div><div class="ttdeci">struct Freenode * memory</div><div class="ttdef"><b>定义</b> <a href="#l00056">Voronoi.h:56</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Freelist_html"><div class="ttname"><a href="structLNLib_1_1Freelist.html">LNLib::Freelist</a></div><div class="ttdef"><b>定义</b> <a href="#l00060">Voronoi.h:61</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Freelist_html_a85679aa324a961f1170337e0afdbc2da"><div class="ttname"><a href="structLNLib_1_1Freelist.html#a85679aa324a961f1170337e0afdbc2da">LNLib::Freelist::head</a></div><div class="ttdeci">struct Freenode * head</div><div class="ttdef"><b>定义</b> <a href="#l00062">Voronoi.h:62</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Freelist_html_acd4250401ee24a8b9a6e39142d4d6fde"><div class="ttname"><a href="structLNLib_1_1Freelist.html#acd4250401ee24a8b9a6e39142d4d6fde">LNLib::Freelist::nodesize</a></div><div class="ttdeci">int nodesize</div><div class="ttdef"><b>定义</b> <a href="#l00063">Voronoi.h:63</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Freenode_html"><div class="ttname"><a href="structLNLib_1_1Freenode.html">LNLib::Freenode</a></div><div class="ttdef"><b>定义</b> <a href="#l00049">Voronoi.h:50</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Freenode_html_a8c11b7d89ffe2165c21fe3f311676760"><div class="ttname"><a href="structLNLib_1_1Freenode.html#a8c11b7d89ffe2165c21fe3f311676760">LNLib::Freenode::nextfree</a></div><div class="ttdeci">struct Freenode * nextfree</div><div class="ttdef"><b>定义</b> <a href="#l00051">Voronoi.h:51</a></div></div>
+<div class="ttc" id="astructLNLib_1_1GraphEdge_html"><div class="ttname"><a href="structLNLib_1_1GraphEdge.html">LNLib::GraphEdge</a></div><div class="ttdef"><b>定义</b> <a href="#l00102">Voronoi.h:103</a></div></div>
+<div class="ttc" id="astructLNLib_1_1GraphEdge_html_a1b214deaae590bfb374d96750a384287"><div class="ttname"><a href="structLNLib_1_1GraphEdge.html#a1b214deaae590bfb374d96750a384287">LNLib::GraphEdge::x2</a></div><div class="ttdeci">float x2</div><div class="ttdef"><b>定义</b> <a href="#l00104">Voronoi.h:104</a></div></div>
+<div class="ttc" id="astructLNLib_1_1GraphEdge_html_a2a14bf601993bcf4c38e878cdd5c9703"><div class="ttname"><a href="structLNLib_1_1GraphEdge.html#a2a14bf601993bcf4c38e878cdd5c9703">LNLib::GraphEdge::x1</a></div><div class="ttdeci">float x1</div><div class="ttdef"><b>定义</b> <a href="#l00104">Voronoi.h:104</a></div></div>
+<div class="ttc" id="astructLNLib_1_1GraphEdge_html_a5a2fa7ace321ad82242bcf55e733a265"><div class="ttname"><a href="structLNLib_1_1GraphEdge.html#a5a2fa7ace321ad82242bcf55e733a265">LNLib::GraphEdge::next</a></div><div class="ttdeci">struct GraphEdge * next</div><div class="ttdef"><b>定义</b> <a href="#l00106">Voronoi.h:106</a></div></div>
+<div class="ttc" id="astructLNLib_1_1GraphEdge_html_a60aec42b6e4ad6cc725e65fd16bfaa64"><div class="ttname"><a href="structLNLib_1_1GraphEdge.html#a60aec42b6e4ad6cc725e65fd16bfaa64">LNLib::GraphEdge::y1</a></div><div class="ttdeci">float y1</div><div class="ttdef"><b>定义</b> <a href="#l00104">Voronoi.h:104</a></div></div>
+<div class="ttc" id="astructLNLib_1_1GraphEdge_html_ad954920b1f3e737527617d98eab58ce5"><div class="ttname"><a href="structLNLib_1_1GraphEdge.html#ad954920b1f3e737527617d98eab58ce5">LNLib::GraphEdge::y2</a></div><div class="ttdeci">float y2</div><div class="ttdef"><b>定义</b> <a href="#l00104">Voronoi.h:104</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Halfedge_html"><div class="ttname"><a href="structLNLib_1_1Halfedge.html">LNLib::Halfedge</a></div><div class="ttdef"><b>定义</b> <a href="#l00109">Voronoi.h:110</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Halfedge_html_a2d62fba2267cf7cefc5e2366d21621de"><div class="ttname"><a href="structLNLib_1_1Halfedge.html#a2d62fba2267cf7cefc5e2366d21621de">LNLib::Halfedge::ELleft</a></div><div class="ttdeci">struct Halfedge * ELleft</div><div class="ttdef"><b>定义</b> <a href="#l00111">Voronoi.h:111</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Halfedge_html_a8ef6d20933b262566357b4473e40b48c"><div class="ttname"><a href="structLNLib_1_1Halfedge.html#a8ef6d20933b262566357b4473e40b48c">LNLib::Halfedge::vertex</a></div><div class="ttdeci">struct Site * vertex</div><div class="ttdef"><b>定义</b> <a href="#l00115">Voronoi.h:115</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Halfedge_html_aad9e971cab113ee6aef6970372f938e3"><div class="ttname"><a href="structLNLib_1_1Halfedge.html#aad9e971cab113ee6aef6970372f938e3">LNLib::Halfedge::ELedge</a></div><div class="ttdeci">struct Edge * ELedge</div><div class="ttdef"><b>定义</b> <a href="#l00112">Voronoi.h:112</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Halfedge_html_abf445e6720b57336b906fd2f150ab8b8"><div class="ttname"><a href="structLNLib_1_1Halfedge.html#abf445e6720b57336b906fd2f150ab8b8">LNLib::Halfedge::PQnext</a></div><div class="ttdeci">struct Halfedge * PQnext</div><div class="ttdef"><b>定义</b> <a href="#l00117">Voronoi.h:117</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Halfedge_html_ac3313a055c0f3c319144449506a961eb"><div class="ttname"><a href="structLNLib_1_1Halfedge.html#ac3313a055c0f3c319144449506a961eb">LNLib::Halfedge::ELrefcnt</a></div><div class="ttdeci">int ELrefcnt</div><div class="ttdef"><b>定义</b> <a href="#l00113">Voronoi.h:113</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Halfedge_html_ae1274d0d8fe649736d1ca90392dd9c83"><div class="ttname"><a href="structLNLib_1_1Halfedge.html#ae1274d0d8fe649736d1ca90392dd9c83">LNLib::Halfedge::ELright</a></div><div class="ttdeci">struct Halfedge * ELright</div><div class="ttdef"><b>定义</b> <a href="#l00111">Voronoi.h:111</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Halfedge_html_ae716d20feb460d0c53c8ed138799eced"><div class="ttname"><a href="structLNLib_1_1Halfedge.html#ae716d20feb460d0c53c8ed138799eced">LNLib::Halfedge::ystar</a></div><div class="ttdeci">float ystar</div><div class="ttdef"><b>定义</b> <a href="#l00116">Voronoi.h:116</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Halfedge_html_afec809d5afcbad93f997a681e25bdd8d"><div class="ttname"><a href="structLNLib_1_1Halfedge.html#afec809d5afcbad93f997a681e25bdd8d">LNLib::Halfedge::ELpm</a></div><div class="ttdeci">char ELpm</div><div class="ttdef"><b>定义</b> <a href="#l00114">Voronoi.h:114</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Point3_html"><div class="ttname"><a href="structLNLib_1_1Point3.html">LNLib::Point3</a></div><div class="ttdef"><b>定义</b> <a href="#l00071">Voronoi.h:72</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Point3_html_a868bbdca2f2df6d123c4ec8ce433b2c2"><div class="ttname"><a href="structLNLib_1_1Point3.html#a868bbdca2f2df6d123c4ec8ce433b2c2">LNLib::Point3::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>定义</b> <a href="#l00073">Voronoi.h:73</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Point3_html_aaf86699107e1b2ea2e6946284835ef25"><div class="ttname"><a href="structLNLib_1_1Point3.html#aaf86699107e1b2ea2e6946284835ef25">LNLib::Point3::z</a></div><div class="ttdeci">float z</div><div class="ttdef"><b>定义</b> <a href="#l00073">Voronoi.h:73</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Point3_html_acf1423ac5da213937fe2cfe9b314844f"><div class="ttname"><a href="structLNLib_1_1Point3.html#acf1423ac5da213937fe2cfe9b314844f">LNLib::Point3::count</a></div><div class="ttdeci">int count</div><div class="ttdef"><b>定义</b> <a href="#l00074">Voronoi.h:74</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Point3_html_ad41bf04df2c2a9cac1dc40cd06a34f26"><div class="ttname"><a href="structLNLib_1_1Point3.html#ad41bf04df2c2a9cac1dc40cd06a34f26">LNLib::Point3::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>定义</b> <a href="#l00073">Voronoi.h:73</a></div></div>
+<div class="ttc" id="astructLNLib_1_1PointVDG_html"><div class="ttname"><a href="structLNLib_1_1PointVDG.html">LNLib::PointVDG</a></div><div class="ttdef"><b>定义</b> <a href="#l00066">Voronoi.h:67</a></div></div>
+<div class="ttc" id="astructLNLib_1_1PointVDG_html_aac6c5c070e8dad63b9190f4ffcc02e60"><div class="ttname"><a href="structLNLib_1_1PointVDG.html#aac6c5c070e8dad63b9190f4ffcc02e60">LNLib::PointVDG::y</a></div><div class="ttdeci">float y</div><div class="ttdef"><b>定义</b> <a href="#l00068">Voronoi.h:68</a></div></div>
+<div class="ttc" id="astructLNLib_1_1PointVDG_html_ace2a50c3ae563c01303d93807123a61c"><div class="ttname"><a href="structLNLib_1_1PointVDG.html#ace2a50c3ae563c01303d93807123a61c">LNLib::PointVDG::x</a></div><div class="ttdeci">float x</div><div class="ttdef"><b>定义</b> <a href="#l00068">Voronoi.h:68</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Site_html"><div class="ttname"><a href="structLNLib_1_1Site.html">LNLib::Site</a></div><div class="ttdef"><b>定义</b> <a href="#l00085">Voronoi.h:86</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Site_html_a2cb3b751fe3a78fd9f6b6c7a9a11ee51"><div class="ttname"><a href="structLNLib_1_1Site.html#a2cb3b751fe3a78fd9f6b6c7a9a11ee51">LNLib::Site::coord</a></div><div class="ttdeci">struct PointVDG coord</div><div class="ttdef"><b>定义</b> <a href="#l00087">Voronoi.h:87</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Site_html_a36e27d6b22fd0380648286b3d078b6c0"><div class="ttname"><a href="structLNLib_1_1Site.html#a36e27d6b22fd0380648286b3d078b6c0">LNLib::Site::sitenbr</a></div><div class="ttdeci">int sitenbr</div><div class="ttdef"><b>定义</b> <a href="#l00088">Voronoi.h:88</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Site_html_a65469e66fb3168d06eabcb4dc13db0e1"><div class="ttname"><a href="structLNLib_1_1Site.html#a65469e66fb3168d06eabcb4dc13db0e1">LNLib::Site::refcnt</a></div><div class="ttdeci">int refcnt</div><div class="ttdef"><b>定义</b> <a href="#l00089">Voronoi.h:89</a></div></div>
+<div class="ttc" id="astructLNLib_1_1Site_html_aaa1f837b78258aae13abd16a69dbb061"><div class="ttname"><a href="structLNLib_1_1Site.html#aaa1f837b78258aae13abd16a69dbb061">LNLib::Site::overallRefcnt</a></div><div class="ttdeci">int overallRefcnt</div><div class="ttdef"><b>定义</b> <a href="#l00090">Voronoi.h:90</a></div></div>
+<div class="ttc" id="astructLNLib_1_1VertexLink_html"><div class="ttname"><a href="structLNLib_1_1VertexLink.html">LNLib::VertexLink</a></div><div class="ttdef"><b>定义</b> <a href="#l00077">Voronoi.h:78</a></div></div>
+<div class="ttc" id="astructLNLib_1_1VertexLink_html_a06369670618e33b9e9ed08473b45cbed"><div class="ttname"><a href="structLNLib_1_1VertexLink.html#a06369670618e33b9e9ed08473b45cbed">LNLib::VertexLink::v</a></div><div class="ttdeci">PointVDG v[3]</div><div class="ttdef"><b>定义</b> <a href="#l00080">Voronoi.h:80</a></div></div>
+<div class="ttc" id="astructLNLib_1_1VertexLink_html_acd3d55c8ebdd041dbe196cb1d3e0aefc"><div class="ttname"><a href="structLNLib_1_1VertexLink.html#acd3d55c8ebdd041dbe196cb1d3e0aefc">LNLib::VertexLink::coord</a></div><div class="ttdeci">PointVDG coord</div><div class="ttdef"><b>定义</b> <a href="#l00079">Voronoi.h:79</a></div></div>
+<div class="ttc" id="astructLNLib_1_1VertexLink_html_af94281876a7ae30bd2f3c5baec0810b7"><div class="ttname"><a href="structLNLib_1_1VertexLink.html#af94281876a7ae30bd2f3c5baec0810b7">LNLib::VertexLink::count</a></div><div class="ttdeci">int count</div><div class="ttdef"><b>定义</b> <a href="#l00081">Voronoi.h:81</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_16b010a3eb20297cce52e62ed2fbdb73.html">LNLib</a></li><li class="navelem"><a class="el" href="dir_d94eecf3a687f27b8738855f648c5010.html">include</a></li><li class="navelem"><a class="el" href="Voronoi_8h.html">Voronoi.h</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

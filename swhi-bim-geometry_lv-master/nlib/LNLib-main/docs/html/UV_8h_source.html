@@ -1,0 +1,240 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: src/LNLib/include/UV.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('UV_8h_source.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">UV.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="UV_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">/*</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment"> * Author:</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="comment"> * 2023/06/08 - Yuqing Liang (BIMCoder Liang)</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="comment"> * bim.frankliang@foxmail.com</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="comment"> * </span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment"> *</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="comment"> * Use of this source code is governed by a GPL-3.0 license that can be found in</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment"> * the LICENSE file.</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="comment"> */</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="Constants_8h.html">Constants.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="LNLibDefinitions_8h.html">LNLibDefinitions.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespaceLNLib.html">LNLib</a></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
+<div class="foldopen" id="foldopen00021" data-start="{" data-end="};">
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classLNLib_1_1UV.html">   21</a></span>    <span class="keyword">class </span><a class="code hl_define" href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    {</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>();</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>(<span class="keywordtype">double</span> u, <span class="keywordtype">double</span> v);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classLNLib_1_1UV.html#af4cef87d2c3bfaf9a6d64c0d422d5d2a">SetU</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> x);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a08ffa26fdc28e72f4871a50f0776a18e">GetU</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>        <span class="keywordtype">void</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a97d5e418f416eb72c1b361c6a846de7a">SetV</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> y);</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a7b4e7f930a066e8701bd2ad9b1a715d6">GetV</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a840d8d8f42eb39bb776ec9155efdae12">U</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classLNLib_1_1UV.html#a840d8d8f42eb39bb776ec9155efdae12">U</a>();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1UV.html#ae3dcc5bf6700eef80171687b97eb6048">V</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classLNLib_1_1UV.html#ae3dcc5bf6700eef80171687b97eb6048">V</a>();</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1UV.html#ad446b8d348494634fd7966cbe2072a6a">IsZero</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon = <a class="code hl_variable" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a88595337d9ae85fd260beedfe04eb4c7">IsUnit</a>(<span class="keyword">const</span> <span class="keywordtype">double</span> epsilon = <a class="code hl_variable" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <span class="keywordtype">bool</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a833da631eb44405af0576fe811bad565">IsAlmostEqualTo</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; another) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1UV.html#afb753511175475ab6dc4d60743157b38">Length</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a68dc3dfff7ebb15543cbd1cc9ec0bdac">SqrLength</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a6abaf06a45da2f57bdd55c81a035aa44">AngleTo</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; another) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a> <a class="code hl_function" href="classLNLib_1_1UV.html#a3e23a18e66ec559094882dc6ee6ab16a">Normalize</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a> <a class="code hl_function" href="classLNLib_1_1UV.html#a76bed2a5c6c6a4dcb09e6abc167cb05d">Add</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; another) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a> <a class="code hl_function" href="classLNLib_1_1UV.html#a1fc0ef0173877c9f633f064a4db1f29d">Substract</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; another) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a> <a class="code hl_function" href="classLNLib_1_1UV.html#a6a6eaffb29567c7951716c87748ed061">Negative</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1UV.html#ab0a72096c7d7ea3dd7651440c773ad4d">DotProduct</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; another) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a3409376d9f785a40e62d3a0794fca969">CrossProduct</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; another) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordtype">double</span> <a class="code hl_function" href="classLNLib_1_1UV.html#aa57b9f8e5517f572dcf9f7d9c72bad11">Distance</a>(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; another) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">public</span>:</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; operator =(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; uv);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        <span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classLNLib_1_1UV.html#a32ef1c193a7623d680a82e5bb8d6f86d">operator[]</a>(<span class="keywordtype">int</span> index);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        <span class="keyword">const</span> <span class="keywordtype">double</span>&amp; <a class="code hl_function" href="classLNLib_1_1UV.html#a32ef1c193a7623d680a82e5bb8d6f86d">operator[]</a>(<span class="keywordtype">int</span> index) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a> operator +(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; uv) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a> operator -(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; uv) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordtype">double</span> operator *(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; uv) <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; operator *=(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; d);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; operator /=(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; d);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; operator +=(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; uv);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; operator -=(<span class="keyword">const</span> <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>&amp; uv);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <a class="code hl_function" href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">UV</a>  <a class="code hl_function" href="classLNLib_1_1UV.html#afcc38bb6e8c51830a3a7c3a8bb95dd8d">operator-</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="keyword">private</span>:</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        <span class="keywordtype">double</span> m_uv[2];</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    };</div>
+</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_define" href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a> <a class="code hl_class" href="classLNLib_1_1UV.html">UV</a> <a class="code hl_function" href="namespaceLNLib.html#a3d0f2a917f984a069f87f949594c63a5">operator *</a>(<span class="keyword">const</span> <a class="code hl_class" href="classLNLib_1_1UV.html">UV</a>&amp; source, <span class="keyword">const</span> <span class="keywordtype">double</span> d);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    <a class="code hl_define" href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a> <a class="code hl_class" href="classLNLib_1_1UV.html">UV</a> <a class="code hl_function" href="namespaceLNLib.html#a3d0f2a917f984a069f87f949594c63a5">operator *</a>(<span class="keyword">const</span> <span class="keywordtype">double</span>&amp; d, <span class="keyword">const</span> <a class="code hl_class" href="classLNLib_1_1UV.html">UV</a>&amp; source);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <a class="code hl_define" href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a> <span class="keywordtype">double</span> <a class="code hl_function" href="namespaceLNLib.html#a628cca0f476c5ffcd920070f25c5fb39">operator ^</a>(<span class="keyword">const</span> <a class="code hl_class" href="classLNLib_1_1UV.html">UV</a>&amp; uv1, <span class="keyword">const</span> <a class="code hl_class" href="classLNLib_1_1UV.html">UV</a>&amp; uv2);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    <a class="code hl_define" href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a> <a class="code hl_class" href="classLNLib_1_1UV.html">UV</a> <a class="code hl_function" href="namespaceLNLib.html#ad6ed2c3e4f87afdf2bf47f33f327e9f4">operator /</a>(<span class="keyword">const</span> <a class="code hl_class" href="classLNLib_1_1UV.html">UV</a>&amp; source, <span class="keywordtype">double</span> d);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>}</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="ttc" id="aConstants_8h_html"><div class="ttname"><a href="Constants_8h.html">Constants.h</a></div></div>
+<div class="ttc" id="aLNLibDefinitions_8h_html"><div class="ttname"><a href="LNLibDefinitions_8h.html">LNLibDefinitions.h</a></div></div>
+<div class="ttc" id="aLNLibDefinitions_8h_html_ae9d1336b32fdad9d4d368c029c9597af"><div class="ttname"><a href="LNLibDefinitions_8h.html#ae9d1336b32fdad9d4d368c029c9597af">LNLIB_EXPORT</a></div><div class="ttdeci">#define LNLIB_EXPORT</div><div class="ttdef"><b>定义</b> <a href="LNLibDefinitions_8h_source.html#l00023">LNLibDefinitions.h:23</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1Constants_html_abc53c92777511c041cb18abcff65f3be"><div class="ttname"><a href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">LNLib::Constants::DoubleEpsilon</a></div><div class="ttdeci">static const double DoubleEpsilon</div><div class="ttdef"><b>定义</b> <a href="Constants_8h_source.html#l00023">Constants.h:23</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html"><div class="ttname"><a href="classLNLib_1_1UV.html">LNLib::UV</a></div><div class="ttdoc">Represents two-dimension location/vector/offset</div><div class="ttdef"><b>定义</b> <a href="#l00021">UV.h:22</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a08ffa26fdc28e72f4871a50f0776a18e"><div class="ttname"><a href="classLNLib_1_1UV.html#a08ffa26fdc28e72f4871a50f0776a18e">LNLib::UV::GetU</a></div><div class="ttdeci">double GetU() const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00037">UV.cpp:37</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a1fc0ef0173877c9f633f064a4db1f29d"><div class="ttname"><a href="classLNLib_1_1UV.html#a1fc0ef0173877c9f633f064a4db1f29d">LNLib::UV::Substract</a></div><div class="ttdeci">UV Substract(const UV &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00118">UV.cpp:118</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a25e68a7958f33d87a6fff701d4e56cb8"><div class="ttname"><a href="classLNLib_1_1UV.html#a25e68a7958f33d87a6fff701d4e56cb8">LNLib::UV::UV</a></div><div class="ttdeci">UV()</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00018">UV.cpp:18</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a32ef1c193a7623d680a82e5bb8d6f86d"><div class="ttname"><a href="classLNLib_1_1UV.html#a32ef1c193a7623d680a82e5bb8d6f86d">LNLib::UV::operator[]</a></div><div class="ttdeci">double &amp; operator[](int index)</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00151">UV.cpp:151</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a3409376d9f785a40e62d3a0794fca969"><div class="ttname"><a href="classLNLib_1_1UV.html#a3409376d9f785a40e62d3a0794fca969">LNLib::UV::CrossProduct</a></div><div class="ttdeci">double CrossProduct(const UV &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00133">UV.cpp:133</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a3e23a18e66ec559094882dc6ee6ab16a"><div class="ttname"><a href="classLNLib_1_1UV.html#a3e23a18e66ec559094882dc6ee6ab16a">LNLib::UV::Normalize</a></div><div class="ttdeci">UV Normalize()</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00100">UV.cpp:100</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a68dc3dfff7ebb15543cbd1cc9ec0bdac"><div class="ttname"><a href="classLNLib_1_1UV.html#a68dc3dfff7ebb15543cbd1cc9ec0bdac">LNLib::UV::SqrLength</a></div><div class="ttdeci">double SqrLength() const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00090">UV.cpp:90</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a6a6eaffb29567c7951716c87748ed061"><div class="ttname"><a href="classLNLib_1_1UV.html#a6a6eaffb29567c7951716c87748ed061">LNLib::UV::Negative</a></div><div class="ttdeci">UV Negative() const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00123">UV.cpp:123</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a6abaf06a45da2f57bdd55c81a035aa44"><div class="ttname"><a href="classLNLib_1_1UV.html#a6abaf06a45da2f57bdd55c81a035aa44">LNLib::UV::AngleTo</a></div><div class="ttdeci">double AngleTo(const UV &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00095">UV.cpp:95</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a76bed2a5c6c6a4dcb09e6abc167cb05d"><div class="ttname"><a href="classLNLib_1_1UV.html#a76bed2a5c6c6a4dcb09e6abc167cb05d">LNLib::UV::Add</a></div><div class="ttdeci">UV Add(const UV &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00113">UV.cpp:113</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a7b4e7f930a066e8701bd2ad9b1a715d6"><div class="ttname"><a href="classLNLib_1_1UV.html#a7b4e7f930a066e8701bd2ad9b1a715d6">LNLib::UV::GetV</a></div><div class="ttdeci">double GetV() const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00045">UV.cpp:45</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a833da631eb44405af0576fe811bad565"><div class="ttname"><a href="classLNLib_1_1UV.html#a833da631eb44405af0576fe811bad565">LNLib::UV::IsAlmostEqualTo</a></div><div class="ttdeci">bool IsAlmostEqualTo(const UV &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00079">UV.cpp:79</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a840d8d8f42eb39bb776ec9155efdae12"><div class="ttname"><a href="classLNLib_1_1UV.html#a840d8d8f42eb39bb776ec9155efdae12">LNLib::UV::U</a></div><div class="ttdeci">double U() const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00048">UV.cpp:48</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a88595337d9ae85fd260beedfe04eb4c7"><div class="ttname"><a href="classLNLib_1_1UV.html#a88595337d9ae85fd260beedfe04eb4c7">LNLib::UV::IsUnit</a></div><div class="ttdeci">bool IsUnit(const double epsilon=Constants::DoubleEpsilon) const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00074">UV.cpp:74</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_a97d5e418f416eb72c1b361c6a846de7a"><div class="ttname"><a href="classLNLib_1_1UV.html#a97d5e418f416eb72c1b361c6a846de7a">LNLib::UV::SetV</a></div><div class="ttdeci">void SetV(const double y)</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00039">UV.cpp:39</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_aa57b9f8e5517f572dcf9f7d9c72bad11"><div class="ttname"><a href="classLNLib_1_1UV.html#aa57b9f8e5517f572dcf9f7d9c72bad11">LNLib::UV::Distance</a></div><div class="ttdeci">double Distance(const UV &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00138">UV.cpp:138</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_ab0a72096c7d7ea3dd7651440c773ad4d"><div class="ttname"><a href="classLNLib_1_1UV.html#ab0a72096c7d7ea3dd7651440c773ad4d">LNLib::UV::DotProduct</a></div><div class="ttdeci">double DotProduct(const UV &amp;another) const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00128">UV.cpp:128</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_ad446b8d348494634fd7966cbe2072a6a"><div class="ttname"><a href="classLNLib_1_1UV.html#ad446b8d348494634fd7966cbe2072a6a">LNLib::UV::IsZero</a></div><div class="ttdeci">bool IsZero(const double epsilon=Constants::DoubleEpsilon) const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00069">UV.cpp:69</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_ae3dcc5bf6700eef80171687b97eb6048"><div class="ttname"><a href="classLNLib_1_1UV.html#ae3dcc5bf6700eef80171687b97eb6048">LNLib::UV::V</a></div><div class="ttdeci">double V() const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00058">UV.cpp:58</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_af4cef87d2c3bfaf9a6d64c0d422d5d2a"><div class="ttname"><a href="classLNLib_1_1UV.html#af4cef87d2c3bfaf9a6d64c0d422d5d2a">LNLib::UV::SetU</a></div><div class="ttdeci">void SetU(const double x)</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00032">UV.cpp:32</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_afb753511175475ab6dc4d60743157b38"><div class="ttname"><a href="classLNLib_1_1UV.html#afb753511175475ab6dc4d60743157b38">LNLib::UV::Length</a></div><div class="ttdeci">double Length() const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00085">UV.cpp:85</a></div></div>
+<div class="ttc" id="aclassLNLib_1_1UV_html_afcc38bb6e8c51830a3a7c3a8bb95dd8d"><div class="ttname"><a href="classLNLib_1_1UV.html#afcc38bb6e8c51830a3a7c3a8bb95dd8d">LNLib::UV::operator-</a></div><div class="ttdeci">UV operator-(const UV &amp;uv) const</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00166">UV.cpp:166</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html"><div class="ttname"><a href="namespaceLNLib.html">LNLib</a></div><div class="ttdef"><b>定义</b> <a href="Integrator_8cpp_source.html#l00017">Integrator.cpp:18</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a3d0f2a917f984a069f87f949594c63a5"><div class="ttname"><a href="namespaceLNLib.html#a3d0f2a917f984a069f87f949594c63a5">LNLib::operator*</a></div><div class="ttdeci">Matrix4d operator*(const Matrix4d &amp;left, const Matrix4d &amp;right)</div><div class="ttdef"><b>定义</b> <a href="Matrix4d_8cpp_source.html#l00407">Matrix4d.cpp:407</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_a628cca0f476c5ffcd920070f25c5fb39"><div class="ttname"><a href="namespaceLNLib.html#a628cca0f476c5ffcd920070f25c5fb39">LNLib::operator^</a></div><div class="ttdeci">double operator^(const UV &amp;uv1, const UV &amp;uv2)</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00217">UV.cpp:217</a></div></div>
+<div class="ttc" id="anamespaceLNLib_html_ad6ed2c3e4f87afdf2bf47f33f327e9f4"><div class="ttname"><a href="namespaceLNLib.html#ad6ed2c3e4f87afdf2bf47f33f327e9f4">LNLib::operator/</a></div><div class="ttdeci">UV operator/(const UV &amp;source, double d)</div><div class="ttdef"><b>定义</b> <a href="UV_8cpp_source.html#l00221">UV.cpp:221</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_16b010a3eb20297cce52e62ed2fbdb73.html">LNLib</a></li><li class="navelem"><a class="el" href="dir_d94eecf3a687f27b8738855f648c5010.html">include</a></li><li class="navelem"><a class="el" href="UV_8h.html">UV.h</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

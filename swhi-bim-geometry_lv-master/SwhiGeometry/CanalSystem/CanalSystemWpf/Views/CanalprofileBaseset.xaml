@@ -1,0 +1,119 @@
+﻿<Window x:Class="CanalSystem.Views.CanalprofileBaseset"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CanalSystem.Views"
+             mc:Ignorable="d" Title="纵断面基本设置" Height="250" Width="650" Topmost="True">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1.2*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.1*"/>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="1.5*" />
+            <ColumnDefinition Width="0.1*" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.2*"/>
+                <RowDefinition Height="0.5*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.2*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="0.9*"/>
+            </Grid.ColumnDefinitions>
+            <Label Grid.Row="0" Grid.ColumnSpan="3" Content="纵断面表格字体设置" VerticalAlignment="Center" BorderThickness="1"></Label>
+            <Label Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="1"  Content="表头文字大小" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1" ></Label>
+            <TextBox x:Name="textzise1" Grid.Row="2" Grid.Column="0" Text="5"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <Label Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="1" Content="建筑物文字大小" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1" ></Label>
+            <TextBox x:Name="textzise2" Grid.Row="2" Grid.Column="1" Text="3.5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <Label Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="1" Content="桩号文字大小" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1" ></Label>
+            <TextBox x:Name="textzise3" Grid.Row="2" Grid.Column="2" Text="3.5" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <Label Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="1" Content="表头行宽" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1" ></Label>
+            <TextBox x:Name="textzise4" Grid.Row="2" Grid.Column="3" Text="50" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <Border Grid.Row="3" Grid.ColumnSpan="4" Height="3" BorderThickness="3" BorderBrush="Black"></Border>
+        </Grid>
+        <Grid Grid.Row="0" Grid.Column="3" Grid.ColumnSpan="1"  Grid.RowSpan="2" >
+            <Grid.RowDefinitions>
+                <RowDefinition  Height="*"/>
+                <RowDefinition  Height="*"/>
+                <RowDefinition  Height="*"/>
+                <RowDefinition  Height="*"/>
+                <RowDefinition  Height="*"/>
+                <RowDefinition  Height="*"/>
+                <RowDefinition  Height="*"/>
+                <RowDefinition  Height="*"/>
+                <RowDefinition  Height="*"/>
+                <RowDefinition  Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="1*"></ColumnDefinition>
+                <ColumnDefinition Width="0.5*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0"  Grid.Row="0" Grid.RowSpan="10">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1.5*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1.5*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                    <RowDefinition Height="0.5*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                    <RowDefinition Height="1*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <TextBox Grid.Row="0" Text="高程标尺设置" TextElement.Foreground="Red"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="Black" />
+                <Label x:Name="textheadername1" Grid.Row="1"  Content="最小高程(M)"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1" />
+                <TextBox x:Name="textheadername2" Grid.Row="2"  Text="300"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+                <Label x:Name="textheadername3" Grid.Row="3" Content="最大高程(M)"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" BorderThickness="1" />
+                <TextBox x:Name="textheadername4" Grid.Row="4" Text="400"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            </Grid>
+           
+            <TextBox  Grid.Row="0" Grid.Column="1" IsReadOnly="True"  Text="选择字段" TextElement.Foreground="Red" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="Black" />
+            <ComboBox x:Name="ComboBoxtableheader1"  Grid.Row="1" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <ComboBox x:Name="ComboBoxtableheader2" Grid.Row="2" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <ComboBox x:Name="ComboBoxtableheader3" Grid.Row="3" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <ComboBox x:Name="ComboBoxtableheader4" Grid.Row="4" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <ComboBox x:Name="ComboBoxtableheader5" Grid.Row="5" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <ComboBox x:Name="ComboBoxtableheader6" Grid.Row="6" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <ComboBox x:Name="ComboBoxtableheader7" Grid.Row="7" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <ComboBox x:Name="ComboBoxtableheader8" Grid.Row="8" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <ComboBox x:Name="ComboBoxtableheader9" Grid.Row="9" Grid.Column="1" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <TextBox  Grid.Row="0" Grid.Column="2" IsReadOnly="True" Text="栏高" TextElement.Foreground="Red" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="Black" />
+            <TextBox x:Name="ComboBoxtablehigh1" Grid.Row="1" Grid.Column="2" Text="12"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <TextBox x:Name="ComboBoxtablehigh2" Grid.Row="2" Grid.Column="2" Text="12"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <TextBox x:Name="ComboBoxtablehigh3" Grid.Row="3" Grid.Column="2" Text="30"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <TextBox x:Name="ComboBoxtablehigh4" Grid.Row="4" Grid.Column="2" Text="15"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <TextBox x:Name="ComboBoxtablehigh5" Grid.Row="5" Grid.Column="2" Text="15"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <TextBox x:Name="ComboBoxtablehigh6" Grid.Row="6" Grid.Column="2" Text="15"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <TextBox x:Name="ComboBoxtablehigh7" Grid.Row="7" Grid.Column="2" Text="30"  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <TextBox x:Name="ComboBoxtablehigh8" Grid.Row="8" Grid.Column="2" Text=""  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+            <TextBox x:Name="ComboBoxtablehigh9" Grid.Row="9" Grid.Column="2" Text=""  VerticalContentAlignment="Center" HorizontalContentAlignment="Center" BorderBrush="LightBlue" />
+        </Grid>
+        
+        <Grid Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="1.5*"/>
+                <ColumnDefinition Width="0.2*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="ResetButton" Grid.Row="0" Grid.Column="0" Content="重置默认设置" Click="ResetDate"></Button>
+            <!--<Button Grid.Row="0" Grid.Column="2" Content="使用默认表头文字"></Button>-->
+            <Button x:Name="SaveButton" Grid.Row="0" Grid.Column="3" Content="保存并关闭" Click="SaveData"></Button>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIMCHNA 项目管理</title>
+    <!-- 引入 Monaco Editor Loader -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs/loader.min.js"></script>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; margin: 0; padding: 0; display: flex; height: 100vh; background: #f5f5f5; }
+        .sidebar { width: 250px; background: #2c3e50; color: white; padding: 20px; overflow-y: auto; display: flex; flex-direction: column; }
+        .main { flex: 1; padding: 20px; overflow-y: hidden; display: flex; flex-direction: column; gap: 20px; position: relative; }
+        .card { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); display: flex; flex-direction: column; height: 100%; overflow: hidden; }
+        h2 { margin-top: 0; border-bottom: 2px solid #eee; padding-bottom: 10px; flex-shrink: 0; }
+        
+        /* Tree */
+        .tree-node { margin-left: 20px; cursor: pointer; padding: 4px; border-radius: 4px; }
+        .tree-node:hover { background: #34495e; }
+        .tree-node.selected { background: #1abc9c; font-weight: bold; }
+        
+        /* Nav */
+        .nav-btn { display: block; width: 100%; padding: 10px; margin-bottom: 5px; background: #34495e; border: none; color: white; text-align: left; cursor: pointer; border-radius: 4px; transition: background 0.2s; }
+        .nav-btn:hover { background: #3e5871; }
+        .nav-btn.active { background: #1abc9c; }
+        
+        /* Editor */
+        #editor-container { flex: 1; border: 1px solid #ddd; margin-bottom: 10px; }
+        .editor-toolbar { margin-bottom: 10px; display: flex; gap: 10px; align-items: center; }
+        .btn { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; color: white; }
+        .btn-primary { background: #3498db; }
+        .btn-success { background: #2ecc71; }
+        .btn-danger { background: #e74c3c; }
+        .btn-warning { background: #f39c12; }
+        .btn:hover { opacity: 0.9; }
+
+        /* Tasks */
+        .task-tree { padding: 10px; }
+        .task-item { display: flex; align-items: center; padding: 8px; border-bottom: 1px solid #f0f0f0; }
+        .task-item:hover { background: #f9f9f9; }
+        .task-indent { width: 20px; display: inline-block; }
+        .task-status { margin-right: 10px; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-weight: bold; }
+        .status-pending { background: #eee; color: #666; }
+        .status-in_progress { background: #3498db; color: white; }
+        .status-completed { background: #2ecc71; color: white; }
+        .status-blocked { background: #e74c3c; color: white; }
+        .task-title { flex: 1; cursor: pointer; }
+        .task-assignee { color: #888; font-size: 12px; margin-right: 10px; }
+        .task-actions { opacity: 0.3; transition: opacity 0.2s; }
+        .task-item:hover .task-actions { opacity: 1; }
+        
+        /* Modal */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: white; padding: 20px; border-radius: 8px; width: 400px; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        .modal-footer { text-align: right; margin-top: 20px; }
+        
+        /* Views */
+        .view-section { display: none; height: 100%; }
+        .view-section.active { display: block; }
+        
+        /* AI Chat Overlay */
+        .ai-overlay {
+            position: absolute; top: 60px; right: 20px; width: 400px; bottom: 20px;
+            background: white; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex; flex-direction: column; z-index: 100;
+        }
+        .ai-header { padding: 10px; background: #2c3e50; color: white; border-radius: 8px 8px 0 0; display: flex; justify-content: space-between; align-items: center; }
+        .ai-messages { flex: 1; overflow-y: auto; padding: 10px; background: #f8f9fa; }
+        .ai-input-area { padding: 10px; border-top: 1px solid #ddd; display: flex; gap: 5px; }
+        .ai-msg { margin-bottom: 10px; padding: 8px; border-radius: 4px; max-width: 85%; }
+        .ai-msg.user { background: #3498db; color: white; align-self: flex-end; margin-left: auto; }
+        .ai-msg.assistant { background: white; border: 1px solid #eee; align-self: flex-start; }
+        .hidden { display: none !important; }
+
+    </style>
+</head>
+<body>
+
+<div class="sidebar">
+    <h3 style="margin-top:0">BIMCHNA 控制台</h3>
+    <button class="nav-btn active" onclick="switchView('docs')">📚 文档编辑</button>
+    <button class="nav-btn" onclick="switchView('tasks')">📋 任务管理</button>
+    <button class="nav-btn" onclick="switchView('orgs')">🏢 组织管理</button>
+    <button class="nav-btn" onclick="switchView('qa')">🤖 AI 问答</button>
+    <button class="nav-btn hidden" id="nav-agent-center" onclick="switchView('agent-center')">🧠 Agent 中心</button>
+    <button class="nav-btn" onclick="switchView('database')">💾 数据库管理</button>
+    <button class="nav-btn" onclick="switchView('settings')">⚙️ 设置</button>
+    <button class="nav-btn" onclick="switchView('history')">⏱️ 变更记录</button>
+    
+    <div style="border-top:1px solid #34495e; padding-top:10px; margin-top:auto;">
+        <div id="user-info" style="margin-bottom:10px; font-size:14px;">Guest</div>
+        <button class="btn btn-danger" style="width:100%; font-size:12px; padding:5px" onclick="doLogout()">退出登录</button>
+    </div>
+</div>
+
+<div class="main">
+    
+    <!-- Editor View -->
+    <div id="view-docs" class="view-section active">
+        <div class="card" style="display:flex; flex-direction:row; gap:20px">
+            <div style="width:300px; border-right:1px solid #eee; padding-right:20px; display:flex; flex-direction:column;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <h3 style="margin:0">文档目录</h3>
+                    <button class="btn btn-primary" style="padding:4px 8px; font-size:12px" onclick="loadDocs()">🔄 刷新</button>
+                </div>
+                <div id="doc-tree" style="flex:1; overflow-y:auto;"></div>
+            </div>
+            
+            <div style="flex:1; display:flex; flex-direction:column; overflow:hidden;">
+                <div class="editor-toolbar">
+                    <h2 id="current-doc-title" style="border:none; margin:0; flex:1">请选择文档</h2>
+                    <span id="save-status" style="color: #888; font-size: 12px; margin-right: 10px;"></span>
+                    <button class="btn btn-warning" onclick="toggleAIChat('editor')">🤖 AI 助手</button>
+                    <button class="btn btn-primary" onclick="saveCurrentDoc()">💾 保存 (Ctrl+S)</button>
+                </div>
+                <div id="editor-container"></div>
+                
+                <!-- AI Overlay for Editor -->
+                <div id="ai-editor-overlay" class="ai-overlay hidden">
+                    <div class="ai-header">
+                        <span>DeepSeek 助手</span>
+                        <button style="background:none; border:none; color:white; cursor:pointer" onclick="toggleAIChat('editor')">✕</button>
+                    </div>
+                    <div class="ai-messages" id="ai-editor-msgs">
+                        <div class="ai-msg assistant">你好！我是 DeepSeek 助手。我可以帮你编写文档、修改代码或解答问题。</div>
+                    </div>
+                    <div class="ai-input-area">
+                        <textarea id="ai-editor-input" rows="2" style="flex:1; resize:none" placeholder="输入需求，例如：帮我优化这段代码..."></textarea>
+                        <button class="btn btn-primary" onclick="sendAIMessage('editor')">发送</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tasks View -->
+    <div id="view-tasks" class="view-section">
+        <div class="card" style="overflow-y:auto">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <h2 style="border:none; margin:0">任务看板</h2>
+                <div>
+                     <button class="btn btn-warning" onclick="toggleAIChat('tasks')">✨ AI 生成任务</button>
+                     <button class="btn btn-success" onclick="openTaskModal()">+ 新建任务</button>
+                </div>
+            </div>
+            <div id="task-list" class="task-tree"></div>
+            
+             <!-- AI Overlay for Tasks -->
+             <div id="ai-tasks-overlay" class="ai-overlay hidden">
+                <div class="ai-header">
+                    <span>AI 任务生成器</span>
+                    <button style="background:none; border:none; color:white; cursor:pointer" onclick="toggleAIChat('tasks')">✕</button>
+                </div>
+                <div class="ai-messages" id="ai-tasks-msgs">
+                    <div class="ai-msg assistant">请描述你的项目目标，我可以帮你自动拆解并生成任务列表。</div>
+                </div>
+                <div class="ai-input-area">
+                    <textarea id="ai-tasks-input" rows="2" style="flex:1; resize:none" placeholder="例如：我要开发一个用户登录功能..."></textarea>
+                    <button class="btn btn-primary" onclick="sendAIMessage('tasks')">生成</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Orgs View -->
+    <div id="view-orgs" class="view-section">
+        <div class="card" style="display:flex; flex-direction:row; gap:20px">
+            <div style="width:300px; border-right:1px solid #eee; padding-right:20px">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                    <h3 style="margin:0">组织架构</h3>
+                    <button class="btn btn-success" style="padding:4px 8px; font-size:12px" onclick="openOrgModal(null)">+ 新建</button>
+                </div>
+                <div id="org-tree"></div>
+            </div>
+            <div style="flex:1; display:flex; flex-direction:column">
+                <div id="org-detail-empty" style="color:#888; margin:auto">请选择一个组织查看详情</div>
+                <div id="org-detail-content" class="hidden" style="height:100%; display:flex; flex-direction:column">
+                    <div style="border-bottom:1px solid #eee; padding-bottom:10px; margin-bottom:10px; display:flex; justify-content:space-between; align-items:center">
+                        <h2 id="org-detail-name" style="margin:0; border:none">组织名称</h2>
+                        <div>
+                             <span id="org-detail-manager" style="font-size:14px; color:#666; margin-right:10px">管理员: -</span>
+                             <button class="btn btn-warning" onclick="openOrgModal(currentOrgId)">+ 添加子组织</button>
+                             <button class="btn btn-primary" onclick="openOrgMemberModal()">+ 添加成员</button>
+                        </div>
+                    </div>
+                    <div style="flex:1; overflow:auto">
+                        <table style="width:100%; border-collapse:collapse">
+                            <thead>
+                                <tr style="background:#f9f9f9; text-align:left"><th style="padding:10px">用户名</th><th style="padding:10px">角色</th><th style="padding:10px">加入时间</th></tr>
+                            </thead>
+                            <tbody id="org-member-list"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- QA View -->
+    <div id="view-qa" class="view-section">
+        <div class="card" style="overflow-y:auto">
+            <h2>AI 问答历史</h2>
+            <div id="qa-list"></div>
+        </div>
+    </div>
+
+    <!-- Agent Center View -->
+    <div id="view-agent-center" class="view-section">
+        <div class="card" style="display:flex; flex-direction:row; gap:20px; height:100%">
+            <!-- Left: Profile & General Learning -->
+            <div style="width:350px; display:flex; flex-direction:column; gap:20px; border-right:1px solid #eee; padding-right:20px; overflow-y:auto">
+                <!-- Profile -->
+                <div>
+                    <h3 style="margin-top:0">👤 Agent 档案</h3>
+                    <div class="form-group">
+                        <label>主要目标</label>
+                        <textarea id="agent-target" rows="2" placeholder="例如：协助编写代码..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>学习资料路径</label>
+                        <input type="text" id="agent-materials-path" placeholder="/docs/reference" list="path-suggestions" oninput="fetchSuggestions(this)">
+                        <datalist id="path-suggestions"></datalist>
+                    </div>
+                     <div class="form-group">
+                        <label>可操作文件</label>
+                        <input type="text" id="agent-operable-files" placeholder="*.py, *.md" list="file-suggestions" oninput="fetchSuggestions(this)">
+                        <datalist id="file-suggestions"></datalist>
+                    </div>
+                    <button class="btn btn-primary" onclick="updateAgentProfile()">更新档案</button>
+                </div>
+                
+                <hr style="width:100%; border:0; border-top:1px solid #eee">
+                
+                <!-- General Learning -->
+                <div style="flex:1">
+                    <h3>📚 通识学习 (General Knowledge)</h3>
+                    <div class="form-group">
+                        <label>学习内容输入</label>
+                        <textarea id="agent-learn-content" rows="4" placeholder="输入通用知识或规则..."></textarea>
+                    </div>
+                    <button class="btn btn-success" onclick="submitAgentLearning()">🧠 存入长期记忆</button>
+                    
+                    <h4 style="margin-top:20px">最近学习记录</h4>
+                    <div id="agent-learning-history" style="font-size:12px; color:#666; max-height:200px; overflow-y:auto"></div>
+                </div>
+            </div>
+            
+            <!-- Right: Tasks & Context -->
+            <div style="flex:1; display:flex; flex-direction:column; overflow:hidden">
+                <div style="margin-bottom:20px">
+                    <h3 style="margin-top:0">📋 我的任务 (执行中)</h3>
+                    <select id="agent-active-task" onchange="loadAgentTaskContext()" style="padding:8px; width:100%; border:1px solid #ddd; border-radius:4px">
+                        <option value="">选择一个任务...</option>
+                    </select>
+                </div>
+                
+                <div id="agent-task-workspace" class="hidden" style="flex:1; display:flex; flex-direction:column; overflow:hidden">
+                    <div style="display:flex; gap:20px; flex:1; overflow:hidden">
+                        <!-- Context Builder -->
+                        <div style="flex:1; display:flex; flex-direction:column">
+                            <h4>🔍 任务上下文 (Context)</h4>
+                            <div style="flex:1; overflow-y:auto; border:1px solid #eee; padding:10px; border-radius:4px; margin-bottom:10px; background:#fcfcfc" id="agent-context-list">
+                                <!-- Context items -->
+                            </div>
+                            <div class="form-group">
+                                <textarea id="agent-new-context" rows="3" placeholder="添加特定资料、搜索结果或上下文描述..."></textarea>
+                            </div>
+                            <button class="btn btn-warning" onclick="addAgentContext()">➕ 添加上下文</button>
+                        </div>
+                        
+                        <!-- Execution -->
+                        <div style="flex:1; display:flex; flex-direction:column; border-left:1px solid #eee; padding-left:20px">
+                            <h4>⚙️ 执行任务</h4>
+                            <div style="background:#e8f6f3; padding:10px; border-radius:4px; margin-bottom:10px; border:1px solid #1abc9c">
+                                <strong>当前任务:</strong> <span id="agent-current-task-title">-</span>
+                            </div>
+                            <div id="agent-execution-log" style="flex:1; background:#2c3e50; color:#2ecc71; padding:10px; font-family:monospace; overflow-y:auto; border-radius:4px; margin-bottom:10px; font-size:13px">
+                                > 等待指令...
+                            </div>
+                            <div style="display:flex; gap:10px">
+                                <button class="btn btn-primary" style="flex:1" onclick="executeAgentTask()">🚀 执行任务 (AI)</button>
+                                <button class="btn btn-success" onclick="markTaskComplete()">✅ 标记完成</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="agent-no-task" style="flex:1; display:flex; justify-content:center; align-items:center; color:#ccc; font-size:1.2em">
+                    请在上方选择一个任务开始工作
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Database View -->
+    <div id="view-database" class="view-section">
+        <div class="card" style="height: 100%; display: flex; flex-direction: column;">
+            <div style="margin-bottom: 20px;">
+                <h2 style="margin-top:0">数据库查看器</h2>
+                <div style="display:flex; gap:10px; margin-bottom:10px">
+                    <select id="db-table-select" style="padding:8px; width:200px" onchange="loadTableData(this.value)">
+                        <option value="">选择表...</option>
+                    </select>
+                    <button class="btn btn-primary" onclick="refreshDB()">刷新</button>
+                </div>
+                <div style="display:flex; gap:10px;">
+                    <input type="text" id="db-sql-input" placeholder="输入 SQL 查询 (仅限 SELECT)" style="flex:1; padding:8px; border:1px solid #ddd; border-radius:4px">
+                    <button class="btn btn-success" onclick="executeSQL()">执行 SQL</button>
+                </div>
+            </div>
+            
+            <div id="db-results" style="flex:1; overflow:auto; border:1px solid #eee;">
+                <p style="padding:20px; color:#888">请选择左上角的表或输入 SQL 查询数据。</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings View -->
+    <div id="view-settings" class="view-section">
+        <div class="card">
+            <h2>系统设置</h2>
+            <div class="form-group">
+                <label>DeepSeek API Key</label>
+                <input type="password" id="setting-apikey" placeholder="sk-...">
+                <small style="color:#666">请输入您的 DeepSeek API Key 以启用 AI 功能</small>
+            </div>
+            
+            <div style="display:flex; gap:20px">
+                <div class="form-group" style="flex:1">
+                    <label>Base URL (API 地址)</label>
+                    <input type="text" id="setting-baseurl" placeholder="https://api.deepseek.com">
+                    <small style="color:#666">默认: https://api.deepseek.com</small>
+                </div>
+                <div class="form-group" style="flex:1">
+                    <label>Model Name (模型名称)</label>
+                    <input type="text" id="setting-model" placeholder="deepseek-chat">
+                    <small style="color:#666">DeepSeek-V3: deepseek-chat | R1: deepseek-reasoner</small>
+                </div>
+            </div>
+
+            <div style="margin-top:20px">
+                <button class="btn btn-primary" onclick="saveSettings()">保存设置</button>
+                <button class="btn btn-success" onclick="testAIConnection()" style="margin-left:10px">测试连接</button>
+                <button class="btn" onclick="restoreDefaults()" style="margin-left:10px; background:#95a5a6">恢复默认</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- History View -->
+    <div id="view-history" class="view-section">
+        <div class="card" style="overflow-y:auto">
+            <h2>系统变更历史</h2>
+            <div id="history-list"></div>
+        </div>
+    </div>
+
+</div>
+
+    <!-- Auth Overlay -->
+    <div id="auth-overlay" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#2c3e50; z-index:2000; display:flex; justify-content:center; align-items:center;">
+        <div class="card" style="width:300px; height:auto; padding:30px;">
+            <h2 id="auth-title" style="text-align:center; border:none">BIMCHNA 登录</h2>
+            <div class="form-group">
+                <label>用户名</label>
+                <input type="text" id="auth-username">
+            </div>
+            <div class="form-group">
+                <label>密码</label>
+                <input type="password" id="auth-password">
+            </div>
+            <button id="auth-btn" class="btn btn-primary" style="width:100%; margin-top:10px" onclick="doLogin()">登录</button>
+            <div style="margin-top:15px; text-align:center; font-size:14px">
+                <a href="#" id="auth-toggle" onclick="toggleAuthMode()">没有账号？点击注册</a>
+            </div>
+            <p id="auth-msg" style="color:red; text-align:center; margin-top:10px; min-height:20px"></p>
+        </div>
+    </div>
+
+    <!-- Task Modal -->
+<div id="task-modal" class="modal">
+    <div class="modal-content">
+        <h3 id="modal-title">新建任务</h3>
+        <input type="hidden" id="task-id">
+        <div class="form-group">
+            <label>标题</label>
+            <input type="text" id="task-title" required>
+        </div>
+        <div class="form-group">
+            <label>父任务</label>
+            <select id="task-parent">
+                <option value="">(无父任务)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>执行人</label>
+            <select id="task-assignee">
+                <option value="">(未分配)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>状态</label>
+            <select id="task-status">
+                <option value="pending">待办 (Pending)</option>
+                <option value="in_progress">进行中 (In Progress)</option>
+                <option value="completed">已完成 (Completed)</option>
+                <option value="blocked">阻塞 (Blocked)</option>
+            </select>
+        </div>
+            <div class="form-group">
+                <label>优先级</label>
+                <select id="task-priority">
+                    <option value="1">普通</option>
+                    <option value="2">高</option>
+                    <option value="3">紧急</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>归属组织</label>
+                <select id="task-org">
+                    <option value="">(个人任务)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>关联文档</label>
+            <select id="task-doc">
+                <option value="">(无)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>详情</label>
+            <textarea id="task-detail" rows="3"></textarea>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" style="background:#95a5a6" onclick="closeModal()">取消</button>
+            <button class="btn btn-primary" onclick="submitTask()">保存</button>
+        </div>
+    </div>
+</div>
+
+<!-- AI Task Modal -->
+<div id="ai-task-modal" class="modal">
+    <div class="modal-content">
+        <h3>AI 生成子任务</h3>
+        <input type="hidden" id="ai-task-parent-id">
+        <div class="form-group">
+            <label>补充需求 (可选)</label>
+            <textarea id="ai-task-prompt" rows="4" placeholder="例如：需要包含前端界面和后端接口..."></textarea>
+        </div>
+        <div class="modal-footer">
+            <button class="btn" style="background:#95a5a6" onclick="closeAiModal()">取消</button>
+            <button class="btn btn-warning" onclick="confirmGenerateSubTasks()">✨ 生成</button>
+        </div>
+    </div>
+</div>
+
+    <!-- Org Modal -->
+    <div id="org-modal" class="modal">
+        <div class="modal-content">
+            <h3>新建组织</h3>
+            <div class="form-group">
+                <label>组织名称</label>
+                <input type="text" id="org-name" required>
+            </div>
+            <div class="form-group">
+                <label>父组织</label>
+                <select id="org-parent">
+                    <option value="">(无父组织)</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>管理员</label>
+                <select id="org-manager">
+                    <option value="">(无)</option>
+                </select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" style="background:#95a5a6" onclick="closeOrgModal()">取消</button>
+                <button class="btn btn-primary" onclick="submitOrg()">保存</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Org Member Modal -->
+    <div id="org-member-modal" class="modal">
+        <div class="modal-content">
+            <h3>添加成员</h3>
+            <input type="hidden" id="member-org-id">
+            <div class="form-group">
+                <label>用户</label>
+                <select id="member-user-id"></select>
+            </div>
+            <div class="modal-footer">
+                <button class="btn" style="background:#95a5a6" onclick="document.getElementById('org-member-modal').style.display='none'">取消</button>
+                <button class="btn btn-primary" onclick="submitOrgMember()">添加</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+    // --- Global State ---
+    let editor = null;
+    let currentDocId = null;
+    let documents = [];
+    let tasks = [];
+    let orgs = [];
+    let allUsers = [];
+    let currentOrgId = null;
+    let collapsedTasks = {};
+    let aiHistory = { editor: [], tasks: [] };
+    let currentUser = null;
+    let isRegisterMode = false;
+
+    // --- Auth ---
+    function checkLogin() {
+        const userStr = localStorage.getItem('bimchna_user');
+        if (userStr) {
+            currentUser = JSON.parse(userStr);
+            document.getElementById('auth-overlay').style.display = 'none';
+            document.getElementById('user-info').innerText = `👤 ${currentUser.username} (${currentUser.role})`;
+            
+            // Show Agent Center if type is ai_agent
+            if (currentUser.type === 'ai_agent') {
+                document.getElementById('nav-agent-center').classList.remove('hidden');
+            } else {
+                document.getElementById('nav-agent-center').classList.add('hidden');
+            }
+
+            loadDocs(); // Load data after login
+        } else {
+            document.getElementById('auth-overlay').style.display = 'flex';
+        }
+    }
+
+    function toggleAuthMode() {
+        isRegisterMode = !isRegisterMode;
+        const title = document.getElementById('auth-title');
+        const btn = document.getElementById('auth-btn');
+        const toggle = document.getElementById('auth-toggle');
+        const msg = document.getElementById('auth-msg');
+        
+        msg.innerText = '';
+        if (isRegisterMode) {
+            title.innerText = "注册账号";
+            btn.innerText = "注册";
+            btn.onclick = doRegister;
+            toggle.innerText = "已有账号？点击登录";
+        } else {
+            title.innerText = "BIMCHNA 登录";
+            btn.innerText = "登录";
+            btn.onclick = doLogin;
+            toggle.innerText = "没有账号？点击注册";
+        }
+    }
+
+    async function doLogin() {
+        const username = document.getElementById('auth-username').value;
+        const password = document.getElementById('auth-password').value;
+        const msg = document.getElementById('auth-msg');
+        
+        if (!username || !password) {
+            msg.innerText = "请输入用户名和密码";
+            return;
+        }
+        
+        try {
+            const res = await fetch('/api/auth/login', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.json();
+            
+            if (data.status === 'success') {
+                localStorage.setItem('bimchna_user', JSON.stringify(data.user));
+                checkLogin();
+            } else {
+                msg.innerText = data.error || "登录失败";
+            }
+        } catch(e) {
+            msg.innerText = "Error: " + e;
+        }
+    }
+
+    async function doRegister() {
+        const username = document.getElementById('auth-username').value;
+        const password = document.getElementById('auth-password').value;
+        const msg = document.getElementById('auth-msg');
+        
+        if (!username || !password) {
+            msg.innerText = "请输入用户名和密码";
+            return;
+        }
+        
+        try {
+            const res = await fetch('/api/auth/register', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ username, password })
+            });
+            const data = await res.json();
+            
+            if (data.status === 'success') {
+                alert("注册成功，请登录");
+                toggleAuthMode();
+            } else {
+                msg.innerText = data.error || "注册失败";
+            }
+        } catch(e) {
+            msg.innerText = "Error: " + e;
+        }
+    }
+
+    function doLogout() {
+        localStorage.removeItem('bimchna_user');
+        currentUser = null;
+        location.reload();
+    }
+
+    // --- Init ---
+    require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.43.0/min/vs' }});
+    require(['vs/editor/editor.main'], function() {
+        editor = monaco.editor.create(document.getElementById('editor-container'), {
+            value: '// 请在左侧选择文件编辑...',
+            language: 'markdown',
+            theme: 'vs-light',
+            automaticLayout: true
+        });
+        
+        // Ctrl+S binding
+        editor.addCommand(monaco.KeyMod.CtrlCmd | monaco.KeyCode.KeyS, function() {
+            saveCurrentDoc();
+        });
+    });
+
+    // --- Navigation ---
+    function switchView(viewName) {
+        document.querySelectorAll('.view-section').forEach(el => el.classList.remove('active'));
+        document.getElementById('view-' + viewName).classList.add('active');
+        
+        document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        event.target.classList.add('active');
+        
+        // const sidebarDocs = document.getElementById('sidebar-docs');
+        // sidebarDocs.style.display = (viewName === 'docs') ? 'block' : 'none';
+        
+        if(viewName === 'tasks') { loadTasks(); loadOrgs(); }
+        if(viewName === 'orgs') { loadOrgs(); loadUsers(); }
+        if(viewName === 'qa') loadQA();
+        if(viewName === 'history') loadHistory();
+        if(viewName === 'settings') loadSettings();
+        if(viewName === 'database') loadTables();
+        if(viewName === 'agent-center') loadAgentCenter();
+    }
+
+    // --- Database Viewer ---
+    async function loadTables() {
+        const res = await fetch('/api/db/tables');
+        const tables = await res.json();
+        const select = document.getElementById('db-table-select');
+        select.innerHTML = '<option value="">选择表...</option>' + 
+            tables.map(t => `<option value="${t}">${t}</option>`).join('');
+    }
+
+    async function loadTableData(tableName) {
+        if(!tableName) return;
+        document.getElementById('db-sql-input').value = `SELECT * FROM ${tableName} LIMIT 100`;
+        executeSQL();
+    }
+    
+    function refreshDB() {
+        loadTables();
+        const currentTable = document.getElementById('db-table-select').value;
+        if(currentTable) loadTableData(currentTable);
+    }
+
+    async function executeSQL() {
+        const sql = document.getElementById('db-sql-input').value;
+        if(!sql) return;
+        
+        const container = document.getElementById('db-results');
+        container.innerHTML = '<p style="padding:20px">查询中...</p>';
+        
+        try {
+            const res = await fetch('/api/db/query', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ sql })
+            });
+            const data = await res.json();
+            
+            if(data.error) {
+                container.innerHTML = `<p style="padding:20px; color:red">Error: ${data.error}</p>`;
+                return;
+            }
+            
+            if(!data.rows || data.rows.length === 0) {
+                 // Try to load schema if no data
+                 // Parse table name from SQL if it's a simple SELECT * FROM ...
+                 const match = sql.match(/FROM\s+(\w+)/i);
+                 if (match && match[1]) {
+                     loadTableSchema(match[1], container);
+                 } else {
+                     container.innerHTML = '<p style="padding:20px">查询无结果。</p>';
+                 }
+                 return;
+            }
+            
+            renderTable(data.headers, data.rows, container);
+            
+        } catch(e) {
+            container.innerHTML = `<p style="padding:20px; color:red">Error: ${e}</p>`;
+        }
+    }
+
+    async function loadTableSchema(tableName, container) {
+        container.innerHTML = '<p style="padding:20px">表为空。正在加载表结构...</p>';
+        try {
+            const res = await fetch('/api/db/schema/' + tableName);
+            const data = await res.json();
+            
+            if (data.error || !data.rows.length) {
+                container.innerHTML = '<p style="padding:20px">表为空且无法获取结构。</p>';
+                return;
+            }
+            
+            let html = '<div style="padding:20px"><strong>表为空。表结构如下：</strong><br><br>';
+            html += '<table style="width:100%; border-collapse:collapse; min-width:600px">';
+            html += '<thead><tr style="background:#f1f1f1; text-align:left">';
+            ['字段名', '类型', '非空', '默认值', '主键'].forEach(h => {
+                html += `<th style="padding:10px; border:1px solid #ddd">${h}</th>`;
+            });
+            html += '</tr></thead><tbody>';
+            
+            data.rows.forEach(row => {
+                html += '<tr>';
+                html += `<td style="padding:8px; border:1px solid #ddd">${row.name}</td>`;
+                html += `<td style="padding:8px; border:1px solid #ddd">${row.type}</td>`;
+                html += `<td style="padding:8px; border:1px solid #ddd">${row.notnull ? '是' : '否'}</td>`;
+                html += `<td style="padding:8px; border:1px solid #ddd">${row.dflt_value || '-'}</td>`;
+                html += `<td style="padding:8px; border:1px solid #ddd">${row.pk ? '是' : '否'}</td>`;
+                html += '</tr>';
+            });
+            html += '</tbody></table></div>';
+            container.innerHTML = html;
+            
+        } catch(e) {
+            container.innerHTML = `<p style="padding:20px; color:red">Error loading schema: ${e}</p>`;
+        }
+    }
+
+    function renderTable(headers, rows, container) {
+        let html = '<table style="width:100%; border-collapse:collapse; min-width:800px">';
+        
+        // Header
+        html += '<thead><tr style="background:#f1f1f1; text-align:left">';
+        headers.forEach(h => {
+            html += `<th style="padding:10px; border:1px solid #ddd; position:sticky; top:0; background:#f1f1f1">${h}</th>`;
+        });
+        html += '</tr></thead>';
+        
+        // Body
+        html += '<tbody>';
+        rows.forEach(row => {
+            html += '<tr>';
+            headers.forEach(h => {
+                html += `<td style="padding:8px; border:1px solid #ddd; max-width:300px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap" title="${row[h]}">${row[h]}</td>`;
+            });
+            html += '</tr>';
+        });
+        html += '</tbody></table>';
+        container.innerHTML = html;
+    }
+
+    // --- Docs & Editor ---
+    async function loadDocs() {
+        const res = await fetch('/api/documents');
+        documents = await res.json();
+        renderDocTree();
+    }
+
+    function renderDocTree() {
+        const tree = document.getElementById('doc-tree');
+        const map = {};
+        documents.forEach(doc => map[doc.id] = { ...doc, children: [] });
+        const roots = [];
+        documents.forEach(doc => {
+            if (doc.parent_id === 'null' || !map[doc.parent_id]) roots.push(map[doc.id]);
+            else map[doc.parent_id].children.push(map[doc.id]);
+        });
+        tree.innerHTML = buildDocTreeHtml(roots);
+    }
+
+    function buildDocTreeHtml(nodes) {
+        if (!nodes.length) return '';
+        return nodes.map(node => `
+            <div style="margin-left: 10px">
+                <div class="tree-node" onclick="openDoc('${node.id}', '${node.title}')">📄 ${node.title}</div>
+                ${buildDocTreeHtml(node.children)}
+            </div>
+        `).join('');
+    }
+
+    async function openDoc(id, title) {
+        currentDocId = id;
+        document.getElementById('current-doc-title').innerText = title;
+        
+        // Highlight active
+        document.querySelectorAll('.tree-node').forEach(n => n.classList.remove('selected'));
+        event.target.classList.add('selected');
+
+        const res = await fetch('/api/doc_content/' + id);
+        const data = await res.json();
+        
+        if (editor) {
+            editor.setValue(data.content || data.error);
+            // Simple language detection
+            const ext = data.full_path ? data.full_path.split('.').pop() : 'md';
+            const langMap = {'js':'javascript', 'py':'python', 'html':'html', 'md':'markdown', 'rs':'rust'};
+            monaco.editor.setModelLanguage(editor.getModel(), langMap[ext] || 'markdown');
+        }
+    }
+
+    async function saveCurrentDoc() {
+        if (!currentDocId || !editor) return;
+        const content = editor.getValue();
+        const statusEl = document.getElementById('save-status');
+        
+        statusEl.innerText = "Saving...";
+        
+        try {
+            const res = await fetch('/api/file', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ doc_id: currentDocId, content: content })
+            });
+            const data = await res.json();
+            if(data.status === 'success') {
+                statusEl.innerText = "Saved at " + new Date().toLocaleTimeString();
+                setTimeout(() => statusEl.innerText = "", 3000);
+            } else {
+                statusEl.innerText = "Error: " + data.error;
+            }
+        } catch(e) {
+            statusEl.innerText = "Error: " + e;
+        }
+    }
+
+    // --- Tasks Management ---
+    async function loadTasks() {
+        const res = await fetch('/api/tasks');
+        tasks = await res.json();
+        renderTaskTree();
+        updateTaskParentOptions(); // Refresh select options
+    }
+
+    function renderTaskTree() {
+        const container = document.getElementById('task-list');
+        const map = {};
+        tasks.forEach(t => map[t.id] = { ...t, children: [] });
+        const roots = [];
+        tasks.forEach(t => {
+            if (!t.parent_id || !map[t.parent_id]) roots.push(map[t.id]);
+            else map[t.parent_id].children.push(map[t.id]);
+        });
+        
+        container.innerHTML = buildTaskTreeHtml(roots);
+    }
+
+    function toggleTaskCollapse(id) {
+        if (collapsedTasks[id]) {
+            delete collapsedTasks[id];
+        } else {
+            collapsedTasks[id] = true;
+        }
+        renderTaskTree();
+    }
+
+    function buildTaskTreeHtml(nodes, level=0) {
+        if (!nodes.length) return '';
+        return nodes.map(node => {
+            const indent = level * 20;
+            const hasChildren = node.children && node.children.length > 0;
+            const isCollapsed = collapsedTasks[node.id];
+            
+            // Icon logic
+            const icon = hasChildren ? (isCollapsed ? '▶' : '▼') : '•';
+            const cursorStyle = hasChildren ? 'cursor:pointer' : 'opacity:0.3';
+            const iconClick = hasChildren ? `onclick="toggleTaskCollapse(${node.id})"` : '';
+
+            const statusClass = 'status-' + node.status;
+            const statusLabel = {pending:'待办', in_progress:'进行中', completed:'已完成', blocked:'阻塞'}[node.status] || node.status;
+            
+            let docLabel = '';
+            if (node.doc_id) {
+                const doc = documents.find(d => d.id === node.doc_id);
+                if (doc) {
+                    docLabel = `<span style="font-size:12px; color:#2980b9; margin-left:10px; cursor:pointer" onclick="openDoc('${doc.id}', '${doc.title}'); switchView('docs')">📄 ${doc.title}</span>`;
+                }
+            }
+            
+            const childrenHtml = (!isCollapsed && hasChildren) ? buildTaskTreeHtml(node.children, level + 1) : '';
+
+            return `
+            <div class="task-item" style="padding-left: ${indent}px">
+                <span style="display:inline-block; width:20px; text-align:center; margin-right:5px; user-select:none; ${cursorStyle}" ${iconClick}>${icon}</span>
+                <span class="task-status ${statusClass}">${statusLabel}</span>
+                <span class="task-title" onclick="editTask(${node.id})">${node.title}</span>
+                ${docLabel}
+                <span class="task-assignee">👤 ${node.assignee || 'Unassigned'}</span>
+                <div class="task-actions">
+                    <button class="btn btn-success" style="padding:2px 6px; font-size:10px" onclick="openTaskModal(null, ${node.id})">+ Sub</button>
+                    <button class="btn btn-warning" style="padding:2px 6px; font-size:10px" onclick="generateSubTasks(${node.id})">✨ AI Sub</button>
+                    <button class="btn btn-primary" style="padding:2px 6px; font-size:10px" onclick="editTask(${node.id})">Edit</button>
+                    <button class="btn btn-danger" style="padding:2px 6px; font-size:10px" onclick="deleteTask(${node.id})">Del</button>
+                </div>
+            </div>
+            ${childrenHtml}
+            `;
+        }).join('');
+    }
+
+    // Modal & CRUD
+    async function openTaskModal(taskId = null, parentId = null) {
+        const modal = document.getElementById('task-modal');
+        const titleEl = document.getElementById('modal-title');
+        
+        // Populate Doc Options
+        const docSelect = document.getElementById('task-doc');
+        docSelect.innerHTML = '<option value="">(无)</option>' + 
+            documents.map(d => `<option value="${d.id}">📄 ${d.title}</option>`).join('');
+
+        // Reset defaults
+        document.getElementById('task-id').value = "";
+        document.getElementById('task-title').value = "";
+        document.getElementById('task-parent').value = parentId || ""; 
+        document.getElementById('task-status').value = "pending";
+        document.getElementById('task-priority').value = "1";
+        document.getElementById('task-doc').value = "";
+        document.getElementById('task-detail').value = "";
+        
+        // Pre-fill Assignee (Default to current user if new task)
+        // Note: Assignee dropdown will be populated dynamically based on Org selection
+        
+        // Populate Orgs
+        const orgSelect = document.getElementById('task-org');
+        orgSelect.innerHTML = '<option value="">(个人任务)</option>' + 
+            orgs.map(o => `<option value="${o.id}">🏢 ${o.name}</option>`).join('');
+            
+        let targetOrgId = "";
+        let targetAssignee = currentUser ? currentUser.username : "";
+
+        if (taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            titleEl.innerText = "编辑任务 #" + taskId;
+            document.getElementById('task-id').value = taskId;
+            document.getElementById('task-title').value = task.title;
+            document.getElementById('task-parent').value = task.parent_id || "";
+            document.getElementById('task-status').value = task.status;
+            document.getElementById('task-priority').value = task.priority;
+            document.getElementById('task-doc').value = task.doc_id || "";
+            document.getElementById('task-detail').value = task.detail || "";
+            targetOrgId = task.org_id || "";
+            targetAssignee = task.assignee || "";
+        } else {
+            titleEl.innerText = parentId ? "新建子任务 (父任务 #" + parentId + ")" : "新建任务";
+            // If subtask, inherit org from parent
+            if (parentId) {
+                const parent = tasks.find(t => t.id == parentId);
+                if (parent) targetOrgId = parent.org_id || "";
+            }
+        }
+        
+        orgSelect.value = targetOrgId;
+        
+        // Bind change event to update assignees
+        orgSelect.onchange = () => updateAssigneeOptions(orgSelect.value, targetAssignee);
+        
+        // Initial populate
+        await updateAssigneeOptions(targetOrgId, targetAssignee);
+        
+        modal.style.display = 'flex';
+    }
+
+    async function updateAssigneeOptions(orgId, selectedAssignee = "") {
+        const assigneeSelect = document.getElementById('task-assignee');
+        const currentOrgValue = document.getElementById('task-org').value;
+        
+        // Race condition check: if orgId passed is not the currently selected one, abort
+        // Note: orgId might be number or string, normalize to comparison
+        if (orgId != currentOrgValue && !(orgId === "" && currentOrgValue === "")) {
+             return; 
+        }
+
+        assigneeSelect.innerHTML = '<option value="">Loading...</option>';
+        
+        let users = [];
+        if (orgId) {
+            // Fetch org members
+            try {
+                const res = await fetch(`/api/orgs/${orgId}/members`);
+                const members = await res.json();
+                
+                // Double check race condition after await
+                if (document.getElementById('task-org').value != orgId) return;
+                
+                users = members.map(m => ({ username: m.username }));
+            } catch(e) {
+                console.error("Error loading org members", e);
+                users = [];
+            }
+        } else {
+            // Personal task: allow picking from all users
+            users = allUsers; 
+        }
+        
+        assigneeSelect.innerHTML = '<option value="">(未分配)</option>' + 
+            users.map(u => `<option value="${u.username}">${u.username}</option>`).join('');
+            
+        if (selectedAssignee) {
+            const exists = Array.from(assigneeSelect.options).some(o => o.value === selectedAssignee);
+            if (!exists) {
+                 const opt = document.createElement('option');
+                 opt.value = selectedAssignee;
+                 opt.innerText = `${selectedAssignee} (非此组成员)`;
+                 assigneeSelect.appendChild(opt);
+            }
+            assigneeSelect.value = selectedAssignee;
+        }
+    }
+
+    function closeModal() {
+        document.getElementById('task-modal').style.display = 'none';
+    }
+    
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+        const modal = document.getElementById('task-modal');
+        const aiModal = document.getElementById('ai-task-modal');
+        if (event.target == modal) modal.style.display = "none";
+        if (event.target == aiModal) aiModal.style.display = "none";
+    }
+
+    function editTask(id) {
+        openTaskModal(id);
+    }
+
+    function updateTaskParentOptions() {
+        const select = document.getElementById('task-parent');
+        // Keep first option (None)
+        select.innerHTML = '<option value="">(无父任务)</option>';
+        tasks.forEach(t => {
+            const opt = document.createElement('option');
+            opt.value = t.id;
+            opt.innerText = `#${t.id} ${t.title}`;
+            select.appendChild(opt);
+        });
+    }
+
+    function generateSubTasks(parentId) {
+        // Show AI modal instead of direct generation
+        const modal = document.getElementById('ai-task-modal');
+        document.getElementById('ai-task-parent-id').value = parentId;
+        document.getElementById('ai-task-prompt').value = "";
+        modal.style.display = 'flex';
+    }
+
+    function closeAiModal() {
+        document.getElementById('ai-task-modal').style.display = 'none';
+    }
+
+    function confirmGenerateSubTasks() {
+        const parentId = document.getElementById('ai-task-parent-id').value;
+        const userPrompt = document.getElementById('ai-task-prompt').value;
+        closeAiModal();
+
+        toggleAIChat('tasks');
+        
+        const task = tasks.find(t => t.id == parentId);
+        if(!task) return;
+        
+        let prompt = `请针对任务 #${task.id} "${task.title}" 生成子任务列表。`;
+        if (task.detail) {
+            prompt += `\n任务详情：${task.detail}`;
+        }
+        if (userPrompt) {
+            prompt += `\n用户补充需求：${userPrompt}`;
+        }
+        prompt += `\n请直接返回 JSON 格式的任务数组，包含 parent_id=${parentId}。`;
+        
+        document.getElementById('ai-tasks-input').value = prompt;
+        sendAIMessage('tasks');
+    }
+
+    async function submitTask() {
+        const id = document.getElementById('task-id').value;
+        const data = {
+            title: document.getElementById('task-title').value,
+            parent_id: document.getElementById('task-parent').value || null,
+            assignee: document.getElementById('task-assignee').value,
+            status: document.getElementById('task-status').value,
+            priority: document.getElementById('task-priority').value,
+            doc_id: document.getElementById('task-doc').value || null,
+            org_id: document.getElementById('task-org').value || null,
+            detail: document.getElementById('task-detail').value
+        };
+        
+        let url = '/api/tasks';
+        let method = 'POST';
+        
+        if (id) {
+            url += '/' + id;
+            method = 'PUT';
+        }
+        
+        const res = await fetch(url, {
+            method: method,
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        });
+        
+        if (res.ok) {
+            closeModal();
+            loadTasks();
+        } else {
+            alert('Error saving task');
+        }
+    }
+
+    async function deleteTask(id) {
+        if(!confirm('确定要删除任务 #' + id + ' 及其子任务吗?')) return;
+        
+        const res = await fetch('/api/tasks/' + id, { method: 'DELETE' });
+        if (res.ok) {
+            loadTasks();
+        }
+    }
+
+    // --- Organization Management ---
+    async function loadOrgs() {
+        const res = await fetch('/api/orgs');
+        orgs = await res.json();
+        renderOrgTree();
+        renderOrgOptions();
+    }
+    
+    async function loadUsers() {
+        const res = await fetch('/api/users');
+        allUsers = await res.json();
+    }
+
+    function renderOrgTree() {
+        const container = document.getElementById('org-tree');
+        if(!container) return; // if not in view
+        
+        const map = {};
+        orgs.forEach(o => map[o.id] = { ...o, children: [] });
+        const roots = [];
+        orgs.forEach(o => {
+            if (!o.parent_id || !map[o.parent_id]) roots.push(map[o.id]);
+            else map[o.parent_id].children.push(map[o.id]);
+        });
+        
+        container.innerHTML = buildOrgTreeHtml(roots);
+    }
+
+    function buildOrgTreeHtml(nodes, level=0) {
+        if (!nodes.length) return '';
+        return nodes.map(node => `
+            <div style="margin-left: 10px">
+                <div class="tree-node" onclick="viewOrg(${node.id})">🏢 ${node.name}</div>
+                ${buildOrgTreeHtml(node.children, level + 1)}
+            </div>
+        `).join('');
+    }
+    
+    function renderOrgOptions() {
+        const select = document.getElementById('org-parent');
+        if(select) {
+            select.innerHTML = '<option value="">(无父组织)</option>' + 
+                orgs.map(o => `<option value="${o.id}">🏢 ${o.name}</option>`).join('');
+        }
+    }
+
+    async function viewOrg(id) {
+        currentOrgId = id;
+        document.getElementById('org-detail-empty').classList.add('hidden');
+        document.getElementById('org-detail-content').classList.remove('hidden');
+        
+        // Find org details
+        const org = orgs.find(o => o.id === id);
+        document.getElementById('org-detail-name').innerText = org.name;
+        document.getElementById('org-detail-manager').innerText = "管理员: " + (org.manager_name || "未设置");
+        
+        // Load members
+        const res = await fetch(`/api/orgs/${id}/members`);
+        const members = await res.json();
+        
+        const tbody = document.getElementById('org-member-list');
+        tbody.innerHTML = members.map(m => `
+            <tr>
+                <td style="padding:10px; border-bottom:1px solid #eee">${m.username}</td>
+                <td style="padding:10px; border-bottom:1px solid #eee">${m.role}</td>
+                <td style="padding:10px; border-bottom:1px solid #eee">${m.joined_at || '-'}</td>
+            </tr>
+        `).join('');
+    }
+
+    function openOrgModal(parentId = null) {
+        document.getElementById('org-modal').style.display = 'flex';
+        // Populate manager options with all users (simplified)
+        // Ideally should fetch users first
+        const select = document.getElementById('org-manager');
+        select.innerHTML = '<option value="">(无)</option>' + 
+            allUsers.map(u => `<option value="${u.id}">${u.username}</option>`).join('');
+            
+        // Reset form
+        document.getElementById('org-name').value = '';
+        document.getElementById('org-parent').value = parentId || '';
+        document.getElementById('org-manager').value = '';
+        
+        // Update modal title
+        const title = document.querySelector('#org-modal h3');
+        if (parentId) {
+             const parentOrg = orgs.find(o => o.id === parentId);
+             title.innerText = parentOrg ? `新建子组织 (父组织: ${parentOrg.name})` : '新建组织';
+        } else {
+             title.innerText = '新建组织';
+        }
+    }
+
+    function closeOrgModal() {
+        document.getElementById('org-modal').style.display = 'none';
+    }
+
+    async function submitOrg() {
+        const name = document.getElementById('org-name').value;
+        const parentId = document.getElementById('org-parent').value;
+        const managerId = document.getElementById('org-manager').value;
+        
+        if (!name) return alert('请输入组织名称');
+        
+        const res = await fetch('/api/orgs', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ name, parent_id: parentId || null, manager_id: managerId || null })
+        });
+        
+        if (res.ok) {
+            closeOrgModal();
+            loadOrgs();
+        } else {
+            alert('创建失败');
+        }
+    }
+
+    function openOrgMemberModal() {
+        if (!currentOrgId) return;
+        document.getElementById('org-member-modal').style.display = 'flex';
+        document.getElementById('member-org-id').value = currentOrgId;
+        
+        const select = document.getElementById('member-user-id');
+        select.innerHTML = allUsers.map(u => `<option value="${u.id}">${u.username}</option>`).join('');
+    }
+
+    async function submitOrgMember() {
+        const orgId = document.getElementById('member-org-id').value;
+        const userId = document.getElementById('member-user-id').value;
+        
+        const res = await fetch(`/api/orgs/${orgId}/members`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ user_id: userId })
+        });
+        
+        if (res.ok) {
+            document.getElementById('org-member-modal').style.display = 'none';
+            viewOrg(Number(orgId));
+        } else {
+            const data = await res.json();
+            alert(data.error || '添加失败');
+        }
+    }
+
+    // --- Settings ---
+    async function loadSettings() {
+        const res = await fetch('/api/settings');
+        const data = await res.json();
+        if (data.deepseek_api_key) {
+            document.getElementById('setting-apikey').value = data.deepseek_api_key;
+        }
+        document.getElementById('setting-baseurl').value = data.ai_base_url || 'https://api.deepseek.com';
+        document.getElementById('setting-model').value = data.ai_model || 'deepseek-chat';
+    }
+
+    async function saveSettings() {
+        const key = document.getElementById('setting-apikey').value;
+        const base = document.getElementById('setting-baseurl').value;
+        const model = document.getElementById('setting-model').value;
+        
+        const res = await fetch('/api/settings', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ 
+                deepseek_api_key: key,
+                ai_base_url: base,
+                ai_model: model
+            })
+        });
+        if (res.ok) alert('设置已保存');
+    }
+    
+    function restoreDefaults() {
+        document.getElementById('setting-baseurl').value = 'https://api.deepseek.com';
+        document.getElementById('setting-model').value = 'deepseek-chat';
+    }
+
+    async function testAIConnection() {
+        const btn = event.target;
+        const originalText = btn.innerText;
+        btn.innerText = "测试中...";
+        
+        try {
+            const res = await fetch('/api/ai/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ messages: [{ role: 'user', content: 'Say hello' }] })
+            });
+            const data = await res.json();
+            if (res.ok) {
+                alert('连接成功! AI 回复: ' + data.choices[0].message.content);
+            } else {
+                alert('连接失败: ' + data.error);
+            }
+        } catch(e) {
+            alert('错误: ' + e);
+        } finally {
+            btn.innerText = originalText;
+        }
+    }
+
+    // --- AI Assistant ---
+    function toggleAIChat(type) {
+        const el = document.getElementById(`ai-${type}-overlay`);
+        el.classList.toggle('hidden');
+    }
+
+    async function sendAIMessage(type) {
+        const inputEl = document.getElementById(`ai-${type}-input`);
+        const msgContainer = document.getElementById(`ai-${type}-msgs`);
+        const content = inputEl.value;
+        if (!content) return;
+
+        // Append User Msg
+        msgContainer.innerHTML += `<div class="ai-msg user">${content}</div>`;
+        inputEl.value = '';
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+
+        // Prepare placeholder for AI Msg
+        const msgId = 'ai-msg-' + Date.now();
+        msgContainer.innerHTML += `<div class="ai-msg assistant" id="${msgId}">Thinking...</div>`;
+        const aiMsgEl = document.getElementById(msgId);
+        msgContainer.scrollTop = msgContainer.scrollHeight;
+
+        // Prepare context
+        const messages = [...(aiHistory[type] || [])];
+        
+        if (type === 'editor') {
+             const currentCode = editor ? editor.getValue() : '';
+             messages.push({ role: 'system', content: `Current file content:\n${currentCode}\n\nUser request:` });
+        }
+        
+        if (type === 'tasks') {
+             messages.push({ role: 'system', content: "你是一个项目经理。请帮用户分析需求并生成任务列表。如果用户要求生成任务，请返回 JSON 格式的任务数组，格式为：[{title, detail, priority(1-3)}]。不要包含 Markdown 代码块标记。" });
+        }
+
+        messages.push({ role: 'user', content });
+
+        try {
+            const response = await fetch('/api/ai/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ messages })
+            });
+
+            if (!response.ok) {
+                const data = await response.json();
+                aiMsgEl.style.color = 'red';
+                aiMsgEl.innerText = 'Error: ' + data.error;
+                return;
+            }
+
+            // Stream handling
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let accumulatedText = "";
+            aiMsgEl.innerText = ""; // Clear "Thinking..."
+
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                
+                const chunk = decoder.decode(value);
+                const lines = chunk.split('\n');
+                
+                for (const line of lines) {
+                    if (line.startsWith('data: ')) {
+                        const jsonStr = line.slice(6);
+                        if (jsonStr === '[DONE]') continue;
+                        try {
+                            const json = JSON.parse(jsonStr);
+                            if (json.choices && json.choices[0].delta && json.choices[0].delta.content) {
+                                const delta = json.choices[0].delta.content;
+                                accumulatedText += delta;
+                                aiMsgEl.innerText = accumulatedText;
+                                msgContainer.scrollTop = msgContainer.scrollHeight;
+                            }
+                            // Handle error chunk
+                            if (json.error) {
+                                accumulatedText += "\n[Error: " + json.error + "]";
+                                aiMsgEl.style.color = 'red';
+                                aiMsgEl.innerText = accumulatedText;
+                            }
+                        } catch (e) {
+                            console.error('Error parsing JSON chunk', e);
+                        }
+                    }
+                }
+            }
+            
+            // Post-processing
+            aiHistory[type].push({ role: 'user', content });
+            aiHistory[type].push({ role: 'assistant', content: accumulatedText });
+            
+            // Handle Task Generation logic (parse JSON from accumulated text)
+            if (type === 'tasks' && (accumulatedText.trim().startsWith('[') || accumulatedText.includes('[{'))) {
+                 try {
+                     const jsonStr = accumulatedText.substring(accumulatedText.indexOf('['), accumulatedText.lastIndexOf(']')+1);
+                     const newTasks = JSON.parse(jsonStr);
+                     if (confirm(`AI 生成了 ${newTasks.length} 个任务，是否添加到看板？`)) {
+                         for (const t of newTasks) {
+                             await fetch('/api/tasks', {
+                                 method: 'POST',
+                                 headers: {'Content-Type': 'application/json'},
+                                 body: JSON.stringify(t)
+                             });
+                         }
+                         loadTasks();
+                         toggleAIChat('tasks');
+                     }
+                 } catch(e) {
+                     console.error("Failed to parse AI tasks JSON", e);
+                 }
+            }
+
+        } catch(e) {
+            aiMsgEl.style.color = 'red';
+            aiMsgEl.innerText = "Error: " + e;
+        }
+    }
+
+    // --- Agent Center Logic ---
+    async function loadAgentCenter() {
+        if (!currentUser || currentUser.type !== 'ai_agent') {
+            alert("此功能仅限 AI Agent 使用");
+            return;
+        }
+        
+        loadAgentProfile();
+        loadAgentLearningHistory();
+        loadAgentTasks();
+    }
+
+    async function loadAgentProfile() {
+        try {
+            const res = await fetch(`/api/agents/${currentUser.id}/info`);
+            const data = await res.json();
+            if (data.error) return; // Might be first time, empty
+            
+            document.getElementById('agent-target').value = data.target || '';
+            document.getElementById('agent-materials-path').value = data.learning_materials_path || '';
+            document.getElementById('agent-operable-files').value = data.operable_files || '';
+        } catch(e) { console.error(e); }
+    }
+
+    async function updateAgentProfile() {
+        const data = {
+            target: document.getElementById('agent-target').value,
+            learning_materials_path: document.getElementById('agent-materials-path').value,
+            operable_files: document.getElementById('agent-operable-files').value
+        };
+        
+        const res = await fetch(`/api/agents/${currentUser.id}/update`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify(data)
+        });
+        
+        if (res.ok) alert('档案更新成功');
+        else alert('更新失败');
+    }
+
+    async function submitAgentLearning() {
+        const content = document.getElementById('agent-learn-content').value;
+        if (!content) return;
+        
+        const res = await fetch(`/api/agents/${currentUser.id}/learn`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ content, source: 'manual_input' })
+        });
+        
+        if (res.ok) {
+            document.getElementById('agent-learn-content').value = '';
+            loadAgentLearningHistory();
+            alert('知识已存入');
+        }
+    }
+
+    async function loadAgentLearningHistory() {
+        const res = await fetch(`/api/agents/${currentUser.id}/learning_history`);
+        const data = await res.json();
+        
+        const container = document.getElementById('agent-learning-history');
+        if (data.length === 0) {
+            container.innerHTML = '<div style="padding:10px">暂无记录</div>';
+            return;
+        }
+        
+        container.innerHTML = data.map(item => `
+            <div style="padding:8px; border-bottom:1px solid #eee">
+                <div style="font-weight:bold">${item.timestamp}</div>
+                <div style="white-space:pre-wrap">${item.content}</div>
+            </div>
+        `).join('');
+    }
+
+    async function loadAgentTasks() {
+        // Reuse loadTasks but filter
+        const res = await fetch('/api/tasks');
+        const allTasks = await res.json();
+        
+        // Filter tasks assigned to current user
+        const myTasks = allTasks.filter(t => t.assignee === currentUser.username && t.status !== 'completed');
+        
+        const select = document.getElementById('agent-active-task');
+        const currentVal = select.value;
+        
+        select.innerHTML = '<option value="">选择一个任务...</option>' + 
+            myTasks.map(t => `<option value="${t.id}">#${t.id} ${t.title}</option>`).join('');
+            
+        if (currentVal) select.value = currentVal;
+    }
+
+    async function loadAgentTaskContext() {
+        const taskId = document.getElementById('agent-active-task').value;
+        const workspace = document.getElementById('agent-task-workspace');
+        const noTask = document.getElementById('agent-no-task');
+        
+        if (!taskId) {
+            workspace.classList.add('hidden');
+            noTask.classList.remove('hidden');
+            return;
+        }
+        
+        workspace.classList.remove('hidden');
+        noTask.classList.add('hidden');
+        
+        // Find task details
+        const res = await fetch('/api/tasks'); // Optimization: cache this ideally
+        const allTasks = await res.json();
+        const task = allTasks.find(t => t.id == taskId);
+        
+        document.getElementById('agent-current-task-title').innerText = task ? `${task.title} (${task.status})` : 'Unknown';
+        
+        loadAgentContextHistory();
+    }
+    
+    async function loadAgentContextHistory() {
+        const res = await fetch(`/api/agents/${currentUser.id}/context_history`);
+        const data = await res.json();
+        
+        const container = document.getElementById('agent-context-list');
+        container.innerHTML = data.map(item => `
+            <div style="padding:8px; border-bottom:1px solid #eee; font-size:12px">
+                <div style="color:#888">${item.timestamp}</div>
+                <div style="font-weight:bold; color:#2980b9">${item.task_description}</div>
+                <div>${item.context_data}</div>
+            </div>
+        `).join('');
+    }
+
+    async function addAgentContext() {
+        const taskId = document.getElementById('agent-active-task').value;
+        const context = document.getElementById('agent-new-context').value;
+        if (!taskId || !context) return;
+        
+        const taskTitle = document.getElementById('agent-active-task').selectedOptions[0].text;
+        
+        const res = await fetch(`/api/agents/${currentUser.id}/context`, {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                description: `Task ${taskTitle}`,
+                context: context
+            })
+        });
+        
+        if (res.ok) {
+            document.getElementById('agent-new-context').value = '';
+            loadAgentContextHistory();
+        }
+    }
+    
+    async function executeAgentTask() {
+        const taskId = document.getElementById('agent-active-task').value;
+        const log = document.getElementById('agent-execution-log');
+        
+        if (!taskId) return;
+        
+        log.innerHTML += `\n> 初始化执行任务 #${taskId}...\n`;
+        log.scrollTop = log.scrollHeight;
+        
+        // Simulate execution via AI
+        log.innerHTML += `> 加载 Agent 档案...\n`;
+        const profileRes = await fetch(`/api/agents/${currentUser.id}/info`);
+        const profile = await profileRes.json();
+        
+        log.innerHTML += `> 加载上下文...\n`;
+        const contextRes = await fetch(`/api/agents/${currentUser.id}/context_history`);
+        const contexts = await contextRes.json();
+        
+        // Construct prompt
+        const taskTitle = document.getElementById('agent-active-task').selectedOptions[0].text;
+        
+        const messages = [
+            { role: 'system', content: `你是一个智能 Agent。
+            你的目标: ${profile.target || '未定义'}
+            你的知识库: ${profile.important_knowledge || '未定义'}
+            `},
+            { role: 'user', content: `请执行任务: ${taskTitle}。
+            
+            相关上下文信息:
+            ${contexts.slice(0, 3).map(c => c.context_data).join('\n')}
+            
+            请输出执行计划和结果。
+            `}
+        ];
+        
+        log.innerHTML += `> 调用 AI 核心 (DeepSeek)...\n`;
+        
+        try {
+            const response = await fetch('/api/ai/chat', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify({ messages })
+            });
+            
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            
+            while (true) {
+                const { done, value } = await reader.read();
+                if (done) break;
+                const chunk = decoder.decode(value);
+                const lines = chunk.split('\n');
+                for (const line of lines) {
+                    if (line.startsWith('data: ')) {
+                        const jsonStr = line.slice(6);
+                        if (jsonStr === '[DONE]') continue;
+                        try {
+                            const json = JSON.parse(jsonStr);
+                            if (json.choices && json.choices[0].delta && json.choices[0].delta.content) {
+                                log.innerHTML += json.choices[0].delta.content;
+                                log.scrollTop = log.scrollHeight;
+                            }
+                        } catch(e) {}
+                    }
+                }
+            }
+            log.innerHTML += `\n> 执行结束。\n`;
+            
+        } catch (e) {
+            log.innerHTML += `\n[ERROR] ${e}\n`;
+        }
+    }
+    
+    async function markTaskComplete() {
+        const taskId = document.getElementById('agent-active-task').value;
+        if (!taskId) return;
+        if (!confirm('确定标记任务完成？')) return;
+        
+        const res = await fetch(`/api/tasks/${taskId}`, {
+            method: 'PUT',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ status: 'completed' })
+        });
+        
+        if (res.ok) {
+            alert('任务已完成');
+            loadAgentTasks(); // Refresh list
+            document.getElementById('agent-task-workspace').classList.add('hidden');
+        }
+    }
+
+    // --- Other ---
+    async function loadQA() {
+        const res = await fetch('/api/qa');
+        const data = await res.json();
+        document.getElementById('qa-list').innerHTML = data.map(item => `
+            <div class="card" style="margin-bottom:10px">
+                <div style="font-weight:bold; color:#2980b9">Q: ${item.question}</div>
+                <div style="margin-top:5px; white-space:pre-wrap">${item.answer}</div>
+                <small style="color:#999; display:block; margin-top:5px">${item.timestamp}</small>
+            </div>
+        `).join('');
+    }
+    
+    async function loadHistory() {
+        const res = await fetch('/api/history');
+        const data = await res.json();
+        document.getElementById('history-list').innerHTML = data.map(item => `
+            <div style="padding:10px; border-bottom:1px solid #eee">
+                <strong>${item.action}</strong> - ${item.detail}
+                <br><small>By ${item.operator} at ${item.timestamp}</small>
+            </div>
+        `).join('');
+    }
+
+    // --- File System Autocomplete ---
+    let suggestionTimeout;
+    async function fetchSuggestions(inputEl) {
+        const val = inputEl.value;
+        const datalistId = inputEl.getAttribute('list');
+        const datalist = document.getElementById(datalistId);
+        
+        if (suggestionTimeout) clearTimeout(suggestionTimeout);
+        
+        // Don't fetch if empty (optional, but good for performance)
+        // Actually user might want to see root if they type nothing? 
+        // Typically datalist shows nothing if input empty unless we trick it.
+        // Let's fetch even if empty, but maybe debounce longer.
+        
+        suggestionTimeout = setTimeout(async () => {
+            try {
+                // If value is empty, we might want to suggest root folders?
+                // Or just don't fetch.
+                // Let's try fetching root if empty or just /.
+                
+                const res = await fetch(`/api/fs/suggestions?query=${encodeURIComponent(val)}`);
+                const items = await res.json();
+                
+                datalist.innerHTML = items.map(item => {
+                    const icon = item.type === 'dir' ? '📁' : '📄';
+                    return `<option value="${item.value}">${icon} ${item.text}</option>`;
+                }).join('');
+            } catch(e) {
+                console.error("Error fetching suggestions", e);
+            }
+        }, 300);
+    }
+
+    // Initial load
+    checkLogin();
+    // loadDocs(); // Moved to checkLogin
+
+</script>
+</body>
+</html>

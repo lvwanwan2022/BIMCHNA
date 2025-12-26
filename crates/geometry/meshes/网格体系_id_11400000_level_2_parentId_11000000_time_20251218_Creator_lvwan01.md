@@ -1,0 +1,28 @@
+# 文档信息
+- **文件名**: 网格体系
+- **Level**: 2
+- **ID**: 11400000
+- **ParentID**: 11000000
+- **Time**: 20251218
+- **Creator**: lvwan01
+
+---
+
+# 网格体系 (Meshes)
+
+## 1. MeshXYZ
+离散化几何表达，主要用于显示或轻量化传输。
+
+### 1.1 数据结构
+*   **Vertices**: 顶点列表 (`List<XYZ>`)。
+*   **Faces**: 面列表 (`List<MeshFaceXYZ>`)。
+    *   支持三角形 (Triangle) 和四边形 (Quad) 面片。
+    *   存储的是顶点索引。
+*   **Colors**: 顶点颜色支持。
+*   **TextureCoordinates**: UV 纹理坐标支持。
+
+### 1.2 核心功能
+*   计算边界线 (`BoundaryLines`)。
+*   计算表面积 (`Area`)。
+*   计算体积 (`Volume`，仅闭合网格)。
+

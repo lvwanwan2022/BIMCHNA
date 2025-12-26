@@ -1,0 +1,98 @@
+\doxysection{src/\+LNLib/include/\+Voronoi.h 文件参考}
+\hypertarget{Voronoi_8h}{}\label{Voronoi_8h}\index{src/LNLib/include/Voronoi.h@{src/LNLib/include/Voronoi.h}}
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include "{}LNLib\+Definitions.\+h"{}}\newline
+Voronoi.\+h 的引用(Include)关系图\+:
+% FIG 0
+此图展示该文件被哪些文件直接或间接地引用了\+:
+% FIG 1
+\doxysubsubsection*{类}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1Freenode}{LNLib\+::\+Freenode}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1FreeNodeArrayList}{LNLib\+::\+Free\+Node\+Array\+List}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1Freelist}{LNLib\+::\+Freelist}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1PointVDG}{LNLib\+::\+Point\+VDG}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1Point3}{LNLib\+::\+Point3}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1VertexLink}{LNLib\+::\+Vertex\+Link}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1Site}{LNLib\+::\+Site}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1Edge}{LNLib\+::\+Edge}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1GraphEdge}{LNLib\+::\+Graph\+Edge}}
+\item 
+struct \mbox{\hyperlink{structLNLib_1_1Halfedge}{LNLib\+::\+Halfedge}}
+\item 
+class \mbox{\hyperlink{classLNLib_1_1VoronoiDiagramGenerator}{LNLib\+::\+Voronoi\+Diagram\+Generator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{命名空间}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceLNLib}{LNLib}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{宏定义}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{NULL}}~0
+\item 
+\#define \mbox{\hyperlink{Voronoi_8h_ab792dfd97ab00abb6a5fc20191a9e952}{DELETED}}~-\/2
+\item 
+\#define \mbox{\hyperlink{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9}{le}}~0
+\item 
+\#define \mbox{\hyperlink{Voronoi_8h_a51f63d24f02be00251e895721eae51b0}{re}}~1
+\end{DoxyCompactItemize}
+\doxysubsubsection*{函数}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{namespaceLNLib_a88a5540f8094b6b3ff5c084f8fd9911f}{LNLib\+::scomp}} (const void \texorpdfstring{$\ast$}{*}p1, const void \texorpdfstring{$\ast$}{*}p2)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{宏定义说明}
+\Hypertarget{Voronoi_8h_ab792dfd97ab00abb6a5fc20191a9e952}\index{Voronoi.h@{Voronoi.h}!DELETED@{DELETED}}
+\index{DELETED@{DELETED}!Voronoi.h@{Voronoi.h}}
+\doxysubsubsection{\texorpdfstring{DELETED}{DELETED}}
+{\footnotesize\ttfamily \label{Voronoi_8h_ab792dfd97ab00abb6a5fc20191a9e952} 
+\#define DELETED~-\/2}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00042}{42}} 行定义.
+
+\Hypertarget{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9}\index{Voronoi.h@{Voronoi.h}!le@{le}}
+\index{le@{le}!Voronoi.h@{Voronoi.h}}
+\doxysubsubsection{\texorpdfstring{le}{le}}
+{\footnotesize\ttfamily \label{Voronoi_8h_a3548ca9d636286bea86afc96a7a947d9} 
+\#define le~0}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00044}{44}} 行定义.
+
+\Hypertarget{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}\index{Voronoi.h@{Voronoi.h}!NULL@{NULL}}
+\index{NULL@{NULL}!Voronoi.h@{Voronoi.h}}
+\doxysubsubsection{\texorpdfstring{NULL}{NULL}}
+{\footnotesize\ttfamily \label{Voronoi_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4} 
+\#define NULL~0}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00040}{40}} 行定义.
+
+\Hypertarget{Voronoi_8h_a51f63d24f02be00251e895721eae51b0}\index{Voronoi.h@{Voronoi.h}!re@{re}}
+\index{re@{re}!Voronoi.h@{Voronoi.h}}
+\doxysubsubsection{\texorpdfstring{re}{re}}
+{\footnotesize\ttfamily \label{Voronoi_8h_a51f63d24f02be00251e895721eae51b0} 
+\#define re~1}
+
+
+
+在文件 \mbox{\hyperlink{Voronoi_8h_source}{Voronoi.\+h}} 第 \mbox{\hyperlink{Voronoi_8h_source_l00045}{45}} 行定义.
+

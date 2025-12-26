@@ -1,0 +1,921 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.13.2"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>LNLib: LNLib::UV类 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+  $(function() { init_search(); });
+/* @license-end */
+</script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="LNLib.png"/></td>
+  <td id="projectalign">
+   <div id="projectname">LNLib<span id="projectnumber">&#160;1.0</span>
+   </div>
+   <div id="projectbrief">A C++ NURBS Algorithms Library</div>
+  </td>
+    <td>        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <span id="MSearchSelect"                onmouseover="return searchBox.OnSearchSelectShow()"                onmouseout="return searchBox.OnSearchSelectHide()">&#160;</span>
+          <input type="text" id="MSearchField" value="" placeholder="搜索" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.svg" alt=""/></a>
+          </span>
+        </div>
+</td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.13.2 -->
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+/* @license-end */
+</script>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function() { codefold.init(0); });
+/* @license-end */
+</script>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+/* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
+$(function(){initNavTree('classLNLib_1_1UV.html',''); initResizable(true); });
+/* @license-end */
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">载入中...</div>
+<div class="SRStatus" id="Searching">搜索中...</div>
+<div class="SRStatus" id="NoMatches">未找到</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 成员函数</a> &#124;
+<a href="classLNLib_1_1UV-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">LNLib::UV类 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Represents two-dimension location/vector/offset  
+ <a href="#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="UV_8h_source.html">UV.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public 成员函数</h2></td></tr>
+<tr class="memitem:a25e68a7958f33d87a6fff701d4e56cb8" id="r_a25e68a7958f33d87a6fff701d4e56cb8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a25e68a7958f33d87a6fff701d4e56cb8">UV</a> ()</td></tr>
+<tr class="separator:a25e68a7958f33d87a6fff701d4e56cb8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e95bdf3d1115ff642b7fa952f4a7a27" id="r_a0e95bdf3d1115ff642b7fa952f4a7a27"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e95bdf3d1115ff642b7fa952f4a7a27">UV</a> (double u, double v)</td></tr>
+<tr class="separator:a0e95bdf3d1115ff642b7fa952f4a7a27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4cef87d2c3bfaf9a6d64c0d422d5d2a" id="r_af4cef87d2c3bfaf9a6d64c0d422d5d2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af4cef87d2c3bfaf9a6d64c0d422d5d2a">SetU</a> (const double x)</td></tr>
+<tr class="separator:af4cef87d2c3bfaf9a6d64c0d422d5d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08ffa26fdc28e72f4871a50f0776a18e" id="r_a08ffa26fdc28e72f4871a50f0776a18e"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a08ffa26fdc28e72f4871a50f0776a18e">GetU</a> () const</td></tr>
+<tr class="separator:a08ffa26fdc28e72f4871a50f0776a18e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97d5e418f416eb72c1b361c6a846de7a" id="r_a97d5e418f416eb72c1b361c6a846de7a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a97d5e418f416eb72c1b361c6a846de7a">SetV</a> (const double y)</td></tr>
+<tr class="separator:a97d5e418f416eb72c1b361c6a846de7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b4e7f930a066e8701bd2ad9b1a715d6" id="r_a7b4e7f930a066e8701bd2ad9b1a715d6"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b4e7f930a066e8701bd2ad9b1a715d6">GetV</a> () const</td></tr>
+<tr class="separator:a7b4e7f930a066e8701bd2ad9b1a715d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a840d8d8f42eb39bb776ec9155efdae12" id="r_a840d8d8f42eb39bb776ec9155efdae12"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a840d8d8f42eb39bb776ec9155efdae12">U</a> () const</td></tr>
+<tr class="separator:a840d8d8f42eb39bb776ec9155efdae12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aef27f96bd50d99149a336489cd6128f1" id="r_aef27f96bd50d99149a336489cd6128f1"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef27f96bd50d99149a336489cd6128f1">U</a> ()</td></tr>
+<tr class="separator:aef27f96bd50d99149a336489cd6128f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3dcc5bf6700eef80171687b97eb6048" id="r_ae3dcc5bf6700eef80171687b97eb6048"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae3dcc5bf6700eef80171687b97eb6048">V</a> () const</td></tr>
+<tr class="separator:ae3dcc5bf6700eef80171687b97eb6048"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ec9fae06348c4570ffe0bed4cd66959" id="r_a8ec9fae06348c4570ffe0bed4cd66959"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8ec9fae06348c4570ffe0bed4cd66959">V</a> ()</td></tr>
+<tr class="separator:a8ec9fae06348c4570ffe0bed4cd66959"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad446b8d348494634fd7966cbe2072a6a" id="r_ad446b8d348494634fd7966cbe2072a6a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad446b8d348494634fd7966cbe2072a6a">IsZero</a> (const double epsilon=<a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>) const</td></tr>
+<tr class="separator:ad446b8d348494634fd7966cbe2072a6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88595337d9ae85fd260beedfe04eb4c7" id="r_a88595337d9ae85fd260beedfe04eb4c7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88595337d9ae85fd260beedfe04eb4c7">IsUnit</a> (const double epsilon=<a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a>) const</td></tr>
+<tr class="separator:a88595337d9ae85fd260beedfe04eb4c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a833da631eb44405af0576fe811bad565" id="r_a833da631eb44405af0576fe811bad565"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a833da631eb44405af0576fe811bad565">IsAlmostEqualTo</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;another) const</td></tr>
+<tr class="separator:a833da631eb44405af0576fe811bad565"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb753511175475ab6dc4d60743157b38" id="r_afb753511175475ab6dc4d60743157b38"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb753511175475ab6dc4d60743157b38">Length</a> () const</td></tr>
+<tr class="separator:afb753511175475ab6dc4d60743157b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68dc3dfff7ebb15543cbd1cc9ec0bdac" id="r_a68dc3dfff7ebb15543cbd1cc9ec0bdac"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a68dc3dfff7ebb15543cbd1cc9ec0bdac">SqrLength</a> () const</td></tr>
+<tr class="separator:a68dc3dfff7ebb15543cbd1cc9ec0bdac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6abaf06a45da2f57bdd55c81a035aa44" id="r_a6abaf06a45da2f57bdd55c81a035aa44"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6abaf06a45da2f57bdd55c81a035aa44">AngleTo</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;another) const</td></tr>
+<tr class="separator:a6abaf06a45da2f57bdd55c81a035aa44"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3e23a18e66ec559094882dc6ee6ab16a" id="r_a3e23a18e66ec559094882dc6ee6ab16a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3e23a18e66ec559094882dc6ee6ab16a">Normalize</a> ()</td></tr>
+<tr class="separator:a3e23a18e66ec559094882dc6ee6ab16a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76bed2a5c6c6a4dcb09e6abc167cb05d" id="r_a76bed2a5c6c6a4dcb09e6abc167cb05d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a76bed2a5c6c6a4dcb09e6abc167cb05d">Add</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;another) const</td></tr>
+<tr class="separator:a76bed2a5c6c6a4dcb09e6abc167cb05d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1fc0ef0173877c9f633f064a4db1f29d" id="r_a1fc0ef0173877c9f633f064a4db1f29d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1fc0ef0173877c9f633f064a4db1f29d">Substract</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;another) const</td></tr>
+<tr class="separator:a1fc0ef0173877c9f633f064a4db1f29d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a6eaffb29567c7951716c87748ed061" id="r_a6a6eaffb29567c7951716c87748ed061"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a6eaffb29567c7951716c87748ed061">Negative</a> () const</td></tr>
+<tr class="separator:a6a6eaffb29567c7951716c87748ed061"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0a72096c7d7ea3dd7651440c773ad4d" id="r_ab0a72096c7d7ea3dd7651440c773ad4d"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab0a72096c7d7ea3dd7651440c773ad4d">DotProduct</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;another) const</td></tr>
+<tr class="separator:ab0a72096c7d7ea3dd7651440c773ad4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3409376d9f785a40e62d3a0794fca969" id="r_a3409376d9f785a40e62d3a0794fca969"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3409376d9f785a40e62d3a0794fca969">CrossProduct</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;another) const</td></tr>
+<tr class="separator:a3409376d9f785a40e62d3a0794fca969"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa57b9f8e5517f572dcf9f7d9c72bad11" id="r_aa57b9f8e5517f572dcf9f7d9c72bad11"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa57b9f8e5517f572dcf9f7d9c72bad11">Distance</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;another) const</td></tr>
+<tr class="separator:aa57b9f8e5517f572dcf9f7d9c72bad11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75b64020dafc9bd1f6520e530e053bf5" id="r_a75b64020dafc9bd1f6520e530e053bf5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a75b64020dafc9bd1f6520e530e053bf5">operator=</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;uv)</td></tr>
+<tr class="separator:a75b64020dafc9bd1f6520e530e053bf5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32ef1c193a7623d680a82e5bb8d6f86d" id="r_a32ef1c193a7623d680a82e5bb8d6f86d"><td class="memItemLeft" align="right" valign="top">double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a32ef1c193a7623d680a82e5bb8d6f86d">operator[]</a> (int index)</td></tr>
+<tr class="separator:a32ef1c193a7623d680a82e5bb8d6f86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a932cf221036546b0120228dcc63c73db" id="r_a932cf221036546b0120228dcc63c73db"><td class="memItemLeft" align="right" valign="top">const double &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a932cf221036546b0120228dcc63c73db">operator[]</a> (int index) const</td></tr>
+<tr class="separator:a932cf221036546b0120228dcc63c73db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a828789e585e808cad81060f2f3cad62b" id="r_a828789e585e808cad81060f2f3cad62b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a828789e585e808cad81060f2f3cad62b">operator+</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;uv) const</td></tr>
+<tr class="separator:a828789e585e808cad81060f2f3cad62b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcc38bb6e8c51830a3a7c3a8bb95dd8d" id="r_afcc38bb6e8c51830a3a7c3a8bb95dd8d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afcc38bb6e8c51830a3a7c3a8bb95dd8d">operator-</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;uv) const</td></tr>
+<tr class="separator:afcc38bb6e8c51830a3a7c3a8bb95dd8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a034dbf650c053e43d9869d430b22c7bf" id="r_a034dbf650c053e43d9869d430b22c7bf"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a034dbf650c053e43d9869d430b22c7bf">operator*</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;uv) const</td></tr>
+<tr class="separator:a034dbf650c053e43d9869d430b22c7bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a349556e0a1bd13dbf4da1f0a3777331c" id="r_a349556e0a1bd13dbf4da1f0a3777331c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a349556e0a1bd13dbf4da1f0a3777331c">operator*=</a> (const double &amp;d)</td></tr>
+<tr class="separator:a349556e0a1bd13dbf4da1f0a3777331c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41665f110e1e9262fd0b387b9bea3d27" id="r_a41665f110e1e9262fd0b387b9bea3d27"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41665f110e1e9262fd0b387b9bea3d27">operator/=</a> (const double &amp;d)</td></tr>
+<tr class="separator:a41665f110e1e9262fd0b387b9bea3d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6aaa639fc8bcea779dd5ef3641691a2" id="r_ab6aaa639fc8bcea779dd5ef3641691a2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6aaa639fc8bcea779dd5ef3641691a2">operator+=</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;uv)</td></tr>
+<tr class="separator:ab6aaa639fc8bcea779dd5ef3641691a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1d7c22ab799d6b40da4056dd21f79a1" id="r_af1d7c22ab799d6b40da4056dd21f79a1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1d7c22ab799d6b40da4056dd21f79a1">operator-=</a> (const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;uv)</td></tr>
+<tr class="separator:af1d7c22ab799d6b40da4056dd21f79a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f081d9332d981f864a32910a888a6a4" id="r_a5f081d9332d981f864a32910a888a6a4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classLNLib_1_1UV.html">UV</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f081d9332d981f864a32910a888a6a4">operator-</a> () const</td></tr>
+<tr class="separator:a5f081d9332d981f864a32910a888a6a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>Represents two-dimension location/vector/offset </p>
+
+<p class="definition">在文件 <a class="el" href="UV_8h_source.html">UV.h</a> 第 <a class="el" href="UV_8h_source.html#l00021">21</a> 行定义.</p>
+</div><h2 class="groupheader">构造及析构函数说明</h2>
+<a id="a25e68a7958f33d87a6fff701d4e56cb8" name="a25e68a7958f33d87a6fff701d4e56cb8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25e68a7958f33d87a6fff701d4e56cb8">&#9670;&#160;</a></span>UV() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">LNLib::UV::UV </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00018">18</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="UV_8cpp_source.html#l00113">Add()</a>, <a class="el" href="UV_8cpp_source.html#l00095">AngleTo()</a>, <a class="el" href="UV_8cpp_source.html#l00133">CrossProduct()</a>, <a class="el" href="UV_8cpp_source.html#l00138">Distance()</a>, <a class="el" href="UV_8cpp_source.html#l00128">DotProduct()</a>, <a class="el" href="UV_8cpp_source.html#l00079">IsAlmostEqualTo()</a>, <a class="el" href="UV_8cpp_source.html#l00123">Negative()</a>, <a class="el" href="UV_8cpp_source.html#l00100">Normalize()</a>, <a class="el" href="UV_8cpp_source.html#l00171">operator*()</a>, <a class="el" href="UV_8cpp_source.html#l00176">operator*=()</a>, <a class="el" href="UV_8cpp_source.html#l00161">operator+()</a>, <a class="el" href="UV_8cpp_source.html#l00190">operator+=()</a>, <a class="el" href="UV_8cpp_source.html#l00204">operator-()</a>, <a class="el" href="UV_8cpp_source.html#l00166">operator-()</a>, <a class="el" href="UV_8cpp_source.html#l00197">operator-=()</a>, <a class="el" href="UV_8cpp_source.html#l00183">operator/=()</a>, <a class="el" href="UV_8cpp_source.html#l00144">operator=()</a> , 以及 <a class="el" href="UV_8cpp_source.html#l00118">Substract()</a>.</p>
+
+</div>
+</div>
+<a id="a0e95bdf3d1115ff642b7fa952f4a7a27" name="a0e95bdf3d1115ff642b7fa952f4a7a27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e95bdf3d1115ff642b7fa952f4a7a27">&#9670;&#160;</a></span>UV() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">UV::UV </td>
+          <td>(</td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>u</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>v</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00025">25</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">成员函数说明</h2>
+<a id="a76bed2a5c6c6a4dcb09e6abc167cb05d" name="a76bed2a5c6c6a4dcb09e6abc167cb05d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76bed2a5c6c6a4dcb09e6abc167cb05d">&#9670;&#160;</a></span>Add()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">UV</a> UV::Add </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00113">113</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="a6abaf06a45da2f57bdd55c81a035aa44" name="a6abaf06a45da2f57bdd55c81a035aa44"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6abaf06a45da2f57bdd55c81a035aa44">&#9670;&#160;</a></span>AngleTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::UV::AngleTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00095">95</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="a3409376d9f785a40e62d3a0794fca969" name="a3409376d9f785a40e62d3a0794fca969"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3409376d9f785a40e62d3a0794fca969">&#9670;&#160;</a></span>CrossProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double UV::CrossProduct </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00133">133</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="UV_8cpp_source.html#l00217">LNLib::operator^()</a>.</p>
+
+</div>
+</div>
+<a id="aa57b9f8e5517f572dcf9f7d9c72bad11" name="aa57b9f8e5517f572dcf9f7d9c72bad11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa57b9f8e5517f572dcf9f7d9c72bad11">&#9670;&#160;</a></span>Distance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double LNLib::UV::Distance </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00138">138</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00037">GetU()</a>, <a class="el" href="UV_8cpp_source.html#l00045">GetV()</a> , 以及 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="ab0a72096c7d7ea3dd7651440c773ad4d" name="ab0a72096c7d7ea3dd7651440c773ad4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0a72096c7d7ea3dd7651440c773ad4d">&#9670;&#160;</a></span>DotProduct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double UV::DotProduct </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00128">128</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="UV_8cpp_source.html#l00171">operator*()</a>.</p>
+
+</div>
+</div>
+<a id="a08ffa26fdc28e72f4871a50f0776a18e" name="a08ffa26fdc28e72f4871a50f0776a18e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08ffa26fdc28e72f4871a50f0776a18e">&#9670;&#160;</a></span>GetU()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double UV::GetU </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00037">37</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="BsplineSurface_8h_source.html#l00197">LNLib::BsplineSurface::ComputeControlPointsOfDerivatives()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00094">LNLib::BsplineSurface::ComputeDerivatives()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00273">LNLib::BsplineSurface::ComputeDerivativesByAllBasisFunctions()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00145">LNLib::BsplineSurface::ComputeFirstOrderDerivative()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00120">LNLib::NurbsSurface::ComputeRationalSurfaceDerivatives()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00167">LNLib::NurbsSurface::ComputeRationalSurfaceFirstOrderDerivative()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00199">LNLib::NurbsSurface::Curvature()</a>, <a class="el" href="UV_8cpp_source.html#l00138">Distance()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01078">LNLib::NurbsSurface::GetParamOnSurface()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00055">LNLib::BsplineSurface::GetPointOnSurface()</a>, <a class="el" href="BezierSurface_8h_source.html#l00059">LNLib::BezierSurface::GetPointOnSurfaceByDeCasteljau()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00087">LNLib::Polynomials::Horner()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00265">LNLib::NurbsSurface::Normal()</a>, <a class="el" href="UV_8cpp_source.html#l00213">LNLib::operator*()</a>, <a class="el" href="UV_8cpp_source.html#l00209">LNLib::operator*()</a> , 以及 <a class="el" href="UV_8cpp_source.html#l00221">LNLib::operator/()</a>.</p>
+
+</div>
+</div>
+<a id="a7b4e7f930a066e8701bd2ad9b1a715d6" name="a7b4e7f930a066e8701bd2ad9b1a715d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b4e7f930a066e8701bd2ad9b1a715d6">&#9670;&#160;</a></span>GetV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double UV::GetV </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00045">45</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="BsplineSurface_8h_source.html#l00197">LNLib::BsplineSurface::ComputeControlPointsOfDerivatives()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00094">LNLib::BsplineSurface::ComputeDerivatives()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00273">LNLib::BsplineSurface::ComputeDerivativesByAllBasisFunctions()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00145">LNLib::BsplineSurface::ComputeFirstOrderDerivative()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00120">LNLib::NurbsSurface::ComputeRationalSurfaceDerivatives()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00167">LNLib::NurbsSurface::ComputeRationalSurfaceFirstOrderDerivative()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00199">LNLib::NurbsSurface::Curvature()</a>, <a class="el" href="UV_8cpp_source.html#l00138">Distance()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l01078">LNLib::NurbsSurface::GetParamOnSurface()</a>, <a class="el" href="BsplineSurface_8h_source.html#l00055">LNLib::BsplineSurface::GetPointOnSurface()</a>, <a class="el" href="BezierSurface_8h_source.html#l00059">LNLib::BezierSurface::GetPointOnSurfaceByDeCasteljau()</a>, <a class="el" href="Polynomials_8cpp_source.html#l00087">LNLib::Polynomials::Horner()</a>, <a class="el" href="NurbsSurface_8cpp_source.html#l00265">LNLib::NurbsSurface::Normal()</a>, <a class="el" href="UV_8cpp_source.html#l00213">LNLib::operator*()</a>, <a class="el" href="UV_8cpp_source.html#l00209">LNLib::operator*()</a> , 以及 <a class="el" href="UV_8cpp_source.html#l00221">LNLib::operator/()</a>.</p>
+
+</div>
+</div>
+<a id="a833da631eb44405af0576fe811bad565" name="a833da631eb44405af0576fe811bad565"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a833da631eb44405af0576fe811bad565">&#9670;&#160;</a></span>IsAlmostEqualTo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::UV::IsAlmostEqualTo </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00079">79</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="MathUtils_8cpp_source.html#l00026">LNLib::MathUtils::IsAlmostEqualTo()</a> , 以及 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="a88595337d9ae85fd260beedfe04eb4c7" name="a88595337d9ae85fd260beedfe04eb4c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88595337d9ae85fd260beedfe04eb4c7">&#9670;&#160;</a></span>IsUnit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::UV::IsUnit </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>epsilon</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00074">74</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00090">SqrLength()</a>.</p>
+
+</div>
+</div>
+<a id="ad446b8d348494634fd7966cbe2072a6a" name="ad446b8d348494634fd7966cbe2072a6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad446b8d348494634fd7966cbe2072a6a">&#9670;&#160;</a></span>IsZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool LNLib::UV::IsZero </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>epsilon</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="classLNLib_1_1Constants.html#abc53c92777511c041cb18abcff65f3be">Constants::DoubleEpsilon</a></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00069">69</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00090">SqrLength()</a>.</p>
+
+</div>
+</div>
+<a id="afb753511175475ab6dc4d60743157b38" name="afb753511175475ab6dc4d60743157b38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb753511175475ab6dc4d60743157b38">&#9670;&#160;</a></span>Length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double UV::Length </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00085">85</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="UV_8cpp_source.html#l00100">Normalize()</a>.</p>
+
+</div>
+</div>
+<a id="a6a6eaffb29567c7951716c87748ed061" name="a6a6eaffb29567c7951716c87748ed061"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6a6eaffb29567c7951716c87748ed061">&#9670;&#160;</a></span>Negative()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">UV</a> UV::Negative </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00123">123</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="a3e23a18e66ec559094882dc6ee6ab16a" name="a3e23a18e66ec559094882dc6ee6ab16a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3e23a18e66ec559094882dc6ee6ab16a">&#9670;&#160;</a></span>Normalize()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">UV</a> UV::Normalize </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00100">100</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00085">Length()</a> , 以及 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="a034dbf650c053e43d9869d430b22c7bf" name="a034dbf650c053e43d9869d430b22c7bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a034dbf650c053e43d9869d430b22c7bf">&#9670;&#160;</a></span>operator*()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double UV::operator* </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uv</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00171">171</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00128">DotProduct()</a> , 以及 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="a349556e0a1bd13dbf4da1f0a3777331c" name="a349556e0a1bd13dbf4da1f0a3777331c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a349556e0a1bd13dbf4da1f0a3777331c">&#9670;&#160;</a></span>operator*=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">UV</a> &amp; UV::operator*= </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;</td>          <td class="paramname"><span class="paramname"><em>d</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00176">176</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="a828789e585e808cad81060f2f3cad62b" name="a828789e585e808cad81060f2f3cad62b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a828789e585e808cad81060f2f3cad62b">&#9670;&#160;</a></span>operator+()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">UV</a> UV::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uv</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00161">161</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="ab6aaa639fc8bcea779dd5ef3641691a2" name="ab6aaa639fc8bcea779dd5ef3641691a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6aaa639fc8bcea779dd5ef3641691a2">&#9670;&#160;</a></span>operator+=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">UV</a> &amp; UV::operator+= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uv</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00190">190</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="a5f081d9332d981f864a32910a888a6a4" name="a5f081d9332d981f864a32910a888a6a4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5f081d9332d981f864a32910a888a6a4">&#9670;&#160;</a></span>operator-() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">UV</a> UV::operator- </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00204">204</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="afcc38bb6e8c51830a3a7c3a8bb95dd8d" name="afcc38bb6e8c51830a3a7c3a8bb95dd8d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcc38bb6e8c51830a3a7c3a8bb95dd8d">&#9670;&#160;</a></span>operator-() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">UV</a> UV::operator- </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uv</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00166">166</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="af1d7c22ab799d6b40da4056dd21f79a1" name="af1d7c22ab799d6b40da4056dd21f79a1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1d7c22ab799d6b40da4056dd21f79a1">&#9670;&#160;</a></span>operator-=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">UV</a> &amp; UV::operator-= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uv</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00197">197</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="a41665f110e1e9262fd0b387b9bea3d27" name="a41665f110e1e9262fd0b387b9bea3d27"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41665f110e1e9262fd0b387b9bea3d27">&#9670;&#160;</a></span>operator/=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">UV</a> &amp; UV::operator/= </td>
+          <td>(</td>
+          <td class="paramtype">const double &amp;</td>          <td class="paramname"><span class="paramname"><em>d</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00183">183</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="a75b64020dafc9bd1f6520e530e053bf5" name="a75b64020dafc9bd1f6520e530e053bf5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75b64020dafc9bd1f6520e530e053bf5">&#9670;&#160;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">UV</a> &amp; UV::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>uv</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00144">144</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="a32ef1c193a7623d680a82e5bb8d6f86d" name="a32ef1c193a7623d680a82e5bb8d6f86d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32ef1c193a7623d680a82e5bb8d6f86d">&#9670;&#160;</a></span>operator[]() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double &amp; UV::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00151">151</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a932cf221036546b0120228dcc63c73db" name="a932cf221036546b0120228dcc63c73db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a932cf221036546b0120228dcc63c73db">&#9670;&#160;</a></span>operator[]() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const double &amp; UV::operator[] </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>index</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00156">156</a> 行定义.</p>
+
+</div>
+</div>
+<a id="af4cef87d2c3bfaf9a6d64c0d422d5d2a" name="af4cef87d2c3bfaf9a6d64c0d422d5d2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4cef87d2c3bfaf9a6d64c0d422d5d2a">&#9670;&#160;</a></span>SetU()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UV::SetU </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>x</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00032">32</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a97d5e418f416eb72c1b361c6a846de7a" name="a97d5e418f416eb72c1b361c6a846de7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97d5e418f416eb72c1b361c6a846de7a">&#9670;&#160;</a></span>SetV()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void UV::SetV </td>
+          <td>(</td>
+          <td class="paramtype">const double</td>          <td class="paramname"><span class="paramname"><em>y</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00039">39</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a68dc3dfff7ebb15543cbd1cc9ec0bdac" name="a68dc3dfff7ebb15543cbd1cc9ec0bdac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68dc3dfff7ebb15543cbd1cc9ec0bdac">&#9670;&#160;</a></span>SqrLength()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double UV::SqrLength </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00090">90</a> 行定义.</p>
+
+<p class="reference">被这些函数引用 <a class="el" href="UV_8cpp_source.html#l00074">IsUnit()</a> , 以及 <a class="el" href="UV_8cpp_source.html#l00069">IsZero()</a>.</p>
+
+</div>
+</div>
+<a id="a1fc0ef0173877c9f633f064a4db1f29d" name="a1fc0ef0173877c9f633f064a4db1f29d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1fc0ef0173877c9f633f064a4db1f29d">&#9670;&#160;</a></span>Substract()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classLNLib_1_1UV.html">UV</a> UV::Substract </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classLNLib_1_1UV.html">UV</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>another</em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00118">118</a> 行定义.</p>
+
+<p class="reference">引用了 <a class="el" href="UV_8cpp_source.html#l00018">UV()</a>.</p>
+
+</div>
+</div>
+<a id="aef27f96bd50d99149a336489cd6128f1" name="aef27f96bd50d99149a336489cd6128f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef27f96bd50d99149a336489cd6128f1">&#9670;&#160;</a></span>U() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double &amp; UV::U </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00053">53</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a840d8d8f42eb39bb776ec9155efdae12" name="a840d8d8f42eb39bb776ec9155efdae12"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a840d8d8f42eb39bb776ec9155efdae12">&#9670;&#160;</a></span>U() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double UV::U </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00048">48</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a8ec9fae06348c4570ffe0bed4cd66959" name="a8ec9fae06348c4570ffe0bed4cd66959"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8ec9fae06348c4570ffe0bed4cd66959">&#9670;&#160;</a></span>V() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double &amp; UV::V </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00063">63</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ae3dcc5bf6700eef80171687b97eb6048" name="ae3dcc5bf6700eef80171687b97eb6048"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3dcc5bf6700eef80171687b97eb6048">&#9670;&#160;</a></span>V() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double UV::V </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="UV_8cpp_source.html">UV.cpp</a> 第 <a class="el" href="UV_8cpp_source.html#l00058">58</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该类的文档由以下文件生成:<ul>
+<li>src/LNLib/include/<a class="el" href="UV_8h_source.html">UV.h</a></li>
+<li>src/LNLib/Mathematics/Math/<a class="el" href="UV_8cpp_source.html">UV.cpp</a></li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespaceLNLib.html">LNLib</a></li><li class="navelem"><a class="el" href="classLNLib_1_1UV.html">UV</a></li>
+    <li class="footer">生成于 2025年 五月 9日 星期五 19:56:31 , 为 LNLib使用  <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.13.2 </li>
+  </ul>
+</div>
+</body>
+</html>

@@ -1,0 +1,85 @@
+\doxysection{LNLib\+::Projection类 参考}
+\hypertarget{classLNLib_1_1Projection}{}\label{classLNLib_1_1Projection}\index{LNLib::Projection@{LNLib::Projection}}
+
+
+{\ttfamily \#include $<$Projection.\+h$>$}
+
+\doxysubsubsection*{静态 Public 成员函数}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1Projection_a41228b449fb553d072d009ee8121e9c6}{Point\+To\+Ray}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&origin, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&vector, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&Point)
+\item 
+static bool \mbox{\hyperlink{classLNLib_1_1Projection_aef91714bd808f67fb0168b6b78837699}{Point\+To\+Line}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&start, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&end, const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&point, \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&project\+Point)
+\item 
+static \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \mbox{\hyperlink{classLNLib_1_1Projection_a9557a73cd9776788902ca508b4f26d89}{Stereographic}} (const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&point\+On\+Sphere, double radius)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{详细描述}
+
+
+在文件 \mbox{\hyperlink{Projection_8h_source}{Projection.\+h}} 第 \mbox{\hyperlink{Projection_8h_source_l00018}{18}} 行定义.
+
+
+
+\doxysubsection{成员函数说明}
+\Hypertarget{classLNLib_1_1Projection_aef91714bd808f67fb0168b6b78837699}\index{LNLib::Projection@{LNLib::Projection}!PointToLine@{PointToLine}}
+\index{PointToLine@{PointToLine}!LNLib::Projection@{LNLib::Projection}}
+\doxysubsubsection{\texorpdfstring{PointToLine()}{PointToLine()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Projection_aef91714bd808f67fb0168b6b78837699} 
+bool LNLib\+::\+Projection\+::\+Point\+To\+Line (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{start}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{end}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{point}{, }\item[{\mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{project\+Point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Projection_8cpp_source}{Projection.\+cpp}} 第 \mbox{\hyperlink{Projection_8cpp_source_l00022}{22}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00168}{LNLib\+::\+XYZ\+::\+Distance()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00026}{LNLib\+::\+Math\+Utils\+::\+Is\+Almost\+Equal\+To()}}, \mbox{\hyperlink{MathUtils_8cpp_source_l00035}{LNLib\+::\+Math\+Utils\+::\+Is\+Greater\+Than()}} , 以及 \mbox{\hyperlink{MathUtils_8cpp_source_l00049}{LNLib\+::\+Math\+Utils\+::\+Is\+Less\+Than()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsCurve_8cpp_source_l03289}{LNLib\+::\+Nurbs\+Curve\+::\+Flattening()}} , 以及 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01656}{LNLib\+::\+Nurbs\+Surface\+::\+Make\+Corner\+Fillet\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1Projection_a41228b449fb553d072d009ee8121e9c6}\index{LNLib::Projection@{LNLib::Projection}!PointToRay@{PointToRay}}
+\index{PointToRay@{PointToRay}!LNLib::Projection@{LNLib::Projection}}
+\doxysubsubsection{\texorpdfstring{PointToRay()}{PointToRay()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Projection_a41228b449fb553d072d009ee8121e9c6} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib\+::\+XYZ}} LNLib\+::\+Projection\+::\+Point\+To\+Ray (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{origin}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{vector}{, }\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{Point}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Projection_8cpp_source}{Projection.\+cpp}} 第 \mbox{\hyperlink{Projection_8cpp_source_l00015}{15}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00156}{LNLib\+::\+XYZ\+::\+Dot\+Product()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01479}{LNLib\+::\+Nurbs\+Surface\+::\+Create\+Revolved\+Surface()}}.
+
+\Hypertarget{classLNLib_1_1Projection_a9557a73cd9776788902ca508b4f26d89}\index{LNLib::Projection@{LNLib::Projection}!Stereographic@{Stereographic}}
+\index{Stereographic@{Stereographic}!LNLib::Projection@{LNLib::Projection}}
+\doxysubsubsection{\texorpdfstring{Stereographic()}{Stereographic()}}
+{\footnotesize\ttfamily \label{classLNLib_1_1Projection_a9557a73cd9776788902ca508b4f26d89} 
+\mbox{\hyperlink{classLNLib_1_1XYZ}{LNLib\+::\+XYZ}} LNLib\+::\+Projection\+::\+Stereographic (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classLNLib_1_1XYZ}{XYZ}} \&}]{point\+On\+Sphere}{, }\item[{double}]{radius}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+在文件 \mbox{\hyperlink{Projection_8cpp_source}{Projection.\+cpp}} 第 \mbox{\hyperlink{Projection_8cpp_source_l00039}{39}} 行定义.
+
+
+
+引用了 \mbox{\hyperlink{XYZ_8cpp_source_l00038}{LNLib\+::\+XYZ\+::\+Get\+X()}}, \mbox{\hyperlink{XYZ_8cpp_source_l00046}{LNLib\+::\+XYZ\+::\+Get\+Y()}} , 以及 \mbox{\hyperlink{XYZ_8cpp_source_l00053}{LNLib\+::\+XYZ\+::\+Get\+Z()}}.
+
+
+
+被这些函数引用 \mbox{\hyperlink{NurbsSurface_8cpp_source_l01656}{LNLib\+::\+Nurbs\+Surface\+::\+Make\+Corner\+Fillet\+Surface()}}.
+
+
+
+该类的文档由以下文件生成\+:\begin{DoxyCompactItemize}
+\item 
+src/\+LNLib/include/\mbox{\hyperlink{Projection_8h}{Projection.\+h}}\item 
+src/\+LNLib/\+Algorithm/\mbox{\hyperlink{Projection_8cpp}{Projection.\+cpp}}\end{DoxyCompactItemize}
